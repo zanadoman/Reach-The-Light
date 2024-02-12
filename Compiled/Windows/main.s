@@ -26,7 +26,7 @@ main:
 .LEHB0:
 	call	_Znwy
 .LEHE0:
-	movl	$6, 40(%rsp)
+	movl	$16, 40(%rsp)
 	movl	$2560, %r9d
 	xorl	%r8d, %r8d
 	movl	$1440, 32(%rsp)
