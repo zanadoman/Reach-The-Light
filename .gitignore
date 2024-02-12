@@ -1,0 +1,4 @@
+*.o
+*.s
+!Compiled/Linux/*.s
+!Compiled/Windows/*.s
