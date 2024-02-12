@@ -27,10 +27,10 @@ main:
 .LEHB0:
 	call	_Znwm@PLT
 .LEHE0:
-	movl	$6, %r9d
-	movl	$1080, %r8d
+	movl	$16, %r9d
+	movl	$1440, %r8d
 	xorl	%edx, %edx
-	movl	$1920, %ecx
+	movl	$2560, %ecx
 	leaq	.LC0(%rip), %rsi
 	movq	%rax, %rdi
 	movq	%rax, %rbx
