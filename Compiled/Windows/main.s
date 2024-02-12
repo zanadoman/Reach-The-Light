@@ -27,9 +27,9 @@ main:
 	call	_Znwy
 .LEHE0:
 	movl	$6, 40(%rsp)
-	movl	$1920, %r9d
+	movl	$2560, %r9d
 	xorl	%r8d, %r8d
-	movl	$1080, 32(%rsp)
+	movl	$1440, 32(%rsp)
 	leaq	.LC0(%rip), %rdx
 	movq	%rax, %rcx
 	movq	%rax, %rbx
