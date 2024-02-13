@@ -2,6 +2,8 @@
 	.text
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .LC1:
+	.string	"saves/settings.save"
+.LC2:
 	.string	"settings.save"
 	.text
 	.align 2
@@ -13,21 +15,19 @@ _ZN8settingsC2EPN3wze6engineEP4game:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
 	.cfi_lsda 0x1b,.LLSDA8157
-	pushq	%r12
-	.cfi_def_cfa_offset 16
-	.cfi_offset 12, -16
-	leaq	.LC1(%rip), %r12
 	pushq	%rbp
-	.cfi_def_cfa_offset 24
-	.cfi_offset 6, -24
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
 	pushq	%rbx
-	.cfi_def_cfa_offset 32
-	.cfi_offset 3, -32
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
 	movq	%rdi, %rbx
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 32
 	movq	%rsi, (%rdi)
 	movl	$32, %esi
 	movq	%rdx, 8(%rdi)
-	movq	%r12, %rdi
+	leaq	.LC1(%rip), %rdi
 .LEHB0:
 	call	_ZN3neo6memory4LoadEPKcy@PLT
 .LEHE0:
@@ -36,7 +36,7 @@ _ZN8settingsC2EPN3wze6engineEP4game:
 	movsd	16(%rax), %xmm0
 	movq	%rax, %rbp
 	movzwl	24(%rax), %eax
-	movq	%r12, %rdx
+	leaq	.LC2(%rip), %rdx
 	movl	$32, %esi
 	movq	%rbp, %rdi
 	movw	%ax, 24(%rbx)
@@ -46,7 +46,7 @@ _ZN8settingsC2EPN3wze6engineEP4game:
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 	movsd	16(%rbx), %xmm0
-	divsd	.LC2(%rip), %xmm0
+	divsd	.LC3(%rip), %xmm0
 .L3:
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
@@ -56,14 +56,14 @@ _ZN8settingsC2EPN3wze6engineEP4game:
 	movl	$1000, %eax
 	xorl	%edx, %edx
 	movq	(%rbx), %rdi
-	popq	%rbx
+	addq	$8, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
 	idivl	%ecx
-	popq	%rbp
+	popq	%rbx
 	.cfi_def_cfa_offset 16
 	addq	$392, %rdi
-	popq	%r12
+	popq	%rbp
 	.cfi_def_cfa_offset 8
 	movzbl	%al, %esi
 	jmp	_ZN3wze6engine6timing18SetTargetFrameTimeEh@PLT
@@ -72,7 +72,7 @@ _ZN8settingsC2EPN3wze6engineEP4game:
 	.p2align 3
 .L2:
 	.cfi_restore_state
-	movq	.LC3(%rip), %rax
+	movq	.LC4(%rip), %rax
 	movsd	.LC0(%rip), %xmm0
 	movq	%rax, 16(%rbx)
 	movl	$60, %eax
@@ -112,7 +112,7 @@ _ZN8settingsD2Ev:
 	.cfi_lsda 0x1b,.LLSDA8160
 	subq	$8, %rsp
 	.cfi_def_cfa_offset 16
-	leaq	.LC1(%rip), %rdx
+	leaq	.LC2(%rip), %rdx
 	movl	$32, %esi
 	call	_ZN3neo6memory4SaveEPKvyPKc@PLT
 	addq	$8, %rsp
@@ -138,11 +138,11 @@ _ZN8settingsD2Ev:
 	.long	0
 	.long	1071644672
 	.align 8
-.LC2:
+.LC3:
 	.long	0
 	.long	1079574528
 	.align 8
-.LC3:
+.LC4:
 	.long	0
 	.long	1078525952
 	.hidden	DW.ref.__gxx_personality_v0

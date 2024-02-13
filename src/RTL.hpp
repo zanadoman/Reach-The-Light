@@ -6,6 +6,7 @@ using namespace wze;
 struct game;
 struct settings;
 struct assets;
+struct map;
 struct menu;
 struct menu_btn;
 struct horizontal_slider;
@@ -32,6 +33,7 @@ struct game
     
     settings* Settings;
     assets* Assets;
+    map* Map;
     scene ActiveScene;
     menu* Menu;
     game(engine* Engine);
@@ -63,6 +65,16 @@ struct assets
     uint64 menu_btnTexture;
     assets(engine* Engine, game* Game);
     ~assets();
+};
+
+struct map
+{
+    engine* Engine;
+    game* Game;
+
+    array<uint8> Map;
+    map(engine* Engine, game* Game);
+    ~map();
 };
 
 //__________SCENES___________________________________________________________________________________

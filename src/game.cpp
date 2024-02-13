@@ -4,6 +4,7 @@ game::game(engine* Engine) : Engine(Engine)
 {
     this->Settings = new settings(Engine, this);
     this->Assets = new assets(Engine, this);
+    this->Map = new map(Engine, this);
     this->ActiveScene = SCENE_MENU;
     this->Menu = new menu(Engine, this);
 
@@ -23,6 +24,7 @@ game::~game()
         break;
     }
 
+    delete this->Map;
     delete this->Assets;
     delete this->Settings;
 }
