@@ -12,6 +12,8 @@
 	.string	"assets/fonts/Hack-Italic.ttf"
 .LC3:
 	.string	"assets/fonts/Hack-Regular.ttf"
+.LC4:
+	.string	"assets/gui/menu_btn.png"
 	.text
 	.align 2
 	.p2align 4
@@ -47,7 +49,12 @@ _ZN6assetsC2EPN3wze6engineE:
 	movq	(%rbx), %rax
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine6assets8LoadFontEPKch@PLT
+	leaq	.LC4(%rip), %rsi
 	movq	%rax, 32(%rbx)
+	movq	(%rbx), %rax
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	movq	%rax, 40(%rbx)
 	popq	%rbx
 	.cfi_def_cfa_offset 8
 	ret

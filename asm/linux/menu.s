@@ -3,17 +3,19 @@
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .LC0:
 	.string	"J\303\241t\303\251k"
+.LC1:
+	.string	"Pinceditor"
 .LC2:
-	.string	"Seg\303\255ts\303\251g"
-.LC3:
 	.string	"K\303\251sz\303\255t\305\221k"
-.LC4:
+.LC3:
 	.string	"Kil\303\251p"
+.LC5:
+	.string	"Hanger\305\221"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB5:
+.LCOLDB7:
 	.text
-.LHOTB5:
+.LHOTB7:
 	.align 2
 	.p2align 4
 	.globl	_ZN4menuC2EPN3wze6engineEP6assets
@@ -30,79 +32,163 @@ _ZN4menuC2EPN3wze6engineEP6assets:
 	.cfi_def_cfa_offset 24
 	.cfi_offset 3, -24
 	movq	%rdi, %rbx
-	subq	$8, %rsp
-	.cfi_def_cfa_offset 32
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 48
 	movq	%rsi, (%rdi)
 	movq	%rdx, 8(%rdi)
-	movl	$48, %edi
+	movl	$64, %edi
 .LEHB0:
 	call	_Znwm@PLT
 .LEHE0:
-	pxor	%xmm1, %xmm1
+	movq	(%rbx), %rdi
+	movq	%rax, %rbp
+.LEHB1:
+	call	_ZN3wze6engine6window9GetHeightEv@PLT
+	shrw	%ax
+	pxor	%xmm4, %xmm4
+	movq	(%rbx), %rdi
+	addw	$225, %ax
+	movzwl	%ax, %eax
+	cvtsi2sdl	%eax, %xmm4
+	movsd	%xmm4, 8(%rsp)
+	call	_ZN3wze6engine6window8GetWidthEv@PLT
+	shrw	%ax
+	pxor	%xmm0, %xmm0
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
-	movl	$150, %r8d
-	movapd	%xmm1, %xmm0
-	movq	%rax, %rdi
-	movq	%rax, %rbp
+	movzwl	%ax, %eax
+	movsd	8(%rsp), %xmm1
+	movl	$300, %ecx
 	leaq	.LC0(%rip), %r9
-	movl	$400, %ecx
-.LEHB1:
+	cvtsi2sdl	%eax, %xmm0
+	movl	$100, %r8d
+	movq	%rbp, %rdi
 	call	_ZN8menu_btnC1EPN3wze6engineEP6assetsddttPKc@PLT
 .LEHE1:
 	movq	%rbp, 16(%rbx)
-	movl	$48, %edi
+	movl	$64, %edi
 .LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
-	pxor	%xmm1, %xmm1
+	movq	(%rbx), %rdi
+	movq	%rax, %rbp
+.LEHB3:
+	call	_ZN3wze6engine6window9GetHeightEv@PLT
+	shrw	%ax
+	pxor	%xmm5, %xmm5
+	movq	(%rbx), %rdi
+	addl	$75, %eax
+	movzwl	%ax, %eax
+	cvtsi2sdl	%eax, %xmm5
+	movsd	%xmm5, 8(%rsp)
+	call	_ZN3wze6engine6window8GetWidthEv@PLT
+	shrw	%ax
+	pxor	%xmm0, %xmm0
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
-	movl	$150, %r8d
-	movapd	%xmm1, %xmm0
-	movq	%rax, %rdi
-	movq	%rax, %rbp
-	leaq	.LC2(%rip), %r9
-	movl	$400, %ecx
-.LEHB3:
+	movzwl	%ax, %eax
+	movsd	8(%rsp), %xmm1
+	movl	$300, %ecx
+	leaq	.LC1(%rip), %r9
+	cvtsi2sdl	%eax, %xmm0
+	movl	$100, %r8d
+	movq	%rbp, %rdi
 	call	_ZN8menu_btnC1EPN3wze6engineEP6assetsddttPKc@PLT
 .LEHE3:
 	movq	%rbp, 24(%rbx)
-	movl	$48, %edi
+	movl	$64, %edi
 .LEHB4:
 	call	_Znwm@PLT
 .LEHE4:
-	pxor	%xmm1, %xmm1
+	movq	(%rbx), %rdi
+	movq	%rax, %rbp
+.LEHB5:
+	call	_ZN3wze6engine6window9GetHeightEv@PLT
+	shrw	%ax
+	pxor	%xmm6, %xmm6
+	movq	(%rbx), %rdi
+	movzwl	%ax, %eax
+	subl	$75, %eax
+	cvtsi2sdl	%eax, %xmm6
+	movsd	%xmm6, 8(%rsp)
+	call	_ZN3wze6engine6window8GetWidthEv@PLT
+	shrw	%ax
+	pxor	%xmm0, %xmm0
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
-	movl	$150, %r8d
-	movapd	%xmm1, %xmm0
-	movq	%rax, %rdi
-	movq	%rax, %rbp
-	leaq	.LC3(%rip), %r9
-	movl	$400, %ecx
-.LEHB5:
+	movzwl	%ax, %eax
+	movsd	8(%rsp), %xmm1
+	movl	$300, %ecx
+	leaq	.LC2(%rip), %r9
+	cvtsi2sdl	%eax, %xmm0
+	movl	$100, %r8d
+	movq	%rbp, %rdi
 	call	_ZN8menu_btnC1EPN3wze6engineEP6assetsddttPKc@PLT
 .LEHE5:
 	movq	%rbp, 32(%rbx)
-	movl	$48, %edi
+	movl	$64, %edi
 .LEHB6:
 	call	_Znwm@PLT
 .LEHE6:
-	pxor	%xmm1, %xmm1
+	movq	(%rbx), %rdi
+	movq	%rax, %rbp
+.LEHB7:
+	call	_ZN3wze6engine6window9GetHeightEv@PLT
+	shrw	%ax
+	pxor	%xmm7, %xmm7
+	movq	(%rbx), %rdi
+	movzwl	%ax, %eax
+	subl	$225, %eax
+	cvtsi2sdl	%eax, %xmm7
+	movsd	%xmm7, 8(%rsp)
+	call	_ZN3wze6engine6window8GetWidthEv@PLT
+	shrw	%ax
+	pxor	%xmm0, %xmm0
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
-	movl	$150, %r8d
-	movapd	%xmm1, %xmm0
-	movq	%rax, %rdi
-	movq	%rax, %rbp
-	leaq	.LC4(%rip), %r9
-	movl	$400, %ecx
-.LEHB7:
+	movzwl	%ax, %eax
+	movsd	8(%rsp), %xmm1
+	movl	$300, %ecx
+	leaq	.LC3(%rip), %r9
+	cvtsi2sdl	%eax, %xmm0
+	movl	$100, %r8d
+	movq	%rbp, %rdi
 	call	_ZN8menu_btnC1EPN3wze6engineEP6assetsddttPKc@PLT
 .LEHE7:
 	movq	%rbp, 40(%rbx)
-	addq	$8, %rsp
+	movl	$80, %edi
+.LEHB8:
+	call	_Znwm@PLT
+.LEHE8:
+	movq	(%rbx), %rdi
+	movq	%rax, %rbp
+.LEHB9:
+	call	_ZN3wze6engine6window9GetHeightEv@PLT
+	shrw	%ax
+	pxor	%xmm2, %xmm2
+	movq	(%rbx), %rdi
+	movzwl	%ax, %eax
+	subl	$350, %eax
+	cvtsi2sdl	%eax, %xmm2
+	movsd	%xmm2, 8(%rsp)
+	call	_ZN3wze6engine6window8GetWidthEv@PLT
+	shrw	%ax
+	pxor	%xmm0, %xmm0
+	movq	8(%rbx), %rdx
+	movq	(%rbx), %rsi
+	movzwl	%ax, %eax
+	movsd	8(%rsp), %xmm1
+	pxor	%xmm2, %xmm2
+	movq	%rbp, %rdi
+	cvtsi2sdl	%eax, %xmm0
+	movsd	.LC4(%rip), %xmm3
+	movl	$300, %ecx
+	leaq	.LC5(%rip), %r9
+	movl	$20, %r8d
+	call	_ZN17horizontal_sliderC1EPN3wze6engineEP6assetsddttPKcdd@PLT
+.LEHE9:
+	movq	%rbp, 48(%rbx)
+	addq	$24, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
 	popq	%rbx
@@ -110,17 +196,20 @@ _ZN4menuC2EPN3wze6engineEP6assets:
 	popq	%rbp
 	.cfi_def_cfa_offset 8
 	ret
-.L6:
+.L7:
 	.cfi_restore_state
 	movq	%rax, %rbx
 	jmp	.L2
+.L11:
+	movq	%rax, %rbx
+	jmp	.L6
 .L9:
+	movq	%rax, %rbx
+	jmp	.L4
+.L10:
 	movq	%rax, %rbx
 	jmp	.L5
 .L8:
-	movq	%rax, %rbx
-	jmp	.L4
-.L7:
 	movq	%rax, %rbx
 	jmp	.L3
 	.globl	__gxx_personality_v0
@@ -137,7 +226,7 @@ _ZN4menuC2EPN3wze6engineEP6assets:
 	.uleb128 0
 	.uleb128 .LEHB1-.LFB8157
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L6-.LFB8157
+	.uleb128 .L7-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB2-.LFB8157
 	.uleb128 .LEHE2-.LEHB2
@@ -145,7 +234,7 @@ _ZN4menuC2EPN3wze6engineEP6assets:
 	.uleb128 0
 	.uleb128 .LEHB3-.LFB8157
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L7-.LFB8157
+	.uleb128 .L8-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB4-.LFB8157
 	.uleb128 .LEHE4-.LEHB4
@@ -153,7 +242,7 @@ _ZN4menuC2EPN3wze6engineEP6assets:
 	.uleb128 0
 	.uleb128 .LEHB5-.LFB8157
 	.uleb128 .LEHE5-.LEHB5
-	.uleb128 .L8-.LFB8157
+	.uleb128 .L9-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB6-.LFB8157
 	.uleb128 .LEHE6-.LEHB6
@@ -161,7 +250,15 @@ _ZN4menuC2EPN3wze6engineEP6assets:
 	.uleb128 0
 	.uleb128 .LEHB7-.LFB8157
 	.uleb128 .LEHE7-.LEHB7
-	.uleb128 .L9-.LFB8157
+	.uleb128 .L10-.LFB8157
+	.uleb128 0
+	.uleb128 .LEHB8-.LFB8157
+	.uleb128 .LEHE8-.LEHB8
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB9-.LFB8157
+	.uleb128 .LEHE9-.LEHB9
+	.uleb128 .L11-.LFB8157
 	.uleb128 0
 .LLSDACSE8157:
 	.text
@@ -174,34 +271,40 @@ _ZN4menuC2EPN3wze6engineEP6assets:
 _ZN4menuC2EPN3wze6engineEP6assets.cold:
 .LFSB8157:
 .L2:
-	.cfi_def_cfa_offset 32
+	.cfi_def_cfa_offset 48
 	.cfi_offset 3, -24
 	.cfi_offset 6, -16
 	movq	%rbp, %rdi
-	movl	$48, %esi
+	movl	$64, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
-.LEHB8:
+.LEHB10:
+	call	_Unwind_Resume@PLT
+.L6:
+	movq	%rbp, %rdi
+	movl	$80, %esi
+	call	_ZdlPvm@PLT
+	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L5:
 	movq	%rbp, %rdi
-	movl	$48, %esi
+	movl	$64, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L4:
 	movq	%rbp, %rdi
-	movl	$48, %esi
+	movl	$64, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L3:
 	movq	%rbp, %rdi
-	movl	$48, %esi
+	movl	$64, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
-.LEHE8:
+.LEHE10:
 	.cfi_endproc
 .LFE8157:
 	.section	.gcc_except_table
@@ -211,8 +314,8 @@ _ZN4menuC2EPN3wze6engineEP6assets.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB8-.LCOLDB5
-	.uleb128 .LEHE8-.LEHB8
+	.uleb128 .LEHB10-.LCOLDB7
+	.uleb128 .LEHE10-.LEHB10
 	.uleb128 0
 	.uleb128 0
 .LLSDACSEC8157:
@@ -221,9 +324,9 @@ _ZN4menuC2EPN3wze6engineEP6assets.cold:
 	.size	_ZN4menuC2EPN3wze6engineEP6assets, .-_ZN4menuC2EPN3wze6engineEP6assets
 	.section	.text.unlikely
 	.size	_ZN4menuC2EPN3wze6engineEP6assets.cold, .-_ZN4menuC2EPN3wze6engineEP6assets.cold
-.LCOLDE5:
+.LCOLDE7:
 	.text
-.LHOTE5:
+.LHOTE7:
 	.globl	_ZN4menuC1EPN3wze6engineEP6assets
 	.set	_ZN4menuC1EPN3wze6engineEP6assets,_ZN4menuC2EPN3wze6engineEP6assets
 	.align 2
@@ -244,41 +347,50 @@ _ZN4menuD2Ev:
 	.cfi_def_cfa_offset 32
 	movq	16(%rdi), %rbp
 	testq	%rbp, %rbp
-	je	.L14
-	movq	%rbp, %rdi
-	call	_ZN8menu_btnD1Ev@PLT
-	movl	$48, %esi
-	movq	%rbp, %rdi
-	call	_ZdlPvm@PLT
-.L14:
-	movq	24(%rbx), %rbp
-	testq	%rbp, %rbp
-	je	.L15
-	movq	%rbp, %rdi
-	call	_ZN8menu_btnD1Ev@PLT
-	movl	$48, %esi
-	movq	%rbp, %rdi
-	call	_ZdlPvm@PLT
-.L15:
-	movq	32(%rbx), %rbp
-	testq	%rbp, %rbp
 	je	.L16
 	movq	%rbp, %rdi
 	call	_ZN8menu_btnD1Ev@PLT
-	movl	$48, %esi
+	movl	$64, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 .L16:
-	movq	40(%rbx), %rbx
-	testq	%rbx, %rbx
-	je	.L13
-	movq	%rbx, %rdi
+	movq	24(%rbx), %rbp
+	testq	%rbp, %rbp
+	je	.L17
+	movq	%rbp, %rdi
 	call	_ZN8menu_btnD1Ev@PLT
+	movl	$64, %esi
+	movq	%rbp, %rdi
+	call	_ZdlPvm@PLT
+.L17:
+	movq	32(%rbx), %rbp
+	testq	%rbp, %rbp
+	je	.L18
+	movq	%rbp, %rdi
+	call	_ZN8menu_btnD1Ev@PLT
+	movl	$64, %esi
+	movq	%rbp, %rdi
+	call	_ZdlPvm@PLT
+.L18:
+	movq	40(%rbx), %rbp
+	testq	%rbp, %rbp
+	je	.L19
+	movq	%rbp, %rdi
+	call	_ZN8menu_btnD1Ev@PLT
+	movl	$64, %esi
+	movq	%rbp, %rdi
+	call	_ZdlPvm@PLT
+.L19:
+	movq	48(%rbx), %rbx
+	testq	%rbx, %rbx
+	je	.L15
+	movq	%rbx, %rdi
+	call	_ZN17horizontal_sliderD1Ev@PLT
 	addq	$8, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
 	movq	%rbx, %rdi
-	movl	$48, %esi
+	movl	$80, %esi
 	popq	%rbx
 	.cfi_def_cfa_offset 16
 	popq	%rbp
@@ -286,7 +398,7 @@ _ZN4menuD2Ev:
 	jmp	_ZdlPvm@PLT
 	.p2align 4,,10
 	.p2align 3
-.L13:
+.L15:
 	.cfi_restore_state
 	addq	$8, %rsp
 	.cfi_def_cfa_offset 24
@@ -307,11 +419,32 @@ _ZN4menuD2Ev:
 _ZN4menu6UpdateEv:
 .LFB8162:
 	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movq	%rdi, %rbx
+	movq	16(%rdi), %rdi
+	call	_ZN8menu_btn6UpdateEv@PLT
+	movq	24(%rbx), %rdi
+	call	_ZN8menu_btn6UpdateEv@PLT
+	movq	32(%rbx), %rdi
+	call	_ZN8menu_btn6UpdateEv@PLT
+	movq	40(%rbx), %rdi
+	call	_ZN8menu_btn6UpdateEv@PLT
+	movq	48(%rbx), %rdi
+	call	_ZN17horizontal_slider6UpdateEv@PLT
 	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
 .LFE8162:
 	.size	_ZN4menu6UpdateEv, .-_ZN4menu6UpdateEv
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align 8
+.LC4:
+	.long	0
+	.long	1079574528
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

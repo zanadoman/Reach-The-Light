@@ -49,7 +49,7 @@ main:
 .LEHB1:
 	call	_ZN3wze6engineC1EPKcS2_tth@PLT
 .LEHE1:
-	movl	$40, %edi
+	movl	$48, %edi
 .LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
@@ -59,7 +59,7 @@ main:
 .LEHB3:
 	call	_ZN6assetsC1EPN3wze6engineE@PLT
 .LEHE3:
-	movl	$48, %edi
+	movl	$56, %edi
 .LEHB4:
 	call	_Znwm@PLT
 .LEHE4:
@@ -119,7 +119,7 @@ main:
 .L13:
 	movq	%r13, %rdi
 	call	_ZN6assetsD1Ev@PLT
-	movl	$40, %esi
+	movl	$48, %esi
 	movq	%r13, %rdi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
@@ -148,7 +148,7 @@ main:
 	.p2align 3
 .L8:
 	.cfi_restore_state
-	movl	$48, %edi
+	movl	$56, %edi
 	call	_Znwm@PLT
 .LEHE6:
 	movq	%r13, %rdx
@@ -172,7 +172,7 @@ main:
 	movq	%r12, %rdi
 	leaq	80(%rbx), %r15
 	call	_ZN4menuD1Ev@PLT
-	movl	$48, %esi
+	movl	$56, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
 	xorl	%esi, %esi
@@ -213,7 +213,7 @@ main:
 .L10:
 	movq	%r12, %rdi
 	call	_ZN4menuD1Ev@PLT
-	movl	$48, %esi
+	movl	$56, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
 	jmp	.L13
@@ -292,20 +292,20 @@ main.cold:
 	.cfi_offset 14, -24
 	.cfi_offset 15, -16
 	movq	%r12, %rdi
-	movl	$48, %esi
+	movl	$56, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 .LEHB9:
 	call	_Unwind_Resume@PLT
 .L17:
 	movq	%r12, %rdi
-	movl	$48, %esi
+	movl	$56, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L15:
 	movq	%r13, %rdi
-	movl	$40, %esi
+	movl	$48, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
