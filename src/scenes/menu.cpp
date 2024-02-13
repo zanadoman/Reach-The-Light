@@ -12,7 +12,7 @@ menu::menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->hsFrameRate = new horizontal_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 500, 300, 20, "FPS", 1, 1000, this->Game->Settings->FrameRate);
 
     this->Title->SetY(this->Actor->GetY() + 500);
-    this->Title->SetHeight(200);
+    this->Title->SetHeight(100);
 }
 
 menu::~menu()

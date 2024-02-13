@@ -229,7 +229,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	addq	$24, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
-	movl	$200, %esi
+	movl	$100, %esi
 	popq	%rbx
 	.cfi_def_cfa_offset 16
 	popq	%rbp
