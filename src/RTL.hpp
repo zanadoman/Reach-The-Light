@@ -4,8 +4,8 @@ using namespace neo;
 using namespace wze;
 
 struct game;
-struct settings;
 struct assets;
+struct settings;
 struct map;
 struct menu;
 struct menu_btn;
@@ -31,21 +31,15 @@ struct game
 {
     engine* Engine;
     
-    settings* Settings;
     assets* Assets;
-    map* Map;
+    settings* Settings;
+    uint8 Map[128];
     scene ActiveScene;
     menu* Menu;
     game(engine* Engine);
     ~game();
     uint8 Update();
     uint8 SwitchScene(scene NewScene);
-};
-
-struct settings
-{
-    double Volume;
-    uint16 FrameRate;
 };
 
 struct assets
@@ -62,14 +56,10 @@ struct assets
     ~assets();
 };
 
-struct map
+struct settings
 {
-    engine* Engine;
-    game* Game;
-
-    array<uint8> Map;
-    map(engine* Engine, game* Game);
-    ~map();
+    double Volume;
+    uint16 FrameRate;
 };
 
 //__________SCENES___________________________________________________________________________________

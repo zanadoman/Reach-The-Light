@@ -43,7 +43,7 @@ _ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc:
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	%rax, 24(%rbx)
 	movq	8(%rbx), %rax
-	movq	16(%rax), %rax
+	movq	8(%rax), %rax
 	movq	48(%rax), %rsi
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rdi
@@ -51,7 +51,7 @@ _ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc:
 	movq	%r13, %rsi
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
-	movq	16(%rax), %rax
+	movq	8(%rax), %rax
 	movq	16(%rax), %rdx
 	movq	16(%rbx), %rax
 	leaq	104(%rax), %rdi

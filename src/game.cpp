@@ -9,12 +9,15 @@ game::game(engine* Engine) : Engine(Engine)
         this->Settings->Volume = 50;
         this->Settings->FrameRate = 60;
     }
-    this->Map = new map(Engine, this);
+    if (memory::LoadTo("saves/map.save", this->Map, sizeof(uint8) * 128))
+    {
+        for (uint8 i = 0; i < 128; i++)
+        {
+            this->Map[i] = this->Engine->Random(1, 13);
+        }
+    }
     this->ActiveScene = SCENE_MENU;
     this->Menu = new menu(Engine, this);
-
-    this->Engine->Audio.SetGlobalVolume(this->Settings->Volume / 100);
-    this->Engine->Timing.SetTargetFrameTime(1000 / this->Settings->FrameRate);
 }
 
 game::~game()
@@ -31,7 +34,6 @@ game::~game()
 
     memory::Save(this->Settings, sizeof(settings), "saves/settings.save");
 
-    delete this->Map;
     delete this->Settings;
     delete this->Assets;
 }

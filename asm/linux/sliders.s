@@ -75,7 +75,7 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
 	movq	%r12, %rsi
-	movq	16(%rax), %rax
+	movq	8(%rax), %rax
 	movq	40(%rax), %rdx
 	movq	16(%rbx), %rax
 	leaq	104(%rax), %rdi

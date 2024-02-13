@@ -69,7 +69,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	leaq	.LC1(%rip), %rsi
 	movq	%rax, 24(%rbx)
 	leaq	104(%rax), %rdi
-	movq	16(%rdx), %rdx
+	movq	8(%rdx), %rdx
 	movq	24(%rdx), %rdx
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
 	movl	$64, %edi
@@ -167,7 +167,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movq	24(%rbx), %rdi
 	movq	%rax, %rbp
 	movq	8(%rbx), %rax
-	movq	8(%rax), %rax
+	movq	16(%rax), %rax
 	movsd	(%rax), %xmm5
 	movsd	%xmm5, (%rsp)
 .LEHB9:
@@ -197,7 +197,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movq	24(%rbx), %rdi
 	movq	%rax, %rbp
 	movq	8(%rbx), %rax
-	movq	8(%rax), %rax
+	movq	16(%rax), %rax
 	movzwl	8(%rax), %eax
 	cvtsi2sdl	%eax, %xmm6
 	movsd	%xmm6, (%rsp)
@@ -222,7 +222,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movq	8(%rbx), %rax
 	movq	%rbp, 80(%rbx)
 	leaq	.LC15(%rip), %rdi
-	movq	8(%rax), %rax
+	movq	16(%rax), %rax
 	movzwl	8(%rax), %esi
 	xorl	%eax, %eax
 .LEHB12:
@@ -532,7 +532,7 @@ _ZN4menu6UpdateEv:
 	movq	72(%rbx), %rdi
 	leaq	160(%rax), %rbp
 	movq	8(%rbx), %rax
-	movq	8(%rax), %r12
+	movq	16(%rax), %r12
 	call	_ZN17horizontal_slider6UpdateEv@PLT
 	movq	%rbp, %rdi
 	movsd	%xmm0, (%r12)
@@ -546,7 +546,7 @@ _ZN4menu6UpdateEv:
 	xorl	%edx, %edx
 	movq	%rbp, %rdi
 	cvttsd2sil	%xmm0, %ecx
-	movq	8(%rax), %rax
+	movq	16(%rax), %rax
 	movw	%cx, 8(%rax)
 	movzwl	%cx, %ecx
 	movl	$1000, %eax
