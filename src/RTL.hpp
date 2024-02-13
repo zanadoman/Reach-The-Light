@@ -24,6 +24,12 @@ typedef enum
     BOX_NONE
 } overlapbox;
 
+struct settings
+{
+    double Volume;
+    uint16 FrameRate;
+};
+
 struct assets
 {
     engine* Engine;
@@ -41,12 +47,16 @@ struct menu
 {
     engine* Engine;
     assets* Assets;
+    settings* Settings;
 
+    engine::actor Actor;
+    engine::textbox Title;
     menu_btn* btnPlay;
     menu_btn* btnEditor;
     menu_btn* btnCredits;
     menu_btn* btnQuit;
     horizontal_slider* hsVolume;
+    horizontal_slider* hsFrameRate;
     menu(engine* Engine, assets* Assets);
     ~menu();
     scene Update();
@@ -79,12 +89,12 @@ struct horizontal_slider
     engine::colorbox Colorbox;
     engine::textbox Textbox;
     engine::colorbox Indicator;
+    string BaseLiteral;
     double IndicatorMinX;
     double IndicatorMaxX;
     double Min;
     double Max;
-    double Value;
-    horizontal_slider(engine* Engine, assets* Assets, double X, double Y, uint16 Width, uint16 Height, const char* Literal, double Min, double Max);
+    horizontal_slider(engine* Engine, assets* Assets, double X, double Y, uint16 Width, uint16 Height, const char* Literal, double Min, double Max, double Value);
     ~horizontal_slider();
     double Update();
 };
