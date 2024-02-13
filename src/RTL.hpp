@@ -5,6 +5,7 @@ using namespace wze;
 
 struct assets;
 struct menu;
+struct menu_btn;
 
 typedef enum
 {
@@ -38,7 +39,24 @@ struct menu
     engine* Engine;
     assets* Assets;
 
+    menu_btn* btnPlay;
+    menu_btn* btnHelp;
+    menu_btn* btnCredits;
+    menu_btn* btnQuit;
     menu(engine* Engine, assets* Assets);
     ~menu();
     scene Update();
+};
+
+struct menu_btn
+{
+    engine* Engine;
+    assets* Assets;
+
+    engine::actor Actor;
+    engine::overlapbox Overlapbox;
+    engine::texturebox Texturebox;
+    engine::textbox Textbox;
+    menu_btn(engine* Engine, assets* Assets, double X, double Y, uint16 Width, uint16 Height, const char* Literal);
+    ~menu_btn();
 };
