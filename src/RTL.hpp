@@ -44,13 +44,8 @@ struct game
 
 struct settings
 {
-    engine* Engine;
-    game* Game;
-
     double Volume;
     uint16 FrameRate;
-    settings(engine* Engine, game* Game);
-    ~settings();
 };
 
 struct assets

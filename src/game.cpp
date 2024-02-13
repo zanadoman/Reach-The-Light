@@ -2,8 +2,13 @@
 
 game::game(engine* Engine) : Engine(Engine)
 {
-    this->Settings = new settings(Engine, this);
     this->Assets = new assets(Engine, this);
+    this->Settings = new settings;
+    if (memory::LoadTo("saves/settings.save", this->Settings, sizeof(settings)))
+    {
+        this->Settings->Volume = 50;
+        this->Settings->FrameRate = 60;
+    }
     this->Map = new map(Engine, this);
     this->ActiveScene = SCENE_MENU;
     this->Menu = new menu(Engine, this);
@@ -24,9 +29,11 @@ game::~game()
         break;
     }
 
+    memory::Save(this->Settings, sizeof(settings), "saves/settings.save");
+
     delete this->Map;
-    delete this->Assets;
     delete this->Settings;
+    delete this->Assets;
 }
 
 uint8 game::Update()

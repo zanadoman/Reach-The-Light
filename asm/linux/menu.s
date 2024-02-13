@@ -15,11 +15,13 @@
 	.string	"Hanger\305\221"
 .LC14:
 	.string	"FPS"
+.LC15:
+	.string	"%d\n"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB15:
+.LCOLDB16:
 	.text
-.LHOTB15:
+.LHOTB16:
 	.align 2
 	.p2align 4
 	.globl	_ZN4menuC2EPN3wze6engineEP4game
@@ -166,7 +168,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movq	%rax, %rbp
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movsd	16(%rax), %xmm5
+	movsd	(%rax), %xmm5
 	movsd	%xmm5, (%rsp)
 .LEHB9:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
@@ -196,7 +198,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movq	%rax, %rbp
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movzwl	24(%rax), %eax
+	movzwl	8(%rax), %eax
 	cvtsi2sdl	%eax, %xmm6
 	movsd	%xmm6, (%rsp)
 .LEHB11:
@@ -217,10 +219,16 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movsd	8(%rsp), %xmm1
 	call	_ZN17horizontal_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT
 .LEHE11:
+	movq	8(%rbx), %rax
 	movq	%rbp, 80(%rbx)
+	leaq	.LC15(%rip), %rdi
+	movq	8(%rax), %rax
+	movzwl	8(%rax), %esi
+	xorl	%eax, %eax
+.LEHB12:
+	call	printf@PLT
 	movq	24(%rbx), %rdi
 	movq	32(%rbx), %rbp
-.LEHB12:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	addsd	.LC11(%rip), %xmm0
 	movq	%rbp, %rdi
@@ -375,7 +383,7 @@ _ZN4menuC2EPN3wze6engineEP4game.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB13-.LCOLDB15
+	.uleb128 .LEHB13-.LCOLDB16
 	.uleb128 .LEHE13-.LEHB13
 	.uleb128 0
 	.uleb128 0
@@ -385,9 +393,9 @@ _ZN4menuC2EPN3wze6engineEP4game.cold:
 	.size	_ZN4menuC2EPN3wze6engineEP4game, .-_ZN4menuC2EPN3wze6engineEP4game
 	.section	.text.unlikely
 	.size	_ZN4menuC2EPN3wze6engineEP4game.cold, .-_ZN4menuC2EPN3wze6engineEP4game.cold
-.LCOLDE15:
+.LCOLDE16:
 	.text
-.LHOTE15:
+.LHOTE16:
 	.globl	_ZN4menuC1EPN3wze6engineEP4game
 	.set	_ZN4menuC1EPN3wze6engineEP4game,_ZN4menuC2EPN3wze6engineEP4game
 	.align 2
@@ -527,7 +535,7 @@ _ZN4menu6UpdateEv:
 	movq	8(%rax), %r12
 	call	_ZN17horizontal_slider6UpdateEv@PLT
 	movq	%rbp, %rdi
-	movsd	%xmm0, 16(%r12)
+	movsd	%xmm0, (%r12)
 	divsd	.LC9(%rip), %xmm0
 	call	_ZN3wze6engine5audio15SetGlobalVolumeEd@PLT
 	movq	(%rbx), %rax
@@ -539,7 +547,7 @@ _ZN4menu6UpdateEv:
 	movq	%rbp, %rdi
 	cvttsd2sil	%xmm0, %ecx
 	movq	8(%rax), %rax
-	movw	%cx, 24(%rax)
+	movw	%cx, 8(%rax)
 	movzwl	%cx, %ecx
 	movl	$1000, %eax
 	idivl	%ecx
