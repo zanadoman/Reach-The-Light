@@ -44,7 +44,7 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc:
 	movq	%rax, 24(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	48(%rax), %rdx
+	movq	56(%rax), %rdx
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -54,7 +54,7 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc:
 	leaq	104(%rdx), %rcx
 	movq	%rbp, %rdx
 	movq	8(%rax), %rax
-	movq	16(%rax), %r8
+	movq	24(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	pxor	%xmm0, %xmm0
 	xorl	%r8d, %r8d

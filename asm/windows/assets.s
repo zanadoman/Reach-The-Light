@@ -2,15 +2,17 @@
 	.text
 	.section .rdata,"dr"
 .LC0:
+	.ascii "assets/presskit.png\0"
+.LC1:
 	.ascii "assets/fonts/Hack-Bold.ttf\0"
 	.align 8
-.LC1:
-	.ascii "assets/fonts/Hack-BoldItalic.ttf\0"
 .LC2:
-	.ascii "assets/fonts/Hack-Italic.ttf\0"
+	.ascii "assets/fonts/Hack-BoldItalic.ttf\0"
 .LC3:
-	.ascii "assets/fonts/Hack-Regular.ttf\0"
+	.ascii "assets/fonts/Hack-Italic.ttf\0"
 .LC4:
+	.ascii "assets/fonts/Hack-Regular.ttf\0"
+.LC5:
 	.ascii "assets/gui/menu_btn.png\0"
 	.text
 	.align 2
@@ -29,9 +31,8 @@ _ZN6assetsC2EPN3wze6engineEP4game:
 	movq	%rcx, %rbx
 	movq	%r8, 8(%rcx)
 	leaq	320(%rdx), %rcx
-	movl	$72, %r8d
 	leaq	.LC0(%rip), %rdx
-	call	_ZN3wze6engine6assets8LoadFontEPKch
+	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movl	$72, %r8d
 	leaq	.LC1(%rip), %rdx
 	movq	%rax, 16(%rbx)
@@ -50,12 +51,18 @@ _ZN6assetsC2EPN3wze6engineEP4game:
 	movq	(%rbx), %rax
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine6assets8LoadFontEPKch
+	movl	$72, %r8d
 	leaq	.LC4(%rip), %rdx
 	movq	%rax, 40(%rbx)
 	movq	(%rbx), %rax
 	leaq	320(%rax), %rcx
-	call	_ZN3wze6engine6assets11LoadTextureEPKc
+	call	_ZN3wze6engine6assets8LoadFontEPKch
+	leaq	.LC5(%rip), %rdx
 	movq	%rax, 48(%rbx)
+	movq	(%rbx), %rax
+	leaq	320(%rax), %rcx
+	call	_ZN3wze6engine6assets11LoadTextureEPKc
+	movq	%rax, 56(%rbx)
 	addq	$32, %rsp
 	popq	%rbx
 	ret
@@ -124,8 +131,8 @@ _ZN6assetsD2Ev:
 	.def	_ZN6assetsD1Ev;	.scl	2;	.type	32;	.endef
 	.set	_ZN6assetsD1Ev,_ZN6assetsD2Ev
 	.ident	"GCC: (GNU) 13.1.0"
-	.def	_ZN3wze6engine6assets8LoadFontEPKch;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6assets11LoadTextureEPKc;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6assets8LoadFontEPKch;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6assets13PurgeTexturesESt16initializer_listIyE;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6assets11PurgeSoundsESt16initializer_listIyE;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6assets10PurgeFontsESt16initializer_listIyE;	.scl	2;	.type	32;	.endef
