@@ -18,6 +18,9 @@ game::~game()
         case SCENE_MENU:
             delete this->Menu;
         break;
+
+        default:
+        break;
     }
 
     delete this->Assets;
@@ -28,6 +31,9 @@ uint8 game::Update()
 {
     switch (this->ActiveScene)
     {
+        case SCENE_NONE:
+        return 1;
+
         case SCENE_MENU:
             this->SwitchScene(this->Menu->Update());
         return 0;
@@ -45,6 +51,9 @@ uint8 game::SwitchScene(scene NewScene)
             case SCENE_MENU:
                 delete this->Menu;
             break;
+
+            default:
+            break;
         }
 
         this->Engine->Actors.Purge({});
@@ -58,6 +67,9 @@ uint8 game::SwitchScene(scene NewScene)
         {
             case SCENE_MENU:
                 this->Menu = new menu(this->Engine, this);
+            break;
+
+            default:
             break;
         }
 

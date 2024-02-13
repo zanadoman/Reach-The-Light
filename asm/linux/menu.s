@@ -516,6 +516,10 @@ _ZN4menu6UpdateEv:
 	call	_ZN8menu_btn6UpdateEv@PLT
 	movq	64(%rbx), %rdi
 	call	_ZN8menu_btn6UpdateEv@PLT
+	movl	%eax, %edx
+	xorl	%eax, %eax
+	testb	%dl, %dl
+	jne	.L35
 	movq	(%rbx), %rax
 	movq	72(%rbx), %rdi
 	leaq	160(%rax), %rbp
@@ -541,9 +545,10 @@ _ZN4menu6UpdateEv:
 	idivl	%ecx
 	movzbl	%al, %esi
 	call	_ZN3wze6engine6timing18SetTargetFrameTimeEh@PLT
+	movl	$1, %eax
+.L35:
 	popq	%rbx
 	.cfi_def_cfa_offset 24
-	xorl	%eax, %eax
 	popq	%rbp
 	.cfi_def_cfa_offset 16
 	popq	%r12

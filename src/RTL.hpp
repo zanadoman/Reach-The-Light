@@ -12,6 +12,7 @@ struct horizontal_slider;
 
 typedef enum
 {
+    SCENE_NONE,
     SCENE_MENU
 } scene;
 

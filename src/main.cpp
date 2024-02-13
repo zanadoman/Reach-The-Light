@@ -10,7 +10,10 @@ sint32 main()
 
     while (Engine->Update())
     {
-        Game->Update();
+        if (Game->Update())
+        {
+            break;
+        }
     }
 
     delete Game;

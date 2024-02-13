@@ -56,12 +56,15 @@ main:
 	movq	%rbp, %rdi
 .LEHB4:
 	call	_ZN4game6UpdateEv@PLT
+	testb	%al, %al
+	jne	.L4
 .L2:
 	movq	%rbx, %rdi
 	call	_ZN3wze6engine6UpdateEv@PLT
 .LEHE4:
 	testb	%al, %al
 	jne	.L3
+.L4:
 	movq	%rbp, %rdi
 	call	_ZN4gameD1Ev@PLT
 	movl	$40, %esi
@@ -81,13 +84,13 @@ main:
 	popq	%rbp
 	.cfi_def_cfa_offset 8
 	ret
-.L6:
+.L7:
 	.cfi_restore_state
 	movq	%rax, %rbp
-	jmp	.L4
-.L7:
-	movq	%rax, %rbx
 	jmp	.L5
+.L8:
+	movq	%rax, %rbx
+	jmp	.L6
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
 .LLSDA8156:
@@ -102,7 +105,7 @@ main:
 	.uleb128 0
 	.uleb128 .LEHB1-.LFB8156
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L6-.LFB8156
+	.uleb128 .L7-.LFB8156
 	.uleb128 0
 	.uleb128 .LEHB2-.LFB8156
 	.uleb128 .LEHE2-.LEHB2
@@ -110,7 +113,7 @@ main:
 	.uleb128 0
 	.uleb128 .LEHB3-.LFB8156
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L7-.LFB8156
+	.uleb128 .L8-.LFB8156
 	.uleb128 0
 	.uleb128 .LEHB4-.LFB8156
 	.uleb128 .LEHE4-.LEHB4
@@ -126,7 +129,7 @@ main:
 	.type	main.cold, @function
 main.cold:
 .LFSB8156:
-.L4:
+.L5:
 	.cfi_def_cfa_offset 32
 	.cfi_offset 3, -24
 	.cfi_offset 6, -16
@@ -136,7 +139,7 @@ main.cold:
 	movq	%rbp, %rdi
 .LEHB5:
 	call	_Unwind_Resume@PLT
-.L5:
+.L6:
 	movq	%rbp, %rdi
 	movl	$40, %esi
 	call	_ZdlPvm@PLT

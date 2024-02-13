@@ -30,7 +30,10 @@ scene menu::Update()
     this->btnPlay->Update();
     this->btnEditor->Update();
     this->btnCredits->Update();
-    this->btnQuit->Update();
+    if (this->btnQuit->Update())
+    {
+        return SCENE_NONE;
+    }
 
     this->Engine->Audio.SetGlobalVolume((this->Game->Settings->Volume = this->hsVolume->Update()) / 100);
     this->Engine->Timing.SetTargetFrameTime(1000 / (this->Game->Settings->FrameRate = this->hsFrameRate->Update()));
