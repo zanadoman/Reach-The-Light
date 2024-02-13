@@ -177,7 +177,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
 	pxor	%xmm2, %xmm2
-	movl	$300, %ecx
+	movl	$500, %ecx
 	movsd	(%rsp), %xmm4
 	movsd	8(%rsp), %xmm1
 	movq	%rbp, %rdi
@@ -212,7 +212,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movsd	(%rsp), %xmm4
 	movsd	.LC12(%rip), %xmm3
 	leaq	.LC14(%rip), %r9
-	movl	$300, %ecx
+	movl	$500, %ecx
 	movsd	.LC13(%rip), %xmm2
 	movsd	8(%rsp), %xmm1
 	call	_ZN17horizontal_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT

@@ -8,8 +8,8 @@ menu::menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->btnEditor = new menu_btn(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() + 75, 300, 100, "Pinceditor");
     this->btnCredits = new menu_btn(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 75, 300, 100, "Készítők");
     this->btnQuit = new menu_btn(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 225, 300, 100, "Kilép");
-    this->hsVolume = new horizontal_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 425, 300, 20, "Hangerő", 0, 100, this->Game->Settings->Volume);
-    this->hsFrameRate = new horizontal_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 500, 300, 20, "FPS", 1, 1000, this->Game->Settings->FrameRate);
+    this->hsVolume = new horizontal_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 425, 500, 20, "Hangerő", 0, 100, this->Game->Settings->Volume);
+    this->hsFrameRate = new horizontal_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 500, 500, 20, "FPS", 1, 1000, this->Game->Settings->FrameRate);
 
     this->Title->SetY(this->Actor->GetY() + 500);
     this->Title->SetHeight(100);
