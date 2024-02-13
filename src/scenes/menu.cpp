@@ -11,8 +11,6 @@ scene_menu::scene_menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->hsVolume = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 425, 500, 20, "Hangerő", 0, 100, this->Game->Settings->Volume);
     this->hsFrameRate = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 500, 500, 20, "FPS", 1, 1000, this->Game->Settings->FrameRate);
 
-    printf("%d\n", this->Game->Settings->FrameRate);
-
     this->Title->SetY(this->Actor->GetY() + 500);
     this->Title->SetHeight(100);
 }
