@@ -56,10 +56,10 @@ _Z6printfPKcz:
 .LHOTB16:
 	.align 2
 	.p2align 4
-	.globl	_ZN4menuC2EPN3wze6engineEP4game
-	.def	_ZN4menuC2EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN4menuC2EPN3wze6engineEP4game
-_ZN4menuC2EPN3wze6engineEP4game:
+	.globl	_ZN10scene_menuC2EPN3wze6engineEP4game
+	.def	_ZN10scene_menuC2EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN10scene_menuC2EPN3wze6engineEP4game
+_ZN10scene_menuC2EPN3wze6engineEP4game:
 .LFB8432:
 	pushq	%rsi
 	.seh_pushreg	%rsi
@@ -376,8 +376,8 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	.text
 	.seh_endproc
 	.section	.text.unlikely,"x"
-	.def	_ZN4menuC2EPN3wze6engineEP4game.cold;	.scl	3;	.type	32;	.endef
-	.seh_proc	_ZN4menuC2EPN3wze6engineEP4game.cold
+	.def	_ZN10scene_menuC2EPN3wze6engineEP4game.cold;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN10scene_menuC2EPN3wze6engineEP4game.cold
 	.seh_stackalloc	168
 	.seh_savereg	%rbx, 152
 	.seh_savereg	%rsi, 160
@@ -385,7 +385,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	.seh_savexmm	%xmm7, 112
 	.seh_savexmm	%xmm8, 128
 	.seh_endprologue
-_ZN4menuC2EPN3wze6engineEP4game.cold:
+_ZN10scene_menuC2EPN3wze6engineEP4game.cold:
 .L4:
 	movq	%rsi, %rcx
 	movl	$64, %edx
@@ -445,15 +445,15 @@ _ZN4menuC2EPN3wze6engineEP4game.cold:
 .LCOLDE16:
 	.text
 .LHOTE16:
-	.globl	_ZN4menuC1EPN3wze6engineEP4game
-	.def	_ZN4menuC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
-	.set	_ZN4menuC1EPN3wze6engineEP4game,_ZN4menuC2EPN3wze6engineEP4game
+	.globl	_ZN10scene_menuC1EPN3wze6engineEP4game
+	.def	_ZN10scene_menuC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
+	.set	_ZN10scene_menuC1EPN3wze6engineEP4game,_ZN10scene_menuC2EPN3wze6engineEP4game
 	.align 2
 	.p2align 4
-	.globl	_ZN4menuD2Ev
-	.def	_ZN4menuD2Ev;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN4menuD2Ev
-_ZN4menuD2Ev:
+	.globl	_ZN10scene_menuD2Ev
+	.def	_ZN10scene_menuD2Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN10scene_menuD2Ev
+_ZN10scene_menuD2Ev:
 .LFB8435:
 	pushq	%rsi
 	.seh_pushreg	%rsi
@@ -535,15 +535,15 @@ _ZN4menuD2Ev:
 .LLSDACSE8435:
 	.text
 	.seh_endproc
-	.globl	_ZN4menuD1Ev
-	.def	_ZN4menuD1Ev;	.scl	2;	.type	32;	.endef
-	.set	_ZN4menuD1Ev,_ZN4menuD2Ev
+	.globl	_ZN10scene_menuD1Ev
+	.def	_ZN10scene_menuD1Ev;	.scl	2;	.type	32;	.endef
+	.set	_ZN10scene_menuD1Ev,_ZN10scene_menuD2Ev
 	.align 2
 	.p2align 4
-	.globl	_ZN4menu6UpdateEv
-	.def	_ZN4menu6UpdateEv;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN4menu6UpdateEv
-_ZN4menu6UpdateEv:
+	.globl	_ZN10scene_menu6UpdateEv
+	.def	_ZN10scene_menu6UpdateEv;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN10scene_menu6UpdateEv
+_ZN10scene_menu6UpdateEv:
 .LFB8437:
 	pushq	%rdi
 	.seh_pushreg	%rdi

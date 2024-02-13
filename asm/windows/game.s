@@ -88,7 +88,7 @@ _ZN4gameC2EPN3wze6engineE:
 	movq	%rax, %rcx
 	movq	%rax, %rbx
 .LEHB3:
-	call	_ZN4menuC1EPN3wze6engineEP4game
+	call	_ZN10scene_menuC1EPN3wze6engineEP4game
 .LEHE3:
 	movq	%rbx, 160(%rsi)
 	addq	$40, %rsp
@@ -232,7 +232,7 @@ _ZN4gameD2Ev:
 	testq	%rsi, %rsi
 	je	.L19
 	movq	%rsi, %rcx
-	call	_ZN4menuD1Ev
+	call	_ZN10scene_menuD1Ev
 	movl	$88, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
@@ -290,7 +290,7 @@ _ZN4game6UpdateEv:
 .L40:
 	movq	160(%rcx), %rcx
 .LEHB5:
-	call	_ZN4menu6UpdateEv
+	call	_ZN10scene_menu6UpdateEv
 	movl	%eax, %esi
 	movl	152(%rbx), %eax
 	cmpl	%eax, %esi
@@ -345,7 +345,7 @@ _ZN4game6UpdateEv:
 	testq	%rdi, %rdi
 	je	.L32
 	movq	%rdi, %rcx
-	call	_ZN4menuD1Ev
+	call	_ZN10scene_menuD1Ev
 	movl	$88, %edx
 	movq	%rdi, %rcx
 	call	_ZdlPvy
@@ -361,7 +361,7 @@ _ZN4game6UpdateEv:
 	movq	%rax, %rcx
 	movq	%rax, %rdi
 .LEHB6:
-	call	_ZN4menuC1EPN3wze6engineEP4game
+	call	_ZN10scene_menuC1EPN3wze6engineEP4game
 .LEHE6:
 	movq	%rdi, 160(%rbx)
 	jmp	.L33
@@ -499,7 +499,7 @@ _ZN4game11SwitchSceneE5scene:
 	testq	%rdi, %rdi
 	je	.L45
 	movq	%rdi, %rcx
-	call	_ZN4menuD1Ev
+	call	_ZN10scene_menuD1Ev
 	movl	$88, %edx
 	movq	%rdi, %rcx
 	call	_ZdlPvy
@@ -515,7 +515,7 @@ _ZN4game11SwitchSceneE5scene:
 	movq	%rax, %rcx
 	movq	%rax, %rdi
 .LEHB9:
-	call	_ZN4menuC1EPN3wze6engineEP4game
+	call	_ZN10scene_menuC1EPN3wze6engineEP4game
 .LEHE9:
 	movq	%rdi, 160(%rbx)
 	jmp	.L46
@@ -593,13 +593,13 @@ _ZN4game11SwitchSceneE5scene.cold:
 	.def	_ZN6assetsC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6memory6LoadToEPKcPvy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6RandomEii;	.scl	2;	.type	32;	.endef
-	.def	_ZN4menuC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
+	.def	_ZN10scene_menuC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6memory4SaveEPKvyPKc;	.scl	2;	.type	32;	.endef
 	.def	_ZN6assetsD1Ev;	.scl	2;	.type	32;	.endef
-	.def	_ZN4menuD1Ev;	.scl	2;	.type	32;	.endef
-	.def	_ZN4menu6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN10scene_menuD1Ev;	.scl	2;	.type	32;	.endef
+	.def	_ZN10scene_menu6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5PurgeESt16initializer_listIyE;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera10SetOriginXEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera10SetOriginYEd;	.scl	2;	.type	32;	.endef

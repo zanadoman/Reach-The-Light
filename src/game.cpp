@@ -17,7 +17,7 @@ game::game(engine* Engine) : Engine(Engine)
         }
     }
     this->ActiveScene = SCENE_MENU;
-    this->Menu = new menu(Engine, this);
+    this->Menu = new scene_menu(Engine, this);
 }
 
 game::~game()
@@ -77,7 +77,7 @@ uint8 game::SwitchScene(scene NewScene)
         switch (NewScene)
         {
             case SCENE_MENU:
-                this->Menu = new menu(this->Engine, this);
+                this->Menu = new scene_menu(this->Engine, this);
             break;
 
             default:

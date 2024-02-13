@@ -93,7 +93,7 @@ _ZN4gameC2EPN3wze6engineE:
 	movq	%rax, %rdi
 	movq	%rax, %rbx
 .LEHB3:
-	call	_ZN4menuC1EPN3wze6engineEP4game@PLT
+	call	_ZN10scene_menuC1EPN3wze6engineEP4game@PLT
 .LEHE3:
 	movq	%rbx, 160(%rbp)
 	addq	$8, %rsp
@@ -258,7 +258,7 @@ _ZN4gameD2Ev:
 	testq	%rbp, %rbp
 	je	.L20
 	movq	%rbp, %rdi
-	call	_ZN4menuD1Ev@PLT
+	call	_ZN10scene_menuD1Ev@PLT
 	movl	$88, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
@@ -308,7 +308,7 @@ _ZN4game6UpdateEv:
 	movq	%rdi, %rbx
 	movq	160(%rdi), %rdi
 .LEHB5:
-	call	_ZN4menu6UpdateEv@PLT
+	call	_ZN10scene_menu6UpdateEv@PLT
 	movl	%eax, %ebp
 	movl	152(%rbx), %eax
 	cmpl	%eax, %ebp
@@ -378,7 +378,7 @@ _ZN4game6UpdateEv:
 	testq	%r12, %r12
 	je	.L34
 	movq	%r12, %rdi
-	call	_ZN4menuD1Ev@PLT
+	call	_ZN10scene_menuD1Ev@PLT
 	movl	$88, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
@@ -394,7 +394,7 @@ _ZN4game6UpdateEv:
 	movq	%rax, %rdi
 	movq	%rax, %r12
 .LEHB6:
-	call	_ZN4menuC1EPN3wze6engineEP4game@PLT
+	call	_ZN10scene_menuC1EPN3wze6engineEP4game@PLT
 .LEHE6:
 	movq	%r12, 160(%rbx)
 	jmp	.L35
@@ -537,7 +537,7 @@ _ZN4game11SwitchSceneE5scene:
 	testq	%r12, %r12
 	je	.L51
 	movq	%r12, %rdi
-	call	_ZN4menuD1Ev@PLT
+	call	_ZN10scene_menuD1Ev@PLT
 	movl	$88, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
@@ -566,7 +566,7 @@ _ZN4game11SwitchSceneE5scene:
 	movq	%rax, %rdi
 	movq	%rax, %r12
 .LEHB9:
-	call	_ZN4menuC1EPN3wze6engineEP4game@PLT
+	call	_ZN10scene_menuC1EPN3wze6engineEP4game@PLT
 .LEHE9:
 	movq	%r12, 160(%rbx)
 	xorl	%eax, %eax

@@ -1,6 +1,6 @@
 #include "../RTL.hpp"
 
-menu::menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
+scene_menu::scene_menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, this->Engine->Window.GetWidth() >> 1, this->Engine->Window.GetHeight() >> 1, 0, 0, 0);
     this->Title = this->Actor->Textboxes.New("Reach The Light", this->Game->Assets->HackBoldItalicFont);
@@ -17,7 +17,7 @@ menu::menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->Title->SetHeight(100);
 }
 
-menu::~menu()
+scene_menu::~scene_menu()
 {
     this->Engine->Actors.Delete(this->Actor->GetID());
     delete this->btnPlay;
@@ -27,7 +27,7 @@ menu::~menu()
     delete this->hsVolume;
 }
 
-scene menu::Update()
+scene scene_menu::Update()
 {
     this->btnPlay->Update();
     this->btnEditor->Update();

@@ -24,9 +24,9 @@
 .LHOTB16:
 	.align 2
 	.p2align 4
-	.globl	_ZN4menuC2EPN3wze6engineEP4game
-	.type	_ZN4menuC2EPN3wze6engineEP4game, @function
-_ZN4menuC2EPN3wze6engineEP4game:
+	.globl	_ZN10scene_menuC2EPN3wze6engineEP4game
+	.type	_ZN10scene_menuC2EPN3wze6engineEP4game, @function
+_ZN10scene_menuC2EPN3wze6engineEP4game:
 .LFB8157:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
@@ -330,8 +330,8 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
 	.cfi_lsda 0x1b,.LLSDAC8157
-	.type	_ZN4menuC2EPN3wze6engineEP4game.cold, @function
-_ZN4menuC2EPN3wze6engineEP4game.cold:
+	.type	_ZN10scene_menuC2EPN3wze6engineEP4game.cold, @function
+_ZN10scene_menuC2EPN3wze6engineEP4game.cold:
 .LFSB8157:
 .L2:
 	.cfi_def_cfa_offset 48
@@ -390,19 +390,19 @@ _ZN4menuC2EPN3wze6engineEP4game.cold:
 .LLSDACSEC8157:
 	.section	.text.unlikely
 	.text
-	.size	_ZN4menuC2EPN3wze6engineEP4game, .-_ZN4menuC2EPN3wze6engineEP4game
+	.size	_ZN10scene_menuC2EPN3wze6engineEP4game, .-_ZN10scene_menuC2EPN3wze6engineEP4game
 	.section	.text.unlikely
-	.size	_ZN4menuC2EPN3wze6engineEP4game.cold, .-_ZN4menuC2EPN3wze6engineEP4game.cold
+	.size	_ZN10scene_menuC2EPN3wze6engineEP4game.cold, .-_ZN10scene_menuC2EPN3wze6engineEP4game.cold
 .LCOLDE16:
 	.text
 .LHOTE16:
-	.globl	_ZN4menuC1EPN3wze6engineEP4game
-	.set	_ZN4menuC1EPN3wze6engineEP4game,_ZN4menuC2EPN3wze6engineEP4game
+	.globl	_ZN10scene_menuC1EPN3wze6engineEP4game
+	.set	_ZN10scene_menuC1EPN3wze6engineEP4game,_ZN10scene_menuC2EPN3wze6engineEP4game
 	.align 2
 	.p2align 4
-	.globl	_ZN4menuD2Ev
-	.type	_ZN4menuD2Ev, @function
-_ZN4menuD2Ev:
+	.globl	_ZN10scene_menuD2Ev
+	.type	_ZN10scene_menuD2Ev, @function
+_ZN10scene_menuD2Ev:
 .LFB8160:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
@@ -496,14 +496,14 @@ _ZN4menuD2Ev:
 .LLSDACSB8160:
 .LLSDACSE8160:
 	.text
-	.size	_ZN4menuD2Ev, .-_ZN4menuD2Ev
-	.globl	_ZN4menuD1Ev
-	.set	_ZN4menuD1Ev,_ZN4menuD2Ev
+	.size	_ZN10scene_menuD2Ev, .-_ZN10scene_menuD2Ev
+	.globl	_ZN10scene_menuD1Ev
+	.set	_ZN10scene_menuD1Ev,_ZN10scene_menuD2Ev
 	.align 2
 	.p2align 4
-	.globl	_ZN4menu6UpdateEv
-	.type	_ZN4menu6UpdateEv, @function
-_ZN4menu6UpdateEv:
+	.globl	_ZN10scene_menu6UpdateEv
+	.type	_ZN10scene_menu6UpdateEv, @function
+_ZN10scene_menu6UpdateEv:
 .LFB8162:
 	.cfi_startproc
 	pushq	%r12
@@ -565,7 +565,7 @@ _ZN4menu6UpdateEv:
 	ret
 	.cfi_endproc
 .LFE8162:
-	.size	_ZN4menu6UpdateEv, .-_ZN4menu6UpdateEv
+	.size	_ZN10scene_menu6UpdateEv, .-_ZN10scene_menu6UpdateEv
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC2:

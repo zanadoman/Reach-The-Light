@@ -11,7 +11,7 @@ struct game;
 struct assets;
 struct settings;
 struct map;
-struct menu;
+struct scene_menu;
 struct gui_button;
 struct gui_slider;
 
@@ -39,7 +39,7 @@ struct game
     settings* Settings;
     uint8 Map[128];
     scene ActiveScene;
-    menu* Menu;
+    scene_menu* Menu;
     game(engine* Engine);
     ~game();
     uint8 Update();
@@ -68,7 +68,7 @@ struct settings
 
 //__________SCENES___________________________________________________________________________________
 
-struct menu
+struct scene_menu
 {
     engine* Engine;
     game* Game;
@@ -82,8 +82,8 @@ struct menu
     gui_button* btnQuit;
     gui_slider* hsVolume;
     gui_slider* hsFrameRate;
-    menu(engine* Engine, game* Game);
-    ~menu();
+    scene_menu(engine* Engine, game* Game);
+    ~scene_menu();
     scene Update();
 };
 
