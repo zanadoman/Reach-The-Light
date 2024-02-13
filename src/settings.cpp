@@ -4,7 +4,7 @@ settings::settings(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
     settings* Settings;
 
-    if ((Settings = (settings*)memory::Load("settings.save", sizeof(settings))) != NULL)
+    if ((Settings = (settings*)memory::Load("saves/settings.save", sizeof(settings))) != NULL)
     {
         this->Volume = Settings->Volume;
         this->FrameRate = Settings->FrameRate;
