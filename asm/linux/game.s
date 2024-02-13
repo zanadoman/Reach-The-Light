@@ -62,10 +62,8 @@ _ZN4gameC2EPN3wze6engineE:
 	testb	%al, %al
 	je	.L2
 	movq	16(%rbp), %rax
-	movq	.LC3(%rip), %rcx
-	movl	$60, %edx
-	movq	%rcx, (%rax)
-	movw	%dx, 8(%rax)
+	movapd	.LC3(%rip), %xmm0
+	movups	%xmm0, (%rax)
 .L2:
 	leaq	24(%rbp), %rbx
 	movl	$128, %edx
@@ -823,10 +821,14 @@ _ZN4game11SwitchSceneE5scene.cold:
 .LC1:
 	.long	0
 	.long	1081073664
-	.align 8
+	.section	.rodata.cst16,"aM",@progbits,16
+	.align 16
 .LC3:
 	.long	0
 	.long	1078525952
+	.long	0
+	.long	1078853632
+	.section	.rodata.cst8
 	.align 8
 .LC5:
 	.long	-1717986918

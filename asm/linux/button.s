@@ -1,4 +1,4 @@
-	.file	"buttons.cpp"
+	.file	"button.cpp"
 	.text
 	.align 2
 	.p2align 4

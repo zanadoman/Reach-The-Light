@@ -27,7 +27,7 @@ gui_slider::gui_slider(engine* Engine, game* Game, double X, double Y, uint16 Wi
 
     this->IndicatorMinX = this->Actor->GetX() - (this->Actor->GetWidth() >> 1) + (this->Indicator->Width >> 1);
     this->IndicatorMaxX = this->Actor->GetX() + (this->Actor->GetWidth() >> 1) - (this->Indicator->Width >> 1);
-    this->Indicator->SetX((Value / (Max - Min)) * (this->IndicatorMaxX - this->IndicatorMinX) + this->IndicatorMinX);
+    this->Indicator->SetX(((Value - Min) / (Max - Min)) * (this->IndicatorMaxX - this->IndicatorMinX) + this->IndicatorMinX);
 }
 
 gui_slider::~gui_slider()
@@ -38,6 +38,7 @@ gui_slider::~gui_slider()
 double gui_slider::Update()
 {
     double result;
+    
     string str;
 
     if (this->Overlapbox->GetButtonState() & BTN_HOVERED && this->Overlapbox->GetButtonState() & BTN_PRESSED_LMB)
@@ -56,8 +57,7 @@ double gui_slider::Update()
 
     result = (this->Max - this->Min) * ((this->Indicator->GetX() - this->IndicatorMinX) / (this->IndicatorMaxX - this->IndicatorMinX)) + this->Min;
 
-    str = {&this->BaseLiteral};
-    this->Textbox->SetLiteral(((str += {": "}) += {(sint64)round(result)})());
+    this->Textbox->SetLiteral((((str = {&this->BaseLiteral}) += {": "}) += {(sint64)round(result)})());
 
     return result;
 }

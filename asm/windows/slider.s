@@ -1,4 +1,4 @@
-	.file	"sliders.cpp"
+	.file	"slider.cpp"
 	.text
 	.section	.text.unlikely,"x"
 	.align 2
@@ -177,9 +177,10 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	addsd	%xmm6, %xmm0
 	subsd	%xmm1, %xmm0
 	movsd	272(%rsp), %xmm1
-	divsd	%xmm7, %xmm1
+	subsd	%xmm8, %xmm1
 	movsd	%xmm0, 80(%rbx)
 	subsd	%xmm2, %xmm0
+	divsd	%xmm7, %xmm1
 	mulsd	%xmm0, %xmm1
 	addsd	%xmm2, %xmm1
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd
@@ -319,20 +320,24 @@ _ZN10gui_sliderD2Ev:
 	.seh_proc	_ZN10gui_slider6UpdateEv
 _ZN10gui_slider6UpdateEv:
 .LFB8437:
+	pushq	%r12
+	.seh_pushreg	%r12
+	pushq	%rbp
+	.seh_pushreg	%rbp
 	pushq	%rdi
 	.seh_pushreg	%rdi
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$144, %rsp
-	.seh_stackalloc	144
-	movaps	%xmm6, 112(%rsp)
-	.seh_savexmm	%xmm6, 112
-	movaps	%xmm7, 128(%rsp)
-	.seh_savexmm	%xmm7, 128
+	subq	$160, %rsp
+	.seh_stackalloc	160
+	movaps	%xmm6, 128(%rsp)
+	.seh_savexmm	%xmm6, 128
+	movaps	%xmm7, 144(%rsp)
+	.seh_savexmm	%xmm7, 144
 	.seh_endprologue
-	leaq	96(%rsp), %rsi
+	leaq	112(%rsp), %rsi
 	movq	%rcx, %rbx
 	movq	%rsi, %rcx
 .LEHB3:
@@ -355,52 +360,55 @@ _ZN10gui_slider6UpdateEv:
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv
 	movsd	72(%rbx), %xmm1
 	movapd	%xmm0, %xmm6
-	leaq	56(%rbx), %rax
-	movq	%rsi, %rcx
-	movsd	80(%rbx), %xmm0
-	leaq	88(%rsp), %rdi
-	leaq	64(%rsp), %rdx
-	movq	%rax, 88(%rsp)
+	movq	40(%rbx), %rdi
+	addq	$56, %rbx
+	movsd	24(%rbx), %xmm0
+	leaq	104(%rsp), %rbp
+	leaq	96(%rsp), %r12
 	subsd	%xmm1, %xmm6
 	subsd	%xmm1, %xmm0
 	divsd	%xmm0, %xmm6
 	mulsd	%xmm7, %xmm6
-	addsd	88(%rbx), %xmm6
-	movq	%rdi, 64(%rsp)
-	movq	$1, 72(%rsp)
-	call	_ZN3neo6stringaSESt16initializer_listIPS0_E
+	addsd	32(%rbx), %xmm6
 	movapd	%xmm6, %xmm0
-	movq	40(%rbx), %rbx
 	call	round
-	leaq	48(%rsp), %rdx
+	leaq	64(%rsp), %rdx
 	movq	%rsi, %rcx
-	movq	$1, 56(%rsp)
+	movq	%rbx, 88(%rsp)
+	movq	$1, 72(%rsp)
 	cvttsd2siq	%xmm0, %rax
-	movq	%rax, 88(%rsp)
+	movq	%rax, 104(%rsp)
 	leaq	.LC7(%rip), %rax
-	movq	%rax, 80(%rsp)
-	leaq	80(%rsp), %rax
-	movq	%rax, 48(%rsp)
+	movq	%rax, 96(%rsp)
+	leaq	88(%rsp), %rax
+	movq	%rax, 64(%rsp)
+	call	_ZN3neo6stringaSESt16initializer_listIPS0_E
+	movq	%rax, %rcx
+	leaq	48(%rsp), %rdx
+	movq	%r12, 48(%rsp)
+	movq	$1, 56(%rsp)
 	call	_ZN3neo6stringpLESt16initializer_listIPKcE
 	movq	%rax, %rcx
 	leaq	32(%rsp), %rdx
-	movq	%rdi, 32(%rsp)
+	movq	%rbp, 32(%rsp)
 	movq	$1, 40(%rsp)
 	call	_ZN3neo6stringpLESt16initializer_listIxE
 	movq	%rax, %rcx
 	call	_ZN3neo6stringclEv
 	movq	%rax, %rdx
-	movq	%rbx, %rcx
+	movq	%rdi, %rcx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox10SetLiteralEPKc
 	movq	%rsi, %rcx
 	call	_ZN3neo6stringD1Ev
 	movapd	%xmm6, %xmm0
-	movaps	128(%rsp), %xmm7
-	movaps	112(%rsp), %xmm6
-	addq	$144, %rsp
+	movaps	144(%rsp), %xmm7
+	movaps	128(%rsp), %xmm6
+	addq	$160, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
+	popq	%rbp
+	popq	%r12
 	ret
 	.p2align 4,,10
 	.p2align 3
@@ -458,12 +466,14 @@ _ZN10gui_slider6UpdateEv:
 	.section	.text.unlikely,"x"
 	.def	_ZN10gui_slider6UpdateEv.cold;	.scl	3;	.type	32;	.endef
 	.seh_proc	_ZN10gui_slider6UpdateEv.cold
-	.seh_stackalloc	168
-	.seh_savereg	%rbx, 144
-	.seh_savereg	%rsi, 152
-	.seh_savereg	%rdi, 160
-	.seh_savexmm	%xmm6, 112
-	.seh_savexmm	%xmm7, 128
+	.seh_stackalloc	200
+	.seh_savereg	%rbx, 160
+	.seh_savereg	%rsi, 168
+	.seh_savereg	%rdi, 176
+	.seh_savereg	%rbp, 184
+	.seh_savexmm	%xmm6, 128
+	.seh_savexmm	%xmm7, 144
+	.seh_savereg	%r12, 192
 	.seh_endprologue
 _ZN10gui_slider6UpdateEv.cold:
 .L12:
@@ -527,8 +537,8 @@ _ZN10gui_slider6UpdateEv.cold:
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN3neo6stringaSESt16initializer_listIPS0_E;	.scl	2;	.type	32;	.endef
 	.def	round;	.scl	2;	.type	32;	.endef
+	.def	_ZN3neo6stringaSESt16initializer_listIPS0_E;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringpLESt16initializer_listIPKcE;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringpLESt16initializer_listIxE;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringclEv;	.scl	2;	.type	32;	.endef

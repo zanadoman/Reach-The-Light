@@ -64,7 +64,7 @@ struct assets
 struct settings
 {
     double Volume;
-    uint16 FrameRate;
+    double FrameRate;
 };
 
 //__________SCENES___________________________________________________________________________________

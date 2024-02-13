@@ -191,13 +191,11 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 .LEHB10:
 	call	_Znwm@PLT
 .LEHE10:
-	pxor	%xmm6, %xmm6
 	movq	24(%rbx), %rdi
 	movq	%rax, %rbp
 	movq	8(%rbx), %rax
 	movq	16(%rax), %rax
-	movzwl	8(%rax), %eax
-	cvtsi2sdl	%eax, %xmm6
+	movsd	8(%rax), %xmm6
 	movsd	%xmm6, (%rsp)
 .LEHB11:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
@@ -533,18 +531,17 @@ _ZN10scene_menu6UpdateEv:
 	movq	(%rbx), %rax
 	movq	80(%rbx), %rdi
 	leaq	392(%rax), %rbp
-	call	_ZN10gui_slider6UpdateEv@PLT
-	call	round@PLT
 	movq	8(%rbx), %rax
-	xorl	%edx, %edx
+	movq	16(%rax), %r12
+	call	_ZN10gui_slider6UpdateEv@PLT
+	movsd	%xmm0, 8(%r12)
+	call	round@PLT
 	movq	%rbp, %rdi
-	cvttsd2sil	%xmm0, %ecx
-	movq	16(%rax), %rax
-	movw	%cx, 8(%rax)
-	movzwl	%cx, %ecx
-	movl	$1000, %eax
-	idivl	%ecx
-	movzbl	%al, %esi
+	movapd	%xmm0, %xmm1
+	movsd	.LC12(%rip), %xmm0
+	divsd	%xmm1, %xmm0
+	cvttsd2sil	%xmm0, %esi
+	movzbl	%sil, %esi
 	call	_ZN3wze6engine6timing18SetTargetFrameTimeEh@PLT
 	movl	$1, %eax
 .L35:

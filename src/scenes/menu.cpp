@@ -36,7 +36,7 @@ scene scene_menu::Update()
     }
 
     this->Engine->Audio.SetGlobalVolume((this->Game->Settings->Volume = this->hsVolume->Update()) / 100);
-    this->Engine->Timing.SetTargetFrameTime(1000 / (this->Game->Settings->FrameRate = round(this->hsFrameRate->Update())));
+    this->Engine->Timing.SetTargetFrameTime(1000 / round(this->Game->Settings->FrameRate = this->hsFrameRate->Update()));
 
     return SCENE_MENU;
 }

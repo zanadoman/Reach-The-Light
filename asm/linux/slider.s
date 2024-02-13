@@ -1,4 +1,4 @@
-	.file	"sliders.cpp"
+	.file	"slider.cpp"
 	.text
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
@@ -173,20 +173,22 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	pxor	%xmm1, %xmm1
 	pxor	%xmm0, %xmm0
 	movzwl	%ax, %eax
+	movsd	8(%rsp), %xmm6
 	movq	%r15, %xmm2
-	subsd	8(%rsp), %xmm2
 	movsd	72(%rbx), %xmm3
 	cvtsi2sdl	%eax, %xmm1
 	movzwl	16(%rdi), %eax
 	addsd	16(%rsp), %xmm1
+	subsd	%xmm6, %xmm2
 	shrw	%ax
 	movzwl	%ax, %eax
 	cvtsi2sdl	%eax, %xmm0
 	subsd	%xmm0, %xmm1
 	movsd	32(%rsp), %xmm0
-	divsd	%xmm2, %xmm0
+	subsd	%xmm6, %xmm0
 	movsd	%xmm1, 80(%rbx)
 	subsd	%xmm3, %xmm1
+	divsd	%xmm2, %xmm0
 	mulsd	%xmm1, %xmm0
 	addsd	%xmm3, %xmm0
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd@PLT
@@ -349,18 +351,27 @@ _ZN10gui_slider6UpdateEv:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
 	.cfi_lsda 0x1b,.LLSDA8162
-	pushq	%r12
+	pushq	%r15
 	.cfi_def_cfa_offset 16
-	.cfi_offset 12, -16
-	pushq	%rbp
+	.cfi_offset 15, -16
+	pushq	%r14
 	.cfi_def_cfa_offset 24
-	.cfi_offset 6, -24
-	pushq	%rbx
+	.cfi_offset 14, -24
+	pushq	%r13
 	.cfi_def_cfa_offset 32
-	.cfi_offset 3, -32
+	.cfi_offset 13, -32
+	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
 	movq	%rdi, %rbx
-	subq	$64, %rsp
-	.cfi_def_cfa_offset 96
+	subq	$72, %rsp
+	.cfi_def_cfa_offset 128
 	movq	%fs:40, %rax
 	movq	%rax, 56(%rsp)
 	xorl	%eax, %eax
@@ -387,53 +398,59 @@ _ZN10gui_slider6UpdateEv:
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv@PLT
 	movsd	72(%rbx), %xmm2
 	movsd	80(%rbx), %xmm1
-	leaq	56(%rbx), %rax
-	movq	%rbp, %rdi
-	leaq	48(%rsp), %r12
-	movl	$1, %edx
-	movq	%rax, 48(%rsp)
+	addq	$56, %rbx
+	leaq	48(%rsp), %r13
+	movq	-16(%rbx), %r12
+	leaq	40(%rsp), %r14
 	subsd	%xmm2, %xmm0
 	subsd	%xmm2, %xmm1
-	movq	%r12, %rsi
 	divsd	%xmm1, %xmm0
 	mulsd	8(%rsp), %xmm0
-	addsd	88(%rbx), %xmm0
-	movsd	%xmm0, 8(%rsp)
-	call	_ZN3neo6stringaSESt16initializer_listIPS0_E@PLT
-	movsd	8(%rsp), %xmm0
-	movq	40(%rbx), %rbx
+	addsd	32(%rbx), %xmm0
+	movq	%xmm0, %r15
 	call	round@PLT
-	leaq	40(%rsp), %rsi
+	leaq	32(%rsp), %rsi
 	movl	$1, %edx
 	movq	%rbp, %rdi
 	cvttsd2siq	%xmm0, %rax
+	movq	%rbx, 32(%rsp)
 	movq	%rax, 48(%rsp)
 	leaq	.LC7(%rip), %rax
 	movq	%rax, 40(%rsp)
+	call	_ZN3neo6stringaSESt16initializer_listIPS0_E@PLT
+	movq	%rax, %rdi
+	movq	%r14, %rsi
+	movl	$1, %edx
 	call	_ZN3neo6stringpLESt16initializer_listIPKcE@PLT
 	movq	%rax, %rdi
-	movq	%r12, %rsi
+	movq	%r13, %rsi
 	movl	$1, %edx
 	call	_ZN3neo6stringpLESt16initializer_listIxE@PLT
 	movq	%rax, %rdi
 	call	_ZN3neo6stringclEv@PLT
 	movq	%rax, %rsi
-	movq	%rbx, %rdi
+	movq	%r12, %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox10SetLiteralEPKc@PLT
 	movq	%rbp, %rdi
 	call	_ZN3neo6stringD1Ev@PLT
 	movq	56(%rsp), %rax
 	subq	%fs:40, %rax
 	jne	.L37
-	movsd	8(%rsp), %xmm0
-	addq	$64, %rsp
+	addq	$72, %rsp
 	.cfi_remember_state
-	.cfi_def_cfa_offset 32
+	.cfi_def_cfa_offset 56
+	movq	%r15, %xmm0
 	popq	%rbx
-	.cfi_def_cfa_offset 24
+	.cfi_def_cfa_offset 48
 	popq	%rbp
-	.cfi_def_cfa_offset 16
+	.cfi_def_cfa_offset 40
 	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
 	.cfi_def_cfa_offset 8
 	ret
 	.p2align 4,,10
@@ -500,10 +517,13 @@ _ZN10gui_slider6UpdateEv:
 _ZN10gui_slider6UpdateEv.cold:
 .LFSB8162:
 .L18:
-	.cfi_def_cfa_offset 96
-	.cfi_offset 3, -32
-	.cfi_offset 6, -24
-	.cfi_offset 12, -16
+	.cfi_def_cfa_offset 128
+	.cfi_offset 3, -56
+	.cfi_offset 6, -48
+	.cfi_offset 12, -40
+	.cfi_offset 13, -32
+	.cfi_offset 14, -24
+	.cfi_offset 15, -16
 	movq	%rbp, %rdi
 	call	_ZN3neo6stringD1Ev@PLT
 	movq	56(%rsp), %rax

@@ -62,10 +62,8 @@ _ZN4gameC2EPN3wze6engineE:
 	testb	%al, %al
 	je	.L2
 	movq	16(%rsi), %rax
-	movq	.LC3(%rip), %rdi
-	movl	$60, %edx
-	movq	%rdi, (%rax)
-	movw	%dx, 8(%rax)
+	movapd	.LC3(%rip), %xmm0
+	movups	%xmm0, (%rax)
 .L2:
 	leaq	24(%rsi), %rbx
 	movl	$128, %r8d
@@ -768,10 +766,12 @@ _ZN4game11SwitchSceneE5scene.cold:
 .LC1:
 	.long	0
 	.long	1081073664
-	.align 8
+	.align 16
 .LC3:
 	.long	0
 	.long	1078525952
+	.long	0
+	.long	1078853632
 	.align 8
 .LC5:
 	.long	-1717986918
