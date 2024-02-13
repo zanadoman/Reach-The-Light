@@ -1,6 +1,6 @@
 #include "../RTL.hpp"
 
-menu_btn::menu_btn(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, const char* Literal) : Engine(Engine), Game(Game)
+gui_button::gui_button(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, const char* Literal) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, Width, Height, 0);
     this->Overlapbox = this->Actor->Overlapboxes.New(BOX_NONE);
@@ -21,12 +21,12 @@ menu_btn::menu_btn(engine* Engine, game* Game, double X, double Y, uint16 Width,
     this->Textbox->SetHeight(Height * 0.5);
 }
 
-menu_btn::~menu_btn()
+gui_button::~gui_button()
 {
     this->Engine->Actors.Delete(this->Actor->GetID());
 }
 
-bool menu_btn::Update()
+bool gui_button::Update()
 {
     if (this->Overlapbox->GetButtonState() & BTN_HOVERED)
     {

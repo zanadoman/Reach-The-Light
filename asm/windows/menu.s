@@ -128,7 +128,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movl	$100, 48(%rsp)
 	movl	$300, 40(%rsp)
 	movq	8(%rbx), %r8
-	call	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc
 .LEHE1:
 	movq	%rsi, 40(%rbx)
 	movl	$64, %ecx
@@ -153,7 +153,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movl	$100, 48(%rsp)
 	movl	$300, 40(%rsp)
 	movq	8(%rbx), %r8
-	call	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc
 .LEHE3:
 	movq	%rsi, 48(%rbx)
 	movl	$64, %ecx
@@ -177,7 +177,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movl	$100, 48(%rsp)
 	movl	$300, 40(%rsp)
 	movq	8(%rbx), %r8
-	call	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc
 .LEHE5:
 	movq	%rsi, 56(%rbx)
 	movl	$64, %ecx
@@ -201,7 +201,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movl	$100, 48(%rsp)
 	movl	$300, 40(%rsp)
 	movq	8(%rbx), %r8
-	call	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc
 .LEHE7:
 	movq	%rsi, 64(%rbx)
 	movl	$104, %ecx
@@ -232,7 +232,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movl	$500, 40(%rsp)
 	movsd	%xmm6, 32(%rsp)
 	movq	8(%rbx), %r8
-	call	_ZN17horizontal_sliderC1EPN3wze6engineEP4gameddttPKcddd
+	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd
 .LEHE9:
 	movq	%rsi, 72(%rbx)
 	movl	$104, %ecx
@@ -267,7 +267,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movq	%rax, 56(%rsp)
 	movsd	%xmm6, 32(%rsp)
 	movq	8(%rbx), %r8
-	call	_ZN17horizontal_sliderC1EPN3wze6engineEP4gameddttPKcddd
+	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd
 .LEHE11:
 	movq	8(%rbx), %rax
 	movq	%rsi, 80(%rbx)
@@ -474,7 +474,7 @@ _ZN4menuD2Ev:
 	testq	%rsi, %rsi
 	je	.L17
 	movq	%rsi, %rcx
-	call	_ZN8menu_btnD1Ev
+	call	_ZN10gui_buttonD1Ev
 	movl	$64, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
@@ -483,7 +483,7 @@ _ZN4menuD2Ev:
 	testq	%rsi, %rsi
 	je	.L18
 	movq	%rsi, %rcx
-	call	_ZN8menu_btnD1Ev
+	call	_ZN10gui_buttonD1Ev
 	movl	$64, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
@@ -492,7 +492,7 @@ _ZN4menuD2Ev:
 	testq	%rsi, %rsi
 	je	.L19
 	movq	%rsi, %rcx
-	call	_ZN8menu_btnD1Ev
+	call	_ZN10gui_buttonD1Ev
 	movl	$64, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
@@ -501,7 +501,7 @@ _ZN4menuD2Ev:
 	testq	%rsi, %rsi
 	je	.L20
 	movq	%rsi, %rcx
-	call	_ZN8menu_btnD1Ev
+	call	_ZN10gui_buttonD1Ev
 	movl	$64, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
@@ -510,7 +510,7 @@ _ZN4menuD2Ev:
 	testq	%rbx, %rbx
 	je	.L16
 	movq	%rbx, %rcx
-	call	_ZN17horizontal_sliderD1Ev
+	call	_ZN10gui_sliderD1Ev
 	movl	$104, %edx
 	movq	%rbx, %rcx
 	addq	$40, %rsp
@@ -556,13 +556,13 @@ _ZN4menu6UpdateEv:
 	.seh_endprologue
 	movq	%rcx, %rbx
 	movq	40(%rcx), %rcx
-	call	_ZN8menu_btn6UpdateEv
+	call	_ZN10gui_button6UpdateEv
 	movq	48(%rbx), %rcx
-	call	_ZN8menu_btn6UpdateEv
+	call	_ZN10gui_button6UpdateEv
 	movq	56(%rbx), %rcx
-	call	_ZN8menu_btn6UpdateEv
+	call	_ZN10gui_button6UpdateEv
 	movq	64(%rbx), %rcx
-	call	_ZN8menu_btn6UpdateEv
+	call	_ZN10gui_button6UpdateEv
 	movl	%eax, %edx
 	xorl	%eax, %eax
 	testb	%dl, %dl
@@ -572,7 +572,7 @@ _ZN4menu6UpdateEv:
 	leaq	160(%rax), %rsi
 	movq	8(%rbx), %rax
 	movq	16(%rax), %rdi
-	call	_ZN17horizontal_slider6UpdateEv
+	call	_ZN10gui_slider6UpdateEv
 	movq	%rsi, %rcx
 	movsd	%xmm0, (%rdi)
 	movapd	%xmm0, %xmm1
@@ -581,7 +581,7 @@ _ZN4menu6UpdateEv:
 	movq	(%rbx), %rax
 	movq	80(%rbx), %rcx
 	leaq	392(%rax), %rsi
-	call	_ZN17horizontal_slider6UpdateEv
+	call	_ZN10gui_slider6UpdateEv
 	call	round
 	movq	8(%rbx), %rax
 	xorl	%edx, %edx
@@ -640,18 +640,18 @@ _ZN4menu6UpdateEv:
 	.def	_Znwy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetXEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc;	.scl	2;	.type	32;	.endef
-	.def	_ZN17horizontal_sliderC1EPN3wze6engineEP4gameddttPKcddd;	.scl	2;	.type	32;	.endef
+	.def	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc;	.scl	2;	.type	32;	.endef
+	.def	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt;	.scl	2;	.type	32;	.endef
 	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
-	.def	_ZN8menu_btnD1Ev;	.scl	2;	.type	32;	.endef
-	.def	_ZN17horizontal_sliderD1Ev;	.scl	2;	.type	32;	.endef
-	.def	_ZN8menu_btn6UpdateEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN17horizontal_slider6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN10gui_buttonD1Ev;	.scl	2;	.type	32;	.endef
+	.def	_ZN10gui_sliderD1Ev;	.scl	2;	.type	32;	.endef
+	.def	_ZN10gui_button6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN10gui_slider6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5audio15SetGlobalVolumeEd;	.scl	2;	.type	32;	.endef
 	.def	round;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing18SetTargetFrameTimeEh;	.scl	2;	.type	32;	.endef

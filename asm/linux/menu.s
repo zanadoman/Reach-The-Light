@@ -91,7 +91,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movsd	(%rsp), %xmm1
 	leaq	.LC3(%rip), %r9
 	movl	$300, %ecx
-	call	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc@PLT
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc@PLT
 .LEHE1:
 	movq	%rbp, 40(%rbx)
 	movl	$64, %edi
@@ -113,7 +113,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movsd	(%rsp), %xmm1
 	leaq	.LC5(%rip), %r9
 	movl	$300, %ecx
-	call	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc@PLT
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc@PLT
 .LEHE3:
 	movq	%rbp, 48(%rbx)
 	movl	$64, %edi
@@ -135,7 +135,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movsd	(%rsp), %xmm1
 	leaq	.LC6(%rip), %r9
 	movl	$300, %ecx
-	call	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc@PLT
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc@PLT
 .LEHE5:
 	movq	%rbp, 56(%rbx)
 	movl	$64, %edi
@@ -157,7 +157,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movsd	(%rsp), %xmm1
 	leaq	.LC7(%rip), %r9
 	movl	$300, %ecx
-	call	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc@PLT
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc@PLT
 .LEHE7:
 	movq	%rbp, 64(%rbx)
 	movl	$104, %edi
@@ -186,7 +186,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	leaq	.LC10(%rip), %r9
 	movsd	.LC9(%rip), %xmm3
 	movl	$20, %r8d
-	call	_ZN17horizontal_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT
+	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT
 .LEHE9:
 	movq	%rbp, 72(%rbx)
 	movl	$104, %edi
@@ -217,7 +217,7 @@ _ZN4menuC2EPN3wze6engineEP4game:
 	movl	$500, %ecx
 	movsd	.LC13(%rip), %xmm2
 	movsd	8(%rsp), %xmm1
-	call	_ZN17horizontal_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT
+	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT
 .LEHE11:
 	movq	8(%rbx), %rax
 	movq	%rbp, 80(%rbx)
@@ -427,7 +427,7 @@ _ZN4menuD2Ev:
 	testq	%rbp, %rbp
 	je	.L17
 	movq	%rbp, %rdi
-	call	_ZN8menu_btnD1Ev@PLT
+	call	_ZN10gui_buttonD1Ev@PLT
 	movl	$64, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
@@ -436,7 +436,7 @@ _ZN4menuD2Ev:
 	testq	%rbp, %rbp
 	je	.L18
 	movq	%rbp, %rdi
-	call	_ZN8menu_btnD1Ev@PLT
+	call	_ZN10gui_buttonD1Ev@PLT
 	movl	$64, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
@@ -445,7 +445,7 @@ _ZN4menuD2Ev:
 	testq	%rbp, %rbp
 	je	.L19
 	movq	%rbp, %rdi
-	call	_ZN8menu_btnD1Ev@PLT
+	call	_ZN10gui_buttonD1Ev@PLT
 	movl	$64, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
@@ -454,7 +454,7 @@ _ZN4menuD2Ev:
 	testq	%rbp, %rbp
 	je	.L20
 	movq	%rbp, %rdi
-	call	_ZN8menu_btnD1Ev@PLT
+	call	_ZN10gui_buttonD1Ev@PLT
 	movl	$64, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
@@ -463,7 +463,7 @@ _ZN4menuD2Ev:
 	testq	%rbx, %rbx
 	je	.L16
 	movq	%rbx, %rdi
-	call	_ZN17horizontal_sliderD1Ev@PLT
+	call	_ZN10gui_sliderD1Ev@PLT
 	addq	$8, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
@@ -517,13 +517,13 @@ _ZN4menu6UpdateEv:
 	.cfi_offset 3, -32
 	movq	%rdi, %rbx
 	movq	40(%rdi), %rdi
-	call	_ZN8menu_btn6UpdateEv@PLT
+	call	_ZN10gui_button6UpdateEv@PLT
 	movq	48(%rbx), %rdi
-	call	_ZN8menu_btn6UpdateEv@PLT
+	call	_ZN10gui_button6UpdateEv@PLT
 	movq	56(%rbx), %rdi
-	call	_ZN8menu_btn6UpdateEv@PLT
+	call	_ZN10gui_button6UpdateEv@PLT
 	movq	64(%rbx), %rdi
-	call	_ZN8menu_btn6UpdateEv@PLT
+	call	_ZN10gui_button6UpdateEv@PLT
 	movl	%eax, %edx
 	xorl	%eax, %eax
 	testb	%dl, %dl
@@ -533,7 +533,7 @@ _ZN4menu6UpdateEv:
 	leaq	160(%rax), %rbp
 	movq	8(%rbx), %rax
 	movq	16(%rax), %r12
-	call	_ZN17horizontal_slider6UpdateEv@PLT
+	call	_ZN10gui_slider6UpdateEv@PLT
 	movq	%rbp, %rdi
 	movsd	%xmm0, (%r12)
 	divsd	.LC9(%rip), %xmm0
@@ -541,7 +541,7 @@ _ZN4menu6UpdateEv:
 	movq	(%rbx), %rax
 	movq	80(%rbx), %rdi
 	leaq	392(%rax), %rbp
-	call	_ZN17horizontal_slider6UpdateEv@PLT
+	call	_ZN10gui_slider6UpdateEv@PLT
 	call	round@PLT
 	movq	8(%rbx), %rax
 	xorl	%edx, %edx

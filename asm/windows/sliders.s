@@ -7,10 +7,10 @@
 .LHOTB6:
 	.align 2
 	.p2align 4
-	.globl	_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd
-	.def	_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd
-_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd:
+	.globl	_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd
+	.def	_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd
+_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 .LFB8432:
 	pushq	%r12
 	.seh_pushreg	%r12
@@ -219,8 +219,8 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	.text
 	.seh_endproc
 	.section	.text.unlikely,"x"
-	.def	_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold;	.scl	3;	.type	32;	.endef
-	.seh_proc	_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold
+	.def	_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold
 	.seh_stackalloc	184
 	.seh_savereg	%rbx, 144
 	.seh_savereg	%rsi, 152
@@ -231,7 +231,7 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	.seh_savereg	%r12, 176
 	.seh_savexmm	%xmm8, 128
 	.seh_endprologue
-_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold:
+_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold:
 .L2:
 	movq	%rsi, %rcx
 	call	_ZN3neo6stringD1Ev
@@ -260,15 +260,15 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold:
 .LCOLDE6:
 	.text
 .LHOTE6:
-	.globl	_ZN17horizontal_sliderC1EPN3wze6engineEP4gameddttPKcddd
-	.def	_ZN17horizontal_sliderC1EPN3wze6engineEP4gameddttPKcddd;	.scl	2;	.type	32;	.endef
-	.set	_ZN17horizontal_sliderC1EPN3wze6engineEP4gameddttPKcddd,_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd
+	.globl	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd
+	.def	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd;	.scl	2;	.type	32;	.endef
+	.set	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd,_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd
 	.align 2
 	.p2align 4
-	.globl	_ZN17horizontal_sliderD2Ev
-	.def	_ZN17horizontal_sliderD2Ev;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN17horizontal_sliderD2Ev
-_ZN17horizontal_sliderD2Ev:
+	.globl	_ZN10gui_sliderD2Ev
+	.def	_ZN10gui_sliderD2Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN10gui_sliderD2Ev
+_ZN10gui_sliderD2Ev:
 .LFB8435:
 	pushq	%rsi
 	.seh_pushreg	%rsi
@@ -301,9 +301,9 @@ _ZN17horizontal_sliderD2Ev:
 .LLSDACSE8435:
 	.text
 	.seh_endproc
-	.globl	_ZN17horizontal_sliderD1Ev
-	.def	_ZN17horizontal_sliderD1Ev;	.scl	2;	.type	32;	.endef
-	.set	_ZN17horizontal_sliderD1Ev,_ZN17horizontal_sliderD2Ev
+	.globl	_ZN10gui_sliderD1Ev
+	.def	_ZN10gui_sliderD1Ev;	.scl	2;	.type	32;	.endef
+	.set	_ZN10gui_sliderD1Ev,_ZN10gui_sliderD2Ev
 	.section .rdata,"dr"
 .LC7:
 	.ascii ": \0"
@@ -314,10 +314,10 @@ _ZN17horizontal_sliderD2Ev:
 .LHOTB8:
 	.align 2
 	.p2align 4
-	.globl	_ZN17horizontal_slider6UpdateEv
-	.def	_ZN17horizontal_slider6UpdateEv;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN17horizontal_slider6UpdateEv
-_ZN17horizontal_slider6UpdateEv:
+	.globl	_ZN10gui_slider6UpdateEv
+	.def	_ZN10gui_slider6UpdateEv;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN10gui_slider6UpdateEv
+_ZN10gui_slider6UpdateEv:
 .LFB8437:
 	pushq	%rdi
 	.seh_pushreg	%rdi
@@ -456,8 +456,8 @@ _ZN17horizontal_slider6UpdateEv:
 	.text
 	.seh_endproc
 	.section	.text.unlikely,"x"
-	.def	_ZN17horizontal_slider6UpdateEv.cold;	.scl	3;	.type	32;	.endef
-	.seh_proc	_ZN17horizontal_slider6UpdateEv.cold
+	.def	_ZN10gui_slider6UpdateEv.cold;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN10gui_slider6UpdateEv.cold
 	.seh_stackalloc	168
 	.seh_savereg	%rbx, 144
 	.seh_savereg	%rsi, 152
@@ -465,7 +465,7 @@ _ZN17horizontal_slider6UpdateEv:
 	.seh_savexmm	%xmm6, 112
 	.seh_savexmm	%xmm7, 128
 	.seh_endprologue
-_ZN17horizontal_slider6UpdateEv.cold:
+_ZN10gui_slider6UpdateEv.cold:
 .L12:
 	movq	%rsi, %rcx
 	call	_ZN3neo6stringD1Ev

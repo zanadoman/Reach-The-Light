@@ -4,12 +4,12 @@ menu::menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, this->Engine->Window.GetWidth() >> 1, this->Engine->Window.GetHeight() >> 1, 0, 0, 0);
     this->Title = this->Actor->Textboxes.New("Reach The Light", this->Game->Assets->HackBoldItalicFont);
-    this->btnPlay = new menu_btn(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() + 225, 300, 100, "Játék");
-    this->btnEditor = new menu_btn(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() + 75, 300, 100, "Pinceditor");
-    this->btnCredits = new menu_btn(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 75, 300, 100, "Készítők");
-    this->btnQuit = new menu_btn(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 225, 300, 100, "Kilép");
-    this->hsVolume = new horizontal_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 425, 500, 20, "Hangerő", 0, 100, this->Game->Settings->Volume);
-    this->hsFrameRate = new horizontal_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 500, 500, 20, "FPS", 1, 1000, this->Game->Settings->FrameRate);
+    this->btnPlay = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() + 225, 300, 100, "Játék");
+    this->btnEditor = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() + 75, 300, 100, "Pinceditor");
+    this->btnCredits = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 75, 300, 100, "Készítők");
+    this->btnQuit = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 225, 300, 100, "Kilép");
+    this->hsVolume = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 425, 500, 20, "Hangerő", 0, 100, this->Game->Settings->Volume);
+    this->hsFrameRate = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 500, 500, 20, "FPS", 1, 1000, this->Game->Settings->FrameRate);
 
     printf("%d\n", this->Game->Settings->FrameRate);
 

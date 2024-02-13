@@ -12,8 +12,8 @@ struct assets;
 struct settings;
 struct map;
 struct menu;
-struct menu_btn;
-struct horizontal_slider;
+struct gui_button;
+struct gui_slider;
 
 typedef enum
 {
@@ -76,12 +76,12 @@ struct menu
 
     engine::actor Actor;
     engine::textbox Title;
-    menu_btn* btnPlay;
-    menu_btn* btnEditor;
-    menu_btn* btnCredits;
-    menu_btn* btnQuit;
-    horizontal_slider* hsVolume;
-    horizontal_slider* hsFrameRate;
+    gui_button* btnPlay;
+    gui_button* btnEditor;
+    gui_button* btnCredits;
+    gui_button* btnQuit;
+    gui_slider* hsVolume;
+    gui_slider* hsFrameRate;
     menu(engine* Engine, game* Game);
     ~menu();
     scene Update();
@@ -89,7 +89,7 @@ struct menu
 
 //__________GUI______________________________________________________________________________________
 
-struct menu_btn
+struct gui_button
 {
     engine* Engine;
     game* Game;
@@ -101,12 +101,12 @@ struct menu_btn
     uint16 Width;
     uint16 Height;
     double size;
-    menu_btn(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, const char* Literal);
-    ~menu_btn();
+    gui_button(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, const char* Literal);
+    ~gui_button();
     bool Update();
 };
 
-struct horizontal_slider
+struct gui_slider
 {
     engine* Engine;
     game* Game;
@@ -121,7 +121,7 @@ struct horizontal_slider
     double IndicatorMaxX;
     double Min;
     double Max;
-    horizontal_slider(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, const char* Literal, double Min, double Max, double Value);
-    ~horizontal_slider();
+    gui_slider(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, const char* Literal, double Min, double Max, double Value);
+    ~gui_slider();
     double Update();
 };

@@ -2,10 +2,10 @@
 	.text
 	.align 2
 	.p2align 4
-	.globl	_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc
-	.def	_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc
-_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc:
+	.globl	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc
+	.def	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc
+_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc:
 .LFB8432:
 	pushq	%r12
 	.seh_pushreg	%r12
@@ -83,15 +83,15 @@ _ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc:
 	popq	%r12
 	jmp	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
 	.seh_endproc
-	.globl	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc
-	.def	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc;	.scl	2;	.type	32;	.endef
-	.set	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc,_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc
+	.globl	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc
+	.def	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc;	.scl	2;	.type	32;	.endef
+	.set	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc,_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc
 	.align 2
 	.p2align 4
-	.globl	_ZN8menu_btnD2Ev
-	.def	_ZN8menu_btnD2Ev;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN8menu_btnD2Ev
-_ZN8menu_btnD2Ev:
+	.globl	_ZN10gui_buttonD2Ev
+	.def	_ZN10gui_buttonD2Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN10gui_buttonD2Ev
+_ZN10gui_buttonD2Ev:
 .LFB8435:
 	pushq	%rbx
 	.seh_pushreg	%rbx
@@ -121,15 +121,15 @@ _ZN8menu_btnD2Ev:
 .LLSDACSE8435:
 	.text
 	.seh_endproc
-	.globl	_ZN8menu_btnD1Ev
-	.def	_ZN8menu_btnD1Ev;	.scl	2;	.type	32;	.endef
-	.set	_ZN8menu_btnD1Ev,_ZN8menu_btnD2Ev
+	.globl	_ZN10gui_buttonD1Ev
+	.def	_ZN10gui_buttonD1Ev;	.scl	2;	.type	32;	.endef
+	.set	_ZN10gui_buttonD1Ev,_ZN10gui_buttonD2Ev
 	.align 2
 	.p2align 4
-	.globl	_ZN8menu_btn6UpdateEv
-	.def	_ZN8menu_btn6UpdateEv;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN8menu_btn6UpdateEv
-_ZN8menu_btn6UpdateEv:
+	.globl	_ZN10gui_button6UpdateEv
+	.def	_ZN10gui_button6UpdateEv;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN10gui_button6UpdateEv
+_ZN10gui_button6UpdateEv:
 .LFB8437:
 	pushq	%rbx
 	.seh_pushreg	%rbx

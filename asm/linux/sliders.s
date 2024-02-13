@@ -7,9 +7,9 @@
 .LHOTB6:
 	.align 2
 	.p2align 4
-	.globl	_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd
-	.type	_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd, @function
-_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd:
+	.globl	_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd
+	.type	_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd, @function
+_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 .LFB8157:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
@@ -239,8 +239,8 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
 	.cfi_lsda 0x1b,.LLSDAC8157
-	.type	_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold, @function
-_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold:
+	.type	_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold, @function
+_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold:
 .LFSB8157:
 .L2:
 	.cfi_def_cfa_offset 128
@@ -277,19 +277,19 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold:
 .LLSDACSEC8157:
 	.section	.text.unlikely
 	.text
-	.size	_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd, .-_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd
+	.size	_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd, .-_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd
 	.section	.text.unlikely
-	.size	_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold, .-_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold
+	.size	_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold, .-_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold
 .LCOLDE6:
 	.text
 .LHOTE6:
-	.globl	_ZN17horizontal_sliderC1EPN3wze6engineEP4gameddttPKcddd
-	.set	_ZN17horizontal_sliderC1EPN3wze6engineEP4gameddttPKcddd,_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd
+	.globl	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd
+	.set	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd,_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd
 	.align 2
 	.p2align 4
-	.globl	_ZN17horizontal_sliderD2Ev
-	.type	_ZN17horizontal_sliderD2Ev, @function
-_ZN17horizontal_sliderD2Ev:
+	.globl	_ZN10gui_sliderD2Ev
+	.type	_ZN10gui_sliderD2Ev, @function
+_ZN10gui_sliderD2Ev:
 .LFB8160:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
@@ -329,9 +329,9 @@ _ZN17horizontal_sliderD2Ev:
 .LLSDACSB8160:
 .LLSDACSE8160:
 	.text
-	.size	_ZN17horizontal_sliderD2Ev, .-_ZN17horizontal_sliderD2Ev
-	.globl	_ZN17horizontal_sliderD1Ev
-	.set	_ZN17horizontal_sliderD1Ev,_ZN17horizontal_sliderD2Ev
+	.size	_ZN10gui_sliderD2Ev, .-_ZN10gui_sliderD2Ev
+	.globl	_ZN10gui_sliderD1Ev
+	.set	_ZN10gui_sliderD1Ev,_ZN10gui_sliderD2Ev
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .LC7:
 	.string	": "
@@ -342,9 +342,9 @@ _ZN17horizontal_sliderD2Ev:
 .LHOTB8:
 	.align 2
 	.p2align 4
-	.globl	_ZN17horizontal_slider6UpdateEv
-	.type	_ZN17horizontal_slider6UpdateEv, @function
-_ZN17horizontal_slider6UpdateEv:
+	.globl	_ZN10gui_slider6UpdateEv
+	.type	_ZN10gui_slider6UpdateEv, @function
+_ZN10gui_slider6UpdateEv:
 .LFB8162:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
@@ -496,8 +496,8 @@ _ZN17horizontal_slider6UpdateEv:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
 	.cfi_lsda 0x1b,.LLSDAC8162
-	.type	_ZN17horizontal_slider6UpdateEv.cold, @function
-_ZN17horizontal_slider6UpdateEv.cold:
+	.type	_ZN10gui_slider6UpdateEv.cold, @function
+_ZN10gui_slider6UpdateEv.cold:
 .LFSB8162:
 .L18:
 	.cfi_def_cfa_offset 96
@@ -531,9 +531,9 @@ _ZN17horizontal_slider6UpdateEv.cold:
 .LLSDACSEC8162:
 	.section	.text.unlikely
 	.text
-	.size	_ZN17horizontal_slider6UpdateEv, .-_ZN17horizontal_slider6UpdateEv
+	.size	_ZN10gui_slider6UpdateEv, .-_ZN10gui_slider6UpdateEv
 	.section	.text.unlikely
-	.size	_ZN17horizontal_slider6UpdateEv.cold, .-_ZN17horizontal_slider6UpdateEv.cold
+	.size	_ZN10gui_slider6UpdateEv.cold, .-_ZN10gui_slider6UpdateEv.cold
 .LCOLDE8:
 	.text
 .LHOTE8:

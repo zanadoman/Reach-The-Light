@@ -2,9 +2,9 @@
 	.text
 	.align 2
 	.p2align 4
-	.globl	_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc
-	.type	_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc, @function
-_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc:
+	.globl	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc
+	.type	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc, @function
+_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc:
 .LFB8157:
 	.cfi_startproc
 	pushq	%r14
@@ -88,14 +88,14 @@ _ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc:
 	jmp	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
 	.cfi_endproc
 .LFE8157:
-	.size	_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc, .-_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc
-	.globl	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc
-	.set	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc,_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc
+	.size	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc, .-_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc
+	.globl	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc
+	.set	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc,_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc
 	.align 2
 	.p2align 4
-	.globl	_ZN8menu_btnD2Ev
-	.type	_ZN8menu_btnD2Ev, @function
-_ZN8menu_btnD2Ev:
+	.globl	_ZN10gui_buttonD2Ev
+	.type	_ZN10gui_buttonD2Ev, @function
+_ZN10gui_buttonD2Ev:
 .LFB8160:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
@@ -125,14 +125,14 @@ _ZN8menu_btnD2Ev:
 .LLSDACSB8160:
 .LLSDACSE8160:
 	.text
-	.size	_ZN8menu_btnD2Ev, .-_ZN8menu_btnD2Ev
-	.globl	_ZN8menu_btnD1Ev
-	.set	_ZN8menu_btnD1Ev,_ZN8menu_btnD2Ev
+	.size	_ZN10gui_buttonD2Ev, .-_ZN10gui_buttonD2Ev
+	.globl	_ZN10gui_buttonD1Ev
+	.set	_ZN10gui_buttonD1Ev,_ZN10gui_buttonD2Ev
 	.align 2
 	.p2align 4
-	.globl	_ZN8menu_btn6UpdateEv
-	.type	_ZN8menu_btn6UpdateEv, @function
-_ZN8menu_btn6UpdateEv:
+	.globl	_ZN10gui_button6UpdateEv
+	.type	_ZN10gui_button6UpdateEv, @function
+_ZN10gui_button6UpdateEv:
 .LFB8162:
 	.cfi_startproc
 	pushq	%rbx
@@ -236,7 +236,7 @@ _ZN8menu_btn6UpdateEv:
 	jmp	.L15
 	.cfi_endproc
 .LFE8162:
-	.size	_ZN8menu_btn6UpdateEv, .-_ZN8menu_btn6UpdateEv
+	.size	_ZN10gui_button6UpdateEv, .-_ZN10gui_button6UpdateEv
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC1:
