@@ -542,6 +542,7 @@ _ZN4menu6UpdateEv:
 	movq	80(%rbx), %rdi
 	leaq	392(%rax), %rbp
 	call	_ZN17horizontal_slider6UpdateEv@PLT
+	call	round@PLT
 	movq	8(%rbx), %rax
 	xorl	%edx, %edx
 	movq	%rbp, %rdi
