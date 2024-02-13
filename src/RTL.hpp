@@ -3,10 +3,11 @@
 using namespace neo;
 using namespace wze;
 
+struct game;
+struct settings;
 struct assets;
 struct menu;
 struct menu_btn;
-struct menu_slider;
 struct horizontal_slider;
 
 typedef enum
@@ -23,6 +24,20 @@ typedef enum
 {
     BOX_NONE
 } overlapbox;
+
+struct game
+{
+    engine* Engine;
+    
+    settings* Settings;
+    assets* Assets;
+    scene ActiveScene;
+    menu* Menu;
+    game(engine* Engine);
+    ~game();
+    uint8 Update();
+    uint8 SwitchScene(scene NewScene);
+};
 
 struct settings
 {
@@ -43,6 +58,8 @@ struct assets
     ~assets();
 };
 
+//__________SCENES___________________________________________________________________________________
+
 struct menu
 {
     engine* Engine;
@@ -61,6 +78,8 @@ struct menu
     ~menu();
     scene Update();
 };
+
+//__________GUI______________________________________________________________________________________
 
 struct menu_btn
 {
