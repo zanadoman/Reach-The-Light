@@ -2,17 +2,19 @@
 	.text
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .LC0:
+	.string	"assets/presskit.png"
+.LC1:
 	.string	"assets/fonts/Hack-Bold.ttf"
 	.section	.rodata.str1.8,"aMS",@progbits,1
 	.align 8
-.LC1:
+.LC2:
 	.string	"assets/fonts/Hack-BoldItalic.ttf"
 	.section	.rodata.str1.1
-.LC2:
-	.string	"assets/fonts/Hack-Italic.ttf"
 .LC3:
-	.string	"assets/fonts/Hack-Regular.ttf"
+	.string	"assets/fonts/Hack-Italic.ttf"
 .LC4:
+	.string	"assets/fonts/Hack-Regular.ttf"
+.LC5:
 	.string	"assets/gui/menu_btn.png"
 	.text
 	.align 2
@@ -29,9 +31,8 @@ _ZN6assetsC2EPN3wze6engineEP4game:
 	movq	%rsi, (%rdi)
 	movq	%rdx, 8(%rdi)
 	leaq	320(%rsi), %rdi
-	movl	$72, %edx
 	leaq	.LC0(%rip), %rsi
-	call	_ZN3wze6engine6assets8LoadFontEPKch@PLT
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
 	movl	$72, %edx
 	leaq	.LC1(%rip), %rsi
 	movq	%rax, 16(%rbx)
@@ -50,12 +51,18 @@ _ZN6assetsC2EPN3wze6engineEP4game:
 	movq	(%rbx), %rax
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine6assets8LoadFontEPKch@PLT
+	movl	$72, %edx
 	leaq	.LC4(%rip), %rsi
 	movq	%rax, 40(%rbx)
 	movq	(%rbx), %rax
 	leaq	320(%rax), %rdi
-	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	call	_ZN3wze6engine6assets8LoadFontEPKch@PLT
+	leaq	.LC5(%rip), %rsi
 	movq	%rax, 48(%rbx)
+	movq	(%rbx), %rax
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	movq	%rax, 56(%rbx)
 	popq	%rbx
 	.cfi_def_cfa_offset 8
 	ret

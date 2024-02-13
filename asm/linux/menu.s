@@ -15,13 +15,11 @@
 	.string	"Hanger\305\221"
 .LC14:
 	.string	"FPS"
-.LC15:
-	.string	"%d\n"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB16:
+.LCOLDB15:
 	.text
-.LHOTB16:
+.LHOTB15:
 	.align 2
 	.p2align 4
 	.globl	_ZN10scene_menuC2EPN3wze6engineEP4game
@@ -70,7 +68,7 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	movq	%rax, 24(%rbx)
 	leaq	104(%rax), %rdi
 	movq	8(%rdx), %rdx
-	movq	24(%rdx), %rdx
+	movq	32(%rdx), %rdx
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
 	movl	$64, %edi
 	movq	%rax, 32(%rbx)
@@ -219,16 +217,10 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	movsd	8(%rsp), %xmm1
 	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT
 .LEHE11:
-	movq	8(%rbx), %rax
 	movq	%rbp, 80(%rbx)
-	leaq	.LC15(%rip), %rdi
-	movq	16(%rax), %rax
-	movzwl	8(%rax), %esi
-	xorl	%eax, %eax
-.LEHB12:
-	call	printf@PLT
 	movq	24(%rbx), %rdi
 	movq	32(%rbx), %rbp
+.LEHB12:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	addsd	.LC11(%rip), %xmm0
 	movq	%rbp, %rdi
@@ -383,7 +375,7 @@ _ZN10scene_menuC2EPN3wze6engineEP4game.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB13-.LCOLDB16
+	.uleb128 .LEHB13-.LCOLDB15
 	.uleb128 .LEHE13-.LEHB13
 	.uleb128 0
 	.uleb128 0
@@ -393,9 +385,9 @@ _ZN10scene_menuC2EPN3wze6engineEP4game.cold:
 	.size	_ZN10scene_menuC2EPN3wze6engineEP4game, .-_ZN10scene_menuC2EPN3wze6engineEP4game
 	.section	.text.unlikely
 	.size	_ZN10scene_menuC2EPN3wze6engineEP4game.cold, .-_ZN10scene_menuC2EPN3wze6engineEP4game.cold
-.LCOLDE16:
+.LCOLDE15:
 	.text
-.LHOTE16:
+.LHOTE15:
 	.globl	_ZN10scene_menuC1EPN3wze6engineEP4game
 	.set	_ZN10scene_menuC1EPN3wze6engineEP4game,_ZN10scene_menuC2EPN3wze6engineEP4game
 	.align 2

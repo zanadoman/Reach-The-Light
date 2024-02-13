@@ -51,6 +51,7 @@ struct assets
     engine* Engine;
     game* Game;
 
+    uint64 PressKitTexture;
     uint64 HackBoldFont;
     uint64 HackBoldItalicFont;
     uint64 HackItalicFont;

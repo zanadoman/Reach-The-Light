@@ -2,6 +2,10 @@
 
 game::game(engine* Engine) : Engine(Engine)
 {
+    engine::actor Actor;
+    engine::texturebox Texturebox;
+    double opacity;
+
     this->Assets = new assets(Engine, this);
     this->Settings = new settings;
     if (memory::LoadTo("saves/settings.save", this->Settings, sizeof(settings)))
@@ -16,6 +20,45 @@ game::game(engine* Engine) : Engine(Engine)
             this->Map[i] = this->Engine->Random(1, 13);
         }
     }
+
+    Actor = this->Engine->Actors.New(NULL, ACT_NONE, this->Engine->Window.GetWidth() >> 1, this->Engine->Window.GetHeight() >> 1, this->Engine->Window.GetWidth(), this->Engine->Window.GetHeight(), 0);
+    Texturebox = Actor->Textureboxes.New(this->Assets->PressKitTexture);
+
+    Texturebox->ColorA = opacity = 0;
+
+    while (opacity <= 255)
+    {
+        Texturebox->ColorA = round(opacity);
+
+        if (!this->Engine->Update())
+        {
+            this->Engine->Actors.Delete(Actor->GetID());
+            this->ActiveScene = SCENE_MENU;
+            this->Menu = new scene_menu(Engine, this);
+            return;
+        }
+
+        opacity += 0.1 * this->Engine->Timing.GetDeltaTime();
+    }
+
+    Texturebox->ColorA = opacity = 255;
+
+    while (0 <= opacity)
+    {
+        Texturebox->ColorA = round(opacity);
+
+        if (!this->Engine->Update())
+        {
+            this->Engine->Actors.Delete(Actor->GetID());
+            this->ActiveScene = SCENE_MENU;
+            this->Menu = new scene_menu(Engine, this);
+            return;
+        }
+
+        opacity -= 0.1 * this->Engine->Timing.GetDeltaTime();
+    } 
+
+    this->Engine->Actors.Delete(Actor->GetID());
     this->ActiveScene = SCENE_MENU;
     this->Menu = new scene_menu(Engine, this);
 }
