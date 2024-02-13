@@ -1,5 +1,9 @@
 #include "../WizardEngine/WizardEngine.hpp"
 
+#ifdef _WIN64
+    #include <cmath>
+#endif
+
 using namespace neo;
 using namespace wze;
 
