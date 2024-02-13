@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Includes/NeoTypes++.hpp"
+#include "inc/NeoTypes++.hpp"
 
 #ifdef __linux__
     #include <SDL2/SDL.h>
@@ -11,11 +11,11 @@
 #endif
 
 #ifdef _WIN64
-    #include "Includes/SDL.h"
-    #include "Includes/SDL_image.h"
-    #include "Includes/SDL_mixer.h"
-    #include "Includes/SDL_ttf.h"
-    #include "Includes/SDL_net.h"
+    #include "inc/SDL.h"
+    #include "inc/SDL_image.h"
+    #include "inc/SDL_mixer.h"
+    #include "inc/SDL_ttf.h"
+    #include "inc/SDL_net.h"
     #undef main
 #endif
 
@@ -80,14 +80,12 @@ namespace wze
                 class token
                 {
                     friend class render;
-                    friend class neo::array<token>;
 
                     void* Data;
                     type Type;
                     double Layer;
                     neo::uint8 Priority;
                     SDL_Rect Area;
-                    token();
                     token(void* Data, type Type, double Layer, neo::uint8 Priority, SDL_Rect Area);
                 };
 
@@ -128,10 +126,10 @@ namespace wze
                 engine* Engine;
 
                 public:
-                    double GetX();
-                    double SetX(double X);
-                    double GetY();
-                    double SetY(double Y);
+                    double GetOriginX();
+                    double SetOriginX(double OriginX);
+                    double GetOriginY();
+                    double SetOriginY(double OriginY);
                     double GetOffsetX();
                     double SetOffsetX(double OffsetX);
                     double GetOffsetY();
@@ -148,9 +146,11 @@ namespace wze
                     neo::uint64 GetYActor();
 
                 private:
-                    double X;
-                    double Y;
+                    double OriginX;
+                    double OriginY;
+                    double BaseOffsetX;
                     double OffsetX;
+                    double BaseOffsetY;
                     double OffsetY;
                     double Zoom;
                     neo::uint64 XActor;
@@ -253,7 +253,7 @@ namespace wze
 
                     public:
 
-                        //__________Colors_____________________________________________________________________________
+                        //__________Colorboxes_________________________________________________________________________
 
                         class colorboxes
                         {
@@ -282,6 +282,10 @@ namespace wze
                                     double SetX(double X);
                                     double GetY();
                                     double SetY(double Y);
+                                    double GetOffsetLength();
+                                    double SetOffsetLength(double OffsetLength);
+                                    double GetOffsetAngle();
+                                    double SetOffsetAngle(double OffsetAngle);
 
                                 private:
                                     neo::uint64 ID;
@@ -306,7 +310,7 @@ namespace wze
                                 ~colorboxes();
                         } Colorboxes;
 
-                        //__________Textures___________________________________________________________________________
+                        //__________Textureboxes_______________________________________________________________________
 
                         class textureboxes
                         {
@@ -339,6 +343,10 @@ namespace wze
                                     double SetX(double X);
                                     double GetY();
                                     double SetY(double Y);
+                                    double GetOffsetLength();
+                                    double SetOffsetLength(double OffsetLength);
+                                    double GetOffsetAngle();
+                                    double SetOffsetAngle(double OffsetAngle);
                                     neo::uint64 GetTextureID();
                                     neo::uint64 SetTextureID(neo::uint64 TextureID);
 
@@ -401,6 +409,10 @@ namespace wze
                                     double SetX(double X);
                                     double GetY();
                                     double SetY(double Y);
+                                    double GetOffsetLength();
+                                    double SetOffsetLength(double OffsetLength);
+                                    double GetOffsetAngle();
+                                    double SetOffsetAngle(double OffsetAngle);
                                     neo::uint32 GetDelay();
                                     neo::uint32 SetDelay(neo::uint32 Delay);
                                     bool IsPlaying();
@@ -416,7 +428,8 @@ namespace wze
                                     neo::uint32 Delay;
                                     neo::uint64 CurrentFrame;
                                     neo::uint32 Remainder;
-                                    neo::array<neo::uint64> Textures;
+                                    neo::uint64 TexturesLength;
+                                    neo::uint64* Textures;
                                     flipbook(engine* Engine, actor* Actor, neo::uint64 ID, neo::uint32 Delay, std::initializer_list<neo::uint64> TextureIDs);
                                     flipbook(engine* Engine, actor* Actor, neo::uint64 ID, neo::uint32 Delay, neo::array<neo::uint64>* TextureIDs);
                                     ~flipbook();
@@ -436,7 +449,7 @@ namespace wze
                                 ~flipbooks();
                         } Flipbooks;
 
-                        //__________Texts______________________________________________________________________________
+                        //__________Textboxes__________________________________________________________________________
 
                         class textboxes
                         {
@@ -467,11 +480,15 @@ namespace wze
                                     double SetX(double X);
                                     double GetY();
                                     double SetY(double Y);
+                                    double GetOffsetLength();
+                                    double SetOffsetLength(double OffsetLength);
+                                    double GetOffsetAngle();
+                                    double SetOffsetAngle(double OffsetAngle);
                                     neo::uint16 GetWidth();
                                     neo::uint16 GetHeight();
                                     neo::uint16 SetHeight(neo::uint16);
-                                    const char* GetString();
-                                    const char* SetString(const char* String);
+                                    const char* GetLiteral();
+                                    const char* SetLiteral(const char* Literal);
                                     neo::uint64 GetFontID();
                                     neo::uint64 SetFontID(neo::uint64 FontID);
                                     style GetFontStyle();
@@ -489,13 +506,13 @@ namespace wze
                                     neo::uint64 FontID;
                                     style FontStyle;
                                     SDL_Texture* Texture;
-                                    textbox(engine* Engine, actor* Actor, neo::uint64 ID, const char* String, neo::uint64 FontID);
+                                    textbox(engine* Engine, actor* Actor, neo::uint64 ID, const char* Literal, neo::uint64 FontID);
                                     ~textbox();
                                     neo::uint8 UpdateTexture();
                             };
 
                             public:
-                                textbox* New(const char* String, neo::uint64 FontID);
+                                textbox* New(const char* Literal, neo::uint64 FontID);
                                 neo::uint8 Delete(neo::uint64 TextboxID);
                                 neo::uint8 Purge(std::initializer_list<neo::uint64> KeepTextboxIDs);
                                 neo::uint8 Purge(neo::array<neo::uint64>* KeepTextboxIDs);
@@ -532,6 +549,10 @@ namespace wze
                                     double SetX(double X);
                                     double GetY();
                                     double SetY(double Y);
+                                    double GetOffsetLength();
+                                    double SetOffsetLength(double OffsetLength);
+                                    double GetOffsetAngle();
+                                    double SetOffsetAngle(double OffsetAngle);
                                     neo::uint16 GetWidth();
                                     neo::uint16 SetWidth(neo::uint16 Width);
                                     neo::uint16 GetHeight();
@@ -787,6 +808,7 @@ namespace wze
             ~engine();
             bool Update();
             neo::uint8 Sleep(neo::uint32 Milliseconds);
+            template <typename type> static typename std::enable_if<std::is_arithmetic<type>::value, type>::type Clamp(type Value, type Limit1, type Limit2);
             neo::sint32 Random(neo::sint32 Min, neo::sint32 Max);
 
         private:
@@ -797,4 +819,34 @@ namespace wze
             neo::uint8 UpdateFlipbooks();
             neo::uint8 UpdateOverlapboxes();
     };
+
+    //__________Engine_________________________________________________________________________________________
+
+    template <typename type> typename std::enable_if<std::is_arithmetic<type>::value, type>::type engine::Clamp(type Value, type Limit1, type Limit2)
+    {
+        if (Limit1 < Limit2)
+        {
+            if (Value < Limit1)
+            {
+                return Limit1;
+            }
+            else if (Limit2 < Value)
+            {
+                return Limit2;
+            }
+        }
+        else if (Limit2 < Limit1)
+        {
+            if (Value < Limit2)
+            {
+                return Limit2;
+            }
+            else if (Limit1 < Value)
+            {
+                return Limit1;
+            }
+        }
+
+        return Value;
+    }
 }
