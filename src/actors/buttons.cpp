@@ -1,11 +1,11 @@
 #include "../RTL.hpp"
 
-menu_btn::menu_btn(engine* Engine, assets* Assets, double X, double Y, uint16 Width, uint16 Height, const char* Literal) : Engine(Engine), Assets(Assets)
+menu_btn::menu_btn(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, const char* Literal) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, Width, Height, 0);
     this->Overlapbox = this->Actor->Overlapboxes.New(BOX_NONE);
-    this->Texturebox = this->Actor->Textureboxes.New(this->Assets->menu_btnTexture);
-    this->Textbox = this->Actor->Textboxes.New(Literal, this->Assets->HackBoldFont);
+    this->Texturebox = this->Actor->Textureboxes.New(this->Game->Assets->menu_btnTexture);
+    this->Textbox = this->Actor->Textboxes.New(Literal, this->Game->Assets->HackBoldFont);
     this->Height = Height;
     this->Width = Width;
     this->size = 1;

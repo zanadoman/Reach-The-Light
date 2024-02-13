@@ -2,15 +2,10 @@
 
 game::game(engine* Engine) : Engine(Engine)
 {
-    if ((this->Settings = (settings*)memory::Load("settings.save", sizeof(settings))) == NULL)
-    {
-        this->Settings = new settings;
-        this->Settings->Volume = 50;
-        this->Settings->FrameRate = 60;
-    }
-    this->Assets = new assets(Engine);
+    this->Settings = new settings(Engine, this);
+    this->Assets = new assets(Engine, this);
     this->ActiveScene = SCENE_MENU;
-    this->Menu = new menu(Engine, this->Assets);
+    this->Menu = new menu(Engine, this);
 
     this->Engine->Audio.SetGlobalVolume(this->Settings->Volume / 100);
     this->Engine->Timing.SetTargetFrameTime(1000 / this->Settings->FrameRate);
@@ -62,7 +57,7 @@ uint8 game::SwitchScene(scene NewScene)
         switch (NewScene)
         {
             case SCENE_MENU:
-                this->Menu = new menu(this->Engine, this->Assets);
+                this->Menu = new menu(this->Engine, this);
             break;
         }
 

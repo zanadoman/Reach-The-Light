@@ -41,20 +41,26 @@ struct game
 
 struct settings
 {
+    engine* Engine;
+    game* Game;
+
     double Volume;
     uint16 FrameRate;
+    settings(engine* Engine, game* Game);
+    ~settings();
 };
 
 struct assets
 {
     engine* Engine;
+    game* Game;
 
     uint64 HackBoldFont;
     uint64 HackBoldItalicFont;
     uint64 HackItalicFont;
     uint64 HackRegularFont;
     uint64 menu_btnTexture;
-    assets(engine* Engine);
+    assets(engine* Engine, game* Game);
     ~assets();
 };
 
@@ -63,7 +69,7 @@ struct assets
 struct menu
 {
     engine* Engine;
-    assets* Assets;
+    game* Game;
     settings* Settings;
 
     engine::actor Actor;
@@ -74,7 +80,7 @@ struct menu
     menu_btn* btnQuit;
     horizontal_slider* hsVolume;
     horizontal_slider* hsFrameRate;
-    menu(engine* Engine, assets* Assets);
+    menu(engine* Engine, game* Game);
     ~menu();
     scene Update();
 };
@@ -84,7 +90,7 @@ struct menu
 struct menu_btn
 {
     engine* Engine;
-    assets* Assets;
+    game* Game;
 
     engine::actor Actor;
     engine::overlapbox Overlapbox;
@@ -93,7 +99,7 @@ struct menu_btn
     uint16 Width;
     uint16 Height;
     double size;
-    menu_btn(engine* Engine, assets* Assets, double X, double Y, uint16 Width, uint16 Height, const char* Literal);
+    menu_btn(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, const char* Literal);
     ~menu_btn();
     bool Update();
 };
@@ -101,7 +107,7 @@ struct menu_btn
 struct horizontal_slider
 {
     engine* Engine;
-    assets* Assets;
+    game* Game;
 
     engine::actor Actor;
     engine::overlapbox Overlapbox;
@@ -113,7 +119,7 @@ struct horizontal_slider
     double IndicatorMaxX;
     double Min;
     double Max;
-    horizontal_slider(engine* Engine, assets* Assets, double X, double Y, uint16 Width, uint16 Height, const char* Literal, double Min, double Max, double Value);
+    horizontal_slider(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, const char* Literal, double Min, double Max, double Value);
     ~horizontal_slider();
     double Update();
 };

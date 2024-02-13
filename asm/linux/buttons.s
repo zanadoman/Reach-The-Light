@@ -2,9 +2,9 @@
 	.text
 	.align 2
 	.p2align 4
-	.globl	_ZN8menu_btnC2EPN3wze6engineEP6assetsddttPKc
-	.type	_ZN8menu_btnC2EPN3wze6engineEP6assetsddttPKc, @function
-_ZN8menu_btnC2EPN3wze6engineEP6assetsddttPKc:
+	.globl	_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc
+	.type	_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc, @function
+_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc:
 .LFB8157:
 	.cfi_startproc
 	pushq	%r14
@@ -43,14 +43,16 @@ _ZN8menu_btnC2EPN3wze6engineEP6assetsddttPKc:
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	%rax, 24(%rbx)
 	movq	8(%rbx), %rax
-	movq	40(%rax), %rsi
+	movq	16(%rax), %rax
+	movq	48(%rax), %rsi
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	%r13, %rsi
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
-	movq	8(%rax), %rdx
+	movq	16(%rax), %rax
+	movq	16(%rax), %rdx
 	movq	16(%rbx), %rax
 	leaq	104(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
@@ -86,9 +88,9 @@ _ZN8menu_btnC2EPN3wze6engineEP6assetsddttPKc:
 	jmp	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
 	.cfi_endproc
 .LFE8157:
-	.size	_ZN8menu_btnC2EPN3wze6engineEP6assetsddttPKc, .-_ZN8menu_btnC2EPN3wze6engineEP6assetsddttPKc
-	.globl	_ZN8menu_btnC1EPN3wze6engineEP6assetsddttPKc
-	.set	_ZN8menu_btnC1EPN3wze6engineEP6assetsddttPKc,_ZN8menu_btnC2EPN3wze6engineEP6assetsddttPKc
+	.size	_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc, .-_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc
+	.globl	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc
+	.set	_ZN8menu_btnC1EPN3wze6engineEP4gameddttPKc,_ZN8menu_btnC2EPN3wze6engineEP4gameddttPKc
 	.align 2
 	.p2align 4
 	.globl	_ZN8menu_btnD2Ev

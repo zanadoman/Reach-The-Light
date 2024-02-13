@@ -1,6 +1,6 @@
 #include "RTL.hpp"
 
-assets::assets(engine* Engine) : Engine(Engine)
+assets::assets(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
     this->HackBoldFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Bold.ttf", 72);
     this->HackBoldItalicFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-BoldItalic.ttf", 72);

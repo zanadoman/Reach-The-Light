@@ -1,18 +1,15 @@
 	.file	"sliders.cpp"
 	.text
-	.section	.rodata.str1.1,"aMS",@progbits,1
-.LC6:
-	.string	"%lf\n"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB7:
+.LCOLDB6:
 	.text
-.LHOTB7:
+.LHOTB6:
 	.align 2
 	.p2align 4
-	.globl	_ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd
-	.type	_ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd, @function
-_ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd:
+	.globl	_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd
+	.type	_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd, @function
+_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 .LFB8157:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
@@ -20,7 +17,7 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd:
 	pushq	%r15
 	.cfi_def_cfa_offset 16
 	.cfi_offset 15, -16
-	movq	%xmm2, %r15
+	movq	%xmm3, %r15
 	pushq	%r14
 	.cfi_def_cfa_offset 24
 	.cfi_offset 14, -24
@@ -44,9 +41,9 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd:
 	subq	$72, %rsp
 	.cfi_def_cfa_offset 128
 	movsd	%xmm0, 40(%rsp)
-	movsd	%xmm1, 32(%rsp)
-	movsd	%xmm3, (%rsp)
-	movsd	%xmm4, 24(%rsp)
+	movsd	%xmm1, 16(%rsp)
+	movsd	%xmm2, 8(%rsp)
+	movsd	%xmm4, 32(%rsp)
 	movq	%fs:40, %rax
 	movq	%rax, 56(%rsp)
 	xorl	%eax, %eax
@@ -57,7 +54,7 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd:
 	call	_ZN3neo6stringC1Ev@PLT
 .LEHE0:
 	movq	(%rbx), %rax
-	movsd	32(%rsp), %xmm1
+	movsd	16(%rsp), %xmm1
 	xorl	%edx, %edx
 	movsd	40(%rsp), %xmm0
 	movzwl	%bp, %ecx
@@ -78,7 +75,8 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd:
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
 	movq	%r12, %rsi
-	movq	32(%rax), %rdx
+	movq	16(%rax), %rax
+	movq	40(%rax), %rdx
 	movq	16(%rbx), %rax
 	leaq	104(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
@@ -86,17 +84,18 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd:
 	movq	16(%rbx), %rax
 	leaq	8(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor10colorboxes3NewEv@PLT
+	movsd	8(%rsp), %xmm5
 	movq	%rax, 48(%rbx)
-	movq	%r15, %xmm5
-	leaq	48(%rsp), %rsi
+	movq	%r15, %xmm4
 	movq	%r14, %rdi
-	movhpd	(%rsp), %xmm5
+	leaq	48(%rsp), %rsi
 	movl	$1, %edx
 	movq	%r12, 48(%rsp)
-	movaps	%xmm5, (%rsp)
+	unpcklpd	%xmm4, %xmm5
+	movaps	%xmm5, 16(%rsp)
 	call	_ZN3neo6stringaSESt16initializer_listIPKcE@PLT
 	movq	32(%rbx), %rax
-	movapd	(%rsp), %xmm5
+	movapd	16(%rsp), %xmm5
 	movl	$-7968, %ecx
 	movups	%xmm5, 88(%rbx)
 	movw	%cx, 20(%rax)
@@ -105,14 +104,14 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd:
 	movq	40(%rbx), %rbp
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	movq	16(%rbx), %rdi
-	movsd	%xmm0, (%rsp)
+	movsd	%xmm0, 16(%rsp)
 	call	_ZN3wze6engine6actors5actor9GetHeightEv@PLT
 	movzwl	%ax, %eax
 	pxor	%xmm0, %xmm0
 	movq	%rbp, %rdi
 	cvtsi2sdl	%eax, %xmm0
 	mulsd	.LC2(%rip), %xmm0
-	addsd	(%rsp), %xmm0
+	addsd	16(%rsp), %xmm0
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd@PLT
 	movq	16(%rbx), %rdi
 	movq	40(%rbx), %rbp
@@ -134,10 +133,10 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd:
 	movzwl	%ax, %eax
 	pxor	%xmm0, %xmm0
 	movq	48(%rbx), %rdx
-	leaq	.LC6(%rip), %rdi
 	cvtsi2sdl	%eax, %xmm0
 	mulsd	.LC3(%rip), %xmm0
 	movb	$-127, 25(%rdx)
+	movq	16(%rbx), %rdi
 	cvttsd2sil	%xmm0, %eax
 	pxor	%xmm0, %xmm0
 	movw	%ax, 18(%rdx)
@@ -145,11 +144,7 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd:
 	cvtsi2sdl	%eax, %xmm0
 	mulsd	.LC5(%rip), %xmm0
 	cvttsd2sil	%xmm0, %eax
-	movsd	24(%rsp), %xmm0
 	movw	%ax, 16(%rdx)
-	movl	$1, %eax
-	call	printf@PLT
-	movq	16(%rbx), %rdi
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	16(%rbx), %rdi
 	movq	%xmm0, %rbp
@@ -171,22 +166,31 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd:
 	movsd	%xmm0, 72(%rbx)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	16(%rbx), %rdi
-	movsd	%xmm0, (%rsp)
+	movsd	%xmm0, 16(%rsp)
 	call	_ZN3wze6engine6actors5actor8GetWidthEv@PLT
-.LEHE1:
+	movq	48(%rbx), %rdi
 	shrw	%ax
-	pxor	%xmm0, %xmm0
 	pxor	%xmm1, %xmm1
+	pxor	%xmm0, %xmm0
+	movzwl	%ax, %eax
+	movq	%r15, %xmm2
+	subsd	8(%rsp), %xmm2
+	movsd	72(%rbx), %xmm3
+	cvtsi2sdl	%eax, %xmm1
+	movzwl	16(%rdi), %eax
+	addsd	16(%rsp), %xmm1
+	shrw	%ax
 	movzwl	%ax, %eax
 	cvtsi2sdl	%eax, %xmm0
-	movq	48(%rbx), %rax
-	addsd	(%rsp), %xmm0
-	movzwl	16(%rax), %eax
-	shrw	%ax
-	movzwl	%ax, %eax
-	cvtsi2sdl	%eax, %xmm1
-	subsd	%xmm1, %xmm0
-	movsd	%xmm0, 80(%rbx)
+	subsd	%xmm0, %xmm1
+	movsd	32(%rsp), %xmm0
+	divsd	%xmm2, %xmm0
+	movsd	%xmm1, 80(%rbx)
+	subsd	%xmm3, %xmm1
+	mulsd	%xmm1, %xmm0
+	addsd	%xmm3, %xmm0
+	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd@PLT
+.LEHE1:
 	movq	56(%rsp), %rax
 	subq	%fs:40, %rax
 	jne	.L9
@@ -235,8 +239,8 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
 	.cfi_lsda 0x1b,.LLSDAC8157
-	.type	_ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd.cold, @function
-_ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd.cold:
+	.type	_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold, @function
+_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold:
 .LFSB8157:
 .L2:
 	.cfi_def_cfa_offset 128
@@ -266,21 +270,21 @@ _ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB2-.LCOLDB7
+	.uleb128 .LEHB2-.LCOLDB6
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
 .LLSDACSEC8157:
 	.section	.text.unlikely
 	.text
-	.size	_ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd, .-_ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd
+	.size	_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd, .-_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd
 	.section	.text.unlikely
-	.size	_ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd.cold, .-_ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd.cold
-.LCOLDE7:
+	.size	_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold, .-_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold
+.LCOLDE6:
 	.text
-.LHOTE7:
-	.globl	_ZN17horizontal_sliderC1EPN3wze6engineEP6assetsddttPKcddd
-	.set	_ZN17horizontal_sliderC1EPN3wze6engineEP6assetsddttPKcddd,_ZN17horizontal_sliderC2EPN3wze6engineEP6assetsddttPKcddd
+.LHOTE6:
+	.globl	_ZN17horizontal_sliderC1EPN3wze6engineEP4gameddttPKcddd
+	.set	_ZN17horizontal_sliderC1EPN3wze6engineEP4gameddttPKcddd,_ZN17horizontal_sliderC2EPN3wze6engineEP4gameddttPKcddd
 	.align 2
 	.p2align 4
 	.globl	_ZN17horizontal_sliderD2Ev
@@ -328,14 +332,14 @@ _ZN17horizontal_sliderD2Ev:
 	.size	_ZN17horizontal_sliderD2Ev, .-_ZN17horizontal_sliderD2Ev
 	.globl	_ZN17horizontal_sliderD1Ev
 	.set	_ZN17horizontal_sliderD1Ev,_ZN17horizontal_sliderD2Ev
-	.section	.rodata.str1.1
-.LC8:
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC7:
 	.string	": "
 	.section	.text.unlikely
 	.align 2
-.LCOLDB9:
+.LCOLDB8:
 	.text
-.LHOTB9:
+.LHOTB8:
 	.align 2
 	.p2align 4
 	.globl	_ZN17horizontal_slider6UpdateEv
@@ -404,7 +408,7 @@ _ZN17horizontal_slider6UpdateEv:
 	movq	%rbp, %rdi
 	cvttsd2siq	%xmm0, %rax
 	movq	%rax, 48(%rsp)
-	leaq	.LC8(%rip), %rax
+	leaq	.LC7(%rip), %rax
 	movq	%rax, 40(%rsp)
 	call	_ZN3neo6stringpLESt16initializer_listIPKcE@PLT
 	movq	%rax, %rdi
@@ -520,7 +524,7 @@ _ZN17horizontal_slider6UpdateEv.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8162-.LLSDACSBC8162
 .LLSDACSBC8162:
-	.uleb128 .LEHB5-.LCOLDB9
+	.uleb128 .LEHB5-.LCOLDB8
 	.uleb128 .LEHE5-.LEHB5
 	.uleb128 0
 	.uleb128 0
@@ -530,9 +534,9 @@ _ZN17horizontal_slider6UpdateEv.cold:
 	.size	_ZN17horizontal_slider6UpdateEv, .-_ZN17horizontal_slider6UpdateEv
 	.section	.text.unlikely
 	.size	_ZN17horizontal_slider6UpdateEv.cold, .-_ZN17horizontal_slider6UpdateEv.cold
-.LCOLDE9:
+.LCOLDE8:
 	.text
-.LHOTE9:
+.LHOTE8:
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC2:
