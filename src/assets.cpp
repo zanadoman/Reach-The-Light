@@ -2,7 +2,6 @@
 
 assets::assets(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
-    this->PressKitTexture = this->Engine->Assets.LoadTexture("assets/presskit.png");
     this->HackBoldFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Bold.ttf", 72);
     this->HackBoldItalicFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-BoldItalic.ttf", 72);
     this->HackItalicFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Italic.ttf", 72);

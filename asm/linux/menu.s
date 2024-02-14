@@ -68,7 +68,7 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	movq	%rax, 24(%rbx)
 	leaq	104(%rax), %rdi
 	movq	8(%rdx), %rdx
-	movq	32(%rdx), %rdx
+	movq	24(%rdx), %rdx
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
 	movl	$64, %edi
 	movq	%rax, 32(%rbx)
