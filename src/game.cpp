@@ -18,6 +18,10 @@ game::~game()
             delete this->Menu;
         break;
 
+        case SCENE_EDITOR:
+            delete this->Editor;
+        break;
+
         default:
         break;
     }
@@ -38,6 +42,9 @@ uint8 game::Update()
             this->SwitchScene(this->Menu->Update());
         break;
 
+        case SCENE_EDITOR:
+            this->SwitchScene(this->Editor->Update());
+        break;
     }
 
     return 0;
@@ -51,6 +58,10 @@ uint8 game::SwitchScene(scene NewScene)
         {
             case SCENE_MENU:
                 delete this->Menu;
+            break;
+
+            case SCENE_EDITOR:
+                delete this->Editor;
             break;
 
             default:
@@ -68,6 +79,10 @@ uint8 game::SwitchScene(scene NewScene)
         {
             case SCENE_MENU:
                 this->Menu = new scene_menu(this->Engine, this);
+            break;
+
+            case SCENE_EDITOR:
+                this->Editor = new scene_editor(this->Engine, this);
             break;
 
             default:

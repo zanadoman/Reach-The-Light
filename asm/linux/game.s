@@ -211,27 +211,30 @@ _ZN4gameD2Ev:
 	movq	%rdi, %rbx
 	subq	$8, %rsp
 	.cfi_def_cfa_offset 32
-	cmpl	$1, 32(%rdi)
-	je	.L28
-.L14:
+	movl	32(%rdi), %eax
+	cmpl	$1, %eax
+	je	.L14
+	cmpl	$2, %eax
+	je	.L15
+.L16:
 	movq	24(%rbx), %rbp
 	testq	%rbp, %rbp
-	je	.L15
+	je	.L17
 	movq	%rbp, %rdi
 	call	_ZN3mapD1Ev@PLT
 	movl	$192, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
-.L15:
+.L17:
 	movq	16(%rbx), %rbp
 	testq	%rbp, %rbp
-	je	.L16
+	je	.L18
 	movq	%rbp, %rdi
 	call	_ZN8settingsD1Ev@PLT
 	movl	$16, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
-.L16:
+.L18:
 	movq	8(%rbx), %rbx
 	testq	%rbx, %rbx
 	je	.L13
@@ -249,8 +252,20 @@ _ZN4gameD2Ev:
 	jmp	_ZdlPvm@PLT
 	.p2align 4,,10
 	.p2align 3
-.L13:
+.L15:
 	.cfi_restore_state
+	movq	48(%rdi), %rbp
+	testq	%rbp, %rbp
+	je	.L16
+	movq	%rbp, %rdi
+	call	_ZN12scene_editorD1Ev@PLT
+	movl	$24, %esi
+	movq	%rbp, %rdi
+	call	_ZdlPvm@PLT
+	jmp	.L16
+	.p2align 4,,10
+	.p2align 3
+.L13:
 	addq	$8, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
@@ -261,17 +276,17 @@ _ZN4gameD2Ev:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L28:
+.L14:
 	.cfi_restore_state
 	movq	40(%rdi), %rbp
 	testq	%rbp, %rbp
-	je	.L14
+	je	.L16
 	movq	%rbp, %rdi
 	call	_ZN10scene_menuD1Ev@PLT
 	movl	$80, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
-	jmp	.L14
+	jmp	.L16
 	.cfi_endproc
 .LFE8160:
 	.size	_ZN4gameD2Ev, .-_ZN4gameD2Ev
@@ -284,189 +299,6 @@ _ZN4gameD2Ev:
 .LHOTB3:
 	.align 2
 	.p2align 4
-	.globl	_ZN4game6UpdateEv
-	.type	_ZN4game6UpdateEv, @function
-_ZN4game6UpdateEv:
-.LFB8162:
-	.cfi_startproc
-	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8162
-	movl	32(%rdi), %eax
-	testl	%eax, %eax
-	je	.L35
-	cmpl	$1, %eax
-	jne	.L41
-	pushq	%r12
-	.cfi_def_cfa_offset 16
-	.cfi_offset 12, -16
-	pushq	%rbp
-	.cfi_def_cfa_offset 24
-	.cfi_offset 6, -24
-	pushq	%rbx
-	.cfi_def_cfa_offset 32
-	.cfi_offset 3, -32
-	movq	%rdi, %rbx
-	movq	40(%rdi), %rdi
-.LEHB9:
-	call	_ZN10scene_menu6UpdateEv@PLT
-	movl	%eax, %ebp
-	movl	32(%rbx), %eax
-	cmpl	%eax, %ebp
-	je	.L31
-	cmpl	$1, %eax
-	je	.L45
-.L32:
-	movq	(%rbx), %rax
-	xorl	%esi, %esi
-	xorl	%edx, %edx
-	leaq	256(%rax), %rdi
-	call	_ZN3wze6engine6actors5PurgeESt16initializer_listIyE@PLT
-	movq	(%rbx), %rax
-	pxor	%xmm0, %xmm0
-	leaq	80(%rax), %rdi
-	call	_ZN3wze6engine6camera10SetOriginXEd@PLT
-	movq	(%rbx), %rax
-	pxor	%xmm0, %xmm0
-	leaq	80(%rax), %rdi
-	call	_ZN3wze6engine6camera10SetOriginYEd@PLT
-	movq	(%rbx), %rax
-	pxor	%xmm0, %xmm0
-	leaq	80(%rax), %rdi
-	call	_ZN3wze6engine6camera10SetOffsetXEd@PLT
-	movq	(%rbx), %rax
-	pxor	%xmm0, %xmm0
-	leaq	80(%rax), %rdi
-	call	_ZN3wze6engine6camera10SetOffsetYEd@PLT
-	movq	(%rbx), %rax
-	movsd	.LC2(%rip), %xmm0
-	leaq	80(%rax), %rdi
-	call	_ZN3wze6engine6camera7SetZoomEd@PLT
-	cmpl	$1, %ebp
-	je	.L46
-.L33:
-	movl	%ebp, 32(%rbx)
-.L31:
-	popq	%rbx
-	.cfi_def_cfa_offset 24
-	xorl	%eax, %eax
-	popq	%rbp
-	.cfi_def_cfa_offset 16
-	popq	%r12
-	.cfi_def_cfa_offset 8
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L35:
-	.cfi_restore 3
-	.cfi_restore 6
-	.cfi_restore 12
-	movl	$1, %eax
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L41:
-	xorl	%eax, %eax
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L45:
-	.cfi_def_cfa_offset 32
-	.cfi_offset 3, -32
-	.cfi_offset 6, -24
-	.cfi_offset 12, -16
-	movq	40(%rbx), %r12
-	testq	%r12, %r12
-	je	.L32
-	movq	%r12, %rdi
-	call	_ZN10scene_menuD1Ev@PLT
-	movl	$80, %esi
-	movq	%r12, %rdi
-	call	_ZdlPvm@PLT
-	jmp	.L32
-	.p2align 4,,10
-	.p2align 3
-.L46:
-	movl	$80, %edi
-	call	_Znwm@PLT
-.LEHE9:
-	movq	(%rbx), %rsi
-	movq	%rbx, %rdx
-	movq	%rax, %rdi
-	movq	%rax, %r12
-.LEHB10:
-	call	_ZN10scene_menuC1EPN3wze6engineEP4game@PLT
-.LEHE10:
-	movq	%r12, 40(%rbx)
-	jmp	.L33
-.L36:
-	movq	%rax, %rbx
-	jmp	.L34
-	.section	.gcc_except_table
-.LLSDA8162:
-	.byte	0xff
-	.byte	0xff
-	.byte	0x1
-	.uleb128 .LLSDACSE8162-.LLSDACSB8162
-.LLSDACSB8162:
-	.uleb128 .LEHB9-.LFB8162
-	.uleb128 .LEHE9-.LEHB9
-	.uleb128 0
-	.uleb128 0
-	.uleb128 .LEHB10-.LFB8162
-	.uleb128 .LEHE10-.LEHB10
-	.uleb128 .L36-.LFB8162
-	.uleb128 0
-.LLSDACSE8162:
-	.text
-	.cfi_endproc
-	.section	.text.unlikely
-	.cfi_startproc
-	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDAC8162
-	.type	_ZN4game6UpdateEv.cold, @function
-_ZN4game6UpdateEv.cold:
-.LFSB8162:
-.L34:
-	.cfi_def_cfa_offset 32
-	.cfi_offset 3, -32
-	.cfi_offset 6, -24
-	.cfi_offset 12, -16
-	movq	%r12, %rdi
-	movl	$80, %esi
-	call	_ZdlPvm@PLT
-	movq	%rbx, %rdi
-.LEHB11:
-	call	_Unwind_Resume@PLT
-.LEHE11:
-	.cfi_endproc
-.LFE8162:
-	.section	.gcc_except_table
-.LLSDAC8162:
-	.byte	0xff
-	.byte	0xff
-	.byte	0x1
-	.uleb128 .LLSDACSEC8162-.LLSDACSBC8162
-.LLSDACSBC8162:
-	.uleb128 .LEHB11-.LCOLDB3
-	.uleb128 .LEHE11-.LEHB11
-	.uleb128 0
-	.uleb128 0
-.LLSDACSEC8162:
-	.section	.text.unlikely
-	.text
-	.size	_ZN4game6UpdateEv, .-_ZN4game6UpdateEv
-	.section	.text.unlikely
-	.size	_ZN4game6UpdateEv.cold, .-_ZN4game6UpdateEv.cold
-.LCOLDE3:
-	.text
-.LHOTE3:
-	.section	.text.unlikely
-	.align 2
-.LCOLDB4:
-	.text
-.LHOTB4:
-	.align 2
-	.p2align 4
 	.globl	_ZN4game11SwitchSceneE5scene
 	.type	_ZN4game11SwitchSceneE5scene, @function
 _ZN4game11SwitchSceneE5scene:
@@ -476,7 +308,7 @@ _ZN4game11SwitchSceneE5scene:
 	.cfi_lsda 0x1b,.LLSDA8163
 	movl	32(%rdi), %eax
 	cmpl	%esi, %eax
-	je	.L58
+	je	.L53
 	pushq	%r12
 	.cfi_def_cfa_offset 16
 	.cfi_offset 12, -16
@@ -489,13 +321,25 @@ _ZN4game11SwitchSceneE5scene:
 	.cfi_offset 3, -32
 	movq	%rdi, %rbx
 	cmpl	$1, %eax
-	je	.L61
-.L49:
+	je	.L35
+	cmpl	$2, %eax
+	jne	.L37
+	movq	48(%rdi), %r12
+	testq	%r12, %r12
+	je	.L37
+	movq	%r12, %rdi
+	call	_ZN12scene_editorD1Ev@PLT
+	movl	$24, %esi
+	movq	%r12, %rdi
+	call	_ZdlPvm@PLT
+	.p2align 4,,10
+	.p2align 3
+.L37:
 	movq	(%rbx), %rax
 	xorl	%esi, %esi
 	xorl	%edx, %edx
 	leaq	256(%rax), %rdi
-.LEHB12:
+.LEHB9:
 	call	_ZN3wze6engine6actors5PurgeESt16initializer_listIyE@PLT
 	movq	(%rbx), %rax
 	pxor	%xmm0, %xmm0
@@ -518,7 +362,21 @@ _ZN4game11SwitchSceneE5scene:
 	leaq	80(%rax), %rdi
 	call	_ZN3wze6engine6camera7SetZoomEd@PLT
 	cmpl	$1, %ebp
-	je	.L62
+	je	.L38
+	cmpl	$2, %ebp
+	jne	.L40
+	movl	$24, %edi
+	call	_Znwm@PLT
+.LEHE9:
+	movq	(%rbx), %rsi
+	movq	%rbx, %rdx
+	movq	%rax, %rdi
+	movq	%rax, %r12
+.LEHB10:
+	call	_ZN12scene_editorC1EPN3wze6engineEP4game@PLT
+.LEHE10:
+	movq	%r12, 48(%rbx)
+.L40:
 	movl	%ebp, 32(%rbx)
 	xorl	%eax, %eax
 	popq	%rbx
@@ -531,20 +389,20 @@ _ZN4game11SwitchSceneE5scene:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L61:
+.L35:
 	.cfi_restore_state
 	movq	40(%rdi), %r12
 	testq	%r12, %r12
-	je	.L49
+	je	.L37
 	movq	%r12, %rdi
 	call	_ZN10scene_menuD1Ev@PLT
 	movl	$80, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
-	jmp	.L49
+	jmp	.L37
 	.p2align 4,,10
 	.p2align 3
-.L58:
+.L53:
 	.cfi_def_cfa_offset 8
 	.cfi_restore 3
 	.cfi_restore 6
@@ -553,21 +411,22 @@ _ZN4game11SwitchSceneE5scene:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L62:
+.L38:
 	.cfi_def_cfa_offset 32
 	.cfi_offset 3, -32
 	.cfi_offset 6, -24
 	.cfi_offset 12, -16
 	movl	$80, %edi
+.LEHB11:
 	call	_Znwm@PLT
-.LEHE12:
+.LEHE11:
 	movq	(%rbx), %rsi
 	movq	%rbx, %rdx
 	movq	%rax, %rdi
 	movq	%rax, %r12
-.LEHB13:
+.LEHB12:
 	call	_ZN10scene_menuC1EPN3wze6engineEP4game@PLT
-.LEHE13:
+.LEHE12:
 	movq	%r12, 40(%rbx)
 	xorl	%eax, %eax
 	movl	%ebp, 32(%rbx)
@@ -579,10 +438,13 @@ _ZN4game11SwitchSceneE5scene:
 	popq	%r12
 	.cfi_def_cfa_offset 8
 	ret
-.L52:
+.L43:
 	.cfi_restore_state
 	movq	%rax, %rbx
-	jmp	.L51
+	jmp	.L41
+.L44:
+	movq	%rax, %rbx
+	jmp	.L42
 	.section	.gcc_except_table
 .LLSDA8163:
 	.byte	0xff
@@ -590,13 +452,21 @@ _ZN4game11SwitchSceneE5scene:
 	.byte	0x1
 	.uleb128 .LLSDACSE8163-.LLSDACSB8163
 .LLSDACSB8163:
+	.uleb128 .LEHB9-.LFB8163
+	.uleb128 .LEHE9-.LEHB9
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB10-.LFB8163
+	.uleb128 .LEHE10-.LEHB10
+	.uleb128 .L44-.LFB8163
+	.uleb128 0
+	.uleb128 .LEHB11-.LFB8163
+	.uleb128 .LEHE11-.LEHB11
+	.uleb128 0
+	.uleb128 0
 	.uleb128 .LEHB12-.LFB8163
 	.uleb128 .LEHE12-.LEHB12
-	.uleb128 0
-	.uleb128 0
-	.uleb128 .LEHB13-.LFB8163
-	.uleb128 .LEHE13-.LEHB13
-	.uleb128 .L52-.LFB8163
+	.uleb128 .L43-.LFB8163
 	.uleb128 0
 .LLSDACSE8163:
 	.text
@@ -608,7 +478,7 @@ _ZN4game11SwitchSceneE5scene:
 	.type	_ZN4game11SwitchSceneE5scene.cold, @function
 _ZN4game11SwitchSceneE5scene.cold:
 .LFSB8163:
-.L51:
+.L41:
 	.cfi_def_cfa_offset 32
 	.cfi_offset 3, -32
 	.cfi_offset 6, -24
@@ -617,9 +487,15 @@ _ZN4game11SwitchSceneE5scene.cold:
 	movl	$80, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
-.LEHB14:
+.LEHB13:
 	call	_Unwind_Resume@PLT
-.LEHE14:
+.L42:
+	movq	%r12, %rdi
+	movl	$24, %esi
+	call	_ZdlPvm@PLT
+	movq	%rbx, %rdi
+	call	_Unwind_Resume@PLT
+.LEHE13:
 	.cfi_endproc
 .LFE8163:
 	.section	.gcc_except_table
@@ -629,8 +505,8 @@ _ZN4game11SwitchSceneE5scene.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8163-.LLSDACSBC8163
 .LLSDACSBC8163:
-	.uleb128 .LEHB14-.LCOLDB4
-	.uleb128 .LEHE14-.LEHB14
+	.uleb128 .LEHB13-.LCOLDB3
+	.uleb128 .LEHE13-.LEHB13
 	.uleb128 0
 	.uleb128 0
 .LLSDACSEC8163:
@@ -639,9 +515,60 @@ _ZN4game11SwitchSceneE5scene.cold:
 	.size	_ZN4game11SwitchSceneE5scene, .-_ZN4game11SwitchSceneE5scene
 	.section	.text.unlikely
 	.size	_ZN4game11SwitchSceneE5scene.cold, .-_ZN4game11SwitchSceneE5scene.cold
-.LCOLDE4:
+.LCOLDE3:
 	.text
-.LHOTE4:
+.LHOTE3:
+	.align 2
+	.p2align 4
+	.globl	_ZN4game6UpdateEv
+	.type	_ZN4game6UpdateEv, @function
+_ZN4game6UpdateEv:
+.LFB8162:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movl	32(%rdi), %eax
+	movq	%rdi, %rbx
+	cmpl	$1, %eax
+	je	.L57
+	cmpl	$2, %eax
+	je	.L58
+	testl	%eax, %eax
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	sete	%al
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L58:
+	.cfi_restore_state
+	movq	48(%rdi), %rdi
+	call	_ZN12scene_editor6UpdateEv@PLT
+	movq	%rbx, %rdi
+	movl	%eax, %esi
+	call	_ZN4game11SwitchSceneE5scene
+	xorl	%eax, %eax
+.L62:
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L57:
+	.cfi_restore_state
+	movq	40(%rdi), %rdi
+	call	_ZN10scene_menu6UpdateEv@PLT
+	movq	%rbx, %rdi
+	movl	%eax, %esi
+	call	_ZN4game11SwitchSceneE5scene
+	xorl	%eax, %eax
+	jmp	.L62
+	.cfi_endproc
+.LFE8162:
+	.size	_ZN4game6UpdateEv, .-_ZN4game6UpdateEv
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC2:

@@ -29,7 +29,10 @@ scene_menu::~scene_menu()
 scene scene_menu::Update()
 {
     this->Play->Update();
-    this->Editor->Update();
+    if (this->Editor->Update())
+    {
+        return SCENE_EDITOR;
+    }
     this->Credits->Update();
     if (this->Quit->Update())
     {

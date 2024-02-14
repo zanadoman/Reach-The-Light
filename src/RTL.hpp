@@ -15,13 +15,15 @@ struct assets;
 struct settings;
 struct map;
 struct scene_menu;
+struct scene_editor;
 struct gui_button;
 struct gui_slider;
 
 typedef enum
 {
     SCENE_NONE,
-    SCENE_MENU
+    SCENE_MENU,
+    SCENE_EDITOR
 } scene;
 
 typedef enum
@@ -44,6 +46,7 @@ struct game
 
     scene ActiveScene;
     scene_menu* Menu;
+    scene_editor* Editor;
 
     game(engine* Engine);
     ~game();
@@ -97,6 +100,17 @@ struct scene_menu
     gui_slider* FrameRate;
     scene_menu(engine* Engine, game* Game);
     ~scene_menu();
+    scene Update();
+};
+
+struct scene_editor
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    scene_editor(engine* Engine, game* Game);
+    ~scene_editor();
     scene Update();
 };
 
