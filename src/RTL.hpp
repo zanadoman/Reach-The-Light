@@ -6,6 +6,7 @@
 
 #define MAP_X 8
 #define MAP_Y 16
+#define TILE_DEBUG false
 
 using namespace neo;
 using namespace wze;
@@ -31,7 +32,8 @@ typedef enum
 
 typedef enum
 {
-    ACT_NONE
+    ACT_NONE,
+    ACT_TILE
 } actor;
 
 typedef enum
@@ -87,6 +89,8 @@ struct assets
     uint64 gui_buttonTexture;
 
     array<uint64> TileTextures;
+    array<uint64> TileBackgrounds;
+    array<uint64> TilePlatforms;
 
     assets(engine* Engine);
     ~assets();
@@ -228,4 +232,171 @@ struct gui_tile
     gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, uint8 TileX, uint8 TileY);
     ~gui_tile();
     uint8 Update();
+};
+
+//__________Tiles____________________________________________________________________________________
+
+struct tile_top_left_corner
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::texturebox Background;
+    engine::overlapbox Trap;
+
+    engine::actor HitboxTop;
+    engine::actor HitboxBot;
+    engine::actor HitboxLeft;
+    engine::actor HitboxRight;
+    engine::actor HitboxTopLeft;
+    engine::actor HitboxTopRight;
+    engine::actor HitboxBotLeft;
+    engine::actor HitboxBotRight;
+
+    tile_top_left_corner(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    ~tile_top_left_corner();
+};
+
+struct tile_top_right_corner
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::overlapbox Trap;
+    engine::texturebox Background;
+
+    tile_top_right_corner(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    ~tile_top_right_corner();
+};
+
+struct tile_bot_left_corner
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::overlapbox Trap;
+    engine::texturebox Background;
+
+    tile_bot_left_corner(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    ~tile_bot_left_corner();
+};
+
+struct tile_bot_right_corner
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::overlapbox Trap;
+    engine::texturebox Background;
+
+    tile_bot_right_corner(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    ~tile_bot_right_corner();
+};
+
+struct tile_horizontal_corridor
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::overlapbox Trap;
+    engine::texturebox Background;
+
+    tile_horizontal_corridor(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    ~tile_horizontal_corridor();
+};
+
+struct tile_vertical_corridor
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::overlapbox Trap;
+    engine::texturebox Background;
+
+    tile_vertical_corridor(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    ~tile_vertical_corridor();
+};
+
+struct tile_center_corridor
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::overlapbox Trap;
+    engine::texturebox Background;
+
+    tile_center_corridor(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    ~tile_center_corridor();
+};
+
+struct tile_floor_hole
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::overlapbox Trap;
+    engine::texturebox Background;
+
+    tile_floor_hole(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    ~tile_floor_hole();
+};
+
+struct tile_top_hole
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::overlapbox Trap;
+    engine::texturebox Background;
+
+    tile_top_hole(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    ~tile_top_hole();
+};
+
+struct tile_trap_hole
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::overlapbox Trap;
+    engine::texturebox Background;
+
+    tile_trap_hole(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    ~tile_trap_hole();
+};
+
+struct tile_horizontal_rotating
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::overlapbox Trap;
+    engine::texturebox Background;
+
+    tile_horizontal_rotating(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    ~tile_horizontal_rotating();
+};
+
+struct tile_vertical_rotating
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::overlapbox Trap;
+    engine::texturebox Background;
+
+    tile_vertical_rotating(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    ~tile_vertical_rotating();
 };

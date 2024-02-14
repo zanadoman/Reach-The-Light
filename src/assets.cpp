@@ -24,6 +24,16 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadTexture("assets/tiles/horizontal_rotating.png"),
         this->Engine->Assets.LoadTexture("assets/tiles/vertical_rotating.png"),
     };
+
+    this->TileBackgrounds =
+    {
+        this->Engine->Assets.LoadTexture("assets/tiles/background.png")
+    };
+
+    this->TilePlatforms =
+    {
+        this->Engine->Assets.LoadTexture("assets/tiles/platform.png")
+    };
 }
 
 assets::~assets()
