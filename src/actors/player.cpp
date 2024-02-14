@@ -23,7 +23,7 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->Run->Paused = true;
 
     this->Engine->Camera.Bind(this->Actor->GetID());
-    this->Engine->Camera.SetZoom(4);
+    this->Engine->Camera.SetZoom(5);
 }
 
 act_player::~act_player()
