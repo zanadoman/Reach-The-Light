@@ -14,26 +14,39 @@ _ZN3mapC2Ev:
 	pushq	%rbx
 	.cfi_def_cfa_offset 16
 	.cfi_offset 3, -16
-	movl	$128, %edx
 	movq	%rdi, %rsi
 	movq	%rdi, %rbx
+	movl	$128, %edx
 	leaq	.LC0(%rip), %rdi
 	call	_ZN3neo6memory6LoadToEPKcPvy@PLT
+	testb	%al, %al
+	je	.L2
+	leaq	8(%rbx), %rdi
+	movq	%rbx, %rcx
+	xorl	%eax, %eax
+	movq	$0, (%rbx)
+	andq	$-8, %rdi
+	movq	$0, 120(%rbx)
+	subq	%rdi, %rcx
+	subl	$-128, %ecx
+	shrl	$3, %ecx
+	rep stosq
+.L2:
 	xorl	%eax, %eax
 	xorl	%edx, %edx
 	.p2align 4,,10
 	.p2align 3
-.L3:
-	testb	$7, %al
-	jne	.L2
+.L4:
+	testb	$15, %al
+	jne	.L3
 	movzbl	%dl, %ecx
 	leaq	(%rbx,%rax), %rsi
 	addl	$1, %edx
 	movq	%rsi, 128(%rbx,%rcx,8)
-.L2:
+.L3:
 	addq	$1, %rax
 	cmpq	$128, %rax
-	jne	.L3
+	jne	.L4
 	popq	%rbx
 	.cfi_def_cfa_offset 8
 	ret

@@ -13,57 +13,56 @@
 .LC3:
 	.string	"assets/fonts/Hack-Regular.ttf"
 .LC4:
-	.string	"assets/gui/menu_btn.png"
+	.string	"assets/gui/gui_button.png"
 	.text
 	.align 2
 	.p2align 4
-	.globl	_ZN6assetsC2EPN3wze6engineEP4game
-	.type	_ZN6assetsC2EPN3wze6engineEP4game, @function
-_ZN6assetsC2EPN3wze6engineEP4game:
+	.globl	_ZN6assetsC2EPN3wze6engineE
+	.type	_ZN6assetsC2EPN3wze6engineE, @function
+_ZN6assetsC2EPN3wze6engineE:
 .LFB8157:
 	.cfi_startproc
 	pushq	%rbx
 	.cfi_def_cfa_offset 16
 	.cfi_offset 3, -16
+	movl	$72, %edx
 	movq	%rdi, %rbx
 	movq	%rsi, (%rdi)
-	movq	%rdx, 8(%rdi)
 	leaq	320(%rsi), %rdi
-	movl	$72, %edx
 	leaq	.LC0(%rip), %rsi
 	call	_ZN3wze6engine6assets8LoadFontEPKch@PLT
 	movl	$72, %edx
 	leaq	.LC1(%rip), %rsi
-	movq	%rax, 16(%rbx)
+	movq	%rax, 8(%rbx)
 	movq	(%rbx), %rax
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine6assets8LoadFontEPKch@PLT
 	movl	$72, %edx
 	leaq	.LC2(%rip), %rsi
-	movq	%rax, 24(%rbx)
+	movq	%rax, 16(%rbx)
 	movq	(%rbx), %rax
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine6assets8LoadFontEPKch@PLT
 	movl	$72, %edx
 	leaq	.LC3(%rip), %rsi
-	movq	%rax, 32(%rbx)
+	movq	%rax, 24(%rbx)
 	movq	(%rbx), %rax
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine6assets8LoadFontEPKch@PLT
 	leaq	.LC4(%rip), %rsi
-	movq	%rax, 40(%rbx)
+	movq	%rax, 32(%rbx)
 	movq	(%rbx), %rax
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 48(%rbx)
+	movq	%rax, 40(%rbx)
 	popq	%rbx
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
 .LFE8157:
-	.size	_ZN6assetsC2EPN3wze6engineEP4game, .-_ZN6assetsC2EPN3wze6engineEP4game
-	.globl	_ZN6assetsC1EPN3wze6engineEP4game
-	.set	_ZN6assetsC1EPN3wze6engineEP4game,_ZN6assetsC2EPN3wze6engineEP4game
+	.size	_ZN6assetsC2EPN3wze6engineE, .-_ZN6assetsC2EPN3wze6engineE
+	.globl	_ZN6assetsC1EPN3wze6engineE
+	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsD2Ev

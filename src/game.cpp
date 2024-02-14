@@ -2,7 +2,7 @@
 
 game::game(engine* Engine) : Engine(Engine)
 {
-    this->Assets = new assets(Engine, this);
+    this->Assets = new assets(Engine);
     this->Settings = new settings;
     this->Map = new map;
 

@@ -26,16 +26,15 @@ _ZN4gameC2EPN3wze6engineE:
 	.cfi_offset 3, -32
 	movq	%rdi, %rbx
 	movq	%rsi, (%rdi)
-	movl	$56, %edi
+	movl	$48, %edi
 .LEHB0:
 	call	_Znwm@PLT
 .LEHE0:
-	movq	%rbx, %rdx
 	movq	%rbp, %rsi
 	movq	%rax, %rdi
 	movq	%rax, %r12
 .LEHB1:
-	call	_ZN6assetsC1EPN3wze6engineEP4game@PLT
+	call	_ZN6assetsC1EPN3wze6engineE@PLT
 .LEHE1:
 	movq	%r12, 8(%rbx)
 	movl	$16, %edi
@@ -48,7 +47,7 @@ _ZN4gameC2EPN3wze6engineE:
 	call	_ZN8settingsC1Ev@PLT
 .LEHE3:
 	movq	%r12, 16(%rbx)
-	movl	$256, %edi
+	movl	$192, %edi
 .LEHB4:
 	call	_Znwm@PLT
 .LEHE4:
@@ -148,7 +147,7 @@ _ZN4gameC2EPN3wze6engineE.cold:
 	.cfi_offset 6, -24
 	.cfi_offset 12, -16
 	movq	%r12, %rdi
-	movl	$56, %esi
+	movl	$48, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 .LEHB8:
@@ -161,7 +160,7 @@ _ZN4gameC2EPN3wze6engineE.cold:
 	call	_Unwind_Resume@PLT
 .L4:
 	movq	%r12, %rdi
-	movl	$256, %esi
+	movl	$192, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
@@ -220,7 +219,7 @@ _ZN4gameD2Ev:
 	je	.L15
 	movq	%rbp, %rdi
 	call	_ZN3mapD1Ev@PLT
-	movl	$256, %esi
+	movl	$192, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 .L15:
@@ -242,7 +241,7 @@ _ZN4gameD2Ev:
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
 	movq	%rbx, %rdi
-	movl	$56, %esi
+	movl	$48, %esi
 	popq	%rbx
 	.cfi_def_cfa_offset 16
 	popq	%rbp

@@ -54,14 +54,13 @@ struct game
 struct assets
 {
     engine* Engine;
-    game* Game;
 
     uint64 HackBoldFont;
     uint64 HackBoldItalicFont;
     uint64 HackItalicFont;
     uint64 HackRegularFont;
-    uint64 menu_btnTexture;
-    assets(engine* Engine, game* Game);
+    uint64 gui_buttonTexture;
+    assets(engine* Engine);
     ~assets();
 };
 
@@ -76,7 +75,7 @@ struct settings
 struct map
 {
     uint8 Raw[MAP_X * MAP_Y];
-    uint8* Cells[MAP_Y];
+    uint8* Cells[MAP_X];
     map();
     ~map();
 };
