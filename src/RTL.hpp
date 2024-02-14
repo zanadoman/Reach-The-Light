@@ -267,6 +267,15 @@ struct tile_top_right_corner
     engine::overlapbox Trap;
     engine::texturebox Background;
 
+    engine::actor HitboxTop;
+    engine::actor HitboxBot;
+    engine::actor HitboxLeft;
+    engine::actor HitboxRight;
+    engine::actor HitboxTopLeft;
+    engine::actor HitboxTopRight;
+    engine::actor HitboxBotLeft;
+    engine::actor HitboxBotRight;
+
     tile_top_right_corner(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
     ~tile_top_right_corner();
 };
@@ -279,6 +288,15 @@ struct tile_bot_left_corner
     engine::actor Actor;
     engine::overlapbox Trap;
     engine::texturebox Background;
+
+    engine::actor HitboxTop;
+    engine::actor HitboxBot;
+    engine::actor HitboxLeft;
+    engine::actor HitboxRight;
+    engine::actor HitboxTopLeft;
+    engine::actor HitboxTopRight;
+    engine::actor HitboxBotLeft;
+    engine::actor HitboxBotRight;
 
     tile_bot_left_corner(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
     ~tile_bot_left_corner();
@@ -293,6 +311,15 @@ struct tile_bot_right_corner
     engine::overlapbox Trap;
     engine::texturebox Background;
 
+    engine::actor HitboxTop;
+    engine::actor HitboxBot;
+    engine::actor HitboxLeft;
+    engine::actor HitboxRight;
+    engine::actor HitboxTopLeft;
+    engine::actor HitboxTopRight;
+    engine::actor HitboxBotLeft;
+    engine::actor HitboxBotRight;
+
     tile_bot_right_corner(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
     ~tile_bot_right_corner();
 };
@@ -305,6 +332,15 @@ struct tile_horizontal_corridor
     engine::actor Actor;
     engine::overlapbox Trap;
     engine::texturebox Background;
+
+    engine::actor HitboxTop;
+    engine::actor HitboxBot;
+    engine::actor HitboxLeft;
+    engine::actor HitboxRight;
+    engine::actor HitboxTopLeft;
+    engine::actor HitboxTopRight;
+    engine::actor HitboxBotLeft;
+    engine::actor HitboxBotRight;
 
     tile_horizontal_corridor(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
     ~tile_horizontal_corridor();
@@ -319,6 +355,15 @@ struct tile_vertical_corridor
     engine::overlapbox Trap;
     engine::texturebox Background;
 
+    engine::actor HitboxTop;
+    engine::actor HitboxBot;
+    engine::actor HitboxLeft;
+    engine::actor HitboxRight;
+    engine::actor HitboxTopLeft;
+    engine::actor HitboxTopRight;
+    engine::actor HitboxBotLeft;
+    engine::actor HitboxBotRight;
+
     tile_vertical_corridor(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
     ~tile_vertical_corridor();
 };
@@ -331,6 +376,15 @@ struct tile_center_corridor
     engine::actor Actor;
     engine::overlapbox Trap;
     engine::texturebox Background;
+
+    engine::actor HitboxTop;
+    engine::actor HitboxBot;
+    engine::actor HitboxLeft;
+    engine::actor HitboxRight;
+    engine::actor HitboxTopLeft;
+    engine::actor HitboxTopRight;
+    engine::actor HitboxBotLeft;
+    engine::actor HitboxBotRight;
 
     tile_center_corridor(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
     ~tile_center_corridor();
@@ -345,11 +399,20 @@ struct tile_floor_hole
     engine::overlapbox Trap;
     engine::texturebox Background;
 
+    engine::actor HitboxTop;
+    engine::actor HitboxBot;
+    engine::actor HitboxLeft;
+    engine::actor HitboxRight;
+    engine::actor HitboxTopLeft;
+    engine::actor HitboxTopRight;
+    engine::actor HitboxBotLeft;
+    engine::actor HitboxBotRight;
+
     tile_floor_hole(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
     ~tile_floor_hole();
 };
 
-struct tile_top_hole
+struct tile_ceil_hole
 {
     engine* Engine;
     game* Game;
@@ -358,8 +421,17 @@ struct tile_top_hole
     engine::overlapbox Trap;
     engine::texturebox Background;
 
-    tile_top_hole(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
-    ~tile_top_hole();
+    engine::actor HitboxTop;
+    engine::actor HitboxBot;
+    engine::actor HitboxLeft;
+    engine::actor HitboxRight;
+    engine::actor HitboxTopLeft;
+    engine::actor HitboxTopRight;
+    engine::actor HitboxBotLeft;
+    engine::actor HitboxBotRight;
+
+    tile_ceil_hole(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    ~tile_ceil_hole();
 };
 
 struct tile_trap_hole
@@ -370,6 +442,15 @@ struct tile_trap_hole
     engine::actor Actor;
     engine::overlapbox Trap;
     engine::texturebox Background;
+
+    engine::actor HitboxTop;
+    engine::actor HitboxBot;
+    engine::actor HitboxLeft;
+    engine::actor HitboxRight;
+    engine::actor HitboxTopLeft;
+    engine::actor HitboxTopRight;
+    engine::actor HitboxBotLeft;
+    engine::actor HitboxBotRight;
 
     tile_trap_hole(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
     ~tile_trap_hole();
@@ -384,6 +465,15 @@ struct tile_horizontal_rotating
     engine::overlapbox Trap;
     engine::texturebox Background;
 
+    engine::actor HitboxTop;
+    engine::actor HitboxBot;
+    engine::actor HitboxLeft;
+    engine::actor HitboxRight;
+    engine::actor HitboxTopLeft;
+    engine::actor HitboxTopRight;
+    engine::actor HitboxBotLeft;
+    engine::actor HitboxBotRight;
+
     tile_horizontal_rotating(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
     ~tile_horizontal_rotating();
 };
@@ -396,6 +486,15 @@ struct tile_vertical_rotating
     engine::actor Actor;
     engine::overlapbox Trap;
     engine::texturebox Background;
+
+    engine::actor HitboxTop;
+    engine::actor HitboxBot;
+    engine::actor HitboxLeft;
+    engine::actor HitboxRight;
+    engine::actor HitboxTopLeft;
+    engine::actor HitboxTopRight;
+    engine::actor HitboxBotLeft;
+    engine::actor HitboxBotRight;
 
     tile_vertical_rotating(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
     ~tile_vertical_rotating();
