@@ -40,22 +40,82 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddtthh:
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	8(%rbx), %rdx
 	movzbl	%bpl, %esi
-	movzbl	%r12b, %ecx
 	movq	%rax, 24(%rbx)
 	movq	16(%rbx), %rax
+	movq	24(%rdx), %rcx
 	leaq	40(%rax), %rdi
 	movq	8(%rdx), %rax
-	movq	24(%rdx), %rdx
-	movq	512(%rdx,%rsi,8), %rdx
-	movl	(%rdx,%rcx,4), %esi
+	movzbl	%r12b, %edx
+	movq	128(%rcx,%rsi,8), %rcx
+	movsbq	(%rcx,%rdx), %rsi
 	movq	56(%rax), %rdx
 	cmpq	48(%rax), %rsi
 	jnb	.L5
 	movq	(%rdx,%rsi,8), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movb	%bpl, 40(%rbx)
 	movq	%rax, 32(%rbx)
-	movb	%r12b, 41(%rbx)
+	movq	16(%rbx), %rax
+	leaq	8(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor10colorboxes3NewEv@PLT
+	movq	%rax, 40(%rbx)
+	movq	16(%rbx), %rax
+	leaq	8(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor10colorboxes3NewEv@PLT
+	movq	%rax, 48(%rbx)
+	movq	16(%rbx), %rax
+	leaq	8(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor10colorboxes3NewEv@PLT
+	movq	%rax, 56(%rbx)
+	movq	16(%rbx), %rax
+	leaq	8(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor10colorboxes3NewEv@PLT
+	movb	%bpl, 72(%rbx)
+	movq	40(%rbx), %rbp
+	movq	%rax, 64(%rbx)
+	movl	$2, %eax
+	movq	16(%rbx), %rdi
+	movw	%ax, 18(%rbp)
+	movb	%r12b, 73(%rbx)
+	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
+	addsd	.LC2(%rip), %xmm0
+	movq	%rbp, %rdi
+	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetYEd@PLT
+	movq	40(%rbx), %rax
+	movq	48(%rbx), %rbp
+	movl	$129, %edx
+	movl	$3, %ecx
+	movq	16(%rbx), %rdi
+	movw	%dx, 25(%rax)
+	movw	%cx, 18(%rbp)
+	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
+	subsd	.LC2(%rip), %xmm0
+	movq	%rbp, %rdi
+	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetYEd@PLT
+	movq	48(%rbx), %rax
+	movq	56(%rbx), %rbp
+	movl	$129, %esi
+	movl	$3, %edi
+	movw	%si, 25(%rax)
+	movw	%di, 16(%rbp)
+	movq	16(%rbx), %rdi
+	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
+	subsd	.LC2(%rip), %xmm0
+	movq	%rbp, %rdi
+	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd@PLT
+	movq	56(%rbx), %rax
+	movq	64(%rbx), %rbp
+	movl	$129, %r8d
+	movl	$2, %r9d
+	movq	16(%rbx), %rdi
+	movw	%r8w, 25(%rax)
+	movw	%r9w, 16(%rbp)
+	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
+	addsd	.LC2(%rip), %xmm0
+	movq	%rbp, %rdi
+	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd@PLT
+	movq	64(%rbx), %rax
+	movl	$129, %r10d
+	movw	%r10w, 25(%rax)
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
@@ -127,12 +187,29 @@ _ZN8gui_tile6UpdateEv:
 	movq	24(%rdi), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
 	testb	$1, %al
-	movq	32(%rbx), %rax
-	jne	.L26
-	movl	$-1, %edx
-	movb	$-1, 22(%rax)
-	movw	%dx, 20(%rax)
-.L15:
+	movq	40(%rbx), %rax
+	jne	.L19
+	movb	$0, 26(%rax)
+	movq	48(%rbx), %rax
+	movb	$0, 26(%rax)
+	movq	56(%rbx), %rax
+	movb	$0, 26(%rax)
+	movq	64(%rbx), %rax
+	movb	$0, 26(%rax)
+.L12:
+	movq	8(%rbx), %rdx
+	movzbl	72(%rbx), %esi
+	movq	32(%rbx), %rdi
+	movq	24(%rdx), %rcx
+	movq	8(%rdx), %rax
+	movzbl	73(%rbx), %edx
+	movq	128(%rcx,%rsi,8), %rcx
+	movsbq	(%rcx,%rdx), %rsi
+	movq	56(%rax), %rdx
+	cmpq	48(%rax), %rsi
+	jnb	.L20
+	movq	(%rdx,%rsi,8), %rsi
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy@PLT
 	xorl	%eax, %eax
 	popq	%rbx
 	.cfi_remember_state
@@ -140,90 +217,58 @@ _ZN8gui_tile6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L26:
+.L19:
 	.cfi_restore_state
-	movl	$-16192, %ecx
-	movb	$-64, 22(%rax)
-	movw	%cx, 20(%rax)
+	movb	$1, 26(%rax)
+	movq	48(%rbx), %rax
 	movq	24(%rbx), %rdi
+	movb	$1, 26(%rax)
+	movq	56(%rbx), %rax
+	movb	$1, 26(%rax)
+	movq	64(%rbx), %rax
+	movb	$1, 26(%rax)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
 	testb	$4, %al
 	je	.L10
-	movq	8(%rbx), %rdx
-	movzbl	40(%rbx), %esi
-	movzbl	41(%rbx), %ecx
-	movq	8(%rdx), %rax
-	movq	24(%rdx), %rdx
-	movq	512(%rdx,%rsi,8), %rdx
-	movl	(%rdx,%rcx,4), %esi
-	movq	56(%rax), %rdx
-	cmpq	48(%rax), %rsi
-	jnb	.L25
-	leaq	(%rdx,%rsi,8), %rcx
-	movq	(%rcx), %rdi
-	leaq	1(%rdi), %rdx
-	movq	%rdx, (%rcx)
-	cmpq	$11, %rdx
-	ja	.L27
-.L12:
-	movq	32(%rbx), %rdi
-	cmpq	48(%rax), %rsi
-	jnb	.L25
-	movq	%rdx, %rsi
-	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy@PLT
-	xorl	%eax, %eax
-	popq	%rbx
-	.cfi_remember_state
-	.cfi_def_cfa_offset 8
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L10:
-	.cfi_restore_state
-	movq	24(%rbx), %rdi
-	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
-	testb	$64, %al
-	je	.L15
 	movq	8(%rbx), %rax
-	movzbl	40(%rbx), %esi
-	movzbl	41(%rbx), %ecx
-	movq	8(%rax), %rdx
+	movzbl	72(%rbx), %ecx
+	movzbl	73(%rbx), %edx
 	movq	24(%rax), %rax
-	movq	512(%rax,%rsi,8), %rax
-	movl	(%rax,%rcx,4), %esi
-	movq	56(%rdx), %rax
-	cmpq	48(%rdx), %rsi
-	jnb	.L25
-	leaq	(%rax,%rsi,8), %rcx
-	movq	(%rcx), %rdi
-	leaq	-1(%rdi), %rax
-	movq	%rax, (%rcx)
-	cmpq	$11, %rax
-	ja	.L28
-.L17:
-	movq	32(%rbx), %rdi
-	cmpq	48(%rdx), %rsi
-	jnb	.L25
-	movq	%rax, %rsi
-	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy@PLT
-	jmp	.L15
-	.p2align 4,,10
-	.p2align 3
-.L27:
-	cmpq	48(%rax), %rsi
-	jnb	.L25
-	movq	%rdi, (%rcx)
-	movq	%rdi, %rdx
+	addq	128(%rax,%rcx,8), %rdx
+	movzbl	(%rdx), %eax
+	addl	$1, %eax
+	movb	%al, (%rdx)
+	cmpb	$11, %al
+	jle	.L12
+	movq	8(%rbx), %rax
+	movzbl	72(%rbx), %ecx
+	movq	24(%rax), %rdx
+	movzbl	73(%rbx), %eax
+	movq	128(%rdx,%rcx,8), %rdx
+	movb	$0, (%rdx,%rax)
 	jmp	.L12
 	.p2align 4,,10
 	.p2align 3
-.L28:
-	cmpq	48(%rdx), %rsi
-	jnb	.L25
-	movq	%rdi, (%rcx)
-	movq	%rdi, %rax
-	jmp	.L17
-.L25:
+.L10:
+	movq	24(%rbx), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
+	testb	$64, %al
+	je	.L12
+	movq	8(%rbx), %rax
+	movzbl	72(%rbx), %ecx
+	movzbl	73(%rbx), %edx
+	movq	24(%rax), %rax
+	addq	128(%rax,%rcx,8), %rdx
+	subb	$1, (%rdx)
+	jns	.L12
+	movq	8(%rbx), %rax
+	movzbl	72(%rbx), %ecx
+	movq	24(%rax), %rdx
+	movzbl	73(%rbx), %eax
+	movq	128(%rdx,%rcx,8), %rdx
+	movb	$11, (%rdx,%rax)
+	jmp	.L12
+.L20:
 	leaq	.LC1(%rip), %rdi
 	xorl	%eax, %eax
 	call	printf@PLT
@@ -237,6 +282,10 @@ _ZN8gui_tile6UpdateEv:
 .LC0:
 	.long	0
 	.long	1072693248
+	.align 8
+.LC2:
+	.long	0
+	.long	1078493184
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

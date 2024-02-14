@@ -18,6 +18,7 @@ struct scene_menu;
 struct scene_editor;
 struct gui_button;
 struct gui_slider;
+struct gui_tile;
 
 typedef enum
 {
@@ -50,7 +51,6 @@ typedef enum
     TILE_TRAP_HOLE,
     TILE_HORIZONTAL_ROTATING,
     TILE_VERTICAL_ROTATING,
-    TILE_COUNT
 } tile;
 
 struct game
@@ -98,10 +98,11 @@ struct settings
 
 struct map
 {
-    tile Raw[MAP_X * MAP_Y];
-    tile* Cells[MAP_X];
+    sint8 Raw[MAP_X * MAP_Y];
+    sint8* Cells[MAP_X];
     map();
     ~map();
+    uint8 Reset();
 };
 
 //__________SCENES___________________________________________________________________________________
@@ -130,7 +131,9 @@ struct scene_editor
     game* Game;
 
     engine::actor Actor;
+    gui_button* Reset;
     gui_button* Exit;
+    array<gui_tile*> TileButtons;
     scene_editor(engine* Engine, game* Game);
     ~scene_editor();
     scene Update();
@@ -183,6 +186,10 @@ struct gui_tile
     engine::actor Actor;
     engine::overlapbox Overlapbox;
     engine::texturebox Texturebox;
+    engine::colorbox Top;
+    engine::colorbox Bottom;
+    engine::colorbox Left;
+    engine::colorbox Right;
     uint8 CellX;
     uint8 CellY;
     gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, uint8 CellX, uint8 CellY);
