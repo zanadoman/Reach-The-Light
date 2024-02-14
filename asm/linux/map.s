@@ -95,7 +95,7 @@ _ZN3mapC2Ev:
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
 	movq	%rdi, %rsi
-	movl	$128, %edx
+	movl	$129, %edx
 	pushq	%rbx
 	.cfi_def_cfa_offset 24
 	.cfi_offset 3, -24
@@ -116,31 +116,32 @@ _ZN3mapC2Ev:
 	leaq	.LC0(%rip), %rdi
 .LEHB0:
 	call	_ZN3neo6memory6LoadToEPKcPvy@PLT
-	movq	%rbx, %rdi
-	xorl	%edx, %edx
-	call	_ZN3map5ResetEv
+	testb	%al, %al
+	jne	.L30
+.L6:
 	xorl	%eax, %eax
+	xorl	%edx, %edx
 	.p2align 4,,10
 	.p2align 3
-.L7:
+.L8:
 	testb	$15, %al
-	jne	.L6
+	jne	.L7
 	movzbl	%dl, %ecx
 	leaq	(%rbx,%rax), %rsi
 	addl	$1, %edx
 	movq	%rsi, 144(%rbx,%rcx,8)
-.L6:
+.L7:
 	addq	$1, %rax
 	cmpq	$128, %rax
-	jne	.L7
+	jne	.L8
 	movl	$512, %edx
 	movb	$5, 14(%rsp)
 	movw	%dx, 12(%rsp)
 	movq	208(%rbx), %rdx
 	cmpq	$3, %rdx
-	jne	.L26
+	jne	.L31
 	movq	216(%rbx), %rsi
-.L10:
+.L11:
 	leaq	12(%rsp), %rdi
 	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
 	movq	224(%rbx), %rdx
@@ -148,22 +149,22 @@ _ZN3mapC2Ev:
 	movb	$5, 18(%rsp)
 	movw	%ax, 16(%rsp)
 	cmpq	$3, %rdx
-	jne	.L27
+	jne	.L32
 	movq	232(%rbx), %rsi
-.L13:
+.L14:
 	leaq	16(%rsp), %rdi
 	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
 	movq	240(%rbx), %rdx
 	movl	$134480642, 20(%rsp)
 	cmpq	$4, %rdx
-	jne	.L28
+	jne	.L33
 	movq	248(%rbx), %rsi
-.L17:
+.L18:
 	leaq	20(%rsp), %rdi
 	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
 	movq	24(%rsp), %rax
 	subq	%fs:40, %rax
-	jne	.L29
+	jne	.L34
 	addq	$40, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
@@ -172,7 +173,7 @@ _ZN3mapC2Ev:
 	popq	%rbp
 	.cfi_def_cfa_offset 8
 	ret
-.L28:
+.L33:
 	.cfi_restore_state
 	movq	$4, 240(%rbx)
 	movq	248(%rbx), %rdi
@@ -181,10 +182,10 @@ _ZN3mapC2Ev:
 	movq	%rax, 248(%rbx)
 	movq	%rax, %rsi
 	testq	%rax, %rax
-	je	.L16
+	je	.L17
 	movq	240(%rbx), %rdx
-	jmp	.L17
-.L27:
+	jmp	.L18
+.L32:
 	movq	$3, 224(%rbx)
 	movq	232(%rbx), %rdi
 	movl	$3, %esi
@@ -192,10 +193,10 @@ _ZN3mapC2Ev:
 	movq	%rax, 232(%rbx)
 	movq	%rax, %rsi
 	testq	%rax, %rax
-	je	.L9
+	je	.L10
 	movq	224(%rbx), %rdx
-	jmp	.L13
-.L26:
+	jmp	.L14
+.L31:
 	movq	$3, 208(%rbx)
 	movq	216(%rbx), %rdi
 	movl	$3, %esi
@@ -203,31 +204,35 @@ _ZN3mapC2Ev:
 	movq	%rax, 216(%rbx)
 	movq	%rax, %rsi
 	testq	%rax, %rax
-	je	.L9
+	je	.L10
 	movq	208(%rbx), %rdx
-	jmp	.L10
-.L29:
-	call	__stack_chk_fail@PLT
-.L9:
+	jmp	.L11
+.L30:
+	movq	%rbx, %rdi
+	call	_ZN3map5ResetEv
+	jmp	.L6
+.L10:
 	movl	$3, %edx
 	movl	$1, %esi
 	leaq	.LC10(%rip), %rdi
 	xorl	%eax, %eax
 	call	printf@PLT
-.L14:
+.L15:
 	movl	$1, %edi
 	call	exit@PLT
-.L16:
+.L17:
 	movl	$4, %edx
 	movl	$1, %esi
 	leaq	.LC10(%rip), %rdi
 	xorl	%eax, %eax
 	call	printf@PLT
 .LEHE0:
-	jmp	.L14
-.L21:
+	jmp	.L15
+.L34:
+	call	__stack_chk_fail@PLT
+.L22:
 	movq	%rax, %rbp
-	jmp	.L18
+	jmp	.L19
 	.section	.gcc_except_table
 .LLSDA8157:
 	.byte	0xff
@@ -237,7 +242,7 @@ _ZN3mapC2Ev:
 .LLSDACSB8157:
 	.uleb128 .LEHB0-.LFB8157
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L21-.LFB8157
+	.uleb128 .L22-.LFB8157
 	.uleb128 0
 .LLSDACSE8157:
 	.text
@@ -249,7 +254,7 @@ _ZN3mapC2Ev:
 	.type	_ZN3mapC2Ev.cold, @function
 _ZN3mapC2Ev.cold:
 .LFSB8157:
-.L18:
+.L19:
 	.cfi_def_cfa_offset 64
 	.cfi_offset 3, -24
 	.cfi_offset 6, -16
@@ -261,12 +266,12 @@ _ZN3mapC2Ev.cold:
 	call	free@PLT
 	movq	24(%rsp), %rax
 	subq	%fs:40, %rax
-	jne	.L30
+	jne	.L35
 	movq	%rbp, %rdi
 .LEHB1:
 	call	_Unwind_Resume@PLT
 .LEHE1:
-.L30:
+.L35:
 	call	__stack_chk_fail@PLT
 	.cfi_endproc
 .LFE8157:

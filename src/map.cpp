@@ -4,7 +4,7 @@ map::map()
 {
     this->Spawn = &this->Raw[MAP_X * MAP_Y];
 
-    if (memory::LoadTo("saves/map", this->Raw, sizeof(uint8) * MAP_X * MAP_Y) + sizeof(uint8))
+    if (memory::LoadTo("saves/map", this->Raw, sizeof(uint8) * MAP_X * MAP_Y + sizeof(uint8)))
     {
         this->Reset();
     }
