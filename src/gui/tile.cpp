@@ -11,6 +11,51 @@ gui_tile::gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width,
     this->Right = this->Actor->Colorboxes.New();
     this->CellX = CellX;
     this->CellY = CellY;
+    
+    if (CellX == 0)
+    {
+        for (uint8 i = 0; i < this->Game->Map->LeftAllowed.Length(); i++)
+        {
+            if (this->Game->Map->Cells[CellX][CellY] == this->Game->Map->LeftAllowed[i])
+            {
+                this->Type = i;
+                break;
+            }
+        }
+    }
+    else if (CellX == MAP_X - 1)
+    {
+        for (uint8 i = 0; i < this->Game->Map->RightAllowed.Length(); i++)
+        {
+            if (this->Game->Map->Cells[CellX][CellY] == this->Game->Map->RightAllowed[i])
+            {
+                this->Type = i;
+                break;
+            }
+        }
+    }
+    else if (CellY == 0)
+    {
+        for (uint8 i = 0; i < this->Game->Map->BottomAllowed.Length(); i++)
+        {
+            if (this->Game->Map->Cells[CellX][CellY] == this->Game->Map->BottomAllowed[i])
+            {
+                this->Type = i;
+                break;
+            }
+        }
+    }
+    else
+    {
+        for (uint8 i = 0; i < this->Game->Map->CenterAllowed.Length(); i++)
+        {
+            if (this->Game->Map->Cells[CellX][CellY] == this->Game->Map->CenterAllowed[i])
+            {
+                this->Type = i;
+                break;
+            }
+        }
+    }
 
     this->Top->Width = 104;
     this->Top->Height = 4;
@@ -57,124 +102,79 @@ uint8 gui_tile::Update()
             {
                 if (this->CellX == 0)
                 {
-                    switch (this->Game->Map->Cells[this->CellX][this->CellY])
+                    if (this->Game->Map->LeftAllowed.Length() <= ++this->Type)
                     {
-                        case TILE_TOP_LEFT_CORNER:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_LEFT_CORNER;
-                        break;
-
-                        case TILE_BOT_LEFT_CORNER:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_VERTICAL_CORRIDOR;
-                        break;
-
-                        case TILE_VERTICAL_CORRIDOR:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_TOP_LEFT_CORNER;
-                        break;
+                        this->Type = 0;
                     }
+
+                    this->Game->Map->Cells[this->CellX][this->CellY] = this->Game->Map->LeftAllowed[this->Type];
                 }
                 else if (this->CellX == MAP_X - 1)
                 {
-                    switch (this->Game->Map->Cells[this->CellX][this->CellY])
+                    if (this->Game->Map->RightAllowed.Length() <= ++this->Type)
                     {
-                        case TILE_TOP_RIGHT_CORNER:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_RIGHT_CORNER;
-                        break;
-
-                        case TILE_BOT_RIGHT_CORNER:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_VERTICAL_CORRIDOR;
-                        break;
-
-                        case TILE_VERTICAL_CORRIDOR:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_TOP_RIGHT_CORNER;
-                        break;
+                        this->Type = 0;
                     }
+
+                    this->Game->Map->Cells[this->CellX][this->CellY] = this->Game->Map->RightAllowed[this->Type];
                 }
                 else if (this->CellY == 0)
                 {
-                    switch (this->Game->Map->Cells[this->CellX][this->CellY])
+                    if (this->Game->Map->BottomAllowed.Length() <= ++this->Type)
                     {
-                        case TILE_BOT_LEFT_CORNER:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_RIGHT_CORNER;
-                        break;
-
-                        case TILE_BOT_RIGHT_CORNER:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_HORIZONTAL_CORRIDOR;
-                        break;
-
-                        case TILE_HORIZONTAL_CORRIDOR:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_CEIL_HOLE;
-                        break;
-
-                        case TILE_CEIL_HOLE:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_LEFT_CORNER;
-                        break;
+                        this->Type = 0;
                     }
+
+                    this->Game->Map->Cells[this->CellX][this->CellY] = this->Game->Map->BottomAllowed[this->Type];
                 }
-                else if (TILE_VERTICAL_ROTATING < ++this->Game->Map->Cells[this->CellX][this->CellY])
+                else
                 {
-                    this->Game->Map->Cells[this->CellX][this->CellY] = TILE_TOP_LEFT_CORNER;
+                    if (this->Game->Map->CenterAllowed.Length() <= ++this->Type)
+                    {
+                        this->Type = 0;
+                    }
+
+                    this->Game->Map->Cells[this->CellX][this->CellY] = this->Game->Map->CenterAllowed[this->Type];
                 }
             }
+
             if (this->Overlapbox->GetButtonState() & BTN_RELEASED_RMB)
             {
                 if (this->CellX == 0)
                 {
-                    switch (this->Game->Map->Cells[this->CellX][this->CellY])
+                    if (--this->Type < 0)
                     {
-                        case TILE_VERTICAL_CORRIDOR:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_LEFT_CORNER;
-                        break;
-
-                        case TILE_BOT_LEFT_CORNER:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_TOP_LEFT_CORNER;
-                        break;
-
-                        case TILE_TOP_LEFT_CORNER:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_VERTICAL_CORRIDOR;
-                        break;
+                        this->Type = this->Game->Map->LeftAllowed.Length() - 1;
                     }
+
+                    this->Game->Map->Cells[this->CellX][this->CellY] = this->Game->Map->LeftAllowed[this->Type];
                 }
                 else if (this->CellX == MAP_X - 1)
                 {
-                    switch (this->Game->Map->Cells[this->CellX][this->CellY])
+                    if (--this->Type < 0)
                     {
-                        case TILE_VERTICAL_CORRIDOR:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_RIGHT_CORNER;
-                        break;
-
-                        case TILE_BOT_RIGHT_CORNER:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_TOP_RIGHT_CORNER;
-                        break;
-
-                        case TILE_TOP_RIGHT_CORNER:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_VERTICAL_CORRIDOR;
-                        break;
+                        this->Type = this->Game->Map->RightAllowed.Length() - 1;
                     }
+
+                    this->Game->Map->Cells[this->CellX][this->CellY] = this->Game->Map->RightAllowed[this->Type];
                 }
                 else if (this->CellY == 0)
                 {
-                    switch (this->Game->Map->Cells[this->CellX][this->CellY])
+                    if (--this->Type < 0)
                     {
-                        case TILE_CEIL_HOLE:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_HORIZONTAL_CORRIDOR;
-                        break;
-
-                        case TILE_HORIZONTAL_CORRIDOR:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_RIGHT_CORNER;
-                        break;
-
-                        case TILE_BOT_RIGHT_CORNER:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_LEFT_CORNER;
-                        break;
-
-                        case TILE_BOT_LEFT_CORNER:
-                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_CEIL_HOLE;
-                        break;
+                        this->Type = this->Game->Map->BottomAllowed.Length() - 1;
                     }
+
+                    this->Game->Map->Cells[this->CellX][this->CellY] = this->Game->Map->BottomAllowed[this->Type];
                 }
-                else if (--this->Game->Map->Cells[this->CellX][this->CellY] < TILE_TOP_LEFT_CORNER)
+                else
                 {
-                    this->Game->Map->Cells[this->CellX][this->CellY] = TILE_VERTICAL_ROTATING;
+                    if (--this->Type < 0)
+                    {
+                        this->Type = this->Game->Map->CenterAllowed.Length() - 1;
+                    }
+
+                    this->Game->Map->Cells[this->CellX][this->CellY] = this->Game->Map->CenterAllowed[this->Type];
                 }
             }
         }

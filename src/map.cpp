@@ -10,6 +10,41 @@ map::map()
     {
         this->Reset();
     }
+    
+    this->CenterAllowed =
+    {
+        TILE_TOP_LEFT_CORNER,
+        TILE_TOP_RIGHT_CORNER,
+        TILE_BOT_LEFT_CORNER,
+        TILE_BOT_RIGHT_CORNER,
+        TILE_HORIZONTAL_CORRIDOR,
+        TILE_VERTICAL_CORRIDOR,
+        TILE_CENTER_CORRIDOR,
+        TILE_FLOOR_HOLE,
+        TILE_CEIL_HOLE,
+        TILE_TRAP_HOLE,
+        TILE_HORIZONTAL_ROTATING,
+        TILE_VERTICAL_ROTATING
+    };
+    this->LeftAllowed = 
+    {
+        TILE_TOP_LEFT_CORNER,
+        TILE_BOT_LEFT_CORNER,
+        TILE_VERTICAL_CORRIDOR
+    };
+    this->RightAllowed =
+    {
+        TILE_TOP_RIGHT_CORNER,
+        TILE_BOT_RIGHT_CORNER,
+        TILE_VERTICAL_CORRIDOR
+    };
+    this->BottomAllowed =
+    {
+        TILE_BOT_LEFT_CORNER,
+        TILE_BOT_RIGHT_CORNER,
+        TILE_HORIZONTAL_CORRIDOR,
+        TILE_CEIL_HOLE
+    };
 
     for (uint8 i = 0, j = 0; i < MAP_X * MAP_Y; i++)
     {

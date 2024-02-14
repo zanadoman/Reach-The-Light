@@ -22,13 +22,20 @@ _ZN3mapD2Ev:
 	movq	%rdi, %rbx
 	movl	$1, %esi
 	call	_ZN3neo6memory4SaveEPKvyPKc@PLT
-	leaq	1(%rbx), %rdi
-	movl	$128, %esi
 	leaq	.LC1(%rip), %rdx
+	movl	$128, %esi
+	leaq	1(%rbx), %rdi
 	call	_ZN3neo6memory4SaveEPKvyPKc@PLT
+	movq	256(%rbx), %rdi
+	call	free@PLT
+	movq	240(%rbx), %rdi
+	call	free@PLT
+	movq	224(%rbx), %rdi
+	call	free@PLT
+	movq	208(%rbx), %rdi
 	popq	%rbx
 	.cfi_def_cfa_offset 8
-	ret
+	jmp	free@PLT
 	.cfi_endproc
 .LFE8160:
 	.globl	__gxx_personality_v0
@@ -72,6 +79,15 @@ _ZN3map5ResetEv:
 	.cfi_endproc
 .LFE8162:
 	.size	_ZN3map5ResetEv, .-_ZN3map5ResetEv
+	.section	.rodata.str1.8,"aMS",@progbits,1
+	.align 8
+.LC12:
+	.string	"neo::array=: Memory allocation failed\nParams: Elements(type, length): %ld, %ld\n"
+	.section	.text.unlikely,"ax",@progbits
+	.align 2
+.LCOLDB16:
+	.text
+.LHOTB16:
 	.align 2
 	.p2align 4
 	.globl	_ZN3mapC2Ev
@@ -79,6 +95,8 @@ _ZN3map5ResetEv:
 _ZN3mapC2Ev:
 .LFB8157:
 	.cfi_startproc
+	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
+	.cfi_lsda 0x1b,.LLSDA8157
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
@@ -88,9 +106,21 @@ _ZN3mapC2Ev:
 	.cfi_def_cfa_offset 24
 	.cfi_offset 3, -24
 	movq	%rdi, %rbx
+	subq	$56, %rsp
+	.cfi_def_cfa_offset 80
+	movq	%fs:40, %rax
+	movq	%rax, 40(%rsp)
+	xorl	%eax, %eax
+	movq	$0, 200(%rdi)
+	movq	$0, 208(%rdi)
+	movq	$0, 216(%rdi)
+	movq	$0, 224(%rdi)
+	movq	$0, 232(%rdi)
+	movq	$0, 240(%rdi)
+	movq	$0, 248(%rdi)
+	movq	$0, 256(%rdi)
 	leaq	.LC0(%rip), %rdi
-	subq	$8, %rsp
-	.cfi_def_cfa_offset 32
+.LEHB0:
 	call	_ZN3neo6memory6LoadToEPKcPvy@PLT
 	testb	%al, %al
 	je	.L6
@@ -102,24 +132,65 @@ _ZN3mapC2Ev:
 	movq	%rbp, %rsi
 	call	_ZN3neo6memory6LoadToEPKcPvy@PLT
 	testb	%al, %al
-	jne	.L18
+	jne	.L37
 .L7:
+	movq	.LC10(%rip), %rax
+	movq	200(%rbx), %rdx
+	movl	$185207048, 32(%rsp)
+	movq	%rax, 24(%rsp)
+	cmpq	$12, %rdx
+	jne	.L38
+	movq	208(%rbx), %rsi
+.L10:
+	leaq	24(%rsp), %rdi
+	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
+	movl	$512, %edx
+	movb	$5, 14(%rsp)
+	movw	%dx, 12(%rsp)
+	movq	216(%rbx), %rdx
+	cmpq	$3, %rdx
+	jne	.L39
+	movq	224(%rbx), %rsi
+.L13:
+	leaq	12(%rsp), %rdi
+	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
+	movq	232(%rbx), %rdx
+	movl	$769, %eax
+	movb	$5, 18(%rsp)
+	movw	%ax, 16(%rsp)
+	cmpq	$3, %rdx
+	jne	.L40
+	movq	240(%rbx), %rsi
+.L17:
+	leaq	16(%rsp), %rdi
+	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
+	movq	248(%rbx), %rdx
+	movl	$134480642, 20(%rsp)
+	cmpq	$4, %rdx
+	jne	.L41
+	movq	256(%rbx), %rsi
+.L20:
+	leaq	20(%rsp), %rdi
+	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
 	xorl	%eax, %eax
 	xorl	%edx, %edx
 	.p2align 4,,10
 	.p2align 3
-.L9:
+.L22:
 	testb	$15, %al
-	jne	.L8
+	jne	.L21
 	movzbl	%dl, %ecx
 	leaq	0(%rbp,%rax), %rsi
 	addl	$1, %edx
 	movq	%rsi, 136(%rbx,%rcx,8)
-.L8:
+.L21:
 	addq	$1, %rax
 	cmpq	$128, %rax
-	jne	.L9
-	addq	$8, %rsp
+	jne	.L22
+	movq	40(%rsp), %rax
+	subq	%fs:40, %rax
+	jne	.L42
+	addq	$56, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
 	popq	%rbx
@@ -127,14 +198,148 @@ _ZN3mapC2Ev:
 	popq	%rbp
 	.cfi_def_cfa_offset 8
 	ret
-.L18:
+.L41:
 	.cfi_restore_state
+	movq	$4, 248(%rbx)
+	movq	256(%rbx), %rdi
+	movl	$4, %esi
+	call	realloc@PLT
+	movq	%rax, 256(%rbx)
+	movq	%rax, %rsi
+	testq	%rax, %rax
+	je	.L19
+	movq	248(%rbx), %rdx
+	jmp	.L20
+.L40:
+	movq	$3, 232(%rbx)
+	movq	240(%rbx), %rdi
+	movl	$3, %esi
+	call	realloc@PLT
+	movq	%rax, 240(%rbx)
+	movq	%rax, %rsi
+	testq	%rax, %rax
+	je	.L16
+	movq	232(%rbx), %rdx
+	jmp	.L17
+.L39:
+	movq	$3, 216(%rbx)
+	movq	224(%rbx), %rdi
+	movl	$3, %esi
+	call	realloc@PLT
+	movq	%rax, 224(%rbx)
+	movq	%rax, %rsi
+	testq	%rax, %rax
+	je	.L16
+	movq	216(%rbx), %rdx
+	jmp	.L13
+.L38:
+	movq	$12, 200(%rbx)
+	movq	208(%rbx), %rdi
+	movl	$12, %esi
+	call	realloc@PLT
+	movq	%rax, 208(%rbx)
+	movq	%rax, %rsi
+	testq	%rax, %rax
+	je	.L9
+	movq	200(%rbx), %rdx
+	jmp	.L10
+.L37:
 	movq	%rbx, %rdi
 	call	_ZN3map5ResetEv
 	jmp	.L7
+.L9:
+	movl	$12, %edx
+	movl	$1, %esi
+	leaq	.LC12(%rip), %rdi
+	xorl	%eax, %eax
+	call	printf@PLT
+.L14:
+	movl	$1, %edi
+	call	exit@PLT
+.L16:
+	movl	$3, %edx
+	movl	$1, %esi
+	leaq	.LC12(%rip), %rdi
+	xorl	%eax, %eax
+	call	printf@PLT
+	jmp	.L14
+.L19:
+	movl	$4, %edx
+	movl	$1, %esi
+	leaq	.LC12(%rip), %rdi
+	xorl	%eax, %eax
+	call	printf@PLT
+.LEHE0:
+	jmp	.L14
+.L42:
+	call	__stack_chk_fail@PLT
+.L26:
+	movq	%rax, %rbp
+	jmp	.L23
+	.section	.gcc_except_table
+.LLSDA8157:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE8157-.LLSDACSB8157
+.LLSDACSB8157:
+	.uleb128 .LEHB0-.LFB8157
+	.uleb128 .LEHE0-.LEHB0
+	.uleb128 .L26-.LFB8157
+	.uleb128 0
+.LLSDACSE8157:
+	.text
+	.cfi_endproc
+	.section	.text.unlikely
+	.cfi_startproc
+	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
+	.cfi_lsda 0x1b,.LLSDAC8157
+	.type	_ZN3mapC2Ev.cold, @function
+_ZN3mapC2Ev.cold:
+.LFSB8157:
+.L23:
+	.cfi_def_cfa_offset 80
+	.cfi_offset 3, -24
+	.cfi_offset 6, -16
+	movq	256(%rbx), %rdi
+	call	free@PLT
+	movq	240(%rbx), %rdi
+	call	free@PLT
+	movq	224(%rbx), %rdi
+	call	free@PLT
+	movq	208(%rbx), %rdi
+	call	free@PLT
+	movq	40(%rsp), %rax
+	subq	%fs:40, %rax
+	jne	.L43
+	movq	%rbp, %rdi
+.LEHB1:
+	call	_Unwind_Resume@PLT
+.LEHE1:
+.L43:
+	call	__stack_chk_fail@PLT
 	.cfi_endproc
 .LFE8157:
+	.section	.gcc_except_table
+.LLSDAC8157:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
+.LLSDACSBC8157:
+	.uleb128 .LEHB1-.LCOLDB16
+	.uleb128 .LEHE1-.LEHB1
+	.uleb128 0
+	.uleb128 0
+.LLSDACSEC8157:
+	.section	.text.unlikely
+	.text
 	.size	_ZN3mapC2Ev, .-_ZN3mapC2Ev
+	.section	.text.unlikely
+	.size	_ZN3mapC2Ev.cold, .-_ZN3mapC2Ev.cold
+.LCOLDE16:
+	.text
+.LHOTE16:
 	.globl	_ZN3mapC1Ev
 	.set	_ZN3mapC1Ev,_ZN3mapC2Ev
 	.section	.rodata.cst16,"aM",@progbits,16
@@ -282,6 +487,17 @@ _ZN3mapC2Ev:
 	.byte	1
 	.byte	3
 	.byte	1
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align 8
+.LC10:
+	.byte	0
+	.byte	1
+	.byte	2
+	.byte	3
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	7
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

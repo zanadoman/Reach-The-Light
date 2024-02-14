@@ -50,7 +50,7 @@ typedef enum
     TILE_CEIL_HOLE,
     TILE_TRAP_HOLE,
     TILE_HORIZONTAL_ROTATING,
-    TILE_VERTICAL_ROTATING,
+    TILE_VERTICAL_ROTATING
 } tile;
 
 struct game
@@ -101,6 +101,10 @@ struct map
     uint8 Spawn;
     sint8 Raw[MAP_X * MAP_Y];
     sint8* Cells[MAP_X];
+    array<uint8> CenterAllowed;
+    array<uint8> LeftAllowed;
+    array<uint8> RightAllowed;
+    array<uint8> BottomAllowed;
     map();
     ~map();
     uint8 Reset();
@@ -193,6 +197,7 @@ struct gui_tile
     engine::colorbox Right;
     uint8 CellX;
     uint8 CellY;
+    sint8 Type;
     gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, uint8 CellX, uint8 CellY);
     ~gui_tile();
     uint8 Update();
