@@ -17,7 +17,7 @@ gui_button::gui_button(engine* Engine, game* Game, double X, double Y, uint16 Wi
     this->Textbox->ColorR = 0;
     this->Textbox->ColorG = 0;
     this->Textbox->ColorB = 0;
-    this->Textbox->Priority = 129;
+    this->Textbox->Priority = this->Textbox->Priority + 1;
     this->Textbox->SetHeight(Height * 0.5);
 }
 
@@ -46,6 +46,10 @@ bool gui_button::Update()
 
         if (this->Overlapbox->GetButtonState() & BTN_RELEASED_LMB)
         {
+            this->Texturebox->Width = this->Width * size;
+            this->Texturebox->Height = this->Height * size;
+            this->Textbox->SetHeight(this->Height * size * 0.5);
+
             return true;
         }
     }

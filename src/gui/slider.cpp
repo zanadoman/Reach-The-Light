@@ -7,7 +7,7 @@ gui_slider::gui_slider(engine* Engine, game* Game, double X, double Y, uint16 Wi
     this->Colorbox = this->Actor->Colorboxes.New();
     this->Textbox = this->Actor->Textboxes.New(Literal, this->Game->Assets->HackRegularFont);
     this->Indicator = this->Actor->Colorboxes.New();
-    this->BaseLiteral = {Literal};
+    this->Literal = {Literal};
     this->Min = Min;
     this->Max = Max;
 
@@ -57,7 +57,7 @@ double gui_slider::Update()
 
     result = (this->Max - this->Min) * ((this->Indicator->GetX() - this->IndicatorMinX) / (this->IndicatorMaxX - this->IndicatorMinX)) + this->Min;
 
-    this->Textbox->SetLiteral((((str = {&this->BaseLiteral}) += {": "}) += {(sint64)round(result)})());
+    this->Textbox->SetLiteral((((str = {&this->Literal}) += {": "}) += {(sint64)round(result)})());
 
     return result;
 }

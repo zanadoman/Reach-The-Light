@@ -86,16 +86,15 @@ struct scene_menu
 {
     engine* Engine;
     game* Game;
-    settings* Settings;
 
     engine::actor Actor;
     engine::textbox Title;
-    gui_button* btnPlay;
-    gui_button* btnEditor;
-    gui_button* btnCredits;
-    gui_button* btnQuit;
-    gui_slider* hsVolume;
-    gui_slider* hsFrameRate;
+    gui_button* Play;
+    gui_button* Editor;
+    gui_button* Credits;
+    gui_button* Quit;
+    gui_slider* Volume;
+    gui_slider* FrameRate;
     scene_menu(engine* Engine, game* Game);
     ~scene_menu();
     scene Update();
@@ -130,7 +129,7 @@ struct gui_slider
     engine::colorbox Colorbox;
     engine::textbox Textbox;
     engine::colorbox Indicator;
-    string BaseLiteral;
+    string Literal;
     double IndicatorMinX;
     double IndicatorMaxX;
     double Min;

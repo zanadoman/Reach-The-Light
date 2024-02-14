@@ -71,9 +71,9 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc:
 	cvttsd2sil	%xmm0, %esi
 	movw	%dx, 20(%rax)
 	movb	$-32, 22(%rax)
+	addb	$1, 36(%rdi)
 	movw	%cx, 16(%rdi)
 	movb	$0, 18(%rdi)
-	movb	$-127, 36(%rdi)
 	movzwl	%si, %esi
 	popq	%rbx
 	.cfi_def_cfa_offset 40
@@ -153,12 +153,10 @@ _ZN10gui_button6UpdateEv:
 .L9:
 	movq	24(%rbx), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
-	movl	%eax, %edx
-	movl	$1, %eax
-	andl	$4, %edx
-	jne	.L6
 	movsd	56(%rbx), %xmm1
+	testb	$4, %al
 	movq	32(%rbx), %rax
+	jne	.L14
 .L15:
 	movzwl	48(%rbx), %edx
 	pxor	%xmm0, %xmm0
@@ -178,7 +176,6 @@ _ZN10gui_button6UpdateEv:
 	movzwl	%si, %esi
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
 	xorl	%eax, %eax
-.L6:
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_def_cfa_offset 8
@@ -205,7 +202,7 @@ _ZN10gui_button6UpdateEv:
 	subsd	%xmm0, %xmm1
 	comisd	%xmm1, %xmm4
 	movsd	%xmm1, 56(%rbx)
-	ja	.L19
+	ja	.L20
 	movq	32(%rbx), %rax
 	jmp	.L15
 	.p2align 4,,10
@@ -229,7 +226,33 @@ _ZN10gui_button6UpdateEv:
 	jmp	.L9
 	.p2align 4,,10
 	.p2align 3
-.L19:
+.L14:
+	movzwl	48(%rbx), %edx
+	pxor	%xmm0, %xmm0
+	movq	40(%rbx), %rdi
+	cvtsi2sdl	%edx, %xmm0
+	mulsd	%xmm1, %xmm0
+	cvttsd2sil	%xmm0, %edx
+	pxor	%xmm0, %xmm0
+	movw	%dx, 16(%rax)
+	movzwl	50(%rbx), %edx
+	cvtsi2sdl	%edx, %xmm0
+	mulsd	%xmm1, %xmm0
+	cvttsd2sil	%xmm0, %edx
+	mulsd	.LC3(%rip), %xmm0
+	movw	%dx, 18(%rax)
+	cvttsd2sil	%xmm0, %esi
+	movzwl	%si, %esi
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
+	movl	$1, %eax
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L20:
+	.cfi_restore_state
 	movq	32(%rbx), %rax
 	movsd	%xmm4, 56(%rbx)
 	movapd	%xmm4, %xmm1

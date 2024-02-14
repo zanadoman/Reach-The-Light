@@ -57,7 +57,7 @@ _ZN4gameC2EPN3wze6engineE:
 	call	_ZN3mapC1Ev@PLT
 .LEHE5:
 	movq	%r12, 24(%rbx)
-	movl	$88, %edi
+	movl	$80, %edi
 	movl	$1, 32(%rbx)
 .LEHB6:
 	call	_Znwm@PLT
@@ -154,7 +154,7 @@ _ZN4gameC2EPN3wze6engineE.cold:
 	call	_Unwind_Resume@PLT
 .L5:
 	movq	%r12, %rdi
-	movl	$88, %esi
+	movl	$80, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
@@ -268,7 +268,7 @@ _ZN4gameD2Ev:
 	je	.L14
 	movq	%rbp, %rdi
 	call	_ZN10scene_menuD1Ev@PLT
-	movl	$88, %esi
+	movl	$80, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 	jmp	.L14
@@ -379,14 +379,14 @@ _ZN4game6UpdateEv:
 	je	.L32
 	movq	%r12, %rdi
 	call	_ZN10scene_menuD1Ev@PLT
-	movl	$88, %esi
+	movl	$80, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
 	jmp	.L32
 	.p2align 4,,10
 	.p2align 3
 .L46:
-	movl	$88, %edi
+	movl	$80, %edi
 	call	_Znwm@PLT
 .LEHE9:
 	movq	(%rbx), %rsi
@@ -432,7 +432,7 @@ _ZN4game6UpdateEv.cold:
 	.cfi_offset 6, -24
 	.cfi_offset 12, -16
 	movq	%r12, %rdi
-	movl	$88, %esi
+	movl	$80, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 .LEHB11:
@@ -538,7 +538,7 @@ _ZN4game11SwitchSceneE5scene:
 	je	.L49
 	movq	%r12, %rdi
 	call	_ZN10scene_menuD1Ev@PLT
-	movl	$88, %esi
+	movl	$80, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
 	jmp	.L49
@@ -558,7 +558,7 @@ _ZN4game11SwitchSceneE5scene:
 	.cfi_offset 3, -32
 	.cfi_offset 6, -24
 	.cfi_offset 12, -16
-	movl	$88, %edi
+	movl	$80, %edi
 	call	_Znwm@PLT
 .LEHE12:
 	movq	(%rbx), %rsi
@@ -614,7 +614,7 @@ _ZN4game11SwitchSceneE5scene.cold:
 	.cfi_offset 6, -24
 	.cfi_offset 12, -16
 	movq	%r12, %rdi
-	movl	$88, %esi
+	movl	$80, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 .LEHB14:

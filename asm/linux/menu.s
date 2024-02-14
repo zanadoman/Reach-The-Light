@@ -65,21 +65,21 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movq	8(%rbx), %rdx
 	leaq	.LC1(%rip), %rsi
-	movq	%rax, 24(%rbx)
+	movq	%rax, 16(%rbx)
 	leaq	104(%rax), %rdi
 	movq	8(%rdx), %rdx
 	movq	16(%rdx), %rdx
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
 	movl	$64, %edi
-	movq	%rax, 32(%rbx)
+	movq	%rax, 24(%rbx)
 	call	_Znwm@PLT
 .LEHE0:
-	movq	24(%rbx), %rdi
+	movq	16(%rbx), %rdi
 	movq	%rax, %rbp
 .LEHB1:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	addsd	.LC2(%rip), %xmm0
-	movq	24(%rbx), %rdi
+	movq	16(%rbx), %rdi
 	movsd	%xmm0, (%rsp)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	8(%rbx), %rdx
@@ -91,17 +91,17 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	movl	$300, %ecx
 	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc@PLT
 .LEHE1:
-	movq	%rbp, 40(%rbx)
+	movq	%rbp, 32(%rbx)
 	movl	$64, %edi
 .LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
-	movq	24(%rbx), %rdi
+	movq	16(%rbx), %rdi
 	movq	%rax, %rbp
 .LEHB3:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	addsd	.LC4(%rip), %xmm0
-	movq	24(%rbx), %rdi
+	movq	16(%rbx), %rdi
 	movsd	%xmm0, (%rsp)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	8(%rbx), %rdx
@@ -113,17 +113,17 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	movl	$300, %ecx
 	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc@PLT
 .LEHE3:
-	movq	%rbp, 48(%rbx)
+	movq	%rbp, 40(%rbx)
 	movl	$64, %edi
 .LEHB4:
 	call	_Znwm@PLT
 .LEHE4:
-	movq	24(%rbx), %rdi
+	movq	16(%rbx), %rdi
 	movq	%rax, %rbp
 .LEHB5:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	subsd	.LC4(%rip), %xmm0
-	movq	24(%rbx), %rdi
+	movq	16(%rbx), %rdi
 	movsd	%xmm0, (%rsp)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	8(%rbx), %rdx
@@ -135,17 +135,17 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	movl	$300, %ecx
 	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc@PLT
 .LEHE5:
-	movq	%rbp, 56(%rbx)
+	movq	%rbp, 48(%rbx)
 	movl	$64, %edi
 .LEHB6:
 	call	_Znwm@PLT
 .LEHE6:
-	movq	24(%rbx), %rdi
+	movq	16(%rbx), %rdi
 	movq	%rax, %rbp
 .LEHB7:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	subsd	.LC2(%rip), %xmm0
-	movq	24(%rbx), %rdi
+	movq	16(%rbx), %rdi
 	movsd	%xmm0, (%rsp)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	8(%rbx), %rdx
@@ -157,12 +157,12 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	movl	$300, %ecx
 	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc@PLT
 .LEHE7:
-	movq	%rbp, 64(%rbx)
+	movq	%rbp, 56(%rbx)
 	movl	$104, %edi
 .LEHB8:
 	call	_Znwm@PLT
 .LEHE8:
-	movq	24(%rbx), %rdi
+	movq	16(%rbx), %rdi
 	movq	%rax, %rbp
 	movq	8(%rbx), %rax
 	movq	16(%rax), %rax
@@ -171,7 +171,7 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 .LEHB9:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	subsd	.LC8(%rip), %xmm0
-	movq	24(%rbx), %rdi
+	movq	16(%rbx), %rdi
 	movsd	%xmm0, 8(%rsp)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	8(%rbx), %rdx
@@ -186,12 +186,12 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	movl	$20, %r8d
 	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT
 .LEHE9:
-	movq	%rbp, 72(%rbx)
+	movq	%rbp, 64(%rbx)
 	movl	$104, %edi
 .LEHB10:
 	call	_Znwm@PLT
 .LEHE10:
-	movq	24(%rbx), %rdi
+	movq	16(%rbx), %rdi
 	movq	%rax, %rbp
 	movq	8(%rbx), %rax
 	movq	16(%rax), %rax
@@ -200,7 +200,7 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 .LEHB11:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	subsd	.LC11(%rip), %xmm0
-	movq	24(%rbx), %rdi
+	movq	16(%rbx), %rdi
 	movsd	%xmm0, 8(%rsp)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	8(%rbx), %rdx
@@ -215,15 +215,15 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	movsd	8(%rsp), %xmm1
 	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT
 .LEHE11:
-	movq	%rbp, 80(%rbx)
-	movq	24(%rbx), %rdi
-	movq	32(%rbx), %rbp
+	movq	%rbp, 72(%rbx)
+	movq	16(%rbx), %rdi
+	movq	24(%rbx), %rbp
 .LEHB12:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	addsd	.LC11(%rip), %xmm0
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd@PLT
-	movq	32(%rbx), %rdi
+	movq	24(%rbx), %rdi
 	addq	$24, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
@@ -407,13 +407,13 @@ _ZN10scene_menuD2Ev:
 	subq	$8, %rsp
 	.cfi_def_cfa_offset 32
 	movq	(%rdi), %rax
-	movq	24(%rdi), %rdi
+	movq	16(%rdi), %rdi
 	leaq	256(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
-	movq	40(%rbx), %rbp
+	movq	32(%rbx), %rbp
 	testq	%rbp, %rbp
 	je	.L17
 	movq	%rbp, %rdi
@@ -422,7 +422,7 @@ _ZN10scene_menuD2Ev:
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 .L17:
-	movq	48(%rbx), %rbp
+	movq	40(%rbx), %rbp
 	testq	%rbp, %rbp
 	je	.L18
 	movq	%rbp, %rdi
@@ -431,7 +431,7 @@ _ZN10scene_menuD2Ev:
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 .L18:
-	movq	56(%rbx), %rbp
+	movq	48(%rbx), %rbp
 	testq	%rbp, %rbp
 	je	.L19
 	movq	%rbp, %rdi
@@ -440,7 +440,7 @@ _ZN10scene_menuD2Ev:
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 .L19:
-	movq	64(%rbx), %rbp
+	movq	56(%rbx), %rbp
 	testq	%rbp, %rbp
 	je	.L20
 	movq	%rbp, %rdi
@@ -449,6 +449,15 @@ _ZN10scene_menuD2Ev:
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 .L20:
+	movq	64(%rbx), %rbp
+	testq	%rbp, %rbp
+	je	.L21
+	movq	%rbp, %rdi
+	call	_ZN10gui_sliderD1Ev@PLT
+	movl	$104, %esi
+	movq	%rbp, %rdi
+	call	_ZdlPvm@PLT
+.L21:
 	movq	72(%rbx), %rbx
 	testq	%rbx, %rbx
 	je	.L16
@@ -506,20 +515,20 @@ _ZN10scene_menu6UpdateEv:
 	.cfi_def_cfa_offset 32
 	.cfi_offset 3, -32
 	movq	%rdi, %rbx
-	movq	40(%rdi), %rdi
+	movq	32(%rdi), %rdi
+	call	_ZN10gui_button6UpdateEv@PLT
+	movq	40(%rbx), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
 	movq	48(%rbx), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
 	movq	56(%rbx), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
-	movq	64(%rbx), %rdi
-	call	_ZN10gui_button6UpdateEv@PLT
 	movl	%eax, %edx
 	xorl	%eax, %eax
 	testb	%dl, %dl
-	jne	.L35
+	jne	.L39
 	movq	(%rbx), %rax
-	movq	72(%rbx), %rdi
+	movq	64(%rbx), %rdi
 	leaq	160(%rax), %rbp
 	movq	8(%rbx), %rax
 	movq	16(%rax), %r12
@@ -529,22 +538,23 @@ _ZN10scene_menu6UpdateEv:
 	divsd	.LC9(%rip), %xmm0
 	call	_ZN3wze6engine5audio15SetGlobalVolumeEd@PLT
 	movq	(%rbx), %rax
-	movq	80(%rbx), %rdi
+	movq	72(%rbx), %rdi
 	leaq	392(%rax), %rbp
 	movq	8(%rbx), %rax
 	movq	16(%rax), %r12
 	call	_ZN10gui_slider6UpdateEv@PLT
 	movsd	%xmm0, 8(%r12)
 	call	round@PLT
+	movl	$1000, %eax
+	xorl	%edx, %edx
 	movq	%rbp, %rdi
-	movapd	%xmm0, %xmm1
-	movsd	.LC12(%rip), %xmm0
-	divsd	%xmm1, %xmm0
-	cvttsd2sil	%xmm0, %esi
-	movzbl	%sil, %esi
+	cvttsd2sil	%xmm0, %ecx
+	movswl	%cx, %ecx
+	idivl	%ecx
+	movzbl	%al, %esi
 	call	_ZN3wze6engine6timing18SetTargetFrameTimeEh@PLT
 	movl	$1, %eax
-.L35:
+.L39:
 	popq	%rbx
 	.cfi_def_cfa_offset 24
 	popq	%rbp
