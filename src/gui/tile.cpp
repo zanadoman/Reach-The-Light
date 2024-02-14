@@ -47,14 +47,7 @@ gui_tile::gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width,
     }
     else
     {
-        for (uint8 i = 0; i < TILE_COUNT; i++)
-        {
-            if (this->Game->Map->Cells[CellX][CellY] == i)
-            {
-                this->Type = i;
-                break;
-            }
-        }
+        this->Type = this->Game->Map->Cells[CellX][CellY];
     }
 
     this->Top->Width = 104;
