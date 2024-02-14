@@ -12,7 +12,11 @@ gui_tile::gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width,
     this->TileX = TileX;
     this->TileY = TileY;
     
-    if (TileX == 0)
+    if (((this->TileX == 0 && this->TileY == 0) || (this->TileX == 0 && this->TileY == MAP_Y - 1) || (this->TileX == MAP_X - 1 && this->TileY == 0) || (this->TileX == MAP_X - 1 && this->TileY == MAP_Y - 1)))
+    {
+        this->Type = this->Game->Map->Tiles[TileX][TileY];
+    }
+    else if (TileX == 0)
     {
         for (uint8 i = 0; i < this->Game->Map->LeftAllowed.Length(); i++)
         {
