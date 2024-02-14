@@ -379,7 +379,7 @@ _ZN3mapC2Ev.cold:
 	.byte	9
 	.byte	3
 	.byte	0
-	.byte	4
+	.byte	8
 	.byte	9
 	.byte	4
 	.byte	2

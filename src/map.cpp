@@ -121,7 +121,7 @@ uint8 map::Reset()
     this->Raw[73] = 9;
     this->Raw[74] = 3;
     this->Raw[75] = 0;
-    this->Raw[76] = 4;
+    this->Raw[76] = 8;
     this->Raw[77] = 9;
     this->Raw[78] = 4;
     this->Raw[79] = 2;
