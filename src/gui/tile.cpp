@@ -54,6 +54,10 @@ uint8 gui_tile::Update()
                 this->Game->Map->Cells[this->CellX][this->CellY] = TILE_TOP_LEFT_CORNER;
             }
         }
+        else if ((this->Overlapbox->GetButtonState() & BTN_RELEASED_MMB) && this->CellX == 0)
+        {
+            this->Game->Map->Spawn = this->CellY;
+        }
         else if (this->Overlapbox->GetButtonState() & BTN_RELEASED_RMB)
         {
             if (--this->Game->Map->Cells[this->CellX][this->CellY] < TILE_TOP_LEFT_CORNER)
@@ -70,6 +74,16 @@ uint8 gui_tile::Update()
         this->Right->Visible = false;
     }
 
+    if (this->CellX == 0 && this->CellY == this->Game->Map->Spawn)
+    {
+        this->Texturebox->ColorG = 128;
+        this->Texturebox->ColorB = 128;
+    }
+    else
+    {
+        this->Texturebox->ColorG = 255;
+        this->Texturebox->ColorB = 255;
+    }
     this->Texturebox->SetTextureID(this->Game->Assets->TileTextures[this->Game->Map->Cells[this->CellX][this->CellY]]);
 
     return 0;

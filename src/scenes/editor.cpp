@@ -62,6 +62,7 @@ scene scene_editor::Update()
 
     if (this->Reset->Update())
     {
+        this->Game->Map->Spawn = 6;
         this->Game->Map->Reset();
     }
     if (this->Exit->Update())

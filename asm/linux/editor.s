@@ -515,6 +515,7 @@ _ZN12scene_editor6UpdateEv:
 .L77:
 	movq	8(%rbx), %rax
 	movq	24(%rax), %rdi
+	movb	$6, (%rdi)
 	call	_ZN3map5ResetEv@PLT
 	jmp	.L56
 	.p2align 4,,10

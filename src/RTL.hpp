@@ -98,6 +98,7 @@ struct settings
 
 struct map
 {
+    uint8 Spawn;
     sint8 Raw[MAP_X * MAP_Y];
     sint8* Cells[MAP_X];
     map();

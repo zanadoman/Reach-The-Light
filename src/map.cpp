@@ -2,6 +2,10 @@
 
 map::map()
 {
+    if (memory::LoadTo("saves/spawn.save", &this->Spawn, sizeof(uint8)))
+    {
+        this->Spawn = 6;
+    }
     if (memory::LoadTo("saves/map.save", this->Raw, sizeof(sint8) * MAP_X * MAP_Y))
     {
         this->Reset();
@@ -18,6 +22,7 @@ map::map()
 
 map::~map()
 {
+    memory::Save(&this->Spawn, sizeof(uint8), "saves/spawn.save");
     memory::Save(this->Raw, sizeof(sint8) * MAP_X * MAP_Y, "saves/map.save");
 }
 
