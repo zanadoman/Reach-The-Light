@@ -200,7 +200,7 @@ struct gui_tile
     engine::colorbox Right;
     uint8 TileX;
     uint8 TileY;
-    sint8 Type;
+    uint8 Type;
     gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, uint8 TileX, uint8 TileY);
     ~gui_tile();
     uint8 Update();

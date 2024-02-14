@@ -139,7 +139,7 @@ uint8 gui_tile::Update()
             {
                 if (this->TileX == 0)
                 {
-                    if (--this->Type < 0)
+                    if (this->Game->Map->LeftAllowed.Length() <= --this->Type)
                     {
                         this->Type = this->Game->Map->LeftAllowed.Length() - 1;
                     }
@@ -148,7 +148,7 @@ uint8 gui_tile::Update()
                 }
                 else if (this->TileX == MAP_X - 1)
                 {
-                    if (--this->Type < 0)
+                    if (this->Game->Map->RightAllowed.Length() <= --this->Type)
                     {
                         this->Type = this->Game->Map->RightAllowed.Length() - 1;
                     }
@@ -157,7 +157,7 @@ uint8 gui_tile::Update()
                 }
                 else if (this->TileY == 0)
                 {
-                    if (--this->Type < 0)
+                    if (this->Game->Map->BottomAllowed.Length() <= --this->Type)
                     {
                         this->Type = this->Game->Map->BottomAllowed.Length() - 1;
                     }
@@ -166,7 +166,7 @@ uint8 gui_tile::Update()
                 }
                 else
                 {
-                    if (--this->Type < 0)
+                    if (TILE_COUNT <= --this->Type)
                     {
                         this->Type = TILE_COUNT - 1;
                     }
