@@ -41,7 +41,7 @@ struct game
     assets* Assets;
     settings* Settings;
     uint8 MapRaw[MAP_X * MAP_Y];
-    uint8* Map[MAP_X];
+    uint8* Map[MAP_Y];
     scene ActiveScene;
     scene_menu* Menu;
     game(engine* Engine);

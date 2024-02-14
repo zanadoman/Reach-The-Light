@@ -22,7 +22,7 @@ game::game(engine* Engine) : Engine(Engine)
     }
     for (uint8 i = 0, j = 0; i < MAP_X * MAP_Y; i++)
     {
-        if (i % MAP_Y == 0)
+        if (i % MAP_X == 0)
         {
             this->Map[j++] = &this->MapRaw[i];
         }
