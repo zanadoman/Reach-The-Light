@@ -13,7 +13,7 @@ map::map()
     {
         if (i % MAP_Y == 0)
         {
-            this->Cells[j++] = &this->Raw[i];
+            this->Tiles[j++] = &this->Raw[i];
         }
     }
     

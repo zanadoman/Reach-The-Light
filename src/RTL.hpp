@@ -102,7 +102,7 @@ struct map
     uint8 Raw[MAP_X * MAP_Y + 1];
 
     uint8* Spawn;
-    uint8* Cells[MAP_X];
+    uint8* Tiles[MAP_X];
 
     array<uint8> LeftAllowed;
     array<uint8> RightAllowed;
@@ -198,10 +198,10 @@ struct gui_tile
     engine::colorbox Bottom;
     engine::colorbox Left;
     engine::colorbox Right;
-    uint8 CellX;
-    uint8 CellY;
+    uint8 TileX;
+    uint8 TileY;
     sint8 Type;
-    gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, uint8 CellX, uint8 CellY);
+    gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, uint8 TileX, uint8 TileY);
     ~gui_tile();
     uint8 Update();
 };
