@@ -18,6 +18,7 @@ struct map;
 struct scene_menu;
 struct scene_play;
 struct scene_editor;
+struct act_player;
 struct gui_button;
 struct gui_slider;
 struct gui_tile;
@@ -46,12 +47,14 @@ typedef enum
 typedef enum
 {
     ACT_NONE,
+    ACT_PLAYER,
     ACT_TILE
 } actor;
 
 typedef enum
 {
-    BOX_NONE
+    BOX_NONE,
+    BOX_PLAYER
 } overlapbox;
 
 typedef enum
@@ -100,6 +103,9 @@ struct assets
     uint64 HackRegularFont;
 
     uint64 gui_buttonTexture;
+
+    array<uint64> PlayerIdle;
+    array<uint64> PlayerRun;
 
     array<uint64> TileTextures;
     array<uint64> TileBackgrounds;
@@ -162,6 +168,7 @@ struct scene_play
     game* Game;
 
     tile_token* Tiles[MAP_X][MAP_Y];
+    act_player* Player;
 
     scene_play(engine* Engine, game* Game);
     ~scene_play();
@@ -186,13 +193,22 @@ struct scene_editor
 
 //__________ACTORS___________________________________________________________________________________
 
-struct player
+struct act_player
 {
     engine* Engine;
     game* Game;
 
-    player(engine* Engine, game* Game, double X, double Y);
-    ~player();
+    engine::actor Actor;
+    engine::overlapbox Overlapbox;
+    engine::flipbook Idle;
+    engine::flipbook Run;
+    
+    double VelocityX;
+    double VelocityY;
+    double Latched;
+
+    act_player(engine* Engine, game* Game, double X, double Y);
+    ~act_player();
     uint8 Update();
 };
 

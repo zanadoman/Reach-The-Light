@@ -529,10 +529,14 @@ _ZN10scene_menu6UpdateEv:
 	movq	%rcx, %rbx
 	movq	32(%rcx), %rcx
 	call	_ZN10gui_button6UpdateEv
+	movl	%eax, %edx
+	movl	$2, %eax
+	testb	%dl, %dl
+	jne	.L37
 	movq	40(%rbx), %rcx
 	call	_ZN10gui_button6UpdateEv
 	movl	%eax, %edx
-	movl	$2, %eax
+	movl	$3, %eax
 	testb	%dl, %dl
 	jne	.L37
 	movq	48(%rbx), %rcx
@@ -542,16 +546,7 @@ _ZN10scene_menu6UpdateEv:
 	movl	%eax, %edx
 	xorl	%eax, %eax
 	testb	%dl, %dl
-	je	.L41
-.L37:
-	addq	$32, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L41:
+	jne	.L37
 	movq	(%rbx), %rax
 	movq	64(%rbx), %rcx
 	leaq	160(%rax), %rsi
@@ -571,8 +566,8 @@ _ZN10scene_menu6UpdateEv:
 	call	_ZN10gui_slider6UpdateEv
 	movsd	%xmm0, 8(%rdi)
 	call	round
-	xorl	%edx, %edx
 	movl	$1000, %eax
+	xorl	%edx, %edx
 	cvttsd2sil	%xmm0, %ecx
 	movswl	%cx, %ecx
 	idivl	%ecx
@@ -580,6 +575,7 @@ _ZN10scene_menu6UpdateEv:
 	movzbl	%al, %edx
 	call	_ZN3wze6engine6timing18SetTargetFrameTimeEh
 	movl	$1, %eax
+.L37:
 	addq	$32, %rsp
 	popq	%rbx
 	popq	%rsi

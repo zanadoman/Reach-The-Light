@@ -7,9 +7,9 @@
 	.ascii "Kil\303\251p\303\251s\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB6:
+.LCOLDB7:
 	.text
-.LHOTB6:
+.LHOTB7:
 	.align 2
 	.p2align 4
 	.globl	_ZN12scene_editorC2EPN3wze6engineEP4game
@@ -147,7 +147,10 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	addl	$100, %r15d
 	cmpq	$8, %r14
 	jne	.L2
+	movq	0(%rbp), %rcx
+	movsd	.LC6(%rip), %xmm1
 	movaps	80(%rsp), %xmm6
+	addq	$80, %rcx
 	addq	$104, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -157,7 +160,9 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	popq	%r13
 	popq	%r14
 	popq	%r15
-	ret
+.LEHB6:
+	jmp	_ZN3wze6engine6camera10SetOriginYEd
+.LEHE6:
 .L8:
 	movq	%rax, %rsi
 	jmp	.L5
@@ -200,6 +205,10 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	.uleb128 .LEHE5-.LEHB5
 	.uleb128 .L10-.LFB8432
 	.uleb128 0
+	.uleb128 .LEHB6-.LFB8432
+	.uleb128 .LEHE6-.LEHB6
+	.uleb128 0
+	.uleb128 0
 .LLSDACSE8432:
 	.text
 	.seh_endproc
@@ -223,7 +232,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 	movl	$64, %edx
 	call	_ZdlPvy
 	movq	%rsi, %rcx
-.LEHB6:
+.LEHB7:
 	call	_Unwind_Resume
 .L7:
 	movq	%rsi, %rcx
@@ -238,7 +247,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 	movq	%rsi, %rcx
 	call	_Unwind_Resume
 	nop
-.LEHE6:
+.LEHE7:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 .LLSDAC8432:
@@ -247,8 +256,8 @@ _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB6-.LCOLDB6
-	.uleb128 .LEHE6-.LEHB6
+	.uleb128 .LEHB7-.LCOLDB7
+	.uleb128 .LEHE7-.LEHB7
 	.uleb128 0
 	.uleb128 0
 .LLSDACSEC8432:
@@ -256,9 +265,9 @@ _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE6:
+.LCOLDE7:
 	.text
-.LHOTE6:
+.LHOTE7:
 	.globl	_ZN12scene_editorC1EPN3wze6engineEP4game
 	.def	_ZN12scene_editorC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.set	_ZN12scene_editorC1EPN3wze6engineEP4game,_ZN12scene_editorC2EPN3wze6engineEP4game
@@ -415,14 +424,14 @@ _ZN12scene_editor6UpdateEv:
 	pxor	%xmm0, %xmm0
 	movl	%eax, %eax
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC9(%rip), %xmm0
+	mulsd	.LC10(%rip), %xmm0
 	subsd	%xmm0, %xmm6
-	movsd	.LC7(%rip), %xmm0
+	movsd	.LC8(%rip), %xmm0
 	comisd	%xmm6, %xmm0
 	movapd	%xmm6, %xmm1
-	ja	.L75
-.L119:
-	movsd	.LC8(%rip), %xmm0
+	ja	.L78
+.L122:
+	movsd	.LC9(%rip), %xmm0
 	minsd	%xmm1, %xmm0
 	movapd	%xmm0, %xmm1
 .L53:
@@ -433,7 +442,7 @@ _ZN12scene_editor6UpdateEv:
 	movq	%rbx, %rcx
 	call	_ZN3wze6engine6camera7GetZoomEv
 	movq	(%rdi), %rax
-	movsd	.LC10(%rip), %xmm6
+	movsd	.LC6(%rip), %xmm6
 	leaq	80(%rax), %rcx
 	mulsd	%xmm0, %xmm6
 	call	_ZN3wze6engine6camera7GetZoomEv
@@ -444,10 +453,10 @@ _ZN12scene_editor6UpdateEv:
 	call	_ZN3wze6engine6camera10GetOriginYEv
 	movapd	%xmm0, %xmm1
 	comisd	%xmm7, %xmm6
-	jbe	.L103
-.L108:
+	jbe	.L106
+.L111:
 	comisd	%xmm1, %xmm7
-	ja	.L104
+	ja	.L107
 	minsd	%xmm1, %xmm6
 	movapd	%xmm6, %xmm1
 .L62:
@@ -457,17 +466,18 @@ _ZN12scene_editor6UpdateEv:
 	movq	24(%rdi), %rcx
 	call	_ZN10gui_button6UpdateEv
 	testb	%al, %al
-	jne	.L120
+	jne	.L123
 .L64:
 	movq	32(%rdi), %rcx
 	call	_ZN10gui_button6UpdateEv
-	nop
+	testb	%al, %al
+	je	.L65
+.L67:
+	movl	$1, %eax
+.L30:
 	movaps	32(%rsp), %xmm6
 	movaps	48(%rsp), %xmm7
-	movzbl	%al, %edx
 	movaps	64(%rsp), %xmm8
-	movl	$2, %eax
-	subl	%edx, %eax
 	addq	$88, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -494,20 +504,20 @@ _ZN12scene_editor6UpdateEv:
 	leaq	392(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	pxor	%xmm1, %xmm1
-	movsd	.LC7(%rip), %xmm0
+	movsd	.LC8(%rip), %xmm0
 	movl	%eax, %eax
 	cvtsi2sdq	%rax, %xmm1
-	mulsd	.LC9(%rip), %xmm1
+	mulsd	.LC10(%rip), %xmm1
 	addsd	%xmm6, %xmm1
 	comisd	%xmm1, %xmm0
-	jbe	.L119
-.L75:
+	jbe	.L122
+.L78:
 	movapd	%xmm0, %xmm1
 	jmp	.L53
 .L35:
 	call	_ZN3wze6engine6camera7GetZoomEv
 	movq	(%rdi), %rax
-	movsd	.LC10(%rip), %xmm6
+	movsd	.LC6(%rip), %xmm6
 	leaq	80(%rax), %rcx
 	mulsd	%xmm0, %xmm6
 	call	_ZN3wze6engine6camera7GetZoomEv
@@ -526,19 +536,28 @@ _ZN12scene_editor6UpdateEv:
 	comisd	%xmm7, %xmm6
 	cvtsi2sdq	%rax, %xmm0
 	subsd	%xmm0, %xmm1
-	ja	.L108
-.L103:
+	ja	.L111
+.L106:
 	comisd	%xmm6, %xmm7
 	jbe	.L62
 	comisd	%xmm1, %xmm6
-	ja	.L83
+	ja	.L86
 	minsd	%xmm1, %xmm7
-.L104:
+.L107:
 	movapd	%xmm7, %xmm1
 	movq	%rbx, %rcx
 	call	_ZN3wze6engine6camera10SetOriginYEd
 	jmp	.L43
-.L120:
+.L65:
+	movq	(%rdi), %rcx
+	movl	$41, %edx
+	addq	$176, %rcx
+	call	_ZN3wze6engine4keysixENS_3keyE
+	testb	%al, %al
+	jne	.L67
+	movl	$3, %eax
+	jmp	.L30
+.L123:
 	movq	8(%rdi), %rax
 	movq	24(%rax), %rcx
 	call	_ZN3map5ResetEv
@@ -546,7 +565,7 @@ _ZN12scene_editor6UpdateEv:
 .L50:
 	call	_ZN3wze6engine6camera7GetZoomEv
 	movq	(%rdi), %rax
-	movsd	.LC10(%rip), %xmm6
+	movsd	.LC6(%rip), %xmm6
 	leaq	80(%rax), %rcx
 	mulsd	%xmm0, %xmm6
 	call	_ZN3wze6engine6camera7GetZoomEv
@@ -564,9 +583,9 @@ _ZN12scene_editor6UpdateEv:
 	comisd	%xmm7, %xmm6
 	cvtsi2sdq	%rax, %xmm1
 	addsd	%xmm8, %xmm1
-	jbe	.L103
-	jmp	.L108
-.L83:
+	jbe	.L106
+	jmp	.L111
+.L86:
 	movapd	%xmm6, %xmm1
 	jmp	.L62
 	.seh_endproc
@@ -584,21 +603,21 @@ _ZN12scene_editor6UpdateEv:
 	.long	0
 	.long	-1064278016
 	.align 8
-.LC7:
+.LC6:
+	.long	0
+	.long	1081876480
+	.align 8
+.LC8:
 	.long	1717986918
 	.long	1072064102
 	.align 8
-.LC8:
+.LC9:
 	.long	0
 	.long	1073217536
 	.align 8
-.LC9:
+.LC10:
 	.long	1202590843
 	.long	1065646817
-	.align 8
-.LC10:
-	.long	0
-	.long	1081876480
 	.align 8
 .LC11:
 	.long	0
@@ -609,6 +628,7 @@ _ZN12scene_editor6UpdateEv:
 	.def	_Znwy;	.scl	2;	.type	32;	.endef
 	.def	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc;	.scl	2;	.type	32;	.endef
 	.def	_ZN8gui_tileC1EPN3wze6engineEP4gameddtthh;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6camera10SetOriginYEd;	.scl	2;	.type	32;	.endef
 	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
@@ -621,6 +641,5 @@ _ZN12scene_editor6UpdateEv:
 	.def	_ZN3wze6engine6timing12GetDeltaTimeEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera7SetZoomEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera10GetOriginYEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6camera10SetOriginYEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN10gui_button6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3map5ResetEv;	.scl	2;	.type	32;	.endef

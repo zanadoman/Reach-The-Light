@@ -23,7 +23,7 @@ _ZN4gameC2EPN3wze6engineE:
 	.seh_endprologue
 	movq	%rdx, (%rcx)
 	movq	%rcx, %rbx
-	movl	$64, %ecx
+	movl	$128, %ecx
 	movq	%rdx, %rsi
 .LEHB0:
 	call	_Znwy
@@ -140,7 +140,7 @@ _ZN4gameC2EPN3wze6engineE:
 _ZN4gameC2EPN3wze6engineE.cold:
 .L2:
 	movq	%rdi, %rcx
-	movl	$64, %edx
+	movl	$128, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 .LEHB8:
@@ -204,10 +204,22 @@ _ZN4gameD2Ev:
 	.seh_endprologue
 	movl	32(%rcx), %eax
 	movq	%rcx, %rbx
-	cmpl	$1, %eax
-	je	.L13
 	cmpl	$2, %eax
+	je	.L13
+	cmpl	$3, %eax
 	je	.L14
+	cmpl	$1, %eax
+	jne	.L15
+	movq	40(%rcx), %rsi
+	testq	%rsi, %rsi
+	je	.L15
+	movq	%rsi, %rcx
+	call	_ZN10scene_menuD1Ev
+	movl	$80, %edx
+	movq	%rsi, %rcx
+	call	_ZdlPvy
+	.p2align 4,,10
+	.p2align 3
 .L15:
 	movq	24(%rbx), %rsi
 	testq	%rsi, %rsi
@@ -232,7 +244,7 @@ _ZN4gameD2Ev:
 	je	.L12
 	movq	%rbx, %rcx
 	call	_ZN6assetsD1Ev
-	movl	$64, %edx
+	movl	$128, %edx
 	movq	%rbx, %rcx
 	addq	$40, %rsp
 	popq	%rbx
@@ -241,7 +253,7 @@ _ZN4gameD2Ev:
 	.p2align 4,,10
 	.p2align 3
 .L14:
-	movq	48(%rcx), %rsi
+	movq	56(%rcx), %rsi
 	testq	%rsi, %rsi
 	je	.L15
 	movq	%rsi, %rcx
@@ -260,12 +272,12 @@ _ZN4gameD2Ev:
 	.p2align 4,,10
 	.p2align 3
 .L13:
-	movq	40(%rcx), %rsi
+	movq	48(%rcx), %rsi
 	testq	%rsi, %rsi
 	je	.L15
 	movq	%rsi, %rcx
-	call	_ZN10scene_menuD1Ev
-	movl	$80, %edx
+	call	_ZN10scene_playD1Ev
+	movl	$1048, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
 	jmp	.L15
@@ -298,22 +310,14 @@ _ZN4game11SwitchSceneE5scene:
 	movq	%rcx, %rbx
 	movl	%edx, %esi
 	cmpl	%edx, %eax
-	je	.L45
-	cmpl	$1, %eax
-	je	.L33
+	je	.L51
 	cmpl	$2, %eax
-	jne	.L35
-	movq	48(%rcx), %rdi
-	testq	%rdi, %rdi
-	je	.L35
-	movq	%rdi, %rcx
-	call	_ZN12scene_editorD1Ev
-	movl	$1064, %edx
-	movq	%rdi, %rcx
-	call	_ZdlPvy
-	.p2align 4,,10
-	.p2align 3
-.L35:
+	je	.L36
+	cmpl	$3, %eax
+	je	.L37
+	cmpl	$1, %eax
+	je	.L58
+.L38:
 	movq	(%rbx), %rax
 	leaq	32(%rsp), %rdx
 	movq	$0, 32(%rsp)
@@ -341,11 +345,13 @@ _ZN4game11SwitchSceneE5scene:
 	movsd	.LC2(%rip), %xmm1
 	leaq	80(%rax), %rcx
 	call	_ZN3wze6engine6camera7SetZoomEd
-	cmpl	$1, %esi
-	je	.L36
 	cmpl	$2, %esi
-	jne	.L38
-	movl	$1064, %ecx
+	je	.L39
+	cmpl	$3, %esi
+	je	.L40
+	cmpl	$1, %esi
+	jne	.L41
+	movl	$80, %ecx
 	call	_Znwy
 .LEHE9:
 	movq	(%rbx), %rdx
@@ -353,12 +359,12 @@ _ZN4game11SwitchSceneE5scene:
 	movq	%rax, %rcx
 	movq	%rax, %rdi
 .LEHB10:
-	call	_ZN12scene_editorC1EPN3wze6engineEP4game
+	call	_ZN10scene_menuC1EPN3wze6engineEP4game
 .LEHE10:
-	movq	%rdi, 48(%rbx)
-.L38:
+	movq	%rdi, 40(%rbx)
+.L41:
 	movl	%esi, 32(%rbx)
-.L45:
+.L51:
 	xorl	%eax, %eax
 	addq	$48, %rsp
 	popq	%rbx
@@ -367,20 +373,44 @@ _ZN4game11SwitchSceneE5scene:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L33:
+.L58:
 	movq	40(%rcx), %rdi
 	testq	%rdi, %rdi
-	je	.L35
+	je	.L38
 	movq	%rdi, %rcx
 	call	_ZN10scene_menuD1Ev
 	movl	$80, %edx
 	movq	%rdi, %rcx
 	call	_ZdlPvy
-	jmp	.L35
+	jmp	.L38
 	.p2align 4,,10
 	.p2align 3
 .L36:
-	movl	$80, %ecx
+	movq	48(%rcx), %rdi
+	testq	%rdi, %rdi
+	je	.L38
+	movq	%rdi, %rcx
+	call	_ZN10scene_playD1Ev
+	movl	$1048, %edx
+	movq	%rdi, %rcx
+	call	_ZdlPvy
+	jmp	.L38
+	.p2align 4,,10
+	.p2align 3
+.L37:
+	movq	56(%rcx), %rdi
+	testq	%rdi, %rdi
+	je	.L38
+	movq	%rdi, %rcx
+	call	_ZN12scene_editorD1Ev
+	movl	$1064, %edx
+	movq	%rdi, %rcx
+	call	_ZdlPvy
+	jmp	.L38
+	.p2align 4,,10
+	.p2align 3
+.L40:
+	movl	$1064, %ecx
 .LEHB11:
 	call	_Znwy
 .LEHE11:
@@ -389,16 +419,37 @@ _ZN4game11SwitchSceneE5scene:
 	movq	%rax, %rcx
 	movq	%rax, %rdi
 .LEHB12:
-	call	_ZN10scene_menuC1EPN3wze6engineEP4game
+	call	_ZN12scene_editorC1EPN3wze6engineEP4game
 .LEHE12:
-	movq	%rdi, 40(%rbx)
-	jmp	.L38
-.L41:
+	movq	%rdi, 56(%rbx)
+	movl	%esi, 32(%rbx)
+	jmp	.L51
+	.p2align 4,,10
+	.p2align 3
+.L39:
+	movl	$1048, %ecx
+.LEHB13:
+	call	_Znwy
+.LEHE13:
+	movq	(%rbx), %rdx
+	movq	%rbx, %r8
+	movq	%rax, %rcx
+	movq	%rax, %rdi
+.LEHB14:
+	call	_ZN10scene_playC1EPN3wze6engineEP4game
+.LEHE14:
+	movq	%rdi, 48(%rbx)
+	movl	%esi, 32(%rbx)
+	jmp	.L51
+.L45:
 	movq	%rax, %rbx
-	jmp	.L39
-.L42:
+	jmp	.L42
+.L46:
 	movq	%rax, %rbx
-	jmp	.L40
+	jmp	.L43
+.L47:
+	movq	%rax, %rbx
+	jmp	.L44
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 .LLSDA8438:
@@ -413,7 +464,7 @@ _ZN4game11SwitchSceneE5scene:
 	.uleb128 0
 	.uleb128 .LEHB10-.LFB8438
 	.uleb128 .LEHE10-.LEHB10
-	.uleb128 .L42-.LFB8438
+	.uleb128 .L45-.LFB8438
 	.uleb128 0
 	.uleb128 .LEHB11-.LFB8438
 	.uleb128 .LEHE11-.LEHB11
@@ -421,7 +472,15 @@ _ZN4game11SwitchSceneE5scene:
 	.uleb128 0
 	.uleb128 .LEHB12-.LFB8438
 	.uleb128 .LEHE12-.LEHB12
-	.uleb128 .L41-.LFB8438
+	.uleb128 .L47-.LFB8438
+	.uleb128 0
+	.uleb128 .LEHB13-.LFB8438
+	.uleb128 .LEHE13-.LEHB13
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB14-.LFB8438
+	.uleb128 .LEHE14-.LEHB14
+	.uleb128 .L46-.LFB8438
 	.uleb128 0
 .LLSDACSE8438:
 	.text
@@ -435,21 +494,27 @@ _ZN4game11SwitchSceneE5scene:
 	.seh_savereg	%rdi, 64
 	.seh_endprologue
 _ZN4game11SwitchSceneE5scene.cold:
-.L39:
+.L42:
 	movq	%rdi, %rcx
 	movl	$80, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
-.LEHB13:
+.LEHB15:
 	call	_Unwind_Resume
-.L40:
+.L43:
+	movq	%rdi, %rcx
+	movl	$1048, %edx
+	call	_ZdlPvy
+	movq	%rbx, %rcx
+	call	_Unwind_Resume
+.L44:
 	movq	%rdi, %rcx
 	movl	$1064, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
 	nop
-.LEHE13:
+.LEHE15:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 .LLSDAC8438:
@@ -458,8 +523,8 @@ _ZN4game11SwitchSceneE5scene.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8438-.LLSDACSBC8438
 .LLSDACSBC8438:
-	.uleb128 .LEHB13-.LCOLDB3
-	.uleb128 .LEHE13-.LEHB13
+	.uleb128 .LEHB15-.LCOLDB3
+	.uleb128 .LEHE15-.LEHB15
 	.uleb128 0
 	.uleb128 0
 .LLSDACSEC8438:
@@ -484,38 +549,46 @@ _ZN4game6UpdateEv:
 	.seh_endprologue
 	movl	32(%rcx), %eax
 	movq	%rcx, %rbx
-	cmpl	$1, %eax
-	je	.L51
 	cmpl	$2, %eax
-	je	.L52
+	je	.L60
+	ja	.L61
+	movl	$1, %edx
 	testl	%eax, %eax
-	sete	%al
-	addq	$32, %rsp
-	popq	%rbx
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L52:
-	movq	48(%rcx), %rcx
-	call	_ZN12scene_editor6UpdateEv
-	movq	%rbx, %rcx
-	movl	%eax, %edx
-	call	_ZN4game11SwitchSceneE5scene
-	xorl	%eax, %eax
-.L55:
-	addq	$32, %rsp
-	popq	%rbx
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L51:
+	je	.L59
 	movq	40(%rcx), %rcx
 	call	_ZN10scene_menu6UpdateEv
 	movq	%rbx, %rcx
 	movl	%eax, %edx
 	call	_ZN4game11SwitchSceneE5scene
-	xorl	%eax, %eax
-	jmp	.L55
+.L65:
+	xorl	%edx, %edx
+.L59:
+	movl	%edx, %eax
+	addq	$32, %rsp
+	popq	%rbx
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L61:
+	cmpl	$3, %eax
+	jne	.L65
+	movq	56(%rcx), %rcx
+	call	_ZN12scene_editor6UpdateEv
+	movq	%rbx, %rcx
+	movl	%eax, %edx
+	call	_ZN4game11SwitchSceneE5scene
+	xorl	%edx, %edx
+	jmp	.L59
+	.p2align 4,,10
+	.p2align 3
+.L60:
+	movq	48(%rcx), %rcx
+	call	_ZN10scene_play6UpdateEv
+	movq	%rbx, %rcx
+	movl	%eax, %edx
+	call	_ZN4game11SwitchSceneE5scene
+	xorl	%edx, %edx
+	jmp	.L59
 	.seh_endproc
 	.section .rdata,"dr"
 	.align 8
@@ -530,11 +603,12 @@ _ZN4game6UpdateEv:
 	.def	_ZN10scene_menuC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
+	.def	_ZN10scene_menuD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN3mapD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN8settingsD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN6assetsD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN12scene_editorD1Ev;	.scl	2;	.type	32;	.endef
-	.def	_ZN10scene_menuD1Ev;	.scl	2;	.type	32;	.endef
+	.def	_ZN10scene_playD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5PurgeESt16initializer_listIyE;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera10SetOriginXEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera10SetOriginYEd;	.scl	2;	.type	32;	.endef
@@ -542,5 +616,7 @@ _ZN4game6UpdateEv:
 	.def	_ZN3wze6engine6camera10SetOffsetYEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera7SetZoomEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN12scene_editorC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
-	.def	_ZN12scene_editor6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN10scene_playC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.def	_ZN10scene_menu6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN12scene_editor6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN10scene_play6UpdateEv;	.scl	2;	.type	32;	.endef

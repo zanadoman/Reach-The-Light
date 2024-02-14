@@ -37,7 +37,7 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rdx, 8(%rdi)
 	leaq	256(%rsi), %rdi
-	movl	$1, %edx
+	movl	$2, %edx
 	xorl	%esi, %esi
 	movq	%rax, %xmm2
 	movsd	%xmm1, (%rsp)
@@ -48,11 +48,11 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	leaq	40(%rax), %rbp
 	movq	8(%rbx), %rax
 	movq	8(%rax), %r12
-	movl	64(%r12), %edx
+	movl	96(%r12), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
-	movq	72(%r12), %rdx
+	movq	104(%r12), %rdx
 	cltq
-	cmpq	64(%r12), %rax
+	cmpq	96(%r12), %rax
 	jnb	.L9
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -84,12 +84,12 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	leaq	40(%rax), %r12
 	movq	8(%rbx), %rax
 	movq	8(%rax), %r13
-	movl	80(%r13), %edx
+	movl	112(%r13), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
-	movq	88(%r13), %rdx
+	movq	120(%r13), %rdx
 	movsd	8(%rsp), %xmm1
 	cltq
-	cmpq	80(%r13), %rax
+	cmpq	112(%r13), %rax
 	jnb	.L9
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r12, %rdi
@@ -119,11 +119,11 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	leaq	40(%rax), %r12
 	movq	8(%rbx), %rax
 	movq	8(%rax), %r13
-	movl	80(%r13), %edx
+	movl	112(%r13), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
-	movq	88(%r13), %rdx
+	movq	120(%r13), %rdx
 	cltq
-	cmpq	80(%r13), %rax
+	cmpq	112(%r13), %rax
 	jnb	.L9
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r12, %rdi
@@ -151,12 +151,12 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	leaq	40(%rax), %rbp
 	movq	8(%rbx), %rax
 	movq	8(%rax), %r12
-	movl	80(%r12), %edx
+	movl	112(%r12), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
-	movq	88(%r12), %rdx
+	movq	120(%r12), %rdx
 	movsd	(%rsp), %xmm1
 	cltq
-	cmpq	80(%r12), %rax
+	cmpq	112(%r12), %rax
 	jnb	.L9
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -183,11 +183,11 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	leaq	40(%rax), %rbp
 	movq	8(%rbx), %rax
 	movq	8(%rax), %r12
-	movl	80(%r12), %edx
+	movl	112(%r12), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
-	movq	88(%r12), %rdx
+	movq	120(%r12), %rdx
 	cltq
-	cmpq	80(%r12), %rax
+	cmpq	112(%r12), %rax
 	jnb	.L9
 	movq	(%rdx,%rax,8), %rsi
 	addq	$16, %rsp

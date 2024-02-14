@@ -40,7 +40,7 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rdx, 8(%rdi)
 	leaq	256(%rsi), %rdi
-	movl	$1, %edx
+	movl	$2, %edx
 	xorl	%esi, %esi
 	movq	%rax, %xmm2
 	movsd	%xmm0, (%rsp)
@@ -51,11 +51,11 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	leaq	40(%rax), %rbx
 	movq	8(%r13), %rax
 	movq	8(%rax), %rbp
-	movl	64(%rbp), %edx
+	movl	96(%rbp), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
-	movq	72(%rbp), %rdx
+	movq	104(%rbp), %rdx
 	cltq
-	cmpq	64(%rbp), %rax
+	cmpq	96(%rbp), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbx, %rdi
@@ -87,11 +87,11 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	leaq	40(%rax), %rbp
 	movq	8(%r13), %rax
 	movq	8(%rax), %r14
-	movl	80(%r14), %edx
+	movl	112(%r14), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
-	movq	88(%r14), %rdx
+	movq	120(%r14), %rdx
 	cltq
-	cmpq	80(%r14), %rax
+	cmpq	112(%r14), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -133,11 +133,11 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	leaq	40(%rax), %rbp
 	movq	8(%r13), %rax
 	movq	8(%rax), %r14
-	movl	80(%r14), %edx
+	movl	112(%r14), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
-	movq	88(%r14), %rdx
+	movq	120(%r14), %rdx
 	cltq
-	cmpq	80(%r14), %rax
+	cmpq	112(%r14), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -178,12 +178,12 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	leaq	40(%rax), %rbx
 	movq	8(%r13), %rax
 	movq	8(%rax), %rbp
-	movl	80(%rbp), %edx
+	movl	112(%rbp), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
-	movq	88(%rbp), %rdx
+	movq	120(%rbp), %rdx
 	movsd	24(%rsp), %xmm1
 	cltq
-	cmpq	80(%rbp), %rax
+	cmpq	112(%rbp), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbx, %rdi
@@ -213,11 +213,11 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	leaq	40(%rax), %rbp
 	movq	8(%r13), %rax
 	movq	8(%rax), %r12
-	movl	80(%r12), %edx
+	movl	112(%r12), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
-	movq	88(%r12), %rdx
+	movq	120(%r12), %rdx
 	cltq
-	cmpq	80(%r12), %rax
+	cmpq	112(%r12), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -243,11 +243,11 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	leaq	40(%rax), %rbp
 	movq	8(%r13), %rax
 	movq	8(%rax), %r12
-	movl	80(%r12), %edx
+	movl	112(%r12), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
-	movq	88(%r12), %rdx
+	movq	120(%r12), %rdx
 	cltq
-	cmpq	80(%r12), %rax
+	cmpq	112(%r12), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -273,11 +273,11 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	leaq	40(%rax), %rbx
 	movq	8(%r13), %rax
 	movq	8(%rax), %rbp
-	movl	80(%rbp), %edx
+	movl	112(%rbp), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
-	movq	88(%rbp), %rdx
+	movq	120(%rbp), %rdx
 	cltq
-	cmpq	80(%rbp), %rax
+	cmpq	112(%rbp), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	addq	$40, %rsp
