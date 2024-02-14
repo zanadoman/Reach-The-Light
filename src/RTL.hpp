@@ -21,6 +21,19 @@ struct scene_editor;
 struct gui_button;
 struct gui_slider;
 struct gui_tile;
+struct tile_token;
+struct tile_top_left_corner;
+struct tile_top_right_corner;
+struct tile_bot_left_corner;
+struct tile_bot_right_corner;
+struct tile_horizontal_corridor;
+struct tile_vertical_corridor;
+struct tile_center_corridor;
+struct tile_floor_hole;
+struct tile_ceil_hole;
+struct tile_trap_hole;
+struct tile_horizontal_rotating;
+struct tile_vertical_rotating;
 
 typedef enum
 {
@@ -148,6 +161,8 @@ struct scene_play
     engine* Engine;
     game* Game;
 
+    tile_token* Tiles[MAP_X][MAP_Y];
+
     scene_play(engine* Engine, game* Game);
     ~scene_play();
     scene Update();
@@ -246,9 +261,7 @@ struct tile_top_left_corner
     engine::overlapbox Trap;
 
     engine::actor HitboxTop;
-    engine::actor HitboxBot;
     engine::actor HitboxLeft;
-    engine::actor HitboxRight;
     engine::actor HitboxTopLeft;
     engine::actor HitboxTopRight;
     engine::actor HitboxBotLeft;
@@ -268,8 +281,6 @@ struct tile_top_right_corner
     engine::texturebox Background;
 
     engine::actor HitboxTop;
-    engine::actor HitboxBot;
-    engine::actor HitboxLeft;
     engine::actor HitboxRight;
     engine::actor HitboxTopLeft;
     engine::actor HitboxTopRight;
@@ -289,10 +300,8 @@ struct tile_bot_left_corner
     engine::overlapbox Trap;
     engine::texturebox Background;
 
-    engine::actor HitboxTop;
     engine::actor HitboxBot;
     engine::actor HitboxLeft;
-    engine::actor HitboxRight;
     engine::actor HitboxTopLeft;
     engine::actor HitboxTopRight;
     engine::actor HitboxBotLeft;
@@ -311,9 +320,7 @@ struct tile_bot_right_corner
     engine::overlapbox Trap;
     engine::texturebox Background;
 
-    engine::actor HitboxTop;
     engine::actor HitboxBot;
-    engine::actor HitboxLeft;
     engine::actor HitboxRight;
     engine::actor HitboxTopLeft;
     engine::actor HitboxTopRight;
@@ -335,8 +342,6 @@ struct tile_horizontal_corridor
 
     engine::actor HitboxTop;
     engine::actor HitboxBot;
-    engine::actor HitboxLeft;
-    engine::actor HitboxRight;
     engine::actor HitboxTopLeft;
     engine::actor HitboxTopRight;
     engine::actor HitboxBotLeft;
@@ -355,8 +360,6 @@ struct tile_vertical_corridor
     engine::overlapbox Trap;
     engine::texturebox Background;
 
-    engine::actor HitboxTop;
-    engine::actor HitboxBot;
     engine::actor HitboxLeft;
     engine::actor HitboxRight;
     engine::actor HitboxTopLeft;
@@ -377,10 +380,6 @@ struct tile_center_corridor
     engine::overlapbox Trap;
     engine::texturebox Background;
 
-    engine::actor HitboxTop;
-    engine::actor HitboxBot;
-    engine::actor HitboxLeft;
-    engine::actor HitboxRight;
     engine::actor HitboxTopLeft;
     engine::actor HitboxTopRight;
     engine::actor HitboxBotLeft;
@@ -400,9 +399,6 @@ struct tile_floor_hole
     engine::texturebox Background;
 
     engine::actor HitboxTop;
-    engine::actor HitboxBot;
-    engine::actor HitboxLeft;
-    engine::actor HitboxRight;
     engine::actor HitboxTopLeft;
     engine::actor HitboxTopRight;
     engine::actor HitboxBotLeft;
@@ -421,10 +417,7 @@ struct tile_ceil_hole
     engine::overlapbox Trap;
     engine::texturebox Background;
 
-    engine::actor HitboxTop;
     engine::actor HitboxBot;
-    engine::actor HitboxLeft;
-    engine::actor HitboxRight;
     engine::actor HitboxTopLeft;
     engine::actor HitboxTopRight;
     engine::actor HitboxBotLeft;
@@ -445,8 +438,6 @@ struct tile_trap_hole
 
     engine::actor HitboxTop;
     engine::actor HitboxBot;
-    engine::actor HitboxLeft;
-    engine::actor HitboxRight;
     engine::actor HitboxTopLeft;
     engine::actor HitboxTopRight;
     engine::actor HitboxBotLeft;
@@ -467,8 +458,6 @@ struct tile_horizontal_rotating
 
     engine::actor HitboxTop;
     engine::actor HitboxBot;
-    engine::actor HitboxLeft;
-    engine::actor HitboxRight;
     engine::actor HitboxTopLeft;
     engine::actor HitboxTopRight;
     engine::actor HitboxBotLeft;
@@ -487,8 +476,6 @@ struct tile_vertical_rotating
     engine::overlapbox Trap;
     engine::texturebox Background;
 
-    engine::actor HitboxTop;
-    engine::actor HitboxBot;
     engine::actor HitboxLeft;
     engine::actor HitboxRight;
     engine::actor HitboxTopLeft;
