@@ -4,7 +4,8 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
 {
     this->Actor = this->Engine->Actors.New(this, ACT_PLAYER, X, Y, 24, 26, 1);
     this->Overlapbox = this->Actor->Overlapboxes.New(BOX_PLAYER);
-    this->Claws = this->Actor->Overlapboxes.New(BOX_NONE);
+    this->Claw1 = this->Actor->Overlapboxes.New(BOX_NONE);
+    this->Claw2 = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Idle = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdle);
     this->Run = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerRun);
     this->VelocityX = 0;
@@ -13,9 +14,17 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
 
     this->Actor->SetCollisionLayer(1);
 
-    this->Claws->SetHeight(2);
-    this->Claws->SetWidth(10);
-    this->Claws->Visible = true;
+    this->Claw1->SetX(X + 13);
+    this->Claw1->SetY(Y + 9);
+    this->Claw1->SetHeight(2);
+    this->Claw1->SetWidth(2);
+    this->Claw1->Visible = true;
+
+    this->Claw2->SetX(X + 13);
+    this->Claw2->SetY(Y - 5.5);
+    this->Claw2->SetHeight(2);
+    this->Claw2->SetWidth(2);
+    this->Claw2->Visible = true;
 
     this->Idle->Width = 48;
     this->Idle->Height = 48;
@@ -38,8 +47,8 @@ act_player::~act_player()
 
 uint8 act_player::Update()
 {
-    array<array<uint64>> ClawsState;
-    bool ClawsActive;
+    array<array<uint64>> Claw1State, Claw2State;
+    bool Claw1Active, Claw2Active;
 
     if (this->Engine->Keys[KEY_A] && !this->Engine->Keys[KEY_D])
     {
@@ -49,6 +58,8 @@ uint8 act_player::Update()
             this->VelocityX = -0.25;
         }
 
+        this->Claw1->SetX(this->Actor->GetX() - 13);
+        this->Claw2->SetX(this->Actor->GetX() - 13);
         this->Idle->FlipHorizontal = true;
         this->Run->FlipHorizontal = true;
     }
@@ -68,6 +79,8 @@ uint8 act_player::Update()
             this->VelocityX = 0.25;
         }
 
+        this->Claw1->SetX(this->Actor->GetX() + 13);
+        this->Claw2->SetX(this->Actor->GetX() + 13);
         this->Idle->FlipHorizontal = false;
         this->Run->FlipHorizontal = false;
     }
@@ -85,15 +98,28 @@ uint8 act_player::Update()
         this->VelocityY = 0.35;
     }
 
-    this->Claws->GetOverlapState(&ClawsState, {ACT_PLATFORM}, {});
-    ClawsActive = false;
-    for (uint64 i = 0; i < ClawsState[i].Length(); i++)
+    this->Claw1->GetOverlapState(&Claw1State, {ACT_PLATFORM}, {});
+    this->Claw2->GetOverlapState(&Claw2State, {ACT_PLATFORM}, {});
+    Claw1Active = false;
+    for (uint64 i = 0; i < Claw1State.Length(); i++)
     {
-        ClawsActive = true;
-        break;
+        if (0 < Claw1State[i].Length())
+        {
+            Claw1Active = true;
+            break;
+        }
+    }
+    Claw2Active = false;
+    for (uint64 i = 0; i < Claw2State.Length(); i++)
+    {
+        if (0 < Claw2State[i].Length())
+        {
+            Claw2Active = true;
+            break;
+        }
     }
 
-    if ((this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime() != this->Actor->SetX(this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime())) && ClawsActive && (this->Engine->Keys[KEY_W] || this->Engine->Keys[KEY_SPACE]))
+    if ((this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime() != this->Actor->SetX(this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime())) && Claw1Active && Claw2Active && (this->Engine->Keys[KEY_W] || this->Engine->Keys[KEY_SPACE]))
     {
         if (this->VelocityX < 0)
         {

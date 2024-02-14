@@ -202,7 +202,8 @@ struct act_player
 
     engine::actor Actor;
     engine::overlapbox Overlapbox;
-    engine::overlapbox Claws;
+    engine::overlapbox Claw1;
+    engine::overlapbox Claw2;
     engine::flipbook Idle;
     engine::flipbook Run;
     
