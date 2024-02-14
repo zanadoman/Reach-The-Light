@@ -1,6 +1,6 @@
 #include "../RTL.hpp"
 
-gui_button::gui_button(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, const char* Literal) : Engine(Engine), Game(Game)
+gui_button::gui_button(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, double Layer, const char* Literal) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, Width, Height, 0);
     this->Overlapbox = this->Actor->Overlapboxes.New(BOX_NONE);
@@ -9,6 +9,8 @@ gui_button::gui_button(engine* Engine, game* Game, double X, double Y, uint16 Wi
     this->Height = Height;
     this->Width = Width;
     this->size = 1;
+
+    this->Actor->SetLayer(Layer);
 
     this->Texturebox->ColorR = 224;
     this->Texturebox->ColorG = 224;

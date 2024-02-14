@@ -84,12 +84,13 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
-	movl	$100, %r8d
-	movq	%rbp, %rdi
+	pxor	%xmm2, %xmm2
+	movl	$300, %ecx
 	movsd	(%rsp), %xmm1
 	leaq	.LC3(%rip), %r9
-	movl	$300, %ecx
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc@PLT
+	movl	$100, %r8d
+	movq	%rbp, %rdi
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc@PLT
 .LEHE1:
 	movq	%rbp, 32(%rbx)
 	movl	$64, %edi
@@ -106,12 +107,13 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
-	movl	$100, %r8d
-	movq	%rbp, %rdi
+	pxor	%xmm2, %xmm2
+	movl	$300, %ecx
 	movsd	(%rsp), %xmm1
 	leaq	.LC5(%rip), %r9
-	movl	$300, %ecx
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc@PLT
+	movl	$100, %r8d
+	movq	%rbp, %rdi
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc@PLT
 .LEHE3:
 	movq	%rbp, 40(%rbx)
 	movl	$64, %edi
@@ -128,12 +130,13 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
-	movl	$100, %r8d
-	movq	%rbp, %rdi
+	pxor	%xmm2, %xmm2
+	movl	$300, %ecx
 	movsd	(%rsp), %xmm1
 	leaq	.LC6(%rip), %r9
-	movl	$300, %ecx
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc@PLT
+	movl	$100, %r8d
+	movq	%rbp, %rdi
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc@PLT
 .LEHE5:
 	movq	%rbp, 48(%rbx)
 	movl	$64, %edi
@@ -150,12 +153,13 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
-	movl	$100, %r8d
-	movq	%rbp, %rdi
+	pxor	%xmm2, %xmm2
+	movl	$300, %ecx
 	movsd	(%rsp), %xmm1
 	leaq	.LC7(%rip), %r9
-	movl	$300, %ecx
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc@PLT
+	movl	$100, %r8d
+	movq	%rbp, %rdi
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc@PLT
 .LEHE7:
 	movq	%rbp, 56(%rbx)
 	movl	$104, %edi

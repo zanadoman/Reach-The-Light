@@ -8,7 +8,7 @@ sint32 main()
     game* Game;
     
     Engine = new engine("Reach The Light", "assets/icon.png", 2560, 1440, 1000 / 60);
-    DisplayPressKit(Engine);
+    //DisplayPressKit(Engine);
     Game = new game(Engine);
 
     while (Engine->Update())

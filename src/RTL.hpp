@@ -129,6 +129,7 @@ struct scene_editor
     game* Game;
 
     engine::actor Actor;
+    gui_button* Exit;
     scene_editor(engine* Engine, game* Game);
     ~scene_editor();
     scene Update();
@@ -148,7 +149,7 @@ struct gui_button
     uint16 Width;
     uint16 Height;
     double size;
-    gui_button(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, const char* Literal);
+    gui_button(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, double Layer, const char* Literal);
     ~gui_button();
     bool Update();
 };

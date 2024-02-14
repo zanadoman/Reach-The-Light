@@ -2,37 +2,43 @@
 	.text
 	.align 2
 	.p2align 4
-	.globl	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc
-	.type	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc, @function
-_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc:
+	.globl	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc
+	.type	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc, @function
+_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc:
 .LFB8157:
 	.cfi_startproc
-	pushq	%r14
+	pushq	%r15
 	.cfi_def_cfa_offset 16
-	.cfi_offset 14, -16
-	movzwl	%r8w, %r14d
+	.cfi_offset 15, -16
+	movq	%xmm2, %r15
 	pxor	%xmm2, %xmm2
-	pushq	%r13
+	pushq	%r14
 	.cfi_def_cfa_offset 24
-	.cfi_offset 13, -24
-	movq	%r9, %r13
-	pushq	%r12
+	.cfi_offset 14, -24
+	movzwl	%r8w, %r14d
+	pushq	%r13
 	.cfi_def_cfa_offset 32
-	.cfi_offset 12, -32
-	movl	%r8d, %r12d
+	.cfi_offset 13, -32
+	movl	%r8d, %r13d
 	movl	%r14d, %r8d
-	pushq	%rbp
+	pushq	%r12
 	.cfi_def_cfa_offset 40
-	.cfi_offset 6, -40
-	movl	%ecx, %ebp
+	.cfi_offset 12, -40
+	movl	%ecx, %r12d
 	movzwl	%cx, %ecx
-	pushq	%rbx
+	pushq	%rbp
 	.cfi_def_cfa_offset 48
-	.cfi_offset 3, -48
+	.cfi_offset 6, -48
+	movq	%r9, %rbp
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	.cfi_offset 3, -56
 	movq	%rdi, %rbx
 	movq	%rsi, %rdi
-	movq	%rsi, (%rbx)
 	addq	$256, %rdi
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 64
+	movq	%rsi, (%rbx)
 	xorl	%esi, %esi
 	movq	%rdx, 8(%rbx)
 	xorl	%edx, %edx
@@ -48,7 +54,7 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc:
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movq	%r13, %rsi
+	movq	%rbp, %rsi
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
@@ -56,41 +62,48 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc:
 	movq	16(%rbx), %rax
 	leaq	104(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
+	movw	%r13w, 50(%rbx)
+	movq	16(%rbx), %rdi
+	movq	%r15, %xmm0
+	movq	%rax, 40(%rbx)
+	movq	.LC1(%rip), %rax
+	movw	%r12w, 48(%rbx)
+	movq	%rax, 56(%rbx)
+	call	_ZN3wze6engine6actors5actor8SetLayerEd@PLT
 	pxor	%xmm0, %xmm0
-	movl	$-7968, %edx
+	movq	40(%rbx), %rdi
 	xorl	%ecx, %ecx
 	cvtsi2sdl	%r14d, %xmm0
-	mulsd	.LC3(%rip), %xmm0
-	movq	%rax, 40(%rbx)
-	movq	%rax, %rdi
-	movq	.LC1(%rip), %rax
-	movw	%r12w, 50(%rbx)
-	movw	%bp, 48(%rbx)
-	movq	%rax, 56(%rbx)
 	movq	32(%rbx), %rax
-	cvttsd2sil	%xmm0, %esi
+	movl	$-7968, %edx
+	mulsd	.LC3(%rip), %xmm0
 	movw	%dx, 20(%rax)
 	movb	$-32, 22(%rax)
 	addb	$1, 36(%rdi)
 	movw	%cx, 16(%rdi)
+	cvttsd2sil	%xmm0, %esi
 	movb	$0, 18(%rdi)
-	movzwl	%si, %esi
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 56
 	popq	%rbx
-	.cfi_def_cfa_offset 40
+	.cfi_def_cfa_offset 48
 	popq	%rbp
-	.cfi_def_cfa_offset 32
+	.cfi_def_cfa_offset 40
 	popq	%r12
-	.cfi_def_cfa_offset 24
+	.cfi_def_cfa_offset 32
 	popq	%r13
-	.cfi_def_cfa_offset 16
+	.cfi_def_cfa_offset 24
 	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
 	.cfi_def_cfa_offset 8
+	movzwl	%si, %esi
 	jmp	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
 	.cfi_endproc
 .LFE8157:
-	.size	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc, .-_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc
-	.globl	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc
-	.set	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc,_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc
+	.size	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc, .-_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc
+	.globl	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc
+	.set	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc,_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc
 	.align 2
 	.p2align 4
 	.globl	_ZN10gui_buttonD2Ev
