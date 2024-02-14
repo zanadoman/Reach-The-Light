@@ -251,6 +251,16 @@ struct gui_tile
 
 //__________Tiles____________________________________________________________________________________
 
+struct tile_token
+{
+    void* Data;
+    tile Type;
+
+    tile_token(tile Type, engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    ~tile_token();
+    uint8 Update();
+};
+
 struct tile_top_left_corner
 {
     engine* Engine;

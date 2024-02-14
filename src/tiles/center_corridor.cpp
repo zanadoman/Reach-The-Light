@@ -2,8 +2,6 @@
 
 tile_center_corridor::tile_center_corridor(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height) : Engine(Engine), Game(Game)
 {
-    engine::texturebox tmp;
-
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, Width, Height, 1);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Random(0, this->Game->Assets->TileBackgrounds.Length())]);
     
