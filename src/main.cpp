@@ -1,6 +1,7 @@
 #include "RTL.hpp"
 
 uint8 DisplayPressKit(engine* Engine);
+uint8 PrintMap(game* Game);
 
 sint32 main()
 {
@@ -8,8 +9,9 @@ sint32 main()
     game* Game;
     
     Engine = new engine("Reach The Light", "assets/icon.png", 2560, 1440, 1000 / 60);
-    DisplayPressKit(Engine);
+    //DisplayPressKit(Engine);
     Game = new game(Engine);
+    PrintMap(Game);
 
     while (Engine->Update())
     {
@@ -72,6 +74,17 @@ uint8 DisplayPressKit(engine* Engine)
 
     Engine->Actors.Delete(Actor->GetID());
     Engine->Assets.UnloadTexture(Texture);
+
+    return 0;
+}
+
+uint8 PrintMap(game* Game)
+{
+    for (uint8 i = 0; i < MAP_X * MAP_Y; i++)
+    {
+        printf("this->Raw[%d] = %d;\n", i, Game->Map->Raw[i]);
+    }
+    printf("*this->Spawn = %d;\n", *Game->Map->Spawn);
 
     return 0;
 }

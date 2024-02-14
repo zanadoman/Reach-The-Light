@@ -159,13 +159,67 @@ _Z15DisplayPressKitPN3wze6engineE:
 	.size	_Z15DisplayPressKitPN3wze6engineE, .-_Z15DisplayPressKitPN3wze6engineE
 	.section	.rodata.str1.1
 .LC4:
-	.string	"assets/icon.png"
+	.string	"this->Raw[%d] = %d;\n"
 .LC5:
+	.string	"*this->Spawn = %d;\n"
+	.text
+	.p2align 4
+	.globl	_Z8PrintMapP4game
+	.type	_Z8PrintMapP4game, @function
+_Z8PrintMapP4game:
+.LFB8158:
+	.cfi_startproc
+	pushq	%r12
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+	leaq	.LC4(%rip), %r12
+	pushq	%rbp
+	.cfi_def_cfa_offset 24
+	.cfi_offset 6, -24
+	movq	%rdi, %rbp
+	pushq	%rbx
+	.cfi_def_cfa_offset 32
+	.cfi_offset 3, -32
+	xorl	%ebx, %ebx
+	.p2align 4,,10
+	.p2align 3
+.L22:
+	movq	24(%rbp), %rdx
+	movslq	%ebx, %rax
+	movl	%ebx, %esi
+	movq	%r12, %rdi
+	addl	$1, %ebx
+	movzbl	(%rdx,%rax), %edx
+	xorl	%eax, %eax
+	call	printf@PLT
+	cmpl	$128, %ebx
+	jne	.L22
+	movq	24(%rbp), %rax
+	leaq	.LC5(%rip), %rdi
+	movq	136(%rax), %rax
+	movzbl	(%rax), %esi
+	xorl	%eax, %eax
+	call	printf@PLT
+	popq	%rbx
+	.cfi_def_cfa_offset 24
+	xorl	%eax, %eax
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE8158:
+	.size	_Z8PrintMapP4game, .-_Z8PrintMapP4game
+	.section	.rodata.str1.1
+.LC6:
+	.string	"assets/icon.png"
+.LC7:
 	.string	"Reach The Light"
 	.section	.text.unlikely,"ax",@progbits
-.LCOLDB6:
+.LCOLDB8:
 	.section	.text.startup,"ax",@progbits
-.LHOTB6:
+.LHOTB8:
 	.p2align 4
 	.globl	main
 	.type	main, @function
@@ -189,17 +243,15 @@ main:
 	movl	$16, %r9d
 	movl	$1440, %r8d
 	movl	$2560, %ecx
-	leaq	.LC4(%rip), %rdx
-	leaq	.LC5(%rip), %rsi
+	leaq	.LC6(%rip), %rdx
+	leaq	.LC7(%rip), %rsi
 	movq	%rax, %rdi
 	movq	%rax, %rbx
 .LEHB1:
 	call	_ZN3wze6engineC1EPKcS2_tth@PLT
 .LEHE1:
-	movq	%rbx, %rdi
-.LEHB2:
-	call	_Z15DisplayPressKitPN3wze6engineE
 	movl	$56, %edi
+.LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
 	movq	%rbx, %rsi
@@ -208,22 +260,24 @@ main:
 .LEHB3:
 	call	_ZN4gameC1EPN3wze6engineE@PLT
 .LEHE3:
-	jmp	.L22
-	.p2align 4,,10
-	.p2align 3
-.L23:
 	movq	%rbp, %rdi
 .LEHB4:
+	call	_Z8PrintMapP4game
+	jmp	.L26
+	.p2align 4,,10
+	.p2align 3
+.L27:
+	movq	%rbp, %rdi
 	call	_ZN4game6UpdateEv@PLT
 	testb	%al, %al
-	jne	.L24
-.L22:
+	jne	.L28
+.L26:
 	movq	%rbx, %rdi
 	call	_ZN3wze6engine6UpdateEv@PLT
 .LEHE4:
 	testb	%al, %al
-	jne	.L23
-.L24:
+	jne	.L27
+.L28:
 	movq	%rbp, %rdi
 	call	_ZN4gameD1Ev@PLT
 	movl	$56, %esi
@@ -243,13 +297,13 @@ main:
 	popq	%rbp
 	.cfi_def_cfa_offset 8
 	ret
-.L27:
+.L31:
 	.cfi_restore_state
 	movq	%rax, %rbp
-	jmp	.L25
-.L28:
+	jmp	.L29
+.L32:
 	movq	%rax, %rbx
-	jmp	.L26
+	jmp	.L30
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
 .LLSDA8156:
@@ -264,7 +318,7 @@ main:
 	.uleb128 0
 	.uleb128 .LEHB1-.LFB8156
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L27-.LFB8156
+	.uleb128 .L31-.LFB8156
 	.uleb128 0
 	.uleb128 .LEHB2-.LFB8156
 	.uleb128 .LEHE2-.LEHB2
@@ -272,7 +326,7 @@ main:
 	.uleb128 0
 	.uleb128 .LEHB3-.LFB8156
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L28-.LFB8156
+	.uleb128 .L32-.LFB8156
 	.uleb128 0
 	.uleb128 .LEHB4-.LFB8156
 	.uleb128 .LEHE4-.LEHB4
@@ -288,7 +342,7 @@ main:
 	.type	main.cold, @function
 main.cold:
 .LFSB8156:
-.L25:
+.L29:
 	.cfi_def_cfa_offset 32
 	.cfi_offset 3, -24
 	.cfi_offset 6, -16
@@ -298,7 +352,7 @@ main.cold:
 	movq	%rbp, %rdi
 .LEHB5:
 	call	_Unwind_Resume@PLT
-.L26:
+.L30:
 	movq	%rbp, %rdi
 	movl	$56, %esi
 	call	_ZdlPvm@PLT
@@ -314,7 +368,7 @@ main.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8156-.LLSDACSBC8156
 .LLSDACSBC8156:
-	.uleb128 .LEHB5-.LCOLDB6
+	.uleb128 .LEHB5-.LCOLDB8
 	.uleb128 .LEHE5-.LEHB5
 	.uleb128 0
 	.uleb128 0
@@ -324,9 +378,9 @@ main.cold:
 	.size	main, .-main
 	.section	.text.unlikely
 	.size	main.cold, .-main.cold
-.LCOLDE6:
+.LCOLDE8:
 	.section	.text.startup
-.LHOTE6:
+.LHOTE8:
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC1:
