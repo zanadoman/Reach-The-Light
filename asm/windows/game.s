@@ -45,7 +45,7 @@ _ZN4gameC2EPN3wze6engineE:
 	call	_ZN8settingsC1Ev
 .LEHE3:
 	movq	%rdi, 16(%rbx)
-	movl	$192, %ecx
+	movl	$256, %ecx
 .LEHB4:
 	call	_Znwy
 .LEHE4:
@@ -153,7 +153,7 @@ _ZN4gameC2EPN3wze6engineE.cold:
 	call	_Unwind_Resume
 .L4:
 	movq	%rdi, %rcx
-	movl	$192, %edx
+	movl	$256, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
@@ -214,7 +214,7 @@ _ZN4gameD2Ev:
 	je	.L16
 	movq	%rsi, %rcx
 	call	_ZN3mapD1Ev
-	movl	$192, %edx
+	movl	$256, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
 .L16:
@@ -246,7 +246,7 @@ _ZN4gameD2Ev:
 	je	.L15
 	movq	%rsi, %rcx
 	call	_ZN12scene_editorD1Ev
-	movl	$56, %edx
+	movl	$1064, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
 	jmp	.L15
@@ -308,7 +308,7 @@ _ZN4game11SwitchSceneE5scene:
 	je	.L35
 	movq	%rdi, %rcx
 	call	_ZN12scene_editorD1Ev
-	movl	$56, %edx
+	movl	$1064, %edx
 	movq	%rdi, %rcx
 	call	_ZdlPvy
 	.p2align 4,,10
@@ -345,7 +345,7 @@ _ZN4game11SwitchSceneE5scene:
 	je	.L36
 	cmpl	$2, %esi
 	jne	.L38
-	movl	$56, %ecx
+	movl	$1064, %ecx
 	call	_Znwy
 .LEHE9:
 	movq	(%rbx), %rdx
@@ -444,7 +444,7 @@ _ZN4game11SwitchSceneE5scene.cold:
 	call	_Unwind_Resume
 .L40:
 	movq	%rdi, %rcx
-	movl	$56, %edx
+	movl	$1064, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
