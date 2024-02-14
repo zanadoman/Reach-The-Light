@@ -2,11 +2,11 @@
 
 map::map()
 {
-    if (memory::LoadTo("saves/map.save", this->Raw, sizeof(uint8) * MAP_X * MAP_Y))
+    if (memory::LoadTo("saves/map.save", this->Raw, sizeof(tile) * MAP_X * MAP_Y))
     {
         for (uint8 i = 0; i < MAP_X * MAP_Y; i++)
         {
-            this->Raw[i] = 0;
+            this->Raw[i] = TILE_BOT_LEFT_CORNER;
         }
     }
 
@@ -21,5 +21,5 @@ map::map()
 
 map::~map()
 {
-    memory::Save(this->Raw, sizeof(uint8) * MAP_X * MAP_Y, "saves/map.save");
+    memory::Save(this->Raw, sizeof(tile) * MAP_X * MAP_Y, "saves/map.save");
 }

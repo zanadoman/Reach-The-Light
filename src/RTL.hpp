@@ -49,7 +49,8 @@ typedef enum
     TILE_CEIL_HOLE,
     TILE_TRAP_HOLE,
     TILE_HORIZONTAL_ROTATING,
-    TILE_VERTICAL_ROTATING
+    TILE_VERTICAL_ROTATING,
+    TILE_COUNT
 } tile;
 
 struct game
@@ -97,8 +98,8 @@ struct settings
 
 struct map
 {
-    uint8 Raw[MAP_X * MAP_Y];
-    uint8* Cells[MAP_X];
+    tile Raw[MAP_X * MAP_Y];
+    tile* Cells[MAP_X];
     map();
     ~map();
 };
@@ -172,4 +173,19 @@ struct gui_slider
     gui_slider(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, const char* Literal, double Min, double Max, double Value);
     ~gui_slider();
     double Update();
+};
+
+struct gui_tile
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::overlapbox Overlapbox;
+    engine::texturebox Texturebox;
+    uint8 CellX;
+    uint8 CellY;
+    gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, uint8 CellX, uint8 CellY);
+    ~gui_tile();
+    uint8 Update();
 };

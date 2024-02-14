@@ -11,49 +11,48 @@
 	.seh_proc	_ZN3mapC2Ev
 _ZN3mapC2Ev:
 .LFB8432:
-	pushq	%rdi
-	.seh_pushreg	%rdi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$40, %rsp
-	.seh_stackalloc	40
+	subq	$32, %rsp
+	.seh_stackalloc	32
 	.seh_endprologue
-	movl	$128, %r8d
+	movl	$512, %r8d
 	movq	%rcx, %rbx
 	movq	%rcx, %rdx
 	leaq	.LC0(%rip), %rcx
 	call	_ZN3neo6memory6LoadToEPKcPvy
 	testb	%al, %al
 	je	.L2
-	leaq	8(%rbx), %rdi
-	movq	%rbx, %rcx
-	xorl	%eax, %eax
-	movq	$0, (%rbx)
-	andq	$-8, %rdi
-	movq	$0, 120(%rbx)
-	subq	%rdi, %rcx
-	subl	$-128, %ecx
-	shrl	$3, %ecx
-	rep stosq
-.L2:
-	xorl	%eax, %eax
-	xorl	%edx, %edx
+	movdqa	.LC1(%rip), %xmm0
+	movq	%rbx, %rax
+	leaq	512(%rbx), %rdx
 	.p2align 4,,10
 	.p2align 3
-.L4:
-	testb	$15, %al
-	jne	.L3
-	movzbl	%dl, %ecx
-	leaq	(%rbx,%rax), %r8
-	addl	$1, %edx
-	movq	%r8, 128(%rbx,%rcx,8)
 .L3:
-	addq	$1, %rax
-	cmpq	$128, %rax
+	movups	%xmm0, (%rax)
+	addq	$32, %rax
+	movups	%xmm0, -16(%rax)
+	cmpq	%rdx, %rax
+	jne	.L3
+.L2:
+	movq	%rbx, %rdx
+	xorl	%ecx, %ecx
+	xorl	%eax, %eax
+	.p2align 4,,10
+	.p2align 3
+.L5:
+	testb	$15, %al
 	jne	.L4
-	addq	$40, %rsp
+	movzbl	%cl, %r8d
+	addl	$1, %ecx
+	movq	%rdx, 512(%rbx,%r8,8)
+.L4:
+	addl	$1, %eax
+	addq	$4, %rdx
+	cmpb	$-128, %al
+	jne	.L5
+	addq	$32, %rsp
 	popq	%rbx
-	popq	%rdi
 	ret
 	.seh_endproc
 	.globl	_ZN3mapC1Ev
@@ -70,7 +69,7 @@ _ZN3mapD2Ev:
 	.seh_stackalloc	40
 	.seh_endprologue
 	leaq	.LC0(%rip), %r8
-	movl	$128, %edx
+	movl	$512, %edx
 	call	_ZN3neo6memory4SaveEPKvyPKc
 	nop
 	addq	$40, %rsp
@@ -90,6 +89,13 @@ _ZN3mapD2Ev:
 	.globl	_ZN3mapD1Ev
 	.def	_ZN3mapD1Ev;	.scl	2;	.type	32;	.endef
 	.set	_ZN3mapD1Ev,_ZN3mapD2Ev
+	.section .rdata,"dr"
+	.align 16
+.LC1:
+	.long	2
+	.long	2
+	.long	2
+	.long	2
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	_ZN3neo6memory6LoadToEPKcPvy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6memory4SaveEPKvyPKc;	.scl	2;	.type	32;	.endef

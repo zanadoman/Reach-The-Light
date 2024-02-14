@@ -16,37 +16,39 @@ _ZN3mapC2Ev:
 	.cfi_offset 3, -16
 	movq	%rdi, %rsi
 	movq	%rdi, %rbx
-	movl	$128, %edx
+	movl	$512, %edx
 	leaq	.LC0(%rip), %rdi
 	call	_ZN3neo6memory6LoadToEPKcPvy@PLT
 	testb	%al, %al
 	je	.L2
-	leaq	8(%rbx), %rdi
-	movq	%rbx, %rcx
-	xorl	%eax, %eax
-	movq	$0, (%rbx)
-	andq	$-8, %rdi
-	movq	$0, 120(%rbx)
-	subq	%rdi, %rcx
-	subl	$-128, %ecx
-	shrl	$3, %ecx
-	rep stosq
-.L2:
-	xorl	%eax, %eax
-	xorl	%edx, %edx
+	movdqa	.LC1(%rip), %xmm0
+	movq	%rbx, %rax
+	leaq	512(%rbx), %rdx
 	.p2align 4,,10
 	.p2align 3
-.L4:
-	testb	$15, %al
-	jne	.L3
-	movzbl	%dl, %ecx
-	leaq	(%rbx,%rax), %rsi
-	addl	$1, %edx
-	movq	%rsi, 128(%rbx,%rcx,8)
 .L3:
-	addq	$1, %rax
-	cmpq	$128, %rax
+	movups	%xmm0, (%rax)
+	addq	$32, %rax
+	movups	%xmm0, -16(%rax)
+	cmpq	%rdx, %rax
+	jne	.L3
+.L2:
+	movq	%rbx, %rdx
+	xorl	%ecx, %ecx
+	xorl	%eax, %eax
+	.p2align 4,,10
+	.p2align 3
+.L5:
+	testb	$15, %al
 	jne	.L4
+	movzbl	%cl, %esi
+	addl	$1, %ecx
+	movq	%rdx, 512(%rbx,%rsi,8)
+.L4:
+	addl	$1, %eax
+	addq	$4, %rdx
+	cmpb	$-128, %al
+	jne	.L5
 	popq	%rbx
 	.cfi_def_cfa_offset 8
 	ret
@@ -67,7 +69,7 @@ _ZN3mapD2Ev:
 	subq	$8, %rsp
 	.cfi_def_cfa_offset 16
 	leaq	.LC0(%rip), %rdx
-	movl	$128, %esi
+	movl	$512, %esi
 	call	_ZN3neo6memory4SaveEPKvyPKc@PLT
 	addq	$8, %rsp
 	.cfi_def_cfa_offset 8
@@ -87,6 +89,13 @@ _ZN3mapD2Ev:
 	.size	_ZN3mapD2Ev, .-_ZN3mapD2Ev
 	.globl	_ZN3mapD1Ev
 	.set	_ZN3mapD1Ev,_ZN3mapD2Ev
+	.section	.rodata.cst16,"aM",@progbits,16
+	.align 16
+.LC1:
+	.long	2
+	.long	2
+	.long	2
+	.long	2
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

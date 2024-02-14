@@ -45,7 +45,7 @@ _ZN4gameC2EPN3wze6engineE:
 	call	_ZN8settingsC1Ev
 .LEHE3:
 	movq	%rdi, 16(%rbx)
-	movl	$192, %ecx
+	movl	$576, %ecx
 .LEHB4:
 	call	_Znwy
 .LEHE4:
@@ -153,7 +153,7 @@ _ZN4gameC2EPN3wze6engineE.cold:
 	call	_Unwind_Resume
 .L4:
 	movq	%rdi, %rcx
-	movl	$192, %edx
+	movl	$576, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
@@ -214,7 +214,7 @@ _ZN4gameD2Ev:
 	je	.L16
 	movq	%rsi, %rcx
 	call	_ZN3mapD1Ev
-	movl	$192, %edx
+	movl	$576, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
 .L16:
