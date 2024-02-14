@@ -13,6 +13,8 @@ scene_editor::scene_editor(engine* Engine, game* Game) : Engine(Engine), Game(Ga
             this->Tiles[i][j] = new gui_tile(this->Engine, this->Game, -350 + 100 * i, -750 + 100 * j, 100, 100, i, j);
         }
     }
+
+    this->Engine->Camera.SetOriginY(450);
 }
 
 scene_editor::~scene_editor()
@@ -68,7 +70,7 @@ scene scene_editor::Update()
     {
         this->Game->Map->Reset();
     }
-    if (this->Exit->Update())
+    if (this->Exit->Update() || this->Engine->Keys[KEY_ESCAPE])
     {
         return SCENE_MENU;
     }
