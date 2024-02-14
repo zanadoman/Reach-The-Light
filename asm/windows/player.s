@@ -482,7 +482,7 @@ _ZN10act_player6UpdateEv:
 	.align 8
 .LC3:
 	.long	0
-	.long	1074790400
+	.long	1075052544
 	.align 8
 .LC5:
 	.long	0
