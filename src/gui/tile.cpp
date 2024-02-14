@@ -47,6 +47,8 @@ uint8 gui_tile::Update()
         this->Left->Visible = true;
         this->Right->Visible = true;
 
+        printf("%d %d\n", this->CellX, this->CellY);
+
         if (this->Overlapbox->GetButtonState() & BTN_RELEASED_LMB)
         {
             if (TILE_VERTICAL_ROTATING < ++this->Game->Map->Cells[this->CellX][this->CellY])
@@ -54,9 +56,9 @@ uint8 gui_tile::Update()
                 this->Game->Map->Cells[this->CellX][this->CellY] = TILE_TOP_LEFT_CORNER;
             }
         }
-        else if ((this->Overlapbox->GetButtonState() & BTN_RELEASED_MMB) && this->CellX == 0)
+        else if ((this->Overlapbox->GetButtonState() & BTN_RELEASED_MMB) && this->CellY == 0)
         {
-            this->Game->Map->Spawn = this->CellY;
+            this->Game->Map->Spawn = this->CellX;
         }
         else if (this->Overlapbox->GetButtonState() & BTN_RELEASED_RMB)
         {
@@ -74,7 +76,7 @@ uint8 gui_tile::Update()
         this->Right->Visible = false;
     }
 
-    if (this->CellX == 0 && this->CellY == this->Game->Map->Spawn)
+    if (this->CellY == 0 && this->CellX == this->Game->Map->Spawn)
     {
         this->Texturebox->ColorG = 128;
         this->Texturebox->ColorB = 128;

@@ -94,7 +94,7 @@ _ZN3mapC2Ev:
 	call	_ZN3neo6memory6LoadToEPKcPvy@PLT
 	testb	%al, %al
 	je	.L6
-	movb	$6, (%rbx)
+	movb	$3, (%rbx)
 .L6:
 	leaq	1(%rbx), %rbp
 	movl	$128, %edx
@@ -142,144 +142,144 @@ _ZN3mapC2Ev:
 .LC2:
 	.byte	2
 	.byte	0
-	.byte	4
-	.byte	1
-	.byte	3
-	.byte	0
-	.byte	4
-	.byte	7
-	.byte	8
-	.byte	1
-	.byte	8
 	.byte	2
-	.byte	4
-	.byte	1
-	.byte	3
+	.byte	0
+	.byte	2
 	.byte	5
+	.byte	0
+	.byte	5
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
 	.align 16
 .LC3:
-	.byte	0
-	.byte	2
+	.byte	4
 	.byte	3
-	.byte	4
-	.byte	5
-	.byte	2
-	.byte	8
-	.byte	4
-	.byte	7
-	.byte	4
-	.byte	5
-	.byte	0
-	.byte	2
-	.byte	4
 	.byte	1
+	.byte	8
+	.byte	7
+	.byte	2
+	.byte	1
+	.byte	2
+	.byte	1
+	.byte	4
 	.byte	3
+	.byte	1
+	.byte	8
+	.byte	9
+	.byte	4
+	.byte	4
 	.align 16
 .LC4:
-	.byte	2
-	.byte	0
-	.byte	1
-	.byte	3
-	.byte	0
-	.byte	11
-	.byte	1
-	.byte	2
-	.byte	4
-	.byte	3
-	.byte	10
-	.byte	2
-	.byte	7
-	.byte	4
 	.byte	3
 	.byte	5
+	.byte	0
+	.byte	3
+	.byte	1
+	.byte	8
+	.byte	0
+	.byte	8
+	.byte	0
+	.byte	2
+	.byte	11
+	.byte	0
+	.byte	4
+	.byte	4
+	.byte	2
+	.byte	7
 	.align 16
 .LC5:
-	.byte	0
-	.byte	2
-	.byte	8
-	.byte	1
-	.byte	3
-	.byte	0
 	.byte	4
+	.byte	2
 	.byte	1
+	.byte	4
+	.byte	2
+	.byte	7
+	.byte	8
+	.byte	9
+	.byte	4
 	.byte	8
 	.byte	0
-	.byte	1
-	.byte	6
+	.byte	3
+	.byte	9
 	.byte	2
-	.byte	8
-	.byte	1
-	.byte	1
+	.byte	7
+	.byte	3
 	.align 16
 .LC6:
-	.byte	2
-	.byte	0
+	.byte	8
+	.byte	1
+	.byte	4
+	.byte	8
+	.byte	1
+	.byte	4
+	.byte	4
+	.byte	4
+	.byte	3
 	.byte	9
-	.byte	8
-	.byte	1
+	.byte	3
+	.byte	0
+	.byte	4
+	.byte	9
 	.byte	4
 	.byte	2
-	.byte	4
-	.byte	1
-	.byte	8
-	.byte	2
-	.byte	1
-	.byte	1
-	.byte	5
-	.byte	5
-	.byte	5
 	.align 16
 .LC7:
+	.byte	8
 	.byte	5
+	.byte	6
+	.byte	1
 	.byte	2
-	.byte	2
-	.byte	9
-	.byte	8
-	.byte	4
-	.byte	7
-	.byte	2
-	.byte	4
-	.byte	9
 	.byte	11
-	.byte	8
-	.byte	2
 	.byte	7
+	.byte	4
+	.byte	2
 	.byte	1
+	.byte	2
+	.byte	6
 	.byte	1
+	.byte	8
+	.byte	5
+	.byte	7
 	.align 16
 .LC8:
-	.byte	0
-	.byte	0
-	.byte	1
 	.byte	4
-	.byte	0
 	.byte	2
-	.byte	4
 	.byte	7
-	.byte	4
-	.byte	4
-	.byte	7
-	.byte	5
-	.byte	6
-	.byte	4
+	.byte	2
 	.byte	1
-	.byte	3
+	.byte	2
+	.byte	6
+	.byte	1
+	.byte	4
+	.byte	4
+	.byte	4
+	.byte	8
+	.byte	5
+	.byte	7
+	.byte	4
+	.byte	8
 	.align 16
 .LC9:
+	.byte	3
+	.byte	1
+	.byte	3
+	.byte	1
 	.byte	5
-	.byte	2
-	.byte	2
-	.byte	4
-	.byte	8
-	.byte	9
+	.byte	1
 	.byte	3
+	.byte	5
+	.byte	1
 	.byte	3
-	.byte	2
-	.byte	2
-	.byte	4
-	.byte	7
-	.byte	6
-	.byte	8
+	.byte	5
+	.byte	1
+	.byte	5
+	.byte	1
 	.byte	3
 	.byte	1
 	.hidden	DW.ref.__gxx_personality_v0

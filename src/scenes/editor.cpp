@@ -9,12 +9,11 @@ scene_editor::scene_editor(engine* Engine, game* Game) : Engine(Engine), Game(Ga
     this->Exit = new gui_button(this->Engine, this->Game, 0, -1050, 300, 100, 1, "Kilépés");
 
     i = 0;
-    for (sint16 x = -350; x <= 350; x += 100)
+    for (uint8 x = 0; x < MAP_X; x++)
     {
-        for (sint16 y = -750; y <= 750; y += 100)
+        for (uint8 y = 0; y < MAP_Y; y++)
         {
-            this->TileButtons[i] = new gui_tile(this->Engine, this->Game, x, y, 100, 100, i % MAP_X, i / MAP_X);
-           i++;
+            this->TileButtons[i++] = new gui_tile(this->Engine, this->Game, -350 + 100 * x, -750 + 100 * y, 100, 100, x, y);
         }
     }
 }
@@ -62,7 +61,7 @@ scene scene_editor::Update()
 
     if (this->Reset->Update())
     {
-        this->Game->Map->Spawn = 6;
+        this->Game->Map->Spawn = 3;
         this->Game->Map->Reset();
     }
     if (this->Exit->Update())

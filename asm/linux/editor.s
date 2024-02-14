@@ -114,36 +114,36 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc@PLT
 .LEHE3:
 	movq	%rbx, 32(%r12)
-	movl	$-350, %r15d
-	xorl	%ebx, %ebx
+	xorl	%r15d, %r15d
+	movl	$-350, -64(%rbp)
+	movl	$0, -60(%rbp)
 	.p2align 4,,10
 	.p2align 3
 .L3:
-	movl	$-750, %r13d
-	movswl	%r15w, %r14d
+	movzbl	%r15b, %ebx
+	movl	$-750, %r14d
+	xorl	%r13d, %r13d
+	jmp	.L5
 	.p2align 4,,10
 	.p2align 3
+.L11:
+	movzbl	%r15b, %ebx
 .L5:
 	movl	$80, %edi
 .LEHB4:
 	call	_Znwm@PLT
 .LEHE4:
-	movl	%ebx, %ecx
-	movq	%rax, -56(%rbp)
-	movq	%rax, %rdi
 	pxor	%xmm0, %xmm0
-	movswl	%r13w, %eax
-	shrb	$3, %cl
 	pxor	%xmm1, %xmm1
 	subq	$8, %rsp
-	movzbl	%cl, %ecx
-	cvtsi2sdl	%r14d, %xmm0
-	movq	8(%r12), %rdx
-	movl	%ebx, %r9d
-	cvtsi2sdl	%eax, %xmm1
+	movq	%rax, -56(%rbp)
+	cvtsi2sdl	-64(%rbp), %xmm0
 	movq	(%r12), %rsi
-	pushq	%rcx
-	andl	$7, %r9d
+	movl	-60(%rbp), %r9d
+	movq	%rax, %rdi
+	cvtsi2sdl	%r14d, %xmm1
+	movq	8(%r12), %rdx
+	pushq	%r13
 	movl	$100, %r8d
 	movl	$100, %ecx
 .LEHB5:
@@ -151,19 +151,21 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	call	_ZN8gui_tileC1EPN3wze6engineEP4gameddtthh@PLT
 .LEHE5:
 	popq	%rax
-	movzbl	%bl, %esi
+	addl	$1, %r15d
 	movq	48(%r12), %rax
 	popq	%rdx
-	cmpq	40(%r12), %rsi
+	cmpq	40(%r12), %rbx
 	jnb	.L19
-	movq	-56(%rbp), %rdx
-	addl	$100, %r13d
-	addl	$1, %ebx
-	movq	%rdx, (%rax,%rsi,8)
-	cmpw	$850, %r13w
-	jne	.L5
-	addl	$100, %r15d
-	cmpw	$450, %r15w
+	movq	-56(%rbp), %rcx
+	addl	$1, %r13d
+	addl	$100, %r14d
+	movq	%rcx, (%rax,%rbx,8)
+	cmpl	$16, %r13d
+	jne	.L11
+	addl	$1, -60(%rbp)
+	movl	-60(%rbp), %eax
+	addl	$100, -64(%rbp)
+	cmpl	$8, %eax
 	jne	.L3
 	leaq	-40(%rbp), %rsp
 	popq	%rbx
@@ -177,6 +179,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	ret
 .L19:
 	.cfi_restore_state
+	movq	%rbx, %rsi
 	leaq	.LC7(%rip), %rdi
 	xorl	%eax, %eax
 .LEHB6:
@@ -193,16 +196,16 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 .LEHE7:
 	movl	$1, %edi
 	call	exit@PLT
-.L11:
+.L12:
 	movq	%rax, %rbx
 	jmp	.L8
-.L12:
-	movq	%rax, %r15
-	jmp	.L7
 .L13:
 	movq	%rax, %r15
-	jmp	.L9
+	jmp	.L7
 .L14:
+	movq	%rax, %r15
+	jmp	.L9
+.L15:
 	movq	%rax, %rbx
 	jmp	.L10
 	.globl	__gxx_personality_v0
@@ -215,31 +218,31 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 .LLSDACSB8157:
 	.uleb128 .LEHB0-.LFB8157
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L11-.LFB8157
+	.uleb128 .L12-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB1-.LFB8157
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L12-.LFB8157
+	.uleb128 .L13-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB2-.LFB8157
 	.uleb128 .LEHE2-.LEHB2
-	.uleb128 .L11-.LFB8157
+	.uleb128 .L12-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB3-.LFB8157
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L13-.LFB8157
+	.uleb128 .L14-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB4-.LFB8157
 	.uleb128 .LEHE4-.LEHB4
-	.uleb128 .L11-.LFB8157
+	.uleb128 .L12-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB5-.LFB8157
 	.uleb128 .LEHE5-.LEHB5
-	.uleb128 .L14-.LFB8157
+	.uleb128 .L15-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB6-.LFB8157
 	.uleb128 .LEHE6-.LEHB6
-	.uleb128 .L11-.LFB8157
+	.uleb128 .L12-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB7-.LFB8157
 	.uleb128 .LEHE7-.LEHB7
@@ -515,7 +518,7 @@ _ZN12scene_editor6UpdateEv:
 .L77:
 	movq	8(%rbx), %rax
 	movq	24(%rax), %rdi
-	movb	$6, (%rdi)
+	movb	$3, (%rdi)
 	call	_ZN3map5ResetEv@PLT
 	jmp	.L56
 	.p2align 4,,10

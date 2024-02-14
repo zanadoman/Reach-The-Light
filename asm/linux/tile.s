@@ -173,6 +173,10 @@ _ZN8gui_tileD2Ev:
 	.size	_ZN8gui_tileD2Ev, .-_ZN8gui_tileD2Ev
 	.globl	_ZN8gui_tileD1Ev
 	.set	_ZN8gui_tileD1Ev,_ZN8gui_tileD2Ev
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC3:
+	.string	"%d %d\n"
+	.text
 	.align 2
 	.p2align 4
 	.globl	_ZN8gui_tile6UpdateEv
@@ -198,8 +202,8 @@ _ZN8gui_tile6UpdateEv:
 	movb	$0, 26(%rax)
 .L12:
 	movq	8(%rbx), %rcx
-	movzbl	72(%rbx), %eax
-	movzbl	73(%rbx), %edx
+	movzbl	73(%rbx), %eax
+	movzbl	72(%rbx), %edx
 	movq	24(%rcx), %rsi
 	testb	%al, %al
 	je	.L27
@@ -208,9 +212,9 @@ _ZN8gui_tile6UpdateEv:
 	movl	$-1, %r8d
 	movw	%r8w, 21(%rdi)
 .L17:
-	movq	136(%rsi,%rax,8), %rax
 	movq	8(%rcx), %rcx
-	movsbq	(%rax,%rdx), %rsi
+	movq	136(%rsi,%rdx,8), %rdx
+	movsbq	(%rdx,%rax), %rsi
 	movq	56(%rcx), %rax
 	cmpq	48(%rcx), %rsi
 	jnb	.L28
@@ -238,12 +242,17 @@ _ZN8gui_tile6UpdateEv:
 .L26:
 	movb	$1, 26(%rax)
 	movq	48(%rbx), %rax
-	movq	24(%rbx), %rdi
+	leaq	.LC3(%rip), %rdi
 	movb	$1, 26(%rax)
 	movq	56(%rbx), %rax
 	movb	$1, 26(%rax)
 	movq	64(%rbx), %rax
 	movb	$1, 26(%rax)
+	movzbl	73(%rbx), %edx
+	xorl	%eax, %eax
+	movzbl	72(%rbx), %esi
+	call	printf@PLT
+	movq	24(%rbx), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
 	testb	$4, %al
 	je	.L10
@@ -271,10 +280,10 @@ _ZN8gui_tile6UpdateEv:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
 	testb	$16, %al
 	je	.L13
-	cmpb	$0, 72(%rbx)
+	cmpb	$0, 73(%rbx)
 	jne	.L13
 	movq	8(%rbx), %rcx
-	movzbl	73(%rbx), %edx
+	movzbl	72(%rbx), %edx
 	movq	24(%rcx), %rsi
 	movb	%dl, (%rsi)
 	movq	32(%rbx), %rdi
