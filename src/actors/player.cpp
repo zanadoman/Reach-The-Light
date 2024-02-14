@@ -4,6 +4,7 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
 {
     this->Actor = this->Engine->Actors.New(this, ACT_PLAYER, X, Y, 24, 26, 1);
     this->Overlapbox = this->Actor->Overlapboxes.New(BOX_PLAYER);
+    this->Claws = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Idle = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdle);
     this->Run = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerRun);
     this->VelocityX = 0;
@@ -11,6 +12,10 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->Latched = 0;
 
     this->Actor->SetCollisionLayer(1);
+
+    this->Claws->SetHeight(2);
+    this->Claws->SetWidth(10);
+    this->Claws->Visible = true;
 
     this->Idle->Width = 48;
     this->Idle->Height = 48;
@@ -33,6 +38,9 @@ act_player::~act_player()
 
 uint8 act_player::Update()
 {
+    array<array<uint64>> ClawsState;
+    bool ClawsActive;
+
     if (this->Engine->Keys[KEY_A] && !this->Engine->Keys[KEY_D])
     {
         this->VelocityX -= 0.001 * this->Engine->Timing.GetDeltaTime();
@@ -77,7 +85,15 @@ uint8 act_player::Update()
         this->VelocityY = 0.35;
     }
 
-    if ((this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime() != this->Actor->SetX(this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime())) && (this->Engine->Keys[KEY_W] || this->Engine->Keys[KEY_SPACE]))
+    this->Claws->GetOverlapState(&ClawsState, {ACT_PLATFORM}, {});
+    ClawsActive = false;
+    for (uint64 i = 0; i < ClawsState[i].Length(); i++)
+    {
+        ClawsActive = true;
+        break;
+    }
+
+    if ((this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime() != this->Actor->SetX(this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime())) && ClawsActive && (this->Engine->Keys[KEY_W] || this->Engine->Keys[KEY_SPACE]))
     {
         if (this->VelocityX < 0)
         {

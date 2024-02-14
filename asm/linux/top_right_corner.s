@@ -61,23 +61,26 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	%rbp, %rdi
 	xorl	%r12d, %r12d
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movsd	8(%rsp), %xmm0
-	xorl	%edx, %edx
-	xorl	%esi, %esi
-	movq	%rax, 32(%rbx)
-	movq	(%rbx), %rax
-	movl	$20, %r8d
-	movl	$60, %ecx
 	movsd	.LC2(%rip), %xmm1
 	addsd	16(%rsp), %xmm1
+	movl	$20, %r8d
+	movq	%rax, 32(%rbx)
+	movq	(%rbx), %rax
+	movl	$60, %ecx
+	xorl	%esi, %esi
+	movsd	8(%rsp), %xmm0
+	movl	$3, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
-	movq	%rax, %xmm2
 	movsd	%xmm1, 24(%rsp)
+	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$1, %esi
+	movl	$2, %esi
 	movq	%rax, 40(%rbx)
-	movq	%rax, %rdi
+	leaq	136(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	movq	40(%rbx), %rdi
+	movl	$1, %esi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movl	.LC4(%rip), %ebp
 .L4:
@@ -110,22 +113,25 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	jne	.L4
 	movq	(%rbx), %rax
 	movsd	.LC2(%rip), %xmm3
-	xorl	%edx, %edx
 	xorl	%esi, %esi
+	xorl	%r12d, %r12d
 	addsd	8(%rsp), %xmm3
 	movsd	16(%rsp), %xmm1
+	movl	$60, %r8d
 	movl	$20, %ecx
-	xorl	%r12d, %r12d
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
-	movl	$60, %r8d
+	movl	$3, %edx
 	movq	%rax, %xmm2
 	movapd	%xmm3, %xmm0
 	movq	%xmm3, %r13
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$1, %esi
+	movl	$2, %esi
 	movq	%rax, 48(%rbx)
-	movq	%rax, %rdi
+	leaq	136(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	movq	48(%rbx), %rdi
+	movl	$1, %esi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 .L6:
 	movq	48(%rbx), %rax
@@ -158,20 +164,23 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	movsd	8(%rsp), %xmm4
 	movl	$20, %ecx
-	xorl	%edx, %edx
+	xorl	%esi, %esi
 	subsd	.LC2(%rip), %xmm4
 	movsd	24(%rsp), %xmm1
 	movl	$20, %r8d
-	xorl	%esi, %esi
+	movl	$3, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movapd	%xmm4, %xmm0
 	movq	%rax, %xmm2
 	movq	%xmm4, %rbp
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$1, %esi
+	movl	$2, %esi
 	movq	%rax, 56(%rbx)
-	movq	%rax, %rdi
+	leaq	136(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	movq	56(%rbx), %rdi
+	movl	$1, %esi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	56(%rbx), %rax
 	movq	(%rbx), %rdi
@@ -190,18 +199,21 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	(%rbx), %rax
 	movsd	24(%rsp), %xmm1
-	xorl	%edx, %edx
+	xorl	%esi, %esi
 	movl	$20, %r8d
 	movl	$20, %ecx
 	movq	%r13, %xmm0
-	xorl	%esi, %esi
+	movl	$3, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$1, %esi
+	movl	$2, %esi
 	movq	%rax, 64(%rbx)
-	movq	%rax, %rdi
+	leaq	136(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	movq	64(%rbx), %rdi
+	movl	$1, %esi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	64(%rbx), %rax
 	movq	(%rbx), %rdi
@@ -220,20 +232,23 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	(%rbx), %rax
 	movsd	16(%rsp), %xmm1
-	xorl	%edx, %edx
-	subsd	.LC2(%rip), %xmm1
+	xorl	%esi, %esi
 	movq	%rbp, %xmm0
 	movl	$20, %r8d
-	xorl	%esi, %esi
+	movl	$20, %ecx
+	movl	$3, %edx
+	subsd	.LC2(%rip), %xmm1
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
-	movl	$20, %ecx
 	movq	%rax, %xmm2
 	movsd	%xmm1, 8(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$1, %esi
+	movl	$2, %esi
 	movq	%rax, 72(%rbx)
-	movq	%rax, %rdi
+	leaq	136(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	movq	72(%rbx), %rdi
+	movl	$1, %esi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	72(%rbx), %rax
 	movq	(%rbx), %rdi
@@ -254,18 +269,21 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	(%rbx), %rax
 	movsd	8(%rsp), %xmm1
-	xorl	%edx, %edx
+	xorl	%esi, %esi
 	movl	$20, %r8d
 	movl	$20, %ecx
 	movq	%r13, %xmm0
-	xorl	%esi, %esi
+	movl	$3, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$1, %esi
+	movl	$2, %esi
 	movq	%rax, 80(%rbx)
-	movq	%rax, %rdi
+	leaq	136(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	movq	80(%rbx), %rdi
+	movl	$1, %esi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	80(%rbx), %rax
 	movq	(%rbx), %rdi

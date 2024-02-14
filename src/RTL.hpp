@@ -48,13 +48,15 @@ typedef enum
 {
     ACT_NONE,
     ACT_PLAYER,
-    ACT_TILE
+    ACT_TILE,
+    ACT_PLATFORM
 } actor;
 
 typedef enum
 {
     BOX_NONE,
-    BOX_PLAYER
+    BOX_PLAYER,
+    BOX_PLATFORM
 } overlapbox;
 
 typedef enum
@@ -200,6 +202,7 @@ struct act_player
 
     engine::actor Actor;
     engine::overlapbox Overlapbox;
+    engine::overlapbox Claws;
     engine::flipbook Idle;
     engine::flipbook Run;
     
