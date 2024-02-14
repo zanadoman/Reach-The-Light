@@ -42,8 +42,8 @@ uint8 map::Reset()
     this->Raw[11] = 2;
     this->Raw[12] = 0;
     this->Raw[13] = 2;
-    this->Raw[14] = 0;
-    this->Raw[15] = 2;
+    this->Raw[14] = 5;
+    this->Raw[15] = 0;
     this->Raw[16] = 4;
     this->Raw[17] = 3;
     this->Raw[18] = 1;
@@ -58,8 +58,8 @@ uint8 map::Reset()
     this->Raw[27] = 1;
     this->Raw[28] = 8;
     this->Raw[29] = 9;
-    this->Raw[30] = 4;
-    this->Raw[31] = 4;
+    this->Raw[30] = 2;
+    this->Raw[31] = 9;
     this->Raw[32] = 3;
     this->Raw[33] = 5;
     this->Raw[34] = 0;
@@ -74,7 +74,7 @@ uint8 map::Reset()
     this->Raw[43] = 0;
     this->Raw[44] = 4;
     this->Raw[45] = 4;
-    this->Raw[46] = 2;
+    this->Raw[46] = 8;
     this->Raw[47] = 7;
     this->Raw[48] = 4;
     this->Raw[49] = 2;

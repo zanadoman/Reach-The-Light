@@ -11,6 +11,11 @@ sint32 main()
     //DisplayPressKit(Engine);
     Game = new game(Engine);
 
+    for (uint8 i = 0; i < MAP_X * MAP_Y; i++)
+    {
+        printf("this->Raw[%d] = %d;\n", i, Game->Map->Raw[i]);
+    }
+
     while (Engine->Update())
     {
         if (Game->Update())

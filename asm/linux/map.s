@@ -154,8 +154,8 @@ _ZN3mapC2Ev:
 	.byte	2
 	.byte	0
 	.byte	2
+	.byte	5
 	.byte	0
-	.byte	2
 	.align 16
 .LC3:
 	.byte	4
@@ -172,8 +172,8 @@ _ZN3mapC2Ev:
 	.byte	1
 	.byte	8
 	.byte	9
-	.byte	4
-	.byte	4
+	.byte	2
+	.byte	9
 	.align 16
 .LC4:
 	.byte	3
@@ -190,7 +190,7 @@ _ZN3mapC2Ev:
 	.byte	0
 	.byte	4
 	.byte	4
-	.byte	2
+	.byte	8
 	.byte	7
 	.align 16
 .LC5:

@@ -47,25 +47,137 @@ uint8 gui_tile::Update()
         this->Left->Visible = true;
         this->Right->Visible = true;
 
-        printf("%d %d\n", this->CellX, this->CellY);
-
-        if (this->Overlapbox->GetButtonState() & BTN_RELEASED_LMB)
+        if (!((this->CellX == 0 && this->CellY == 0) || (this->CellX == 0 && this->CellY == MAP_Y - 1) || (this->CellX == MAP_X - 1 && this->CellY == 0) || (this->CellX == MAP_X - 1 && this->CellY == MAP_Y - 1)))
         {
-            if (TILE_VERTICAL_ROTATING < ++this->Game->Map->Cells[this->CellX][this->CellY])
+            if (this->Overlapbox->GetButtonState() & BTN_RELEASED_LMB)
             {
-                this->Game->Map->Cells[this->CellX][this->CellY] = TILE_TOP_LEFT_CORNER;
+                if (this->CellX == 0)
+                {
+                    switch (this->Game->Map->Cells[this->CellX][this->CellY])
+                    {
+                        case TILE_TOP_LEFT_CORNER:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_LEFT_CORNER;
+                        break;
+
+                        case TILE_BOT_LEFT_CORNER:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_VERTICAL_CORRIDOR;
+                        break;
+
+                        case TILE_VERTICAL_CORRIDOR:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_TOP_LEFT_CORNER;
+                        break;
+                    }
+                }
+                else if (this->CellX == MAP_X - 1)
+                {
+                    switch (this->Game->Map->Cells[this->CellX][this->CellY])
+                    {
+                        case TILE_TOP_RIGHT_CORNER:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_RIGHT_CORNER;
+                        break;
+
+                        case TILE_BOT_RIGHT_CORNER:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_VERTICAL_CORRIDOR;
+                        break;
+
+                        case TILE_VERTICAL_CORRIDOR:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_TOP_RIGHT_CORNER;
+                        break;
+                    }
+                }
+                else if (this->CellY == 0)
+                {
+                    switch (this->Game->Map->Cells[this->CellX][this->CellY])
+                    {
+                        case TILE_BOT_LEFT_CORNER:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_RIGHT_CORNER;
+                        break;
+
+                        case TILE_BOT_RIGHT_CORNER:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_HORIZONTAL_CORRIDOR;
+                        break;
+
+                        case TILE_HORIZONTAL_CORRIDOR:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_CEIL_HOLE;
+                        break;
+
+                        case TILE_CEIL_HOLE:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_LEFT_CORNER;
+                        break;
+                    }
+                }
+                else if (TILE_VERTICAL_ROTATING < ++this->Game->Map->Cells[this->CellX][this->CellY])
+                {
+                    this->Game->Map->Cells[this->CellX][this->CellY] = TILE_TOP_LEFT_CORNER;
+                }
+            }
+            if (this->Overlapbox->GetButtonState() & BTN_RELEASED_RMB)
+            {
+                if (this->CellX == 0)
+                {
+                    switch (this->Game->Map->Cells[this->CellX][this->CellY])
+                    {
+                        case TILE_VERTICAL_CORRIDOR:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_LEFT_CORNER;
+                        break;
+
+                        case TILE_BOT_LEFT_CORNER:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_TOP_LEFT_CORNER;
+                        break;
+
+                        case TILE_TOP_LEFT_CORNER:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_VERTICAL_CORRIDOR;
+                        break;
+                    }
+                }
+                else if (this->CellX == MAP_X - 1)
+                {
+                    switch (this->Game->Map->Cells[this->CellX][this->CellY])
+                    {
+                        case TILE_VERTICAL_CORRIDOR:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_RIGHT_CORNER;
+                        break;
+
+                        case TILE_BOT_RIGHT_CORNER:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_TOP_RIGHT_CORNER;
+                        break;
+
+                        case TILE_TOP_RIGHT_CORNER:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_VERTICAL_CORRIDOR;
+                        break;
+                    }
+                }
+                else if (this->CellY == 0)
+                {
+                    switch (this->Game->Map->Cells[this->CellX][this->CellY])
+                    {
+                        case TILE_CEIL_HOLE:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_HORIZONTAL_CORRIDOR;
+                        break;
+
+                        case TILE_HORIZONTAL_CORRIDOR:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_RIGHT_CORNER;
+                        break;
+
+                        case TILE_BOT_RIGHT_CORNER:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_BOT_LEFT_CORNER;
+                        break;
+
+                        case TILE_BOT_LEFT_CORNER:
+                            this->Game->Map->Cells[this->CellX][this->CellY] = TILE_CEIL_HOLE;
+                        break;
+                    }
+                }
+                else if (--this->Game->Map->Cells[this->CellX][this->CellY] < TILE_TOP_LEFT_CORNER)
+                {
+                    this->Game->Map->Cells[this->CellX][this->CellY] = TILE_VERTICAL_ROTATING;
+                }
             }
         }
-        else if ((this->Overlapbox->GetButtonState() & BTN_RELEASED_MMB) && this->CellY == 0)
+
+        if ((this->Overlapbox->GetButtonState() & BTN_RELEASED_MMB) && this->CellY == 0)
         {
             this->Game->Map->Spawn = this->CellX;
-        }
-        else if (this->Overlapbox->GetButtonState() & BTN_RELEASED_RMB)
-        {
-            if (--this->Game->Map->Cells[this->CellX][this->CellY] < TILE_TOP_LEFT_CORNER)
-            {
-                this->Game->Map->Cells[this->CellX][this->CellY] = TILE_VERTICAL_ROTATING;
-            }
         }
     }
     else

@@ -5,10 +5,12 @@
 	.string	"assets/icon.png"
 .LC1:
 	.string	"Reach The Light"
+.LC2:
+	.string	"this->Raw[%d] = %d;\n"
 	.section	.text.unlikely,"ax",@progbits
-.LCOLDB2:
+.LCOLDB3:
 	.section	.text.startup,"ax",@progbits
-.LHOTB2:
+.LHOTB3:
 	.p2align 4
 	.globl	main
 	.type	main, @function
@@ -17,15 +19,21 @@ main:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
 	.cfi_lsda 0x1b,.LLSDA8156
-	pushq	%rbp
+	pushq	%r13
 	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
+	.cfi_offset 13, -16
 	movl	$448, %edi
-	pushq	%rbx
+	pushq	%r12
 	.cfi_def_cfa_offset 24
-	.cfi_offset 3, -24
-	subq	$8, %rsp
+	.cfi_offset 12, -24
+	pushq	%rbp
 	.cfi_def_cfa_offset 32
+	.cfi_offset 6, -32
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	.cfi_offset 3, -40
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 48
 .LEHB0:
 	call	_Znwm@PLT
 .LEHE0:
@@ -35,7 +43,7 @@ main:
 	leaq	.LC0(%rip), %rdx
 	leaq	.LC1(%rip), %rsi
 	movq	%rax, %rdi
-	movq	%rax, %rbx
+	movq	%rax, %r13
 .LEHB1:
 	call	_ZN3wze6engineC1EPKcS2_tth@PLT
 .LEHE1:
@@ -43,54 +51,75 @@ main:
 .LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
-	movq	%rbx, %rsi
+	movq	%r13, %rsi
 	movq	%rax, %rdi
 	movq	%rax, %rbp
 .LEHB3:
 	call	_ZN4gameC1EPN3wze6engineE@PLT
 .LEHE3:
-	jmp	.L2
+	xorl	%ebx, %ebx
+	leaq	.LC2(%rip), %r12
 	.p2align 4,,10
 	.p2align 3
-.L3:
-	movq	%rbp, %rdi
+.L2:
+	movq	24(%rbp), %rdx
+	movslq	%ebx, %rax
+	movl	%ebx, %esi
+	movq	%r12, %rdi
+	addl	$1, %ebx
+	movsbl	1(%rdx,%rax), %edx
+	xorl	%eax, %eax
 .LEHB4:
+	call	printf@PLT
+	cmpl	$128, %ebx
+	jne	.L2
+	movq	%r13, %rdi
+	call	_ZN3wze6engine6UpdateEv@PLT
+	testb	%al, %al
+	je	.L5
+	.p2align 4,,10
+	.p2align 3
+.L4:
+	movq	%rbp, %rdi
 	call	_ZN4game6UpdateEv@PLT
 	testb	%al, %al
-	jne	.L4
-.L2:
-	movq	%rbx, %rdi
+	jne	.L5
+	movq	%r13, %rdi
 	call	_ZN3wze6engine6UpdateEv@PLT
 .LEHE4:
 	testb	%al, %al
-	jne	.L3
-.L4:
+	jne	.L4
+.L5:
 	movq	%rbp, %rdi
 	call	_ZN4gameD1Ev@PLT
 	movl	$56, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
-	movq	%rbx, %rdi
+	movq	%r13, %rdi
 	call	_ZN3wze6engineD1Ev@PLT
-	movq	%rbx, %rdi
+	movq	%r13, %rdi
 	movl	$448, %esi
 	call	_ZdlPvm@PLT
 	addq	$8, %rsp
 	.cfi_remember_state
-	.cfi_def_cfa_offset 24
+	.cfi_def_cfa_offset 40
 	xorl	%eax, %eax
 	popq	%rbx
-	.cfi_def_cfa_offset 16
+	.cfi_def_cfa_offset 32
 	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r13
 	.cfi_def_cfa_offset 8
 	ret
-.L7:
-	.cfi_restore_state
-	movq	%rax, %rbp
-	jmp	.L5
 .L8:
+	.cfi_restore_state
 	movq	%rax, %rbx
 	jmp	.L6
+.L9:
+	movq	%rax, %rbx
+	jmp	.L7
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
 .LLSDA8156:
@@ -105,7 +134,7 @@ main:
 	.uleb128 0
 	.uleb128 .LEHB1-.LFB8156
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L7-.LFB8156
+	.uleb128 .L8-.LFB8156
 	.uleb128 0
 	.uleb128 .LEHB2-.LFB8156
 	.uleb128 .LEHE2-.LEHB2
@@ -113,7 +142,7 @@ main:
 	.uleb128 0
 	.uleb128 .LEHB3-.LFB8156
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L8-.LFB8156
+	.uleb128 .L9-.LFB8156
 	.uleb128 0
 	.uleb128 .LEHB4-.LFB8156
 	.uleb128 .LEHE4-.LEHB4
@@ -129,17 +158,19 @@ main:
 	.type	main.cold, @function
 main.cold:
 .LFSB8156:
-.L5:
-	.cfi_def_cfa_offset 32
-	.cfi_offset 3, -24
-	.cfi_offset 6, -16
-	movq	%rbx, %rdi
+.L6:
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -40
+	.cfi_offset 6, -32
+	.cfi_offset 12, -24
+	.cfi_offset 13, -16
+	movq	%r13, %rdi
 	movl	$448, %esi
 	call	_ZdlPvm@PLT
-	movq	%rbp, %rdi
+	movq	%rbx, %rdi
 .LEHB5:
 	call	_Unwind_Resume@PLT
-.L6:
+.L7:
 	movq	%rbp, %rdi
 	movl	$56, %esi
 	call	_ZdlPvm@PLT
@@ -155,7 +186,7 @@ main.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8156-.LLSDACSBC8156
 .LLSDACSBC8156:
-	.uleb128 .LEHB5-.LCOLDB2
+	.uleb128 .LEHB5-.LCOLDB3
 	.uleb128 .LEHE5-.LEHB5
 	.uleb128 0
 	.uleb128 0
@@ -165,11 +196,11 @@ main.cold:
 	.size	main, .-main
 	.section	.text.unlikely
 	.size	main.cold, .-main.cold
-.LCOLDE2:
+.LCOLDE3:
 	.section	.text.startup
-.LHOTE2:
+.LHOTE3:
 	.section	.rodata.str1.1
-.LC5:
+.LC6:
 	.string	"assets/presskit.png"
 	.text
 	.p2align 4
@@ -182,7 +213,7 @@ _Z15DisplayPressKitPN3wze6engineE:
 	.cfi_def_cfa_offset 16
 	.cfi_offset 15, -16
 	leaq	320(%rdi), %rax
-	leaq	.LC5(%rip), %rsi
+	leaq	.LC6(%rip), %rsi
 	pushq	%r14
 	.cfi_def_cfa_offset 24
 	.cfi_offset 14, -24
@@ -241,30 +272,30 @@ _Z15DisplayPressKitPN3wze6engineE:
 	pxor	%xmm0, %xmm0
 	movq	%rax, %rbp
 	movsd	%xmm0, (%rsp)
-	jmp	.L21
+	jmp	.L23
 	.p2align 4,,10
 	.p2align 3
-.L15:
+.L17:
 	movq	%r12, %rdi
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	pxor	%xmm0, %xmm0
-	movsd	.LC4(%rip), %xmm5
+	movsd	.LC5(%rip), %xmm5
 	movl	%eax, %eax
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC6(%rip), %xmm0
+	mulsd	.LC7(%rip), %xmm0
 	addsd	(%rsp), %xmm0
 	comisd	%xmm0, %xmm5
 	movsd	%xmm0, (%rsp)
-	jb	.L30
+	jb	.L32
 	call	round@PLT
-.L21:
+.L23:
 	cvttsd2sil	%xmm0, %eax
 	movq	%rbx, %rdi
 	movb	%al, 23(%rbp)
 	call	_ZN3wze6engine6UpdateEv@PLT
 	testb	%al, %al
-	jne	.L15
-.L31:
+	jne	.L17
+.L33:
 	movq	%r14, %rdi
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%r15, %rdi
@@ -292,14 +323,14 @@ _Z15DisplayPressKitPN3wze6engineE:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L30:
+.L32:
 	.cfi_restore_state
 	movapd	%xmm5, %xmm0
 	movsd	%xmm5, (%rsp)
-	jmp	.L19
+	jmp	.L21
 	.p2align 4,,10
 	.p2align 3
-.L22:
+.L24:
 	movq	%r12, %rdi
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	pxor	%xmm0, %xmm0
@@ -307,31 +338,31 @@ _Z15DisplayPressKitPN3wze6engineE:
 	pxor	%xmm6, %xmm6
 	movl	%eax, %eax
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC6(%rip), %xmm0
+	mulsd	.LC7(%rip), %xmm0
 	subsd	%xmm0, %xmm3
 	comisd	%xmm6, %xmm3
 	movsd	%xmm3, (%rsp)
 	movapd	%xmm3, %xmm0
-	jb	.L31
+	jb	.L33
 	call	round@PLT
-.L19:
+.L21:
 	cvttsd2sil	%xmm0, %eax
 	movq	%rbx, %rdi
 	movb	%al, 23(%rbp)
 	call	_ZN3wze6engine6UpdateEv@PLT
 	testb	%al, %al
-	jne	.L22
-	jmp	.L31
+	jne	.L24
+	jmp	.L33
 	.cfi_endproc
 .LFE8157:
 	.size	_Z15DisplayPressKitPN3wze6engineE, .-_Z15DisplayPressKitPN3wze6engineE
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
-.LC4:
+.LC5:
 	.long	0
 	.long	1081073664
 	.align 8
-.LC6:
+.LC7:
 	.long	-1717986918
 	.long	1069128089
 	.hidden	DW.ref.__gxx_personality_v0
