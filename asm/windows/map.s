@@ -34,7 +34,7 @@ _Z6printfPKcz:
 	.seh_endproc
 	.section .rdata,"dr"
 .LC0:
-	.ascii "saves/map.save\0"
+	.ascii "saves/map\0"
 	.text
 	.align 2
 	.p2align 4

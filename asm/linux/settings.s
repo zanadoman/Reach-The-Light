@@ -2,7 +2,7 @@
 	.text
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .LC0:
-	.string	"saves/settings.save"
+	.string	"saves/settings"
 	.text
 	.align 2
 	.p2align 4

@@ -2,7 +2,7 @@
 
 settings::settings()
 {
-    if (memory::LoadTo("saves/settings.save", &this->Volume, sizeof(settings)))
+    if (memory::LoadTo("saves/settings", &this->Volume, sizeof(settings)))
     {
         this->Volume = 50;
         this->FrameRate = 60;
@@ -11,5 +11,5 @@ settings::settings()
 
 settings::~settings()
 {
-    memory::Save(&this->Volume, sizeof(settings), "saves/settings.save");
+    memory::Save(&this->Volume, sizeof(settings), "saves/settings");
 }

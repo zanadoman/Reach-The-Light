@@ -2,7 +2,7 @@
 	.text
 	.section .rdata,"dr"
 .LC0:
-	.ascii "saves/settings.save\0"
+	.ascii "saves/settings\0"
 	.text
 	.align 2
 	.p2align 4
