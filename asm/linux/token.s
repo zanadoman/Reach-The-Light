@@ -7,46 +7,41 @@
 .LHOTB0:
 	.align 2
 	.p2align 4
-	.globl	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt
-	.type	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt, @function
-_ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt:
+	.globl	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd
+	.type	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd, @function
+_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 .LFB8157:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
 	.cfi_lsda 0x1b,.LLSDA8157
-	pushq	%r15
-	.cfi_def_cfa_offset 16
-	.cfi_offset 15, -16
 	pushq	%r14
-	.cfi_def_cfa_offset 24
-	.cfi_offset 14, -24
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
 	pushq	%r13
-	.cfi_def_cfa_offset 32
-	.cfi_offset 13, -32
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
 	pushq	%r12
-	.cfi_def_cfa_offset 40
-	.cfi_offset 12, -40
-	movq	%rdi, %r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
 	pushq	%rbp
-	.cfi_def_cfa_offset 48
-	.cfi_offset 6, -48
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	movq	%rdi, %rbp
 	pushq	%rbx
-	.cfi_def_cfa_offset 56
-	.cfi_offset 3, -56
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
 	movl	%esi, %ebx
-	subq	$40, %rsp
-	.cfi_def_cfa_offset 96
+	subq	$16, %rsp
+	.cfi_def_cfa_offset 64
 	cmpl	$11, %esi
 	ja	.L2
-	movq	%rdx, %r13
+	movq	%rdx, %r12
 	movl	%esi, %eax
 	leaq	.L4(%rip), %rdx
-	movq	%rcx, %r14
+	movq	%rcx, %r13
 	movslq	(%rdx,%rax,4), %rax
-	movl	%r8d, %ebp
-	movl	%r9d, %r15d
-	movsd	%xmm1, 16(%rsp)
-	movsd	%xmm0, 8(%rsp)
+	movsd	%xmm1, 8(%rsp)
+	movsd	%xmm0, (%rsp)
 	addq	%rdx, %rax
 	jmp	*%rax
 	.section	.rodata
@@ -73,38 +68,33 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt:
 .LEHB0:
 	call	_Znwm@PLT
 .LEHE0:
-	movq	%r14, %rdx
-	movzwl	%bp, %ecx
-	movzwl	%r15w, %r8d
-	movsd	16(%rsp), %xmm1
-	movq	%r13, %rsi
+	movsd	(%rsp), %xmm0
+	movq	%r13, %rdx
+	movq	%r12, %rsi
+	movsd	8(%rsp), %xmm1
 	movq	%rax, %rdi
 	movq	%rax, %r14
-	movsd	8(%rsp), %xmm0
-	movq	%rax, 24(%rsp)
 .LEHB1:
-	call	_ZN24tile_horizontal_rotatingC1EPN3wze6engineEP4gameddtt@PLT
+	call	_ZN24tile_horizontal_rotatingC1EPN3wze6engineEP4gamedd@PLT
 .LEHE1:
 	.p2align 4,,10
 	.p2align 3
-.L44:
-	movq	%r14, (%r12)
+.L42:
+	movq	%r14, 0(%rbp)
 .L2:
-	movl	%ebx, 8(%r12)
-	addq	$40, %rsp
+	movl	%ebx, 8(%rbp)
+	addq	$16, %rsp
 	.cfi_remember_state
-	.cfi_def_cfa_offset 56
-	popq	%rbx
 	.cfi_def_cfa_offset 48
-	popq	%rbp
+	popq	%rbx
 	.cfi_def_cfa_offset 40
-	popq	%r12
+	popq	%rbp
 	.cfi_def_cfa_offset 32
-	popq	%r13
+	popq	%r12
 	.cfi_def_cfa_offset 24
-	popq	%r14
+	popq	%r13
 	.cfi_def_cfa_offset 16
-	popq	%r15
+	popq	%r14
 	.cfi_def_cfa_offset 8
 	ret
 	.p2align 4,,10
@@ -115,23 +105,16 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt:
 .LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
-	movzwl	%r15w, %r8d
-	movzwl	%bp, %ecx
-	movq	%r14, %rdx
-	movsd	16(%rsp), %xmm1
-	movq	%r13, %rsi
+	movsd	(%rsp), %xmm0
+	movq	%r13, %rdx
+	movq	%r12, %rsi
+	movsd	8(%rsp), %xmm1
 	movq	%rax, %rdi
-	movq	%rax, %r15
-	movsd	8(%rsp), %xmm0
-	movq	%rax, 24(%rsp)
+	movq	%rax, %r14
 .LEHB3:
-	call	_ZN22tile_vertical_rotatingC1EPN3wze6engineEP4gameddtt@PLT
+	call	_ZN22tile_vertical_rotatingC1EPN3wze6engineEP4gamedd@PLT
 .LEHE3:
-	.p2align 4,,10
-	.p2align 3
-.L43:
-	movq	%r15, (%r12)
-	jmp	.L2
+	jmp	.L42
 	.p2align 4,,10
 	.p2align 3
 .L15:
@@ -139,19 +122,16 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt:
 .LEHB4:
 	call	_Znwm@PLT
 .LEHE4:
-	movq	%r14, %rdx
-	movzwl	%bp, %ecx
-	movzwl	%r15w, %r8d
-	movsd	16(%rsp), %xmm1
-	movq	%r13, %rsi
+	movsd	(%rsp), %xmm0
+	movq	%r13, %rdx
+	movq	%r12, %rsi
+	movsd	8(%rsp), %xmm1
 	movq	%rax, %rdi
 	movq	%rax, %r14
-	movsd	8(%rsp), %xmm0
-	movq	%rax, 24(%rsp)
 .LEHB5:
-	call	_ZN20tile_top_left_cornerC1EPN3wze6engineEP4gameddtt@PLT
+	call	_ZN20tile_top_left_cornerC1EPN3wze6engineEP4gamedd@PLT
 .LEHE5:
-	jmp	.L44
+	jmp	.L42
 	.p2align 4,,10
 	.p2align 3
 .L14:
@@ -159,19 +139,16 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt:
 .LEHB6:
 	call	_Znwm@PLT
 .LEHE6:
-	movzwl	%r15w, %r8d
-	movzwl	%bp, %ecx
-	movq	%r14, %rdx
-	movsd	16(%rsp), %xmm1
-	movq	%r13, %rsi
+	movsd	(%rsp), %xmm0
+	movq	%r13, %rdx
+	movq	%r12, %rsi
+	movsd	8(%rsp), %xmm1
 	movq	%rax, %rdi
-	movq	%rax, %r15
-	movsd	8(%rsp), %xmm0
-	movq	%rax, 24(%rsp)
+	movq	%rax, %r14
 .LEHB7:
-	call	_ZN21tile_top_right_cornerC1EPN3wze6engineEP4gameddtt@PLT
+	call	_ZN21tile_top_right_cornerC1EPN3wze6engineEP4gamedd@PLT
 .LEHE7:
-	jmp	.L43
+	jmp	.L42
 	.p2align 4,,10
 	.p2align 3
 .L13:
@@ -179,19 +156,16 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt:
 .LEHB8:
 	call	_Znwm@PLT
 .LEHE8:
-	movq	%r14, %rdx
-	movzwl	%bp, %ecx
-	movzwl	%r15w, %r8d
-	movsd	16(%rsp), %xmm1
-	movq	%r13, %rsi
+	movsd	(%rsp), %xmm0
+	movq	%r13, %rdx
+	movq	%r12, %rsi
+	movsd	8(%rsp), %xmm1
 	movq	%rax, %rdi
 	movq	%rax, %r14
-	movsd	8(%rsp), %xmm0
-	movq	%rax, 24(%rsp)
 .LEHB9:
-	call	_ZN20tile_bot_left_cornerC1EPN3wze6engineEP4gameddtt@PLT
+	call	_ZN20tile_bot_left_cornerC1EPN3wze6engineEP4gamedd@PLT
 .LEHE9:
-	jmp	.L44
+	jmp	.L42
 	.p2align 4,,10
 	.p2align 3
 .L12:
@@ -199,19 +173,16 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt:
 .LEHB10:
 	call	_Znwm@PLT
 .LEHE10:
-	movzwl	%r15w, %r8d
-	movzwl	%bp, %ecx
-	movq	%r14, %rdx
-	movsd	16(%rsp), %xmm1
-	movq	%r13, %rsi
+	movsd	(%rsp), %xmm0
+	movq	%r13, %rdx
+	movq	%r12, %rsi
+	movsd	8(%rsp), %xmm1
 	movq	%rax, %rdi
-	movq	%rax, %r15
-	movsd	8(%rsp), %xmm0
-	movq	%rax, 24(%rsp)
+	movq	%rax, %r14
 .LEHB11:
-	call	_ZN21tile_bot_right_cornerC1EPN3wze6engineEP4gameddtt@PLT
+	call	_ZN21tile_bot_right_cornerC1EPN3wze6engineEP4gamedd@PLT
 .LEHE11:
-	jmp	.L43
+	jmp	.L42
 	.p2align 4,,10
 	.p2align 3
 .L11:
@@ -219,19 +190,16 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt:
 .LEHB12:
 	call	_Znwm@PLT
 .LEHE12:
-	movq	%r14, %rdx
-	movzwl	%bp, %ecx
-	movzwl	%r15w, %r8d
-	movsd	16(%rsp), %xmm1
-	movq	%r13, %rsi
+	movsd	(%rsp), %xmm0
+	movq	%r13, %rdx
+	movq	%r12, %rsi
+	movsd	8(%rsp), %xmm1
 	movq	%rax, %rdi
 	movq	%rax, %r14
-	movsd	8(%rsp), %xmm0
-	movq	%rax, 24(%rsp)
 .LEHB13:
-	call	_ZN24tile_horizontal_corridorC1EPN3wze6engineEP4gameddtt@PLT
+	call	_ZN24tile_horizontal_corridorC1EPN3wze6engineEP4gamedd@PLT
 .LEHE13:
-	jmp	.L44
+	jmp	.L42
 	.p2align 4,,10
 	.p2align 3
 .L10:
@@ -239,19 +207,16 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt:
 .LEHB14:
 	call	_Znwm@PLT
 .LEHE14:
-	movzwl	%r15w, %r8d
-	movzwl	%bp, %ecx
-	movq	%r14, %rdx
-	movsd	16(%rsp), %xmm1
-	movq	%r13, %rsi
+	movsd	(%rsp), %xmm0
+	movq	%r13, %rdx
+	movq	%r12, %rsi
+	movsd	8(%rsp), %xmm1
 	movq	%rax, %rdi
-	movq	%rax, %r15
-	movsd	8(%rsp), %xmm0
-	movq	%rax, 24(%rsp)
+	movq	%rax, %r14
 .LEHB15:
-	call	_ZN22tile_vertical_corridorC1EPN3wze6engineEP4gameddtt@PLT
+	call	_ZN22tile_vertical_corridorC1EPN3wze6engineEP4gamedd@PLT
 .LEHE15:
-	jmp	.L43
+	jmp	.L42
 	.p2align 4,,10
 	.p2align 3
 .L9:
@@ -259,19 +224,16 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt:
 .LEHB16:
 	call	_Znwm@PLT
 .LEHE16:
-	movq	%r14, %rdx
-	movzwl	%bp, %ecx
-	movzwl	%r15w, %r8d
-	movsd	16(%rsp), %xmm1
-	movq	%r13, %rsi
+	movsd	(%rsp), %xmm0
+	movq	%r13, %rdx
+	movq	%r12, %rsi
+	movsd	8(%rsp), %xmm1
 	movq	%rax, %rdi
 	movq	%rax, %r14
-	movsd	8(%rsp), %xmm0
-	movq	%rax, 24(%rsp)
 .LEHB17:
-	call	_ZN20tile_center_corridorC1EPN3wze6engineEP4gameddtt@PLT
+	call	_ZN20tile_center_corridorC1EPN3wze6engineEP4gamedd@PLT
 .LEHE17:
-	jmp	.L44
+	jmp	.L42
 	.p2align 4,,10
 	.p2align 3
 .L8:
@@ -279,19 +241,16 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt:
 .LEHB18:
 	call	_Znwm@PLT
 .LEHE18:
-	movzwl	%r15w, %r8d
-	movzwl	%bp, %ecx
-	movq	%r14, %rdx
-	movsd	16(%rsp), %xmm1
-	movq	%r13, %rsi
+	movsd	(%rsp), %xmm0
+	movq	%r13, %rdx
+	movq	%r12, %rsi
+	movsd	8(%rsp), %xmm1
 	movq	%rax, %rdi
-	movq	%rax, %r15
-	movsd	8(%rsp), %xmm0
-	movq	%rax, 24(%rsp)
+	movq	%rax, %r14
 .LEHB19:
-	call	_ZN15tile_floor_holeC1EPN3wze6engineEP4gameddtt@PLT
+	call	_ZN15tile_floor_holeC1EPN3wze6engineEP4gamedd@PLT
 .LEHE19:
-	jmp	.L43
+	jmp	.L42
 	.p2align 4,,10
 	.p2align 3
 .L7:
@@ -299,19 +258,16 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt:
 .LEHB20:
 	call	_Znwm@PLT
 .LEHE20:
-	movq	%r14, %rdx
-	movzwl	%bp, %ecx
-	movzwl	%r15w, %r8d
-	movsd	16(%rsp), %xmm1
-	movq	%r13, %rsi
+	movsd	(%rsp), %xmm0
+	movq	%r13, %rdx
+	movq	%r12, %rsi
+	movsd	8(%rsp), %xmm1
 	movq	%rax, %rdi
 	movq	%rax, %r14
-	movsd	8(%rsp), %xmm0
-	movq	%rax, 24(%rsp)
 .LEHB21:
-	call	_ZN14tile_ceil_holeC1EPN3wze6engineEP4gameddtt@PLT
+	call	_ZN14tile_ceil_holeC1EPN3wze6engineEP4gamedd@PLT
 .LEHE21:
-	jmp	.L44
+	jmp	.L42
 	.p2align 4,,10
 	.p2align 3
 .L6:
@@ -319,19 +275,16 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt:
 .LEHB22:
 	call	_Znwm@PLT
 .LEHE22:
-	movzwl	%r15w, %r8d
-	movzwl	%bp, %ecx
-	movq	%r14, %rdx
-	movsd	16(%rsp), %xmm1
-	movq	%r13, %rsi
+	movsd	(%rsp), %xmm0
+	movq	%r13, %rdx
+	movq	%r12, %rsi
+	movsd	8(%rsp), %xmm1
 	movq	%rax, %rdi
-	movq	%rax, %r15
-	movsd	8(%rsp), %xmm0
-	movq	%rax, 24(%rsp)
+	movq	%rax, %r14
 .LEHB23:
-	call	_ZN14tile_trap_holeC1EPN3wze6engineEP4gameddtt@PLT
+	call	_ZN14tile_trap_holeC1EPN3wze6engineEP4gamedd@PLT
 .LEHE23:
-	jmp	.L43
+	jmp	.L42
 .L38:
 	movq	%rax, %rbx
 	jmp	.L26
@@ -479,85 +432,84 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
 	.cfi_lsda 0x1b,.LLSDAC8157
-	.type	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt.cold, @function
-_ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt.cold:
+	.type	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold, @function
+_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold:
 .LFSB8157:
 .L26:
-	.cfi_def_cfa_offset 96
-	.cfi_offset 3, -56
-	.cfi_offset 6, -48
-	.cfi_offset 12, -40
-	.cfi_offset 13, -32
-	.cfi_offset 14, -24
-	.cfi_offset 15, -16
-	movq	24(%rsp), %rdi
+	.cfi_def_cfa_offset 64
+	.cfi_offset 3, -48
+	.cfi_offset 6, -40
+	.cfi_offset 12, -32
+	.cfi_offset 13, -24
+	.cfi_offset 14, -16
+	movq	%r14, %rdi
 	movl	$88, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 .LEHB24:
 	call	_Unwind_Resume@PLT
 .L25:
-	movq	24(%rsp), %rdi
+	movq	%r14, %rdi
 	movl	$88, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L24:
-	movq	24(%rsp), %rdi
+	movq	%r14, %rdi
 	movl	$80, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L23:
-	movq	24(%rsp), %rdi
+	movq	%r14, %rdi
 	movl	$80, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L22:
-	movq	24(%rsp), %rdi
+	movq	%r14, %rdi
 	movl	$72, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L21:
-	movq	24(%rsp), %rdi
+	movq	%r14, %rdi
 	movl	$88, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L20:
-	movq	24(%rsp), %rdi
+	movq	%r14, %rdi
 	movl	$88, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L19:
-	movq	24(%rsp), %rdi
+	movq	%r14, %rdi
 	movl	$88, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L18:
-	movq	24(%rsp), %rdi
+	movq	%r14, %rdi
 	movl	$88, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L17:
-	movq	24(%rsp), %rdi
+	movq	%r14, %rdi
 	movl	$88, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L16:
-	movq	24(%rsp), %rdi
+	movq	%r14, %rdi
 	movl	$88, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L27:
-	movq	24(%rsp), %rdi
+	movq	%r14, %rdi
 	movl	$88, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
@@ -579,14 +531,14 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt.cold:
 .LLSDACSEC8157:
 	.section	.text.unlikely
 	.text
-	.size	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt, .-_ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt
+	.size	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd, .-_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd
 	.section	.text.unlikely
-	.size	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt.cold, .-_ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt.cold
+	.size	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold, .-_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold
 .LCOLDE0:
 	.text
 .LHOTE0:
-	.globl	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gameddtt
-	.set	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gameddtt,_ZN10tile_tokenC2E4tilePN3wze6engineEP4gameddtt
+	.globl	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gamedd
+	.set	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gamedd,_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd
 	.align 2
 	.p2align 4
 	.globl	_ZN10tile_tokenD2Ev
@@ -595,12 +547,12 @@ _ZN10tile_tokenD2Ev:
 .LFB8160:
 	.cfi_startproc
 	cmpl	$11, 8(%rdi)
-	ja	.L98
+	ja	.L96
 	pushq	%rbx
 	.cfi_def_cfa_offset 16
 	.cfi_offset 3, -16
 	movl	8(%rdi), %eax
-	leaq	.L49(%rip), %rdx
+	leaq	.L47(%rip), %rdx
 	movq	(%rdi), %rbx
 	movslq	(%rdx,%rax,4), %rax
 	addq	%rdx, %rax
@@ -609,24 +561,24 @@ _ZN10tile_tokenD2Ev:
 	.section	.rodata
 	.align 4
 	.align 4
-.L49:
-	.long	.L60-.L49
-	.long	.L59-.L49
-	.long	.L58-.L49
-	.long	.L57-.L49
-	.long	.L56-.L49
-	.long	.L55-.L49
-	.long	.L54-.L49
-	.long	.L53-.L49
-	.long	.L52-.L49
-	.long	.L51-.L49
-	.long	.L50-.L49
-	.long	.L48-.L49
+.L47:
+	.long	.L58-.L47
+	.long	.L57-.L47
+	.long	.L56-.L47
+	.long	.L55-.L47
+	.long	.L54-.L47
+	.long	.L53-.L47
+	.long	.L52-.L47
+	.long	.L51-.L47
+	.long	.L50-.L47
+	.long	.L49-.L47
+	.long	.L48-.L47
+	.long	.L46-.L47
 	.text
 	.p2align 4,,10
 	.p2align 3
-.L50:
-	je	.L46
+.L48:
+	je	.L44
 	movq	%rbx, %rdi
 	call	_ZN24tile_horizontal_rotatingD1Ev@PLT
 	movq	%rbx, %rdi
@@ -638,9 +590,9 @@ _ZN10tile_tokenD2Ev:
 	jmp	_ZdlPvm@PLT
 	.p2align 4,,10
 	.p2align 3
-.L48:
+.L46:
 	.cfi_restore_state
-	je	.L46
+	je	.L44
 	movq	%rbx, %rdi
 	call	_ZN22tile_vertical_rotatingD1Ev@PLT
 	movq	%rbx, %rdi
@@ -652,9 +604,9 @@ _ZN10tile_tokenD2Ev:
 	jmp	_ZdlPvm@PLT
 	.p2align 4,,10
 	.p2align 3
-.L60:
+.L58:
 	.cfi_restore_state
-	je	.L46
+	je	.L44
 	movq	%rbx, %rdi
 	call	_ZN20tile_top_left_cornerD1Ev@PLT
 	movq	%rbx, %rdi
@@ -666,9 +618,9 @@ _ZN10tile_tokenD2Ev:
 	jmp	_ZdlPvm@PLT
 	.p2align 4,,10
 	.p2align 3
-.L59:
+.L57:
 	.cfi_restore_state
-	je	.L46
+	je	.L44
 	movq	%rbx, %rdi
 	call	_ZN21tile_top_right_cornerD1Ev@PLT
 	movq	%rbx, %rdi
@@ -680,9 +632,9 @@ _ZN10tile_tokenD2Ev:
 	jmp	_ZdlPvm@PLT
 	.p2align 4,,10
 	.p2align 3
-.L58:
+.L56:
 	.cfi_restore_state
-	je	.L46
+	je	.L44
 	movq	%rbx, %rdi
 	call	_ZN20tile_bot_left_cornerD1Ev@PLT
 	movq	%rbx, %rdi
@@ -694,9 +646,9 @@ _ZN10tile_tokenD2Ev:
 	jmp	_ZdlPvm@PLT
 	.p2align 4,,10
 	.p2align 3
-.L57:
+.L55:
 	.cfi_restore_state
-	je	.L46
+	je	.L44
 	movq	%rbx, %rdi
 	call	_ZN21tile_bot_right_cornerD1Ev@PLT
 	movq	%rbx, %rdi
@@ -708,9 +660,9 @@ _ZN10tile_tokenD2Ev:
 	jmp	_ZdlPvm@PLT
 	.p2align 4,,10
 	.p2align 3
-.L56:
+.L54:
 	.cfi_restore_state
-	je	.L46
+	je	.L44
 	movq	%rbx, %rdi
 	call	_ZN24tile_horizontal_corridorD1Ev@PLT
 	movq	%rbx, %rdi
@@ -722,9 +674,9 @@ _ZN10tile_tokenD2Ev:
 	jmp	_ZdlPvm@PLT
 	.p2align 4,,10
 	.p2align 3
-.L55:
+.L53:
 	.cfi_restore_state
-	je	.L46
+	je	.L44
 	movq	%rbx, %rdi
 	call	_ZN22tile_vertical_corridorD1Ev@PLT
 	movq	%rbx, %rdi
@@ -736,9 +688,9 @@ _ZN10tile_tokenD2Ev:
 	jmp	_ZdlPvm@PLT
 	.p2align 4,,10
 	.p2align 3
-.L54:
+.L52:
 	.cfi_restore_state
-	je	.L46
+	je	.L44
 	movq	%rbx, %rdi
 	call	_ZN20tile_center_corridorD1Ev@PLT
 	movq	%rbx, %rdi
@@ -750,9 +702,9 @@ _ZN10tile_tokenD2Ev:
 	jmp	_ZdlPvm@PLT
 	.p2align 4,,10
 	.p2align 3
-.L53:
+.L51:
 	.cfi_restore_state
-	je	.L46
+	je	.L44
 	movq	%rbx, %rdi
 	call	_ZN15tile_floor_holeD1Ev@PLT
 	movq	%rbx, %rdi
@@ -764,9 +716,9 @@ _ZN10tile_tokenD2Ev:
 	jmp	_ZdlPvm@PLT
 	.p2align 4,,10
 	.p2align 3
-.L52:
+.L50:
 	.cfi_restore_state
-	je	.L46
+	je	.L44
 	movq	%rbx, %rdi
 	call	_ZN14tile_ceil_holeD1Ev@PLT
 	movq	%rbx, %rdi
@@ -778,9 +730,9 @@ _ZN10tile_tokenD2Ev:
 	jmp	_ZdlPvm@PLT
 	.p2align 4,,10
 	.p2align 3
-.L51:
+.L49:
 	.cfi_restore_state
-	je	.L46
+	je	.L44
 	movq	%rbx, %rdi
 	call	_ZN14tile_trap_holeD1Ev@PLT
 	movq	%rbx, %rdi
@@ -792,12 +744,12 @@ _ZN10tile_tokenD2Ev:
 	jmp	_ZdlPvm@PLT
 	.p2align 4,,10
 	.p2align 3
-.L46:
+.L44:
 	.cfi_restore_state
 	popq	%rbx
 	.cfi_def_cfa_offset 8
 	ret
-.L98:
+.L96:
 	.cfi_restore 3
 	ret
 	.cfi_endproc

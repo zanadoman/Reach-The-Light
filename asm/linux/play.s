@@ -63,14 +63,12 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	%rax, %rbp
 	cvtsi2sdl	%r12d, %xmm1
 	movsd	8(%rsp), %xmm0
-	movl	$100, %r9d
 	movq	24(%rcx), %rax
-	movl	$100, %r8d
 	movq	%rbp, %rdi
 	movq	(%rax,%r14,8), %rax
 	movzbl	(%rax,%rbx), %esi
 .LEHB1:
-	call	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gameddtt@PLT
+	call	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gamedd@PLT
 .LEHE1:
 	movq	%rbp, 16(%r15,%rbx,8)
 	addq	$1, %rbx

@@ -184,6 +184,18 @@ struct scene_editor
     scene Update();
 };
 
+//__________ACTORS___________________________________________________________________________________
+
+struct player
+{
+    engine* Engine;
+    game* Game;
+
+    player(engine* Engine, game* Game, double X, double Y);
+    ~player();
+    uint8 Update();
+};
+
 //__________GUI______________________________________________________________________________________
 
 struct gui_button
@@ -249,14 +261,14 @@ struct gui_tile
     uint8 Update();
 };
 
-//__________Tiles____________________________________________________________________________________
+//__________TILES____________________________________________________________________________________
 
 struct tile_token
 {
     void* Data;
     tile Type;
 
-    tile_token(tile Type, engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    tile_token(tile Type, engine* Engine, game* Game, double X, double Y);
     ~tile_token();
     uint8 Update();
 };
@@ -277,7 +289,7 @@ struct tile_top_left_corner
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
-    tile_top_left_corner(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    tile_top_left_corner(engine* Engine, game* Game, double X, double Y);
     ~tile_top_left_corner();
 };
 
@@ -297,7 +309,7 @@ struct tile_top_right_corner
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
-    tile_top_right_corner(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    tile_top_right_corner(engine* Engine, game* Game, double X, double Y);
     ~tile_top_right_corner();
 };
 
@@ -317,7 +329,7 @@ struct tile_bot_left_corner
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
-    tile_bot_left_corner(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    tile_bot_left_corner(engine* Engine, game* Game, double X, double Y);
     ~tile_bot_left_corner();
 };
 
@@ -337,7 +349,7 @@ struct tile_bot_right_corner
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
-    tile_bot_right_corner(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    tile_bot_right_corner(engine* Engine, game* Game, double X, double Y);
     ~tile_bot_right_corner();
 };
 
@@ -357,7 +369,7 @@ struct tile_horizontal_corridor
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
-    tile_horizontal_corridor(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    tile_horizontal_corridor(engine* Engine, game* Game, double X, double Y);
     ~tile_horizontal_corridor();
 };
 
@@ -377,7 +389,7 @@ struct tile_vertical_corridor
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
-    tile_vertical_corridor(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    tile_vertical_corridor(engine* Engine, game* Game, double X, double Y);
     ~tile_vertical_corridor();
 };
 
@@ -395,7 +407,7 @@ struct tile_center_corridor
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
-    tile_center_corridor(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    tile_center_corridor(engine* Engine, game* Game, double X, double Y);
     ~tile_center_corridor();
 };
 
@@ -414,7 +426,7 @@ struct tile_floor_hole
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
-    tile_floor_hole(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    tile_floor_hole(engine* Engine, game* Game, double X, double Y);
     ~tile_floor_hole();
 };
 
@@ -433,7 +445,7 @@ struct tile_ceil_hole
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
-    tile_ceil_hole(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    tile_ceil_hole(engine* Engine, game* Game, double X, double Y);
     ~tile_ceil_hole();
 };
 
@@ -453,7 +465,7 @@ struct tile_trap_hole
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
-    tile_trap_hole(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    tile_trap_hole(engine* Engine, game* Game, double X, double Y);
     ~tile_trap_hole();
 };
 
@@ -473,7 +485,7 @@ struct tile_horizontal_rotating
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
-    tile_horizontal_rotating(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    tile_horizontal_rotating(engine* Engine, game* Game, double X, double Y);
     ~tile_horizontal_rotating();
 };
 
@@ -493,6 +505,6 @@ struct tile_vertical_rotating
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
-    tile_vertical_rotating(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height);
+    tile_vertical_rotating(engine* Engine, game* Game, double X, double Y);
     ~tile_vertical_rotating();
 };

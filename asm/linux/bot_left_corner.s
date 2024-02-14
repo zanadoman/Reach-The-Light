@@ -7,36 +7,35 @@
 	.text
 	.align 2
 	.p2align 4
-	.globl	_ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gameddtt
-	.type	_ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gameddtt, @function
-_ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gameddtt:
+	.globl	_ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd
+	.type	_ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd, @function
+_ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 .LFB8157:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
 	.cfi_offset 15, -16
-	movq	%rdi, %r15
+	movl	$100, %r8d
+	movl	$100, %ecx
+	movq	%xmm1, %r15
 	pushq	%r14
 	.cfi_def_cfa_offset 24
 	.cfi_offset 14, -24
 	pushq	%r13
 	.cfi_def_cfa_offset 32
 	.cfi_offset 13, -32
+	movq	%rdi, %r13
 	pushq	%r12
 	.cfi_def_cfa_offset 40
 	.cfi_offset 12, -40
 	pushq	%rbp
 	.cfi_def_cfa_offset 48
 	.cfi_offset 6, -48
-	movzwl	%r8w, %ebp
 	pushq	%rbx
 	.cfi_def_cfa_offset 56
 	.cfi_offset 3, -56
-	movzwl	%cx, %ebx
-	movl	%ebp, %r8d
-	movl	%ebx, %ecx
-	subq	$88, %rsp
-	.cfi_def_cfa_offset 144
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 96
 	movq	%rsi, (%rdi)
 	movq	.LC0(%rip), %rax
 	movq	%rdx, 8(%rdi)
@@ -45,66 +44,48 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gameddtt:
 	xorl	%esi, %esi
 	movq	%rax, %xmm2
 	movsd	%xmm0, (%rsp)
-	movsd	%xmm1, 8(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movq	(%r15), %rdi
+	movq	0(%r13), %rdi
 	xorl	%esi, %esi
-	movq	%rax, 16(%r15)
-	leaq	40(%rax), %r12
-	movq	8(%r15), %rax
-	movq	8(%rax), %r13
-	movl	64(%r13), %edx
+	movq	%rax, 16(%r13)
+	leaq	40(%rax), %rbx
+	movq	8(%r13), %rax
+	movq	8(%rax), %rbp
+	movl	64(%rbp), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
-	movq	72(%r13), %rdx
+	movq	72(%rbp), %rdx
 	cltq
-	cmpq	64(%r13), %rax
+	cmpq	64(%rbp), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
-	movq	%r12, %rdi
+	movq	%rbx, %rdi
+	xorl	%ebx, %ebx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	pxor	%xmm5, %xmm5
+	movq	%r15, %xmm1
 	xorl	%edx, %edx
 	xorl	%esi, %esi
-	cvtsi2sdl	%ebp, %xmm5
-	movsd	.LC2(%rip), %xmm6
-	movq	%rax, 32(%r15)
-	movsd	.LC4(%rip), %xmm0
-	movsd	.LC3(%rip), %xmm7
-	movq	(%r15), %rax
-	movsd	8(%rsp), %xmm1
-	mulsd	%xmm5, %xmm6
+	movq	%rax, 32(%r13)
+	movq	0(%r13), %rax
+	movl	$20, %r8d
+	movl	$60, %ecx
+	subsd	.LC2(%rip), %xmm1
+	movsd	(%rsp), %xmm0
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
-	movsd	%xmm5, 56(%rsp)
-	mulsd	%xmm5, %xmm7
 	movq	%rax, %xmm2
-	cvttsd2sil	%xmm6, %r12d
-	movsd	%xmm6, 40(%rsp)
-	pxor	%xmm6, %xmm6
-	cvtsi2sdl	%ebx, %xmm6
-	subsd	%xmm7, %xmm1
-	movsd	%xmm7, 64(%rsp)
-	xorl	%ebx, %ebx
-	movzwl	%r12w, %r8d
-	movsd	%xmm1, 48(%rsp)
-	movl	%r12d, %r13d
-	mulsd	%xmm6, %xmm0
-	movl	%r8d, 36(%rsp)
-	movsd	%xmm6, 24(%rsp)
-	cvttsd2sil	%xmm0, %ecx
-	movsd	(%rsp), %xmm0
-	movzwl	%cx, %ecx
+	movsd	%xmm1, 8(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$1, %esi
-	movq	%rax, 40(%r15)
+	movq	%rax, 40(%r13)
 	movq	%rax, %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movl	.LC4(%rip), %r12d
 .L4:
-	movq	40(%r15), %rax
-	movq	(%r15), %rdi
+	movq	40(%r13), %rax
+	movq	0(%r13), %rdi
 	xorl	%esi, %esi
 	leaq	40(%rax), %rbp
-	movq	8(%r15), %rax
+	movq	8(%r13), %rax
 	movq	8(%rax), %r14
 	movl	80(%r14), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
@@ -115,58 +96,122 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gameddtt:
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	pxor	%xmm0, %xmm0
-	movsd	(%rsp), %xmm2
-	movsd	.LC2(%rip), %xmm1
-	mulsd	24(%rsp), %xmm1
-	cvtsi2sdl	%ebx, %xmm0
-	movq	%rax, %rdi
+	pxor	%xmm1, %xmm1
+	movsd	(%rsp), %xmm0
+	subsd	.LC3(%rip), %xmm0
+	cvtsi2sdl	%ebx, %xmm1
 	movq	%rax, %rbp
-	addl	$1, %ebx
-	mulsd	%xmm1, %xmm0
-	subsd	%xmm1, %xmm2
-	movsd	%xmm1, 16(%rsp)
-	addsd	%xmm2, %xmm0
+	movq	%rax, %rdi
+	addl	$20, %ebx
+	addsd	%xmm1, %xmm0
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd@PLT
-	movsd	16(%rsp), %xmm1
-	movw	%r13w, 18(%rbp)
-	cvttsd2sil	%xmm1, %eax
-	movw	%ax, 16(%rbp)
-	movl	%eax, %r14d
-	cmpl	$3, %ebx
+	movl	%r12d, 16(%rbp)
+	cmpl	$60, %ebx
 	jne	.L4
-	movsd	.LC4(%rip), %xmm0
-	movzwl	%ax, %ecx
-	movq	(%r15), %rax
+	movq	0(%r13), %rax
+	movsd	(%rsp), %xmm0
+	movl	$20, %ecx
 	xorl	%edx, %edx
-	mulsd	56(%rsp), %xmm0
-	movsd	(%rsp), %xmm6
+	movl	$60, %r8d
+	movq	%r15, %xmm1
 	xorl	%esi, %esi
 	xorl	%ebx, %ebx
-	movsd	.LC3(%rip), %xmm4
-	mulsd	24(%rsp), %xmm4
+	subsd	.LC2(%rip), %xmm0
 	leaq	256(%rax), %rdi
-	movl	%ecx, 16(%rsp)
 	movq	.LC0(%rip), %rax
-	movsd	8(%rsp), %xmm1
 	movq	%rax, %xmm2
-	cvttsd2sil	%xmm0, %r8d
-	subsd	%xmm4, %xmm6
-	movsd	%xmm4, 72(%rsp)
-	movzwl	%r8w, %r8d
-	movapd	%xmm6, %xmm0
-	movsd	%xmm6, 24(%rsp)
+	movsd	%xmm0, 16(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$1, %esi
-	movq	%rax, 48(%r15)
+	movq	%rax, 48(%r13)
 	movq	%rax, %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 .L6:
-	movq	48(%r15), %rax
-	movq	(%r15), %rdi
+	movq	48(%r13), %rax
+	movq	0(%r13), %rdi
 	xorl	%esi, %esi
 	leaq	40(%rax), %rbp
-	movq	8(%r15), %rax
+	movq	8(%r13), %rax
+	movq	8(%rax), %r14
+	movl	80(%r14), %edx
+	call	_ZN3wze6engine6RandomEii@PLT
+	movq	88(%r14), %rdx
+	cltq
+	cmpq	80(%r14), %rax
+	jnb	.L15
+	movq	(%rdx,%rax,8), %rsi
+	movq	%rbp, %rdi
+	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
+	pxor	%xmm1, %xmm1
+	movq	%r15, %xmm0
+	subsd	.LC3(%rip), %xmm0
+	cvtsi2sdl	%ebx, %xmm1
+	movq	%rax, %rbp
+	movq	%rax, %rdi
+	addl	$20, %ebx
+	addsd	%xmm1, %xmm0
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
+	movl	%r12d, 16(%rbp)
+	cmpl	$60, %ebx
+	jne	.L6
+	movq	0(%r13), %rax
+	movsd	.LC2(%rip), %xmm1
+	xorl	%edx, %edx
+	xorl	%esi, %esi
+	movq	%r15, %xmm4
+	movsd	16(%rsp), %xmm0
+	movl	$20, %r8d
+	movl	$20, %ecx
+	addsd	%xmm4, %xmm1
+	leaq	256(%rax), %rdi
+	movq	.LC0(%rip), %rax
+	movq	%rax, %xmm2
+	movsd	%xmm1, 24(%rsp)
+	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
+	movl	$1, %esi
+	movq	%rax, 56(%r13)
+	movq	%rax, %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	56(%r13), %rax
+	movq	0(%r13), %rdi
+	xorl	%esi, %esi
+	leaq	40(%rax), %rbx
+	movq	8(%r13), %rax
+	movq	8(%rax), %rbp
+	movl	80(%rbp), %edx
+	call	_ZN3wze6engine6RandomEii@PLT
+	movq	88(%rbp), %rdx
+	movsd	24(%rsp), %xmm1
+	cltq
+	cmpq	80(%rbp), %rax
+	jnb	.L15
+	movq	(%rdx,%rax,8), %rsi
+	movq	%rbx, %rdi
+	movsd	%xmm1, 24(%rsp)
+	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
+	movq	0(%r13), %rax
+	movl	$20, %ecx
+	xorl	%edx, %edx
+	movsd	.LC2(%rip), %xmm3
+	addsd	(%rsp), %xmm3
+	movl	$20, %r8d
+	xorl	%esi, %esi
+	leaq	256(%rax), %rdi
+	movq	.LC0(%rip), %rax
+	movsd	24(%rsp), %xmm1
+	movq	%rax, %xmm2
+	movapd	%xmm3, %xmm0
+	movq	%xmm3, %rbx
+	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
+	movl	$1, %esi
+	movq	%rax, 64(%r13)
+	movq	%rax, %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	64(%r13), %rax
+	movq	0(%r13), %rdi
+	xorl	%esi, %esi
+	leaq	40(%rax), %rbp
+	movq	8(%r13), %rax
 	movq	8(%rax), %r12
 	movl	80(%r12), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
@@ -177,138 +222,56 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gameddtt:
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	pxor	%xmm0, %xmm0
-	movsd	40(%rsp), %xmm3
-	movsd	8(%rsp), %xmm1
-	cvtsi2sdl	%ebx, %xmm0
-	movq	%rax, %rbp
-	movq	%rax, %rdi
-	addl	$1, %ebx
-	subsd	%xmm3, %xmm1
-	mulsd	%xmm3, %xmm0
-	addsd	%xmm1, %xmm0
-	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
-	movw	%r14w, 16(%rbp)
-	movw	%r13w, 18(%rbp)
-	cmpl	$3, %ebx
-	jne	.L6
-	movq	(%r15), %rax
-	movsd	64(%rsp), %xmm1
+	movq	0(%r13), %rax
+	movl	$20, %ecx
 	xorl	%edx, %edx
-	xorl	%esi, %esi
-	addsd	8(%rsp), %xmm1
-	movl	36(%rsp), %r8d
-	leaq	256(%rax), %rdi
-	movl	16(%rsp), %ecx
-	movq	.LC0(%rip), %rax
-	movsd	24(%rsp), %xmm0
-	movq	%rax, %xmm2
-	movsd	%xmm1, 8(%rsp)
-	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$1, %esi
-	movq	%rax, 56(%r15)
-	movq	%rax, %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	56(%r15), %rax
-	movq	(%r15), %rdi
-	xorl	%esi, %esi
-	leaq	40(%rax), %rbx
-	movq	8(%r15), %rax
-	movq	8(%rax), %rbp
-	movl	80(%rbp), %edx
-	call	_ZN3wze6engine6RandomEii@PLT
-	movq	88(%rbp), %rdx
 	movsd	8(%rsp), %xmm1
-	cltq
-	cmpq	80(%rbp), %rax
-	jnb	.L15
-	movq	(%rdx,%rax,8), %rsi
-	movq	%rbx, %rdi
-	movsd	%xmm1, 8(%rsp)
-	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movq	(%r15), %rax
-	movsd	72(%rsp), %xmm7
-	xorl	%edx, %edx
-	addsd	(%rsp), %xmm7
-	movl	36(%rsp), %r8d
+	movsd	16(%rsp), %xmm0
+	movl	$20, %r8d
 	xorl	%esi, %esi
 	leaq	256(%rax), %rdi
-	movl	16(%rsp), %ecx
 	movq	.LC0(%rip), %rax
-	movsd	8(%rsp), %xmm1
 	movq	%rax, %xmm2
-	movapd	%xmm7, %xmm0
-	movq	%xmm7, %rbx
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$1, %esi
-	movq	%rax, 64(%r15)
+	movq	%rax, 72(%r13)
 	movq	%rax, %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	64(%r15), %rax
-	movq	(%r15), %rdi
+	movq	72(%r13), %rax
+	movq	0(%r13), %rdi
 	xorl	%esi, %esi
 	leaq	40(%rax), %rbp
-	movq	8(%r15), %rax
-	movq	8(%rax), %r13
-	movl	80(%r13), %edx
+	movq	8(%r13), %rax
+	movq	8(%rax), %r12
+	movl	80(%r12), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
-	movq	88(%r13), %rdx
+	movq	88(%r12), %rdx
 	cltq
-	cmpq	80(%r13), %rax
+	cmpq	80(%r12), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movq	(%r15), %rax
-	movl	36(%rsp), %r8d
-	xorl	%edx, %edx
-	movl	16(%rsp), %ecx
-	movsd	48(%rsp), %xmm1
-	xorl	%esi, %esi
-	leaq	256(%rax), %rdi
-	movq	.LC0(%rip), %rax
-	movsd	24(%rsp), %xmm0
-	movq	%rax, %xmm2
-	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$1, %esi
-	movq	%rax, 72(%r15)
-	movq	%rax, %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	72(%r15), %rax
-	movq	(%r15), %rdi
-	xorl	%esi, %esi
-	leaq	40(%rax), %rbp
-	movq	8(%r15), %rax
-	movq	8(%rax), %r13
-	movl	80(%r13), %edx
-	call	_ZN3wze6engine6RandomEii@PLT
-	movq	88(%r13), %rdx
-	cltq
-	cmpq	80(%r13), %rax
-	jnb	.L15
-	movq	(%rdx,%rax,8), %rsi
-	movq	%rbp, %rdi
-	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movq	(%r15), %rax
-	movl	36(%rsp), %r8d
-	xorl	%edx, %edx
-	movl	16(%rsp), %ecx
-	movsd	48(%rsp), %xmm1
+	movq	0(%r13), %rax
 	movq	%rbx, %xmm0
+	xorl	%edx, %edx
+	movsd	8(%rsp), %xmm1
+	movl	$20, %r8d
+	movl	$20, %ecx
 	xorl	%esi, %esi
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$1, %esi
-	movq	%rax, 80(%r15)
+	movq	%rax, 80(%r13)
 	movq	%rax, %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	80(%r15), %rax
-	movq	(%r15), %rdi
+	movq	80(%r13), %rax
+	movq	0(%r13), %rdi
 	xorl	%esi, %esi
 	leaq	40(%rax), %rbx
-	movq	8(%r15), %rax
+	movq	8(%r13), %rax
 	movq	8(%rax), %rbp
 	movl	80(%rbp), %edx
 	call	_ZN3wze6engine6RandomEii@PLT
@@ -317,7 +280,7 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gameddtt:
 	cmpq	80(%rbp), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
-	addq	$88, %rsp
+	addq	$40, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 56
 	movq	%rbx, %rdi
@@ -344,9 +307,9 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gameddtt:
 	call	exit@PLT
 	.cfi_endproc
 .LFE8157:
-	.size	_ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gameddtt, .-_ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gameddtt
-	.globl	_ZN20tile_bot_left_cornerC1EPN3wze6engineEP4gameddtt
-	.set	_ZN20tile_bot_left_cornerC1EPN3wze6engineEP4gameddtt,_ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gameddtt
+	.size	_ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd, .-_ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd
+	.globl	_ZN20tile_bot_left_cornerC1EPN3wze6engineEP4gamedd
+	.set	_ZN20tile_bot_left_cornerC1EPN3wze6engineEP4gamedd,_ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd
 	.align 2
 	.p2align 4
 	.globl	_ZN20tile_bot_left_cornerD2Ev
@@ -443,16 +406,17 @@ _ZN20tile_bot_left_cornerD2Ev:
 	.long	1072693248
 	.align 8
 .LC2:
-	.long	-1717986918
-	.long	1070176665
+	.long	0
+	.long	1078198272
 	.align 8
 .LC3:
-	.long	-1717986918
-	.long	1071225241
-	.align 8
+	.long	0
+	.long	1077149696
+	.section	.rodata.cst4,"aM",@progbits,4
+	.align 4
 .LC4:
-	.long	858993459
-	.long	1071854387
+	.value	20
+	.value	20
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

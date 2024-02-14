@@ -1,55 +1,55 @@
 #include "../RTL.hpp"
 
-tile_token::tile_token(tile Type, engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height)
+tile_token::tile_token(tile Type, engine* Engine, game* Game, double X, double Y)
 {
     switch (Type)
     {
         case TILE_TOP_LEFT_CORNER:
-            this->Data = new tile_top_left_corner(Engine, Game, X, Y, Width, Height);
+            this->Data = new tile_top_left_corner(Engine, Game, X, Y);
         break;
 
         case TILE_TOP_RIGHT_CORNER:
-            this->Data = new tile_top_right_corner(Engine, Game, X, Y, Width, Height);
+            this->Data = new tile_top_right_corner(Engine, Game, X, Y);
         break;
 
         case TILE_BOT_LEFT_CORNER:
-            this->Data = new tile_bot_left_corner(Engine, Game, X, Y, Width, Height);
+            this->Data = new tile_bot_left_corner(Engine, Game, X, Y);
         break;
 
         case TILE_BOT_RIGHT_CORNER:
-            this->Data = new tile_bot_right_corner(Engine, Game, X, Y, Width, Height);
+            this->Data = new tile_bot_right_corner(Engine, Game, X, Y);
         break;
 
         case TILE_HORIZONTAL_CORRIDOR:
-            this->Data = new tile_horizontal_corridor(Engine, Game, X, Y, Width, Height);
+            this->Data = new tile_horizontal_corridor(Engine, Game, X, Y);
         break;
 
         case TILE_VERTICAL_CORRIDOR:
-            this->Data = new tile_vertical_corridor(Engine, Game, X, Y, Width, Height);
+            this->Data = new tile_vertical_corridor(Engine, Game, X, Y);
         break;
 
         case TILE_CENTER_CORRIDOR:
-            this->Data = new tile_center_corridor(Engine, Game, X, Y, Width, Height);
+            this->Data = new tile_center_corridor(Engine, Game, X, Y);
         break;
 
         case TILE_FLOOR_HOLE:
-            this->Data = new tile_floor_hole(Engine, Game, X, Y, Width, Height);
+            this->Data = new tile_floor_hole(Engine, Game, X, Y);
         break;
 
         case TILE_CEIL_HOLE:
-            this->Data = new tile_ceil_hole(Engine, Game, X, Y, Width, Height);
+            this->Data = new tile_ceil_hole(Engine, Game, X, Y);
         break;
 
         case TILE_TRAP_HOLE:
-            this->Data = new tile_trap_hole(Engine, Game, X, Y, Width, Height);
+            this->Data = new tile_trap_hole(Engine, Game, X, Y);
         break;
 
         case TILE_HORIZONTAL_ROTATING:
-            this->Data = new tile_horizontal_rotating(Engine, Game, X, Y, Width, Height);
+            this->Data = new tile_horizontal_rotating(Engine, Game, X, Y);
         break;
 
         case TILE_VERTICAL_ROTATING:
-            this->Data = new tile_vertical_rotating(Engine, Game, X, Y, Width, Height);
+            this->Data = new tile_vertical_rotating(Engine, Game, X, Y);
         break;
 
         default:
