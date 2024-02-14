@@ -26,7 +26,7 @@ _ZN4gameC2EPN3wze6engineE:
 	.cfi_offset 3, -32
 	movq	%rdi, %rbx
 	movq	%rsi, (%rdi)
-	movl	$144, %edi
+	movl	$64, %edi
 .LEHB0:
 	call	_Znwm@PLT
 .LEHE0:
@@ -147,7 +147,7 @@ _ZN4gameC2EPN3wze6engineE.cold:
 	.cfi_offset 6, -24
 	.cfi_offset 12, -16
 	movq	%r12, %rdi
-	movl	$144, %esi
+	movl	$64, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 .LEHB8:
@@ -244,7 +244,7 @@ _ZN4gameD2Ev:
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
 	movq	%rbx, %rdi
-	movl	$144, %esi
+	movl	$64, %esi
 	popq	%rbx
 	.cfi_def_cfa_offset 16
 	popq	%rbp

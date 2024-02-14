@@ -9,18 +9,21 @@ assets::assets(engine* Engine) : Engine(Engine)
 
     this->gui_buttonTexture = this->Engine->Assets.LoadTexture("assets/gui/gui_button.png");
 
-    this->tile_TopLeftCorner = this->Engine->Assets.LoadTexture("assets/tiles/topleft_corner.png");
-    this->tile_TopRightCorner = this->Engine->Assets.LoadTexture("assets/tiles/topright_corner.png");
-    this->tile_BotLeftCorner = this->Engine->Assets.LoadTexture("assets/tiles/botleft_corner.png");
-    this->tile_BotRightCorner = this->Engine->Assets.LoadTexture("assets/tiles/botright_corner.png");
-    this->tile_HorizontalCorridor = this->Engine->Assets.LoadTexture("assets/tiles/horizontal_corridor.png");
-    this->tile_VerticalCorridor = this->Engine->Assets.LoadTexture("assets/tiles/vertical_corridor.png");
-    this->tile_CenterCorridor = this->Engine->Assets.LoadTexture("assets/tiles/center_corridor.png");
-    this->tile_HorizontalRotating = this->Engine->Assets.LoadTexture("assets/tiles/horizontal_rotating.png");
-    this->tile_VerticalRotating = this->Engine->Assets.LoadTexture("assets/tiles/vertical_rotating.png");
-    this->tile_FloorHole = this->Engine->Assets.LoadTexture("assets/tiles/floor_hole.png");
-    this->tile_CeilHole = this->Engine->Assets.LoadTexture("assets/tiles/ceil_hole.png");
-    this->tile_TrapHole = this->Engine->Assets.LoadTexture("assets/tiles/trap_hole.png");
+    this->TileTextures =
+    {
+        this->Engine->Assets.LoadTexture("assets/tiles/top_left_corner.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/top_right_corner.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/bot_left_corner.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/bot_right_corner.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/horizontal_corridor.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/vertical_corridor.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/center_corridor.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/floor_hole.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/ceil_hole.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/trap_hole.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/horizontal_rotating.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/vertical_rotating.png"),
+    };
 }
 
 assets::~assets()
