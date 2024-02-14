@@ -2,10 +2,10 @@
 	.text
 	.align 2
 	.p2align 4
-	.globl	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc
-	.def	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc
-_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc:
+	.globl	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc
+	.def	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc
+_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc:
 .LFB8432:
 	pushq	%r12
 	.seh_pushreg	%r12
@@ -17,15 +17,16 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$64, %rsp
-	.seh_stackalloc	64
+	subq	$80, %rsp
+	.seh_stackalloc	80
 	.seh_endprologue
-	movl	152(%rsp), %edi
-	movl	160(%rsp), %r12d
-	movsd	144(%rsp), %xmm0
-	movq	168(%rsp), %rbp
-	movzwl	%r12w, %esi
-	movzwl	%di, %eax
+	movl	168(%rsp), %ebp
+	movl	176(%rsp), %r12d
+	movsd	160(%rsp), %xmm0
+	movq	192(%rsp), %rsi
+	movsd	184(%rsp), %xmm1
+	movzwl	%r12w, %edi
+	movzwl	%bp, %eax
 	movq	%rdx, (%rcx)
 	movq	%rcx, %rbx
 	movq	%r8, 8(%rcx)
@@ -33,9 +34,10 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc:
 	leaq	256(%rdx), %rcx
 	xorl	%edx, %edx
 	movq	$0x000000000, 56(%rsp)
-	movl	%esi, 48(%rsp)
+	movl	%edi, 48(%rsp)
 	movl	%eax, 40(%rsp)
 	movsd	%xmm0, 32(%rsp)
+	movsd	%xmm1, 72(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	xorl	%edx, %edx
 	movq	%rax, 16(%rbx)
@@ -44,7 +46,7 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc:
 	movq	%rax, 24(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	56(%rax), %rdx
+	movq	40(%rax), %rdx
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -52,30 +54,33 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc:
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
 	leaq	104(%rdx), %rcx
-	movq	%rbp, %rdx
+	movq	%rsi, %rdx
 	movq	8(%rax), %rax
-	movq	24(%rax), %r8
+	movq	8(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
-	pxor	%xmm0, %xmm0
-	xorl	%r8d, %r8d
-	movw	%di, 48(%rbx)
-	cvtsi2sdl	%esi, %xmm0
-	movq	%rax, %rcx
-	movq	%rax, 40(%rbx)
-	movl	$-7968, %edx
-	mulsd	.LC3(%rip), %xmm0
-	movq	.LC1(%rip), %rax
 	movw	%r12w, 50(%rbx)
+	movq	16(%rbx), %rcx
+	movq	%rax, 40(%rbx)
+	movq	.LC1(%rip), %rax
+	movw	%bp, 48(%rbx)
+	movsd	72(%rsp), %xmm1
 	movq	%rax, 56(%rbx)
+	call	_ZN3wze6engine6actors5actor8SetLayerEd
+	pxor	%xmm0, %xmm0
 	movq	32(%rbx), %rax
+	xorl	%r8d, %r8d
+	cvtsi2sdl	%edi, %xmm0
+	mulsd	.LC3(%rip), %xmm0
+	movq	40(%rbx), %rcx
+	movl	$-7968, %edx
 	movw	%dx, 20(%rax)
-	cvttsd2sil	%xmm0, %edx
 	movb	$-32, 22(%rax)
+	addb	$1, 36(%rcx)
 	movw	%r8w, 16(%rcx)
+	cvttsd2sil	%xmm0, %edx
 	movb	$0, 18(%rcx)
-	movb	$-127, 36(%rcx)
 	movzwl	%dx, %edx
-	addq	$64, %rsp
+	addq	$80, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
@@ -83,9 +88,9 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc:
 	popq	%r12
 	jmp	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
 	.seh_endproc
-	.globl	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc
-	.def	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc;	.scl	2;	.type	32;	.endef
-	.set	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttPKc,_ZN10gui_buttonC2EPN3wze6engineEP4gameddttPKc
+	.globl	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc
+	.def	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc;	.scl	2;	.type	32;	.endef
+	.set	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc,_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc
 	.align 2
 	.p2align 4
 	.globl	_ZN10gui_buttonD2Ev
@@ -153,12 +158,10 @@ _ZN10gui_button6UpdateEv:
 .L7:
 	movq	24(%rbx), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv
-	movl	%eax, %edx
-	movl	$1, %eax
-	andl	$4, %edx
-	jne	.L4
 	movsd	56(%rbx), %xmm1
+	testb	$4, %al
 	movq	32(%rbx), %rax
+	jne	.L12
 .L13:
 	movzwl	48(%rbx), %edx
 	pxor	%xmm0, %xmm0
@@ -177,9 +180,9 @@ _ZN10gui_button6UpdateEv:
 	cvttsd2sil	%xmm0, %edx
 	movzwl	%dx, %edx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
-	xorl	%eax, %eax
-.L4:
+	nop
 	movaps	32(%rsp), %xmm6
+	xorl	%eax, %eax
 	addq	$48, %rsp
 	popq	%rbx
 	ret
@@ -204,7 +207,7 @@ _ZN10gui_button6UpdateEv:
 	subsd	%xmm0, %xmm1
 	comisd	%xmm1, %xmm6
 	movsd	%xmm1, 56(%rbx)
-	ja	.L17
+	ja	.L18
 	movq	32(%rbx), %rax
 	jmp	.L13
 	.p2align 4,,10
@@ -227,7 +230,33 @@ _ZN10gui_button6UpdateEv:
 	jmp	.L7
 	.p2align 4,,10
 	.p2align 3
-.L17:
+.L12:
+	movzwl	48(%rbx), %edx
+	pxor	%xmm0, %xmm0
+	movq	40(%rbx), %rcx
+	cvtsi2sdl	%edx, %xmm0
+	mulsd	%xmm1, %xmm0
+	cvttsd2sil	%xmm0, %edx
+	pxor	%xmm0, %xmm0
+	movw	%dx, 16(%rax)
+	movzwl	50(%rbx), %edx
+	cvtsi2sdl	%edx, %xmm0
+	mulsd	%xmm1, %xmm0
+	cvttsd2sil	%xmm0, %edx
+	mulsd	.LC3(%rip), %xmm0
+	movw	%dx, 18(%rax)
+	cvttsd2sil	%xmm0, %edx
+	movzwl	%dx, %edx
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
+	nop
+	movaps	32(%rsp), %xmm6
+	movl	$1, %eax
+	addq	$48, %rsp
+	popq	%rbx
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L18:
 	movq	32(%rbx), %rax
 	movsd	%xmm6, 56(%rbx)
 	movapd	%xmm6, %xmm1
@@ -259,6 +288,7 @@ _ZN10gui_button6UpdateEv:
 	.def	_ZN3wze6engine6actors5actor12overlapboxes3NewEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes3NewEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor8SetLayerEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
