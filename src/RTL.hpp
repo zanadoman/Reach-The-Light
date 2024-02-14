@@ -4,6 +4,9 @@
     #include <cmath>
 #endif
 
+#define MAP_X 8
+#define MAP_Y 16
+
 using namespace neo;
 using namespace wze;
 
@@ -37,7 +40,8 @@ struct game
     
     assets* Assets;
     settings* Settings;
-    uint8 Map[128];
+    uint8 MapRaw[MAP_X * MAP_Y];
+    uint8* Map[MAP_X];
     scene ActiveScene;
     scene_menu* Menu;
     game(engine* Engine);

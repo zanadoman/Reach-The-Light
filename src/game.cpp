@@ -13,11 +13,18 @@ game::game(engine* Engine) : Engine(Engine)
         this->Settings->Volume = 50;
         this->Settings->FrameRate = 60;
     }
-    if (memory::LoadTo("saves/map.save", this->Map, sizeof(uint8) * 128))
+    if (memory::LoadTo("saves/map.save", this->MapRaw, sizeof(uint8) * MAP_X * MAP_Y))
     {
         for (uint8 i = 0; i < 128; i++)
         {
-            this->Map[i] = this->Engine->Random(1, 13);
+            this->MapRaw[i] = this->Engine->Random(1, 13);
+        }
+    }
+    for (uint8 i = 0, j = 0; i < MAP_X * MAP_Y; i++)
+    {
+        if (i % MAP_Y == 0)
+        {
+            this->Map[j++] = &this->MapRaw[i];
         }
     }
 
@@ -75,6 +82,7 @@ game::~game()
         break;
     }
 
+    memory::Save(this->MapRaw, sizeof(uint8) * MAP_X * MAP_Y, "saves/map.save");
     memory::Save(this->Settings, sizeof(settings), "saves/settings.save");
 
     delete this->Settings;
