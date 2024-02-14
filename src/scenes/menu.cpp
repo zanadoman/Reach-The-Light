@@ -28,7 +28,10 @@ scene_menu::~scene_menu()
 
 scene scene_menu::Update()
 {
-    this->Play->Update();
+    if (this->Play->Update())
+    {
+        return SCENE_PLAY;
+    }
     if (this->Editor->Update())
     {
         return SCENE_EDITOR;

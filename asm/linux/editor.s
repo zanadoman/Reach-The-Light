@@ -426,8 +426,8 @@ _ZN12scene_editor6UpdateEv:
 	subsd	%xmm1, %xmm0
 	movsd	.LC7(%rip), %xmm1
 	comisd	%xmm0, %xmm1
-	ja	.L77
-.L122:
+	ja	.L78
+.L124:
 	movsd	.LC8(%rip), %xmm1
 	minsd	%xmm0, %xmm1
 	movapd	%xmm1, %xmm0
@@ -453,10 +453,10 @@ _ZN12scene_editor6UpdateEv:
 	movsd	8(%rsp), %xmm2
 	movsd	16(%rsp), %xmm1
 	comisd	%xmm2, %xmm1
-	jbe	.L105
-.L111:
+	jbe	.L107
+.L113:
 	comisd	%xmm0, %xmm2
-	ja	.L107
+	ja	.L109
 	minsd	%xmm0, %xmm1
 	movapd	%xmm1, %xmm0
 .L64:
@@ -466,20 +466,21 @@ _ZN12scene_editor6UpdateEv:
 	movq	24(%r12), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
 	testb	%al, %al
-	jne	.L123
+	jne	.L125
 .L66:
 	movq	32(%r12), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
+	cmpb	$1, %al
+	sbbl	%eax, %eax
 	addq	$40, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 40
-	movzbl	%al, %edx
-	movl	$2, %eax
+	andl	$2, %eax
 	popq	%rbx
 	.cfi_def_cfa_offset 32
 	popq	%rbp
 	.cfi_def_cfa_offset 24
-	subl	%edx, %eax
+	addl	$1, %eax
 	popq	%r12
 	.cfi_def_cfa_offset 16
 	popq	%r13
@@ -512,8 +513,8 @@ _ZN12scene_editor6UpdateEv:
 	mulsd	.LC9(%rip), %xmm0
 	addsd	8(%rsp), %xmm0
 	comisd	%xmm0, %xmm1
-	jbe	.L122
-.L77:
+	jbe	.L124
+.L78:
 	movapd	%xmm1, %xmm0
 	jmp	.L55
 .L37:
@@ -542,19 +543,19 @@ _ZN12scene_editor6UpdateEv:
 	cvtsi2sdq	%rax, %xmm3
 	comisd	%xmm2, %xmm1
 	subsd	%xmm3, %xmm0
-	ja	.L111
-.L105:
+	ja	.L113
+.L107:
 	comisd	%xmm1, %xmm2
 	jbe	.L64
 	comisd	%xmm0, %xmm1
-	ja	.L85
+	ja	.L86
 	minsd	%xmm0, %xmm2
-.L107:
+.L109:
 	movapd	%xmm2, %xmm0
 	movq	%rbx, %rdi
 	call	_ZN3wze6engine6camera10SetOriginYEd@PLT
 	jmp	.L45
-.L123:
+.L125:
 	movq	8(%r12), %rax
 	movq	24(%rax), %rdi
 	call	_ZN3map5ResetEv@PLT
@@ -584,9 +585,9 @@ _ZN12scene_editor6UpdateEv:
 	comisd	%xmm2, %xmm1
 	cvtsi2sdq	%rax, %xmm0
 	addsd	8(%rsp), %xmm0
-	jbe	.L105
-	jmp	.L111
-.L85:
+	jbe	.L107
+	jmp	.L113
+.L86:
 	movapd	%xmm1, %xmm0
 	jmp	.L64
 	.cfi_endproc

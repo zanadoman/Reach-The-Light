@@ -521,10 +521,14 @@ _ZN10scene_menu6UpdateEv:
 	movq	%rdi, %rbx
 	movq	32(%rdi), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
+	movl	%eax, %edx
+	movl	$2, %eax
+	testb	%dl, %dl
+	jne	.L39
 	movq	40(%rbx), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
 	movl	%eax, %edx
-	movl	$2, %eax
+	movl	$3, %eax
 	testb	%dl, %dl
 	jne	.L39
 	movq	48(%rbx), %rdi
@@ -534,20 +538,7 @@ _ZN10scene_menu6UpdateEv:
 	movl	%eax, %edx
 	xorl	%eax, %eax
 	testb	%dl, %dl
-	je	.L44
-.L39:
-	popq	%rbx
-	.cfi_remember_state
-	.cfi_def_cfa_offset 24
-	popq	%rbp
-	.cfi_def_cfa_offset 16
-	popq	%r12
-	.cfi_def_cfa_offset 8
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L44:
-	.cfi_restore_state
+	jne	.L39
 	movq	(%rbx), %rax
 	movq	64(%rbx), %rdi
 	leaq	160(%rax), %rbp
@@ -574,9 +565,10 @@ _ZN10scene_menu6UpdateEv:
 	idivl	%ecx
 	movzbl	%al, %esi
 	call	_ZN3wze6engine6timing18SetTargetFrameTimeEh@PLT
+	movl	$1, %eax
+.L39:
 	popq	%rbx
 	.cfi_def_cfa_offset 24
-	movl	$1, %eax
 	popq	%rbp
 	.cfi_def_cfa_offset 16
 	popq	%r12
