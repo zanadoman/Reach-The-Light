@@ -14,6 +14,41 @@
 	.string	"assets/fonts/Hack-Regular.ttf"
 .LC4:
 	.string	"assets/gui/gui_button.png"
+	.section	.rodata.str1.8
+	.align 8
+.LC5:
+	.string	"assets/tiles/topleft_corner.png"
+	.align 8
+.LC6:
+	.string	"assets/tiles/topright_corner.png"
+	.align 8
+.LC7:
+	.string	"assets/tiles/botleft_corner.png"
+	.align 8
+.LC8:
+	.string	"assets/tiles/botright_corner.png"
+	.align 8
+.LC9:
+	.string	"assets/tiles/horizontal_corridor.png"
+	.align 8
+.LC10:
+	.string	"assets/tiles/vertical_corridor.png"
+	.align 8
+.LC11:
+	.string	"assets/tiles/center_corridor.png"
+	.align 8
+.LC12:
+	.string	"assets/tiles/horizontal_rotating.png"
+	.align 8
+.LC13:
+	.string	"assets/tiles/vertical_rotating.png"
+	.section	.rodata.str1.1
+.LC14:
+	.string	"assets/tiles/floor_hole.png"
+.LC15:
+	.string	"assets/tiles/ceil_hole.png"
+.LC16:
+	.string	"assets/tiles/trap_hole.png"
 	.text
 	.align 2
 	.p2align 4
@@ -54,7 +89,67 @@ _ZN6assetsC2EPN3wze6engineE:
 	movq	(%rbx), %rax
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	leaq	.LC5(%rip), %rsi
 	movq	%rax, 40(%rbx)
+	movq	(%rbx), %rax
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	leaq	.LC6(%rip), %rsi
+	movq	%rax, 48(%rbx)
+	movq	(%rbx), %rax
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	leaq	.LC7(%rip), %rsi
+	movq	%rax, 56(%rbx)
+	movq	(%rbx), %rax
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	leaq	.LC8(%rip), %rsi
+	movq	%rax, 64(%rbx)
+	movq	(%rbx), %rax
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	leaq	.LC9(%rip), %rsi
+	movq	%rax, 72(%rbx)
+	movq	(%rbx), %rax
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	leaq	.LC10(%rip), %rsi
+	movq	%rax, 80(%rbx)
+	movq	(%rbx), %rax
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	leaq	.LC11(%rip), %rsi
+	movq	%rax, 88(%rbx)
+	movq	(%rbx), %rax
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	leaq	.LC12(%rip), %rsi
+	movq	%rax, 96(%rbx)
+	movq	(%rbx), %rax
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	leaq	.LC13(%rip), %rsi
+	movq	%rax, 104(%rbx)
+	movq	(%rbx), %rax
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	leaq	.LC14(%rip), %rsi
+	movq	%rax, 112(%rbx)
+	movq	(%rbx), %rax
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	leaq	.LC15(%rip), %rsi
+	movq	%rax, 120(%rbx)
+	movq	(%rbx), %rax
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	leaq	.LC16(%rip), %rsi
+	movq	%rax, 128(%rbx)
+	movq	(%rbx), %rax
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	movq	%rax, 136(%rbx)
 	popq	%rbx
 	.cfi_def_cfa_offset 8
 	ret

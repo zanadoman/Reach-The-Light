@@ -62,7 +62,22 @@ struct assets
     uint64 HackBoldItalicFont;
     uint64 HackItalicFont;
     uint64 HackRegularFont;
+
     uint64 gui_buttonTexture;
+
+    uint64 tile_TopLeftCorner;
+    uint64 tile_TopRightCorner;
+    uint64 tile_BotLeftCorner;
+    uint64 tile_BotRightCorner;
+    uint64 tile_HorizontalCorridor;
+    uint64 tile_VerticalCorridor;
+    uint64 tile_CenterCorridor;
+    uint64 tile_HorizontalRotating;
+    uint64 tile_VerticalRotating;
+    uint64 tile_FloorHole;
+    uint64 tile_CeilHole;
+    uint64 tile_TrapHole;
+
     assets(engine* Engine);
     ~assets();
 };
