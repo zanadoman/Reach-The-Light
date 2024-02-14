@@ -67,7 +67,7 @@ main:
 	movl	%ebx, %esi
 	movq	%r12, %rdi
 	addl	$1, %ebx
-	movsbl	1(%rdx,%rax), %edx
+	movzbl	(%rdx,%rax), %edx
 	xorl	%eax, %eax
 .LEHB4:
 	call	printf@PLT

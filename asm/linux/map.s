@@ -2,8 +2,6 @@
 	.text
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .LC0:
-	.string	"saves/spawn.save"
-.LC1:
 	.string	"saves/map.save"
 	.text
 	.align 2
@@ -20,19 +18,13 @@ _ZN3mapD2Ev:
 	.cfi_offset 3, -16
 	leaq	.LC0(%rip), %rdx
 	movq	%rdi, %rbx
-	movl	$1, %esi
+	movl	$129, %esi
 	call	_ZN3neo6memory4SaveEPKvyPKc@PLT
-	leaq	.LC1(%rip), %rdx
-	movl	$128, %esi
-	leaq	1(%rbx), %rdi
-	call	_ZN3neo6memory4SaveEPKvyPKc@PLT
-	movq	256(%rbx), %rdi
+	movq	248(%rbx), %rdi
 	call	free@PLT
-	movq	240(%rbx), %rdi
+	movq	232(%rbx), %rdi
 	call	free@PLT
-	movq	224(%rbx), %rdi
-	call	free@PLT
-	movq	208(%rbx), %rdi
+	movq	216(%rbx), %rdi
 	popq	%rbx
 	.cfi_def_cfa_offset 8
 	jmp	free@PLT
@@ -58,36 +50,38 @@ _ZN3mapD2Ev:
 _ZN3map5ResetEv:
 .LFB8162:
 	.cfi_startproc
+	movdqa	.LC1(%rip), %xmm0
+	movq	136(%rdi), %rax
+	movups	%xmm0, (%rdi)
 	movdqa	.LC2(%rip), %xmm0
-	xorl	%eax, %eax
-	movups	%xmm0, 1(%rdi)
+	movups	%xmm0, 16(%rdi)
 	movdqa	.LC3(%rip), %xmm0
-	movups	%xmm0, 17(%rdi)
+	movups	%xmm0, 32(%rdi)
 	movdqa	.LC4(%rip), %xmm0
-	movups	%xmm0, 33(%rdi)
+	movups	%xmm0, 48(%rdi)
 	movdqa	.LC5(%rip), %xmm0
-	movups	%xmm0, 49(%rdi)
+	movups	%xmm0, 64(%rdi)
 	movdqa	.LC6(%rip), %xmm0
-	movups	%xmm0, 65(%rdi)
+	movups	%xmm0, 80(%rdi)
 	movdqa	.LC7(%rip), %xmm0
-	movups	%xmm0, 81(%rdi)
+	movups	%xmm0, 96(%rdi)
 	movdqa	.LC8(%rip), %xmm0
-	movups	%xmm0, 97(%rdi)
-	movdqa	.LC9(%rip), %xmm0
-	movups	%xmm0, 113(%rdi)
+	movups	%xmm0, 112(%rdi)
+	movb	$3, (%rax)
+	xorl	%eax, %eax
 	ret
 	.cfi_endproc
 .LFE8162:
 	.size	_ZN3map5ResetEv, .-_ZN3map5ResetEv
 	.section	.rodata.str1.8,"aMS",@progbits,1
 	.align 8
-.LC12:
+.LC10:
 	.string	"neo::array=: Memory allocation failed\nParams: Elements(type, length): %ld, %ld\n"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB16:
+.LCOLDB13:
 	.text
-.LHOTB16:
+.LHOTB13:
 	.align 2
 	.p2align 4
 	.globl	_ZN3mapC2Ev
@@ -101,96 +95,77 @@ _ZN3mapC2Ev:
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
 	movq	%rdi, %rsi
-	movl	$1, %edx
+	movl	$129, %edx
 	pushq	%rbx
 	.cfi_def_cfa_offset 24
 	.cfi_offset 3, -24
 	movq	%rdi, %rbx
-	subq	$56, %rsp
-	.cfi_def_cfa_offset 80
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 64
 	movq	%fs:40, %rax
-	movq	%rax, 40(%rsp)
+	movq	%rax, 24(%rsp)
 	xorl	%eax, %eax
-	movq	$0, 200(%rdi)
+	leaq	128(%rdi), %rax
 	movq	$0, 208(%rdi)
 	movq	$0, 216(%rdi)
 	movq	$0, 224(%rdi)
 	movq	$0, 232(%rdi)
 	movq	$0, 240(%rdi)
 	movq	$0, 248(%rdi)
-	movq	$0, 256(%rdi)
+	movq	%rax, 136(%rdi)
 	leaq	.LC0(%rip), %rdi
 .LEHB0:
 	call	_ZN3neo6memory6LoadToEPKcPvy@PLT
 	testb	%al, %al
-	je	.L6
-	movb	$3, (%rbx)
+	jne	.L30
 .L6:
-	leaq	1(%rbx), %rbp
-	movl	$128, %edx
-	leaq	.LC1(%rip), %rdi
-	movq	%rbp, %rsi
-	call	_ZN3neo6memory6LoadToEPKcPvy@PLT
-	testb	%al, %al
-	jne	.L37
-.L7:
-	movq	.LC10(%rip), %rax
-	movq	200(%rbx), %rdx
-	movl	$185207048, 32(%rsp)
-	movq	%rax, 24(%rsp)
-	cmpq	$12, %rdx
-	jne	.L38
-	movq	208(%rbx), %rsi
-.L10:
-	leaq	24(%rsp), %rdi
-	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
-	movl	$512, %edx
-	movb	$5, 14(%rsp)
-	movw	%dx, 12(%rsp)
-	movq	216(%rbx), %rdx
-	cmpq	$3, %rdx
-	jne	.L39
-	movq	224(%rbx), %rsi
-.L13:
-	leaq	12(%rsp), %rdi
-	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
-	movq	232(%rbx), %rdx
-	movl	$769, %eax
-	movb	$5, 18(%rsp)
-	movw	%ax, 16(%rsp)
-	cmpq	$3, %rdx
-	jne	.L40
-	movq	240(%rbx), %rsi
-.L17:
-	leaq	16(%rsp), %rdi
-	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
-	movq	248(%rbx), %rdx
-	movl	$134480642, 20(%rsp)
-	cmpq	$4, %rdx
-	jne	.L41
-	movq	256(%rbx), %rsi
-.L20:
-	leaq	20(%rsp), %rdi
-	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
 	xorl	%eax, %eax
 	xorl	%edx, %edx
 	.p2align 4,,10
 	.p2align 3
-.L22:
+.L8:
 	testb	$15, %al
-	jne	.L21
+	jne	.L7
 	movzbl	%dl, %ecx
-	leaq	0(%rbp,%rax), %rsi
+	leaq	(%rbx,%rax), %rsi
 	addl	$1, %edx
-	movq	%rsi, 136(%rbx,%rcx,8)
-.L21:
+	movq	%rsi, 144(%rbx,%rcx,8)
+.L7:
 	addq	$1, %rax
 	cmpq	$128, %rax
-	jne	.L22
-	movq	40(%rsp), %rax
+	jne	.L8
+	movl	$512, %edx
+	movb	$5, 14(%rsp)
+	movw	%dx, 12(%rsp)
+	movq	208(%rbx), %rdx
+	cmpq	$3, %rdx
+	jne	.L31
+	movq	216(%rbx), %rsi
+.L11:
+	leaq	12(%rsp), %rdi
+	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
+	movq	224(%rbx), %rdx
+	movl	$769, %eax
+	movb	$5, 18(%rsp)
+	movw	%ax, 16(%rsp)
+	cmpq	$3, %rdx
+	jne	.L32
+	movq	232(%rbx), %rsi
+.L14:
+	leaq	16(%rsp), %rdi
+	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
+	movq	240(%rbx), %rdx
+	movl	$134480642, 20(%rsp)
+	cmpq	$4, %rdx
+	jne	.L33
+	movq	248(%rbx), %rsi
+.L18:
+	leaq	20(%rsp), %rdi
+	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
+	movq	24(%rsp), %rax
 	subq	%fs:40, %rax
-	jne	.L42
-	addq	$56, %rsp
+	jne	.L34
+	addq	$40, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
 	popq	%rbx
@@ -198,84 +173,66 @@ _ZN3mapC2Ev:
 	popq	%rbp
 	.cfi_def_cfa_offset 8
 	ret
-.L41:
+.L33:
 	.cfi_restore_state
-	movq	$4, 248(%rbx)
-	movq	256(%rbx), %rdi
+	movq	$4, 240(%rbx)
+	movq	248(%rbx), %rdi
 	movl	$4, %esi
 	call	realloc@PLT
-	movq	%rax, 256(%rbx)
+	movq	%rax, 248(%rbx)
 	movq	%rax, %rsi
 	testq	%rax, %rax
-	je	.L19
-	movq	248(%rbx), %rdx
-	jmp	.L20
-.L40:
-	movq	$3, 232(%rbx)
-	movq	240(%rbx), %rdi
+	je	.L17
+	movq	240(%rbx), %rdx
+	jmp	.L18
+.L32:
+	movq	$3, 224(%rbx)
+	movq	232(%rbx), %rdi
 	movl	$3, %esi
 	call	realloc@PLT
-	movq	%rax, 240(%rbx)
+	movq	%rax, 232(%rbx)
 	movq	%rax, %rsi
 	testq	%rax, %rax
-	je	.L16
-	movq	232(%rbx), %rdx
-	jmp	.L17
-.L39:
-	movq	$3, 216(%rbx)
-	movq	224(%rbx), %rdi
+	je	.L10
+	movq	224(%rbx), %rdx
+	jmp	.L14
+.L31:
+	movq	$3, 208(%rbx)
+	movq	216(%rbx), %rdi
 	movl	$3, %esi
 	call	realloc@PLT
-	movq	%rax, 224(%rbx)
+	movq	%rax, 216(%rbx)
 	movq	%rax, %rsi
 	testq	%rax, %rax
-	je	.L16
-	movq	216(%rbx), %rdx
-	jmp	.L13
-.L38:
-	movq	$12, 200(%rbx)
-	movq	208(%rbx), %rdi
-	movl	$12, %esi
-	call	realloc@PLT
-	movq	%rax, 208(%rbx)
-	movq	%rax, %rsi
-	testq	%rax, %rax
-	je	.L9
-	movq	200(%rbx), %rdx
-	jmp	.L10
-.L37:
+	je	.L10
+	movq	208(%rbx), %rdx
+	jmp	.L11
+.L30:
 	movq	%rbx, %rdi
 	call	_ZN3map5ResetEv
-	jmp	.L7
-.L9:
-	movl	$12, %edx
-	movl	$1, %esi
-	leaq	.LC12(%rip), %rdi
-	xorl	%eax, %eax
-	call	printf@PLT
-.L14:
-	movl	$1, %edi
-	call	exit@PLT
-.L16:
+	jmp	.L6
+.L10:
 	movl	$3, %edx
 	movl	$1, %esi
-	leaq	.LC12(%rip), %rdi
+	leaq	.LC10(%rip), %rdi
 	xorl	%eax, %eax
 	call	printf@PLT
-	jmp	.L14
-.L19:
+.L15:
+	movl	$1, %edi
+	call	exit@PLT
+.L17:
 	movl	$4, %edx
 	movl	$1, %esi
-	leaq	.LC12(%rip), %rdi
+	leaq	.LC10(%rip), %rdi
 	xorl	%eax, %eax
 	call	printf@PLT
 .LEHE0:
-	jmp	.L14
-.L42:
+	jmp	.L15
+.L34:
 	call	__stack_chk_fail@PLT
-.L26:
+.L22:
 	movq	%rax, %rbp
-	jmp	.L23
+	jmp	.L19
 	.section	.gcc_except_table
 .LLSDA8157:
 	.byte	0xff
@@ -285,7 +242,7 @@ _ZN3mapC2Ev:
 .LLSDACSB8157:
 	.uleb128 .LEHB0-.LFB8157
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L26-.LFB8157
+	.uleb128 .L22-.LFB8157
 	.uleb128 0
 .LLSDACSE8157:
 	.text
@@ -297,26 +254,24 @@ _ZN3mapC2Ev:
 	.type	_ZN3mapC2Ev.cold, @function
 _ZN3mapC2Ev.cold:
 .LFSB8157:
-.L23:
-	.cfi_def_cfa_offset 80
+.L19:
+	.cfi_def_cfa_offset 64
 	.cfi_offset 3, -24
 	.cfi_offset 6, -16
-	movq	256(%rbx), %rdi
+	movq	248(%rbx), %rdi
 	call	free@PLT
-	movq	240(%rbx), %rdi
+	movq	232(%rbx), %rdi
 	call	free@PLT
-	movq	224(%rbx), %rdi
+	movq	216(%rbx), %rdi
 	call	free@PLT
-	movq	208(%rbx), %rdi
-	call	free@PLT
-	movq	40(%rsp), %rax
+	movq	24(%rsp), %rax
 	subq	%fs:40, %rax
-	jne	.L43
+	jne	.L35
 	movq	%rbp, %rdi
 .LEHB1:
 	call	_Unwind_Resume@PLT
 .LEHE1:
-.L43:
+.L35:
 	call	__stack_chk_fail@PLT
 	.cfi_endproc
 .LFE8157:
@@ -327,7 +282,7 @@ _ZN3mapC2Ev.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB1-.LCOLDB16
+	.uleb128 .LEHB1-.LCOLDB13
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -337,14 +292,14 @@ _ZN3mapC2Ev.cold:
 	.size	_ZN3mapC2Ev, .-_ZN3mapC2Ev
 	.section	.text.unlikely
 	.size	_ZN3mapC2Ev.cold, .-_ZN3mapC2Ev.cold
-.LCOLDE16:
+.LCOLDE13:
 	.text
-.LHOTE16:
+.LHOTE13:
 	.globl	_ZN3mapC1Ev
 	.set	_ZN3mapC1Ev,_ZN3mapC2Ev
 	.section	.rodata.cst16,"aM",@progbits,16
 	.align 16
-.LC2:
+.LC1:
 	.byte	2
 	.byte	0
 	.byte	2
@@ -362,7 +317,7 @@ _ZN3mapC2Ev.cold:
 	.byte	5
 	.byte	0
 	.align 16
-.LC3:
+.LC2:
 	.byte	4
 	.byte	3
 	.byte	1
@@ -380,7 +335,7 @@ _ZN3mapC2Ev.cold:
 	.byte	2
 	.byte	9
 	.align 16
-.LC4:
+.LC3:
 	.byte	3
 	.byte	5
 	.byte	0
@@ -398,7 +353,7 @@ _ZN3mapC2Ev.cold:
 	.byte	8
 	.byte	7
 	.align 16
-.LC5:
+.LC4:
 	.byte	4
 	.byte	2
 	.byte	1
@@ -415,27 +370,27 @@ _ZN3mapC2Ev.cold:
 	.byte	2
 	.byte	7
 	.byte	3
+	.align 16
+.LC5:
+	.byte	8
+	.byte	1
+	.byte	4
+	.byte	8
+	.byte	1
+	.byte	4
+	.byte	4
+	.byte	4
+	.byte	3
+	.byte	9
+	.byte	3
+	.byte	0
+	.byte	4
+	.byte	9
+	.byte	4
+	.byte	2
 	.align 16
 .LC6:
 	.byte	8
-	.byte	1
-	.byte	4
-	.byte	8
-	.byte	1
-	.byte	4
-	.byte	4
-	.byte	4
-	.byte	3
-	.byte	9
-	.byte	3
-	.byte	0
-	.byte	4
-	.byte	9
-	.byte	4
-	.byte	2
-	.align 16
-.LC7:
-	.byte	8
 	.byte	5
 	.byte	6
 	.byte	1
@@ -452,7 +407,7 @@ _ZN3mapC2Ev.cold:
 	.byte	5
 	.byte	7
 	.align 16
-.LC8:
+.LC7:
 	.byte	4
 	.byte	2
 	.byte	7
@@ -470,7 +425,7 @@ _ZN3mapC2Ev.cold:
 	.byte	4
 	.byte	8
 	.align 16
-.LC9:
+.LC8:
 	.byte	3
 	.byte	1
 	.byte	3
@@ -487,17 +442,6 @@ _ZN3mapC2Ev.cold:
 	.byte	1
 	.byte	3
 	.byte	1
-	.section	.rodata.cst8,"aM",@progbits,8
-	.align 8
-.LC10:
-	.byte	0
-	.byte	1
-	.byte	2
-	.byte	3
-	.byte	4
-	.byte	5
-	.byte	6
-	.byte	7
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

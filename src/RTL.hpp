@@ -50,7 +50,8 @@ typedef enum
     TILE_CEIL_HOLE,
     TILE_TRAP_HOLE,
     TILE_HORIZONTAL_ROTATING,
-    TILE_VERTICAL_ROTATING
+    TILE_VERTICAL_ROTATING,
+    TILE_COUNT
 } tile;
 
 struct game
@@ -98,13 +99,15 @@ struct settings
 
 struct map
 {
-    uint8 Spawn;
-    sint8 Raw[MAP_X * MAP_Y];
-    sint8* Cells[MAP_X];
-    array<uint8> CenterAllowed;
+    uint8 Raw[MAP_X * MAP_Y + 1];
+
+    uint8* Spawn;
+    uint8* Cells[MAP_X];
+
     array<uint8> LeftAllowed;
     array<uint8> RightAllowed;
     array<uint8> BottomAllowed;
+
     map();
     ~map();
     uint8 Reset();

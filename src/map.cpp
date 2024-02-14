@@ -2,30 +2,21 @@
 
 map::map()
 {
-    if (memory::LoadTo("saves/spawn.save", &this->Spawn, sizeof(uint8)))
-    {
-        this->Spawn = 3;
-    }
-    if (memory::LoadTo("saves/map.save", this->Raw, sizeof(sint8) * MAP_X * MAP_Y))
+    this->Spawn = &this->Raw[MAP_X * MAP_Y];
+
+    if (memory::LoadTo("saves/map.save", this->Raw, sizeof(sint8) * MAP_X * MAP_Y + sizeof(uint8)))
     {
         this->Reset();
     }
-    
-    this->CenterAllowed =
+
+    for (uint8 i = 0, j = 0; i < MAP_X * MAP_Y; i++)
     {
-        TILE_TOP_LEFT_CORNER,
-        TILE_TOP_RIGHT_CORNER,
-        TILE_BOT_LEFT_CORNER,
-        TILE_BOT_RIGHT_CORNER,
-        TILE_HORIZONTAL_CORRIDOR,
-        TILE_VERTICAL_CORRIDOR,
-        TILE_CENTER_CORRIDOR,
-        TILE_FLOOR_HOLE,
-        TILE_CEIL_HOLE,
-        TILE_TRAP_HOLE,
-        TILE_HORIZONTAL_ROTATING,
-        TILE_VERTICAL_ROTATING
-    };
+        if (i % MAP_Y == 0)
+        {
+            this->Cells[j++] = &this->Raw[i];
+        }
+    }
+    
     this->LeftAllowed = 
     {
         TILE_TOP_LEFT_CORNER,
@@ -45,20 +36,11 @@ map::map()
         TILE_HORIZONTAL_CORRIDOR,
         TILE_CEIL_HOLE
     };
-
-    for (uint8 i = 0, j = 0; i < MAP_X * MAP_Y; i++)
-    {
-        if (i % MAP_Y == 0)
-        {
-            this->Cells[j++] = &this->Raw[i];
-        }
-    }
 }
 
 map::~map()
 {
-    memory::Save(&this->Spawn, sizeof(uint8), "saves/spawn.save");
-    memory::Save(this->Raw, sizeof(sint8) * MAP_X * MAP_Y, "saves/map.save");
+    memory::Save(this->Raw, sizeof(sint8) * MAP_X * MAP_Y + sizeof(uint8), "saves/map.save");
 }
 
 uint8 map::Reset()
@@ -191,6 +173,8 @@ uint8 map::Reset()
     this->Raw[125] = 1;
     this->Raw[126] = 3;
     this->Raw[127] = 1;
+
+    *this->Spawn = 3;
 
     return 0;
 }

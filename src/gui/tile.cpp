@@ -47,9 +47,9 @@ gui_tile::gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width,
     }
     else
     {
-        for (uint8 i = 0; i < this->Game->Map->CenterAllowed.Length(); i++)
+        for (uint8 i = 0; i < TILE_COUNT; i++)
         {
-            if (this->Game->Map->Cells[CellX][CellY] == this->Game->Map->CenterAllowed[i])
+            if (this->Game->Map->Cells[CellX][CellY] == i)
             {
                 this->Type = i;
                 break;
@@ -129,12 +129,12 @@ uint8 gui_tile::Update()
                 }
                 else
                 {
-                    if (this->Game->Map->CenterAllowed.Length() <= ++this->Type)
+                    if (TILE_COUNT <= ++this->Type)
                     {
                         this->Type = 0;
                     }
 
-                    this->Game->Map->Cells[this->CellX][this->CellY] = this->Game->Map->CenterAllowed[this->Type];
+                    this->Game->Map->Cells[this->CellX][this->CellY] = this->Type;
                 }
             }
 
@@ -171,17 +171,17 @@ uint8 gui_tile::Update()
                 {
                     if (--this->Type < 0)
                     {
-                        this->Type = this->Game->Map->CenterAllowed.Length() - 1;
+                        this->Type = TILE_COUNT - 1;
                     }
 
-                    this->Game->Map->Cells[this->CellX][this->CellY] = this->Game->Map->CenterAllowed[this->Type];
+                    this->Game->Map->Cells[this->CellX][this->CellY] = this->Type;
                 }
             }
         }
 
         if ((this->Overlapbox->GetButtonState() & BTN_RELEASED_MMB) && this->CellY == 0)
         {
-            this->Game->Map->Spawn = this->CellX;
+            *this->Game->Map->Spawn = this->CellX;
         }
     }
     else
@@ -192,7 +192,7 @@ uint8 gui_tile::Update()
         this->Right->Visible = false;
     }
 
-    if (this->CellY == 0 && this->CellX == this->Game->Map->Spawn)
+    if (this->CellY == 0 && this->CellX == *this->Game->Map->Spawn)
     {
         this->Texturebox->ColorG = 128;
         this->Texturebox->ColorB = 128;
