@@ -212,8 +212,170 @@ _Z15DisplayPressKitPN3wze6engineE:
 	jne	.L12
 	jmp	.L21
 	.seh_endproc
+	.def	__main;	.scl	2;	.type	32;	.endef
 	.section .rdata,"dr"
 .LC5:
+	.ascii "assets/icon.png\0"
+.LC6:
+	.ascii "Reach The Light\0"
+	.section	.text.unlikely,"x"
+.LCOLDB7:
+	.section	.text.startup,"x"
+.LHOTB7:
+	.p2align 4
+	.globl	main
+	.def	main;	.scl	2;	.type	32;	.endef
+	.seh_proc	main
+main:
+.LFB8431:
+	pushq	%rsi
+	.seh_pushreg	%rsi
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$56, %rsp
+	.seh_stackalloc	56
+	.seh_endprologue
+	call	__main
+	movl	$448, %ecx
+.LEHB0:
+	call	_Znwy
+.LEHE0:
+	movl	$16, 40(%rsp)
+	movl	$2560, %r9d
+	leaq	.LC5(%rip), %r8
+	movl	$1440, 32(%rsp)
+	leaq	.LC6(%rip), %rdx
+	movq	%rax, %rcx
+	movq	%rax, %rbx
+.LEHB1:
+	call	_ZN3wze6engineC1EPKcS2_tth
+.LEHE1:
+	movq	%rbx, %rcx
+.LEHB2:
+	call	_Z15DisplayPressKitPN3wze6engineE
+	movl	$56, %ecx
+	call	_Znwy
+.LEHE2:
+	movq	%rbx, %rdx
+	movq	%rax, %rcx
+	movq	%rax, %rsi
+.LEHB3:
+	call	_ZN4gameC1EPN3wze6engineE
+.LEHE3:
+	jmp	.L23
+	.p2align 4,,10
+	.p2align 3
+.L24:
+	movq	%rsi, %rcx
+.LEHB4:
+	call	_ZN4game6UpdateEv
+	testb	%al, %al
+	jne	.L25
+.L23:
+	movq	%rbx, %rcx
+	call	_ZN3wze6engine6UpdateEv
+.LEHE4:
+	testb	%al, %al
+	jne	.L24
+.L25:
+	movq	%rsi, %rcx
+	call	_ZN4gameD1Ev
+	movl	$56, %edx
+	movq	%rsi, %rcx
+	call	_ZdlPvy
+	movq	%rbx, %rcx
+	call	_ZN3wze6engineD1Ev
+	movl	$448, %edx
+	movq	%rbx, %rcx
+	call	_ZdlPvy
+	xorl	%eax, %eax
+	addq	$56, %rsp
+	popq	%rbx
+	popq	%rsi
+	ret
+.L28:
+	movq	%rax, %rsi
+	jmp	.L26
+.L29:
+	movq	%rax, %rbx
+	jmp	.L27
+	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+.LLSDA8431:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE8431-.LLSDACSB8431
+.LLSDACSB8431:
+	.uleb128 .LEHB0-.LFB8431
+	.uleb128 .LEHE0-.LEHB0
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB1-.LFB8431
+	.uleb128 .LEHE1-.LEHB1
+	.uleb128 .L28-.LFB8431
+	.uleb128 0
+	.uleb128 .LEHB2-.LFB8431
+	.uleb128 .LEHE2-.LEHB2
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB3-.LFB8431
+	.uleb128 .LEHE3-.LEHB3
+	.uleb128 .L29-.LFB8431
+	.uleb128 0
+	.uleb128 .LEHB4-.LFB8431
+	.uleb128 .LEHE4-.LEHB4
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE8431:
+	.section	.text.startup,"x"
+	.seh_endproc
+	.section	.text.unlikely,"x"
+	.def	main.cold;	.scl	3;	.type	32;	.endef
+	.seh_proc	main.cold
+	.seh_stackalloc	72
+	.seh_savereg	%rbx, 56
+	.seh_savereg	%rsi, 64
+	.seh_endprologue
+main.cold:
+.L26:
+	movq	%rbx, %rcx
+	movl	$448, %edx
+	call	_ZdlPvy
+	movq	%rsi, %rcx
+.LEHB5:
+	call	_Unwind_Resume
+.L27:
+	movq	%rsi, %rcx
+	movl	$56, %edx
+	call	_ZdlPvy
+	movq	%rbx, %rcx
+	call	_Unwind_Resume
+	nop
+.LEHE5:
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+.LLSDAC8431:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSEC8431-.LLSDACSBC8431
+.LLSDACSBC8431:
+	.uleb128 .LEHB5-.LCOLDB7
+	.uleb128 .LEHE5-.LEHB5
+	.uleb128 0
+	.uleb128 0
+.LLSDACSEC8431:
+	.section	.text.unlikely,"x"
+	.section	.text.startup,"x"
+	.section	.text.unlikely,"x"
+	.seh_endproc
+.LCOLDE7:
+	.section	.text.startup,"x"
+.LHOTE7:
+	.section .rdata,"dr"
+.LC8:
 	.ascii "*this->Spawn = %d;\12\0"
 	.text
 	.p2align 4
@@ -236,7 +398,7 @@ _Z8PrintMapP4game:
 	movq	%rcx, %rsi
 	.p2align 4,,10
 	.p2align 3
-.L23:
+.L34:
 	movq	24(%rsi), %rdx
 	movslq	%ebx, %rax
 	movq	%rdi, %rcx
@@ -245,9 +407,9 @@ _Z8PrintMapP4game:
 	addl	$1, %ebx
 	call	_Z6printfPKcz.constprop.0
 	cmpl	$128, %ebx
-	jne	.L23
+	jne	.L34
 	movq	24(%rsi), %rax
-	leaq	.LC5(%rip), %rcx
+	leaq	.LC8(%rip), %rcx
 	movq	136(%rax), %rax
 	movzbl	(%rax), %edx
 	call	_Z6printfPKcz
@@ -258,168 +420,6 @@ _Z8PrintMapP4game:
 	popq	%rdi
 	ret
 	.seh_endproc
-	.def	__main;	.scl	2;	.type	32;	.endef
-	.section .rdata,"dr"
-.LC6:
-	.ascii "assets/icon.png\0"
-.LC7:
-	.ascii "Reach The Light\0"
-	.section	.text.unlikely,"x"
-.LCOLDB8:
-	.section	.text.startup,"x"
-.LHOTB8:
-	.p2align 4
-	.globl	main
-	.def	main;	.scl	2;	.type	32;	.endef
-	.seh_proc	main
-main:
-.LFB8431:
-	pushq	%rsi
-	.seh_pushreg	%rsi
-	pushq	%rbx
-	.seh_pushreg	%rbx
-	subq	$56, %rsp
-	.seh_stackalloc	56
-	.seh_endprologue
-	call	__main
-	movl	$448, %ecx
-.LEHB0:
-	call	_Znwy
-.LEHE0:
-	movl	$16, 40(%rsp)
-	movl	$2560, %r9d
-	leaq	.LC6(%rip), %r8
-	movl	$1440, 32(%rsp)
-	leaq	.LC7(%rip), %rdx
-	movq	%rax, %rcx
-	movq	%rax, %rbx
-.LEHB1:
-	call	_ZN3wze6engineC1EPKcS2_tth
-.LEHE1:
-	movl	$56, %ecx
-.LEHB2:
-	call	_Znwy
-.LEHE2:
-	movq	%rbx, %rdx
-	movq	%rax, %rcx
-	movq	%rax, %rsi
-.LEHB3:
-	call	_ZN4gameC1EPN3wze6engineE
-.LEHE3:
-	movq	%rsi, %rcx
-.LEHB4:
-	call	_Z8PrintMapP4game
-	jmp	.L26
-	.p2align 4,,10
-	.p2align 3
-.L27:
-	movq	%rsi, %rcx
-	call	_ZN4game6UpdateEv
-	testb	%al, %al
-	jne	.L28
-.L26:
-	movq	%rbx, %rcx
-	call	_ZN3wze6engine6UpdateEv
-.LEHE4:
-	testb	%al, %al
-	jne	.L27
-.L28:
-	movq	%rsi, %rcx
-	call	_ZN4gameD1Ev
-	movl	$56, %edx
-	movq	%rsi, %rcx
-	call	_ZdlPvy
-	movq	%rbx, %rcx
-	call	_ZN3wze6engineD1Ev
-	movl	$448, %edx
-	movq	%rbx, %rcx
-	call	_ZdlPvy
-	xorl	%eax, %eax
-	addq	$56, %rsp
-	popq	%rbx
-	popq	%rsi
-	ret
-.L31:
-	movq	%rax, %rsi
-	jmp	.L29
-.L32:
-	movq	%rax, %rbx
-	jmp	.L30
-	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
-	.seh_handler	__gxx_personality_seh0, @unwind, @except
-	.seh_handlerdata
-.LLSDA8431:
-	.byte	0xff
-	.byte	0xff
-	.byte	0x1
-	.uleb128 .LLSDACSE8431-.LLSDACSB8431
-.LLSDACSB8431:
-	.uleb128 .LEHB0-.LFB8431
-	.uleb128 .LEHE0-.LEHB0
-	.uleb128 0
-	.uleb128 0
-	.uleb128 .LEHB1-.LFB8431
-	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L31-.LFB8431
-	.uleb128 0
-	.uleb128 .LEHB2-.LFB8431
-	.uleb128 .LEHE2-.LEHB2
-	.uleb128 0
-	.uleb128 0
-	.uleb128 .LEHB3-.LFB8431
-	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L32-.LFB8431
-	.uleb128 0
-	.uleb128 .LEHB4-.LFB8431
-	.uleb128 .LEHE4-.LEHB4
-	.uleb128 0
-	.uleb128 0
-.LLSDACSE8431:
-	.section	.text.startup,"x"
-	.seh_endproc
-	.section	.text.unlikely,"x"
-	.def	main.cold;	.scl	3;	.type	32;	.endef
-	.seh_proc	main.cold
-	.seh_stackalloc	72
-	.seh_savereg	%rbx, 56
-	.seh_savereg	%rsi, 64
-	.seh_endprologue
-main.cold:
-.L29:
-	movq	%rbx, %rcx
-	movl	$448, %edx
-	call	_ZdlPvy
-	movq	%rsi, %rcx
-.LEHB5:
-	call	_Unwind_Resume
-.L30:
-	movq	%rsi, %rcx
-	movl	$56, %edx
-	call	_ZdlPvy
-	movq	%rbx, %rcx
-	call	_Unwind_Resume
-	nop
-.LEHE5:
-	.seh_handler	__gxx_personality_seh0, @unwind, @except
-	.seh_handlerdata
-.LLSDAC8431:
-	.byte	0xff
-	.byte	0xff
-	.byte	0x1
-	.uleb128 .LLSDACSEC8431-.LLSDACSBC8431
-.LLSDACSBC8431:
-	.uleb128 .LEHB5-.LCOLDB8
-	.uleb128 .LEHE5-.LEHB5
-	.uleb128 0
-	.uleb128 0
-.LLSDACSEC8431:
-	.section	.text.unlikely,"x"
-	.section	.text.startup,"x"
-	.section	.text.unlikely,"x"
-	.seh_endproc
-.LCOLDE8:
-	.section	.text.startup,"x"
-.LHOTE8:
 	.section .rdata,"dr"
 	.align 8
 .LC2:
