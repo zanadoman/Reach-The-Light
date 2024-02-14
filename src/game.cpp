@@ -4,25 +4,7 @@ game::game(engine* Engine) : Engine(Engine)
 {
     this->Assets = new assets(Engine, this);
     this->Settings = new settings;
-    if (memory::LoadTo("saves/settings.save", this->Settings, sizeof(settings)))
-    {
-        this->Settings->Volume = 50;
-        this->Settings->FrameRate = 60;
-    }
-    if (memory::LoadTo("saves/map.save", this->MapRaw, sizeof(uint8) * MAP_X * MAP_Y))
-    {
-        for (uint8 i = 0; i < 128; i++)
-        {
-            this->MapRaw[i] = this->Engine->Random(1, 13);
-        }
-    }
-    for (uint8 i = 0, j = 0; i < MAP_X * MAP_Y; i++)
-    {
-        if (i % MAP_X == 0)
-        {
-            this->Map[j++] = &this->MapRaw[i];
-        }
-    }
+    this->Map = new map;
 
     this->ActiveScene = SCENE_MENU;
     this->Menu = new scene_menu(Engine, this);
@@ -40,9 +22,7 @@ game::~game()
         break;
     }
 
-    memory::Save(this->MapRaw, sizeof(uint8) * MAP_X * MAP_Y, "saves/map.save");
-    memory::Save(this->Settings, sizeof(settings), "saves/settings.save");
-
+    delete this->Map;
     delete this->Settings;
     delete this->Assets;
 }
@@ -57,6 +37,7 @@ uint8 game::Update()
         case SCENE_MENU:
             this->SwitchScene(this->Menu->Update());
         return 0;
+
     }
 
     return 0;

@@ -40,10 +40,11 @@ struct game
     
     assets* Assets;
     settings* Settings;
-    uint8 MapRaw[MAP_X * MAP_Y];
-    uint8* Map[MAP_Y];
+    map* Map;
+
     scene ActiveScene;
     scene_menu* Menu;
+
     game(engine* Engine);
     ~game();
     uint8 Update();
@@ -68,6 +69,16 @@ struct settings
 {
     double Volume;
     double FrameRate;
+    settings();
+    ~settings();
+};
+
+struct map
+{
+    uint8 Raw[MAP_X * MAP_Y];
+    uint8* Cells[MAP_Y];
+    map();
+    ~map();
 };
 
 //__________SCENES___________________________________________________________________________________
