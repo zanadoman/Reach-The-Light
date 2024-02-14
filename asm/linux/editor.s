@@ -431,8 +431,8 @@ _ZN12scene_editor6UpdateEv:
 	.cfi_def_cfa_offset 24
 	.cfi_offset 3, -24
 	movq	%rdi, %rbx
-	subq	$24, %rsp
-	.cfi_def_cfa_offset 48
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 64
 	cmpq	$0, 40(%rdi)
 	je	.L38
 	xorl	%ebp, %ebp
@@ -455,20 +455,19 @@ _ZN12scene_editor6UpdateEv:
 	testb	%al, %al
 	movq	(%rbx), %rax
 	leaq	176(%rax), %rdi
-	jne	.L75
+	jne	.L124
 	movl	$236, %esi
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
 	testb	%al, %al
-	jne	.L76
-.L45:
+	jne	.L125
 	movq	24(%rbx), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
 	testb	%al, %al
-	jne	.L77
-.L56:
+	jne	.L126
+.L70:
 	movq	32(%rbx), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
-	addq	$24, %rsp
+	addq	$40, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
 	movzbl	%al, %edx
@@ -481,7 +480,7 @@ _ZN12scene_editor6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L75:
+.L124:
 	.cfi_restore_state
 	movl	$224, %esi
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
@@ -499,71 +498,108 @@ _ZN12scene_editor6UpdateEv:
 	movsd	8(%rsp), %xmm0
 	movl	%eax, %eax
 	cvtsi2sdq	%rax, %xmm1
-	mulsd	.LC13(%rip), %xmm1
+	mulsd	.LC11(%rip), %xmm1
 	subsd	%xmm1, %xmm0
 	movsd	.LC9(%rip), %xmm1
 	comisd	%xmm0, %xmm1
-	ja	.L61
-.L73:
+	ja	.L71
 	movsd	.LC10(%rip), %xmm1
 	minsd	%xmm0, %xmm1
 	movapd	%xmm1, %xmm0
-.L52:
+.L44:
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6camera7SetZoomEd@PLT
+	movq	(%rbx), %rax
+	leaq	80(%rax), %rbp
+	movq	%rbp, %rdi
+	call	_ZN3wze6engine6camera7GetZoomEv@PLT
+	movsd	.LC12(%rip), %xmm2
+	movq	(%rbx), %rax
+	mulsd	%xmm0, %xmm2
+	leaq	80(%rax), %rdi
+	movsd	%xmm2, 16(%rsp)
+	call	_ZN3wze6engine6camera7GetZoomEv@PLT
+	movsd	.LC13(%rip), %xmm1
+	movq	(%rbx), %rax
+	mulsd	%xmm0, %xmm1
+	leaq	80(%rax), %rdi
+	movsd	%xmm1, 8(%rsp)
+	call	_ZN3wze6engine6camera10GetOriginYEv@PLT
+	movsd	8(%rsp), %xmm1
+	movsd	16(%rsp), %xmm2
+	comisd	%xmm1, %xmm2
+	jbe	.L107
+.L119:
+	comisd	%xmm0, %xmm1
+	ja	.L89
+	minsd	%xmm0, %xmm2
+.L111:
+	movapd	%xmm2, %xmm0
+.L68:
+	movq	%rbp, %rdi
+	call	_ZN3wze6engine6camera10SetOriginYEd@PLT
+.L127:
 	movq	24(%rbx), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
 	testb	%al, %al
-	je	.L56
-.L77:
+	je	.L70
+.L126:
 	movq	8(%rbx), %rax
 	movq	24(%rax), %rdi
 	movb	$3, (%rdi)
 	call	_ZN3map5ResetEv@PLT
-	jmp	.L56
+	jmp	.L70
 	.p2align 4,,10
 	.p2align 3
 .L41:
+	call	_ZN3wze6engine6camera7GetZoomEv@PLT
+	movsd	.LC12(%rip), %xmm2
+	movq	(%rbx), %rax
+	mulsd	%xmm0, %xmm2
+	leaq	80(%rax), %rdi
+	movsd	%xmm2, 24(%rsp)
+	call	_ZN3wze6engine6camera7GetZoomEv@PLT
+	movsd	.LC13(%rip), %xmm1
+	movq	(%rbx), %rax
+	mulsd	%xmm0, %xmm1
+	leaq	80(%rax), %rdi
+	movsd	%xmm1, 16(%rsp)
 	call	_ZN3wze6engine6camera10GetOriginYEv@PLT
 	movq	(%rbx), %rax
 	movsd	%xmm0, 8(%rsp)
 	leaq	392(%rax), %rdi
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
-	pxor	%xmm1, %xmm1
+	movsd	16(%rsp), %xmm1
+	pxor	%xmm3, %xmm3
+	movsd	24(%rsp), %xmm2
+	leal	0(,%rax,4), %eax
 	movsd	8(%rsp), %xmm0
-	leal	0(,%rax,4), %eax
-	cvtsi2sdq	%rax, %xmm1
-	subsd	%xmm1, %xmm0
-	movsd	.LC11(%rip), %xmm1
-	comisd	%xmm0, %xmm1
-	ja	.L63
-.L74:
-	movsd	.LC12(%rip), %xmm1
+	cvtsi2sdq	%rax, %xmm3
+	comisd	%xmm1, %xmm2
+	subsd	%xmm3, %xmm0
+	ja	.L119
+.L107:
+	comisd	%xmm2, %xmm1
+	jbe	.L68
+.L115:
+	comisd	%xmm0, %xmm2
+	ja	.L111
 	minsd	%xmm0, %xmm1
-	movapd	%xmm1, %xmm0
-.L55:
 	movq	%rbp, %rdi
-	call	_ZN3wze6engine6camera10SetOriginYEd@PLT
-	jmp	.L45
-.L49:
-	call	_ZN3wze6engine6camera10GetOriginYEv@PLT
-	movq	(%rbx), %rax
-	movsd	%xmm0, 8(%rsp)
-	leaq	392(%rax), %rdi
-	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
-	pxor	%xmm0, %xmm0
-	movsd	.LC11(%rip), %xmm1
-	leal	0(,%rax,4), %eax
-	cvtsi2sdq	%rax, %xmm0
-	addsd	8(%rsp), %xmm0
-	comisd	%xmm0, %xmm1
-	jbe	.L74
-.L63:
 	movapd	%xmm1, %xmm0
-	jmp	.L55
+	call	_ZN3wze6engine6camera10SetOriginYEd@PLT
+	jmp	.L127
 	.p2align 4,,10
 	.p2align 3
-.L76:
+.L89:
+	movapd	%xmm1, %xmm0
+	jmp	.L68
+.L71:
+	movapd	%xmm1, %xmm0
+	jmp	.L44
+	.p2align 4,,10
+	.p2align 3
+.L125:
 	movq	(%rbx), %rax
 	movl	$224, %esi
 	leaq	176(%rax), %rdi
@@ -572,7 +608,7 @@ _ZN12scene_editor6UpdateEv:
 	movq	(%rbx), %rax
 	leaq	80(%rax), %rbp
 	movq	%rbp, %rdi
-	je	.L49
+	je	.L56
 	call	_ZN3wze6engine6camera7GetZoomEv@PLT
 	movq	(%rbx), %rax
 	movsd	%xmm0, 8(%rsp)
@@ -582,13 +618,70 @@ _ZN12scene_editor6UpdateEv:
 	movsd	.LC9(%rip), %xmm1
 	movl	%eax, %eax
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC13(%rip), %xmm0
+	mulsd	.LC11(%rip), %xmm0
 	addsd	8(%rsp), %xmm0
 	comisd	%xmm0, %xmm1
-	jbe	.L73
-.L61:
+	ja	.L81
+	movsd	.LC10(%rip), %xmm1
+	minsd	%xmm0, %xmm1
 	movapd	%xmm1, %xmm0
-	jmp	.L52
+.L59:
+	movq	%rbp, %rdi
+	call	_ZN3wze6engine6camera7SetZoomEd@PLT
+	movq	(%rbx), %rax
+	leaq	80(%rax), %rbp
+	movq	%rbp, %rdi
+	call	_ZN3wze6engine6camera7GetZoomEv@PLT
+	movsd	.LC12(%rip), %xmm1
+	movq	(%rbx), %rax
+	mulsd	%xmm0, %xmm1
+	leaq	80(%rax), %rdi
+	movsd	%xmm1, 16(%rsp)
+	call	_ZN3wze6engine6camera7GetZoomEv@PLT
+	movsd	.LC13(%rip), %xmm2
+	movq	(%rbx), %rax
+	mulsd	%xmm0, %xmm2
+	leaq	80(%rax), %rdi
+	movsd	%xmm2, 8(%rsp)
+	call	_ZN3wze6engine6camera10GetOriginYEv@PLT
+	movsd	8(%rsp), %xmm2
+	movsd	16(%rsp), %xmm1
+	comisd	%xmm2, %xmm1
+	ja	.L115
+.L109:
+	comisd	%xmm1, %xmm2
+	jbe	.L68
+	jmp	.L119
+.L56:
+	call	_ZN3wze6engine6camera7GetZoomEv@PLT
+	movsd	.LC12(%rip), %xmm1
+	movq	(%rbx), %rax
+	mulsd	%xmm0, %xmm1
+	leaq	80(%rax), %rdi
+	movsd	%xmm1, 24(%rsp)
+	call	_ZN3wze6engine6camera7GetZoomEv@PLT
+	movsd	.LC13(%rip), %xmm2
+	movq	(%rbx), %rax
+	mulsd	%xmm0, %xmm2
+	leaq	80(%rax), %rdi
+	movsd	%xmm2, 16(%rsp)
+	call	_ZN3wze6engine6camera10GetOriginYEv@PLT
+	movq	(%rbx), %rax
+	movsd	%xmm0, 8(%rsp)
+	leaq	392(%rax), %rdi
+	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
+	movsd	16(%rsp), %xmm2
+	movsd	24(%rsp), %xmm1
+	pxor	%xmm0, %xmm0
+	leal	0(,%rax,4), %eax
+	comisd	%xmm2, %xmm1
+	cvtsi2sdq	%rax, %xmm0
+	addsd	8(%rsp), %xmm0
+	jbe	.L109
+	jmp	.L115
+.L81:
+	movapd	%xmm1, %xmm0
+	jmp	.L59
 	.cfi_endproc
 .LFE8162:
 	.size	_ZN12scene_editor6UpdateEv, .-_ZN12scene_editor6UpdateEv
@@ -607,24 +700,24 @@ _ZN12scene_editor6UpdateEv:
 	.long	-1064278016
 	.align 8
 .LC9:
-	.long	0
-	.long	1071644672
+	.long	1717986918
+	.long	1072064102
 	.align 8
 .LC10:
 	.long	0
-	.long	1073741824
+	.long	1073217536
 	.align 8
 .LC11:
-	.long	0
-	.long	-1064865792
+	.long	1202590843
+	.long	1065646817
 	.align 8
 .LC12:
 	.long	0
-	.long	1082617856
+	.long	1081876480
 	.align 8
 .LC13:
-	.long	1202590843
-	.long	1065646817
+	.long	0
+	.long	-1065607168
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

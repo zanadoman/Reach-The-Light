@@ -71,51 +71,49 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddtthh:
 	call	_ZN3wze6engine6actors5actor10colorboxes3NewEv@PLT
 	movb	%bpl, 72(%rbx)
 	movq	40(%rbx), %rbp
-	movq	%rax, 64(%rbx)
-	movl	$2, %eax
-	movq	16(%rbx), %rdi
-	movw	%ax, 18(%rbp)
 	movb	%r12b, 73(%rbx)
+	movl	.LC2(%rip), %r12d
+	movq	%rax, 64(%rbx)
+	movq	16(%rbx), %rdi
+	movl	%r12d, 16(%rbp)
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
-	addsd	.LC2(%rip), %xmm0
+	addsd	.LC3(%rip), %xmm0
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetYEd@PLT
 	movq	40(%rbx), %rax
 	movq	48(%rbx), %rbp
 	movl	$129, %edx
-	movl	$3, %ecx
 	movq	16(%rbx), %rdi
 	movw	%dx, 25(%rax)
-	movw	%cx, 18(%rbp)
+	movl	%r12d, 16(%rbp)
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
-	subsd	.LC2(%rip), %xmm0
+	subsd	.LC3(%rip), %xmm0
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetYEd@PLT
 	movq	48(%rbx), %rax
 	movq	56(%rbx), %rbp
-	movl	$129, %esi
-	movl	$3, %edi
-	movw	%si, 25(%rax)
-	movw	%di, 16(%rbp)
+	movl	$129, %ecx
+	movl	.LC4(%rip), %r12d
 	movq	16(%rbx), %rdi
+	movw	%cx, 25(%rax)
+	movl	%r12d, 16(%rbp)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
-	subsd	.LC2(%rip), %xmm0
+	subsd	.LC3(%rip), %xmm0
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd@PLT
 	movq	56(%rbx), %rax
 	movq	64(%rbx), %rbp
-	movl	$129, %r8d
-	movl	$2, %r9d
+	movl	$129, %esi
 	movq	16(%rbx), %rdi
-	movw	%r8w, 25(%rax)
-	movw	%r9w, 16(%rbp)
+	movw	%si, 25(%rax)
+	movl	%r12d, 16(%rbp)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
-	addsd	.LC2(%rip), %xmm0
+	addsd	.LC3(%rip), %xmm0
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd@PLT
 	movq	64(%rbx), %rax
-	movl	$129, %r10d
-	movw	%r10w, 25(%rax)
+	movl	$129, %edi
+	movw	%di, 25(%rax)
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
@@ -472,10 +470,21 @@ _ZN8gui_tile6UpdateEv:
 .LC0:
 	.long	0
 	.long	1072693248
-	.align 8
+	.section	.rodata.cst4,"aM",@progbits,4
+	.align 4
 .LC2:
+	.value	104
+	.value	4
+	.section	.rodata.cst8
+	.align 8
+.LC3:
 	.long	0
-	.long	1078493184
+	.long	1078525952
+	.section	.rodata.cst4
+	.align 4
+.LC4:
+	.value	4
+	.value	104
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

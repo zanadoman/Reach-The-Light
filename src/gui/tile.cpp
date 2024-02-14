@@ -12,23 +12,27 @@ gui_tile::gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width,
     this->CellX = CellX;
     this->CellY = CellY;
 
-    this->Top->Height = 2;
-    this->Top->SetY(this->Actor->GetY() + 49);
+    this->Top->Width = 104;
+    this->Top->Height = 4;
+    this->Top->SetY(this->Actor->GetY() + 50);
     this->Top->Priority = 129;
     this->Top->Visible = false;
 
-    this->Bottom->Height = 3;
-    this->Bottom->SetY(this->Actor->GetY() - 49);
+    this->Bottom->Width = 104;
+    this->Bottom->Height = 4;
+    this->Bottom->SetY(this->Actor->GetY() - 50);
     this->Bottom->Priority = 129;
     this->Bottom->Visible = false;
 
-    this->Left->Width = 3;
-    this->Left->SetX(this->Actor->GetX() - 49);
+    this->Left->Width = 4;
+    this->Left->Height = 104;
+    this->Left->SetX(this->Actor->GetX() - 50);
     this->Left->Priority = 129;
     this->Left->Visible = false;
 
-    this->Right->Width = 2;
-    this->Right->SetX(this->Actor->GetX() + 49);
+    this->Right->Width = 4;
+    this->Right->Height = 104;
+    this->Right->SetX(this->Actor->GetX() + 50);
     this->Right->Priority = 129;
     this->Right->Visible = false;
 }

@@ -40,22 +40,24 @@ scene scene_editor::Update()
     {
         if (this->Engine->Keys[KEY_LCTRL])
         {
-            this->Engine->Camera.SetZoom(engine::Clamp<double>(this->Engine->Camera.GetZoom() - 0.01 * this->Engine->Timing.GetDeltaTime(), 0.5, 2));
+            this->Engine->Camera.SetZoom(engine::Clamp<double>(this->Engine->Camera.GetZoom() - 0.01 * this->Engine->Timing.GetDeltaTime(), 0.7, 1.5));
+            this->Engine->Camera.SetOriginY(engine::Clamp<double>(this->Engine->Camera.GetOriginY(), -450 * this->Engine->Camera.GetZoom(), 450 * this->Engine->Camera.GetZoom()));
         }
         else
         {
-            this->Engine->Camera.SetOriginY(engine::Clamp<double>(this->Engine->Camera.GetOriginY() - 4 * this->Engine->Timing.GetDeltaTime(), -750, 750));
+            this->Engine->Camera.SetOriginY(engine::Clamp<double>(this->Engine->Camera.GetOriginY() - 4 * this->Engine->Timing.GetDeltaTime(), -450 * this->Engine->Camera.GetZoom(), 450 * this->Engine->Camera.GetZoom()));
         }
     }
     else if (this->Engine->Keys[KEY_WHEELUP])
     {
         if (this->Engine->Keys[KEY_LCTRL])
         {
-            this->Engine->Camera.SetZoom(engine::Clamp<double>(this->Engine->Camera.GetZoom() + 0.01 * this->Engine->Timing.GetDeltaTime(), 0.5, 2));
+            this->Engine->Camera.SetZoom(engine::Clamp<double>(this->Engine->Camera.GetZoom() + 0.01 * this->Engine->Timing.GetDeltaTime(), 0.7, 1.5));
+            this->Engine->Camera.SetOriginY(engine::Clamp<double>(this->Engine->Camera.GetOriginY(), -450 * this->Engine->Camera.GetZoom(), 450 * this->Engine->Camera.GetZoom()));
         }
         else
         {
-            this->Engine->Camera.SetOriginY(engine::Clamp<double>(this->Engine->Camera.GetOriginY() + 4 * this->Engine->Timing.GetDeltaTime(), -750, 750));
+            this->Engine->Camera.SetOriginY(engine::Clamp<double>(this->Engine->Camera.GetOriginY() + 4 * this->Engine->Timing.GetDeltaTime(), -450 * this->Engine->Camera.GetZoom(), 450 * this->Engine->Camera.GetZoom()));
         }
     }
 
