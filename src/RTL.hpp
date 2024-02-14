@@ -93,6 +93,7 @@ struct settings
 {
     double Volume;
     double FrameRate;
+
     settings();
     ~settings();
 };
@@ -122,12 +123,14 @@ struct scene_menu
 
     engine::actor Actor;
     engine::textbox Title;
+
     gui_button* Play;
     gui_button* Editor;
     gui_button* Credits;
     gui_button* Quit;
     gui_slider* Volume;
     gui_slider* FrameRate;
+
     scene_menu(engine* Engine, game* Game);
     ~scene_menu();
     scene Update();
@@ -139,9 +142,11 @@ struct scene_editor
     game* Game;
 
     engine::actor Actor;
+
     gui_button* Reset;
     gui_button* Exit;
-    array<gui_tile*> TileButtons;
+    gui_tile* Tiles[MAP_X][MAP_Y];
+
     scene_editor(engine* Engine, game* Game);
     ~scene_editor();
     scene Update();
@@ -158,9 +163,11 @@ struct gui_button
     engine::overlapbox Overlapbox;
     engine::texturebox Texturebox;
     engine::textbox Textbox;
+
     uint16 Width;
     uint16 Height;
     double size;
+
     gui_button(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, double Layer, const char* Literal);
     ~gui_button();
     bool Update();
@@ -176,11 +183,13 @@ struct gui_slider
     engine::colorbox Colorbox;
     engine::textbox Textbox;
     engine::colorbox Indicator;
+
     string Literal;
     double IndicatorMinX;
     double IndicatorMaxX;
     double Min;
     double Max;
+
     gui_slider(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, const char* Literal, double Min, double Max, double Value);
     ~gui_slider();
     double Update();
@@ -198,9 +207,11 @@ struct gui_tile
     engine::colorbox Bottom;
     engine::colorbox Left;
     engine::colorbox Right;
+
     uint8 TileX;
     uint8 TileY;
     uint8 Type;
+
     gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, uint8 TileX, uint8 TileY);
     ~gui_tile();
     uint8 Update();
