@@ -96,7 +96,7 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm7, %xmm10
 	movapd	%xmm6, %xmm11
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
-	xorl	%r8d, %r8d
+	movl	$3, %r8d
 	xorl	%edx, %edx
 	movsd	.LC2(%rip), %xmm9
 	movq	%rax, 32(%rbx)
@@ -110,9 +110,12 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm11, %xmm3
 	movsd	%xmm10, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$1, %edx
+	movl	$2, %edx
 	movq	%rax, 40(%rbx)
-	movq	%rax, %rcx
+	leaq	136(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
+	movq	40(%rbx), %rcx
+	movl	$1, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	40(%rbx), %rax
 	movq	(%rbx), %rcx
@@ -131,18 +134,21 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	addsd	%xmm9, %xmm6
 	movq	(%rbx), %rax
-	xorl	%r8d, %r8d
-	movl	$20, 48(%rsp)
 	xorl	%edx, %edx
+	movl	$20, 48(%rsp)
+	movl	$3, %r8d
 	movl	$20, 40(%rsp)
 	leaq	256(%rax), %rcx
 	movapd	%xmm6, %xmm3
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm10, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$1, %edx
+	movl	$2, %edx
 	movq	%rax, 48(%rbx)
-	movq	%rax, %rcx
+	leaq	136(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
+	movq	48(%rbx), %rcx
+	movl	$1, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	48(%rbx), %rax
 	movq	(%rbx), %rcx
@@ -161,18 +167,21 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	subsd	%xmm9, %xmm7
 	movq	(%rbx), %rax
-	xorl	%r8d, %r8d
+	xorl	%edx, %edx
 	movl	$20, 48(%rsp)
 	movapd	%xmm11, %xmm3
-	xorl	%edx, %edx
+	movl	$3, %r8d
 	movl	$20, 40(%rsp)
 	leaq	256(%rax), %rcx
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm7, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$1, %edx
+	movl	$2, %edx
 	movq	%rax, 56(%rbx)
-	movq	%rax, %rcx
+	leaq	136(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
+	movq	56(%rbx), %rcx
+	movl	$1, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	56(%rbx), %rax
 	movq	(%rbx), %rcx
@@ -191,17 +200,20 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	(%rbx), %rax
 	movapd	%xmm6, %xmm3
-	xorl	%r8d, %r8d
-	movl	$20, 48(%rsp)
 	xorl	%edx, %edx
+	movl	$20, 48(%rsp)
+	movl	$3, %r8d
 	movl	$20, 40(%rsp)
 	leaq	256(%rax), %rcx
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm7, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$1, %edx
+	movl	$2, %edx
 	movq	%rax, 64(%rbx)
-	movq	%rax, %rcx
+	leaq	136(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
+	movq	64(%rbx), %rcx
+	movl	$1, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	64(%rbx), %rax
 	movq	(%rbx), %rcx
@@ -323,6 +335,7 @@ _ZN20tile_center_corridorD2Ev:
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6RandomEii;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes3NewEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12overlapboxes3NewEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor17SetCollisionLayerEh;	.scl	2;	.type	32;	.endef
 	.def	exit;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef

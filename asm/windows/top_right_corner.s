@@ -103,7 +103,7 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	xorl	%edi, %edi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movapd	%xmm6, %xmm3
-	xorl	%r8d, %r8d
+	movl	$3, %r8d
 	xorl	%edx, %edx
 	movsd	.LC2(%rip), %xmm10
 	movq	%rax, 32(%rbx)
@@ -115,9 +115,12 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm12, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$1, %edx
+	movl	$2, %edx
 	movq	%rax, 40(%rbx)
-	movq	%rax, %rcx
+	leaq	136(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
+	movq	40(%rbx), %rcx
+	movl	$1, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movl	.LC4(%rip), %r12d
 	movsd	.LC3(%rip), %xmm9
@@ -151,7 +154,7 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	jne	.L6
 	movapd	%xmm6, %xmm11
 	movq	(%rbx), %rax
-	xorl	%r8d, %r8d
+	movl	$3, %r8d
 	xorl	%edx, %edx
 	addsd	%xmm10, %xmm11
 	movsd	%xmm8, 56(%rsp)
@@ -162,9 +165,12 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm11, %xmm3
 	movsd	%xmm7, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$1, %edx
+	movl	$2, %edx
 	movq	%rax, 48(%rbx)
-	movq	%rax, %rcx
+	leaq	136(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
+	movq	48(%rbx), %rcx
+	movl	$1, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 .L8:
 	movq	48(%rbx), %rax
@@ -196,7 +202,7 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	jne	.L8
 	subsd	%xmm10, %xmm6
 	movq	(%rbx), %rax
-	xorl	%r8d, %r8d
+	movl	$3, %r8d
 	xorl	%edx, %edx
 	movl	$20, 48(%rsp)
 	movl	$20, 40(%rsp)
@@ -205,9 +211,12 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm12, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$1, %edx
+	movl	$2, %edx
 	movq	%rax, 56(%rbx)
-	movq	%rax, %rcx
+	leaq	136(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
+	movq	56(%rbx), %rcx
+	movl	$1, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	56(%rbx), %rax
 	movq	(%rbx), %rcx
@@ -226,17 +235,20 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	(%rbx), %rax
 	movapd	%xmm11, %xmm3
-	xorl	%r8d, %r8d
-	movl	$20, 48(%rsp)
 	xorl	%edx, %edx
+	movl	$20, 48(%rsp)
+	movl	$3, %r8d
 	movl	$20, 40(%rsp)
 	leaq	256(%rax), %rcx
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm12, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$1, %edx
+	movl	$2, %edx
 	movq	%rax, 64(%rbx)
-	movq	%rax, %rcx
+	leaq	136(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
+	movq	64(%rbx), %rcx
+	movl	$1, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	64(%rbx), %rax
 	movq	(%rbx), %rcx
@@ -255,18 +267,21 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	subsd	%xmm10, %xmm7
 	movq	(%rbx), %rax
-	xorl	%r8d, %r8d
+	xorl	%edx, %edx
 	movl	$20, 48(%rsp)
 	movapd	%xmm6, %xmm3
-	xorl	%edx, %edx
+	movl	$3, %r8d
 	movl	$20, 40(%rsp)
 	leaq	256(%rax), %rcx
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm7, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$1, %edx
+	movl	$2, %edx
 	movq	%rax, 72(%rbx)
-	movq	%rax, %rcx
+	leaq	136(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
+	movq	72(%rbx), %rcx
+	movl	$1, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	72(%rbx), %rax
 	movq	(%rbx), %rcx
@@ -285,17 +300,20 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	(%rbx), %rax
 	movapd	%xmm11, %xmm3
-	xorl	%r8d, %r8d
-	movl	$20, 48(%rsp)
 	xorl	%edx, %edx
+	movl	$20, 48(%rsp)
+	movl	$3, %r8d
 	movl	$20, 40(%rsp)
 	leaq	256(%rax), %rcx
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm7, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$1, %edx
+	movl	$2, %edx
 	movq	%rax, 80(%rbx)
-	movq	%rax, %rcx
+	leaq	136(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
+	movq	80(%rbx), %rcx
+	movl	$1, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	80(%rbx), %rax
 	movq	(%rbx), %rcx
@@ -442,6 +460,7 @@ _ZN21tile_top_right_cornerD2Ev:
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6RandomEii;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes3NewEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12overlapboxes3NewEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor17SetCollisionLayerEh;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd;	.scl	2;	.type	32;	.endef

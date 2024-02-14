@@ -79,7 +79,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	addl	$100, %r15d
 	cmpq	$8, %r14
 	jne	.L2
-	movl	$72, %ecx
+	movl	$88, %ecx
 .LEHB2:
 	call	_Znwy
 .LEHE2:
@@ -169,7 +169,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	call	_Unwind_Resume
 .L6:
 	movq	%rbx, %rcx
-	movl	$72, %edx
+	movl	$88, %edx
 	call	_ZdlPvy
 	movq	%rsi, %rcx
 	call	_Unwind_Resume
@@ -248,7 +248,7 @@ _ZN10scene_playD2Ev:
 	je	.L12
 	movq	%rbx, %rcx
 	call	_ZN10act_playerD1Ev
-	movl	$72, %edx
+	movl	$88, %edx
 	movq	%rbx, %rcx
 	addq	$32, %rsp
 	popq	%rbx
