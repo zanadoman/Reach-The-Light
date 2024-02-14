@@ -36,7 +36,7 @@ uint8 game::Update()
 
         case SCENE_MENU:
             this->SwitchScene(this->Menu->Update());
-        return 0;
+        break;
 
     }
 
