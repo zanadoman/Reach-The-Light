@@ -12,7 +12,7 @@ tile_top_left_corner::tile_top_left_corner(engine* Engine, game* Game, double X,
     this->Trap->SetY(Y + 25);
     this->Trap->SetWidth(10);
     this->Trap->SetHeight(10);
-    this->Trap->Visible = TILE_DEBUG;
+    this->Trap->Visible = DEBUG;
     this->TrapVelocityY = -0.025;
 
     this->String->Width = 1;

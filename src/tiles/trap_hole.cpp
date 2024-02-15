@@ -11,7 +11,7 @@ tile_trap_hole::tile_trap_hole(engine* Engine, game* Game, double X, double Y) :
     this->Trap->SetY(Y - 28.5);
     this->Trap->SetWidth(10);
     this->Trap->SetHeight(3);
-    this->Trap->Visible = TILE_DEBUG;
+    this->Trap->Visible = DEBUG;
 
     this->HitboxTop = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y + 40, 60, 20, 1);
     this->HitboxTop->Overlapboxes.New(BOX_PLATFORM);

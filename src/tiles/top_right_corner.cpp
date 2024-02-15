@@ -11,7 +11,7 @@ tile_top_right_corner::tile_top_right_corner(engine* Engine, game* Game, double 
     this->Trap->SetY(Y + 27.5);
     this->Trap->SetWidth(30);
     this->Trap->SetHeight(5);
-    this->Trap->Visible = TILE_DEBUG;
+    this->Trap->Visible = DEBUG;
 
     this->HitboxTop = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y + 40, 60, 20, 1);
     this->HitboxTop->Overlapboxes.New(BOX_PLATFORM);

@@ -6,7 +6,7 @@
 
 #define MAP_X 8
 #define MAP_Y 16
-#define TILE_DEBUG true
+#define DEBUG true
 
 using namespace neo;
 using namespace wze;

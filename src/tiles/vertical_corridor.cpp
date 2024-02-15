@@ -12,12 +12,12 @@ tile_vertical_corridor::tile_vertical_corridor(engine* Engine, game* Game, doubl
     this->Trap1->SetWidth(3);
     this->Trap1->SetHeight(12);
     this->Trap1->SetX(X - 28);
-    this->Trap1->Visible = TILE_DEBUG;
+    this->Trap1->Visible = DEBUG;
 
     this->Trap2->SetWidth(3);
     this->Trap2->SetHeight(12);
     this->Trap2->SetX(X + 28);
-    this->Trap2->Visible = TILE_DEBUG;
+    this->Trap2->Visible = DEBUG;
 
     this->HitboxLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y, 20, 60, 1);
     this->HitboxLeft->Overlapboxes.New(BOX_PLATFORM);

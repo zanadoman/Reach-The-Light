@@ -12,7 +12,7 @@ tile_bot_left_corner::tile_bot_left_corner(engine* Engine, game* Game, double X,
     this->Trap->SetY(Y - 15);
     this->Trap->SetWidth(30);
     this->Trap->SetHeight(30);
-    this->Trap->Visible = TILE_DEBUG;
+    this->Trap->Visible = DEBUG;
 
     this->HitboxBot = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y - 40, 60, 20, 1);
     this->HitboxBot->Overlapboxes.New(BOX_PLATFORM);
