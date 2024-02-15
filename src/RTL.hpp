@@ -505,6 +505,7 @@ struct tile_trap_hole
     game* Game;
 
     engine::actor Actor;
+    engine::overlapbox Trap;
     engine::texturebox Background;
 
     engine::actor HitboxTop;
@@ -516,6 +517,7 @@ struct tile_trap_hole
 
     tile_trap_hole(engine* Engine, game* Game, double X, double Y);
     ~tile_trap_hole();
+    uint8 Update();
 };
 
 struct tile_horizontal_rotating

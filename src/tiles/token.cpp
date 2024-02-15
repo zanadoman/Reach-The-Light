@@ -126,6 +126,9 @@ uint8 tile_token::Update()
         case TILE_HORIZONTAL_CORRIDOR:
         return ((tile_horizontal_corridor*)this->Data)->Update();
 
+        case TILE_TRAP_HOLE:
+        return ((tile_trap_hole*)this->Data)->Update();
+
         default:
         break;
     }
@@ -216,7 +219,10 @@ uint8 tile_token::ResetCollisionLayer()
 
         case TILE_TRAP_HOLE:
             ((tile_trap_hole*)this->Data)->HitboxTop->SetCollisionLayer(0);
-            ((tile_trap_hole*)this->Data)->HitboxBot->SetCollisionLayer(0);
+            if (((tile_trap_hole*)this->Data)->HitboxBot != NULL)
+            {
+                ((tile_trap_hole*)this->Data)->HitboxBot->SetCollisionLayer(0);
+            }
             ((tile_trap_hole*)this->Data)->HitboxTopLeft->SetCollisionLayer(0);
             ((tile_trap_hole*)this->Data)->HitboxTopRight->SetCollisionLayer(0);
             ((tile_trap_hole*)this->Data)->HitboxBotLeft->SetCollisionLayer(0);

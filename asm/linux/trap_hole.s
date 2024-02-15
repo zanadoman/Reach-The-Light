@@ -62,26 +62,44 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	%rbp, %rdi
 	xorl	%r12d, %r12d
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movsd	.LC2(%rip), %xmm1
-	addsd	24(%rsp), %xmm1
-	movl	$20, %r8d
+	movl	$5, %esi
+	movq	%rax, 32(%rbx)
+	movq	16(%rbx), %rax
+	leaq	136(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	movsd	24(%rsp), %xmm0
+	subsd	.LC2(%rip), %xmm0
 	movq	%rax, 24(%rbx)
-	movq	(%rbx), %rax
+	movq	%rax, %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd@PLT
+	movq	24(%rbx), %rdi
+	movl	$10, %esi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
+	movq	24(%rbx), %rdi
+	movl	$3, %esi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
+	movq	24(%rbx), %rax
 	movl	$60, %ecx
 	xorl	%esi, %esi
-	movsd	8(%rsp), %xmm0
+	movsd	.LC3(%rip), %xmm5
+	addsd	24(%rsp), %xmm5
+	movl	$20, %r8d
 	movl	$4, %edx
+	movb	$1, 18(%rax)
+	movq	(%rbx), %rax
+	movsd	8(%rsp), %xmm0
 	leaq	256(%rax), %rdi
+	movapd	%xmm5, %xmm1
 	movq	.LC0(%rip), %rax
-	movq	%xmm1, %r15
+	movq	%xmm5, %r15
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$4, %esi
-	movq	%rax, 32(%rbx)
+	movq	%rax, 40(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
-	movq	32(%rbx), %rbp
-	movl	.LC4(%rip), %r13d
+	movq	40(%rbx), %rbp
+	movl	.LC5(%rip), %r13d
 	movq	$100, 184(%rbp)
 .L5:
 	movq	8(%rbx), %rax
@@ -101,7 +119,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	pxor	%xmm0, %xmm0
 	movsd	8(%rsp), %xmm3
-	subsd	.LC3(%rip), %xmm3
+	subsd	.LC4(%rip), %xmm3
 	cvtsi2sdl	%r12d, %xmm0
 	movq	%rax, %rbp
 	movq	%rax, %rdi
@@ -112,7 +130,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movl	%r13d, 16(%rbp)
 	cmpl	$60, %r12d
 	je	.L4
-	movq	32(%rbx), %rbp
+	movq	40(%rbx), %rbp
 	jmp	.L5
 	.p2align 4,,10
 	.p2align 3
@@ -121,7 +139,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movsd	24(%rsp), %xmm1
 	movl	$60, %ecx
 	xorl	%esi, %esi
-	subsd	.LC2(%rip), %xmm1
+	subsd	.LC3(%rip), %xmm1
 	movsd	8(%rsp), %xmm0
 	movl	$4, %edx
 	xorl	%r12d, %r12d
@@ -132,10 +150,10 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movsd	%xmm1, 24(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$4, %esi
-	movq	%rax, 40(%rbx)
+	movq	%rax, 48(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
-	movq	40(%rbx), %rbp
+	movq	48(%rbx), %rbp
 	movq	$100, 184(%rbp)
 .L8:
 	movq	8(%rbx), %rax
@@ -163,31 +181,31 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movl	%r13d, 16(%rbp)
 	cmpl	$60, %r12d
 	je	.L7
-	movq	40(%rbx), %rbp
+	movq	48(%rbx), %rbp
 	jmp	.L8
 	.p2align 4,,10
 	.p2align 3
 .L7:
 	movq	(%rbx), %rax
-	movsd	8(%rsp), %xmm5
+	movsd	8(%rsp), %xmm6
 	movl	$20, %ecx
 	xorl	%esi, %esi
 	movl	$20, %r8d
 	movq	%r15, %xmm1
 	movl	$4, %edx
-	subsd	.LC2(%rip), %xmm5
+	subsd	.LC3(%rip), %xmm6
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
-	movapd	%xmm5, %xmm0
-	movq	%xmm5, %r12
+	movapd	%xmm6, %xmm0
+	movq	%xmm6, %r12
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$4, %esi
-	movq	%rax, 48(%rbx)
+	movq	%rax, 56(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	8(%rbx), %rax
-	movq	48(%rbx), %rbp
+	movq	56(%rbx), %rbp
 	xorl	%esi, %esi
 	movq	8(%rax), %r13
 	movq	(%rbx), %rax
@@ -209,20 +227,20 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movl	$20, %ecx
 	movq	%r15, %xmm1
 	movl	$4, %edx
-	movsd	.LC2(%rip), %xmm6
-	addsd	8(%rsp), %xmm6
+	movsd	.LC3(%rip), %xmm7
+	addsd	8(%rsp), %xmm7
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
-	movapd	%xmm6, %xmm0
-	movq	%xmm6, %rbp
+	movapd	%xmm7, %xmm0
+	movq	%xmm7, %rbp
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$4, %esi
-	movq	%rax, 56(%rbx)
+	movq	%rax, 64(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	8(%rbx), %rax
-	movq	56(%rbx), %r13
+	movq	64(%rbx), %r13
 	xorl	%esi, %esi
 	movq	8(%rax), %r14
 	movq	(%rbx), %rax
@@ -250,11 +268,11 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$4, %esi
-	movq	%rax, 64(%rbx)
+	movq	%rax, 72(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	8(%rbx), %rax
-	movq	64(%rbx), %r12
+	movq	72(%rbx), %r12
 	xorl	%esi, %esi
 	movq	8(%rax), %r13
 	movq	(%rbx), %rax
@@ -282,11 +300,11 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$4, %esi
-	movq	%rax, 72(%rbx)
+	movq	%rax, 80(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	8(%rbx), %rax
-	movq	72(%rbx), %rbp
+	movq	80(%rbx), %rbp
 	xorl	%esi, %esi
 	movq	(%rbx), %rdi
 	movq	8(%rax), %r12
@@ -356,26 +374,22 @@ _ZN14tile_trap_holeD2Ev:
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
 	movq	(%rbx), %rax
-	movq	32(%rbx), %rdi
-	leaq	256(%rax), %rbp
-	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
-	movq	%rbp, %rdi
-	movq	%rax, %rsi
-	call	_ZN3wze6engine6actors6DeleteEy@PLT
-	movq	(%rbx), %rax
 	movq	40(%rbx), %rdi
 	leaq	256(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
-	movq	(%rbx), %rax
 	movq	48(%rbx), %rdi
+	testq	%rdi, %rdi
+	je	.L18
+	movq	(%rbx), %rax
 	leaq	256(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
+.L18:
 	movq	(%rbx), %rax
 	movq	56(%rbx), %rdi
 	leaq	256(%rax), %rbp
@@ -392,6 +406,13 @@ _ZN14tile_trap_holeD2Ev:
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
 	movq	(%rbx), %rax
 	movq	72(%rbx), %rdi
+	leaq	256(%rax), %rbp
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors6DeleteEy@PLT
+	movq	(%rbx), %rax
+	movq	80(%rbx), %rdi
 	leaq	256(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
@@ -419,6 +440,83 @@ _ZN14tile_trap_holeD2Ev:
 	.size	_ZN14tile_trap_holeD2Ev, .-_ZN14tile_trap_holeD2Ev
 	.globl	_ZN14tile_trap_holeD1Ev
 	.set	_ZN14tile_trap_holeD1Ev,_ZN14tile_trap_holeD2Ev
+	.align 2
+	.p2align 4
+	.globl	_ZN14tile_trap_hole6UpdateEv
+	.type	_ZN14tile_trap_hole6UpdateEv, @function
+_ZN14tile_trap_hole6UpdateEv:
+.LFB8162:
+	.cfi_startproc
+	cmpq	$0, 48(%rdi)
+	je	.L31
+	pushq	%r12
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+	pushq	%rbp
+	.cfi_def_cfa_offset 24
+	.cfi_offset 6, -24
+	pushq	%rbx
+	.cfi_def_cfa_offset 32
+	.cfi_offset 3, -32
+	movq	8(%rdi), %rax
+	movq	%rdi, %rbx
+	movq	24(%rdi), %r12
+	movq	48(%rax), %rax
+	movq	1040(%rax), %rax
+	movq	24(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
+	movq	%rax, %rbp
+	movq	8(%rbx), %rax
+	movq	48(%rax), %rax
+	movq	1040(%rax), %rax
+	movq	16(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdx
+	movq	%r12, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
+	testb	%al, %al
+	jne	.L34
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	xorl	%eax, %eax
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L34:
+	.cfi_restore_state
+	movq	(%rbx), %rax
+	movq	48(%rbx), %rdi
+	leaq	256(%rax), %rbp
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors6DeleteEy@PLT
+	movq	$0, 48(%rbx)
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L31:
+	.cfi_restore 3
+	.cfi_restore 6
+	.cfi_restore 12
+	xorl	%eax, %eax
+	ret
+	.cfi_endproc
+.LFE8162:
+	.size	_ZN14tile_trap_hole6UpdateEv, .-_ZN14tile_trap_hole6UpdateEv
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC0:
@@ -427,14 +525,18 @@ _ZN14tile_trap_holeD2Ev:
 	.align 8
 .LC2:
 	.long	0
-	.long	1078198272
+	.long	1077706752
 	.align 8
 .LC3:
+	.long	0
+	.long	1078198272
+	.align 8
+.LC4:
 	.long	0
 	.long	1077149696
 	.section	.rodata.cst4,"aM",@progbits,4
 	.align 4
-.LC4:
+.LC5:
 	.value	20
 	.value	20
 	.hidden	DW.ref.__gxx_personality_v0

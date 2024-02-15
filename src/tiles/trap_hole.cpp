@@ -6,6 +6,12 @@ tile_trap_hole::tile_trap_hole(engine* Engine, game* Game, double X, double Y) :
 
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
+    this->Trap = this->Actor->Overlapboxes.New(BOX_SPIKES);
+
+    this->Trap->SetY(Y - 28.5);
+    this->Trap->SetWidth(10);
+    this->Trap->SetHeight(3);
+    this->Trap->Visible = TILE_DEBUG;
 
     this->HitboxTop = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y + 40, 60, 20, 1);
     this->HitboxTop->Overlapboxes.New(BOX_PLATFORM);
@@ -54,9 +60,25 @@ tile_trap_hole::~tile_trap_hole()
 {
     this->Engine->Actors.Delete(this->Actor->GetID());
     this->Engine->Actors.Delete(this->HitboxTop->GetID());
-    this->Engine->Actors.Delete(this->HitboxBot->GetID());
+    if (this->HitboxBot != NULL)
+    {
+        this->Engine->Actors.Delete(this->HitboxBot->GetID());
+    }
     this->Engine->Actors.Delete(this->HitboxTopLeft->GetID());
     this->Engine->Actors.Delete(this->HitboxTopRight->GetID());
     this->Engine->Actors.Delete(this->HitboxBotLeft->GetID());
     this->Engine->Actors.Delete(this->HitboxBotRight->GetID());
+}
+
+uint8 tile_trap_hole::Update()
+{
+    array<array<uint64>> OverlapState;
+
+    if (this->HitboxBot != NULL && this->Trap->IsOverlappingWith(this->Game->Play->Player->Actor->GetID(), this->Game->Play->Player->Overlapbox->GetID()))
+    {
+        this->Engine->Actors.Delete(this->HitboxBot->GetID());
+        this->HitboxBot = NULL;
+    }
+
+    return 0;
 }
