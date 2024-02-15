@@ -118,5 +118,14 @@ tile_token::~tile_token()
 
 uint8 tile_token::Update()
 {
+    switch (this->Type)
+    {
+        case TILE_HORIZONTAL_CORRIDOR:
+        return ((tile_horizontal_corridor*)this->Data)->Update();
+
+        default:
+        break;
+    }
+
     return 0;
 }

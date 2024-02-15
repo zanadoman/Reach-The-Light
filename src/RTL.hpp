@@ -408,8 +408,11 @@ struct tile_horizontal_corridor
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
+    act_crate* Crate;
+
     tile_horizontal_corridor(engine* Engine, game* Game, double X, double Y);
     ~tile_horizontal_corridor();
+    uint8 Update();
 };
 
 struct tile_vertical_corridor

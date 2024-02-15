@@ -48,6 +48,8 @@ tile_horizontal_corridor::tile_horizontal_corridor(engine* Engine, game* Game, d
     this->HitboxBotRight->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxBotRight->SetCollisionLayer(1);
     this->HitboxBotRight->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Math.Random(0, this->Game->Assets->TilePlatforms.Length())]);
+
+    this->Crate = new act_crate(this->Engine, this->Game, X, Y);
 }
 
 tile_horizontal_corridor::~tile_horizontal_corridor()
@@ -59,4 +61,13 @@ tile_horizontal_corridor::~tile_horizontal_corridor()
     this->Engine->Actors.Delete(this->HitboxTopRight->GetID());
     this->Engine->Actors.Delete(this->HitboxBotLeft->GetID());
     this->Engine->Actors.Delete(this->HitboxBotRight->GetID());
+
+    delete this->Crate;
+}
+
+uint8 tile_horizontal_corridor::Update()
+{
+    this->Crate->Update();
+
+    return 0;
 }
