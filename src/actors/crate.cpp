@@ -36,7 +36,7 @@ uint8 act_crate::Update()
 
     if (this->VelocityY < 0 || this->SimulationBox->IsOverlappingWith(this->Game->Play->Player->Actor->GetID(), this->Game->Play->Player->SimulationBox->GetID()))
     {
-        this->VelocityY -= 0.001 * this->Engine->Timing.GetDeltaTime();
+        this->VelocityY -= 0.00075 * this->Engine->Timing.GetDeltaTime();
 
         if (this->Actor->GetY() + this->VelocityY * this->Engine->Timing.GetDeltaTime() != this->Actor->SetY(this->Actor->GetY() + this->VelocityY * this->Engine->Timing.GetDeltaTime()) && this->VelocityY < 0)
         {

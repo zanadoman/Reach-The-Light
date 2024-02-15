@@ -916,12 +916,12 @@ _ZN10act_player6UpdateEv.cold:
 	.long	1075052544
 	.align 8
 .LC8:
-	.long	0
-	.long	-1076887552
+	.long	-1717986918
+	.long	-1077306983
 	.align 8
 .LC9:
-	.long	0
-	.long	1070596096
+	.long	-1717986918
+	.long	1070176665
 	.align 8
 .LC10:
 	.long	-1717986918
@@ -932,12 +932,12 @@ _ZN10act_player6UpdateEv.cold:
 	.long	1067030937
 	.align 8
 .LC13:
-	.long	-755914244
-	.long	1062232653
+	.long	-1133871366
+	.long	1061720948
 	.align 8
 .LC14:
-	.long	1717986918
-	.long	1071015526
+	.long	858993459
+	.long	1070805811
 	.align 8
 .LC15:
 	.long	0
@@ -948,8 +948,8 @@ _ZN10act_player6UpdateEv.cold:
 	.long	1079410688
 	.align 8
 .LC17:
-	.long	-755914244
-	.long	-1085250995
+	.long	-1133871366
+	.long	-1085762700
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat
