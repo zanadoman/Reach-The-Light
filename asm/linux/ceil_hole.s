@@ -63,22 +63,22 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	xorl	%ebp, %ebp
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movl	$3, %esi
-	movq	%rax, 32(%rbx)
+	movq	%rax, 24(%rbx)
 	movq	16(%rbx), %rax
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movsd	8(%rsp), %xmm0
 	subsd	.LC2(%rip), %xmm0
-	movq	%rax, 24(%rbx)
+	movq	%rax, 32(%rbx)
 	movq	%rax, %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd@PLT
-	movq	24(%rbx), %rdi
+	movq	32(%rbx), %rdi
 	movl	$30, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
-	movq	24(%rbx), %rdi
+	movq	32(%rbx), %rdi
 	movl	$5, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
-	movq	24(%rbx), %rax
+	movq	32(%rbx), %rax
 	movsd	(%rsp), %xmm0
 	xorl	%esi, %esi
 	movsd	8(%rsp), %xmm1

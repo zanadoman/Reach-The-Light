@@ -498,8 +498,8 @@ struct tile_trap_hole
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Trap;
     engine::texturebox Background;
+    engine::overlapbox Detector;
 
     engine::actor HitboxTop;
     engine::actor HitboxBot;

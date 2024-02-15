@@ -62,23 +62,23 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	%rbp, %rdi
 	xorl	%r12d, %r12d
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movl	$3, %esi
-	movq	%rax, 32(%rbx)
+	xorl	%esi, %esi
+	movq	%rax, 24(%rbx)
 	movq	16(%rbx), %rax
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movsd	24(%rsp), %xmm0
 	subsd	.LC2(%rip), %xmm0
-	movq	%rax, 24(%rbx)
+	movq	%rax, 32(%rbx)
 	movq	%rax, %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd@PLT
-	movq	24(%rbx), %rdi
+	movq	32(%rbx), %rdi
 	movl	$10, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
-	movq	24(%rbx), %rdi
+	movq	32(%rbx), %rdi
 	movl	$3, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
-	movq	24(%rbx), %rax
+	movq	32(%rbx), %rax
 	movl	$60, %ecx
 	xorl	%esi, %esi
 	movsd	.LC3(%rip), %xmm5
@@ -460,7 +460,7 @@ _ZN14tile_trap_hole6UpdateEv:
 	.cfi_offset 3, -32
 	movq	8(%rdi), %rax
 	movq	%rdi, %rbx
-	movq	24(%rdi), %r12
+	movq	32(%rdi), %r12
 	movq	48(%rax), %rax
 	movq	1040(%rax), %rax
 	movq	24(%rax), %rdi

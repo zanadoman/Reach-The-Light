@@ -84,10 +84,10 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$2, %esi
-	movq	%rax, 32(%rbx)
+	movq	%rax, 40(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
-	movq	32(%rbx), %rbp
+	movq	40(%rbx), %rbp
 	movl	.LC4(%rip), %r13d
 	movq	$100, 184(%rbp)
 .L5:
@@ -119,7 +119,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movl	%r13d, 16(%rbp)
 	cmpl	$60, %r12d
 	je	.L4
-	movq	32(%rbx), %rbp
+	movq	40(%rbx), %rbp
 	jmp	.L5
 	.p2align 4,,10
 	.p2align 3
@@ -139,10 +139,10 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movsd	%xmm1, 24(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$2, %esi
-	movq	%rax, 40(%rbx)
+	movq	%rax, 48(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
-	movq	40(%rbx), %rbp
+	movq	48(%rbx), %rbp
 	movq	$100, 184(%rbp)
 .L8:
 	movq	8(%rbx), %rax
@@ -170,7 +170,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movl	%r13d, 16(%rbp)
 	cmpl	$60, %r12d
 	je	.L7
-	movq	40(%rbx), %rbp
+	movq	48(%rbx), %rbp
 	jmp	.L8
 	.p2align 4,,10
 	.p2align 3
@@ -190,11 +190,11 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	%xmm5, %r12
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$2, %esi
-	movq	%rax, 48(%rbx)
+	movq	%rax, 56(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	8(%rbx), %rax
-	movq	48(%rbx), %rbp
+	movq	56(%rbx), %rbp
 	xorl	%esi, %esi
 	movq	8(%rax), %r13
 	movq	(%rbx), %rax
@@ -225,11 +225,11 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	%xmm6, %rbp
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$2, %esi
-	movq	%rax, 56(%rbx)
+	movq	%rax, 64(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	8(%rbx), %rax
-	movq	56(%rbx), %r13
+	movq	64(%rbx), %r13
 	xorl	%esi, %esi
 	movq	8(%rax), %r14
 	movq	(%rbx), %rax
@@ -257,11 +257,11 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$2, %esi
-	movq	%rax, 64(%rbx)
+	movq	%rax, 72(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	8(%rbx), %rax
-	movq	64(%rbx), %r12
+	movq	72(%rbx), %r12
 	xorl	%esi, %esi
 	movq	8(%rax), %r13
 	movq	(%rbx), %rax
@@ -289,10 +289,10 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$2, %esi
-	movq	%rax, 72(%rbx)
+	movq	%rax, 80(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
-	movq	72(%rbx), %rax
+	movq	80(%rbx), %rax
 	xorl	%esi, %esi
 	movq	$100, 184(%rax)
 	leaq	40(%rax), %r12
@@ -323,7 +323,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 .LEHB1:
 	call	_ZN9act_crateC1EPN3wze6engineEP4gamedd@PLT
 .LEHE1:
-	movq	%rbp, 80(%rbx)
+	movq	%rbp, 32(%rbx)
 	addq	$40, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 56
@@ -448,13 +448,6 @@ _ZN24tile_horizontal_corridorD2Ev:
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
 	movq	(%rbx), %rax
-	movq	32(%rbx), %rdi
-	leaq	256(%rax), %rbp
-	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
-	movq	%rbp, %rdi
-	movq	%rax, %rsi
-	call	_ZN3wze6engine6actors6DeleteEy@PLT
-	movq	(%rbx), %rax
 	movq	40(%rbx), %rdi
 	leaq	256(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
@@ -489,7 +482,14 @@ _ZN24tile_horizontal_corridorD2Ev:
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
-	movq	80(%rbx), %rbx
+	movq	(%rbx), %rax
+	movq	80(%rbx), %rdi
+	leaq	256(%rax), %rbp
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors6DeleteEy@PLT
+	movq	32(%rbx), %rbx
 	testq	%rbx, %rbx
 	je	.L21
 	movq	%rbx, %rdi
@@ -536,14 +536,8 @@ _ZN24tile_horizontal_corridorD2Ev:
 _ZN24tile_horizontal_corridor6UpdateEv:
 .LFB8162:
 	.cfi_startproc
-	subq	$8, %rsp
-	.cfi_def_cfa_offset 16
-	movq	80(%rdi), %rdi
-	call	_ZN9act_crate6UpdateEv@PLT
-	xorl	%eax, %eax
-	addq	$8, %rsp
-	.cfi_def_cfa_offset 8
-	ret
+	movq	32(%rdi), %rdi
+	jmp	_ZN9act_crate6UpdateEv@PLT
 	.cfi_endproc
 .LFE8162:
 	.size	_ZN24tile_horizontal_corridor6UpdateEv, .-_ZN24tile_horizontal_corridor6UpdateEv

@@ -63,22 +63,22 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	xorl	%r12d, %r12d
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movl	$3, %esi
-	movq	%rax, 32(%rbx)
+	movq	%rax, 24(%rbx)
 	movq	16(%rbx), %rax
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movsd	8(%rsp), %xmm0
 	addsd	.LC2(%rip), %xmm0
-	movq	%rax, 24(%rbx)
+	movq	%rax, 32(%rbx)
 	movq	%rax, %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd@PLT
-	movq	24(%rbx), %rdi
+	movq	32(%rbx), %rdi
 	movl	$30, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
-	movq	24(%rbx), %rdi
+	movq	32(%rbx), %rdi
 	movl	$5, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
-	movq	24(%rbx), %rax
+	movq	32(%rbx), %rax
 	movl	$60, %ecx
 	xorl	%esi, %esi
 	movsd	.LC3(%rip), %xmm3
