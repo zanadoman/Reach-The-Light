@@ -28,6 +28,14 @@ scene_play::~scene_play()
 
 scene scene_play::Update()
 {
+    for (uint8 i = 0; i < MAP_X; i++)
+    {
+        for (uint8 j = 0; j < MAP_Y; j++)
+        {
+            this->Tiles[i][j]->ResetCollisionLayer();
+        }
+    }
+
     this->Player->Update();
 
     for (uint8 i = 0; i < MAP_X; i++)

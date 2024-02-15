@@ -695,6 +695,122 @@ _ZN10tile_token6UpdateEv:
 	movq	(%rcx), %rcx
 	jmp	_ZN24tile_horizontal_corridor6UpdateEv
 	.seh_endproc
+	.align 2
+	.p2align 4
+	.globl	_ZN10tile_token19ResetCollisionLayerEv
+	.def	_ZN10tile_token19ResetCollisionLayerEv;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN10tile_token19ResetCollisionLayerEv
+_ZN10tile_token19ResetCollisionLayerEv:
+.LFB8438:
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$32, %rsp
+	.seh_stackalloc	32
+	.seh_endprologue
+	cmpl	$11, 8(%rcx)
+	movq	%rcx, %rbx
+	ja	.L101
+	movl	8(%rcx), %eax
+	leaq	.L103(%rip), %rdx
+	movslq	(%rdx,%rax,4), %rax
+	addq	%rdx, %rax
+	jmp	*%rax
+	.section .rdata,"dr"
+	.align 4
+.L103:
+	.long	.L102-.L103
+	.long	.L102-.L103
+	.long	.L102-.L103
+	.long	.L102-.L103
+	.long	.L102-.L103
+	.long	.L102-.L103
+	.long	.L108-.L103
+	.long	.L106-.L103
+	.long	.L106-.L103
+	.long	.L102-.L103
+	.long	.L102-.L103
+	.long	.L102-.L103
+	.text
+	.p2align 4,,10
+	.p2align 3
+.L102:
+	movq	(%rcx), %rax
+	xorl	%edx, %edx
+	movq	40(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	48(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	56(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	64(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	72(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	80(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+.L101:
+	xorl	%eax, %eax
+	addq	$32, %rsp
+	popq	%rbx
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L106:
+	movq	(%rcx), %rax
+	xorl	%edx, %edx
+	movq	40(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	48(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	56(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	64(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	72(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	xorl	%eax, %eax
+	addq	$32, %rsp
+	popq	%rbx
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L108:
+	movq	(%rcx), %rax
+	xorl	%edx, %edx
+	movq	40(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	48(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	56(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	64(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	jmp	.L101
+	.seh_endproc
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	_Znwy;	.scl	2;	.type	32;	.endef
 	.def	_ZN24tile_horizontal_rotatingC1EPN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
@@ -724,3 +840,4 @@ _ZN10tile_token6UpdateEv:
 	.def	_ZN14tile_trap_holeD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN22tile_vertical_rotatingD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN24tile_horizontal_corridor6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor17SetCollisionLayerEh;	.scl	2;	.type	32;	.endef

@@ -66,7 +66,7 @@ _ZN9act_crateC2EPN3wze6engineEP4gamedd:
 	movl	$30, 40(%rsp)
 	movsd	%xmm0, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$2, %edx
+	movl	$3, %edx
 	movq	%rax, 16(%rbx)
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
@@ -154,6 +154,11 @@ _ZN9act_crateD2Ev:
 	.globl	_ZN9act_crateD1Ev
 	.def	_ZN9act_crateD1Ev;	.scl	2;	.type	32;	.endef
 	.set	_ZN9act_crateD1Ev,_ZN9act_crateD2Ev
+	.section	.text.unlikely,"x"
+	.align 2
+.LCOLDB4:
+	.text
+.LHOTB4:
 	.align 2
 	.p2align 4
 	.globl	_ZN9act_crate6UpdateEv
@@ -167,97 +172,229 @@ _ZN9act_crate6UpdateEv:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$80, %rsp
-	.seh_stackalloc	80
-	movaps	%xmm6, 32(%rsp)
-	.seh_savexmm	%xmm6, 32
-	movaps	%xmm7, 48(%rsp)
-	.seh_savexmm	%xmm7, 48
-	movaps	%xmm8, 64(%rsp)
-	.seh_savexmm	%xmm8, 64
+	subq	$144, %rsp
+	.seh_stackalloc	144
+	movaps	%xmm6, 96(%rsp)
+	.seh_savexmm	%xmm6, 96
+	movaps	%xmm7, 112(%rsp)
+	.seh_savexmm	%xmm7, 112
+	movaps	%xmm8, 128(%rsp)
+	.seh_savexmm	%xmm8, 128
 	.seh_endprologue
-	movq	8(%rcx), %rax
-	movq	24(%rcx), %rdi
+	movq	%rcx, %rsi
+	movq	24(%rcx), %rcx
+	leaq	72(%rsp), %rax
+	leaq	80(%rsp), %rdx
+	leaq	32(%rsp), %r9
+	leaq	48(%rsp), %r8
+	movq	$0, 80(%rsp)
+	movq	$0, 88(%rsp)
+	movq	$4, 72(%rsp)
+	movq	%rax, 48(%rsp)
+	movq	$1, 56(%rsp)
+	movq	$0, 32(%rsp)
+	movq	$0, 40(%rsp)
+.LEHB0:
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox15GetOverlapStateEPN3neo5arrayINS6_IyEEEESt16initializer_listIyESB_
+	movq	80(%rsp), %rcx
+	movl	$1, %ebx
+	movl	$1, %edx
+	cmpq	$1, %rcx
+	ja	.L8
+	jmp	.L11
+	.p2align 4,,10
+	.p2align 3
+.L10:
+	addl	$1, %ebx
+	movzwl	%bx, %edx
+	cmpq	%rcx, %rdx
+	jnb	.L11
+.L8:
+	movq	%rdx, %rax
+	salq	$4, %rax
+	addq	88(%rsp), %rax
+	cmpq	$0, (%rax)
+	je	.L10
+	movq	(%rsi), %rax
+	leaq	256(%rax), %rcx
+	call	_ZN3wze6engine6actorsixEy
+	movq	%rax, %rcx
+	movl	$1, %edx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	addl	$1, %ebx
+	movq	80(%rsp), %rcx
+	movzwl	%bx, %edx
+	cmpq	%rcx, %rdx
+	jb	.L8
+.L11:
+	movq	8(%rsi), %rax
+	movq	24(%rsi), %rdi
 	movq	48(%rax), %rax
 	movq	1040(%rax), %rax
-	movq	%rcx, %rbx
-	movq	24(%rax), %rcx
+	movq	32(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv
-	movq	%rax, %rsi
-	movq	8(%rbx), %rax
+	movq	%rax, %rbx
+	movq	8(%rsi), %rax
 	movq	48(%rax), %rax
 	movq	1040(%rax), %rax
 	movq	16(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
-	movq	%rsi, %r8
-	movq	%rdi, %rcx
 	movq	%rax, %rdx
+	movq	%rbx, %r8
+	movq	%rdi, %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy
 	testb	%al, %al
-	jne	.L8
+	jne	.L12
 	pxor	%xmm0, %xmm0
-	comisd	40(%rbx), %xmm0
-	ja	.L8
-.L9:
-	movaps	32(%rsp), %xmm6
-	movaps	48(%rsp), %xmm7
+	comisd	40(%rsi), %xmm0
+	ja	.L12
+.L13:
+	xorl	%ebx, %ebx
+	cmpq	$0, 80(%rsp)
+	je	.L24
+	.p2align 4,,10
+	.p2align 3
+.L23:
+	movq	%rbx, %rax
+	addq	$1, %rbx
+	salq	$4, %rax
+	addq	88(%rsp), %rax
+	movq	8(%rax), %rcx
+	call	free
+	cmpq	80(%rsp), %rbx
+	jb	.L23
+.L24:
+	movq	88(%rsp), %rcx
+	call	free
+	nop
+	movaps	96(%rsp), %xmm6
+	movaps	112(%rsp), %xmm7
 	xorl	%eax, %eax
-	movaps	64(%rsp), %xmm8
-	addq	$80, %rsp
+	movaps	128(%rsp), %xmm8
+	addq	$144, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L8:
-	movq	(%rbx), %rax
+.L12:
+	movq	(%rsi), %rax
 	leaq	400(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
-	pxor	%xmm1, %xmm1
-	movsd	40(%rbx), %xmm0
-	movq	16(%rbx), %rcx
 	movl	%eax, %eax
+	pxor	%xmm1, %xmm1
+	movsd	40(%rsi), %xmm0
+	movq	16(%rsi), %rcx
 	cvtsi2sdq	%rax, %xmm1
 	mulsd	.LC3(%rip), %xmm1
 	subsd	%xmm1, %xmm0
-	movsd	%xmm0, 40(%rbx)
+	movsd	%xmm0, 40(%rsi)
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movq	(%rbx), %rax
-	movsd	40(%rbx), %xmm7
+	movq	(%rsi), %rax
+	movsd	40(%rsi), %xmm7
 	movapd	%xmm0, %xmm6
 	leaq	400(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
-	pxor	%xmm1, %xmm1
-	movq	16(%rbx), %rsi
 	movl	%eax, %eax
+	pxor	%xmm1, %xmm1
+	movq	16(%rsi), %rbx
 	cvtsi2sdq	%rax, %xmm1
-	movq	%rsi, %rcx
+	movq	%rbx, %rcx
 	mulsd	%xmm7, %xmm1
 	addsd	%xmm1, %xmm6
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movq	(%rbx), %rax
-	movsd	40(%rbx), %xmm8
+	movq	(%rsi), %rax
+	movsd	40(%rsi), %xmm8
 	movapd	%xmm0, %xmm7
 	leaq	400(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
-	pxor	%xmm1, %xmm1
-	movq	%rsi, %rcx
 	movl	%eax, %eax
+	pxor	%xmm1, %xmm1
+	movq	%rbx, %rcx
 	cvtsi2sdq	%rax, %xmm1
 	mulsd	%xmm8, %xmm1
 	addsd	%xmm7, %xmm1
 	call	_ZN3wze6engine6actors5actor4SetYEd
+.LEHE0:
 	ucomisd	%xmm0, %xmm6
-	jp	.L19
-	je	.L9
-.L19:
+	jp	.L31
+	je	.L13
+.L31:
 	pxor	%xmm0, %xmm0
-	comisd	40(%rbx), %xmm0
-	jbe	.L9
-	movsd	%xmm0, 40(%rbx)
-	jmp	.L9
+	comisd	40(%rsi), %xmm0
+	jbe	.L13
+	movsd	%xmm0, 40(%rsi)
+	jmp	.L13
+.L30:
+	movq	%rax, %rsi
+	jmp	.L25
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+.LLSDA8437:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE8437-.LLSDACSB8437
+.LLSDACSB8437:
+	.uleb128 .LEHB0-.LFB8437
+	.uleb128 .LEHE0-.LEHB0
+	.uleb128 .L30-.LFB8437
+	.uleb128 0
+.LLSDACSE8437:
+	.text
 	.seh_endproc
+	.section	.text.unlikely,"x"
+	.def	_ZN9act_crate6UpdateEv.cold;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN9act_crate6UpdateEv.cold
+	.seh_stackalloc	168
+	.seh_savereg	%rbx, 144
+	.seh_savereg	%rsi, 152
+	.seh_savereg	%rdi, 160
+	.seh_savexmm	%xmm6, 96
+	.seh_savexmm	%xmm7, 112
+	.seh_savexmm	%xmm8, 128
+	.seh_endprologue
+_ZN9act_crate6UpdateEv.cold:
+.L25:
+	xorl	%ebx, %ebx
+.L26:
+	movq	88(%rsp), %rcx
+	cmpq	80(%rsp), %rbx
+	jnb	.L39
+	movq	%rbx, %rax
+	addq	$1, %rbx
+	salq	$4, %rax
+	movq	8(%rcx,%rax), %rcx
+	call	free
+	jmp	.L26
+.L39:
+	call	free
+	movq	%rsi, %rcx
+.LEHB1:
+	call	_Unwind_Resume
+	nop
+.LEHE1:
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+.LLSDAC8437:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSEC8437-.LLSDACSBC8437
+.LLSDACSBC8437:
+	.uleb128 .LEHB1-.LCOLDB4
+	.uleb128 .LEHE1-.LEHB1
+	.uleb128 0
+	.uleb128 0
+.LLSDACSEC8437:
+	.section	.text.unlikely,"x"
+	.text
+	.section	.text.unlikely,"x"
+	.seh_endproc
+.LCOLDE4:
+	.text
+.LHOTE4:
 	.section .rdata,"dr"
 	.align 8
 .LC0:
@@ -279,8 +416,12 @@ _ZN9act_crate6UpdateEv:
 	.def	exit;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox15GetOverlapStateEPN3neo5arrayINS6_IyEEEESt16initializer_listIyESB_;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actorsixEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy;	.scl	2;	.type	32;	.endef
+	.def	free;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing12GetDeltaTimeEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4SetYEd;	.scl	2;	.type	32;	.endef
+	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef

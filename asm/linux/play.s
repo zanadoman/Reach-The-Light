@@ -81,7 +81,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	addl	$100, 28(%rsp)
 	cmpq	$8, %rax
 	jne	.L2
-	movl	$88, %edi
+	movl	$96, %edi
 .LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
@@ -174,7 +174,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	call	_Unwind_Resume@PLT
 .L6:
 	movq	%rbx, %rdi
-	movl	$88, %esi
+	movl	$96, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbp, %rdi
 	call	_Unwind_Resume@PLT
@@ -256,7 +256,7 @@ _ZN10scene_playD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN10act_playerD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$88, %esi
+	movl	$96, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_def_cfa_offset 40
@@ -294,56 +294,73 @@ _ZN10scene_playD2Ev:
 _ZN10scene_play6UpdateEv:
 .LFB8162:
 	.cfi_startproc
-	pushq	%r13
+	pushq	%r14
 	.cfi_def_cfa_offset 16
-	.cfi_offset 13, -16
-	movq	%rdi, %r13
-	pushq	%r12
+	.cfi_offset 14, -16
+	movq	%rdi, %r14
+	pushq	%r13
 	.cfi_def_cfa_offset 24
-	.cfi_offset 12, -24
-	leaq	1168(%r13), %r12
-	pushq	%rbp
+	.cfi_offset 13, -24
+	leaq	1168(%rdi), %r13
+	pushq	%r12
 	.cfi_def_cfa_offset 32
-	.cfi_offset 6, -32
-	leaq	144(%r13), %rbp
-	pushq	%rbx
+	.cfi_offset 12, -32
+	pushq	%rbp
 	.cfi_def_cfa_offset 40
-	.cfi_offset 3, -40
-	subq	$8, %rsp
+	.cfi_offset 6, -40
+	leaq	144(%rdi), %rbp
+	pushq	%rbx
 	.cfi_def_cfa_offset 48
-	movq	1040(%rdi), %rdi
-	call	_ZN10act_player6UpdateEv@PLT
+	.cfi_offset 3, -48
+	movq	%rbp, %r12
 	.p2align 4,,10
 	.p2align 3
 .L25:
-	leaq	-128(%rbp), %rbx
+	leaq	-128(%r12), %rbx
 	.p2align 4,,10
 	.p2align 3
 .L26:
 	movq	(%rbx), %rdi
 	addq	$8, %rbx
+	call	_ZN10tile_token19ResetCollisionLayerEv@PLT
+	cmpq	%r12, %rbx
+	jne	.L26
+	leaq	128(%rbx), %r12
+	cmpq	%r13, %r12
+	jne	.L25
+	movq	1040(%r14), %rdi
+	call	_ZN10act_player6UpdateEv@PLT
+	.p2align 4,,10
+	.p2align 3
+.L28:
+	leaq	-128(%rbp), %rbx
+	.p2align 4,,10
+	.p2align 3
+.L29:
+	movq	(%rbx), %rdi
+	addq	$8, %rbx
 	call	_ZN10tile_token6UpdateEv@PLT
 	cmpq	%rbp, %rbx
-	jne	.L26
+	jne	.L29
 	leaq	128(%rbx), %rbp
-	cmpq	%r12, %rbp
-	jne	.L25
-	movq	0(%r13), %rdi
+	cmpq	%r13, %rbp
+	jne	.L28
+	movq	(%r14), %rdi
 	movl	$41, %esi
 	addq	$176, %rdi
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
-	addq	$8, %rsp
+	popq	%rbx
 	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
 	movzbl	%al, %edx
 	movl	$2, %eax
-	popq	%rbx
-	.cfi_def_cfa_offset 32
-	popq	%rbp
-	.cfi_def_cfa_offset 24
-	subl	%edx, %eax
 	popq	%r12
-	.cfi_def_cfa_offset 16
+	.cfi_def_cfa_offset 24
 	popq	%r13
+	.cfi_def_cfa_offset 16
+	subl	%edx, %eax
+	popq	%r14
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc

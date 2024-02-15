@@ -58,7 +58,8 @@ typedef enum
 {
     BOX_NONE,
     BOX_PLAYER,
-    BOX_CRATE,
+    BOX_PLAYER_SIMULATION,
+    BOX_CRATE_SIMULATION,
     BOX_PLATFORM
 } overlapbox;
 
@@ -207,6 +208,7 @@ struct act_player
 
     engine::actor Actor;
     engine::overlapbox Overlapbox;
+    engine::overlapbox Simulation;
     engine::overlapbox Claw1;
     engine::overlapbox Claw2;
     engine::flipbook Idle;
@@ -227,7 +229,7 @@ struct act_crate
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Overlapbox;
+    engine::overlapbox Simulation;
     engine::texturebox Texturebox;
 
     double VelocityY;
@@ -312,6 +314,7 @@ struct tile_token
     tile_token(tile Type, engine* Engine, game* Game, double X, double Y);
     ~tile_token();
     uint8 Update();
+    uint8 ResetCollisionLayer();
 };
 
 struct tile_top_left_corner

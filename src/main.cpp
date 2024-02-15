@@ -19,6 +19,8 @@ sint32 main()
         {
             break;
         }
+
+        printf("%d %d\n", Engine->Timing.GetGameTime(), Engine->Timing.GetRenderTime());
     }
 
     delete Game;

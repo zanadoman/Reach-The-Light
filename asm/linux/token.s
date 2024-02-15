@@ -776,6 +776,132 @@ _ZN10tile_token6UpdateEv:
 	.cfi_endproc
 .LFE8162:
 	.size	_ZN10tile_token6UpdateEv, .-_ZN10tile_token6UpdateEv
+	.align 2
+	.p2align 4
+	.globl	_ZN10tile_token19ResetCollisionLayerEv
+	.type	_ZN10tile_token19ResetCollisionLayerEv, @function
+_ZN10tile_token19ResetCollisionLayerEv:
+.LFB8163:
+	.cfi_startproc
+	cmpl	$11, 8(%rdi)
+	ja	.L118
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movl	8(%rdi), %eax
+	leaq	.L105(%rip), %rdx
+	movq	%rdi, %rbx
+	movslq	(%rdx,%rax,4), %rax
+	addq	%rdx, %rax
+	jmp	*%rax
+	.section	.rodata
+	.align 4
+	.align 4
+.L105:
+	.long	.L104-.L105
+	.long	.L104-.L105
+	.long	.L104-.L105
+	.long	.L104-.L105
+	.long	.L104-.L105
+	.long	.L104-.L105
+	.long	.L110-.L105
+	.long	.L108-.L105
+	.long	.L108-.L105
+	.long	.L104-.L105
+	.long	.L104-.L105
+	.long	.L104-.L105
+	.text
+	.p2align 4,,10
+	.p2align 3
+.L104:
+	movq	(%rdi), %rax
+	xorl	%esi, %esi
+	movq	40(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	48(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	56(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	64(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	72(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	80(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+.L103:
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L108:
+	.cfi_restore_state
+	movq	(%rdi), %rax
+	xorl	%esi, %esi
+	movq	40(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	48(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	56(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	64(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	72(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L110:
+	.cfi_restore_state
+	movq	(%rdi), %rax
+	xorl	%esi, %esi
+	movq	40(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	48(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	56(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	64(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	jmp	.L103
+.L118:
+	.cfi_def_cfa_offset 8
+	.cfi_restore 3
+	xorl	%eax, %eax
+	ret
+	.cfi_endproc
+.LFE8163:
+	.size	_ZN10tile_token19ResetCollisionLayerEv, .-_ZN10tile_token19ResetCollisionLayerEv
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

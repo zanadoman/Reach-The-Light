@@ -4,6 +4,7 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
 {
     this->Actor = this->Engine->Actors.New(this, ACT_PLAYER, X, Y, 16, 15, 1);
     this->Overlapbox = this->Actor->Overlapboxes.New(BOX_PLAYER);
+    this->Simulation = this->Actor->Overlapboxes.New(BOX_PLAYER_SIMULATION);
     this->Claw1 = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Claw2 = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Idle = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdle);
@@ -14,6 +15,9 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
 
     this->Actor->Force = 1;
     this->Actor->SetCollisionLayer(1);
+
+    this->Simulation->SetWidth(64);
+    this->Simulation->SetHeight(60);
 
     this->Claw1->SetX(X + 8);
     this->Claw1->SetY(Y + 6);
@@ -46,8 +50,19 @@ act_player::~act_player()
 
 uint8 act_player::Update()
 {
+    array<array<uint64>> SimulationState;
     array<array<uint64>> Claw1State, Claw2State;
     bool Claw1Active, Claw2Active;
+
+    this->Simulation->GetOverlapState(&SimulationState, {ACT_PLATFORM}, {});
+    for (uint16 i = 1; i < SimulationState.Length(); i++)
+    {
+        if (0 < SimulationState[i].Length())
+        {
+            this->Engine->Actors[i].SetCollisionLayer(1);
+            printf("szar\n");
+        }
+    }
 
     if (this->Engine->Keys[KEY_A] && !this->Engine->Keys[KEY_D])
     {
