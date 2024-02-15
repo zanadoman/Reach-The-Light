@@ -67,7 +67,5 @@ tile_horizontal_corridor::~tile_horizontal_corridor()
 
 uint8 tile_horizontal_corridor::Update()
 {
-    this->Crate->Update();
-
-    return 0;
+    return this->Crate->Update();
 }

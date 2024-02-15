@@ -343,8 +343,8 @@ struct tile_top_right_corner
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Spikes;
     engine::texturebox Background;
+    engine::overlapbox Spikes;
 
     engine::actor HitboxTop;
     engine::actor HitboxRight;
@@ -363,8 +363,8 @@ struct tile_bot_left_corner
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Trap;
     engine::texturebox Background;
+    engine::overlapbox Web;
 
     engine::actor HitboxBot;
     engine::actor HitboxLeft;
@@ -383,7 +383,6 @@ struct tile_bot_right_corner
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Trap;
     engine::texturebox Background;
 
     engine::actor HitboxBot;
@@ -404,6 +403,7 @@ struct tile_horizontal_corridor
 
     engine::actor Actor;
     engine::texturebox Background;
+    act_crate* Crate;
 
     engine::actor HitboxTop;
     engine::actor HitboxBot;
@@ -411,8 +411,6 @@ struct tile_horizontal_corridor
     engine::actor HitboxTopRight;
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
-
-    act_crate* Crate;
 
     tile_horizontal_corridor(engine* Engine, game* Game, double X, double Y);
     ~tile_horizontal_corridor();
@@ -425,9 +423,9 @@ struct tile_vertical_corridor
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Trap1;
-    engine::overlapbox Trap2;
     engine::texturebox Background;
+    engine::overlapbox SmallSpikes1;
+    engine::overlapbox SmallSpikes2;
 
     engine::actor HitboxLeft;
     engine::actor HitboxRight;
@@ -481,8 +479,8 @@ struct tile_ceil_hole
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Trap;
     engine::texturebox Background;
+    engine::overlapbox Spikes;
 
     engine::actor HitboxBot;
     engine::actor HitboxTopLeft;
