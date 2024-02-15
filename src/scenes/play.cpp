@@ -10,7 +10,14 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
         }
     }
 
-    this->Player = new act_player(this->Engine, this->Game, -350 + 100 * *this->Game->Map->Spawn, -750);
+    if (this->Game->Map->Tiles[*this->Game->Map->Spawn][0] == TILE_HORIZONTAL_CORRIDOR)
+    {
+        this->Player = new act_player(this->Engine, this->Game, -350 + 100 * *this->Game->Map->Spawn, -741);
+    }
+    else
+    {
+        this->Player = new act_player(this->Engine, this->Game, -350 + 100 * *this->Game->Map->Spawn, -771);
+    }
 }
 
 scene_play::~scene_play()
@@ -36,8 +43,6 @@ scene scene_play::Update()
         }
     }
 
-    this->Player->Update();
-
     for (uint8 i = 0; i < MAP_X; i++)
     {
         for (uint8 j = 0; j < MAP_Y; j++)
@@ -45,6 +50,8 @@ scene scene_play::Update()
             this->Tiles[i][j]->Update();
         }
     }
+
+    this->Player->Update();
 
     if (this->Engine->Keys[KEY_ESCAPE])
     {

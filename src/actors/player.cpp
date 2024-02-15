@@ -50,17 +50,15 @@ act_player::~act_player()
 
 uint8 act_player::Update()
 {
-    array<array<uint64>> SimulationState;
-    array<array<uint64>> Claw1State, Claw2State;
+    array<array<uint64>> OverlapState;
     bool Claw1Active, Claw2Active;
 
-    this->Simulation->GetOverlapState(&SimulationState, {ACT_PLATFORM}, {});
-    for (uint16 i = 1; i < SimulationState.Length(); i++)
+    this->Simulation->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
+    for (uint16 i = 1; i < OverlapState.Length(); i++)
     {
-        if (0 < SimulationState[i].Length())
+        if (0 < OverlapState[i].Length())
         {
             this->Engine->Actors[i].SetCollisionLayer(1);
-            printf("szar\n");
         }
     }
 
@@ -114,23 +112,21 @@ uint8 act_player::Update()
 
     if (this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime() != this->Actor->SetX(this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime()) && this->Engine->Keys[KEY_SPACE])
     {
-        this->Claw1->GetOverlapState(&Claw1State, {ACT_PLATFORM}, {});
-        this->Claw2->GetOverlapState(&Claw2State, {ACT_PLATFORM}, {});
-        
+        this->Claw1->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
         Claw1Active = false;
-        for (uint64 i = 0; i < Claw1State.Length(); i++)
+        for (uint64 i = 0; i < OverlapState.Length(); i++)
         {
-            if (0 < Claw1State[i].Length())
+            if (0 < OverlapState[i].Length())
             {
                 Claw1Active = true;
                 break;
             }
         }
-        
+        this->Claw2->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
         Claw2Active = false;
-        for (uint64 i = 0; i < Claw2State.Length(); i++)
+        for (uint64 i = 0; i < OverlapState.Length(); i++)
         {
-            if (0 < Claw2State[i].Length())
+            if (0 < OverlapState[i].Length())
             {
                 Claw2Active = true;
                 break;
