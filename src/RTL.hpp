@@ -116,7 +116,7 @@ struct assets
     array<uint64> TileBackgrounds;
     array<uint64> TilePlatforms;
 
-    array<uint64> CrateTextures;
+    uint64 CrateTexture;
 
     assets(engine* Engine);
     ~assets();
