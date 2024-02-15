@@ -64,7 +64,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.p2align 4,,10
 	.p2align 3
 .L5:
-	movl	$88, %edi
+	movl	$80, %edi
 .LEHB0:
 	call	_Znwm@PLT
 .LEHE0:
@@ -101,7 +101,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.p2align 3
 .L3:
 	.cfi_restore_state
-	movl	$88, %edi
+	movl	$80, %edi
 .LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
@@ -186,7 +186,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.p2align 4,,10
 	.p2align 3
 .L11:
-	movl	$96, %edi
+	movl	$88, %edi
 .LEHB12:
 	call	_Znwm@PLT
 .LEHE12:
@@ -203,7 +203,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.p2align 4,,10
 	.p2align 3
 .L10:
-	movl	$88, %edi
+	movl	$96, %edi
 .LEHB14:
 	call	_Znwm@PLT
 .LEHE14:
@@ -220,7 +220,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.p2align 4,,10
 	.p2align 3
 .L9:
-	movl	$72, %edi
+	movl	$64, %edi
 .LEHB16:
 	call	_Znwm@PLT
 .LEHE16:
@@ -237,7 +237,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.p2align 4,,10
 	.p2align 3
 .L8:
-	movl	$80, %edi
+	movl	$72, %edi
 .LEHB18:
 	call	_Znwm@PLT
 .LEHE18:
@@ -271,7 +271,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.p2align 4,,10
 	.p2align 3
 .L6:
-	movl	$88, %edi
+	movl	$80, %edi
 .LEHB22:
 	call	_Znwm@PLT
 .LEHE22:
@@ -443,14 +443,14 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold:
 	.cfi_offset 13, -24
 	.cfi_offset 14, -16
 	movq	%r14, %rdi
-	movl	$88, %esi
+	movl	$80, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 .LEHB24:
 	call	_Unwind_Resume@PLT
 .L25:
 	movq	%r14, %rdi
-	movl	$88, %esi
+	movl	$80, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
@@ -462,25 +462,25 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold:
 	call	_Unwind_Resume@PLT
 .L23:
 	movq	%r14, %rdi
-	movl	$80, %esi
+	movl	$72, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L22:
 	movq	%r14, %rdi
-	movl	$72, %esi
+	movl	$64, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L21:
 	movq	%r14, %rdi
-	movl	$88, %esi
+	movl	$96, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
 .L20:
 	movq	%r14, %rdi
-	movl	$96, %esi
+	movl	$88, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
@@ -510,7 +510,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold:
 	call	_Unwind_Resume@PLT
 .L27:
 	movq	%r14, %rdi
-	movl	$88, %esi
+	movl	$80, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
@@ -582,7 +582,7 @@ _ZN10tile_tokenD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN24tile_horizontal_rotatingD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$88, %esi
+	movl	$80, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_restore 3
@@ -596,7 +596,7 @@ _ZN10tile_tokenD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN22tile_vertical_rotatingD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$88, %esi
+	movl	$80, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_restore 3
@@ -666,7 +666,7 @@ _ZN10tile_tokenD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN24tile_horizontal_corridorD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$96, %esi
+	movl	$88, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_restore 3
@@ -680,7 +680,7 @@ _ZN10tile_tokenD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN22tile_vertical_corridorD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$88, %esi
+	movl	$96, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_restore 3
@@ -694,7 +694,7 @@ _ZN10tile_tokenD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN20tile_center_corridorD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$72, %esi
+	movl	$64, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_restore 3
@@ -708,7 +708,7 @@ _ZN10tile_tokenD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN15tile_floor_holeD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$80, %esi
+	movl	$72, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_restore 3
@@ -736,7 +736,7 @@ _ZN10tile_tokenD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN14tile_trap_holeD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$88, %esi
+	movl	$80, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_restore 3
@@ -798,22 +798,22 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	.align 4
 	.align 4
 .L105:
+	.long	.L113-.L105
+	.long	.L113-.L105
+	.long	.L113-.L105
+	.long	.L113-.L105
 	.long	.L104-.L105
-	.long	.L104-.L105
-	.long	.L104-.L105
-	.long	.L104-.L105
-	.long	.L104-.L105
-	.long	.L104-.L105
+	.long	.L111-.L105
 	.long	.L110-.L105
-	.long	.L108-.L105
-	.long	.L108-.L105
+	.long	.L109-.L105
+	.long	.L121-.L105
 	.long	.L104-.L105
 	.long	.L104-.L105
 	.long	.L104-.L105
 	.text
 	.p2align 4,,10
 	.p2align 3
-.L104:
+.L113:
 	movq	(%rdi), %rax
 	xorl	%esi, %esi
 	movq	40(%rax), %rdi
@@ -846,9 +846,14 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L108:
+.L104:
 	.cfi_restore_state
 	movq	(%rdi), %rax
+	xorl	%esi, %esi
+	movq	32(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+.L121:
+	movq	(%rbx), %rax
 	xorl	%esi, %esi
 	movq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
@@ -878,6 +883,58 @@ _ZN10tile_token19ResetCollisionLayerEv:
 .L110:
 	.cfi_restore_state
 	movq	(%rdi), %rax
+	xorl	%esi, %esi
+	movq	32(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	40(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	48(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	56(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	jmp	.L103
+	.p2align 4,,10
+	.p2align 3
+.L111:
+	movq	(%rdi), %rax
+	xorl	%esi, %esi
+	movq	48(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	56(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	64(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	72(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	80(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	88(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	jmp	.L103
+	.p2align 4,,10
+	.p2align 3
+.L109:
+	movq	(%rdi), %rax
+	xorl	%esi, %esi
+	movq	32(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
 	xorl	%esi, %esi
 	movq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT

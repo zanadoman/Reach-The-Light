@@ -6,7 +6,7 @@
 
 #define MAP_X 8
 #define MAP_Y 16
-#define TILE_DEBUG false
+#define TILE_DEBUG true
 
 using namespace neo;
 using namespace wze;
@@ -60,7 +60,9 @@ typedef enum
     BOX_PLAYER,
     BOX_PLAYER_SIMULATION,
     BOX_CRATE_SIMULATION,
-    BOX_PLATFORM
+    BOX_PLATFORM,
+    BOX_SPIKES,
+    BOX_WEB
 } overlapbox;
 
 typedef enum
@@ -403,7 +405,6 @@ struct tile_horizontal_corridor
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Trap;
     engine::texturebox Background;
 
     engine::actor HitboxTop;
@@ -426,7 +427,8 @@ struct tile_vertical_corridor
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Trap;
+    engine::overlapbox Trap1;
+    engine::overlapbox Trap2;
     engine::texturebox Background;
 
     engine::actor HitboxLeft;
@@ -446,7 +448,6 @@ struct tile_center_corridor
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Trap;
     engine::texturebox Background;
 
     engine::actor HitboxTopLeft;
@@ -464,7 +465,6 @@ struct tile_floor_hole
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Trap;
     engine::texturebox Background;
 
     engine::actor HitboxTop;
@@ -502,7 +502,6 @@ struct tile_trap_hole
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Trap;
     engine::texturebox Background;
 
     engine::actor HitboxTop;
@@ -522,7 +521,6 @@ struct tile_horizontal_rotating
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Trap;
     engine::texturebox Background;
 
     engine::actor HitboxTop;
@@ -542,7 +540,6 @@ struct tile_vertical_rotating
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Trap;
     engine::texturebox Background;
 
     engine::actor HitboxLeft;

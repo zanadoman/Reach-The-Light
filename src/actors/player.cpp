@@ -13,6 +13,11 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->VelocityY = 0;
     this->Latched = 0;
 
+    this->Overlapbox->Visible = true;
+    this->Overlapbox->SetY(Y - 1);
+    this->Overlapbox->SetWidth(15);
+    this->Overlapbox->SetHeight(10);
+
     this->Actor->Force = 99;
     this->Actor->SetCollisionLayer(1);
 
@@ -54,6 +59,18 @@ uint8 act_player::Update()
 {
     array<array<uint64>> OverlapState;
     bool Claw1Active, Claw2Active;
+
+    this->Run->ColorR = 255;
+    this->Idle->ColorR = 255;
+    this->Overlapbox->GetOverlapState(&OverlapState, {ACT_TILE}, {});
+    for (uint16 i = 1; i < OverlapState.Length(); i++)
+    {
+        if (0 < OverlapState[i].Length())
+        {
+            this->Run->ColorR = 0;
+            this->Idle->ColorR = 0;
+        }
+    }
 
     this->Simulation->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
     for (uint16 i = 1; i < OverlapState.Length(); i++)

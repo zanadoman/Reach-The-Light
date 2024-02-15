@@ -6,7 +6,14 @@ tile_bot_left_corner::tile_bot_left_corner(engine* Engine, game* Game, double X,
 
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
-    
+    this->Trap = this->Actor->Overlapboxes.New(BOX_WEB);
+
+    this->Trap->SetX(X - 15);
+    this->Trap->SetY(Y - 15);
+    this->Trap->SetWidth(30);
+    this->Trap->SetHeight(30);
+    this->Trap->Visible = TILE_DEBUG;
+
     this->HitboxBot = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y - 40, 60, 20, 1);
     this->HitboxBot->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxBot->Resistance = 100;

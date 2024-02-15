@@ -42,8 +42,8 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movl	$3, %edx
 	xorl	%esi, %esi
 	movq	%rax, %xmm2
-	movsd	%xmm0, 8(%rsp)
-	movsd	%xmm1, 16(%rsp)
+	movsd	%xmm0, 16(%rsp)
+	movsd	%xmm1, 8(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	xorl	%esi, %esi
 	movq	%rax, 16(%rbx)
@@ -62,18 +62,36 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	%rbp, %rdi
 	xorl	%r12d, %r12d
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movsd	.LC2(%rip), %xmm1
-	addsd	16(%rsp), %xmm1
-	movl	$20, %r8d
+	movl	$5, %esi
 	movq	%rax, 32(%rbx)
-	movq	(%rbx), %rax
+	movq	16(%rbx), %rax
+	leaq	136(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	movsd	8(%rsp), %xmm0
+	addsd	.LC2(%rip), %xmm0
+	movq	%rax, 24(%rbx)
+	movq	%rax, %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd@PLT
+	movq	24(%rbx), %rdi
+	movl	$30, %esi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
+	movq	24(%rbx), %rdi
+	movl	$5, %esi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
+	movq	24(%rbx), %rax
 	movl	$60, %ecx
 	xorl	%esi, %esi
-	movsd	8(%rsp), %xmm0
+	movsd	.LC3(%rip), %xmm3
+	addsd	8(%rsp), %xmm3
+	movl	$20, %r8d
 	movl	$4, %edx
+	movb	$1, 18(%rax)
+	movq	(%rbx), %rax
+	movsd	16(%rsp), %xmm0
 	leaq	256(%rax), %rdi
+	movapd	%xmm3, %xmm1
 	movq	.LC0(%rip), %rax
-	movsd	%xmm1, 24(%rsp)
+	movsd	%xmm3, 24(%rsp)
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$4, %esi
@@ -81,7 +99,7 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	40(%rbx), %r13
-	movl	.LC4(%rip), %ebp
+	movl	.LC5(%rip), %ebp
 	movq	$100, 184(%r13)
 .L5:
 	movq	8(%rbx), %rax
@@ -100,8 +118,8 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	%r13, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	pxor	%xmm1, %xmm1
-	movsd	8(%rsp), %xmm0
-	subsd	.LC3(%rip), %xmm0
+	movsd	16(%rsp), %xmm0
+	subsd	.LC4(%rip), %xmm0
 	cvtsi2sdl	%r12d, %xmm1
 	movq	%rax, %r13
 	movq	%rax, %rdi
@@ -117,19 +135,19 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	.p2align 3
 .L4:
 	movq	(%rbx), %rax
-	movsd	.LC2(%rip), %xmm3
+	movsd	.LC3(%rip), %xmm4
 	xorl	%esi, %esi
 	xorl	%r12d, %r12d
-	addsd	8(%rsp), %xmm3
-	movsd	16(%rsp), %xmm1
+	addsd	16(%rsp), %xmm4
+	movsd	8(%rsp), %xmm1
 	movl	$60, %r8d
 	movl	$20, %ecx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movl	$4, %edx
 	movq	%rax, %xmm2
-	movapd	%xmm3, %xmm0
-	movq	%xmm3, %r13
+	movapd	%xmm4, %xmm0
+	movq	%xmm4, %r13
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$4, %esi
 	movq	%rax, 48(%rbx)
@@ -154,8 +172,8 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	%r14, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	pxor	%xmm1, %xmm1
-	movsd	16(%rsp), %xmm0
-	subsd	.LC3(%rip), %xmm0
+	movsd	8(%rsp), %xmm0
+	subsd	.LC4(%rip), %xmm0
 	cvtsi2sdl	%r12d, %xmm1
 	movq	%rax, %r14
 	movq	%rax, %rdi
@@ -171,18 +189,18 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	.p2align 3
 .L7:
 	movq	(%rbx), %rax
-	movsd	8(%rsp), %xmm4
+	movsd	16(%rsp), %xmm5
 	movl	$20, %ecx
 	xorl	%esi, %esi
-	subsd	.LC2(%rip), %xmm4
+	subsd	.LC3(%rip), %xmm5
 	movsd	24(%rsp), %xmm1
 	movl	$20, %r8d
 	movl	$4, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
-	movapd	%xmm4, %xmm0
+	movapd	%xmm5, %xmm0
 	movq	%rax, %xmm2
-	movq	%xmm4, %rbp
+	movq	%xmm5, %rbp
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$4, %esi
 	movq	%rax, 56(%rbx)
@@ -238,13 +256,13 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	%r12, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	(%rbx), %rax
-	movsd	16(%rsp), %xmm1
+	movsd	8(%rsp), %xmm1
 	xorl	%esi, %esi
 	movq	%rbp, %xmm0
 	movl	$20, %r8d
 	movl	$20, %ecx
 	movl	$4, %edx
-	subsd	.LC2(%rip), %xmm1
+	subsd	.LC3(%rip), %xmm1
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
@@ -430,14 +448,18 @@ _ZN21tile_top_right_cornerD2Ev:
 	.align 8
 .LC2:
 	.long	0
-	.long	1078198272
+	.long	1077641216
 	.align 8
 .LC3:
+	.long	0
+	.long	1078198272
+	.align 8
+.LC4:
 	.long	0
 	.long	1077149696
 	.section	.rodata.cst4,"aM",@progbits,4
 	.align 4
-.LC4:
+.LC5:
 	.value	20
 	.value	20
 	.hidden	DW.ref.__gxx_personality_v0
