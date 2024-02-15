@@ -13,6 +13,7 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->DamageTick = 0;
     this->VelocityX = 0;
     this->VelocityY = 0;
+    this->InteractKey = false;
 
     this->Actor->Force = 99;
     this->Actor->SetCollisionLayer(1);
@@ -71,35 +72,49 @@ uint8 act_player::Update()
             this->Run->ColorR = 0;
             this->Idle->ColorR = 0;
 
-            if (this->Engine->Actors[i].Overlapboxes[1].GetType() == BOX_DAMAGE && this->DamageTick + 1000 <= this->Engine->Timing.GetCurrentTick())
+            switch (this->Engine->Actors[i].Overlapboxes[1].GetType())
             {
-                this->Health--;
-                this->DamageTick = this->Engine->Timing.GetCurrentTick();
-            }
-            else if (this->Engine->Actors[i].Overlapboxes[1].GetType() == BOX_SLOWNESS)
-            {
-                if (this->VelocityX < -0.025)
-                {
-                    this->VelocityX = -0.025;
-                }
-                else if (0.025 < this->VelocityX)
-                {
-                    this->VelocityX = 0.025;
-                }
+                case BOX_DAMAGE:
+                    if (this->DamageTick + 1000 <= this->Engine->Timing.GetCurrentTick())
+                    {
+                        this->Health--;
+                        this->DamageTick = this->Engine->Timing.GetCurrentTick();
+                    }
+                break;
 
-                if (this->VelocityY < -0.025)
-                {
-                    this->VelocityY = -0.025;
-                }
-                else if (0.025 < this->VelocityY)
-                {
-                    this->VelocityY = 0.025;
-                }
+                case BOX_SLOWNESS:
+                    if (this->VelocityX < -0.025)
+                    {
+                        this->VelocityX = -0.025;
+                    }
+                    else if (0.025 < this->VelocityX)
+                    {
+                        this->VelocityX = 0.025;
+                    }
+
+                    if (this->VelocityY < -0.025)
+                    {
+                        this->VelocityY = -0.025;
+                    }
+                    else if (0.025 < this->VelocityY)
+                    {
+                        this->VelocityY = 0.025;
+                    }
+                break;
+
+                case BOX_LEVER:
+                    if (!this->InteractKey && this->Engine->Keys[KEY_S])
+                    {
+                        this->Game->Play->RotateTiles = !this->Game->Play->RotateTiles;
+                    }
+                break;
             }
 
             break;
         }
     }
+
+    this->InteractKey = this->Engine->Keys[KEY_S];
 
     this->SimulationBox->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
     for (uint16 i = 1; i < OverlapState.Length(); i++)

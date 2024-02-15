@@ -60,7 +60,8 @@ typedef enum
     BOX_PLAYER,
     BOX_PLATFORM,
     BOX_DAMAGE,
-    BOX_SLOWNESS
+    BOX_SLOWNESS,
+    BOX_LEVER
 } overlapbox;
 
 typedef enum
@@ -181,6 +182,7 @@ struct scene_play
 
     tile_token* Tiles[MAP_X][MAP_Y];
     act_player* Player;
+    bool RotateTiles;
 
     scene_play(engine* Engine, game* Game);
     ~scene_play();
@@ -238,6 +240,7 @@ struct act_player
     uint32 DamageTick;
     double VelocityX;
     double VelocityY;
+    bool InteractKey;
 
     act_player(engine* Engine, game* Game, double X, double Y);
     ~act_player();
@@ -335,6 +338,7 @@ struct tile_token
     tile_token(tile Type, engine* Engine, game* Game, double X, double Y);
     ~tile_token();
     uint8 Update();
+    uint8 Rotate();
     uint8 ResetCollisionLayer();
 };
 
@@ -545,6 +549,7 @@ struct tile_horizontal_rotating
 
     engine::actor Actor;
     engine::texturebox Background;
+    engine::overlapbox Lever;
 
     engine::actor HitboxTop;
     engine::actor HitboxBot;
@@ -555,6 +560,7 @@ struct tile_horizontal_rotating
 
     tile_horizontal_rotating(engine* Engine, game* Game, double X, double Y);
     ~tile_horizontal_rotating();
+    uint8 Rotate();
 };
 
 struct tile_vertical_rotating
@@ -564,6 +570,7 @@ struct tile_vertical_rotating
 
     engine::actor Actor;
     engine::texturebox Background;
+    engine::overlapbox Lever;
 
     engine::actor HitboxLeft;
     engine::actor HitboxRight;
@@ -574,4 +581,5 @@ struct tile_vertical_rotating
 
     tile_vertical_rotating(engine* Engine, game* Game, double X, double Y);
     ~tile_vertical_rotating();
+    uint8 Rotate();
 };

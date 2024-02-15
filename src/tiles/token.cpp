@@ -136,6 +136,23 @@ uint8 tile_token::Update()
     return 0;
 }
 
+uint8 tile_token::Rotate()
+{
+    switch (this->Type)
+    {
+        case TILE_HORIZONTAL_ROTATING:
+        return ((tile_horizontal_rotating*)this->Data)->Rotate();
+
+        case TILE_VERTICAL_ROTATING:
+        return ((tile_vertical_rotating*)this->Data)->Rotate();
+
+        default:
+        break;
+    }
+
+    return 0;
+}
+
 uint8 tile_token::ResetCollisionLayer()
 {
     switch (this->Type)

@@ -9,6 +9,8 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->Health->SetX(this->Actor->GetX() + (this->Health->GetWidth() >> 1));
     this->Health->SetY(this->Actor->GetY() - 25);
 
+    this->RotateTiles = false;
+
     for (uint8 i = 0; i < MAP_X; i++)
     {
         for (uint8 j = 0; j < MAP_Y; j++)
@@ -57,6 +59,14 @@ scene scene_play::Update()
         for (uint8 j = 0; j < MAP_Y; j++)
         {
             this->Tiles[i][j]->ResetCollisionLayer();
+        }
+    }
+
+    for (uint8 i = 0; i < MAP_X; i++)
+    {
+        for (uint8 j = 0; j < MAP_Y; j++)
+        {
+            this->Tiles[i][j]->Rotate();
         }
     }
 

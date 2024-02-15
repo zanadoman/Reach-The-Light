@@ -6,8 +6,13 @@ tile_horizontal_rotating::tile_horizontal_rotating(engine* Engine, game* Game, d
 
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
+    this->Lever = this->Actor->Overlapboxes.New(BOX_LEVER);
 
     this->Background->Priority = 127;
+
+    this->Lever->SetWidth(15);
+    this->Lever->SetHeight(15);
+    this->Lever->Visible = DEBUG;
 
     this->HitboxTop = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y + 40, 60, 20, 1);
     this->HitboxTop->Overlapboxes.New(BOX_PLATFORM);
@@ -61,4 +66,28 @@ tile_horizontal_rotating::~tile_horizontal_rotating()
     this->Engine->Actors.Delete(this->HitboxTopRight->GetID());
     this->Engine->Actors.Delete(this->HitboxBotLeft->GetID());
     this->Engine->Actors.Delete(this->HitboxBotRight->GetID());
+}
+
+uint8 tile_horizontal_rotating::Rotate()
+{
+    if (this->Game->Play->RotateTiles)
+    {
+        this->HitboxTop->SetX(this->Actor->GetX() + 40);
+        this->HitboxTop->SetY(this->Actor->GetY());
+        this->HitboxTop->SetAngle(90);
+        this->HitboxBot->SetX(this->Actor->GetX() - 40);
+        this->HitboxBot->SetY(this->Actor->GetY());
+        this->HitboxBot->SetAngle(90);
+    }
+    else
+    {
+        this->HitboxTop->SetX(this->Actor->GetX());
+        this->HitboxTop->SetY(this->Actor->GetY() + 40);
+        this->HitboxTop->SetAngle(0);
+        this->HitboxBot->SetX(this->Actor->GetX());
+        this->HitboxBot->SetY(this->Actor->GetY() - 40);
+        this->HitboxBot->SetAngle(0);
+    }
+
+    return 0;
 }
