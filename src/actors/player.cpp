@@ -2,7 +2,7 @@
 
 act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(Engine), Game(Game)
 {
-    this->Actor = this->Engine->Actors.New(this, ACT_PLAYER, X, Y, 24, 26, 1);
+    this->Actor = this->Engine->Actors.New(this, ACT_PLAYER, X, Y, 16, 15, 1);
     this->Overlapbox = this->Actor->Overlapboxes.New(BOX_PLAYER);
     this->Claw1 = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Claw2 = this->Actor->Overlapboxes.New(BOX_NONE);
@@ -14,25 +14,23 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
 
     this->Actor->SetCollisionLayer(1);
 
-    this->Claw1->SetX(X + 13);
-    this->Claw1->SetY(Y + 9);
+    this->Claw1->SetX(X + 8);
+    this->Claw1->SetY(Y + 6);
     this->Claw1->SetHeight(2);
     this->Claw1->SetWidth(2);
-    this->Claw1->Visible = true;
 
-    this->Claw2->SetX(X + 13);
-    this->Claw2->SetY(Y - 5.5);
+    this->Claw2->SetX(X + 8);
+    this->Claw2->SetY(Y - 3.5);
     this->Claw2->SetHeight(2);
     this->Claw2->SetWidth(2);
-    this->Claw2->Visible = true;
 
-    this->Idle->Width = 48;
-    this->Idle->Height = 48;
-    this->Idle->SetY(Y + 1);
+    this->Idle->Width = 32;
+    this->Idle->Height = 32;
+    this->Idle->SetY(Y + 0.9);
 
-    this->Run->Width = 48;
-    this->Run->Height = 48;
-    this->Run->SetY(Y + 1);
+    this->Run->Width = 32;
+    this->Run->Height = 32;
+    this->Run->SetY(Y + 0.9);
     this->Run->Visible = false;
     this->Run->Paused = true;
 
@@ -58,8 +56,8 @@ uint8 act_player::Update()
             this->VelocityX = -0.25;
         }
 
-        this->Claw1->SetX(this->Actor->GetX() - 13);
-        this->Claw2->SetX(this->Actor->GetX() - 13);
+        this->Claw1->SetX(this->Actor->GetX() - 8);
+        this->Claw2->SetX(this->Actor->GetX() - 8);
         this->Idle->FlipHorizontal = true;
         this->Run->FlipHorizontal = true;
     }
@@ -79,8 +77,8 @@ uint8 act_player::Update()
             this->VelocityX = 0.25;
         }
 
-        this->Claw1->SetX(this->Actor->GetX() + 13);
-        this->Claw2->SetX(this->Actor->GetX() + 13);
+        this->Claw1->SetX(this->Actor->GetX() + 8);
+        this->Claw2->SetX(this->Actor->GetX() + 8);
         this->Idle->FlipHorizontal = false;
         this->Run->FlipHorizontal = false;
     }

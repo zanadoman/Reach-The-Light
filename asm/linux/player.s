@@ -10,23 +10,22 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	movl	$26, %r8d
-	movl	$24, %ecx
+	movl	$15, %r8d
+	movl	$16, %ecx
 	pushq	%rbx
 	.cfi_def_cfa_offset 24
 	.cfi_offset 3, -24
 	movq	%rdi, %rbx
-	subq	$24, %rsp
-	.cfi_def_cfa_offset 48
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 64
 	movq	%rsi, (%rdi)
-	movq	.LC0(%rip), %rax
+	movsd	.LC0(%rip), %xmm2
 	movq	%rdx, 8(%rdi)
 	movl	$1, %edx
 	leaq	256(%rsi), %rdi
 	movq	%rbx, %rsi
-	movq	%rax, %xmm2
+	movsd	%xmm1, 24(%rsp)
 	movsd	%xmm0, 8(%rsp)
-	movsd	%xmm1, (%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$1, %esi
 	movq	%rax, 16(%rbx)
@@ -58,23 +57,25 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	addq	$64, %rdx
 	leaq	72(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE@PLT
-	pxor	%xmm1, %xmm1
 	movq	16(%rbx), %rdi
+	pxor	%xmm2, %xmm2
 	movq	$0x000000000, 80(%rbx)
 	movq	%rax, 56(%rbx)
 	movl	$1, %esi
-	movups	%xmm1, 64(%rbx)
+	movups	%xmm2, 64(%rbx)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movsd	8(%rsp), %xmm0
 	movq	32(%rbx), %rdi
-	movsd	.LC2(%rip), %xmm3
-	addsd	%xmm0, %xmm3
-	movapd	%xmm3, %xmm0
-	movsd	%xmm3, 8(%rsp)
+	movsd	.LC2(%rip), %xmm2
+	addsd	%xmm0, %xmm2
+	movapd	%xmm2, %xmm0
+	movsd	%xmm2, 16(%rsp)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetXEd@PLT
-	movsd	(%rsp), %xmm0
+	movsd	24(%rsp), %xmm1
 	movq	32(%rbx), %rdi
+	movapd	%xmm1, %xmm0
 	addsd	.LC3(%rip), %xmm0
+	movsd	%xmm1, 8(%rsp)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd@PLT
 	movq	32(%rbx), %rdi
 	movl	$2, %esi
@@ -82,14 +83,13 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movq	32(%rbx), %rdi
 	movl	$2, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
-	movq	32(%rbx), %rax
+	movsd	16(%rsp), %xmm2
+	movq	40(%rbx), %rdi
+	movapd	%xmm2, %xmm0
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetXEd@PLT
 	movsd	8(%rsp), %xmm1
 	movq	40(%rbx), %rdi
-	movb	$1, 18(%rax)
 	movapd	%xmm1, %xmm0
-	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetXEd@PLT
-	movsd	(%rsp), %xmm0
-	movq	40(%rbx), %rdi
 	subsd	.LC4(%rip), %xmm0
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd@PLT
 	movq	40(%rbx), %rdi
@@ -98,18 +98,16 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movq	40(%rbx), %rdi
 	movl	$2, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
-	movq	40(%rbx), %rax
 	movq	48(%rbx), %rdi
 	movl	.LC5(%rip), %ebp
-	movsd	.LC0(%rip), %xmm1
-	addsd	(%rsp), %xmm1
-	movb	$1, 18(%rax)
+	movsd	8(%rsp), %xmm1
+	addsd	.LC6(%rip), %xmm1
 	movl	%ebp, 16(%rdi)
 	movapd	%xmm1, %xmm0
-	movsd	%xmm1, (%rsp)
+	movsd	%xmm1, 8(%rsp)
 	call	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetYEd@PLT
 	movq	56(%rbx), %rdi
-	movsd	(%rsp), %xmm1
+	movsd	8(%rsp), %xmm1
 	movl	%ebp, 16(%rdi)
 	movapd	%xmm1, %xmm0
 	call	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetYEd@PLT
@@ -124,8 +122,8 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6camera4BindEy@PLT
 	movq	(%rbx), %rdi
-	movsd	.LC6(%rip), %xmm0
-	addq	$24, %rsp
+	movsd	.LC7(%rip), %xmm0
+	addq	$40, %rsp
 	.cfi_def_cfa_offset 24
 	popq	%rbx
 	.cfi_def_cfa_offset 16
@@ -222,9 +220,9 @@ _ZN3neo5arrayINS0_IyEEED2Ev:
 	.set	_ZN3neo5arrayINS0_IyEEED1Ev,_ZN3neo5arrayINS0_IyEEED2Ev
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB15:
+.LCOLDB16:
 	.text
-.LHOTB15:
+.LHOTB16:
 	.align 2
 	.p2align 4
 	.globl	_ZN10act_player6UpdateEv
@@ -335,7 +333,7 @@ _ZN10act_player6UpdateEv:
 	pxor	%xmm1, %xmm1
 	movsd	72(%rbx), %xmm0
 	cvtsi2sdq	%rax, %xmm1
-	mulsd	.LC10(%rip), %xmm1
+	mulsd	.LC11(%rip), %xmm1
 	subsd	%xmm1, %xmm0
 	movsd	%xmm0, 72(%rbx)
 .L51:
@@ -468,7 +466,7 @@ _ZN10act_player6UpdateEv:
 	.p2align 4,,10
 	.p2align 3
 .L122:
-	movq	.LC11(%rip), %rax
+	movq	.LC12(%rip), %rax
 	movq	%rax, 72(%rbx)
 	jmp	.L39
 	.p2align 4,,10
@@ -481,7 +479,7 @@ _ZN10act_player6UpdateEv:
 	pxor	%xmm1, %xmm1
 	movsd	64(%rbx), %xmm0
 	cvtsi2sdq	%rax, %xmm1
-	mulsd	.LC10(%rip), %xmm1
+	mulsd	.LC11(%rip), %xmm1
 	subsd	%xmm1, %xmm0
 	pxor	%xmm1, %xmm1
 	comisd	%xmm0, %xmm1
@@ -505,8 +503,8 @@ _ZN10act_player6UpdateEv:
 	movq	16(%rbx), %rdi
 	movq	32(%rbx), %rbp
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC10(%rip), %xmm0
-	movsd	.LC9(%rip), %xmm1
+	mulsd	.LC11(%rip), %xmm0
+	movsd	.LC10(%rip), %xmm1
 	addsd	64(%rbx), %xmm0
 	minsd	%xmm0, %xmm1
 	movsd	%xmm1, 64(%rbx)
@@ -543,10 +541,10 @@ _ZN10act_player6UpdateEv:
 	movsd	64(%rbx), %xmm0
 	movq	16(%rbx), %rdi
 	cvtsi2sdq	%rax, %xmm1
-	mulsd	.LC10(%rip), %xmm1
+	mulsd	.LC11(%rip), %xmm1
 	movq	32(%rbx), %rbp
 	subsd	%xmm1, %xmm0
-	movsd	.LC8(%rip), %xmm1
+	movsd	.LC9(%rip), %xmm1
 	maxsd	%xmm0, %xmm1
 	movsd	%xmm1, 64(%rbx)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
@@ -576,7 +574,7 @@ _ZN10act_player6UpdateEv:
 	pxor	%xmm0, %xmm0
 	pxor	%xmm1, %xmm1
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC10(%rip), %xmm0
+	mulsd	.LC11(%rip), %xmm0
 	addsd	64(%rbx), %xmm0
 	comisd	%xmm1, %xmm0
 	jbe	.L125
@@ -592,7 +590,7 @@ _ZN10act_player6UpdateEv:
 	movl	%eax, %eax
 	pxor	%xmm0, %xmm0
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC14(%rip), %xmm0
+	mulsd	.LC15(%rip), %xmm0
 	movsd	%xmm0, 72(%rbx)
 	jmp	.L64
 	.p2align 4,,10
@@ -660,7 +658,7 @@ _ZN10act_player6UpdateEv:
 	comisd	%xmm0, %xmm1
 	jbe	.L56
 	movq	48(%rbx), %rax
-	movsd	.LC13(%rip), %xmm0
+	movsd	.LC14(%rip), %xmm0
 	movsd	%xmm0, 24(%rax)
 	movq	56(%rbx), %rax
 	movsd	%xmm0, 24(%rax)
@@ -684,7 +682,7 @@ _ZN10act_player6UpdateEv:
 	jmp	.L49
 .L128:
 	movq	48(%rbx), %rax
-	movsd	.LC12(%rip), %xmm0
+	movsd	.LC13(%rip), %xmm0
 	movsd	%xmm0, 24(%rax)
 	movq	56(%rbx), %rax
 	movsd	%xmm0, 24(%rax)
@@ -742,7 +740,7 @@ _ZN10act_player6UpdateEv.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8162-.LLSDACSBC8162
 .LLSDACSBC8162:
-	.uleb128 .LEHB1-.LCOLDB15
+	.uleb128 .LEHB1-.LCOLDB16
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -752,9 +750,9 @@ _ZN10act_player6UpdateEv.cold:
 	.size	_ZN10act_player6UpdateEv, .-_ZN10act_player6UpdateEv
 	.section	.text.unlikely
 	.size	_ZN10act_player6UpdateEv.cold, .-_ZN10act_player6UpdateEv.cold
-.LCOLDE15:
+.LCOLDE16:
 	.text
-.LHOTE15:
+.LHOTE16:
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC0:
@@ -763,51 +761,55 @@ _ZN10act_player6UpdateEv.cold:
 	.align 8
 .LC2:
 	.long	0
-	.long	1076494336
+	.long	1075838976
 	.align 8
 .LC3:
 	.long	0
-	.long	1075970048
+	.long	1075314688
 	.align 8
 .LC4:
 	.long	0
-	.long	1075183616
+	.long	1074528256
 	.section	.rodata.cst4,"aM",@progbits,4
 	.align 4
 .LC5:
-	.value	48
-	.value	48
+	.value	32
+	.value	32
 	.section	.rodata.cst8
 	.align 8
 .LC6:
+	.long	-858993459
+	.long	1072483532
+	.align 8
+.LC7:
 	.long	0
 	.long	1075052544
 	.align 8
-.LC8:
+.LC9:
 	.long	0
 	.long	-1076887552
 	.align 8
-.LC9:
+.LC10:
 	.long	0
 	.long	1070596096
 	.align 8
-.LC10:
+.LC11:
 	.long	-755914244
 	.long	1062232653
 	.align 8
-.LC11:
+.LC12:
 	.long	1717986918
 	.long	1071015526
 	.align 8
-.LC12:
+.LC13:
 	.long	0
 	.long	1081139200
 	.align 8
-.LC13:
+.LC14:
 	.long	0
 	.long	1079410688
 	.align 8
-.LC14:
+.LC15:
 	.long	-755914244
 	.long	-1085250995
 	.hidden	DW.ref.__gxx_personality_v0
