@@ -13,7 +13,6 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->VelocityY = 0;
     this->Latched = 0;
 
-    this->Overlapbox->Visible = true;
     this->Overlapbox->SetY(Y - 1);
     this->Overlapbox->SetWidth(15);
     this->Overlapbox->SetHeight(10);

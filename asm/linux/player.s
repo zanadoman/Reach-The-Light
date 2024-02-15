@@ -63,14 +63,13 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	addq	$64, %rdx
 	leaq	72(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE@PLT
-	movq	24(%rbx), %rdi
 	pxor	%xmm0, %xmm0
+	movq	24(%rbx), %rdi
 	movq	$0x000000000, 88(%rbx)
 	movq	%rax, 64(%rbx)
 	movups	%xmm0, 72(%rbx)
 	movsd	(%rsp), %xmm0
 	subsd	.LC0(%rip), %xmm0
-	movb	$1, 18(%rdi)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd@PLT
 	movq	24(%rbx), %rdi
 	movl	$15, %esi
