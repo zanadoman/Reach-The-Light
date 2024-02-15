@@ -69,6 +69,27 @@ uint8 act_player::Update()
         {
             this->Run->ColorR = 0;
             this->Idle->ColorR = 0;
+
+            if (this->Engine->Actors[i].Overlapboxes[1].GetType() == BOX_WEB)
+            {
+                if (this->VelocityX < -0.05)
+                {
+                    this->VelocityX = -0.05;
+                }
+                else if (0.05 < this->VelocityX)
+                {
+                    this->VelocityX = 0.05;
+                }
+
+                if (this->VelocityY < -0.05)
+                {
+                    this->VelocityY = -0.05;
+                }
+                else if (0.05 < this->VelocityY)
+                {
+                    this->VelocityY = 0.05;
+                }
+            }
         }
     }
 

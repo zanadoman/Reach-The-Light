@@ -120,6 +120,9 @@ uint8 tile_token::Update()
 {
     switch (this->Type)
     {
+        case TILE_TOP_LEFT_CORNER:
+        return ((tile_top_left_corner*)this->Data)->Update();
+
         case TILE_HORIZONTAL_CORRIDOR:
         return ((tile_horizontal_corridor*)this->Data)->Update();
 

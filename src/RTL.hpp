@@ -335,8 +335,11 @@ struct tile_top_left_corner
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
+    double TrapVelocityY;
+
     tile_top_left_corner(engine* Engine, game* Game, double X, double Y);
     ~tile_top_left_corner();
+    uint8 Update();
 };
 
 struct tile_top_right_corner
