@@ -19,6 +19,7 @@ struct scene_menu;
 struct scene_play;
 struct scene_editor;
 struct act_player;
+struct act_crate;
 struct gui_button;
 struct gui_slider;
 struct gui_tile;
@@ -48,6 +49,7 @@ typedef enum
 {
     ACT_NONE,
     ACT_PLAYER,
+    ACT_CRATE,
     ACT_TILE,
     ACT_PLATFORM
 } actor;
@@ -112,6 +114,8 @@ struct assets
     array<uint64> TileTextures;
     array<uint64> TileBackgrounds;
     array<uint64> TilePlatforms;
+
+    array<uint64> CrateTextures;
 
     assets(engine* Engine);
     ~assets();
@@ -213,6 +217,21 @@ struct act_player
 
     act_player(engine* Engine, game* Game, double X, double Y);
     ~act_player();
+    uint8 Update();
+};
+
+struct act_crate
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::texturebox Texturebox;
+
+    double VelocityY;
+
+    act_crate(engine* Engine, game* Game, double X, double Y);
+    ~act_crate();
     uint8 Update();
 };
 
