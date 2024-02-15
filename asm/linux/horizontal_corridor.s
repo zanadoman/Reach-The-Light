@@ -45,7 +45,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rdx, 8(%rdi)
 	leaq	256(%rsi), %rdi
-	movl	$2, %edx
+	movl	$1, %edx
 	xorl	%esi, %esi
 	movq	%rax, %xmm2
 	movsd	%xmm0, (%rsp)
@@ -77,7 +77,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movl	$60, %ecx
 	xorl	%esi, %esi
 	movsd	(%rsp), %xmm0
-	movl	$3, %edx
+	movl	$2, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%xmm1, %r15
@@ -130,7 +130,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	xorl	%esi, %esi
 	subsd	.LC2(%rip), %xmm1
 	movsd	(%rsp), %xmm0
-	movl	$3, %edx
+	movl	$2, %edx
 	xorl	%r12d, %r12d
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
@@ -181,7 +181,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	xorl	%esi, %esi
 	movl	$20, %ecx
 	movq	%r15, %xmm1
-	movl	$3, %edx
+	movl	$2, %edx
 	subsd	.LC2(%rip), %xmm5
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
@@ -215,7 +215,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	xorl	%esi, %esi
 	movl	$20, %ecx
 	movq	%r15, %xmm1
-	movl	$3, %edx
+	movl	$2, %edx
 	movsd	.LC2(%rip), %xmm6
 	addsd	(%rsp), %xmm6
 	leaq	256(%rax), %rdi
@@ -251,7 +251,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	%r12, %xmm0
 	movl	$20, %r8d
 	movl	$20, %ecx
-	movl	$3, %edx
+	movl	$2, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
@@ -283,7 +283,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	%rbp, %xmm0
 	movl	$20, %r8d
 	movl	$20, %ecx
-	movl	$3, %edx
+	movl	$2, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
@@ -309,7 +309,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r12, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movl	$48, %edi
+	movl	$40, %edi
 	call	_Znwm@PLT
 .LEHE0:
 	movsd	16(%rsp), %xmm1
@@ -392,7 +392,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd.cold:
 	.cfi_offset 14, -24
 	.cfi_offset 15, -16
 	movq	%rbp, %rdi
-	movl	$48, %esi
+	movl	$40, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 .LEHB3:
@@ -498,7 +498,7 @@ _ZN24tile_horizontal_corridorD2Ev:
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
 	movq	%rbx, %rdi
-	movl	$48, %esi
+	movl	$40, %esi
 	popq	%rbx
 	.cfi_def_cfa_offset 16
 	popq	%rbp

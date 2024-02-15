@@ -74,7 +74,7 @@ uint8 tile_trap_hole::Update()
 {
     array<array<uint64>> OverlapState;
 
-    if (this->HitboxBot != NULL && this->Trap->IsOverlappingWith(this->Game->Play->Player->Actor->GetID(), this->Game->Play->Player->Overlapbox->GetID()))
+    if (this->HitboxBot != NULL && this->Trap->IsOverlappingWith(this->Game->Play->Player->Actor->GetID(), this->Game->Play->Player->OverlapBox->GetID()))
     {
         this->Engine->Actors.Delete(this->HitboxBot->GetID());
         this->HitboxBot = NULL;

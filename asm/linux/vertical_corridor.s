@@ -39,7 +39,7 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rdx, 8(%rdi)
 	leaq	256(%rsi), %rdi
-	movl	$2, %edx
+	movl	$1, %edx
 	xorl	%esi, %esi
 	movq	%rax, %xmm2
 	movsd	%xmm0, 24(%rsp)
@@ -102,7 +102,7 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movsd	24(%rsp), %xmm0
 	movsd	8(%rsp), %xmm1
 	movl	$60, %r8d
-	movl	$3, %edx
+	movl	$2, %edx
 	movb	$1, 18(%rax)
 	movq	(%rbx), %rax
 	subsd	.LC3(%rip), %xmm0
@@ -162,7 +162,7 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movl	$20, %ecx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
-	movl	$3, %edx
+	movl	$2, %edx
 	movq	%rax, %xmm2
 	movapd	%xmm6, %xmm0
 	movsd	%xmm6, 24(%rsp)
@@ -211,7 +211,7 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movsd	.LC3(%rip), %xmm1
 	addsd	8(%rsp), %xmm1
 	movq	%r15, %xmm0
-	movl	$3, %edx
+	movl	$2, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
@@ -246,7 +246,7 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movsd	24(%rsp), %xmm0
 	movl	$20, %r8d
 	movl	$20, %ecx
-	movl	$3, %edx
+	movl	$2, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
@@ -278,7 +278,7 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movl	$20, %r8d
 	movl	$20, %ecx
 	movq	%r15, %xmm0
-	movl	$3, %edx
+	movl	$2, %edx
 	subsd	.LC3(%rip), %xmm1
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
@@ -314,7 +314,7 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movsd	24(%rsp), %xmm0
 	movl	$20, %r8d
 	movl	$20, %ecx
-	movl	$3, %edx
+	movl	$2, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2

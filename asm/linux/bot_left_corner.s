@@ -39,7 +39,7 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rdx, 8(%rdi)
 	leaq	256(%rsi), %rdi
-	movl	$2, %edx
+	movl	$1, %edx
 	xorl	%esi, %esi
 	movq	%rax, %xmm2
 	movsd	%xmm0, 16(%rsp)
@@ -90,7 +90,7 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movsd	8(%rsp), %xmm1
 	movsd	16(%rsp), %xmm0
 	movl	$20, %r8d
-	movl	$3, %edx
+	movl	$2, %edx
 	movb	$1, 18(%rax)
 	movq	0(%r13), %rax
 	subsd	.LC3(%rip), %xmm1
@@ -149,7 +149,7 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	subsd	.LC3(%rip), %xmm0
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
-	movl	$3, %edx
+	movl	$2, %edx
 	movq	%rax, %xmm2
 	movsd	%xmm0, 24(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
@@ -194,7 +194,7 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 .L7:
 	movq	0(%r13), %rax
 	movl	$20, %ecx
-	movl	$3, %edx
+	movl	$2, %edx
 	xorl	%esi, %esi
 	movsd	.LC3(%rip), %xmm1
 	addsd	8(%rsp), %xmm1
@@ -234,7 +234,7 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movsd	.LC3(%rip), %xmm5
 	addsd	16(%rsp), %xmm5
 	movl	$20, %r8d
-	movl	$3, %edx
+	movl	$2, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movsd	8(%rsp), %xmm1
@@ -269,7 +269,7 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movsd	24(%rsp), %xmm0
 	movl	$20, %r8d
 	movq	%r15, %xmm1
-	movl	$3, %edx
+	movl	$2, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
@@ -301,7 +301,7 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movl	$20, %r8d
 	movl	$20, %ecx
 	movq	%r15, %xmm1
-	movl	$3, %edx
+	movl	$2, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2

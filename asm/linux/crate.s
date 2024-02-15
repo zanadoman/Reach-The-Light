@@ -7,14 +7,19 @@
 _ZN9act_crateC2EPN3wze6engineEP4gamedd:
 .LFB8157:
 	.cfi_startproc
-	pushq	%rbx
+	pushq	%rbp
 	.cfi_def_cfa_offset 16
-	.cfi_offset 3, -16
-	movsd	.LC0(%rip), %xmm2
-	movq	%rdi, %rbx
-	movl	$30, %ecx
-	movq	%rsi, (%rdi)
+	.cfi_offset 6, -16
 	movl	$30, %r8d
+	movl	$30, %ecx
+	pushq	%rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+	movq	%rdi, %rbx
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 32
+	movq	%rsi, (%rdi)
+	movsd	.LC0(%rip), %xmm2
 	movq	%rdx, 8(%rdi)
 	xorl	%edx, %edx
 	leaq	256(%rsi), %rdi
@@ -33,8 +38,8 @@ _ZN9act_crateC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	16(%rbx), %rdi
 	movl	$1, %esi
-	movq	$0x000000000, 40(%rbx)
-	movq	%rax, 32(%rbx)
+	movq	$0x000000000, 32(%rbx)
+	movq	%rax, %rbp
 	movq	$49, 184(%rdi)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	24(%rbx), %rdi
@@ -43,9 +48,12 @@ _ZN9act_crateC2EPN3wze6engineEP4gamedd:
 	movq	24(%rbx), %rdi
 	movl	$120, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
-	movq	32(%rbx), %rax
-	movb	$-127, 36(%rax)
+	movb	$-127, 36(%rbp)
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 24
 	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
@@ -127,7 +135,7 @@ _ZN9act_crate6UpdateEv:
 	leaq	16(%rsp), %rsi
 	movq	$0, 16(%rsp)
 	movq	$0, 24(%rsp)
-	movq	$3, 32(%rsp)
+	movq	$2, 32(%rsp)
 .LEHB0:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox15GetOverlapStateEPN3neo5arrayINS6_IyEEEESt16initializer_listIyESB_@PLT
 	movq	16(%rsp), %rdx
@@ -135,20 +143,20 @@ _ZN9act_crate6UpdateEv:
 	movl	$1, %esi
 	cmpq	$1, %rdx
 	ja	.L7
-	jmp	.L10
+	jmp	.L11
 	.p2align 4,,10
 	.p2align 3
-.L9:
+.L10:
 	addl	$1, %ebx
 	movzwl	%bx, %esi
 	cmpq	%rdx, %rsi
-	jnb	.L10
+	jnb	.L11
 .L7:
 	movq	%rsi, %rax
 	salq	$4, %rax
 	addq	24(%rsp), %rax
 	cmpq	$0, (%rax)
-	je	.L9
+	je	.L10
 	movq	0(%rbp), %rax
 	leaq	256(%rax), %rdi
 	call	_ZN3wze6engine6actorsixEy@PLT
@@ -160,7 +168,10 @@ _ZN9act_crate6UpdateEv:
 	movzwl	%bx, %esi
 	cmpq	%rdx, %rsi
 	jb	.L7
-.L10:
+.L11:
+	pxor	%xmm0, %xmm0
+	comisd	32(%rbp), %xmm0
+	ja	.L8
 	movq	8(%rbp), %rax
 	movq	24(%rbp), %r12
 	movq	48(%rax), %rax
@@ -178,60 +189,22 @@ _ZN9act_crate6UpdateEv:
 	movq	%r12, %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
 	testb	%al, %al
-	jne	.L11
-	pxor	%xmm0, %xmm0
-	comisd	40(%rbp), %xmm0
-	ja	.L11
-.L12:
-	xorl	%ebx, %ebx
-	cmpq	$0, 16(%rsp)
-	je	.L23
-	.p2align 4,,10
-	.p2align 3
-.L22:
-	movq	%rbx, %rax
-	addq	$1, %rbx
-	salq	$4, %rax
-	addq	24(%rsp), %rax
-	movq	8(%rax), %rdi
-	call	free@PLT
-	cmpq	16(%rsp), %rbx
-	jb	.L22
-.L23:
-	movq	24(%rsp), %rdi
-	call	free@PLT
-	movq	40(%rsp), %rax
-	subq	%fs:40, %rax
-	jne	.L41
-	addq	$48, %rsp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 32
-	xorl	%eax, %eax
-	popq	%rbx
-	.cfi_def_cfa_offset 24
-	popq	%rbp
-	.cfi_def_cfa_offset 16
-	popq	%r12
-	.cfi_def_cfa_offset 8
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L11:
-	.cfi_restore_state
+	je	.L13
+.L8:
 	movq	0(%rbp), %rax
 	leaq	400(%rax), %rdi
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	movl	%eax, %eax
 	pxor	%xmm1, %xmm1
-	movsd	40(%rbp), %xmm0
+	movsd	32(%rbp), %xmm0
 	movq	16(%rbp), %rdi
 	cvtsi2sdq	%rax, %xmm1
 	mulsd	.LC2(%rip), %xmm1
 	subsd	%xmm1, %xmm0
-	movsd	%xmm0, 40(%rbp)
+	movsd	%xmm0, 32(%rbp)
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	movq	0(%rbp), %rax
-	movsd	40(%rbp), %xmm3
+	movsd	32(%rbp), %xmm3
 	movsd	%xmm0, 8(%rsp)
 	leaq	400(%rax), %rdi
 	movsd	%xmm3, (%rsp)
@@ -247,7 +220,7 @@ _ZN9act_crate6UpdateEv:
 	movq	%xmm2, %rbx
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	movq	0(%rbp), %rax
-	movsd	40(%rbp), %xmm5
+	movsd	32(%rbp), %xmm5
 	movsd	%xmm0, 8(%rsp)
 	leaq	400(%rax), %rdi
 	movsd	%xmm5, (%rsp)
@@ -262,19 +235,54 @@ _ZN9act_crate6UpdateEv:
 .LEHE0:
 	movq	%rbx, %xmm7
 	ucomisd	%xmm0, %xmm7
-	jp	.L32
-	je	.L12
-.L32:
+	jp	.L33
+	jne	.L33
+.L13:
+	xorl	%ebx, %ebx
+	cmpq	$0, 16(%rsp)
+	je	.L24
+	.p2align 4,,10
+	.p2align 3
+.L23:
+	movq	%rbx, %rax
+	addq	$1, %rbx
+	salq	$4, %rax
+	addq	24(%rsp), %rax
+	movq	8(%rax), %rdi
+	call	free@PLT
+	cmpq	16(%rsp), %rbx
+	jb	.L23
+.L24:
+	movq	24(%rsp), %rdi
+	call	free@PLT
+	movq	40(%rsp), %rax
+	subq	%fs:40, %rax
+	jne	.L43
+	addq	$48, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 32
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L33:
+	.cfi_restore_state
 	pxor	%xmm0, %xmm0
-	comisd	40(%rbp), %xmm0
-	jbe	.L12
-	movsd	%xmm0, 40(%rbp)
-	jmp	.L12
-.L41:
+	comisd	32(%rbp), %xmm0
+	jbe	.L13
+	movsd	%xmm0, 32(%rbp)
+	jmp	.L13
+.L43:
 	call	__stack_chk_fail@PLT
-.L31:
+.L32:
 	movq	%rax, %rbp
-	jmp	.L24
+	jmp	.L25
 	.section	.gcc_except_table
 .LLSDA8162:
 	.byte	0xff
@@ -284,7 +292,7 @@ _ZN9act_crate6UpdateEv:
 .LLSDACSB8162:
 	.uleb128 .LEHB0-.LFB8162
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L31-.LFB8162
+	.uleb128 .L32-.LFB8162
 	.uleb128 0
 .LLSDACSE8162:
 	.text
@@ -296,32 +304,32 @@ _ZN9act_crate6UpdateEv:
 	.type	_ZN9act_crate6UpdateEv.cold, @function
 _ZN9act_crate6UpdateEv.cold:
 .LFSB8162:
-.L24:
+.L25:
 	.cfi_def_cfa_offset 80
 	.cfi_offset 3, -32
 	.cfi_offset 6, -24
 	.cfi_offset 12, -16
 	xorl	%ebx, %ebx
-.L25:
+.L26:
 	movq	24(%rsp), %rdi
 	cmpq	16(%rsp), %rbx
-	jnb	.L42
+	jnb	.L44
 	movq	%rbx, %rax
 	addq	$1, %rbx
 	salq	$4, %rax
 	movq	8(%rdi,%rax), %rdi
 	call	free@PLT
-	jmp	.L25
-.L42:
+	jmp	.L26
+.L44:
 	call	free@PLT
 	movq	40(%rsp), %rax
 	subq	%fs:40, %rax
-	jne	.L43
+	jne	.L45
 	movq	%rbp, %rdi
 .LEHB1:
 	call	_Unwind_Resume@PLT
 .LEHE1:
-.L43:
+.L45:
 	call	__stack_chk_fail@PLT
 	.cfi_endproc
 .LFE8162:

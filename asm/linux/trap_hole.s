@@ -39,7 +39,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rdx, 8(%rdi)
 	leaq	256(%rsi), %rdi
-	movl	$2, %edx
+	movl	$1, %edx
 	xorl	%esi, %esi
 	movq	%rax, %xmm2
 	movsd	%xmm0, 8(%rsp)
@@ -84,7 +84,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movsd	.LC3(%rip), %xmm5
 	addsd	24(%rsp), %xmm5
 	movl	$20, %r8d
-	movl	$3, %edx
+	movl	$2, %edx
 	movb	$1, 18(%rax)
 	movq	(%rbx), %rax
 	movsd	8(%rsp), %xmm0
@@ -141,7 +141,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	xorl	%esi, %esi
 	subsd	.LC3(%rip), %xmm1
 	movsd	8(%rsp), %xmm0
-	movl	$3, %edx
+	movl	$2, %edx
 	xorl	%r12d, %r12d
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
@@ -192,7 +192,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	xorl	%esi, %esi
 	movl	$20, %r8d
 	movq	%r15, %xmm1
-	movl	$3, %edx
+	movl	$2, %edx
 	subsd	.LC3(%rip), %xmm6
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
@@ -226,7 +226,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	xorl	%esi, %esi
 	movl	$20, %ecx
 	movq	%r15, %xmm1
-	movl	$3, %edx
+	movl	$2, %edx
 	movsd	.LC3(%rip), %xmm7
 	addsd	8(%rsp), %xmm7
 	leaq	256(%rax), %rdi
@@ -262,7 +262,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	%r12, %xmm0
 	movl	$20, %r8d
 	movl	$20, %ecx
-	movl	$3, %edx
+	movl	$2, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
@@ -294,7 +294,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	%rbp, %xmm0
 	movl	$20, %r8d
 	movl	$20, %ecx
-	movl	$3, %edx
+	movl	$2, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2

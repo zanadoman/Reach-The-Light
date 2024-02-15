@@ -39,7 +39,7 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rdx, 8(%rdi)
 	leaq	256(%rsi), %rdi
-	movl	$2, %edx
+	movl	$1, %edx
 	xorl	%esi, %esi
 	movq	%rax, %xmm2
 	movsd	%xmm0, 16(%rsp)
@@ -84,7 +84,7 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movsd	.LC3(%rip), %xmm3
 	addsd	8(%rsp), %xmm3
 	movl	$20, %r8d
-	movl	$3, %edx
+	movl	$2, %edx
 	movb	$1, 18(%rax)
 	movq	(%rbx), %rax
 	movsd	16(%rsp), %xmm0
@@ -144,7 +144,7 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movl	$20, %ecx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
-	movl	$3, %edx
+	movl	$2, %edx
 	movq	%rax, %xmm2
 	movapd	%xmm4, %xmm0
 	movq	%xmm4, %r13
@@ -195,7 +195,7 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	subsd	.LC3(%rip), %xmm5
 	movsd	24(%rsp), %xmm1
 	movl	$20, %r8d
-	movl	$3, %edx
+	movl	$2, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movapd	%xmm5, %xmm0
@@ -229,7 +229,7 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movl	$20, %r8d
 	movl	$20, %ecx
 	movq	%r13, %xmm0
-	movl	$3, %edx
+	movl	$2, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
@@ -261,7 +261,7 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	%rbp, %xmm0
 	movl	$20, %r8d
 	movl	$20, %ecx
-	movl	$3, %edx
+	movl	$2, %edx
 	subsd	.LC3(%rip), %xmm1
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
@@ -297,7 +297,7 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movl	$20, %r8d
 	movl	$20, %ecx
 	movq	%r13, %xmm0
-	movl	$3, %edx
+	movl	$2, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2

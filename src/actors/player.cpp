@@ -2,36 +2,35 @@
 
 act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(Engine), Game(Game)
 {
-    this->Actor = this->Engine->Actors.New(this, ACT_PLAYER, X, Y, 16, 15, 1);
-    this->Overlapbox = this->Actor->Overlapboxes.New(BOX_PLAYER);
-    this->Simulation = this->Actor->Overlapboxes.New(BOX_NONE);
-    this->Claw1 = this->Actor->Overlapboxes.New(BOX_NONE);
-    this->Claw2 = this->Actor->Overlapboxes.New(BOX_NONE);
+    this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 16, 15, 1);
+    this->OverlapBox = this->Actor->Overlapboxes.New(BOX_PLAYER);
+    this->SimulationBox = this->Actor->Overlapboxes.New(BOX_NONE);
+    this->LatchBox1 = this->Actor->Overlapboxes.New(BOX_NONE);
+    this->LatchBox2 = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Idle = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdle);
     this->Run = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerRun);
     this->VelocityX = 0;
     this->VelocityY = 0;
-    this->Latched = 0;
 
-    this->Overlapbox->SetY(Y - 1);
-    this->Overlapbox->SetWidth(15);
-    this->Overlapbox->SetHeight(10);
+    this->OverlapBox->SetY(Y - 1);
+    this->OverlapBox->SetWidth(15);
+    this->OverlapBox->SetHeight(10);
 
     this->Actor->Force = 99;
     this->Actor->SetCollisionLayer(1);
 
-    this->Simulation->SetWidth(64);
-    this->Simulation->SetHeight(60);
+    this->SimulationBox->SetWidth(64);
+    this->SimulationBox->SetHeight(60);
 
-    this->Claw1->SetX(X + 8);
-    this->Claw1->SetY(Y + 6);
-    this->Claw1->SetHeight(2);
-    this->Claw1->SetWidth(2);
+    this->LatchBox1->SetX(X + 8);
+    this->LatchBox1->SetY(Y + 6);
+    this->LatchBox1->SetHeight(2);
+    this->LatchBox1->SetWidth(2);
 
-    this->Claw2->SetX(X + 8);
-    this->Claw2->SetY(Y - 3.5);
-    this->Claw2->SetHeight(2);
-    this->Claw2->SetWidth(2);
+    this->LatchBox2->SetX(X + 8);
+    this->LatchBox2->SetY(Y - 3.5);
+    this->LatchBox2->SetHeight(2);
+    this->LatchBox2->SetWidth(2);
 
     this->Idle->Width = 32;
     this->Idle->Height = 32;
@@ -57,11 +56,11 @@ act_player::~act_player()
 uint8 act_player::Update()
 {
     array<array<uint64>> OverlapState;
-    bool Claw1Active, Claw2Active;
+    bool LatchBox1Active, LatchBox2Active;
 
     this->Run->ColorR = 255;
     this->Idle->ColorR = 255;
-    this->Overlapbox->GetOverlapState(&OverlapState, {ACT_TILE}, {});
+    this->OverlapBox->GetOverlapState(&OverlapState, {ACT_TILE}, {});
     for (uint16 i = 1; i < OverlapState.Length(); i++)
     {
         if (0 < OverlapState[i].Length())
@@ -89,10 +88,12 @@ uint8 act_player::Update()
                     this->VelocityY = 0.05;
                 }
             }
+
+            break;
         }
     }
 
-    this->Simulation->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
+    this->SimulationBox->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
     for (uint16 i = 1; i < OverlapState.Length(); i++)
     {
         if (0 < OverlapState[i].Length())
@@ -109,8 +110,8 @@ uint8 act_player::Update()
             this->VelocityX = -0.25;
         }
 
-        this->Claw1->SetX(this->Actor->GetX() - 8);
-        this->Claw2->SetX(this->Actor->GetX() - 8);
+        this->LatchBox1->SetX(this->Actor->GetX() - 8);
+        this->LatchBox2->SetX(this->Actor->GetX() - 8);
         this->Idle->FlipHorizontal = true;
         this->Run->FlipHorizontal = true;
     }
@@ -130,8 +131,8 @@ uint8 act_player::Update()
             this->VelocityX = 0.25;
         }
 
-        this->Claw1->SetX(this->Actor->GetX() + 8);
-        this->Claw2->SetX(this->Actor->GetX() + 8);
+        this->LatchBox1->SetX(this->Actor->GetX() + 8);
+        this->LatchBox2->SetX(this->Actor->GetX() + 8);
         this->Idle->FlipHorizontal = false;
         this->Run->FlipHorizontal = false;
     }
@@ -151,28 +152,28 @@ uint8 act_player::Update()
 
     if (this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime() != this->Actor->SetX(this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime()) && this->Engine->Keys[KEY_SPACE])
     {
-        this->Claw1->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
-        Claw1Active = false;
+        this->LatchBox1->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
+        LatchBox1Active = false;
         for (uint64 i = 0; i < OverlapState.Length(); i++)
         {
             if (0 < OverlapState[i].Length())
             {
-                Claw1Active = true;
+                LatchBox1Active = true;
                 break;
             }
         }
-        this->Claw2->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
-        Claw2Active = false;
+        this->LatchBox2->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
+        LatchBox2Active = false;
         for (uint64 i = 0; i < OverlapState.Length(); i++)
         {
             if (0 < OverlapState[i].Length())
             {
-                Claw2Active = true;
+                LatchBox2Active = true;
                 break;
             }
         }
 
-        if (Claw1Active && Claw2Active)
+        if (LatchBox1Active && LatchBox2Active)
         {
             if (this->VelocityX < 0)
             {

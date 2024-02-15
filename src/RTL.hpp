@@ -48,7 +48,6 @@ typedef enum
 typedef enum
 {
     ACT_NONE,
-    ACT_PLAYER,
     ACT_TILE,
     ACT_PLATFORM
 } actor;
@@ -206,16 +205,15 @@ struct act_player
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Overlapbox;
-    engine::overlapbox Simulation;
-    engine::overlapbox Claw1;
-    engine::overlapbox Claw2;
+    engine::overlapbox OverlapBox;
+    engine::overlapbox SimulationBox;
+    engine::overlapbox LatchBox1;
+    engine::overlapbox LatchBox2;
     engine::flipbook Idle;
     engine::flipbook Run;
     
     double VelocityX;
     double VelocityY;
-    double Latched;
 
     act_player(engine* Engine, game* Game, double X, double Y);
     ~act_player();
@@ -228,8 +226,7 @@ struct act_crate
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Simulation;
-    engine::texturebox Texturebox;
+    engine::overlapbox SimulationBox;
 
     double VelocityY;
 
