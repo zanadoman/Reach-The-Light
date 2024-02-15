@@ -610,7 +610,7 @@ _ZN10scene_menu6UpdateEv:
 	.align 8
 .LC13:
 	.long	0
-	.long	1072693248
+	.long	1077805056
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	_ZN3wze6engine6window9GetHeightEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6window8GetWidthEv;	.scl	2;	.type	32;	.endef

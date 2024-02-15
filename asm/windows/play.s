@@ -2,9 +2,9 @@
 	.text
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB1:
+.LCOLDB2:
 	.text
-.LHOTB1:
+.LHOTB2:
 	.align 2
 	.p2align 4
 	.globl	_ZN10scene_playC2EPN3wze6engineEP4game
@@ -79,12 +79,19 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	addl	$100, %r15d
 	cmpq	$8, %r14
 	jne	.L2
+	movq	8(%rbp), %rax
 	movl	$96, %ecx
+	movq	24(%rax), %rax
+	movq	136(%rax), %rdx
+	movzbl	(%rdx), %edx
+	movq	144(%rax,%rdx,8), %rax
+	cmpb	$4, (%rax)
+	je	.L16
 .LEHB2:
 	call	_Znwy
 .LEHE2:
 	movq	8(%rbp), %r8
-	movq	.LC0(%rip), %rcx
+	movq	.LC1(%rip), %rcx
 	pxor	%xmm3, %xmm3
 	movq	%rax, %rbx
 	movq	0(%rbp), %rdx
@@ -99,6 +106,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 .LEHB3:
 	call	_ZN10act_playerC1EPN3wze6engineEP4gamedd
 .LEHE3:
+.L6:
 	movq	%rbx, 1040(%rbp)
 	movaps	48(%rsp), %xmm6
 	addq	$72, %rsp
@@ -111,12 +119,36 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	popq	%r14
 	popq	%r15
 	ret
-.L7:
+.L16:
+.LEHB4:
+	call	_Znwy
+.LEHE4:
+	movq	8(%rbp), %r8
+	movq	.LC0(%rip), %rcx
+	pxor	%xmm3, %xmm3
 	movq	%rax, %rbx
-	jmp	.L5
-.L8:
-	movq	%rax, %rsi
+	movq	0(%rbp), %rdx
+	movq	24(%r8), %rax
+	movq	136(%rax), %rax
+	movzbl	(%rax), %eax
+	movq	%rcx, 32(%rsp)
+	movq	%rbx, %rcx
+	imull	$100, %eax, %eax
+	subl	$350, %eax
+	cvtsi2sdl	%eax, %xmm3
+.LEHB5:
+	call	_ZN10act_playerC1EPN3wze6engineEP4gamedd
+.LEHE5:
 	jmp	.L6
+.L11:
+	movq	%rax, %rsi
+	jmp	.L8
+.L10:
+	movq	%rax, %rbx
+	jmp	.L7
+.L12:
+	movq	%rax, %rsi
+	jmp	.L9
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
@@ -132,7 +164,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	.uleb128 0
 	.uleb128 .LEHB1-.LFB8432
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L7-.LFB8432
+	.uleb128 .L10-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB2-.LFB8432
 	.uleb128 .LEHE2-.LEHB2
@@ -140,7 +172,15 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	.uleb128 0
 	.uleb128 .LEHB3-.LFB8432
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L8-.LFB8432
+	.uleb128 .L12-.LFB8432
+	.uleb128 0
+	.uleb128 .LEHB4-.LFB8432
+	.uleb128 .LEHE4-.LEHB4
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB5-.LFB8432
+	.uleb128 .LEHE5-.LEHB5
+	.uleb128 .L11-.LFB8432
 	.uleb128 0
 .LLSDACSE8432:
 	.text
@@ -160,21 +200,27 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	.seh_savereg	%r15, 128
 	.seh_endprologue
 _ZN10scene_playC2EPN3wze6engineEP4game.cold:
-.L5:
+.L8:
+	movq	%rbx, %rcx
+	movl	$96, %edx
+	call	_ZdlPvy
+	movq	%rsi, %rcx
+.LEHB6:
+	call	_Unwind_Resume
+.L7:
 	movq	%rsi, %rcx
 	movl	$16, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
-.LEHB4:
 	call	_Unwind_Resume
-.L6:
+.L9:
 	movq	%rbx, %rcx
 	movl	$96, %edx
 	call	_ZdlPvy
 	movq	%rsi, %rcx
 	call	_Unwind_Resume
 	nop
-.LEHE4:
+.LEHE6:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 .LLSDAC8432:
@@ -183,8 +229,8 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB4-.LCOLDB1
-	.uleb128 .LEHE4-.LEHB4
+	.uleb128 .LEHB6-.LCOLDB2
+	.uleb128 .LEHE6-.LEHB6
 	.uleb128 0
 	.uleb128 0
 .LLSDACSEC8432:
@@ -192,9 +238,9 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE1:
+.LCOLDE2:
 	.text
-.LHOTE1:
+.LHOTE2:
 	.globl	_ZN10scene_playC1EPN3wze6engineEP4game
 	.def	_ZN10scene_playC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.set	_ZN10scene_playC1EPN3wze6engineEP4game,_ZN10scene_playC2EPN3wze6engineEP4game
@@ -223,29 +269,29 @@ _ZN10scene_playD2Ev:
 	leaq	1168(%rcx), %rbp
 	.p2align 4,,10
 	.p2align 3
-.L13:
+.L18:
 	leaq	-128(%rdi), %rbx
 	.p2align 4,,10
 	.p2align 3
-.L15:
+.L20:
 	movq	(%rbx), %rsi
 	testq	%rsi, %rsi
-	je	.L14
+	je	.L19
 	movq	%rsi, %rcx
 	call	_ZN10tile_tokenD1Ev
 	movl	$16, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
-.L14:
+.L19:
 	addq	$8, %rbx
 	cmpq	%rdi, %rbx
-	jne	.L15
+	jne	.L20
 	leaq	128(%rbx), %rdi
 	cmpq	%rbp, %rdi
-	jne	.L13
+	jne	.L18
 	movq	1040(%r12), %rbx
 	testq	%rbx, %rbx
-	je	.L12
+	je	.L17
 	movq	%rbx, %rcx
 	call	_ZN10act_playerD1Ev
 	movl	$96, %edx
@@ -257,7 +303,7 @@ _ZN10scene_playD2Ev:
 	popq	%rbp
 	popq	%r12
 	jmp	_ZdlPvy
-.L12:
+.L17:
 	addq	$32, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -289,42 +335,42 @@ _ZN10scene_play6UpdateEv:
 	subq	$32, %rsp
 	.seh_stackalloc	32
 	.seh_endprologue
-	leaq	144(%rcx), %rsi
+	leaq	144(%rcx), %rdi
 	movq	%rcx, %r12
 	leaq	1168(%rcx), %rbp
-	movq	%rsi, %rdi
+	movq	%rdi, %rsi
 	.p2align 4,,10
 	.p2align 3
-.L23:
-	leaq	-128(%rdi), %rbx
-	.p2align 4,,10
-	.p2align 3
-.L24:
-	movq	(%rbx), %rcx
-	addq	$8, %rbx
-	call	_ZN10tile_token19ResetCollisionLayerEv
-	cmpq	%rdi, %rbx
-	jne	.L24
-	leaq	128(%rbx), %rdi
-	cmpq	%rbp, %rdi
-	jne	.L23
-	movq	1040(%r12), %rcx
-	call	_ZN10act_player6UpdateEv
-	.p2align 4,,10
-	.p2align 3
-.L26:
+.L28:
 	leaq	-128(%rsi), %rbx
 	.p2align 4,,10
 	.p2align 3
-.L27:
+.L29:
+	movq	(%rbx), %rcx
+	addq	$8, %rbx
+	call	_ZN10tile_token19ResetCollisionLayerEv
+	cmpq	%rsi, %rbx
+	jne	.L29
+	subq	$-128, %rsi
+	cmpq	%rbp, %rsi
+	jne	.L28
+	.p2align 4,,10
+	.p2align 3
+.L30:
+	leaq	-128(%rdi), %rbx
+	.p2align 4,,10
+	.p2align 3
+.L31:
 	movq	(%rbx), %rcx
 	addq	$8, %rbx
 	call	_ZN10tile_token6UpdateEv
-	cmpq	%rsi, %rbx
-	jne	.L27
-	leaq	128(%rbx), %rsi
-	cmpq	%rbp, %rsi
-	jne	.L26
+	cmpq	%rdi, %rbx
+	jne	.L31
+	leaq	128(%rbx), %rdi
+	cmpq	%rbp, %rdi
+	jne	.L30
+	movq	1040(%r12), %rcx
+	call	_ZN10act_player6UpdateEv
 	movq	(%r12), %rcx
 	movl	$41, %edx
 	addq	$176, %rcx
@@ -344,7 +390,11 @@ _ZN10scene_play6UpdateEv:
 	.align 8
 .LC0:
 	.long	0
-	.long	-1064865792
+	.long	-1064884224
+	.align 8
+.LC1:
+	.long	0
+	.long	-1064822784
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	_Znwy;	.scl	2;	.type	32;	.endef
 	.def	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
@@ -354,6 +404,6 @@ _ZN10scene_play6UpdateEv:
 	.def	_ZN10tile_tokenD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN10act_playerD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN10tile_token19ResetCollisionLayerEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN10act_player6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN10tile_token6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN10act_player6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine4keysixENS_3keyE;	.scl	2;	.type	32;	.endef

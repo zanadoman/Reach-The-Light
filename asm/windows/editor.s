@@ -374,14 +374,12 @@ _ZN12scene_editor6UpdateEv:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$88, %rsp
-	.seh_stackalloc	88
+	subq	$72, %rsp
+	.seh_stackalloc	72
 	movaps	%xmm6, 32(%rsp)
 	.seh_savexmm	%xmm6, 32
 	movaps	%xmm7, 48(%rsp)
 	.seh_savexmm	%xmm7, 48
-	movaps	%xmm8, 64(%rsp)
-	.seh_savexmm	%xmm8, 64
 	.seh_endprologue
 	movq	%rcx, %rdi
 	leaq	168(%rcx), %rsi
@@ -417,24 +415,16 @@ _ZN12scene_editor6UpdateEv:
 	movq	%rbx, %rcx
 	je	.L35
 	call	_ZN3wze6engine6camera7GetZoomEv
-	movq	(%rdi), %rax
-	movapd	%xmm0, %xmm6
-	leaq	400(%rax), %rcx
-	call	_ZN3wze6engine6timing12GetDeltaTimeEv
-	pxor	%xmm0, %xmm0
-	movl	%eax, %eax
-	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC10(%rip), %xmm0
-	subsd	%xmm0, %xmm6
+	movapd	%xmm0, %xmm1
+	subsd	.LC10(%rip), %xmm1
 	movsd	.LC8(%rip), %xmm0
-	comisd	%xmm6, %xmm0
-	movapd	%xmm6, %xmm1
-	ja	.L78
-.L122:
+	comisd	%xmm1, %xmm0
+	ja	.L70
+.L114:
 	movsd	.LC9(%rip), %xmm0
 	minsd	%xmm1, %xmm0
 	movapd	%xmm0, %xmm1
-.L53:
+.L47:
 	movq	%rbx, %rcx
 	call	_ZN3wze6engine6camera7SetZoomEd
 	movq	(%rdi), %rax
@@ -453,32 +443,31 @@ _ZN12scene_editor6UpdateEv:
 	call	_ZN3wze6engine6camera10GetOriginYEv
 	movapd	%xmm0, %xmm1
 	comisd	%xmm7, %xmm6
-	jbe	.L106
-.L111:
+	jbe	.L98
+.L103:
 	comisd	%xmm1, %xmm7
-	ja	.L107
+	ja	.L99
 	minsd	%xmm1, %xmm6
 	movapd	%xmm6, %xmm1
-.L62:
+.L54:
 	movq	%rbx, %rcx
 	call	_ZN3wze6engine6camera10SetOriginYEd
-.L43:
+.L41:
 	movq	24(%rdi), %rcx
 	call	_ZN10gui_button6UpdateEv
 	testb	%al, %al
-	jne	.L123
-.L64:
+	jne	.L115
+.L56:
 	movq	32(%rdi), %rcx
 	call	_ZN10gui_button6UpdateEv
 	testb	%al, %al
-	je	.L65
-.L67:
+	je	.L57
+.L59:
 	movl	$1, %eax
 .L30:
 	movaps	32(%rsp), %xmm6
 	movaps	48(%rsp), %xmm7
-	movaps	64(%rsp), %xmm8
-	addq	$88, %rsp
+	addq	$72, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
@@ -488,7 +477,7 @@ _ZN12scene_editor6UpdateEv:
 	movl	$236, %edx
 	call	_ZN3wze6engine4keysixENS_3keyE
 	testb	%al, %al
-	je	.L43
+	je	.L41
 	movq	(%rdi), %rax
 	movl	$224, %edx
 	leaq	176(%rax), %rcx
@@ -497,23 +486,16 @@ _ZN12scene_editor6UpdateEv:
 	movq	(%rdi), %rax
 	leaq	80(%rax), %rbx
 	movq	%rbx, %rcx
-	je	.L50
+	je	.L46
 	call	_ZN3wze6engine6camera7GetZoomEv
-	movq	(%rdi), %rax
-	movapd	%xmm0, %xmm6
-	leaq	400(%rax), %rcx
-	call	_ZN3wze6engine6timing12GetDeltaTimeEv
-	pxor	%xmm1, %xmm1
+	movsd	.LC10(%rip), %xmm1
+	addsd	%xmm0, %xmm1
 	movsd	.LC8(%rip), %xmm0
-	movl	%eax, %eax
-	cvtsi2sdq	%rax, %xmm1
-	mulsd	.LC10(%rip), %xmm1
-	addsd	%xmm6, %xmm1
 	comisd	%xmm1, %xmm0
-	jbe	.L122
-.L78:
+	jbe	.L114
+.L70:
 	movapd	%xmm0, %xmm1
-	jmp	.L53
+	jmp	.L47
 .L35:
 	call	_ZN3wze6engine6camera7GetZoomEv
 	movq	(%rdi), %rax
@@ -521,73 +503,60 @@ _ZN12scene_editor6UpdateEv:
 	leaq	80(%rax), %rcx
 	mulsd	%xmm0, %xmm6
 	call	_ZN3wze6engine6camera7GetZoomEv
-	movq	(%rdi), %rax
 	movsd	.LC11(%rip), %xmm7
-	leaq	80(%rax), %rcx
-	mulsd	%xmm0, %xmm7
-	call	_ZN3wze6engine6camera10GetOriginYEv
 	movq	(%rdi), %rax
-	movapd	%xmm0, %xmm8
-	leaq	400(%rax), %rcx
-	call	_ZN3wze6engine6timing12GetDeltaTimeEv
-	pxor	%xmm0, %xmm0
-	movapd	%xmm8, %xmm1
-	leal	0(,%rax,4), %eax
+	mulsd	%xmm0, %xmm7
+	leaq	80(%rax), %rcx
+	call	_ZN3wze6engine6camera10GetOriginYEv
+	movapd	%xmm0, %xmm1
+	subsd	.LC12(%rip), %xmm1
 	comisd	%xmm7, %xmm6
-	cvtsi2sdq	%rax, %xmm0
-	subsd	%xmm0, %xmm1
-	ja	.L111
-.L106:
+	ja	.L103
+.L98:
 	comisd	%xmm6, %xmm7
-	jbe	.L62
+	jbe	.L54
 	comisd	%xmm1, %xmm6
-	ja	.L86
+	ja	.L78
 	minsd	%xmm1, %xmm7
-.L107:
+.L99:
 	movapd	%xmm7, %xmm1
 	movq	%rbx, %rcx
 	call	_ZN3wze6engine6camera10SetOriginYEd
-	jmp	.L43
-.L65:
+	jmp	.L41
+.L57:
 	movq	(%rdi), %rcx
 	movl	$41, %edx
 	addq	$176, %rcx
 	call	_ZN3wze6engine4keysixENS_3keyE
 	testb	%al, %al
-	jne	.L67
+	jne	.L59
 	movl	$3, %eax
 	jmp	.L30
-.L123:
+.L115:
 	movq	8(%rdi), %rax
 	movq	24(%rax), %rcx
 	call	_ZN3map5ResetEv
-	jmp	.L64
-.L50:
+	jmp	.L56
+.L46:
 	call	_ZN3wze6engine6camera7GetZoomEv
 	movq	(%rdi), %rax
 	movsd	.LC6(%rip), %xmm6
 	leaq	80(%rax), %rcx
 	mulsd	%xmm0, %xmm6
 	call	_ZN3wze6engine6camera7GetZoomEv
-	movq	(%rdi), %rax
 	movsd	.LC11(%rip), %xmm7
-	leaq	80(%rax), %rcx
-	mulsd	%xmm0, %xmm7
-	call	_ZN3wze6engine6camera10GetOriginYEv
 	movq	(%rdi), %rax
-	movapd	%xmm0, %xmm8
-	leaq	400(%rax), %rcx
-	call	_ZN3wze6engine6timing12GetDeltaTimeEv
-	pxor	%xmm1, %xmm1
-	leal	0(,%rax,4), %eax
+	mulsd	%xmm0, %xmm7
+	leaq	80(%rax), %rcx
+	call	_ZN3wze6engine6camera10GetOriginYEv
+	movsd	.LC12(%rip), %xmm1
+	addsd	%xmm0, %xmm1
 	comisd	%xmm7, %xmm6
-	cvtsi2sdq	%rax, %xmm1
-	addsd	%xmm8, %xmm1
-	jbe	.L106
-	jmp	.L111
-.L86:
+	jbe	.L98
+	jmp	.L103
+.L78:
 	movapd	%xmm6, %xmm1
-	jmp	.L62
+	jmp	.L54
 	.seh_endproc
 	.section .rdata,"dr"
 	.align 8
@@ -616,12 +585,16 @@ _ZN12scene_editor6UpdateEv:
 	.long	1073217536
 	.align 8
 .LC10:
-	.long	1202590843
-	.long	1065646817
+	.long	-1717986918
+	.long	1070176665
 	.align 8
 .LC11:
 	.long	0
 	.long	-1065607168
+	.align 8
+.LC12:
+	.long	0
+	.long	1078525952
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	_ZN3wze6engine6window8GetWidthEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
@@ -638,7 +611,6 @@ _ZN12scene_editor6UpdateEv:
 	.def	_ZN8gui_tile6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine4keysixENS_3keyE;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera7GetZoomEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6timing12GetDeltaTimeEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera7SetZoomEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera10GetOriginYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN10gui_button6UpdateEv;	.scl	2;	.type	32;	.endef

@@ -32,12 +32,14 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->Idle->Width = 32;
     this->Idle->Height = 32;
     this->Idle->SetY(Y + 0.9);
+    this->Run->Priority = 130;
 
     this->Run->Width = 32;
     this->Run->Height = 32;
     this->Run->SetY(Y + 0.9);
     this->Run->Visible = false;
     this->Run->Paused = true;
+    this->Run->Priority = 130;
 
     this->Engine->Camera.Bind(this->Actor->GetID());
     this->Engine->Camera.SetZoom(5);
