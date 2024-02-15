@@ -118,7 +118,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.p2align 4,,10
 	.p2align 3
 .L15:
-	movl	$96, %edi
+	movl	$104, %edi
 .LEHB4:
 	call	_Znwm@PLT
 .LEHE4:
@@ -504,7 +504,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold:
 	call	_Unwind_Resume@PLT
 .L16:
 	movq	%r14, %rdi
-	movl	$96, %esi
+	movl	$104, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
@@ -610,7 +610,7 @@ _ZN10tile_tokenD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN20tile_top_left_cornerD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$96, %esi
+	movl	$104, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_restore 3
@@ -813,7 +813,7 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	.align 4
 	.align 4
 .L106:
-	.long	.L114-.L106
+	.long	.L112-.L106
 	.long	.L114-.L106
 	.long	.L114-.L106
 	.long	.L114-.L106
@@ -923,10 +923,15 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	xorl	%esi, %esi
 	movq	88(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	jmp	.L104
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	ret
 	.p2align 4,,10
 	.p2align 3
 .L111:
+	.cfi_restore_state
 	movq	(%rdi), %rax
 	xorl	%esi, %esi
 	movq	32(%rax), %rdi

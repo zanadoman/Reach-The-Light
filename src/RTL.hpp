@@ -327,6 +327,7 @@ struct tile_top_left_corner
     engine::actor Actor;
     engine::texturebox Background;
     engine::overlapbox Trap;
+    engine::colorbox String;
 
     engine::actor HitboxTop;
     engine::actor HitboxLeft;

@@ -7,12 +7,18 @@ tile_top_left_corner::tile_top_left_corner(engine* Engine, game* Game, double X,
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
     this->Trap = this->Actor->Overlapboxes.New(BOX_SPIKES);
+    this->String = this->Actor->Colorboxes.New();
 
-    this->Trap->SetY(25);
+    this->Trap->SetY(Y + 25);
     this->Trap->SetWidth(10);
     this->Trap->SetHeight(10);
     this->Trap->Visible = TILE_DEBUG;
     this->TrapVelocityY = -0.025;
+
+    this->String->Width = 1;
+    this->String->Height = ((Y + 30) - this->Trap->GetY());
+    this->String->SetY((this->Trap->GetY() + (Y + 30)) / 2);
+    this->String->Priority = 129;
 
     this->HitboxTop = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y + 40, 60, 20, 1);
     this->HitboxTop->Overlapboxes.New(BOX_PLATFORM);
@@ -82,6 +88,9 @@ uint8 tile_top_left_corner::Update()
         this->Trap->SetY(this->Actor->GetY() + 25);
         this->TrapVelocityY = -0.025;
     }
+
+    this->String->Height = this->Actor->GetY() + 30 - this->Trap->GetY();
+    this->String->SetY((this->Trap->GetY() + (this->Actor->GetY() + 30)) / 2);
 
     return 0;
 }
