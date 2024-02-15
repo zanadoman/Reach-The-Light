@@ -93,47 +93,52 @@ uint8 act_player::Update()
         }
     }
 
-    if ((this->VelocityY == 0) && (this->Engine->Keys[KEY_W] || this->Engine->Keys[KEY_SPACE]))
+    if (this->VelocityY == 0 && this->Engine->Keys[KEY_SPACE])
     {
         this->VelocityY = 0.35;
     }
 
-    this->Claw1->GetOverlapState(&Claw1State, {ACT_PLATFORM}, {});
-    this->Claw2->GetOverlapState(&Claw2State, {ACT_PLATFORM}, {});
-    Claw1Active = false;
-    for (uint64 i = 0; i < Claw1State.Length(); i++)
+    if (this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime() != this->Actor->SetX(this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime()) && this->Engine->Keys[KEY_SPACE])
     {
-        if (0 < Claw1State[i].Length())
+        this->Claw1->GetOverlapState(&Claw1State, {ACT_PLATFORM}, {});
+        this->Claw2->GetOverlapState(&Claw2State, {ACT_PLATFORM}, {});
+        
+        Claw1Active = false;
+        for (uint64 i = 0; i < Claw1State.Length(); i++)
         {
-            Claw1Active = true;
-            break;
+            if (0 < Claw1State[i].Length())
+            {
+                Claw1Active = true;
+                break;
+            }
         }
-    }
-    Claw2Active = false;
-    for (uint64 i = 0; i < Claw2State.Length(); i++)
-    {
-        if (0 < Claw2State[i].Length())
+        
+        Claw2Active = false;
+        for (uint64 i = 0; i < Claw2State.Length(); i++)
         {
-            Claw2Active = true;
-            break;
-        }
-    }
-
-    if ((this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime() != this->Actor->SetX(this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime())) && Claw1Active && Claw2Active && (this->Engine->Keys[KEY_W] || this->Engine->Keys[KEY_SPACE]))
-    {
-        if (this->VelocityX < 0)
-        {
-            this->Idle->Angle = 270;
-            this->Run->Angle = 270;
-        }
-        else if (0 < this->VelocityX)
-        {
-            this->Idle->Angle = 90;
-            this->Run->Angle = 90;
+            if (0 < Claw2State[i].Length())
+            {
+                Claw2Active = true;
+                break;
+            }
         }
 
-        this->VelocityX = 0;
-        this->VelocityY = 0;
+        if (Claw1Active && Claw2Active)
+        {
+            if (this->VelocityX < 0)
+            {
+                this->Idle->Angle = 270;
+                this->Run->Angle = 270;
+            }
+            else if (0 < this->VelocityX)
+            {
+                this->Idle->Angle = 90;
+                this->Run->Angle = 90;
+            }
+
+            this->VelocityX = 0;
+            this->VelocityY = 0;
+        }
     }
     else
     {
