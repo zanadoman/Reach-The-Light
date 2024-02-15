@@ -48,7 +48,7 @@ main:
 .LEHB1:
 	call	_ZN3wze6engineC1EPKcS2_tth@PLT
 .LEHE1:
-	movl	$64, %edi
+	movl	$72, %edi
 .LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
@@ -88,7 +88,7 @@ main:
 .L5:
 	movq	%r12, %rdi
 	call	_ZN4gameD1Ev@PLT
-	movl	$64, %esi
+	movl	$72, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
 	movq	%rbp, %rdi
@@ -169,7 +169,7 @@ main.cold:
 	call	_Unwind_Resume@PLT
 .L7:
 	movq	%r12, %rdi
-	movl	$64, %esi
+	movl	$72, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT

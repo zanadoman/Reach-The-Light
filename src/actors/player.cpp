@@ -9,6 +9,8 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->LatchBox2 = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Idle = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdle);
     this->Run = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerRun);
+    this->Health = 5;
+    this->DamageTick = 0;
     this->VelocityX = 0;
     this->VelocityY = 0;
 
@@ -69,24 +71,29 @@ uint8 act_player::Update()
             this->Run->ColorR = 0;
             this->Idle->ColorR = 0;
 
-            if (this->Engine->Actors[i].Overlapboxes[1].GetType() == BOX_SLOWNESS)
+            if (this->Engine->Actors[i].Overlapboxes[1].GetType() == BOX_DAMAGE && this->DamageTick + 1000 <= this->Engine->Timing.GetCurrentTick())
             {
-                if (this->VelocityX < -0.05)
+                this->Health--;
+                this->DamageTick = this->Engine->Timing.GetCurrentTick();
+            }
+            else if (this->Engine->Actors[i].Overlapboxes[1].GetType() == BOX_SLOWNESS)
+            {
+                if (this->VelocityX < -0.025)
                 {
-                    this->VelocityX = -0.05;
+                    this->VelocityX = -0.025;
                 }
-                else if (0.05 < this->VelocityX)
+                else if (0.025 < this->VelocityX)
                 {
-                    this->VelocityX = 0.05;
+                    this->VelocityX = 0.025;
                 }
 
-                if (this->VelocityY < -0.05)
+                if (this->VelocityY < -0.025)
                 {
-                    this->VelocityY = -0.05;
+                    this->VelocityY = -0.025;
                 }
-                else if (0.05 < this->VelocityY)
+                else if (0.025 < this->VelocityY)
                 {
-                    this->VelocityY = 0.05;
+                    this->VelocityY = 0.025;
                 }
             }
 

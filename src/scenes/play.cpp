@@ -2,6 +2,13 @@
 
 scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
+    this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, 10, this->Engine->Window.GetHeight() - 10, 0, 0, 0);
+    this->Health = this->Actor->Textboxes.New("HP: 3", this->Game->Assets->HackBoldFont);
+
+    this->Health->SetHeight(50);
+    this->Health->SetX(this->Actor->GetX() + (this->Health->GetWidth() >> 1));
+    this->Health->SetY(this->Actor->GetY() - 25);
+
     for (uint8 i = 0; i < MAP_X; i++)
     {
         for (uint8 j = 0; j < MAP_Y; j++)
@@ -35,6 +42,16 @@ scene_play::~scene_play()
 
 scene scene_play::Update()
 {
+    string str;
+
+    if (this->Player->Health == 0)
+    {
+        return SCENE_GAME_OVER;
+    }
+
+    this->Health->SetLiteral(((str = {"HP: "}) += {(uint64)this->Player->Health})());
+    this->Health->SetX(this->Actor->GetX() + (this->Health->GetWidth() >> 1));
+
     for (uint8 i = 0; i < MAP_X; i++)
     {
         for (uint8 j = 0; j < MAP_Y; j++)

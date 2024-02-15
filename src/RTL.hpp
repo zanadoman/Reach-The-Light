@@ -18,6 +18,7 @@ struct map;
 struct scene_menu;
 struct scene_play;
 struct scene_editor;
+struct scene_game_over;
 struct act_player;
 struct act_crate;
 struct gui_button;
@@ -42,7 +43,8 @@ typedef enum
     SCENE_NONE,
     SCENE_MENU,
     SCENE_PLAY,
-    SCENE_EDITOR
+    SCENE_EDITOR,
+    SCENE_GAME_OVER
 } scene;
 
 typedef enum
@@ -90,6 +92,7 @@ struct game
     scene_menu* Menu;
     scene_play* Play;
     scene_editor* Editor;
+    scene_game_over* GameOver;
 
     game(engine* Engine);
     ~game();
@@ -173,6 +176,9 @@ struct scene_play
     engine* Engine;
     game* Game;
 
+    engine::actor Actor;
+    engine::textbox Health;
+
     tile_token* Tiles[MAP_X][MAP_Y];
     act_player* Player;
 
@@ -197,6 +203,22 @@ struct scene_editor
     scene Update();
 };
 
+struct scene_game_over
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::textbox Title;
+
+    gui_button* Restart;
+    gui_button* Menu;
+
+    scene_game_over(engine* Engine, game* Game);
+    ~scene_game_over();
+    scene Update();
+};
+
 //__________ACTORS___________________________________________________________________________________
 
 struct act_player
@@ -212,6 +234,8 @@ struct act_player
     engine::flipbook Idle;
     engine::flipbook Run;
     
+    uint8 Health;
+    uint32 DamageTick;
     double VelocityX;
     double VelocityY;
 
