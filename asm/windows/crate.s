@@ -207,13 +207,13 @@ _ZN9act_crate6UpdateEv:
 	movq	8(%rsi), %rax
 	movq	24(%rsi), %rdi
 	movq	48(%rax), %rax
-	movq	1040(%rax), %rax
+	movq	1056(%rax), %rax
 	movq	32(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv
 	movq	%rax, %rbx
 	movq	8(%rsi), %rax
 	movq	48(%rax), %rax
-	movq	1040(%rax), %rax
+	movq	1056(%rax), %rax
 	movq	16(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rax, %rdx
