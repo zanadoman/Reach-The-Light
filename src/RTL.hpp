@@ -58,6 +58,7 @@ typedef enum
 {
     BOX_NONE,
     BOX_PLAYER,
+    BOX_CRATE,
     BOX_PLATFORM
 } overlapbox;
 
@@ -226,6 +227,7 @@ struct act_crate
     game* Game;
 
     engine::actor Actor;
+    engine::overlapbox Overlapbox;
     engine::texturebox Texturebox;
 
     double VelocityY;

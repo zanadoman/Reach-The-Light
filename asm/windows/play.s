@@ -276,23 +276,49 @@ _ZN10scene_playD2Ev:
 	.seh_proc	_ZN10scene_play6UpdateEv
 _ZN10scene_play6UpdateEv:
 .LFB8437:
+	pushq	%rbp
+	.seh_pushreg	%rbp
+	pushq	%rdi
+	.seh_pushreg	%rdi
+	pushq	%rsi
+	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$32, %rsp
-	.seh_stackalloc	32
+	subq	$40, %rsp
+	.seh_stackalloc	40
 	.seh_endprologue
-	movq	%rcx, %rbx
+	movq	%rcx, %rbp
 	movq	1040(%rcx), %rcx
+	leaq	144(%rbp), %rsi
+	leaq	1168(%rbp), %rdi
 	call	_ZN10act_player6UpdateEv
+	.p2align 4,,10
+	.p2align 3
+.L23:
+	leaq	-128(%rsi), %rbx
+	.p2align 4,,10
+	.p2align 3
+.L24:
 	movq	(%rbx), %rcx
+	addq	$8, %rbx
+	call	_ZN10tile_token6UpdateEv
+	cmpq	%rsi, %rbx
+	jne	.L24
+	leaq	128(%rbx), %rsi
+	cmpq	%rdi, %rsi
+	jne	.L23
+	movq	0(%rbp), %rcx
 	movl	$41, %edx
 	addq	$176, %rcx
 	call	_ZN3wze6engine4keysixENS_3keyE
 	movzbl	%al, %edx
 	movl	$2, %eax
 	subl	%edx, %eax
-	addq	$32, %rsp
+	addq	$40, %rsp
 	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	popq	%rbp
 	ret
 	.seh_endproc
 	.section .rdata,"dr"
@@ -309,4 +335,5 @@ _ZN10scene_play6UpdateEv:
 	.def	_ZN10tile_tokenD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN10act_playerD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN10act_player6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN10tile_token6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine4keysixENS_3keyE;	.scl	2;	.type	32;	.endef

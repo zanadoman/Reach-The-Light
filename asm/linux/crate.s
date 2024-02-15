@@ -31,28 +31,41 @@ _ZN9act_crateC2EPN3wze6engineEP4gamedd:
 	movl	$2, %edx
 	movq	%rbx, %rsi
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	xorl	%esi, %esi
+	movl	$2, %esi
 	movq	%rax, 16(%rbx)
-	leaq	40(%rax), %rbp
+	leaq	136(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	xorl	%esi, %esi
+	movq	%rax, 24(%rbx)
+	movq	16(%rbx), %rax
+	leaq	40(%rax), %r12
 	movq	8(%rbx), %rax
-	movq	8(%rax), %r12
+	movq	8(%rax), %rbp
 	movq	(%rbx), %rax
-	movl	128(%r12), %edx
+	movl	128(%rbp), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	136(%r12), %rdx
+	movq	136(%rbp), %rdx
 	cltq
-	cmpq	128(%r12), %rax
+	cmpq	128(%rbp), %rax
 	jnb	.L5
 	movq	(%rdx,%rax,8), %rsi
-	movq	%rbp, %rdi
+	movq	%r12, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	16(%rbx), %rdi
 	movl	$1, %esi
-	movq	$0x000000000, 32(%rbx)
-	movq	%rax, 24(%rbx)
+	movq	$0x000000000, 40(%rbx)
+	movq	%rax, 32(%rbx)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	24(%rbx), %rdi
+	movl	$120, %esi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
+	movq	24(%rbx), %rdi
+	movl	$120, %esi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
 	movq	24(%rbx), %rax
+	movb	$1, 18(%rax)
+	movq	32(%rbx), %rax
 	movb	$-127, 36(%rax)
 	popq	%rbx
 	.cfi_remember_state
@@ -119,84 +132,113 @@ _ZN9act_crateD2Ev:
 _ZN9act_crate6UpdateEv:
 .LFB8162:
 	.cfi_startproc
-	pushq	%rbp
+	pushq	%r12
 	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	pushq	%rbx
+	.cfi_offset 12, -16
+	pushq	%rbp
 	.cfi_def_cfa_offset 24
-	.cfi_offset 3, -24
+	.cfi_offset 6, -24
+	pushq	%rbx
+	.cfi_def_cfa_offset 32
+	.cfi_offset 3, -32
 	movq	%rdi, %rbx
-	subq	$40, %rsp
-	.cfi_def_cfa_offset 64
-	movq	(%rdi), %rax
+	subq	$16, %rsp
+	.cfi_def_cfa_offset 48
+	movq	8(%rdi), %rax
+	movq	24(%rdi), %r12
+	movq	48(%rax), %rax
+	movq	1040(%rax), %rax
+	movq	24(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
+	movq	%rax, %rbp
+	movq	8(%rbx), %rax
+	movq	48(%rax), %rax
+	movq	1040(%rax), %rax
+	movq	16(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdx
+	movq	%r12, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
+	testb	%al, %al
+	jne	.L9
+	pxor	%xmm0, %xmm0
+	comisd	40(%rbx), %xmm0
+	ja	.L9
+.L10:
+	addq	$16, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 32
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L9:
+	.cfi_restore_state
+	movq	(%rbx), %rax
 	leaq	400(%rax), %rdi
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	pxor	%xmm1, %xmm1
-	movsd	32(%rbx), %xmm0
+	movsd	40(%rbx), %xmm0
 	movq	16(%rbx), %rdi
 	movl	%eax, %eax
 	cvtsi2sdq	%rax, %xmm1
 	mulsd	.LC3(%rip), %xmm1
 	subsd	%xmm1, %xmm0
-	movsd	%xmm0, 32(%rbx)
+	movsd	%xmm0, 40(%rbx)
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	movq	(%rbx), %rax
-	movsd	32(%rbx), %xmm2
-	movsd	%xmm0, 16(%rsp)
+	movsd	40(%rbx), %xmm3
+	movsd	%xmm0, 8(%rsp)
 	leaq	400(%rax), %rdi
-	movsd	%xmm2, 8(%rsp)
+	movsd	%xmm3, (%rsp)
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	pxor	%xmm0, %xmm0
-	movsd	16(%rsp), %xmm1
-	movq	16(%rbx), %rbp
+	movsd	8(%rsp), %xmm2
+	movq	16(%rbx), %r12
 	movl	%eax, %eax
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	8(%rsp), %xmm0
-	movq	%rbp, %rdi
-	addsd	%xmm0, %xmm1
-	movsd	%xmm1, 24(%rsp)
+	mulsd	(%rsp), %xmm0
+	movq	%r12, %rdi
+	addsd	%xmm0, %xmm2
+	movq	%xmm2, %rbp
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	movq	(%rbx), %rax
-	movsd	32(%rbx), %xmm3
-	movsd	%xmm0, 16(%rsp)
+	movsd	40(%rbx), %xmm5
+	movsd	%xmm0, 8(%rsp)
 	leaq	400(%rax), %rdi
-	movsd	%xmm3, 8(%rsp)
+	movsd	%xmm5, (%rsp)
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	pxor	%xmm0, %xmm0
-	movq	%rbp, %rdi
+	movq	%r12, %rdi
 	movl	%eax, %eax
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	8(%rsp), %xmm0
-	addsd	16(%rsp), %xmm0
+	mulsd	(%rsp), %xmm0
+	addsd	8(%rsp), %xmm0
 	call	_ZN3wze6engine6actors5actor4SetYEd@PLT
-	movsd	24(%rsp), %xmm1
-	ucomisd	%xmm0, %xmm1
-	jp	.L18
-	jne	.L18
-.L15:
-	addq	$40, %rsp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 24
-	xorl	%eax, %eax
-	popq	%rbx
-	.cfi_def_cfa_offset 16
-	popq	%rbp
-	.cfi_def_cfa_offset 8
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L18:
-	.cfi_restore_state
+	movq	%rbp, %xmm7
+	ucomisd	%xmm0, %xmm7
+	jp	.L20
+	je	.L10
+.L20:
 	pxor	%xmm0, %xmm0
-	comisd	32(%rbx), %xmm0
-	jbe	.L15
-	movsd	%xmm0, 32(%rbx)
-	addq	$40, %rsp
-	.cfi_def_cfa_offset 24
+	comisd	40(%rbx), %xmm0
+	jbe	.L10
+	movsd	%xmm0, 40(%rbx)
+	addq	$16, %rsp
+	.cfi_def_cfa_offset 32
 	xorl	%eax, %eax
 	popq	%rbx
-	.cfi_def_cfa_offset 16
+	.cfi_def_cfa_offset 24
 	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc

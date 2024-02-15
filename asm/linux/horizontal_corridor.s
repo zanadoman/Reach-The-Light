@@ -6,9 +6,9 @@
 	.string	"neo::array[]: Index out of range\nParams: Index: %lld\n"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB6:
+.LCOLDB7:
 	.text
-.LHOTB6:
+.LHOTB7:
 	.align 2
 	.p2align 4
 	.globl	_ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd
@@ -83,7 +83,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	%xmm1, %r15
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	movl	$3, %esi
 	movq	%rax, 40(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -136,7 +136,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	%rax, %xmm2
 	movsd	%xmm1, 24(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	movl	$3, %esi
 	movq	%rax, 48(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -185,7 +185,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm5, %xmm0
 	movq	%xmm5, %r12
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	movl	$3, %esi
 	movq	%rax, 56(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -223,7 +223,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm6, %xmm0
 	movq	%xmm6, %rbp
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	movl	$3, %esi
 	movq	%rax, 64(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -258,7 +258,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	movl	$3, %esi
 	movq	%rax, 72(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -293,7 +293,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	movl	$3, %esi
 	movq	%rax, 80(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -317,7 +317,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movl	$40, %edi
+	movl	$48, %edi
 	call	_Znwm@PLT
 .LEHE0:
 	movsd	16(%rsp), %xmm1
@@ -327,6 +327,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	%rax, %rdi
 	movq	%rax, %rbp
 	subsd	.LC5(%rip), %xmm1
+	addsd	.LC6(%rip), %xmm1
 .LEHB1:
 	call	_ZN9act_crateC1EPN3wze6engineEP4gamedd@PLT
 .LEHE1:
@@ -399,7 +400,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd.cold:
 	.cfi_offset 14, -24
 	.cfi_offset 15, -16
 	movq	%rbp, %rdi
-	movl	$40, %esi
+	movl	$48, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 .LEHB3:
@@ -414,7 +415,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB3-.LCOLDB6
+	.uleb128 .LEHB3-.LCOLDB7
 	.uleb128 .LEHE3-.LEHB3
 	.uleb128 0
 	.uleb128 0
@@ -424,9 +425,9 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd.cold:
 	.size	_ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd, .-_ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd
 	.section	.text.unlikely
 	.size	_ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd.cold, .-_ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd.cold
-.LCOLDE6:
+.LCOLDE7:
 	.text
-.LHOTE6:
+.LHOTE7:
 	.globl	_ZN24tile_horizontal_corridorC1EPN3wze6engineEP4gamedd
 	.set	_ZN24tile_horizontal_corridorC1EPN3wze6engineEP4gamedd,_ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd
 	.align 2
@@ -505,7 +506,7 @@ _ZN24tile_horizontal_corridorD2Ev:
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
 	movq	%rbx, %rdi
-	movl	$40, %esi
+	movl	$48, %esi
 	popq	%rbx
 	.cfi_def_cfa_offset 16
 	popq	%rbp
@@ -576,7 +577,11 @@ _ZN24tile_horizontal_corridor6UpdateEv:
 	.align 8
 .LC5:
 	.long	0
-	.long	1076101120
+	.long	1076756480
+	.align 8
+.LC6:
+	.long	-350469331
+	.long	1058682594
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

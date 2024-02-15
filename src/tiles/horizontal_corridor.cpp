@@ -55,7 +55,7 @@ tile_horizontal_corridor::tile_horizontal_corridor(engine* Engine, game* Game, d
     this->HitboxBotRight->SetCollisionLayer(1);
     this->HitboxBotRight->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Math.Random(0, this->Game->Assets->TilePlatforms.Length())]);
 
-    this->Crate = new act_crate(this->Engine, this->Game, X, Y - 10);
+    this->Crate = new act_crate(this->Engine, this->Game, X, Y - 15 + EPSILON);
 }
 
 tile_horizontal_corridor::~tile_horizontal_corridor()

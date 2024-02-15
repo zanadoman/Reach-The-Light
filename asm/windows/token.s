@@ -175,7 +175,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.p2align 4,,10
 	.p2align 3
 .L11:
-	movl	$88, %ecx
+	movl	$96, %ecx
 .LEHB12:
 	call	_Znwy
 .LEHE12:
@@ -474,7 +474,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold:
 	call	_Unwind_Resume
 .L20:
 	movq	%r12, %rcx
-	movl	$88, %edx
+	movl	$96, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
@@ -619,7 +619,8 @@ _ZN10tile_tokenD2Ev:
 	je	.L43
 	movq	%rbx, %rcx
 	call	_ZN24tile_horizontal_corridorD1Ev
-	jmp	.L94
+	movl	$96, %edx
+	jmp	.L95
 	.p2align 4,,10
 	.p2align 3
 .L52:
@@ -684,8 +685,15 @@ _ZN10tile_tokenD2Ev:
 _ZN10tile_token6UpdateEv:
 .LFB8437:
 	.seh_endprologue
+	cmpl	$4, 8(%rcx)
+	je	.L99
 	xorl	%eax, %eax
 	ret
+	.p2align 4,,10
+	.p2align 3
+.L99:
+	movq	(%rcx), %rcx
+	jmp	_ZN24tile_horizontal_corridor6UpdateEv
 	.seh_endproc
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	_Znwy;	.scl	2;	.type	32;	.endef
@@ -715,3 +723,4 @@ _ZN10tile_token6UpdateEv:
 	.def	_ZN14tile_ceil_holeD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN14tile_trap_holeD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN22tile_vertical_rotatingD1Ev;	.scl	2;	.type	32;	.endef
+	.def	_ZN24tile_horizontal_corridor6UpdateEv;	.scl	2;	.type	32;	.endef

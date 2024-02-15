@@ -98,9 +98,10 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movq	16(%rbx), %rcx
 	pxor	%xmm0, %xmm0
 	movq	$0x000000000, 80(%rbx)
-	movq	%rax, 56(%rbx)
-	movl	$1, %edx
 	movups	%xmm0, 64(%rbx)
+	movl	$1, %edx
+	movq	%rax, 56(%rbx)
+	movq	$1, 176(%rcx)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movsd	72(%rsp), %xmm3
 	movq	32(%rbx), %rcx
@@ -614,7 +615,7 @@ _ZN10act_player6UpdateEv:
 	movq	32(%rbx), %rcx
 	leaq	32(%rsp), %rbp
 	leaq	48(%rsp), %rdi
-	movq	$3, 72(%rsp)
+	movq	$4, 72(%rsp)
 	leaq	72(%rsp), %r12
 	leaq	80(%rsp), %rdx
 	movq	%rbp, %r9
@@ -628,7 +629,7 @@ _ZN10act_player6UpdateEv:
 	leaq	96(%rsp), %rdx
 	movq	%rbp, %r9
 	movq	%rdi, %r8
-	movq	$3, 72(%rsp)
+	movq	$4, 72(%rsp)
 	movq	%r12, 48(%rsp)
 	movq	$1, 56(%rsp)
 	movq	$0, 32(%rsp)
