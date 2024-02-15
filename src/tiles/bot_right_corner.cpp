@@ -6,7 +6,27 @@ tile_bot_right_corner::tile_bot_right_corner(engine* Engine, game* Game, double 
 
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
-    
+    this->SawLeft = this->Actor->Overlapboxes.New(BOX_DAMAGE);
+    this->SawMiddle = this->Actor->Overlapboxes.New(BOX_DAMAGE);
+    this->SawRight = this->Actor->Overlapboxes.New(BOX_DAMAGE);
+
+    this->SawLeft->SetX(X - 7.5);
+    this->SawLeft->SetY(Y - 27.5);
+    this->SawLeft->SetWidth(5);
+    this->SawLeft->SetHeight(5);
+    this->SawLeft->Visible = DEBUG;
+
+    this->SawMiddle->SetY(Y - 25);
+    this->SawMiddle->SetWidth(10);
+    this->SawMiddle->SetHeight(10);
+    this->SawMiddle->Visible = DEBUG;
+
+    this->SawRight->SetX(X + 7.5);
+    this->SawRight->SetY(Y - 27.5);
+    this->SawRight->SetWidth(5);
+    this->SawRight->SetHeight(5);
+    this->SawRight->Visible = DEBUG;
+
     this->Background->Priority = 127;
 
     this->HitboxBot = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y - 40, 60, 20, 1);

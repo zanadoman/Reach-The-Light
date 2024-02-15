@@ -409,6 +409,9 @@ struct tile_bot_right_corner
 
     engine::actor Actor;
     engine::texturebox Background;
+    engine::overlapbox SawLeft;
+    engine::overlapbox SawMiddle;
+    engine::overlapbox SawRight;
 
     engine::actor HitboxBot;
     engine::actor HitboxRight;
