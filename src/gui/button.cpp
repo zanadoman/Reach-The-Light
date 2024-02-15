@@ -4,7 +4,7 @@ gui_button::gui_button(engine* Engine, game* Game, double X, double Y, uint16 Wi
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, Width, Height, 0);
     this->Overlapbox = this->Actor->Overlapboxes.New(BOX_NONE);
-    this->Texturebox = this->Actor->Textureboxes.New(this->Game->Assets->gui_buttonTexture);
+    this->Texturebox = this->Actor->Textureboxes.New(this->Game->Assets->ButtonTexture);
     this->Textbox = this->Actor->Textboxes.New(Literal, this->Game->Assets->HackBoldFont);
     this->Height = Height;
     this->Width = Width;

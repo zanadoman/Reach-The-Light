@@ -106,7 +106,7 @@ struct assets
     uint64 HackItalicFont;
     uint64 HackRegularFont;
 
-    uint64 gui_buttonTexture;
+    uint64 ButtonTexture;
 
     array<uint64> PlayerIdle;
     array<uint64> PlayerRun;

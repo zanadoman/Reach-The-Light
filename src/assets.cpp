@@ -7,7 +7,7 @@ assets::assets(engine* Engine) : Engine(Engine)
     this->HackItalicFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Italic.ttf", 72);
     this->HackRegularFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Regular.ttf", 72);
 
-    this->gui_buttonTexture = this->Engine->Assets.LoadTexture("assets/gui/gui_button.png");
+    this->ButtonTexture = this->Engine->Assets.LoadTexture("assets/gui/gui_button.png");
 
     this->PlayerIdle =
     {
