@@ -68,7 +68,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movups	%xmm2, 72(%rbx)
 	movl	$1, %esi
 	movq	%rax, 64(%rbx)
-	movq	$1, 176(%rdi)
+	movq	$99, 176(%rdi)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	32(%rbx), %rdi
 	movl	$64, %esi

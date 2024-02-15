@@ -56,6 +56,7 @@ _ZN9act_crateC2EPN3wze6engineEP4gamedd:
 	movl	$1, %esi
 	movq	$0x000000000, 40(%rbx)
 	movq	%rax, 32(%rbx)
+	movq	$49, 184(%rdi)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	24(%rbx), %rdi
 	movl	$120, %esi

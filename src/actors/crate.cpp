@@ -7,6 +7,7 @@ act_crate::act_crate(engine* Engine, game* Game, double X, double Y) : Engine(En
     this->Texturebox = this->Actor->Textureboxes.New(this->Game->Assets->CrateTextures[this->Engine->Math.Random(0, this->Game->Assets->CrateTextures.Length())]);
     this->VelocityY = 0;
 
+    this->Actor->Resistance = 49;
     this->Actor->SetCollisionLayer(1);
 
     this->Simulation->SetWidth(120);
