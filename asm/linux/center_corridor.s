@@ -37,7 +37,7 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rdx, 8(%rdi)
 	leaq	256(%rsi), %rdi
-	movl	$2, %edx
+	movl	$3, %edx
 	xorl	%esi, %esi
 	movq	%rax, %xmm2
 	movsd	%xmm1, (%rsp)
@@ -67,7 +67,7 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	xorl	%esi, %esi
 	subsd	.LC2(%rip), %xmm0
 	movl	$20, %ecx
-	movl	$3, %edx
+	movl	$4, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movsd	%xmm1, 8(%rsp)
@@ -80,6 +80,7 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	40(%rbx), %rdi
 	movl	$1, %esi
+	movq	$100, 184(%rdi)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	40(%rbx), %rax
 	xorl	%esi, %esi
@@ -108,7 +109,7 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	movsd	.LC2(%rip), %xmm0
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
-	movl	$3, %edx
+	movl	$4, %edx
 	addsd	%xmm4, %xmm0
 	movq	%rax, %xmm2
 	movq	%xmm0, %r14
@@ -119,6 +120,7 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	48(%rbx), %rdi
 	movl	$1, %esi
+	movq	$100, 184(%rdi)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	48(%rbx), %rax
 	xorl	%esi, %esi
@@ -142,7 +144,7 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	movl	$20, %r8d
 	movl	$20, %ecx
 	movq	%r15, %xmm0
-	movl	$3, %edx
+	movl	$4, %edx
 	subsd	.LC2(%rip), %xmm1
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
@@ -155,6 +157,7 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	56(%rbx), %rdi
 	movl	$1, %esi
+	movq	$100, 184(%rdi)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	56(%rbx), %rax
 	xorl	%esi, %esi
@@ -180,7 +183,7 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	movl	$20, %r8d
 	movl	$20, %ecx
 	movq	%r14, %xmm0
-	movl	$3, %edx
+	movl	$4, %edx
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
@@ -191,6 +194,7 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	64(%rbx), %rdi
 	movl	$1, %esi
+	movq	$100, 184(%rdi)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	64(%rbx), %rax
 	movq	(%rbx), %rdi

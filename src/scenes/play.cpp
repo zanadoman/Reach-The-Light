@@ -30,6 +30,14 @@ scene scene_play::Update()
 {
     this->Player->Update();
 
+    for (uint8 i = 0; i < MAP_X; i++)
+    {
+        for (uint8 j = 0; j < MAP_Y; j++)
+        {
+            this->Tiles[i][j]->Update();
+        }
+    }
+
     if (this->Engine->Keys[KEY_ESCAPE])
     {
         return SCENE_MENU;

@@ -12,6 +12,7 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->VelocityY = 0;
     this->Latched = 0;
 
+    this->Actor->Force = 1;
     this->Actor->SetCollisionLayer(1);
 
     this->Claw1->SetX(X + 8);

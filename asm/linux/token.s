@@ -186,7 +186,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.p2align 4,,10
 	.p2align 3
 .L11:
-	movl	$88, %edi
+	movl	$96, %edi
 .LEHB12:
 	call	_Znwm@PLT
 .LEHE12:
@@ -480,7 +480,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold:
 	call	_Unwind_Resume@PLT
 .L20:
 	movq	%r14, %rdi
-	movl	$88, %esi
+	movl	$96, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
@@ -666,7 +666,7 @@ _ZN10tile_tokenD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN24tile_horizontal_corridorD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$88, %esi
+	movl	$96, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_restore 3
@@ -764,8 +764,15 @@ _ZN10tile_tokenD2Ev:
 _ZN10tile_token6UpdateEv:
 .LFB8162:
 	.cfi_startproc
+	cmpl	$4, 8(%rdi)
+	je	.L101
 	xorl	%eax, %eax
 	ret
+	.p2align 4,,10
+	.p2align 3
+.L101:
+	movq	(%rdi), %rdi
+	jmp	_ZN24tile_horizontal_corridor6UpdateEv@PLT
 	.cfi_endproc
 .LFE8162:
 	.size	_ZN10tile_token6UpdateEv, .-_ZN10tile_token6UpdateEv

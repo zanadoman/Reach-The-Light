@@ -60,9 +60,10 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movq	16(%rbx), %rdi
 	pxor	%xmm2, %xmm2
 	movq	$0x000000000, 80(%rbx)
-	movq	%rax, 56(%rbx)
-	movl	$1, %esi
 	movups	%xmm2, 64(%rbx)
+	movl	$1, %esi
+	movq	%rax, 56(%rbx)
+	movq	$1, 176(%rdi)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movsd	8(%rsp), %xmm0
 	movq	32(%rbx), %rdi
@@ -603,7 +604,7 @@ _ZN10act_player6UpdateEv:
 	leaq	32(%rsp), %rsi
 	movq	%r12, %rdx
 	movl	$1, %ecx
-	movq	$3, 64(%rsp)
+	movq	$4, 64(%rsp)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox15GetOverlapStateEPN3neo5arrayINS6_IyEEEESt16initializer_listIyESB_@PLT
 	movq	40(%rbx), %rdi
 	leaq	48(%rsp), %rsi
@@ -611,7 +612,7 @@ _ZN10act_player6UpdateEv:
 	xorl	%r9d, %r9d
 	movq	%r12, %rdx
 	movl	$1, %ecx
-	movq	$3, 64(%rsp)
+	movq	$4, 64(%rsp)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox15GetOverlapStateEPN3neo5arrayINS6_IyEEEESt16initializer_listIyESB_@PLT
 .LEHE0:
 	movq	32(%rsp), %rcx
