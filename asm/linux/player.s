@@ -71,10 +71,10 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movq	$1, 176(%rdi)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	32(%rbx), %rdi
-	movl	$64, %esi
+	movl	$128, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
 	movq	32(%rbx), %rdi
-	movl	$60, %esi
+	movl	$120, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
 	movsd	8(%rsp), %xmm0
 	movq	40(%rbx), %rdi

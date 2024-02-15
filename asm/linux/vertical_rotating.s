@@ -60,7 +60,7 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
-	xorl	%ebp, %ebp
+	xorl	%r12d, %r12d
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	%r15, %xmm0
 	movsd	8(%rsp), %xmm1
@@ -80,16 +80,13 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	%rax, 40(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
-	movq	40(%rbx), %rdi
-	movl	$1, %esi
-	movq	$100, 184(%rdi)
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	40(%rbx), %rbp
 	movl	.LC4(%rip), %r13d
-.L4:
-	movq	40(%rbx), %rax
-	xorl	%esi, %esi
-	leaq	40(%rax), %r12
+	movq	$100, 184(%rbp)
+.L5:
 	movq	8(%rbx), %rax
+	xorl	%esi, %esi
+	addq	$40, %rbp
 	movq	8(%rax), %r14
 	movq	(%rbx), %rax
 	movl	112(%r14), %edx
@@ -100,25 +97,30 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	cmpq	112(%r14), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
-	movq	%r12, %rdi
+	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	pxor	%xmm0, %xmm0
 	movsd	8(%rsp), %xmm3
 	subsd	.LC3(%rip), %xmm3
-	cvtsi2sdl	%ebp, %xmm0
-	movq	%rax, %r12
+	cvtsi2sdl	%r12d, %xmm0
+	movq	%rax, %rbp
 	movq	%rax, %rdi
-	addl	$20, %ebp
+	addl	$20, %r12d
 	movsd	%xmm3, 16(%rsp)
 	addsd	%xmm3, %xmm0
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
-	movl	%r13d, 16(%r12)
-	cmpl	$60, %ebp
-	jne	.L4
+	movl	%r13d, 16(%rbp)
+	cmpl	$60, %r12d
+	je	.L4
+	movq	40(%rbx), %rbp
+	jmp	.L5
+	.p2align 4,,10
+	.p2align 3
+.L4:
 	movsd	.LC2(%rip), %xmm5
 	movq	(%rbx), %rax
 	xorl	%esi, %esi
-	xorl	%ebp, %ebp
+	xorl	%r12d, %r12d
 	movq	%r15, %xmm6
 	movsd	8(%rsp), %xmm1
 	movl	$60, %r8d
@@ -135,15 +137,12 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	%rax, 48(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
-	movq	48(%rbx), %rdi
-	movl	$1, %esi
-	movq	$100, 184(%rdi)
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-.L6:
-	movq	48(%rbx), %rax
-	xorl	%esi, %esi
-	leaq	40(%rax), %r12
+	movq	48(%rbx), %rbp
+	movq	$100, 184(%rbp)
+.L8:
 	movq	8(%rbx), %rax
+	xorl	%esi, %esi
+	addq	$40, %rbp
 	movq	8(%rax), %r14
 	movq	(%rbx), %rax
 	movl	112(%r14), %edx
@@ -154,18 +153,23 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	cmpq	112(%r14), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
-	movq	%r12, %rdi
+	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	pxor	%xmm0, %xmm0
-	cvtsi2sdl	%ebp, %xmm0
-	addsd	16(%rsp), %xmm0
-	movq	%rax, %r12
+	cvtsi2sdl	%r12d, %xmm0
+	movq	%rax, %rbp
 	movq	%rax, %rdi
-	addl	$20, %ebp
+	addl	$20, %r12d
+	addsd	16(%rsp), %xmm0
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
-	movl	%r13d, 16(%r12)
-	cmpl	$60, %ebp
-	jne	.L6
+	movl	%r13d, 16(%rbp)
+	cmpl	$60, %r12d
+	je	.L7
+	movq	48(%rbx), %rbp
+	jmp	.L8
+	.p2align 4,,10
+	.p2align 3
+.L7:
 	movq	(%rbx), %rax
 	movsd	24(%rsp), %xmm0
 	movl	$20, %ecx
@@ -183,16 +187,13 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	%rax, 56(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
-	movq	56(%rbx), %rdi
-	movl	$1, %esi
-	movq	$100, 184(%rdi)
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	56(%rbx), %rax
-	xorl	%esi, %esi
-	leaq	40(%rax), %rbp
 	movq	8(%rbx), %rax
+	movq	56(%rbx), %rbp
+	xorl	%esi, %esi
 	movq	8(%rax), %r12
 	movq	(%rbx), %rax
+	addq	$40, %rbp
+	movq	$100, 144(%rbp)
 	movl	112(%r12), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
@@ -220,16 +221,13 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	%rax, 64(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
-	movq	64(%rbx), %rdi
-	movl	$1, %esi
-	movq	$100, 184(%rdi)
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	64(%rbx), %rax
-	xorl	%esi, %esi
-	leaq	40(%rax), %rbp
 	movq	8(%rbx), %rax
+	movq	64(%rbx), %rbp
+	xorl	%esi, %esi
 	movq	8(%rax), %r12
 	movq	(%rbx), %rax
+	addq	$40, %rbp
+	movq	$100, 144(%rbp)
 	movl	112(%r12), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
@@ -257,16 +255,13 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	%rax, 72(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
-	movq	72(%rbx), %rdi
-	movl	$1, %esi
-	movq	$100, 184(%rdi)
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	72(%rbx), %rax
-	xorl	%esi, %esi
-	leaq	40(%rax), %rbp
 	movq	8(%rbx), %rax
+	movq	72(%rbx), %rbp
+	xorl	%esi, %esi
 	movq	8(%rax), %r12
 	movq	(%rbx), %rax
+	addq	$40, %rbp
+	movq	$100, 144(%rbp)
 	movl	112(%r12), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
@@ -294,17 +289,14 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	%rax, 80(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
-	movq	80(%rbx), %rdi
-	movl	$1, %esi
-	movq	$100, 184(%rdi)
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	80(%rbx), %rax
-	movq	(%rbx), %rdi
-	xorl	%esi, %esi
-	leaq	40(%rax), %rbp
 	movq	8(%rbx), %rax
-	addq	$320, %rdi
+	movq	80(%rbx), %rbp
+	xorl	%esi, %esi
+	movq	(%rbx), %rdi
 	movq	8(%rax), %r12
+	addq	$40, %rbp
+	movq	$100, 144(%rbp)
+	addq	$320, %rdi
 	movl	112(%r12), %edx
 	call	_ZN3wze6engine4math6RandomEii@PLT
 	movq	120(%r12), %rdx

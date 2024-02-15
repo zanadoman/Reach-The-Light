@@ -9,7 +9,7 @@ scene_menu::scene_menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->Credits = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 75, 300, 100, 0, "Készítők");
     this->Quit = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 225, 300, 100, 0, "Kilép");
     this->Volume = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 425, 500, 20, "Hangerő", 0, 100, this->Game->Settings->Volume);
-    this->FrameRate = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 500, 500, 20, "FPS", 1, 1000, this->Game->Settings->FrameRate);
+    this->FrameRate = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 500, 500, 20, "FPS", 30, 1000, this->Game->Settings->FrameRate);
 
     //new tile_top_left_corner(Engine, Game, 200, 200, 100, 100);
 

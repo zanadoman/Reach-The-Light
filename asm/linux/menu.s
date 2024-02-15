@@ -605,7 +605,7 @@ _ZN10scene_menu6UpdateEv:
 	.align 8
 .LC13:
 	.long	0
-	.long	1072693248
+	.long	1077805056
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat
