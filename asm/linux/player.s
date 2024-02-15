@@ -32,7 +32,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movq	%rax, 16(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 24(%rbx)
 	movq	16(%rbx), %rax
 	leaq	136(%rax), %rdi
@@ -144,13 +144,13 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6camera4BindEy@PLT
 	movq	(%rbx), %rdi
 	movsd	.LC7(%rip), %xmm0
+	addq	$80, %rdi
 	addq	$24, %rsp
 	.cfi_def_cfa_offset 24
 	popq	%rbx
 	.cfi_def_cfa_offset 16
 	popq	%rbp
 	.cfi_def_cfa_offset 8
-	addq	$80, %rdi
 	jmp	_ZN3wze6engine6camera7SetZoomEd@PLT
 	.cfi_endproc
 .LFE8157:
@@ -243,7 +243,7 @@ _ZN10act_player6UpdateEv:
 	movq	$0, 24(%rsp)
 	movb	$-1, 20(%rax)
 	movq	24(%rdi), %rdi
-	movq	$3, 32(%rsp)
+	movq	$2, 32(%rsp)
 .LEHB0:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox15GetOverlapStateEPN3neo5arrayINS6_IyEEEESt16initializer_listIyESB_@PLT
 	movq	16(%rsp), %rdx
@@ -278,7 +278,7 @@ _ZN10act_player6UpdateEv:
 	movq	%rax, %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox7GetTypeEv@PLT
 	movq	16(%rsp), %rdx
-	cmpq	$6, %rax
+	cmpq	$4, %rax
 	jne	.L9
 	movsd	72(%rbx), %xmm0
 	movsd	.LC11(%rip), %xmm6
@@ -307,7 +307,7 @@ _ZN10act_player6UpdateEv:
 	movq	%r12, %rdx
 	movl	$1, %ecx
 	movq	%rbp, %rsi
-	movq	$4, 32(%rsp)
+	movq	$3, 32(%rsp)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox15GetOverlapStateEPN3neo5arrayINS6_IyEEEESt16initializer_listIyESB_@PLT
 	movq	16(%rsp), %rdx
 	cmpq	$1, %rdx
@@ -692,7 +692,7 @@ _ZN10act_player6UpdateEv:
 	movq	%r12, %rdx
 	movl	$1, %ecx
 	movq	%rbp, %rsi
-	movq	$4, 32(%rsp)
+	movq	$3, 32(%rsp)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox15GetOverlapStateEPN3neo5arrayINS6_IyEEEESt16initializer_listIyESB_@PLT
 	movq	16(%rsp), %rcx
 	testq	%rcx, %rcx
@@ -718,7 +718,7 @@ _ZN10act_player6UpdateEv:
 	movq	%r12, %rdx
 	movl	$1, %ecx
 	movq	%rbp, %rsi
-	movq	$4, 32(%rsp)
+	movq	$3, 32(%rsp)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox15GetOverlapStateEPN3neo5arrayINS6_IyEEEESt16initializer_listIyESB_@PLT
 .LEHE0:
 	movq	16(%rsp), %rcx

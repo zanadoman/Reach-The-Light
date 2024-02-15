@@ -49,7 +49,6 @@ typedef enum
 {
     ACT_NONE,
     ACT_PLAYER,
-    ACT_CRATE,
     ACT_TILE,
     ACT_PLATFORM
 } actor;
@@ -58,11 +57,9 @@ typedef enum
 {
     BOX_NONE,
     BOX_PLAYER,
-    BOX_PLAYER_SIMULATION,
-    BOX_CRATE_SIMULATION,
     BOX_PLATFORM,
-    BOX_SPIKES,
-    BOX_WEB
+    BOX_DAMAGE,
+    BOX_SLOWNESS
 } overlapbox;
 
 typedef enum

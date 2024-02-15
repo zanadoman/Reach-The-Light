@@ -28,10 +28,10 @@ _ZN9act_crateC2EPN3wze6engineEP4gamedd:
 	movq	%rsi, (%rdi)
 	movq	%rdx, 8(%rdi)
 	leaq	256(%rsi), %rdi
-	movl	$2, %edx
-	movq	%rbx, %rsi
+	xorl	%edx, %edx
+	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$3, %esi
+	xorl	%esi, %esi
 	movq	%rax, 16(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -161,7 +161,7 @@ _ZN9act_crate6UpdateEv:
 	leaq	16(%rsp), %rsi
 	movq	$0, 16(%rsp)
 	movq	$0, 24(%rsp)
-	movq	$4, 32(%rsp)
+	movq	$3, 32(%rsp)
 .LEHB0:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox15GetOverlapStateEPN3neo5arrayINS6_IyEEEESt16initializer_listIyESB_@PLT
 	movq	16(%rsp), %rdx

@@ -4,7 +4,7 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
 {
     this->Actor = this->Engine->Actors.New(this, ACT_PLAYER, X, Y, 16, 15, 1);
     this->Overlapbox = this->Actor->Overlapboxes.New(BOX_PLAYER);
-    this->Simulation = this->Actor->Overlapboxes.New(BOX_PLAYER_SIMULATION);
+    this->Simulation = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Claw1 = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Claw2 = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Idle = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdle);
@@ -69,7 +69,7 @@ uint8 act_player::Update()
             this->Run->ColorR = 0;
             this->Idle->ColorR = 0;
 
-            if (this->Engine->Actors[i].Overlapboxes[1].GetType() == BOX_WEB)
+            if (this->Engine->Actors[i].Overlapboxes[1].GetType() == BOX_SLOWNESS)
             {
                 if (this->VelocityX < -0.05)
                 {

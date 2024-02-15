@@ -6,7 +6,7 @@ tile_trap_hole::tile_trap_hole(engine* Engine, game* Game, double X, double Y) :
 
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
-    this->Trap = this->Actor->Overlapboxes.New(BOX_SPIKES);
+    this->Trap = this->Actor->Overlapboxes.New(BOX_DAMAGE);
 
     this->Trap->SetY(Y - 28.5);
     this->Trap->SetWidth(10);

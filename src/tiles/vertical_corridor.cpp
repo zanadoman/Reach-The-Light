@@ -6,8 +6,8 @@ tile_vertical_corridor::tile_vertical_corridor(engine* Engine, game* Game, doubl
 
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
-    this->Trap1 = this->Actor->Overlapboxes.New(BOX_SPIKES);
-    this->Trap2 = this->Actor->Overlapboxes.New(BOX_SPIKES);
+    this->Trap1 = this->Actor->Overlapboxes.New(BOX_DAMAGE);
+    this->Trap2 = this->Actor->Overlapboxes.New(BOX_DAMAGE);
 
     this->Trap1->SetWidth(3);
     this->Trap1->SetHeight(12);
