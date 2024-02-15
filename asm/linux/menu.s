@@ -551,7 +551,7 @@ _ZN10scene_menu6UpdateEv:
 	call	_ZN3wze6engine5audio15SetGlobalVolumeEd@PLT
 	movq	(%rbx), %rax
 	movq	72(%rbx), %rdi
-	leaq	392(%rax), %rbp
+	leaq	400(%rax), %rbp
 	movq	8(%rbx), %rax
 	movq	16(%rax), %r12
 	call	_ZN10gui_slider6UpdateEv@PLT

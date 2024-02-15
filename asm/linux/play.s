@@ -81,7 +81,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	addl	$100, 28(%rsp)
 	cmpq	$8, %rax
 	jne	.L2
-	movl	$80, %edi
+	movl	$88, %edi
 .LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
@@ -174,7 +174,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	call	_Unwind_Resume@PLT
 .L6:
 	movq	%rbx, %rdi
-	movl	$80, %esi
+	movl	$88, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbp, %rdi
 	call	_Unwind_Resume@PLT
@@ -256,7 +256,7 @@ _ZN10scene_playD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN10act_playerD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$80, %esi
+	movl	$88, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_def_cfa_offset 40

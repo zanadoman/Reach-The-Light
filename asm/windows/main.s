@@ -85,7 +85,7 @@ main:
 	.seh_stackalloc	56
 	.seh_endprologue
 	call	__main
-	movl	$448, %ecx
+	movl	$456, %ecx
 .LEHB0:
 	call	_Znwy
 .LEHE0:
@@ -132,7 +132,7 @@ main:
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_ZN3wze6engineD1Ev
-	movl	$448, %edx
+	movl	$456, %edx
 	movq	%rbx, %rcx
 	call	_ZdlPvy
 	xorl	%eax, %eax
@@ -188,7 +188,7 @@ main:
 main.cold:
 .L8:
 	movq	%rbx, %rcx
-	movl	$448, %edx
+	movl	$456, %edx
 	call	_ZdlPvy
 	movq	%rsi, %rcx
 .LEHB5:
@@ -256,7 +256,7 @@ _Z15DisplayPressKitPN3wze6engineE:
 	.seh_endprologue
 	leaq	.LC6(%rip), %rdx
 	pxor	%xmm6, %xmm6
-	leaq	320(%rcx), %r13
+	leaq	328(%rcx), %r13
 	movq	%rcx, %rbx
 	movq	%r13, %rcx
 	leaq	256(%rbx), %r14
@@ -283,7 +283,7 @@ _Z15DisplayPressKitPN3wze6engineE:
 	xorl	%edx, %edx
 	movq	%r14, %rcx
 	movzwl	%ax, %eax
-	leaq	392(%rbx), %rdi
+	leaq	400(%rbx), %rdi
 	movq	$0x000000000, 56(%rsp)
 	cvtsi2sdl	%eax, %xmm3
 	movsd	%xmm6, 32(%rsp)

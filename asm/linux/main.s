@@ -20,7 +20,7 @@ main:
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	movl	$448, %edi
+	movl	$456, %edi
 	pushq	%rbx
 	.cfi_def_cfa_offset 24
 	.cfi_offset 3, -24
@@ -73,7 +73,7 @@ main:
 	movq	%rbx, %rdi
 	call	_ZN3wze6engineD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$448, %esi
+	movl	$456, %esi
 	call	_ZdlPvm@PLT
 	addq	$8, %rsp
 	.cfi_remember_state
@@ -134,7 +134,7 @@ main.cold:
 	.cfi_offset 3, -24
 	.cfi_offset 6, -16
 	movq	%rbx, %rdi
-	movl	$448, %esi
+	movl	$456, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbp, %rdi
 .LEHB5:
@@ -181,7 +181,7 @@ _Z15DisplayPressKitPN3wze6engineE:
 	pushq	%r15
 	.cfi_def_cfa_offset 16
 	.cfi_offset 15, -16
-	leaq	320(%rdi), %rax
+	leaq	328(%rdi), %rax
 	leaq	.LC5(%rip), %rsi
 	pushq	%r14
 	.cfi_def_cfa_offset 24
@@ -232,7 +232,7 @@ _Z15DisplayPressKitPN3wze6engineE:
 	pxor	%xmm2, %xmm2
 	movq	%r15, %rdi
 	cvtsi2sdl	%eax, %xmm0
-	leaq	392(%rbx), %r12
+	leaq	400(%rbx), %r12
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movq	%r13, %rsi
 	leaq	40(%rax), %rdi

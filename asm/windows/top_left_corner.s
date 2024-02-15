@@ -85,14 +85,15 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm7, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movq	(%rbx), %rcx
 	xorl	%edx, %edx
 	movq	%rax, 16(%rbx)
 	leaq	40(%rax), %rsi
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rdi
+	movq	(%rbx), %rax
 	movl	96(%rdi), %r8d
-	call	_ZN3wze6engine6RandomEii
+	leaq	320(%rax), %rcx
+	call	_ZN3wze6engine4math6RandomEii
 	movq	104(%rdi), %rdx
 	cltq
 	cmpq	96(%rdi), %rax
@@ -126,13 +127,14 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movsd	.LC3(%rip), %xmm9
 .L6:
 	movq	40(%rbx), %rax
-	movq	(%rbx), %rcx
 	xorl	%edx, %edx
 	leaq	40(%rax), %rbp
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rsi
+	movq	(%rbx), %rax
 	movl	112(%rsi), %r8d
-	call	_ZN3wze6engine6RandomEii
+	leaq	320(%rax), %rcx
+	call	_ZN3wze6engine4math6RandomEii
 	movq	120(%rsi), %rdx
 	cltq
 	cmpq	112(%rsi), %rax
@@ -174,13 +176,14 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 .L8:
 	movq	48(%rbx), %rax
-	movq	(%rbx), %rcx
 	xorl	%edx, %edx
 	leaq	40(%rax), %rbp
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rsi
+	movq	(%rbx), %rax
 	movl	112(%rsi), %r8d
-	call	_ZN3wze6engine6RandomEii
+	leaq	320(%rax), %rcx
+	call	_ZN3wze6engine4math6RandomEii
 	movq	120(%rsi), %rdx
 	cltq
 	cmpq	112(%rsi), %rax
@@ -218,13 +221,14 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movl	$1, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	56(%rbx), %rax
-	movq	(%rbx), %rcx
 	xorl	%edx, %edx
 	leaq	40(%rax), %rsi
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rdi
+	movq	(%rbx), %rax
 	movl	112(%rdi), %r8d
-	call	_ZN3wze6engine6RandomEii
+	leaq	320(%rax), %rcx
+	call	_ZN3wze6engine4math6RandomEii
 	movq	120(%rdi), %rdx
 	cltq
 	cmpq	112(%rdi), %rax
@@ -251,13 +255,14 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movl	$1, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	64(%rbx), %rax
-	movq	(%rbx), %rcx
 	xorl	%edx, %edx
 	leaq	40(%rax), %rsi
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rdi
+	movq	(%rbx), %rax
 	movl	112(%rdi), %r8d
-	call	_ZN3wze6engine6RandomEii
+	leaq	320(%rax), %rcx
+	call	_ZN3wze6engine4math6RandomEii
 	movq	120(%rdi), %rdx
 	cltq
 	cmpq	112(%rdi), %rax
@@ -284,13 +289,14 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movl	$1, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	72(%rbx), %rax
-	movq	(%rbx), %rcx
 	xorl	%edx, %edx
 	leaq	40(%rax), %rsi
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rdi
+	movq	(%rbx), %rax
 	movl	112(%rdi), %r8d
-	call	_ZN3wze6engine6RandomEii
+	leaq	320(%rax), %rcx
+	call	_ZN3wze6engine4math6RandomEii
 	movq	120(%rdi), %rdx
 	cltq
 	cmpq	112(%rdi), %rax
@@ -320,9 +326,10 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	xorl	%edx, %edx
 	leaq	40(%rax), %rsi
 	movq	8(%rbx), %rax
+	addq	$320, %rcx
 	movq	8(%rax), %rdi
 	movl	112(%rdi), %r8d
-	call	_ZN3wze6engine6RandomEii
+	call	_ZN3wze6engine4math6RandomEii
 	movq	120(%rdi), %rdx
 	cltq
 	cmpq	112(%rdi), %rax
@@ -458,7 +465,7 @@ _ZN20tile_top_left_cornerD2Ev:
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	__mingw_vfprintf;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6RandomEii;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine4math6RandomEii;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes3NewEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes3NewEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor17SetCollisionLayerEh;	.scl	2;	.type	32;	.endef

@@ -5,14 +5,14 @@ tile_vertical_rotating::tile_vertical_rotating(engine* Engine, game* Game, doubl
     engine::texturebox tmp;
 
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
-    this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Random(0, this->Game->Assets->TileBackgrounds.Length())]);
+    this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
     
     this->HitboxLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y, 20, 60, 1);
     this->HitboxLeft->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxLeft->SetCollisionLayer(1);
     for (uint8 i = 0; i < 3; i++)
     {
-        tmp = this->HitboxLeft->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Random(0, this->Game->Assets->TilePlatforms.Length())]);
+        tmp = this->HitboxLeft->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Math.Random(0, this->Game->Assets->TilePlatforms.Length())]);
         tmp->SetY(Y - 20 + 20 * i);
         tmp->Width = 20;
         tmp->Height = 20;
@@ -23,7 +23,7 @@ tile_vertical_rotating::tile_vertical_rotating(engine* Engine, game* Game, doubl
     this->HitboxRight->SetCollisionLayer(1);
     for (uint8 i = 0; i < 3; i++)
     {
-        tmp = this->HitboxRight->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Random(0, this->Game->Assets->TilePlatforms.Length())]);
+        tmp = this->HitboxRight->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Math.Random(0, this->Game->Assets->TilePlatforms.Length())]);
         tmp->SetY(Y - 20 + 20 * i);
         tmp->Width = 20;
         tmp->Height = 20;
@@ -32,22 +32,22 @@ tile_vertical_rotating::tile_vertical_rotating(engine* Engine, game* Game, doubl
     this->HitboxTopLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y + 40, 20, 20, 1);
     this->HitboxTopLeft->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxTopLeft->SetCollisionLayer(1);
-    this->HitboxTopLeft->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Random(0, this->Game->Assets->TilePlatforms.Length())]);
+    this->HitboxTopLeft->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Math.Random(0, this->Game->Assets->TilePlatforms.Length())]);
     
     this->HitboxTopRight = this->Engine->Actors.New(NULL, ACT_PLATFORM, X + 40, Y + 40, 20, 20, 1);
     this->HitboxTopRight->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxTopRight->SetCollisionLayer(1);
-    this->HitboxTopRight->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Random(0, this->Game->Assets->TilePlatforms.Length())]);
+    this->HitboxTopRight->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Math.Random(0, this->Game->Assets->TilePlatforms.Length())]);
     
     this->HitboxBotLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y - 40, 20, 20, 1);
     this->HitboxBotLeft->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxBotLeft->SetCollisionLayer(1);
-    this->HitboxBotLeft->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Random(0, this->Game->Assets->TilePlatforms.Length())]);
+    this->HitboxBotLeft->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Math.Random(0, this->Game->Assets->TilePlatforms.Length())]);
     
     this->HitboxBotRight = this->Engine->Actors.New(NULL, ACT_PLATFORM, X + 40, Y - 40, 20, 20, 1);
     this->HitboxBotRight->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxBotRight->SetCollisionLayer(1);
-    this->HitboxBotRight->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Random(0, this->Game->Assets->TilePlatforms.Length())]);
+    this->HitboxBotRight->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Math.Random(0, this->Game->Assets->TilePlatforms.Length())]);
 }
 
 tile_vertical_rotating::~tile_vertical_rotating()

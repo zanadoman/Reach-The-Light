@@ -197,7 +197,7 @@ _ZN10gui_button6UpdateEv:
 	comisd	%xmm6, %xmm1
 	jbe	.L13
 	movq	(%rbx), %rax
-	leaq	392(%rax), %rcx
+	leaq	400(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	pxor	%xmm0, %xmm0
 	movsd	56(%rbx), %xmm1
@@ -214,7 +214,7 @@ _ZN10gui_button6UpdateEv:
 	.p2align 3
 .L20:
 	movq	(%rbx), %rax
-	leaq	392(%rax), %rcx
+	leaq	400(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	pxor	%xmm1, %xmm1
 	movsd	.LC7(%rip), %xmm0

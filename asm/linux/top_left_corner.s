@@ -45,14 +45,15 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	%rax, %xmm2
 	movsd	%xmm1, 8(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movq	0(%r13), %rdi
 	xorl	%esi, %esi
 	movq	%rax, 16(%r13)
 	leaq	40(%rax), %rbx
 	movq	8(%r13), %rax
 	movq	8(%rax), %rbp
+	movq	0(%r13), %rax
 	movl	96(%rbp), %edx
-	call	_ZN3wze6engine6RandomEii@PLT
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine4math6RandomEii@PLT
 	movq	104(%rbp), %rdx
 	cltq
 	cmpq	96(%rbp), %rax
@@ -85,13 +86,14 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movl	.LC4(%rip), %r12d
 .L4:
 	movq	40(%r13), %rax
-	movq	0(%r13), %rdi
 	xorl	%esi, %esi
 	leaq	40(%rax), %rbp
 	movq	8(%r13), %rax
 	movq	8(%rax), %r14
+	movq	0(%r13), %rax
 	movl	112(%r14), %edx
-	call	_ZN3wze6engine6RandomEii@PLT
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine4math6RandomEii@PLT
 	movq	120(%r14), %rdx
 	cltq
 	cmpq	112(%r14), %rax
@@ -134,13 +136,14 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 .L6:
 	movq	48(%r13), %rax
-	movq	0(%r13), %rdi
 	xorl	%esi, %esi
 	leaq	40(%rax), %rbp
 	movq	8(%r13), %rax
 	movq	8(%rax), %r14
+	movq	0(%r13), %rax
 	movl	112(%r14), %edx
-	call	_ZN3wze6engine6RandomEii@PLT
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine4math6RandomEii@PLT
 	movq	120(%r14), %rdx
 	cltq
 	cmpq	112(%r14), %rax
@@ -179,13 +182,14 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movl	$1, %esi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	56(%r13), %rax
-	movq	0(%r13), %rdi
 	xorl	%esi, %esi
 	leaq	40(%rax), %rbx
 	movq	8(%r13), %rax
 	movq	8(%rax), %rbp
+	movq	0(%r13), %rax
 	movl	112(%rbp), %edx
-	call	_ZN3wze6engine6RandomEii@PLT
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine4math6RandomEii@PLT
 	movq	120(%rbp), %rdx
 	cltq
 	cmpq	112(%rbp), %rax
@@ -216,13 +220,14 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movl	$1, %esi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	64(%r13), %rax
-	movq	0(%r13), %rdi
 	xorl	%esi, %esi
 	leaq	40(%rax), %rbp
 	movq	8(%r13), %rax
 	movq	8(%rax), %r12
+	movq	0(%r13), %rax
 	movl	112(%r12), %edx
-	call	_ZN3wze6engine6RandomEii@PLT
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine4math6RandomEii@PLT
 	movq	120(%r12), %rdx
 	cltq
 	cmpq	112(%r12), %rax
@@ -251,13 +256,14 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movl	$1, %esi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	72(%r13), %rax
-	movq	0(%r13), %rdi
 	xorl	%esi, %esi
 	leaq	40(%rax), %rbp
 	movq	8(%r13), %rax
 	movq	8(%rax), %r12
+	movq	0(%r13), %rax
 	movl	112(%r12), %edx
-	call	_ZN3wze6engine6RandomEii@PLT
+	leaq	320(%rax), %rdi
+	call	_ZN3wze6engine4math6RandomEii@PLT
 	movq	120(%r12), %rdx
 	movsd	8(%rsp), %xmm1
 	cltq
@@ -290,9 +296,10 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	xorl	%esi, %esi
 	leaq	40(%rax), %rbx
 	movq	8(%r13), %rax
+	addq	$320, %rdi
 	movq	8(%rax), %rbp
 	movl	112(%rbp), %edx
-	call	_ZN3wze6engine6RandomEii@PLT
+	call	_ZN3wze6engine4math6RandomEii@PLT
 	movq	120(%rbp), %rdx
 	cltq
 	cmpq	112(%rbp), %rax

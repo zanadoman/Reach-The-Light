@@ -419,7 +419,7 @@ _ZN12scene_editor6UpdateEv:
 	call	_ZN3wze6engine6camera7GetZoomEv
 	movq	(%rdi), %rax
 	movapd	%xmm0, %xmm6
-	leaq	392(%rax), %rcx
+	leaq	400(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	pxor	%xmm0, %xmm0
 	movl	%eax, %eax
@@ -501,7 +501,7 @@ _ZN12scene_editor6UpdateEv:
 	call	_ZN3wze6engine6camera7GetZoomEv
 	movq	(%rdi), %rax
 	movapd	%xmm0, %xmm6
-	leaq	392(%rax), %rcx
+	leaq	400(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	pxor	%xmm1, %xmm1
 	movsd	.LC8(%rip), %xmm0
@@ -528,7 +528,7 @@ _ZN12scene_editor6UpdateEv:
 	call	_ZN3wze6engine6camera10GetOriginYEv
 	movq	(%rdi), %rax
 	movapd	%xmm0, %xmm8
-	leaq	392(%rax), %rcx
+	leaq	400(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	pxor	%xmm0, %xmm0
 	movapd	%xmm8, %xmm1
@@ -576,7 +576,7 @@ _ZN12scene_editor6UpdateEv:
 	call	_ZN3wze6engine6camera10GetOriginYEv
 	movq	(%rdi), %rax
 	movapd	%xmm0, %xmm8
-	leaq	392(%rax), %rcx
+	leaq	400(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	pxor	%xmm1, %xmm1
 	leal	0(,%rax,4), %eax

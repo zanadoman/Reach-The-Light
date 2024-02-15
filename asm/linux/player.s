@@ -369,7 +369,7 @@ _ZN10act_player6UpdateEv:
 	movq	(%rbx), %rax
 	movsd	64(%rbx), %xmm4
 	movsd	%xmm0, 16(%rsp)
-	leaq	392(%rax), %rdi
+	leaq	400(%rax), %rdi
 	movsd	%xmm4, 8(%rsp)
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	movl	%eax, %eax
@@ -385,7 +385,7 @@ _ZN10act_player6UpdateEv:
 	movq	(%rbx), %rax
 	movsd	64(%rbx), %xmm6
 	movsd	%xmm0, 24(%rsp)
-	leaq	392(%rax), %rdi
+	leaq	400(%rax), %rdi
 	movsd	%xmm6, 16(%rsp)
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	movl	%eax, %eax
@@ -405,7 +405,7 @@ _ZN10act_player6UpdateEv:
 	jne	.L120
 .L51:
 	movq	48(%rbx), %rax
-	addq	$392, %rdi
+	addq	$400, %rdi
 	movq	$0x000000000, 24(%rax)
 	movq	56(%rbx), %rax
 	movq	$0x000000000, 24(%rax)
@@ -423,7 +423,7 @@ _ZN10act_player6UpdateEv:
 	movq	(%rbx), %rax
 	movsd	72(%rbx), %xmm5
 	movsd	%xmm0, 16(%rsp)
-	leaq	392(%rax), %rdi
+	leaq	400(%rax), %rdi
 	movsd	%xmm5, 8(%rsp)
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	movl	%eax, %eax
@@ -439,7 +439,7 @@ _ZN10act_player6UpdateEv:
 	movq	(%rbx), %rax
 	movsd	72(%rbx), %xmm3
 	movsd	%xmm0, 16(%rsp)
-	leaq	392(%rax), %rdi
+	leaq	400(%rax), %rdi
 	movsd	%xmm3, 8(%rsp)
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	movl	%eax, %eax
@@ -572,7 +572,7 @@ _ZN10act_player6UpdateEv:
 	movq	(%rbx), %rax
 	leaq	32(%rsp), %r12
 	leaq	48(%rsp), %rbp
-	leaq	392(%rax), %rdi
+	leaq	400(%rax), %rdi
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	movl	%eax, %eax
 	pxor	%xmm1, %xmm1
@@ -597,7 +597,7 @@ _ZN10act_player6UpdateEv:
 	testb	%al, %al
 	jne	.L27
 	movq	(%rbx), %rax
-	leaq	392(%rax), %rdi
+	leaq	400(%rax), %rdi
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	movl	%eax, %eax
 	pxor	%xmm0, %xmm0
@@ -635,7 +635,7 @@ _ZN10act_player6UpdateEv:
 	movq	(%rbx), %rdi
 	testb	%al, %al
 	jne	.L12
-	addq	$392, %rdi
+	addq	$400, %rdi
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	movl	%eax, %eax
 	pxor	%xmm1, %xmm1
@@ -671,7 +671,7 @@ _ZN10act_player6UpdateEv:
 	.p2align 4,,10
 	.p2align 3
 .L116:
-	addq	$392, %rdi
+	addq	$400, %rdi
 	leaq	32(%rsp), %r12
 	leaq	48(%rsp), %rbp
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
@@ -690,7 +690,7 @@ _ZN10act_player6UpdateEv:
 	.p2align 3
 .L122:
 	movq	(%rbx), %rax
-	leaq	392(%rax), %rdi
+	leaq	400(%rax), %rdi
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	movl	%eax, %eax
 	pxor	%xmm0, %xmm0
