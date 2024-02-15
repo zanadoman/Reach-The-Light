@@ -76,7 +76,7 @@ _ZN15tile_floor_holeC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm3, %xmm6
 	movq	%r8, 8(%rcx)
 	leaq	256(%rdx), %rcx
-	movl	$3, %r8d
+	movl	$1, %r8d
 	xorl	%edx, %edx
 	movl	$100, 48(%rsp)
 	movl	$100, 40(%rsp)
@@ -102,23 +102,24 @@ _ZN15tile_floor_holeC2EPN3wze6engineEP4gamedd:
 	xorl	%edi, %edi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movapd	%xmm6, %xmm3
-	movl	$4, %r8d
+	movl	$2, %r8d
 	xorl	%edx, %edx
 	movsd	.LC2(%rip), %xmm9
-	movq	%rax, 32(%rbx)
+	movq	%rax, 24(%rbx)
+	movb	$127, 36(%rax)
 	movq	(%rbx), %rax
-	movl	$20, 48(%rsp)
 	addsd	%xmm9, %xmm10
+	movl	$20, 48(%rsp)
 	movl	$60, 40(%rsp)
 	leaq	256(%rax), %rcx
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm10, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$4, %edx
-	movq	%rax, 40(%rbx)
+	movl	$2, %edx
+	movq	%rax, 32(%rbx)
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
-	movq	40(%rbx), %rax
+	movq	32(%rbx), %rax
 	movl	.LC4(%rip), %r12d
 	movsd	.LC3(%rip), %xmm11
 	movq	$100, 184(%rax)
@@ -150,14 +151,14 @@ _ZN15tile_floor_holeC2EPN3wze6engineEP4gamedd:
 	movl	%r12d, 16(%rsi)
 	cmpl	$60, %edi
 	je	.L6
-	movq	40(%rbx), %rax
+	movq	32(%rbx), %rax
 	jmp	.L7
 	.p2align 4,,10
 	.p2align 3
 .L6:
 	movapd	%xmm6, %xmm11
 	movq	(%rbx), %rax
-	movl	$4, %r8d
+	movl	$2, %r8d
 	xorl	%edx, %edx
 	subsd	%xmm9, %xmm11
 	movl	$20, 48(%rsp)
@@ -167,11 +168,11 @@ _ZN15tile_floor_holeC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm11, %xmm3
 	movsd	%xmm10, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$4, %edx
-	movq	%rax, 48(%rbx)
+	movl	$2, %edx
+	movq	%rax, 40(%rbx)
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
-	movq	48(%rbx), %rax
+	movq	40(%rbx), %rax
 	xorl	%edx, %edx
 	movq	$100, 184(%rax)
 	leaq	40(%rax), %rdi
@@ -192,18 +193,18 @@ _ZN15tile_floor_holeC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	xorl	%edx, %edx
 	movl	$20, 48(%rsp)
-	movl	$4, %r8d
+	movl	$2, %r8d
 	movl	$20, 40(%rsp)
 	leaq	256(%rax), %rcx
 	movapd	%xmm6, %xmm3
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm10, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$4, %edx
-	movq	%rax, 56(%rbx)
+	movl	$2, %edx
+	movq	%rax, 48(%rbx)
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
-	movq	56(%rbx), %rax
+	movq	48(%rbx), %rax
 	xorl	%edx, %edx
 	movq	$100, 184(%rax)
 	leaq	40(%rax), %rdi
@@ -225,17 +226,17 @@ _ZN15tile_floor_holeC2EPN3wze6engineEP4gamedd:
 	xorl	%edx, %edx
 	movl	$20, 48(%rsp)
 	movapd	%xmm11, %xmm3
-	movl	$4, %r8d
+	movl	$2, %r8d
 	movl	$20, 40(%rsp)
 	leaq	256(%rax), %rcx
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm7, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$4, %edx
-	movq	%rax, 64(%rbx)
+	movl	$2, %edx
+	movq	%rax, 56(%rbx)
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
-	movq	64(%rbx), %rax
+	movq	56(%rbx), %rax
 	xorl	%edx, %edx
 	movq	$100, 184(%rax)
 	leaq	40(%rax), %rdi
@@ -256,17 +257,17 @@ _ZN15tile_floor_holeC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm6, %xmm3
 	xorl	%edx, %edx
 	movl	$20, 48(%rsp)
-	movl	$4, %r8d
+	movl	$2, %r8d
 	movl	$20, 40(%rsp)
 	leaq	256(%rax), %rcx
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm7, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$4, %edx
-	movq	%rax, 72(%rbx)
+	movl	$2, %edx
+	movq	%rax, 64(%rbx)
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
-	movq	72(%rbx), %rax
+	movq	64(%rbx), %rax
 	movq	(%rbx), %rcx
 	xorl	%edx, %edx
 	movq	$100, 184(%rax)
@@ -329,6 +330,13 @@ _ZN15tile_floor_holeD2Ev:
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6actors6DeleteEy
 	movq	(%rbx), %rax
+	movq	32(%rbx), %rcx
+	leaq	256(%rax), %rsi
+	call	_ZN3wze6engine6actors5actor5GetIDEv
+	movq	%rsi, %rcx
+	movq	%rax, %rdx
+	call	_ZN3wze6engine6actors6DeleteEy
+	movq	(%rbx), %rax
 	movq	40(%rbx), %rcx
 	leaq	256(%rax), %rsi
 	call	_ZN3wze6engine6actors5actor5GetIDEv
@@ -351,13 +359,6 @@ _ZN15tile_floor_holeD2Ev:
 	call	_ZN3wze6engine6actors6DeleteEy
 	movq	(%rbx), %rax
 	movq	64(%rbx), %rcx
-	leaq	256(%rax), %rsi
-	call	_ZN3wze6engine6actors5actor5GetIDEv
-	movq	%rsi, %rcx
-	movq	%rax, %rdx
-	call	_ZN3wze6engine6actors6DeleteEy
-	movq	(%rbx), %rax
-	movq	72(%rbx), %rcx
 	leaq	256(%rax), %rsi
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rsi, %rcx

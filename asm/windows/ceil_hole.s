@@ -76,7 +76,7 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm3, %xmm6
 	movq	%r8, 8(%rcx)
 	leaq	256(%rdx), %rcx
-	movl	$3, %r8d
+	movl	$1, %r8d
 	xorl	%edx, %edx
 	movl	$100, 48(%rsp)
 	movl	$100, 40(%rsp)
@@ -101,26 +101,45 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm7, %xmm10
 	xorl	%edi, %edi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
-	movapd	%xmm6, %xmm3
-	movl	$4, %r8d
-	xorl	%edx, %edx
-	movsd	.LC2(%rip), %xmm9
+	movl	$3, %edx
+	movq	%rax, 24(%rbx)
+	movq	16(%rbx), %rax
+	leaq	136(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
+	movapd	%xmm7, %xmm1
+	subsd	.LC2(%rip), %xmm1
+	movq	%rax, %rcx
 	movq	%rax, 32(%rbx)
+	movq	24(%rbx), %rax
+	movb	$127, 36(%rax)
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd
+	movq	32(%rbx), %rcx
+	movl	$30, %edx
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt
+	movq	32(%rbx), %rcx
+	movl	$5, %edx
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt
+	movq	32(%rbx), %rax
+	movapd	%xmm6, %xmm3
+	xorl	%edx, %edx
+	movsd	.LC3(%rip), %xmm9
+	movl	$2, %r8d
+	movb	$1, 18(%rax)
 	movq	(%rbx), %rax
-	movl	$20, 48(%rsp)
 	subsd	%xmm9, %xmm10
+	movl	$20, 48(%rsp)
 	movl	$60, 40(%rsp)
 	leaq	256(%rax), %rcx
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm10, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$4, %edx
+	movl	$2, %edx
 	movq	%rax, 40(%rbx)
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
 	movq	40(%rbx), %rax
-	movl	.LC4(%rip), %r12d
-	movsd	.LC3(%rip), %xmm11
+	movl	.LC5(%rip), %r12d
+	movsd	.LC4(%rip), %xmm11
 	movq	$100, 184(%rax)
 .L7:
 	leaq	40(%rax), %rsi
@@ -161,14 +180,14 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	xorl	%edx, %edx
 	subsd	%xmm9, %xmm11
 	movl	$20, 48(%rsp)
-	movl	$4, %r8d
+	movl	$2, %r8d
 	movl	$20, 40(%rsp)
 	leaq	256(%rax), %rcx
 	movsd	%xmm8, 56(%rsp)
 	movapd	%xmm11, %xmm3
 	movsd	%xmm7, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$4, %edx
+	movl	$2, %edx
 	movq	%rax, 48(%rbx)
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
@@ -193,14 +212,14 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	xorl	%edx, %edx
 	movl	$20, 48(%rsp)
-	movl	$4, %r8d
+	movl	$2, %r8d
 	movl	$20, 40(%rsp)
 	leaq	256(%rax), %rcx
 	movapd	%xmm6, %xmm3
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm7, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$4, %edx
+	movl	$2, %edx
 	movq	%rax, 56(%rbx)
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
@@ -225,13 +244,13 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm11, %xmm3
 	xorl	%edx, %edx
 	movl	$20, 48(%rsp)
-	movl	$4, %r8d
+	movl	$2, %r8d
 	movl	$20, 40(%rsp)
 	leaq	256(%rax), %rcx
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm10, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$4, %edx
+	movl	$2, %edx
 	movq	%rax, 64(%rbx)
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
@@ -256,13 +275,13 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm6, %xmm3
 	xorl	%edx, %edx
 	movl	$20, 48(%rsp)
-	movl	$4, %r8d
+	movl	$2, %r8d
 	movl	$20, 40(%rsp)
 	leaq	256(%rax), %rcx
 	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm10, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$4, %edx
+	movl	$2, %edx
 	movq	%rax, 72(%rbx)
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
@@ -391,13 +410,17 @@ _ZN14tile_ceil_holeD2Ev:
 	.align 8
 .LC2:
 	.long	0
-	.long	1078198272
+	.long	1077641216
 	.align 8
 .LC3:
 	.long	0
+	.long	1078198272
+	.align 8
+.LC4:
+	.long	0
 	.long	1077149696
 	.align 4
-.LC4:
+.LC5:
 	.word	20
 	.word	20
 	.ident	"GCC: (GNU) 13.1.0"
@@ -406,6 +429,9 @@ _ZN14tile_ceil_holeD2Ev:
 	.def	_ZN3wze6engine4math6RandomEii;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes3NewEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes3NewEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd;	.scl	2;	.type	32;	.endef
 	.def	exit;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
