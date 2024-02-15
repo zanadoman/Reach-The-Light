@@ -93,7 +93,7 @@ _ZN15scene_game_overC2EPN3wze6engineEP4game:
 	movq	%rax, %rbp
 .LEHB3:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
-	addsd	.LC2(%rip), %xmm0
+	subsd	.LC2(%rip), %xmm0
 	movq	16(%rbx), %rdi
 	movsd	%xmm0, 8(%rsp)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT

@@ -5,7 +5,7 @@ scene_game_over::scene_game_over(engine* Engine, game* Game) : Engine(Engine), G
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, this->Engine->Window.GetWidth() >> 1, this->Engine->Window.GetHeight() >> 1, 0, 0, 0);
     this->Title = this->Actor->Textboxes.New("Game Over", this->Game->Assets->HackBoldFont);
     this->Restart = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() + 75, 300, 100, 0, "Újra");
-    this->Menu = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - -75, 300, 100, 0, "Menü");
+    this->Menu = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() -75, 300, 100, 0, "Menü");
 
     this->Title->SetY(this->Actor->GetY() + 500);
     this->Title->SetHeight(100);
