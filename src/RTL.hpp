@@ -227,6 +227,7 @@ struct act_crate
 
     engine::actor Actor;
     engine::overlapbox SimulationBox;
+    engine::texturebox Texturebox;
 
     double VelocityY;
 

@@ -7,19 +7,14 @@
 _ZN9act_crateC2EPN3wze6engineEP4gamedd:
 .LFB8157:
 	.cfi_startproc
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movl	$30, %r8d
-	movl	$30, %ecx
 	pushq	%rbx
-	.cfi_def_cfa_offset 24
-	.cfi_offset 3, -24
-	movq	%rdi, %rbx
-	subq	$8, %rsp
-	.cfi_def_cfa_offset 32
-	movq	%rsi, (%rdi)
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
 	movsd	.LC0(%rip), %xmm2
+	movq	%rdi, %rbx
+	movl	$30, %ecx
+	movq	%rsi, (%rdi)
+	movl	$30, %r8d
 	movq	%rdx, 8(%rdi)
 	xorl	%edx, %edx
 	leaq	256(%rsi), %rdi
@@ -38,8 +33,8 @@ _ZN9act_crateC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	16(%rbx), %rdi
 	movl	$1, %esi
-	movq	$0x000000000, 32(%rbx)
-	movq	%rax, %rbp
+	movq	$0x000000000, 40(%rbx)
+	movq	%rax, 32(%rbx)
 	movq	$49, 184(%rdi)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	24(%rbx), %rdi
@@ -48,12 +43,9 @@ _ZN9act_crateC2EPN3wze6engineEP4gamedd:
 	movq	24(%rbx), %rdi
 	movl	$120, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
-	movb	$-127, 36(%rbp)
-	addq	$8, %rsp
-	.cfi_def_cfa_offset 24
+	movq	32(%rbx), %rax
+	movb	$-127, 36(%rax)
 	popq	%rbx
-	.cfi_def_cfa_offset 16
-	popq	%rbp
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
@@ -170,7 +162,7 @@ _ZN9act_crate6UpdateEv:
 	jb	.L7
 .L11:
 	pxor	%xmm0, %xmm0
-	comisd	32(%rbp), %xmm0
+	comisd	40(%rbp), %xmm0
 	ja	.L8
 	movq	8(%rbp), %rax
 	movq	24(%rbp), %r12
@@ -196,15 +188,15 @@ _ZN9act_crate6UpdateEv:
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	movl	%eax, %eax
 	pxor	%xmm1, %xmm1
-	movsd	32(%rbp), %xmm0
+	movsd	40(%rbp), %xmm0
 	movq	16(%rbp), %rdi
 	cvtsi2sdq	%rax, %xmm1
 	mulsd	.LC2(%rip), %xmm1
 	subsd	%xmm1, %xmm0
-	movsd	%xmm0, 32(%rbp)
+	movsd	%xmm0, 40(%rbp)
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	movq	0(%rbp), %rax
-	movsd	32(%rbp), %xmm3
+	movsd	40(%rbp), %xmm3
 	movsd	%xmm0, 8(%rsp)
 	leaq	400(%rax), %rdi
 	movsd	%xmm3, (%rsp)
@@ -220,7 +212,7 @@ _ZN9act_crate6UpdateEv:
 	movq	%xmm2, %rbx
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	movq	0(%rbp), %rax
-	movsd	32(%rbp), %xmm5
+	movsd	40(%rbp), %xmm5
 	movsd	%xmm0, 8(%rsp)
 	leaq	400(%rax), %rdi
 	movsd	%xmm5, (%rsp)
@@ -274,9 +266,9 @@ _ZN9act_crate6UpdateEv:
 .L33:
 	.cfi_restore_state
 	pxor	%xmm0, %xmm0
-	comisd	32(%rbp), %xmm0
+	comisd	40(%rbp), %xmm0
 	jbe	.L13
-	movsd	%xmm0, 32(%rbp)
+	movsd	%xmm0, 40(%rbp)
 	jmp	.L13
 .L43:
 	call	__stack_chk_fail@PLT

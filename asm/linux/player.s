@@ -128,10 +128,10 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movsd	(%rsp), %xmm1
 	movl	%ebp, 16(%rdi)
 	movapd	%xmm1, %xmm0
-	movb	$-126, 36(%rdi)
+	movb	$-125, 36(%rdi)
 	call	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetYEd@PLT
 	movq	64(%rbx), %rax
-	movl	$130, %edx
+	movl	$131, %edx
 	movq	16(%rbx), %rdi
 	movw	%dx, 36(%rax)
 	movb	$1, 39(%rax)

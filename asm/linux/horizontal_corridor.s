@@ -310,7 +310,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r12, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movl	$40, %edi
+	movl	$48, %edi
 	call	_Znwm@PLT
 .LEHE0:
 	movsd	16(%rsp), %xmm1
@@ -393,7 +393,7 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd.cold:
 	.cfi_offset 14, -24
 	.cfi_offset 15, -16
 	movq	%rbp, %rdi
-	movl	$40, %esi
+	movl	$48, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 .LEHB3:
@@ -499,7 +499,7 @@ _ZN24tile_horizontal_corridorD2Ev:
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
 	movq	%rbx, %rdi
-	movl	$40, %esi
+	movl	$48, %esi
 	popq	%rbx
 	.cfi_def_cfa_offset 16
 	popq	%rbp

@@ -2,11 +2,9 @@
 
 act_crate::act_crate(engine* Engine, game* Game, double X, double Y) : Engine(Engine), Game(Game)
 {
-    engine::texturebox tmp;
-
     this->Actor = this->Engine->Actors.New(NULL, BOX_NONE, X, Y, 30, 30, 1);
     this->SimulationBox = this->Actor->Overlapboxes.New(BOX_NONE);
-    tmp = this->Actor->Textureboxes.New(this->Game->Assets->CrateTexture);
+    this->Texturebox = this->Actor->Textureboxes.New(this->Game->Assets->CrateTexture);
     this->VelocityY = 0;
 
     this->Actor->Resistance = 49;
@@ -15,7 +13,7 @@ act_crate::act_crate(engine* Engine, game* Game, double X, double Y) : Engine(En
     this->SimulationBox->SetWidth(120);
     this->SimulationBox->SetHeight(120);
 
-    tmp->Priority = 129;
+    this->Texturebox->Priority = 129;
 }
 
 act_crate::~act_crate()
