@@ -12,7 +12,7 @@ tile_vertical_corridor::tile_vertical_corridor(engine* Engine, game* Game, doubl
     this->Background->Priority = 127;
 
     this->SmallSpikes1->SetWidth(3);
-    this->SmallSpikes1->SetHeight(12);
+    this->SmallSpikes1->SetHeight(10);
     this->SmallSpikes1->SetX(X - 28);
     this->SmallSpikes1->Visible = DEBUG;
 
@@ -20,6 +20,17 @@ tile_vertical_corridor::tile_vertical_corridor(engine* Engine, game* Game, doubl
     this->SmallSpikes2->SetHeight(12);
     this->SmallSpikes2->SetX(X + 28);
     this->SmallSpikes2->Visible = DEBUG;
+
+    if (this->Engine->Math.Random(0, 2))
+    {
+        this->SmallSpikes1->SetY(Y + 10);
+        this->SmallSpikes2->SetY(Y - 12);
+    }
+    else
+    {
+        this->SmallSpikes1->SetY(Y - 10);
+        this->SmallSpikes2->SetY(Y + 12);
+    }
 
     this->HitboxLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y, 20, 60, 1);
     this->HitboxLeft->Overlapboxes.New(BOX_PLATFORM);

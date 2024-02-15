@@ -169,7 +169,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.p2align 4,,10
 	.p2align 3
 .L12:
-	movl	$104, %edi
+	movl	$80, %edi
 .LEHB10:
 	call	_Znwm@PLT
 .LEHE10:
@@ -486,7 +486,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold:
 	call	_Unwind_Resume@PLT
 .L19:
 	movq	%r14, %rdi
-	movl	$104, %esi
+	movl	$80, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
@@ -652,7 +652,7 @@ _ZN10tile_tokenD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN21tile_bot_right_cornerD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$104, %esi
+	movl	$80, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_restore 3
@@ -816,7 +816,7 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	.long	.L112-.L106
 	.long	.L113-.L106
 	.long	.L113-.L106
-	.long	.L114-.L106
+	.long	.L105-.L106
 	.long	.L113-.L106
 	.long	.L112-.L106
 	.long	.L111-.L106
@@ -930,20 +930,8 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L108:
-	.cfi_restore_state
-	movq	(%rdi), %rax
-	xorl	%esi, %esi
-	movq	40(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	(%rbx), %rax
-	movq	48(%rax), %rdi
-	testq	%rdi, %rdi
-	jne	.L126
-	jmp	.L118
-	.p2align 4,,10
-	.p2align 3
 .L110:
+	.cfi_restore_state
 	movq	(%rdi), %rax
 	xorl	%esi, %esi
 	movq	32(%rax), %rdi
@@ -963,34 +951,6 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	movq	(%rbx), %rax
 	xorl	%esi, %esi
 	movq	64(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	jmp	.L104
-	.p2align 4,,10
-	.p2align 3
-.L114:
-	movq	(%rdi), %rax
-	xorl	%esi, %esi
-	movq	56(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	(%rbx), %rax
-	xorl	%esi, %esi
-	movq	64(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	(%rbx), %rax
-	xorl	%esi, %esi
-	movq	72(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	(%rbx), %rax
-	xorl	%esi, %esi
-	movq	80(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	(%rbx), %rax
-	xorl	%esi, %esi
-	movq	88(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	(%rbx), %rax
-	xorl	%esi, %esi
-	movq	96(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	jmp	.L104
 	.p2align 4,,10
@@ -1013,6 +973,18 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	movq	56(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	jmp	.L104
+	.p2align 4,,10
+	.p2align 3
+.L108:
+	movq	(%rdi), %rax
+	xorl	%esi, %esi
+	movq	40(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	movq	48(%rax), %rdi
+	testq	%rdi, %rdi
+	jne	.L126
+	jmp	.L118
 .L123:
 	.cfi_def_cfa_offset 8
 	.cfi_restore 3
