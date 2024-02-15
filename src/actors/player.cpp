@@ -12,12 +12,12 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->VelocityX = 0;
     this->VelocityY = 0;
 
+    this->Actor->Force = 99;
+    this->Actor->SetCollisionLayer(1);
+
     this->OverlapBox->SetY(Y - 1);
     this->OverlapBox->SetWidth(15);
     this->OverlapBox->SetHeight(10);
-
-    this->Actor->Force = 99;
-    this->Actor->SetCollisionLayer(1);
 
     this->SimulationBox->SetWidth(64);
     this->SimulationBox->SetHeight(60);
@@ -60,6 +60,7 @@ uint8 act_player::Update()
 
     this->Run->ColorR = 255;
     this->Idle->ColorR = 255;
+    
     this->OverlapBox->GetOverlapState(&OverlapState, {ACT_TILE}, {});
     for (uint16 i = 1; i < OverlapState.Length(); i++)
     {

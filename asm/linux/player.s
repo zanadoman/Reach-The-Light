@@ -63,11 +63,15 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	addq	$64, %rdx
 	leaq	72(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE@PLT
+	movq	16(%rbx), %rdi
 	pxor	%xmm0, %xmm0
-	movq	24(%rbx), %rdi
+	movl	$1, %esi
 	movq	%rax, 64(%rbx)
+	movq	$99, 176(%rdi)
 	movups	%xmm0, 72(%rbx)
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movsd	(%rsp), %xmm0
+	movq	24(%rbx), %rdi
 	subsd	.LC0(%rip), %xmm0
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd@PLT
 	movq	24(%rbx), %rdi
@@ -76,10 +80,6 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movq	24(%rbx), %rdi
 	movl	$10, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
-	movq	16(%rbx), %rdi
-	movl	$1, %esi
-	movq	$99, 176(%rdi)
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	32(%rbx), %rdi
 	movl	$64, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
