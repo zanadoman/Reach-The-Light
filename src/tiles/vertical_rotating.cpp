@@ -6,7 +6,9 @@ tile_vertical_rotating::tile_vertical_rotating(engine* Engine, game* Game, doubl
 
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
-    
+
+    this->Background->Priority = 127;
+
     this->HitboxLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y, 20, 60, 1);
     this->HitboxLeft->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxLeft->Resistance = 100;

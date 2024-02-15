@@ -66,14 +66,15 @@ _ZN15tile_floor_holeC2EPN3wze6engineEP4gamedd:
 	addsd	8(%rsp), %xmm1
 	movl	$20, %r8d
 	movq	%rax, 24(%rbx)
-	movq	(%rbx), %rax
 	movl	$60, %ecx
-	xorl	%esi, %esi
 	movq	%r15, %xmm0
+	xorl	%esi, %esi
+	movb	$127, 36(%rax)
+	movq	(%rbx), %rax
 	movl	$2, %edx
+	movsd	%xmm1, (%rsp)
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
-	movsd	%xmm1, (%rsp)
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$2, %esi

@@ -62,15 +62,16 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	movq	%r14, %xmm0
 	addsd	(%rsp), %xmm1
 	movq	%rax, 24(%rbx)
-	movq	(%rbx), %rax
-	movl	$20, %r8d
-	xorl	%esi, %esi
-	subsd	.LC2(%rip), %xmm0
 	movl	$20, %ecx
 	movl	$2, %edx
+	xorl	%esi, %esi
+	movb	$127, 36(%rax)
+	movq	(%rbx), %rax
+	movl	$20, %r8d
+	subsd	.LC2(%rip), %xmm0
+	movsd	%xmm1, 8(%rsp)
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
-	movsd	%xmm1, 8(%rsp)
 	movq	%rax, %xmm2
 	movq	%xmm0, %r15
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT

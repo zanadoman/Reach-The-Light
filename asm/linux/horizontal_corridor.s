@@ -73,14 +73,15 @@ _ZN24tile_horizontal_corridorC2EPN3wze6engineEP4gamedd:
 	addsd	16(%rsp), %xmm1
 	movl	$20, %r8d
 	movq	%rax, 24(%rbx)
-	movq	(%rbx), %rax
+	movsd	(%rsp), %xmm0
 	movl	$60, %ecx
 	xorl	%esi, %esi
-	movsd	(%rsp), %xmm0
+	movb	$127, 36(%rax)
+	movq	(%rbx), %rax
 	movl	$2, %edx
+	movq	%xmm1, %r15
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
-	movq	%xmm1, %r15
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$2, %esi

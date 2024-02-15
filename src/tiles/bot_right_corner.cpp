@@ -7,6 +7,8 @@ tile_bot_right_corner::tile_bot_right_corner(engine* Engine, game* Game, double 
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
     
+    this->Background->Priority = 127;
+
     this->HitboxBot = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y - 40, 60, 20, 1);
     this->HitboxBot->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxBot->Resistance = 100;

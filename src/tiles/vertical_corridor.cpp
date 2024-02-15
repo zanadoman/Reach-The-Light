@@ -9,6 +9,8 @@ tile_vertical_corridor::tile_vertical_corridor(engine* Engine, game* Game, doubl
     this->SmallSpikes1 = this->Actor->Overlapboxes.New(BOX_DAMAGE);
     this->SmallSpikes2 = this->Actor->Overlapboxes.New(BOX_DAMAGE);
 
+    this->Background->Priority = 127;
+
     this->SmallSpikes1->SetWidth(3);
     this->SmallSpikes1->SetHeight(12);
     this->SmallSpikes1->SetX(X - 28);

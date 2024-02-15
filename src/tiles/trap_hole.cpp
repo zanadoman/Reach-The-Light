@@ -8,6 +8,8 @@ tile_trap_hole::tile_trap_hole(engine* Engine, game* Game, double X, double Y) :
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
     this->Detector = this->Actor->Overlapboxes.New(BOX_NONE);
 
+    this->Background->Priority = 127;
+
     this->Detector->SetY(Y - 28.5);
     this->Detector->SetWidth(10);
     this->Detector->SetHeight(3);

@@ -69,8 +69,10 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movsd	16(%rsp), %xmm4
 	subsd	.LC2(%rip), %xmm4
-	movq	%rax, 32(%r13)
 	movq	%rax, %rdi
+	movq	%rax, 32(%r13)
+	movq	24(%r13), %rax
+	movb	$127, 36(%rax)
 	movapd	%xmm4, %xmm0
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetXEd@PLT
 	movsd	8(%rsp), %xmm3

@@ -73,7 +73,9 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movsd	8(%rsp), %xmm0
 	movq	32(%r13), %rdi
 	movq	%rax, 40(%r13)
+	movq	24(%r13), %rax
 	addsd	.LC2(%rip), %xmm0
+	movb	$127, 36(%rax)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd@PLT
 	movq	32(%r13), %rdi
 	movl	$10, %esi

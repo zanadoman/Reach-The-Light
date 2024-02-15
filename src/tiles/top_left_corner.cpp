@@ -9,6 +9,8 @@ tile_top_left_corner::tile_top_left_corner(engine* Engine, game* Game, double X,
     this->Spider = this->Actor->Overlapboxes.New(BOX_DAMAGE);
     this->String = this->Actor->Colorboxes.New();
 
+    this->Background->Priority = 127;
+
     this->Spider->SetY(Y + 25);
     this->Spider->SetWidth(10);
     this->Spider->SetHeight(10);

@@ -69,8 +69,10 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movsd	24(%rsp), %xmm0
 	subsd	.LC2(%rip), %xmm0
-	movq	%rax, 32(%rbx)
 	movq	%rax, %rdi
+	movq	%rax, 32(%rbx)
+	movq	24(%rbx), %rax
+	movb	$127, 36(%rax)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd@PLT
 	movq	32(%rbx), %rdi
 	movl	$10, %esi

@@ -66,14 +66,15 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movsd	8(%rsp), %xmm0
 	subsd	.LC2(%rip), %xmm1
 	movq	%rax, 24(%r13)
-	movq	0(%r13), %rax
-	movl	$20, %r8d
-	xorl	%esi, %esi
 	movl	$60, %ecx
 	movl	$2, %edx
+	xorl	%esi, %esi
+	movb	$127, 36(%rax)
+	movq	0(%r13), %rax
+	movl	$20, %r8d
+	movsd	%xmm1, 16(%rsp)
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
-	movsd	%xmm1, 16(%rsp)
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$2, %esi

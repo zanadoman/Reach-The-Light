@@ -66,14 +66,15 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	movsd	8(%rsp), %xmm1
 	subsd	.LC2(%rip), %xmm0
 	movq	%rax, 24(%rbx)
-	movq	(%rbx), %rax
-	movl	$60, %r8d
-	xorl	%esi, %esi
 	movl	$20, %ecx
 	movl	$2, %edx
+	xorl	%esi, %esi
+	movb	$127, 36(%rax)
+	movq	(%rbx), %rax
+	movl	$60, %r8d
+	movsd	%xmm0, 24(%rsp)
 	leaq	256(%rax), %rdi
 	movq	.LC0(%rip), %rax
-	movsd	%xmm0, 24(%rsp)
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$2, %esi

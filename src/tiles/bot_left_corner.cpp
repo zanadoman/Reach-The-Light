@@ -8,6 +8,8 @@ tile_bot_left_corner::tile_bot_left_corner(engine* Engine, game* Game, double X,
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
     this->Web = this->Actor->Overlapboxes.New(BOX_SLOWNESS);
 
+    this->Background->Priority = 127;
+
     this->Web->SetX(X - 15);
     this->Web->SetY(Y - 15);
     this->Web->SetWidth(30);

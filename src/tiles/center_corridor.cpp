@@ -5,6 +5,8 @@ tile_center_corridor::tile_center_corridor(engine* Engine, game* Game, double X,
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
     
+    this->Background->Priority = 127;
+
     this->HitboxTopLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y + 40, 20, 20, 1);
     this->HitboxTopLeft->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxTopLeft->Resistance = 100;

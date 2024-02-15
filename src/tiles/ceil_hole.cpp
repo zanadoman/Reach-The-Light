@@ -8,6 +8,8 @@ tile_ceil_hole::tile_ceil_hole(engine* Engine, game* Game, double X, double Y) :
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
     this->Spikes = this->Actor->Overlapboxes.New(BOX_DAMAGE);
 
+    this->Background->Priority = 127;
+
     this->Spikes->SetY(Y - 27.5);
     this->Spikes->SetWidth(30);
     this->Spikes->SetHeight(5);
