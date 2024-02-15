@@ -320,7 +320,7 @@ struct tile_top_left_corner
 
     engine::actor Actor;
     engine::texturebox Background;
-    engine::overlapbox Trap;
+    engine::overlapbox Spider;
     engine::colorbox String;
 
     engine::actor HitboxTop;
@@ -330,7 +330,7 @@ struct tile_top_left_corner
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
-    double TrapVelocityY;
+    double SpiderVelocityY;
 
     tile_top_left_corner(engine* Engine, game* Game, double X, double Y);
     ~tile_top_left_corner();
@@ -343,7 +343,7 @@ struct tile_top_right_corner
     game* Game;
 
     engine::actor Actor;
-    engine::overlapbox Trap;
+    engine::overlapbox Spikes;
     engine::texturebox Background;
 
     engine::actor HitboxTop;
