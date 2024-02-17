@@ -78,7 +78,7 @@ uint8 tile_vertical_rotating::Rotate(bool Rotate)
         this->HitboxRight->SetX(this->Actor->GetX());
         this->HitboxRight->SetY(this->Actor->GetY() + 40);
         this->HitboxRight->SetAngle(90);
-        this->Background->SetTextureID(this->Game->Assets->TileRotatingOFF);
+        this->Background->SetTextureID(this->Game->Assets->TileRotatingON);
     }
     else
     {
@@ -88,7 +88,7 @@ uint8 tile_vertical_rotating::Rotate(bool Rotate)
         this->HitboxRight->SetX(this->Actor->GetX() + 40);
         this->HitboxRight->SetY(this->Actor->GetY());
         this->HitboxRight->SetAngle(0);
-        this->Background->SetTextureID(this->Game->Assets->TileRotatingON);
+        this->Background->SetTextureID(this->Game->Assets->TileRotatingOFF);
     }
 
     return 0;

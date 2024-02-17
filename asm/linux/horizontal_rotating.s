@@ -476,7 +476,7 @@ _ZN24tile_horizontal_rotating6RotateEb:
 	movq	8(%rbx), %rax
 	movq	24(%rbx), %rdi
 	movq	8(%rax), %rax
-	movq	208(%rax), %rsi
+	movq	216(%rax), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy@PLT
 	addq	$8, %rsp
 	.cfi_remember_state
@@ -520,7 +520,7 @@ _ZN24tile_horizontal_rotating6RotateEb:
 	movq	8(%rbx), %rax
 	movq	24(%rbx), %rdi
 	movq	8(%rax), %rax
-	movq	216(%rax), %rsi
+	movq	208(%rax), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy@PLT
 	addq	$8, %rsp
 	.cfi_def_cfa_offset 24

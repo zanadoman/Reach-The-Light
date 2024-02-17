@@ -20,6 +20,10 @@ tile_top_left_corner::tile_top_left_corner(engine* Engine, game* Game, double X,
     this->String->Width = 1;
     this->String->Height = ((Y + 30) - this->Spider->GetY());
     this->String->SetY((this->Spider->GetY() + (Y + 30)) / 2);
+    this->String->ColorR = 192;
+    this->String->ColorG = 192;
+    this->String->ColorB = 192;
+    this->String->ColorA = 192;
     this->String->Priority = 129;
 
     this->HitboxTop = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y + 40, 60, 20, 1);

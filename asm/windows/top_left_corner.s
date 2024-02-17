@@ -151,11 +151,12 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	40(%rbx), %rax
 	movapd	%xmm6, %xmm3
 	xorl	%edx, %edx
-	movsd	.LC6(%rip), %xmm10
+	movsd	.LC7(%rip), %xmm10
 	movl	$2, %r8d
+	movl	$-1061109568, 20(%rax)
+	addsd	%xmm10, %xmm12
 	movb	$-127, 25(%rax)
 	movq	(%rbx), %rax
-	addsd	%xmm10, %xmm12
 	movl	$20, 48(%rsp)
 	movl	$60, 40(%rsp)
 	leaq	256(%rax), %rcx
@@ -167,8 +168,8 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
 	movq	48(%rbx), %rax
-	movl	.LC8(%rip), %r12d
-	movsd	.LC7(%rip), %xmm9
+	movl	.LC9(%rip), %r12d
+	movsd	.LC8(%rip), %xmm9
 	movq	$100, 184(%rax)
 .L7:
 	leaq	40(%rax), %rsi
@@ -536,7 +537,7 @@ _ZN20tile_top_left_corner6UpdateEv:
 	movq	%rsi, %rcx
 	movapd	%xmm0, %xmm1
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd
-	movq	.LC9(%rip), %rax
+	movq	.LC10(%rip), %rax
 	movq	%rax, 96(%rbx)
 .L23:
 	movq	16(%rbx), %rcx
@@ -614,19 +615,19 @@ _ZN20tile_top_left_corner6UpdateEv:
 	.long	0
 	.long	1071644672
 	.align 8
-.LC6:
+.LC7:
 	.long	0
 	.long	1078198272
 	.align 8
-.LC7:
+.LC8:
 	.long	0
 	.long	1077149696
 	.align 4
-.LC8:
+.LC9:
 	.word	20
 	.word	20
 	.align 8
-.LC9:
+.LC10:
 	.long	-1717986918
 	.long	1067030937
 	.ident	"GCC: (GNU) 13.1.0"

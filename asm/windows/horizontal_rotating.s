@@ -504,7 +504,7 @@ _ZN24tile_horizontal_rotating6RotateEb:
 	movq	8(%rbx), %rax
 	movq	24(%rbx), %rcx
 	movq	8(%rax), %rax
-	movq	208(%rax), %rdx
+	movq	216(%rax), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
 	nop
 .L19:
@@ -552,7 +552,7 @@ _ZN24tile_horizontal_rotating6RotateEb:
 	movq	8(%rbx), %rax
 	movq	24(%rbx), %rcx
 	movq	8(%rax), %rax
-	movq	216(%rax), %rdx
+	movq	208(%rax), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
 	jmp	.L19
 	.seh_endproc
