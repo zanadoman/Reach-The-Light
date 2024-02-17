@@ -39,6 +39,15 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadTexture("assets/player/fall/fall2.png"),
         this->Engine->Assets.LoadTexture("assets/player/fall/fall3.png")
     };
+    this->PlayerLatch =
+    {
+        this->Engine->Assets.LoadTexture("assets/player/latch/latch1.png"),
+        this->Engine->Assets.LoadTexture("assets/player/latch/latch2.png"),
+        this->Engine->Assets.LoadTexture("assets/player/latch/latch3.png"),
+        this->Engine->Assets.LoadTexture("assets/player/latch/latch4.png"),
+        this->Engine->Assets.LoadTexture("assets/player/latch/latch5.png"),
+        this->Engine->Assets.LoadTexture("assets/player/latch/latch6.png")
+    };
 
     this->TileTextures =
     {

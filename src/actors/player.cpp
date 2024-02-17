@@ -11,6 +11,7 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->Run = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerRun);
     this->Jump = this->Actor->Flipbooks.New(50, &this->Game->Assets->PlayerJump);
     this->Fall = this->Actor->Flipbooks.New(50, &this->Game->Assets->PlayerFall);
+    this->Latch = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerLatch);
     this->Health = 5;
     this->DamageTick = 0;
     this->VelocityX = 0;
@@ -64,6 +65,13 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->Fall->Paused = true;
     this->Fall->Loop = false;
     this->Fall->Priority = 131;
+
+    this->Latch->Width = 32;
+    this->Latch->Height = 32;
+    this->Latch->SetY(Y + 0.9);
+    this->Latch->Visible = false;
+    this->Latch->Paused = true;
+    this->Latch->Priority = 131;
 
     this->Engine->Camera.Bind(this->Actor->GetID());
     this->Engine->Camera.SetZoom(5);
@@ -157,6 +165,7 @@ uint8 act_player::Update()
         this->Run->FlipHorizontal = true;
         this->Jump->FlipHorizontal = true;
         this->Fall->FlipHorizontal = true;
+        this->Latch->FlipHorizontal = true;
     }
     else if (this->VelocityX < 0)
     {
@@ -180,6 +189,7 @@ uint8 act_player::Update()
         this->Run->FlipHorizontal = false;
         this->Jump->FlipHorizontal = false;
         this->Fall->FlipHorizontal = false;
+        this->Latch->FlipHorizontal = false;
     }
     else if (0 < this->VelocityX)
     {
@@ -196,10 +206,12 @@ uint8 act_player::Update()
         this->Jump->Reset();
     }
 
+    LatchBox1Active = false;
+    LatchBox2Active = false;
+
     if (this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime() != this->Actor->SetX(this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime()) && this->Engine->Keys[KEY_SPACE])
     {
         this->LatchBox1->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
-        LatchBox1Active = false;
         for (uint64 i = 0; i < OverlapState.Length(); i++)
         {
             if (0 < OverlapState[i].Length())
@@ -209,7 +221,6 @@ uint8 act_player::Update()
             }
         }
         this->LatchBox2->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
-        LatchBox2Active = false;
         for (uint64 i = 0; i < OverlapState.Length(); i++)
         {
             if (0 < OverlapState[i].Length())
@@ -221,17 +232,6 @@ uint8 act_player::Update()
 
         if (LatchBox1Active && LatchBox2Active)
         {
-            if (this->VelocityX < 0)
-            {
-                this->Idle->Angle = 270;
-                this->Run->Angle = 270;
-            }
-            else if (0 < this->VelocityX)
-            {
-                this->Idle->Angle = 90;
-                this->Run->Angle = 90;
-            }
-
             this->VelocityX = 0;
             this->VelocityY = 0;
         }
@@ -267,6 +267,8 @@ uint8 act_player::Update()
         this->Jump->Paused = true;
         this->Fall->Visible = true;
         this->Fall->Paused = false;
+        this->Latch->Visible = false;
+        this->Latch->Paused = true;
     }
     else if (0 < this->VelocityY)
     {
@@ -278,6 +280,21 @@ uint8 act_player::Update()
         this->Jump->Paused = false;
         this->Fall->Visible = false;
         this->Fall->Paused = true;
+        this->Latch->Visible = false;
+        this->Latch->Paused = true;
+    }
+    else if (LatchBox1Active && LatchBox2Active)
+    {
+        this->Idle->Visible = false;
+        this->Idle->Paused = true;
+        this->Run->Visible = false;
+        this->Run->Paused = true;
+        this->Jump->Visible = false;
+        this->Jump->Paused = true;
+        this->Fall->Visible = false;
+        this->Fall->Paused = true;
+        this->Latch->Visible = true;
+        this->Latch->Paused = false;
     }
     else if (this->VelocityX != 0)
     {
@@ -289,6 +306,8 @@ uint8 act_player::Update()
         this->Jump->Paused = true;
         this->Fall->Visible = false;
         this->Fall->Paused = true;
+        this->Latch->Visible = false;
+        this->Latch->Paused = true;
     }
     else
     {
@@ -300,6 +319,8 @@ uint8 act_player::Update()
         this->Jump->Paused = true;
         this->Fall->Visible = false;
         this->Fall->Paused = true;
+        this->Latch->Visible = false;
+        this->Latch->Paused = true;
     }
 
     return 0;

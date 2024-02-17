@@ -116,6 +116,7 @@ struct assets
     array<uint64> PlayerRun;
     array<uint64> PlayerJump;
     array<uint64> PlayerFall;
+    array<uint64> PlayerLatch;
 
     array<uint64> TileTextures;
     array<uint64> TileBackgrounds;
@@ -239,6 +240,7 @@ struct act_player
     engine::flipbook Run;
     engine::flipbook Jump;
     engine::flipbook Fall;
+    engine::flipbook Latch;
     
     uint8 Health;
     uint32 DamageTick;

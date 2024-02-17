@@ -89,12 +89,12 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rdi
 	movq	(%rbx), %rax
-	movl	128(%rdi), %r8d
+	movl	144(%rdi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	136(%rdi), %rdx
+	movq	152(%rdi), %rdx
 	cltq
-	cmpq	128(%rdi), %rax
+	cmpq	144(%rdi), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rsi, %rcx
@@ -147,12 +147,12 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	xorl	%edx, %edx
 	movq	8(%rax), %rbp
 	movq	(%rbx), %rax
-	movl	144(%rbp), %r8d
+	movl	160(%rbp), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	152(%rbp), %rdx
+	movq	168(%rbp), %rdx
 	cltq
-	cmpq	144(%rbp), %rax
+	cmpq	160(%rbp), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rsi, %rcx
@@ -198,12 +198,12 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rsi
 	movq	(%rbx), %rax
-	movl	144(%rsi), %r8d
+	movl	160(%rsi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	152(%rsi), %rdx
+	movq	168(%rsi), %rdx
 	cltq
-	cmpq	144(%rsi), %rax
+	cmpq	160(%rsi), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
@@ -230,12 +230,12 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %rsi
 	movq	$100, 144(%rsi)
-	movl	144(%rdi), %r8d
+	movl	160(%rdi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	152(%rdi), %rdx
+	movq	168(%rdi), %rdx
 	cltq
-	cmpq	144(%rdi), %rax
+	cmpq	160(%rdi), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rsi, %rcx
@@ -261,12 +261,12 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rsi
 	movq	(%rbx), %rax
-	movl	144(%rsi), %r8d
+	movl	160(%rsi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	152(%rsi), %rdx
+	movq	168(%rsi), %rdx
 	cltq
-	cmpq	144(%rsi), %rax
+	cmpq	160(%rsi), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
@@ -293,11 +293,11 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	addq	$320, %rcx
 	movq	8(%rax), %rsi
-	movl	144(%rsi), %r8d
+	movl	160(%rsi), %r8d
 	call	_ZN3wze6engine4math6RandomEii
-	movq	152(%rsi), %rdx
+	movq	168(%rsi), %rdx
 	cltq
-	cmpq	144(%rsi), %rax
+	cmpq	160(%rsi), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movaps	64(%rsp), %xmm6
