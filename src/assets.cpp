@@ -108,6 +108,8 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadTexture("assets/tiles/platform/platform3.png"),
         this->Engine->Assets.LoadTexture("assets/tiles/platform/platform4.png")
     };
+    this->TileRotatingOFF = {this->Engine->Assets.LoadTexture("assets/tiles/background/rotating_off.png")};
+    this->TileRotatingON = {this->Engine->Assets.LoadTexture("assets/tiles/background/rotating_on.png")};
 
     this->CrateTexture = this->Engine->Assets.LoadTexture("assets/etc/crate.png");
 }

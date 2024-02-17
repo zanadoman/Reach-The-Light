@@ -171,14 +171,20 @@
 	.align 8
 .LC65:
 	.string	"assets/tiles/platform/platform4.png"
-	.section	.rodata.str1.1
+	.align 8
 .LC66:
+	.string	"assets/tiles/background/rotating_off.png"
+	.align 8
+.LC67:
+	.string	"assets/tiles/background/rotating_on.png"
+	.section	.rodata.str1.1
+.LC68:
 	.string	"assets/etc/crate.png"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB67:
+.LCOLDB69:
 	.text
-.LHOTB67:
+.LHOTB69:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -655,6 +661,16 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
 	movq	%rax, 208(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC67(%rip), %rsi
+	leaq	328(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	movq	%rax, 216(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC68(%rip), %rsi
+	leaq	328(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	movq	%rax, 224(%rbx)
 	movq	552(%rsp), %rax
 	subq	%fs:40, %rax
 	jne	.L66
@@ -902,7 +918,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB1-.LCOLDB67
+	.uleb128 .LEHB1-.LCOLDB69
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -912,9 +928,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.size	_ZN6assetsC2EPN3wze6engineE, .-_ZN6assetsC2EPN3wze6engineE
 	.section	.text.unlikely
 	.size	_ZN6assetsC2EPN3wze6engineE.cold, .-_ZN6assetsC2EPN3wze6engineE.cold
-.LCOLDE67:
+.LCOLDE69:
 	.text
-.LHOTE67:
+.LHOTE69:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE
 	.align 2

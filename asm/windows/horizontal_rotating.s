@@ -34,7 +34,7 @@ _Z6printfPKcz:
 	.seh_endproc
 	.section .rdata,"dr"
 	.align 8
-.LC1:
+.LC2:
 	.ascii "neo::array[]: Index out of range\12Params: Index: %lld\12\0"
 	.text
 	.align 2
@@ -71,37 +71,27 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	movaps	%xmm12, 160(%rsp)
 	.seh_savexmm	%xmm12, 160
 	.seh_endprologue
+	xorl	%edi, %edi
 	movsd	.LC0(%rip), %xmm9
 	movsd	256(%rsp), %xmm8
+	movapd	%xmm8, %xmm10
 	movq	%rdx, (%rcx)
 	movq	%rcx, %rbx
 	movapd	%xmm3, %xmm6
 	movq	%r8, 8(%rcx)
-	leaq	256(%rdx), %rcx
 	movl	$1, %r8d
+	leaq	256(%rdx), %rcx
 	xorl	%edx, %edx
 	movl	$100, 48(%rsp)
 	movl	$100, 40(%rsp)
 	movsd	%xmm9, 56(%rsp)
 	movsd	%xmm8, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	xorl	%edx, %edx
+	movq	8(%rbx), %rdx
 	movq	%rax, 16(%rbx)
-	leaq	40(%rax), %rsi
-	movq	8(%rbx), %rax
-	movq	8(%rax), %rdi
-	movq	(%rbx), %rax
-	movl	176(%rdi), %r8d
-	leaq	320(%rax), %rcx
-	call	_ZN3wze6engine4math6RandomEii
-	movq	184(%rdi), %rdx
-	cltq
-	cmpq	176(%rdi), %rax
-	jnb	.L16
-	movq	(%rdx,%rax,8), %rdx
-	movq	%rsi, %rcx
-	movapd	%xmm8, %xmm10
-	xorl	%edi, %edi
+	leaq	40(%rax), %rcx
+	movq	8(%rdx), %rdx
+	movq	208(%rdx), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movl	$5, %edx
 	movq	%rax, 24(%rbx)
@@ -120,7 +110,7 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	32(%rbx), %rax
 	movapd	%xmm6, %xmm3
 	xorl	%edx, %edx
-	movsd	.LC2(%rip), %xmm11
+	movsd	.LC1(%rip), %xmm11
 	movl	$2, %r8d
 	movb	$1, 18(%rax)
 	movq	(%rbx), %rax
@@ -139,7 +129,7 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	movl	.LC4(%rip), %r12d
 	movsd	.LC3(%rip), %xmm12
 	movq	$100, 184(%rax)
-.L7:
+.L6:
 	leaq	40(%rax), %rbp
 	movq	8(%rbx), %rax
 	xorl	%edx, %edx
@@ -151,7 +141,7 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	200(%rsi), %rdx
 	cltq
 	cmpq	192(%rsi), %rax
-	jnb	.L16
+	jnb	.L15
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rbp, %rcx
 	movapd	%xmm6, %xmm7
@@ -166,12 +156,12 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd
 	movl	%r12d, 16(%rsi)
 	cmpl	$60, %edi
-	je	.L6
+	je	.L5
 	movq	40(%rbx), %rax
-	jmp	.L7
+	jmp	.L6
 	.p2align 4,,10
 	.p2align 3
-.L6:
+.L5:
 	subsd	%xmm11, %xmm8
 	movq	(%rbx), %rax
 	movapd	%xmm6, %xmm3
@@ -190,7 +180,7 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
 	movq	48(%rbx), %rax
 	movq	$100, 184(%rax)
-.L10:
+.L9:
 	leaq	40(%rax), %rbp
 	movq	8(%rbx), %rax
 	xorl	%edx, %edx
@@ -202,7 +192,7 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	200(%rsi), %rdx
 	cltq
 	cmpq	192(%rsi), %rax
-	jnb	.L16
+	jnb	.L15
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rbp, %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -215,12 +205,12 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd
 	movl	%r12d, 16(%rsi)
 	cmpl	$60, %edi
-	je	.L9
+	je	.L8
 	movq	48(%rbx), %rax
-	jmp	.L10
+	jmp	.L9
 	.p2align 4,,10
 	.p2align 3
-.L9:
+.L8:
 	movapd	%xmm6, %xmm7
 	movq	(%rbx), %rax
 	movl	$2, %r8d
@@ -250,7 +240,7 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	200(%rsi), %rdx
 	cltq
 	cmpq	192(%rsi), %rax
-	jnb	.L16
+	jnb	.L15
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -282,7 +272,7 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	200(%rsi), %rdx
 	cltq
 	cmpq	192(%rsi), %rax
-	jnb	.L16
+	jnb	.L15
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -313,7 +303,7 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	200(%rsi), %rdx
 	cltq
 	cmpq	192(%rsi), %rax
-	jnb	.L16
+	jnb	.L15
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -344,7 +334,7 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	200(%rsi), %rdx
 	cltq
 	cmpq	192(%rsi), %rax
-	jnb	.L16
+	jnb	.L15
 	movq	(%rdx,%rax,8), %rdx
 	movaps	64(%rsp), %xmm6
 	movq	%rdi, %rcx
@@ -361,8 +351,8 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	popq	%rbp
 	popq	%r12
 	jmp	_ZN3wze6engine6actors5actor12textureboxes3NewEy
-.L16:
-	leaq	.LC1(%rip), %rcx
+.L15:
+	leaq	.LC2(%rip), %rcx
 	movq	%rax, %rdx
 	call	_Z6printfPKcz
 	movl	$1, %ecx
@@ -478,9 +468,9 @@ _ZN24tile_horizontal_rotating6RotateEb:
 	movq	%rcx, %rbx
 	movq	16(%rcx), %rcx
 	testb	%dl, %dl
-	je	.L19
+	je	.L18
 	call	_ZN3wze6engine6actors5actor4GetXEv
-	movsd	.LC2(%rip), %xmm7
+	movsd	.LC1(%rip), %xmm7
 	movq	%rsi, %rcx
 	movapd	%xmm0, %xmm1
 	addsd	%xmm7, %xmm1
@@ -511,8 +501,13 @@ _ZN24tile_horizontal_rotating6RotateEb:
 	movq	48(%rbx), %rcx
 	movapd	%xmm6, %xmm1
 	call	_ZN3wze6engine6actors5actor8SetAngleEd
+	movq	8(%rbx), %rax
+	movq	24(%rbx), %rcx
+	movq	8(%rax), %rax
+	movq	208(%rax), %rdx
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
 	nop
-.L20:
+.L19:
 	movaps	32(%rsp), %xmm6
 	movaps	48(%rsp), %xmm7
 	xorl	%eax, %eax
@@ -522,7 +517,7 @@ _ZN24tile_horizontal_rotating6RotateEb:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L19:
+.L18:
 	call	_ZN3wze6engine6actors5actor4GetXEv
 	movq	%rsi, %rcx
 	movapd	%xmm0, %xmm1
@@ -530,7 +525,7 @@ _ZN24tile_horizontal_rotating6RotateEb:
 	movq	16(%rbx), %rcx
 	movq	40(%rbx), %rsi
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	.LC2(%rip), %xmm6
+	movsd	.LC1(%rip), %xmm6
 	movq	%rsi, %rcx
 	movapd	%xmm0, %xmm1
 	addsd	%xmm6, %xmm1
@@ -554,7 +549,12 @@ _ZN24tile_horizontal_rotating6RotateEb:
 	movq	48(%rbx), %rcx
 	pxor	%xmm1, %xmm1
 	call	_ZN3wze6engine6actors5actor8SetAngleEd
-	jmp	.L20
+	movq	8(%rbx), %rax
+	movq	24(%rbx), %rcx
+	movq	8(%rax), %rax
+	movq	216(%rax), %rdx
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
+	jmp	.L19
 	.seh_endproc
 	.section .rdata,"dr"
 	.align 8
@@ -562,7 +562,7 @@ _ZN24tile_horizontal_rotating6RotateEb:
 	.long	0
 	.long	1072693248
 	.align 8
-.LC2:
+.LC1:
 	.long	0
 	.long	1078198272
 	.align 8
@@ -580,11 +580,11 @@ _ZN24tile_horizontal_rotating6RotateEb:
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	__mingw_vfprintf;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine4math6RandomEii;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes3NewEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes3NewEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine4math6RandomEii;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd;	.scl	2;	.type	32;	.endef
 	.def	exit;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
@@ -594,3 +594,4 @@ _ZN24tile_horizontal_rotating6RotateEb:
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4SetYEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor8SetAngleEd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy;	.scl	2;	.type	32;	.endef
