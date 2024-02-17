@@ -1026,7 +1026,7 @@ _ZN10act_player6UpdateEv:
 	movq	8(%rbx), %rax
 	movq	(%rbx), %rdx
 	movq	48(%rax), %rax
-	xorb	$1, 1064(%rax)
+	xorb	$1, 1080(%rax)
 	jmp	.L8
 	.p2align 4,,10
 	.p2align 3

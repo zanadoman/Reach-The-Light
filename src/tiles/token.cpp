@@ -1,6 +1,6 @@
 #include "../RTL.hpp"
 
-tile_token::tile_token(tile Type, engine* Engine, game* Game, double X, double Y)
+tile_token::tile_token(tile Type, engine* Engine, game* Game, array<act_tuna*>* Tunas, double X, double Y)
 {
     switch (Type)
     {
@@ -57,6 +57,11 @@ tile_token::tile_token(tile Type, engine* Engine, game* Game, double X, double Y
     }
 
     this->Type = Type;
+
+    if (Engine->Math.Random(0, 12) == 0)
+    {
+        *Tunas += {new act_tuna(Engine, Game, X, Y)};
+    }
 }
 
 tile_token::~tile_token()

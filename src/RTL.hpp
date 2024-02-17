@@ -20,6 +20,7 @@ struct scene_play;
 struct scene_editor;
 struct scene_game_over;
 struct act_player;
+struct act_tuna;
 struct act_crate;
 struct gui_button;
 struct gui_slider;
@@ -61,7 +62,8 @@ typedef enum
     BOX_PLATFORM,
     BOX_DAMAGE,
     BOX_SLOWNESS,
-    BOX_LEVER
+    BOX_LEVER,
+    BOX_TUNA
 } overlapbox;
 
 typedef enum
@@ -189,6 +191,7 @@ struct scene_play
 
     tile_token* Tiles[MAP_X][MAP_Y];
     act_player* Player;
+    array<act_tuna*> Tunas;
     bool RotateTiles;
 
     scene_play(engine* Engine, game* Game);
@@ -257,6 +260,22 @@ struct act_player
 
     act_player(engine* Engine, game* Game, double X, double Y);
     ~act_player();
+    uint8 Update();
+};
+
+struct act_tuna
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::overlapbox OverlapBox;
+
+    double OriginY;
+    double VelocityY;
+
+    act_tuna(engine* Engine, game* Game, double X, double Y);
+    ~act_tuna();
     uint8 Update();
 };
 
@@ -348,7 +367,7 @@ struct tile_token
     void* Data;
     tile Type;
 
-    tile_token(tile Type, engine* Engine, game* Game, double X, double Y);
+    tile_token(tile Type, engine* Engine, game* Game, array<act_tuna*>* Tunas, double X, double Y);
     ~tile_token();
     uint8 Update();
     uint8 Rotate();

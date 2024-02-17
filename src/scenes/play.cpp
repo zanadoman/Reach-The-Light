@@ -15,7 +15,7 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     {
         for (uint8 j = 0; j < MAP_Y; j++)
         {
-            this->Tiles[i][j] = new tile_token((tile)this->Game->Map->Tiles[i][j], this->Engine, this->Game, -350 + 100 * i, -750 + 100 * j);
+            this->Tiles[i][j] = new tile_token((tile)this->Game->Map->Tiles[i][j], this->Engine, this->Game, &this->Tunas, -350 + 100 * i, -750 + 100 * j);
         }
     }
 
@@ -37,6 +37,11 @@ scene_play::~scene_play()
         {
             delete this->Tiles[i][j];
         }
+    }
+
+    for (uint8 i = 0; i < this->Tunas.Length(); i++)
+    {
+        delete this->Tunas[i];
     }
 
     delete this->Player;
@@ -76,6 +81,11 @@ scene scene_play::Update()
         {
             this->Tiles[i][j]->Update();
         }
+    }
+
+    for (uint8 i = 0; i < this->Tunas.Length(); i++)
+    {
+        this->Tunas[i]->Update();
     }
 
     this->Player->Update();

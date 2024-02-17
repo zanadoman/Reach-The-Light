@@ -224,7 +224,7 @@ _ZN4gameD2Ev:
 	je	.L18
 	movq	%rbp, %rdi
 	call	_ZN10scene_playD1Ev@PLT
-	movl	$1072, %esi
+	movl	$1088, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 	.p2align 4,,10
@@ -359,7 +359,7 @@ _ZN4game11SwitchSceneE5scene:
 	je	.L48
 	movq	%r12, %rdi
 	call	_ZN10scene_playD1Ev@PLT
-	movl	$1072, %esi
+	movl	$1088, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
 	.p2align 4,,10
@@ -398,7 +398,7 @@ _ZN4game11SwitchSceneE5scene:
 	je	.L52
 	cmpl	$2, %ebp
 	jne	.L54
-	movl	$1072, %edi
+	movl	$1088, %edi
 	call	_Znwm@PLT
 .LEHE9:
 	movq	(%rbx), %rsi
@@ -616,7 +616,7 @@ _ZN4game11SwitchSceneE5scene.cold:
 	.cfi_offset 6, -24
 	.cfi_offset 12, -16
 	movq	%r12, %rdi
-	movl	$1072, %esi
+	movl	$1088, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 .LEHB17:
