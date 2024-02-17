@@ -14,8 +14,8 @@ tile_top_left_corner::tile_top_left_corner(engine* Engine, game* Game, double X,
     this->Background->Priority = 127;
 
     this->SpiderOverlapBox->SetY(Y + 25);
-    this->SpiderOverlapBox->SetWidth(10);
-    this->SpiderOverlapBox->SetHeight(10);
+    this->SpiderOverlapBox->SetWidth(12);
+    this->SpiderOverlapBox->SetHeight(12);
     this->SpiderOverlapBox->Visible = DEBUG;
 
     this->SpiderTextureBox->SetY(Y + 25);

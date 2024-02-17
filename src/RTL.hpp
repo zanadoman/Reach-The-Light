@@ -134,6 +134,7 @@ struct assets
     uint64 TrapSpikesSmall;
     uint64 TrapPlatform;
     uint64 TrapSpider;
+    uint64 TrapWeb;
 
     uint64 CrateTexture;
 
@@ -439,7 +440,10 @@ struct tile_bot_left_corner
 
     engine::actor Actor;
     engine::texturebox Background;
-    engine::overlapbox Web;
+    engine::overlapbox WebOverlapboxTopLeft;
+    engine::overlapbox WebOverlapboxCenter;
+    engine::overlapbox WebOverlapboxBotRight;
+    engine::texturebox WebTextureBox;
 
     engine::actor HitboxBot;
     engine::actor HitboxLeft;

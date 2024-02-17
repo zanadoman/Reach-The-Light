@@ -130,10 +130,10 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movsd	%xmm1, 72(%rsp)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd
 	movq	32(%rbx), %rcx
-	movl	$10, %edx
+	movl	$12, %edx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt
 	movq	32(%rbx), %rcx
-	movl	$10, %edx
+	movl	$12, %edx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt
 	movq	32(%rbx), %rax
 	movsd	72(%rsp), %xmm1

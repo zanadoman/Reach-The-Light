@@ -6,15 +6,36 @@ tile_bot_left_corner::tile_bot_left_corner(engine* Engine, game* Game, double X,
 
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
-    this->Web = this->Actor->Overlapboxes.New(BOX_SLOWNESS);
+    this->WebOverlapboxTopLeft = this->Actor->Overlapboxes.New(BOX_SLOWNESS);
+    this->WebOverlapboxCenter = this->Actor->Overlapboxes.New(BOX_SLOWNESS);
+    this->WebOverlapboxBotRight = this->Actor->Overlapboxes.New(BOX_SLOWNESS);
+    this->WebTextureBox = this->Actor->Textureboxes.New(this->Game->Assets->TrapWeb);
 
     this->Background->Priority = 127;
 
-    this->Web->SetX(X - 15);
-    this->Web->SetY(Y - 15);
-    this->Web->SetWidth(30);
-    this->Web->SetHeight(30);
-    this->Web->Visible = DEBUG;
+    this->WebOverlapboxTopLeft->SetX(X - 25);
+    this->WebOverlapboxTopLeft->SetY(Y - 5);
+    this->WebOverlapboxTopLeft->SetWidth(10);
+    this->WebOverlapboxTopLeft->SetHeight(10);
+    this->WebOverlapboxTopLeft->Visible = DEBUG;
+
+    this->WebOverlapboxCenter->SetX(X - 20);
+    this->WebOverlapboxCenter->SetY(Y - 20);
+    this->WebOverlapboxCenter->SetWidth(20);
+    this->WebOverlapboxCenter->SetHeight(20);
+    this->WebOverlapboxCenter->Visible = DEBUG;
+
+    this->WebOverlapboxBotRight->SetX(X - 5);
+    this->WebOverlapboxBotRight->SetY(Y - 25);
+    this->WebOverlapboxBotRight->SetWidth(10);
+    this->WebOverlapboxBotRight->SetHeight(10);
+    this->WebOverlapboxBotRight->Visible = DEBUG;
+
+    this->WebTextureBox->SetX(X - 15);
+    this->WebTextureBox->SetY(Y - 15);
+    this->WebTextureBox->Width = 30;
+    this->WebTextureBox->Height = 30;
+    this->WebTextureBox->Priority = 129;
 
     this->HitboxBot = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y - 40, 60, 20, 1);
     this->HitboxBot->Overlapboxes.New(BOX_PLATFORM);

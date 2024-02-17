@@ -209,12 +209,14 @@ _Z6printfPKcz:
 .LC71:
 	.ascii "assets/traps/spider.png\0"
 .LC72:
+	.ascii "assets/traps/web.png\0"
+.LC73:
 	.ascii "assets/etc/crate.png\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB73:
+.LCOLDB74:
 	.text
-.LHOTB73:
+.LHOTB74:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -715,6 +717,11 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	328(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 256(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC73(%rip), %rdx
+	leaq	328(%rax), %rcx
+	call	_ZN3wze6engine6assets11LoadTextureEPKc
+	movq	%rax, 264(%rbx)
 	addq	$584, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -940,7 +947,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB1-.LCOLDB73
+	.uleb128 .LEHB1-.LCOLDB74
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -949,9 +956,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE73:
+.LCOLDE74:
 	.text
-.LHOTE73:
+.LHOTE74:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.def	_ZN6assetsC1EPN3wze6engineE;	.scl	2;	.type	32;	.endef
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE

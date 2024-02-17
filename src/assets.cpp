@@ -115,6 +115,7 @@ assets::assets(engine* Engine) : Engine(Engine)
     this->TrapSpikesSmall = this->Engine->Assets.LoadTexture("assets/traps/spikes_small.png");  
     this->TrapPlatform = this->Engine->Assets.LoadTexture("assets/traps/platform.png");
     this->TrapSpider = this->Engine->Assets.LoadTexture("assets/traps/spider.png");
+    this->TrapWeb = this->Engine->Assets.LoadTexture("assets/traps/web.png");
 
     this->CrateTexture = this->Engine->Assets.LoadTexture("assets/etc/crate.png");
 }
