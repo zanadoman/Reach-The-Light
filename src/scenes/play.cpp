@@ -4,10 +4,15 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, 10, this->Engine->Window.GetHeight() - 10, 0, 0, 0);
     this->Health = this->Actor->Textboxes.New("HP: 3", this->Game->Assets->HackBoldFont);
+    this->Score = this->Actor->Textboxes.New("SCORE: 0", this->Game->Assets->HackBoldFont);
 
     this->Health->SetHeight(50);
     this->Health->SetX(this->Actor->GetX() + (this->Health->GetWidth() >> 1));
     this->Health->SetY(this->Actor->GetY() - 25);
+
+    this->Score->SetHeight(50);
+    this->Score->SetX(this->Actor->GetX() + (this->Score->GetWidth() >> 1));
+    this->Score->SetY(this->Actor->GetY() - 100);
 
     this->RotateTiles = false;
 
@@ -59,6 +64,9 @@ scene scene_play::Update()
     this->Health->SetLiteral(((str = {"HP: "}) += {(uint64)this->Player->Health})());
     this->Health->SetX(this->Actor->GetX() + (this->Health->GetWidth() >> 1));
 
+    this->Score->SetLiteral(((str = {"SCORE: "}) += {(uint64)this->Player->Score})());
+    this->Score->SetX(this->Actor->GetX() + (this->Score->GetWidth() >> 1));
+
     for (uint8 i = 0; i < MAP_X; i++)
     {
         for (uint8 j = 0; j < MAP_Y; j++)
@@ -85,7 +93,10 @@ scene scene_play::Update()
 
     for (uint8 i = 0; i < this->Tunas.Length(); i++)
     {
-        this->Tunas[i]->Update();
+        if (this->Tunas[i] != NULL)
+        {
+            this->Tunas[i]->Update();
+        }
     }
 
     this->Player->Update();

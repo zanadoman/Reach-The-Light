@@ -15,6 +15,7 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->Firefly = this->Actor->Flipbooks.New(25, &this->Game->Assets->Firefly);
     this->FireflyBloom = this->Actor->Textureboxes.New(this->Game->Assets->FireflyBloom);
     this->FireflyMask = this->Actor->Textureboxes.New(this->Game->Assets->FireflyMask);
+    this->Score = 0;
     this->Health = 5;
     this->DamageTick = 0;
     this->VelocityX = 0;
@@ -101,6 +102,16 @@ uint8 act_player::Update()
     array<array<uint64>> OverlapState;
     bool LatchBox1Active, LatchBox2Active;
     double FireflyLength, FireflyAngle;
+
+    for (uint8 i = 0; i < this->Game->Play->Tunas.Length(); i++)
+    {
+        if (this->Game->Play->Tunas[i] != NULL && this->OverlapBox->IsOverlappingWith(this->Game->Play->Tunas[i]->Actor->GetID(), this->Game->Play->Tunas[i]->OverlapBox->GetID()))
+        {
+            this->Score++;
+            delete this->Game->Play->Tunas[i];
+            this->Game->Play->Tunas[i] = NULL;
+        }
+    }
 
     this->Run->ColorR = 255;
     this->Idle->ColorR = 255;

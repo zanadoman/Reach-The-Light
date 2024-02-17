@@ -464,13 +464,13 @@ _ZN14tile_trap_hole6UpdateEv:
 	movq	%rdi, %rbx
 	movq	32(%rdi), %r12
 	movq	48(%rax), %rax
-	movq	1056(%rax), %rax
+	movq	1064(%rax), %rax
 	movq	24(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
 	movq	%rax, %rbp
 	movq	8(%rbx), %rax
 	movq	48(%rax), %rax
-	movq	1056(%rax), %rax
+	movq	1064(%rax), %rax
 	movq	16(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdx
