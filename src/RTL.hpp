@@ -127,6 +127,8 @@ struct assets
     array<uint64> TileTextures;
     array<uint64> TileBackgrounds;
     array<uint64> TilePlatforms;
+    uint64 TileRotatingOFF;
+    uint64 TileRotatingON;
 
     uint64 CrateTexture;
 

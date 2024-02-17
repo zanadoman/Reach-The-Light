@@ -76,7 +76,7 @@ scene scene_play::Update()
     {
         for (uint8 j = 0; j < MAP_Y; j++)
         {
-            this->Tiles[i][j]->Rotate(true);
+            this->Tiles[i][j]->Rotate(this->RotateTiles);
         }
     }
 

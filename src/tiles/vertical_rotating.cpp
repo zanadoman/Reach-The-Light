@@ -5,13 +5,13 @@ tile_vertical_rotating::tile_vertical_rotating(engine* Engine, game* Game, doubl
     engine::texturebox tmp;
 
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
-    this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
+    this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileRotatingOFF);
     this->Lever = this->Actor->Overlapboxes.New(BOX_LEVER);
 
     this->Background->Priority = 127;
 
-    this->Lever->SetWidth(15);
-    this->Lever->SetHeight(15);
+    this->Lever->SetWidth(20);
+    this->Lever->SetHeight(20);
     this->Lever->Visible = DEBUG;
 
     this->HitboxLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y, 20, 60, 1);
@@ -78,6 +78,7 @@ uint8 tile_vertical_rotating::Rotate(bool Rotate)
         this->HitboxRight->SetX(this->Actor->GetX());
         this->HitboxRight->SetY(this->Actor->GetY() + 40);
         this->HitboxRight->SetAngle(90);
+        this->Background->SetTextureID(this->Game->Assets->TileRotatingOFF);
     }
     else
     {
@@ -87,6 +88,7 @@ uint8 tile_vertical_rotating::Rotate(bool Rotate)
         this->HitboxRight->SetX(this->Actor->GetX() + 40);
         this->HitboxRight->SetY(this->Actor->GetY());
         this->HitboxRight->SetAngle(0);
+        this->Background->SetTextureID(this->Game->Assets->TileRotatingON);
     }
 
     return 0;
