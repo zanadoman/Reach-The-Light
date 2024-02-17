@@ -119,6 +119,8 @@ struct assets
     array<uint64> PlayerJump;
     array<uint64> PlayerFall;
     array<uint64> PlayerLatch;
+    array<uint64> PlayerDead;
+    uint64 PlayerHurt;
 
     array<uint64> Firefly;
     uint64 FireflyBloom;
@@ -137,7 +139,7 @@ struct assets
     uint64 TrapWeb;
 
     array<uint64> TunaTextures;
-    
+
     uint64 CrateTexture;
 
     assets(engine* Engine);
@@ -261,6 +263,8 @@ struct act_player
     engine::flipbook Jump;
     engine::flipbook Fall;
     engine::flipbook Latch;
+    engine::texturebox Hurt;
+    engine::flipbook Dead;
     engine::flipbook Firefly;
     engine::texturebox FireflyBloom;
     engine::texturebox FireflyMask;
@@ -271,6 +275,7 @@ struct act_player
     double VelocityX;
     double VelocityY;
     bool InteractKey;
+    double Opacity;
 
     act_player(engine* Engine, game* Game, bool* RotateTiles, array<act_tuna*>* Tunas, double X, double Y);
     ~act_player();

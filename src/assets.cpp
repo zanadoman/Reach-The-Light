@@ -48,6 +48,22 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadTexture("assets/player/latch/latch5.png"),
         this->Engine->Assets.LoadTexture("assets/player/latch/latch6.png")
     };
+    this->PlayerDead =
+    {
+        this->Engine->Assets.LoadTexture("assets/player/dead/dead1.png"),
+        this->Engine->Assets.LoadTexture("assets/player/dead/dead2.png"),
+        this->Engine->Assets.LoadTexture("assets/player/dead/dead3.png"),
+        this->Engine->Assets.LoadTexture("assets/player/dead/dead4.png"),
+        this->Engine->Assets.LoadTexture("assets/player/dead/dead5.png"),
+        this->Engine->Assets.LoadTexture("assets/player/dead/dead6.png"),
+        this->Engine->Assets.LoadTexture("assets/player/dead/dead7.png"),
+        this->Engine->Assets.LoadTexture("assets/player/dead/dead8.png"),
+        this->Engine->Assets.LoadTexture("assets/player/dead/dead9.png"),
+        this->Engine->Assets.LoadTexture("assets/player/dead/dead10.png"),
+        this->Engine->Assets.LoadTexture("assets/player/dead/dead11.png"),
+        this->Engine->Assets.LoadTexture("assets/player/dead/dead12.png"),
+    },
+    this->PlayerHurt = this->Engine->Assets.LoadTexture("assets/player/hurt.png");
 
     this->Firefly =
     {

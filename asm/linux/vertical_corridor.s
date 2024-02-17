@@ -51,12 +51,12 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %r12
 	movq	(%rbx), %rax
-	movl	176(%r12), %edx
+	movl	200(%r12), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	184(%r12), %rdx
+	movq	208(%r12), %rdx
 	cltq
-	cmpq	176(%r12), %rax
+	cmpq	200(%r12), %rax
 	jnb	.L18
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -74,14 +74,14 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movq	%rax, 40(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	232(%rax), %rsi
+	movq	256(%rax), %rsi
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	%rax, 48(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	232(%rax), %rsi
+	movq	256(%rax), %rsi
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
@@ -187,12 +187,12 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbp
 	movq	8(%rax), %r14
 	movq	(%rbx), %rax
-	movl	192(%r14), %edx
+	movl	216(%r14), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	200(%r14), %rdx
+	movq	224(%r14), %rdx
 	cltq
-	cmpq	192(%r14), %rax
+	cmpq	216(%r14), %rax
 	jnb	.L18
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -254,12 +254,12 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbp
 	movq	8(%rax), %r14
 	movq	(%rbx), %rax
-	movl	192(%r14), %edx
+	movl	216(%r14), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	200(%r14), %rdx
+	movq	224(%r14), %rdx
 	cltq
-	cmpq	192(%r14), %rax
+	cmpq	216(%r14), %rax
 	jnb	.L18
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -303,13 +303,13 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
-	movl	192(%r12), %edx
+	movl	216(%r12), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	200(%r12), %rdx
+	movq	224(%r12), %rdx
 	movsd	8(%rsp), %xmm1
 	cltq
-	cmpq	192(%r12), %rax
+	cmpq	216(%r12), %rax
 	jnb	.L18
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -337,12 +337,12 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
-	movl	192(%r12), %edx
+	movl	216(%r12), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	200(%r12), %rdx
+	movq	224(%r12), %rdx
 	cltq
-	cmpq	192(%r12), %rax
+	cmpq	216(%r12), %rax
 	jnb	.L18
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -371,13 +371,13 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
-	movl	192(%r12), %edx
+	movl	216(%r12), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	200(%r12), %rdx
+	movq	224(%r12), %rdx
 	movsd	(%rsp), %xmm1
 	cltq
-	cmpq	192(%r12), %rax
+	cmpq	216(%r12), %rax
 	jnb	.L18
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -406,11 +406,11 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
 	addq	$320, %rdi
-	movl	192(%r12), %edx
+	movl	216(%r12), %edx
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	200(%r12), %rdx
+	movq	224(%r12), %rdx
 	cltq
-	cmpq	192(%r12), %rax
+	cmpq	216(%r12), %rax
 	jnb	.L18
 	movq	(%rdx,%rax,8), %rsi
 	addq	$40, %rsp

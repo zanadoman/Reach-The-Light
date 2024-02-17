@@ -53,7 +53,7 @@ scene scene_play::Update()
 {
     string str;
 
-    if (this->Player->Health == 0)
+    if (this->Player->Health == 0 && this->Player->DamageTick + 2500 <= this->Engine->Timing.GetCurrentTick())
     {
         return SCENE_GAME_OVER;
     }

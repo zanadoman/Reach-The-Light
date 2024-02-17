@@ -15,12 +15,15 @@ act_player::act_player(engine* Engine, game* Game, bool* RotateTiles, array<act_
     this->Firefly = this->Actor->Flipbooks.New(25, &this->Game->Assets->Firefly);
     this->FireflyBloom = this->Actor->Textureboxes.New(this->Game->Assets->FireflyBloom);
     this->FireflyMask = this->Actor->Textureboxes.New(this->Game->Assets->FireflyMask);
+    this->Hurt = this->Actor->Textureboxes.New(this->Game->Assets->PlayerHurt);
+    this->Dead = this->Actor->Flipbooks.New(100, &this->Game->Assets->PlayerDead);
     this->Score = 0;
     this->Health = 5;
     this->DamageTick = 0;
     this->VelocityX = 0;
     this->VelocityY = 0;
     this->InteractKey = false;
+    this->Opacity = 255;
 
     this->Actor->Force = 99;
     this->Actor->SetCollisionLayer(1);
@@ -77,6 +80,19 @@ act_player::act_player(engine* Engine, game* Game, bool* RotateTiles, array<act_
     this->Latch->Paused = true;
     this->Latch->Priority = 131;
 
+    this->Hurt->Width = 32;
+    this->Hurt->Height = 32;
+    this->Hurt->SetY(Y + 3.9);
+    this->Hurt->Visible = false;
+    this->Hurt->Priority = 131;
+
+    this->Dead->Width = 32;
+    this->Dead->Height = 32;
+    this->Dead->SetY(Y + 0.9);
+    this->Dead->Visible = false;
+    this->Dead->Paused = true;
+    this->Dead->Priority = 131;
+
     this->Firefly->Width = 8;
     this->Firefly->Height = 8;
     this->Firefly->Priority = 132;
@@ -103,183 +119,198 @@ uint8 act_player::Update()
     bool LatchBox1Active, LatchBox2Active;
     double FireflyLength, FireflyAngle;
 
-    for (uint8 i = 0; i < this->Tunas->Length(); i++)
-    {
-        if ((*this->Tunas)[i] != NULL && this->OverlapBox->IsOverlappingWith((*this->Tunas)[i]->Actor->GetID(), (*this->Tunas)[i]->OverlapBox->GetID()))
-        {
-            this->Score++;
-            delete (*this->Tunas)[i];
-            (*this->Tunas)[i] = NULL;
-        }
-    }
-
-    this->Run->ColorR = 255;
-    this->Idle->ColorR = 255;
-    
-    this->OverlapBox->GetOverlapState(&OverlapState, {ACT_TILE}, {});
-    for (uint16 i = 1; i < OverlapState.Length(); i++)
-    {
-        if (0 < OverlapState[i].Length())
-        {
-            this->Run->ColorR = 0;
-            this->Idle->ColorR = 0;
-
-            switch (this->Engine->Actors[i].Overlapboxes[1].GetType())
-            {
-                case BOX_DAMAGE:
-                    if (this->DamageTick + 1000 <= this->Engine->Timing.GetCurrentTick())
-                    {
-                        this->Health--;
-                        this->DamageTick = this->Engine->Timing.GetCurrentTick();
-                    }
-                break;
-
-                case BOX_SLOWNESS:
-                    if (this->VelocityX < -0.025)
-                    {
-                        this->VelocityX = -0.025;
-                    }
-                    else if (0.025 < this->VelocityX)
-                    {
-                        this->VelocityX = 0.025;
-                    }
-
-                    if (this->VelocityY < -0.025)
-                    {
-                        this->VelocityY = -0.025;
-                    }
-                    else if (0.025 < this->VelocityY)
-                    {
-                        this->VelocityY = 0.025;
-                    }
-                break;
-
-                case BOX_LEVER:
-                    if (!this->InteractKey && this->Engine->Keys[KEY_S])
-                    {
-                        *this->RotateTiles = !this->Game->Play->RotateTiles;
-                    }
-                break;
-            }
-
-            break;
-        }
-    }
-
-    this->InteractKey = this->Engine->Keys[KEY_S];
-
-    this->SimulationBox->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
-    for (uint16 i = 1; i < OverlapState.Length(); i++)
-    {
-        if (0 < OverlapState[i].Length())
-        {
-            this->Engine->Actors[i].SetCollisionLayer(1);
-        }
-    }
-
-    if (this->Engine->Keys[KEY_A] && !this->Engine->Keys[KEY_D])
-    {
-        this->VelocityX -= 0.00075 * this->Engine->Timing.GetDeltaTime();
-        if (this->VelocityX < -0.2)
-        {
-            this->VelocityX = -0.2;
-        }
-
-        this->LatchBox1->SetX(this->Actor->GetX() - 8);
-        this->LatchBox2->SetX(this->Actor->GetX() - 8);
-        this->Idle->FlipHorizontal = true;
-        this->Run->FlipHorizontal = true;
-        this->Jump->FlipHorizontal = true;
-        this->Fall->FlipHorizontal = true;
-        this->Latch->FlipHorizontal = true;
-    }
-    else if (this->VelocityX < 0)
-    {
-        this->VelocityX += 0.00075 * this->Engine->Timing.GetDeltaTime();
-        if (0 < this->VelocityX)
-        {
-            this->VelocityX = 0;
-        }
-    }
-    if (this->Engine->Keys[KEY_D] && !this->Engine->Keys[KEY_A])
-    {
-        this->VelocityX += 0.00075 * this->Engine->Timing.GetDeltaTime();
-        if (0.2 < this->VelocityX)
-        {
-            this->VelocityX = 0.2;
-        }
-
-        this->LatchBox1->SetX(this->Actor->GetX() + 8);
-        this->LatchBox2->SetX(this->Actor->GetX() + 8);
-        this->Idle->FlipHorizontal = false;
-        this->Run->FlipHorizontal = false;
-        this->Jump->FlipHorizontal = false;
-        this->Fall->FlipHorizontal = false;
-        this->Latch->FlipHorizontal = false;
-    }
-    else if (0 < this->VelocityX)
-    {
-        this->VelocityX -= 0.00075 * this->Engine->Timing.GetDeltaTime();
-        if (this->VelocityX < 0)
-        {
-            this->VelocityX = 0;
-        }
-    }
-
-    if (this->VelocityY == 0 && this->Engine->Keys[KEY_SPACE])
-    {
-        this->VelocityY = 0.3;
-        this->Jump->Reset();
-    }
-
     LatchBox1Active = false;
     LatchBox2Active = false;
 
-    if (this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime() != this->Actor->SetX(this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime()) && this->Engine->Keys[KEY_SPACE])
+    if (this->Health != 0)
     {
-        this->LatchBox1->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
-        for (uint64 i = 0; i < OverlapState.Length(); i++)
+        for (uint8 i = 0; i < this->Tunas->Length(); i++)
         {
-            if (0 < OverlapState[i].Length())
+            if ((*this->Tunas)[i] != NULL && this->OverlapBox->IsOverlappingWith((*this->Tunas)[i]->Actor->GetID(), (*this->Tunas)[i]->OverlapBox->GetID()))
             {
-                LatchBox1Active = true;
-                break;
+                this->Score++;
+                delete (*this->Tunas)[i];
+                (*this->Tunas)[i] = NULL;
             }
         }
-        this->LatchBox2->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
-        for (uint64 i = 0; i < OverlapState.Length(); i++)
+        
+        this->OverlapBox->GetOverlapState(&OverlapState, {ACT_TILE}, {});
+        for (uint16 i = 1; i < OverlapState.Length(); i++)
         {
             if (0 < OverlapState[i].Length())
             {
-                LatchBox2Active = true;
+                switch (this->Engine->Actors[i].Overlapboxes[1].GetType())
+                {
+                    case BOX_DAMAGE:
+                        if (this->DamageTick + 500 <= this->Engine->Timing.GetCurrentTick())
+                        {
+                            this->Health--;
+                            this->DamageTick = this->Engine->Timing.GetCurrentTick();
+                        }
+                    break;
+
+                    case BOX_SLOWNESS:
+                        if (this->VelocityX < -0.025)
+                        {
+                            this->VelocityX = -0.025;
+                        }
+                        else if (0.025 < this->VelocityX)
+                        {
+                            this->VelocityX = 0.025;
+                        }
+
+                        if (this->VelocityY < -0.025)
+                        {
+                            this->VelocityY = -0.025;
+                        }
+                        else if (0.025 < this->VelocityY)
+                        {
+                            this->VelocityY = 0.025;
+                        }
+                    break;
+
+                    case BOX_LEVER:
+                        if (!this->InteractKey && this->Engine->Keys[KEY_S])
+                        {
+                            *this->RotateTiles = !this->Game->Play->RotateTiles;
+                        }
+                    break;
+                }
+
                 break;
             }
         }
 
-        if (LatchBox1Active && LatchBox2Active)
+        this->InteractKey = this->Engine->Keys[KEY_S];
+
+        this->SimulationBox->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
+        for (uint16 i = 1; i < OverlapState.Length(); i++)
         {
-            this->VelocityX = 0;
-            this->VelocityY = 0;
+            if (0 < OverlapState[i].Length())
+            {
+                this->Engine->Actors[i].SetCollisionLayer(1);
+            }
+        }
+
+        if (this->Engine->Keys[KEY_A] && !this->Engine->Keys[KEY_D])
+        {
+            this->VelocityX -= 0.00075 * this->Engine->Timing.GetDeltaTime();
+            if (this->VelocityX < -0.2)
+            {
+                this->VelocityX = -0.2;
+            }
+
+            this->LatchBox1->SetX(this->Actor->GetX() - 8);
+            this->LatchBox2->SetX(this->Actor->GetX() - 8);
+            this->Idle->FlipHorizontal = true;
+            this->Run->FlipHorizontal = true;
+            this->Jump->FlipHorizontal = true;
+            this->Fall->FlipHorizontal = true;
+            this->Latch->FlipHorizontal = true;
+            this->Hurt->FlipHorizontal = true;
+        }
+        else if (this->VelocityX < 0)
+        {
+            this->VelocityX += 0.00075 * this->Engine->Timing.GetDeltaTime();
+            if (0 < this->VelocityX)
+            {
+                this->VelocityX = 0;
+            }
+        }
+        if (this->Engine->Keys[KEY_D] && !this->Engine->Keys[KEY_A])
+        {
+            this->VelocityX += 0.00075 * this->Engine->Timing.GetDeltaTime();
+            if (0.2 < this->VelocityX)
+            {
+                this->VelocityX = 0.2;
+            }
+
+            this->LatchBox1->SetX(this->Actor->GetX() + 8);
+            this->LatchBox2->SetX(this->Actor->GetX() + 8);
+            this->Idle->FlipHorizontal = false;
+            this->Run->FlipHorizontal = false;
+            this->Jump->FlipHorizontal = false;
+            this->Fall->FlipHorizontal = false;
+            this->Latch->FlipHorizontal = false;
+            this->Hurt->FlipHorizontal = false;
+        }
+        else if (0 < this->VelocityX)
+        {
+            this->VelocityX -= 0.00075 * this->Engine->Timing.GetDeltaTime();
+            if (this->VelocityX < 0)
+            {
+                this->VelocityX = 0;
+            }
+        }
+
+        if (this->VelocityY == 0 && this->Engine->Keys[KEY_SPACE])
+        {
+            this->VelocityY = 0.3;
+            this->Jump->Reset();
+        }
+
+        if (this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime() != this->Actor->SetX(this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime()) && this->Engine->Keys[KEY_SPACE])
+        {
+            this->LatchBox1->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
+            for (uint64 i = 0; i < OverlapState.Length(); i++)
+            {
+                if (0 < OverlapState[i].Length())
+                {
+                    LatchBox1Active = true;
+                    break;
+                }
+            }
+            this->LatchBox2->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
+            for (uint64 i = 0; i < OverlapState.Length(); i++)
+            {
+                if (0 < OverlapState[i].Length())
+                {
+                    LatchBox2Active = true;
+                    break;
+                }
+            }
+
+            if (LatchBox1Active && LatchBox2Active)
+            {
+                this->VelocityX = 0;
+                this->VelocityY = 0;
+            }
+        }
+        else
+        {
+            this->Idle->Angle = 0;
+            this->Run->Angle = 0;
+
+            this->VelocityY -= 0.00075 * this->Engine->Timing.GetDeltaTime();
+        }
+
+        if (this->Actor->GetY() + this->VelocityY * this->Engine->Timing.GetDeltaTime() != this->Actor->SetY(this->Actor->GetY() + this->VelocityY * this->Engine->Timing.GetDeltaTime()))
+        {
+            if (0 < this->VelocityY)
+            {
+                this->VelocityY = -0.00075 * this->Engine->Timing.GetDeltaTime();
+            }
+            else if (this->VelocityY < 0)
+            {
+                this->VelocityY = 0;
+                this->Fall->Reset();
+            }
         }
     }
     else
     {
-        this->Idle->Angle = 0;
-        this->Run->Angle = 0;
+        this->Actor->SetCollisionLayer(0);
+        this->Actor->SetY(this->Actor->GetY() + 0.05* this->Engine->Timing.GetDeltaTime());
+        this->Dead->ColorA = round(this->Opacity);
 
-        this->VelocityY -= 0.00075 * this->Engine->Timing.GetDeltaTime();
-    }
+        if (0 < this->Opacity)
+        {
+            this->Opacity -= 0.1 * this->Engine->Timing.GetDeltaTime();
 
-    if (this->Actor->GetY() + this->VelocityY * this->Engine->Timing.GetDeltaTime() != this->Actor->SetY(this->Actor->GetY() + this->VelocityY * this->Engine->Timing.GetDeltaTime()))
-    {
-        if (0 < this->VelocityY)
-        {
-            this->VelocityY = -0.00075 * this->Engine->Timing.GetDeltaTime();
-        }
-        else if (this->VelocityY < 0)
-        {
-            this->VelocityY = 0;
-            this->Fall->Reset();
+            if (this->Opacity < 0)
+            {
+                this->Opacity = 128;
+            }
         }
     }
 
@@ -298,7 +329,39 @@ uint8 act_player::Update()
 
     this->FireflyMask->ColorA = round(engine::math::Clamp<double>(((MAP_Y >> 1) * 100 - this->Actor->GetY()) / 100 * 255, 0, 255));
 
-    if (this->VelocityY < 0)
+    if (this->Health == 0)
+    {
+        this->Idle->Visible = false;
+        this->Idle->Paused = true;
+        this->Run->Visible = false;
+        this->Run->Paused = true;
+        this->Jump->Visible = false;
+        this->Jump->Paused = true;
+        this->Fall->Visible = false;
+        this->Fall->Paused = true;
+        this->Latch->Visible = false;
+        this->Latch->Paused = true;
+        this->Hurt->Visible = false;
+        this->Dead->Visible = true;
+        this->Dead->Paused = false;
+    }
+    else if (this->Engine->Timing.GetCurrentTick() <= this->DamageTick + 200)
+    {
+        this->Idle->Visible = false;
+        this->Idle->Paused = true;
+        this->Run->Visible = false;
+        this->Run->Paused = true;
+        this->Jump->Visible = false;
+        this->Jump->Paused = true;
+        this->Fall->Visible = false;
+        this->Fall->Paused = true;
+        this->Latch->Visible = false;
+        this->Latch->Paused = true;
+        this->Hurt->Visible = true;
+        this->Dead->Visible = false;
+        this->Dead->Paused = true;
+    }
+    else if (this->VelocityY < 0)
     {
         this->Idle->Visible = false;
         this->Idle->Paused = true;
@@ -310,6 +373,9 @@ uint8 act_player::Update()
         this->Fall->Paused = false;
         this->Latch->Visible = false;
         this->Latch->Paused = true;
+        this->Hurt->Visible = false;
+        this->Dead->Visible = false;
+        this->Dead->Paused = true;
     }
     else if (0 < this->VelocityY)
     {
@@ -323,6 +389,9 @@ uint8 act_player::Update()
         this->Fall->Paused = true;
         this->Latch->Visible = false;
         this->Latch->Paused = true;
+        this->Hurt->Visible = false;
+        this->Dead->Visible = false;
+        this->Dead->Paused = true;
     }
     else if (LatchBox1Active && LatchBox2Active)
     {
@@ -336,6 +405,9 @@ uint8 act_player::Update()
         this->Fall->Paused = true;
         this->Latch->Visible = true;
         this->Latch->Paused = false;
+        this->Hurt->Visible = false;
+        this->Dead->Visible = false;
+        this->Dead->Paused = true;
     }
     else if (this->VelocityX != 0)
     {
@@ -349,6 +421,9 @@ uint8 act_player::Update()
         this->Fall->Paused = true;
         this->Latch->Visible = false;
         this->Latch->Paused = true;
+        this->Hurt->Visible = false;
+        this->Dead->Visible = false;
+        this->Dead->Paused = true;
     }
     else
     {
@@ -362,6 +437,9 @@ uint8 act_player::Update()
         this->Fall->Paused = true;
         this->Latch->Visible = false;
         this->Latch->Paused = true;
+        this->Hurt->Visible = false;
+        this->Dead->Visible = false;
+        this->Dead->Paused = true;
     }
 
     return 0;
