@@ -296,7 +296,7 @@ uint8 act_player::Update()
         this->FireflyMask->SetY(this->Firefly->GetY());
     }
 
-    this->FireflyMask->ColorA = round(engine::math::Clamp<double>((800 - this->Actor->GetY()) / 100 * 255, 0, 255));
+    this->FireflyMask->ColorA = round(engine::math::Clamp<double>(((MAP_Y >> 1) * 100 - this->Actor->GetY()) / 100 * 255, 0, 255));
 
     if (this->VelocityY < 0)
     {
