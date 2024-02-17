@@ -232,10 +232,11 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	addsd	%xmm7, %xmm6
 	movapd	%xmm6, %xmm1
 	call	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetYEd
+	movq	72(%rbx), %rax
 	movq	80(%rbx), %rcx
 	movapd	%xmm6, %xmm1
+	movb	$-125, 36(%rax)
 	movl	%esi, 16(%rcx)
-	movb	$-125, 36(%rcx)
 	call	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetYEd
 	movq	80(%rbx), %rax
 	movq	88(%rbx), %rcx

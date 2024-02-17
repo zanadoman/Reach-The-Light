@@ -48,7 +48,7 @@ act_player::act_player(engine* Engine, game* Game, bool* RotateTiles, array<act_
     this->Idle->Width = 32;
     this->Idle->Height = 32;
     this->Idle->SetY(Y + 0.9);
-    this->Run->Priority = 131;
+    this->Idle->Priority = 131;
 
     this->Run->Width = 32;
     this->Run->Height = 32;

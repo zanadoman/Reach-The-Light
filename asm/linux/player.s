@@ -196,10 +196,11 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	movapd	%xmm3, %xmm0
 	movq	%xmm3, %r14
 	call	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetYEd@PLT
+	movq	72(%rbx), %rax
 	movq	80(%rbx), %rdi
 	movq	%r14, %xmm0
+	movb	$-125, 36(%rax)
 	movl	%ebp, 16(%rdi)
-	movb	$-125, 36(%rdi)
 	call	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetYEd@PLT
 	movq	80(%rbx), %rax
 	movq	88(%rbx), %rdi
