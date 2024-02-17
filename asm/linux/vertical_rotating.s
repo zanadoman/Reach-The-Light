@@ -440,9 +440,9 @@ _ZN22tile_vertical_rotatingD2Ev:
 	.set	_ZN22tile_vertical_rotatingD1Ev,_ZN22tile_vertical_rotatingD2Ev
 	.align 2
 	.p2align 4
-	.globl	_ZN22tile_vertical_rotating6RotateEv
-	.type	_ZN22tile_vertical_rotating6RotateEv, @function
-_ZN22tile_vertical_rotating6RotateEv:
+	.globl	_ZN22tile_vertical_rotating6RotateEb
+	.type	_ZN22tile_vertical_rotating6RotateEb, @function
+_ZN22tile_vertical_rotating6RotateEb:
 .LFB8162:
 	.cfi_startproc
 	pushq	%rbp
@@ -454,11 +454,9 @@ _ZN22tile_vertical_rotating6RotateEv:
 	movq	%rdi, %rbx
 	subq	$8, %rsp
 	.cfi_def_cfa_offset 32
-	movq	8(%rbx), %rax
 	movq	40(%rdi), %rbp
 	movq	16(%rdi), %rdi
-	movq	48(%rax), %rax
-	cmpb	$0, 1088(%rax)
+	testb	%sil, %sil
 	je	.L20
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	%rbp, %rdi
@@ -537,7 +535,7 @@ _ZN22tile_vertical_rotating6RotateEv:
 	ret
 	.cfi_endproc
 .LFE8162:
-	.size	_ZN22tile_vertical_rotating6RotateEv, .-_ZN22tile_vertical_rotating6RotateEv
+	.size	_ZN22tile_vertical_rotating6RotateEb, .-_ZN22tile_vertical_rotating6RotateEb
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC0:

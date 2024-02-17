@@ -1,6 +1,6 @@
 #include "../RTL.hpp"
 
-tile_horizontal_corridor::tile_horizontal_corridor(engine* Engine, game* Game, double X, double Y) : Engine(Engine), Game(Game)
+tile_horizontal_corridor::tile_horizontal_corridor(engine* Engine, game* Game, act_player* Player, double X, double Y) : Engine(Engine), Game(Game)
 {
     engine::texturebox tmp;
 
@@ -51,7 +51,7 @@ tile_horizontal_corridor::tile_horizontal_corridor(engine* Engine, game* Game, d
     this->HitboxBotRight->Resistance = 100;
     this->HitboxBotRight->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Math.Random(0, this->Game->Assets->TilePlatforms.Length())]);
 
-    this->Crate = new act_crate(this->Engine, this->Game, X, Y - 15 + EPSILON);
+    this->Crate = new act_crate(this->Engine, this->Game, Player, X, Y - 15 + EPSILON);
 }
 
 tile_horizontal_corridor::~tile_horizontal_corridor()

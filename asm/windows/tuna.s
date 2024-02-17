@@ -23,8 +23,8 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	xorl	%r8d, %r8d
 	xorl	%edx, %edx
 	movq	%rax, 56(%rsp)
-	movl	$10, 48(%rsp)
-	movl	$10, 40(%rsp)
+	movl	$20, 48(%rsp)
+	movl	$20, 40(%rsp)
 	movsd	%xmm6, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	movl	$6, %edx

@@ -1,6 +1,6 @@
 #include "../RTL.hpp"
 
-tile_trap_hole::tile_trap_hole(engine* Engine, game* Game, double X, double Y) : Engine(Engine), Game(Game)
+tile_trap_hole::tile_trap_hole(engine* Engine, game* Game, act_player* Player, double X, double Y) : Engine(Engine), Game(Game), Player(Player)
 {
     engine::texturebox tmp;
 
@@ -76,7 +76,7 @@ uint8 tile_trap_hole::Update()
 {
     array<array<uint64>> OverlapState;
 
-    if (this->HitboxBot != NULL && this->Detector->IsOverlappingWith(this->Game->Play->Player->Actor->GetID(), this->Game->Play->Player->OverlapBox->GetID()))
+    if (this->HitboxBot != NULL && this->Detector->IsOverlappingWith(this->Player->Actor->GetID(), this->Player->OverlapBox->GetID()))
     {
         this->Engine->Actors.Delete(this->HitboxBot->GetID());
         this->HitboxBot = NULL;

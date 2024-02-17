@@ -1,6 +1,6 @@
 #include "../RTL.hpp"
 
-tile_token::tile_token(tile Type, engine* Engine, game* Game, array<act_tuna*>* Tunas, double X, double Y)
+tile_token::tile_token(tile Type, engine* Engine, game* Game, act_player* Player, array<act_tuna*>* Tunas, double X, double Y)
 {
     switch (Type)
     {
@@ -21,7 +21,7 @@ tile_token::tile_token(tile Type, engine* Engine, game* Game, array<act_tuna*>* 
         break;
 
         case TILE_HORIZONTAL_CORRIDOR:
-            this->Data = new tile_horizontal_corridor(Engine, Game, X, Y);
+            this->Data = new tile_horizontal_corridor(Engine, Game, Player, X, Y);
         break;
 
         case TILE_VERTICAL_CORRIDOR:
@@ -41,7 +41,7 @@ tile_token::tile_token(tile Type, engine* Engine, game* Game, array<act_tuna*>* 
         break;
 
         case TILE_TRAP_HOLE:
-            this->Data = new tile_trap_hole(Engine, Game, X, Y);
+            this->Data = new tile_trap_hole(Engine, Game, Player, X, Y);
         break;
 
         case TILE_HORIZONTAL_ROTATING:
@@ -141,15 +141,15 @@ uint8 tile_token::Update()
     return 0;
 }
 
-uint8 tile_token::Rotate()
+uint8 tile_token::Rotate(bool Rotate)
 {
     switch (this->Type)
     {
         case TILE_HORIZONTAL_ROTATING:
-        return ((tile_horizontal_rotating*)this->Data)->Rotate();
+        return ((tile_horizontal_rotating*)this->Data)->Rotate(Rotate);
 
         case TILE_VERTICAL_ROTATING:
-        return ((tile_vertical_rotating*)this->Data)->Rotate();
+        return ((tile_vertical_rotating*)this->Data)->Rotate(Rotate);
 
         default:
         break;

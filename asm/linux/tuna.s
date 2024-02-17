@@ -10,9 +10,9 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	pushq	%rbx
 	.cfi_def_cfa_offset 16
 	.cfi_offset 3, -16
-	movl	$10, %ecx
+	movl	$20, %ecx
 	movq	%rdi, %rbx
-	movl	$10, %r8d
+	movl	$20, %r8d
 	subq	$16, %rsp
 	.cfi_def_cfa_offset 32
 	movq	%rsi, (%rdi)

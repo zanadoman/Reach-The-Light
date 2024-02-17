@@ -1,6 +1,6 @@
 #include "../RTL.hpp"
 
-act_crate::act_crate(engine* Engine, game* Game, double X, double Y) : Engine(Engine), Game(Game)
+act_crate::act_crate(engine* Engine, game* Game, act_player* Player, double X, double Y) : Engine(Engine), Game(Game), Player(Player)
 {
     this->Actor = this->Engine->Actors.New(NULL, BOX_NONE, X, Y, 30, 30, 1);
     this->SimulationBox = this->Actor->Overlapboxes.New(BOX_NONE);
@@ -34,7 +34,7 @@ uint8 act_crate::Update()
         }
     }
 
-    if (this->VelocityY < 0 || this->SimulationBox->IsOverlappingWith(this->Game->Play->Player->Actor->GetID(), this->Game->Play->Player->SimulationBox->GetID()))
+    if (this->VelocityY < 0 || this->SimulationBox->IsOverlappingWith(this->Player->Actor->GetID(), this->Player->SimulationBox->GetID()))
     {
         this->VelocityY -= 0.00075 * this->Engine->Timing.GetDeltaTime();
 

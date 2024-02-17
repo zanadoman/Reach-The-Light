@@ -1,6 +1,6 @@
 #include "../RTL.hpp"
 
-act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(Engine), Game(Game)
+act_player::act_player(engine* Engine, game* Game, bool* RotateTiles, array<act_tuna*>* Tunas, double X, double Y) : Engine(Engine), Game(Game), RotateTiles(RotateTiles), Tunas(Tunas)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 16, 15, 1);
     this->OverlapBox = this->Actor->Overlapboxes.New(BOX_PLAYER);
@@ -103,13 +103,13 @@ uint8 act_player::Update()
     bool LatchBox1Active, LatchBox2Active;
     double FireflyLength, FireflyAngle;
 
-    for (uint8 i = 0; i < this->Game->Play->Tunas.Length(); i++)
+    for (uint8 i = 0; i < this->Tunas->Length(); i++)
     {
-        if (this->Game->Play->Tunas[i] != NULL && this->OverlapBox->IsOverlappingWith(this->Game->Play->Tunas[i]->Actor->GetID(), this->Game->Play->Tunas[i]->OverlapBox->GetID()))
+        if ((*this->Tunas)[i] != NULL && this->OverlapBox->IsOverlappingWith((*this->Tunas)[i]->Actor->GetID(), (*this->Tunas)[i]->OverlapBox->GetID()))
         {
             this->Score++;
-            delete this->Game->Play->Tunas[i];
-            this->Game->Play->Tunas[i] = NULL;
+            delete (*this->Tunas)[i];
+            (*this->Tunas)[i] = NULL;
         }
     }
 
@@ -157,7 +157,7 @@ uint8 act_player::Update()
                 case BOX_LEVER:
                     if (!this->InteractKey && this->Engine->Keys[KEY_S])
                     {
-                        this->Game->Play->RotateTiles = !this->Game->Play->RotateTiles;
+                        *this->RotateTiles = !this->Game->Play->RotateTiles;
                     }
                 break;
             }

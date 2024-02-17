@@ -68,9 +68,9 @@ tile_vertical_rotating::~tile_vertical_rotating()
     this->Engine->Actors.Delete(this->HitboxBotRight->GetID());
 }
 
-uint8 tile_vertical_rotating::Rotate()
+uint8 tile_vertical_rotating::Rotate(bool Rotate)
 {
-    if (this->Game->Play->RotateTiles)
+    if (Rotate)
     {
         this->HitboxLeft->SetX(this->Actor->GetX());
         this->HitboxLeft->SetY(this->Actor->GetY() - 40);
