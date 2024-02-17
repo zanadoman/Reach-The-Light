@@ -92,6 +92,10 @@ assets::assets(engine* Engine) : Engine(Engine)
     this->TileBackgrounds +=
     {
         this->TileBackgrounds[0],
+        this->TileBackgrounds[0],
+        this->TileBackgrounds[0],
+        this->TileBackgrounds[1],
+        this->TileBackgrounds[1],
         this->TileBackgrounds[1],
         this->TileBackgrounds[3],
         this->TileBackgrounds[4],
