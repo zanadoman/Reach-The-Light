@@ -370,7 +370,7 @@ _ZN10act_player6UpdateEv:
 	jne	.L8
 	movl	124(%rbx), %eax
 	leaq	400(%rdx), %rdi
-	leal	500(%rax), %ebp
+	leal	1000(%rax), %ebp
 	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
 	movq	(%rbx), %rdx
 	cmpl	%ebp, %eax

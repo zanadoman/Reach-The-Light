@@ -116,7 +116,7 @@ uint8 act_player::Update()
             switch (this->Engine->Actors[i].Overlapboxes[1].GetType())
             {
                 case BOX_DAMAGE:
-                    if (this->DamageTick + 500 <= this->Engine->Timing.GetCurrentTick())
+                    if (this->DamageTick + 1000 <= this->Engine->Timing.GetCurrentTick())
                     {
                         this->Health--;
                         this->DamageTick = this->Engine->Timing.GetCurrentTick();
