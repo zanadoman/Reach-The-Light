@@ -458,7 +458,7 @@ _ZN22tile_vertical_rotating6RotateEv:
 	movq	40(%rdi), %rbp
 	movq	16(%rdi), %rdi
 	movq	48(%rax), %rax
-	cmpb	$0, 1080(%rax)
+	cmpb	$0, 1088(%rax)
 	je	.L20
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	%rbp, %rdi

@@ -188,6 +188,7 @@ struct scene_play
 
     engine::actor Actor;
     engine::textbox Health;
+    engine::textbox Score;
 
     tile_token* Tiles[MAP_X][MAP_Y];
     act_player* Player;
@@ -252,6 +253,7 @@ struct act_player
     engine::texturebox FireflyBloom;
     engine::texturebox FireflyMask;
     
+    uint8 Score;
     uint8 Health;
     uint32 DamageTick;
     double VelocityX;
