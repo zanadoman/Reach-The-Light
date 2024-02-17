@@ -14,6 +14,7 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->Latch = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerLatch);
     this->Firefly = this->Actor->Flipbooks.New(25, &this->Game->Assets->Firefly);
     this->FireflyBloom = this->Actor->Textureboxes.New(this->Game->Assets->FireflyBloom);
+    this->FireflyMask = this->Actor->Textureboxes.New(this->Game->Assets->FireflyMask);
     this->Health = 5;
     this->DamageTick = 0;
     this->VelocityX = 0;
@@ -82,6 +83,9 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->FireflyBloom->Height = 12;
     this->FireflyBloom->ColorA = 192;
     this->FireflyBloom->Priority = 133;
+    this->FireflyMask->Width = 3000;
+    this->FireflyMask->Height = 3000;
+    this->FireflyMask->Priority = 134;
 
     this->Engine->Camera.Bind(this->Actor->GetID());
     this->Engine->Camera.SetZoom(5);
@@ -277,7 +281,11 @@ uint8 act_player::Update()
         this->Firefly->SetOffsetAngle(FireflyAngle);
         this->FireflyBloom->SetX(this->Firefly->GetX());
         this->FireflyBloom->SetY(this->Firefly->GetY());
+        this->FireflyMask->SetX(this->Firefly->GetX());
+        this->FireflyMask->SetY(this->Firefly->GetY());
     }
+
+    this->FireflyMask->ColorA = round(engine::math::Clamp<double>((800 - this->Actor->GetY()) / 100 * 255, 0, 255));
 
     if (this->VelocityY < 0)
     {

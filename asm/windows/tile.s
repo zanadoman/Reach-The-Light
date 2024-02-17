@@ -98,9 +98,9 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddtthh:
 	movq	8(%rdx), %rax
 	movq	24(%rdx), %rdx
 	movq	(%rdx,%r15,8), %rdx
-	movq	160(%rax), %r8
+	movq	168(%rax), %r8
 	movzbl	(%rdx,%r13), %edx
-	cmpq	152(%rax), %rdx
+	cmpq	160(%rax), %rdx
 	jnb	.L30
 	movq	(%r8,%rdx,8), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -410,8 +410,8 @@ _ZN8gui_tile6UpdateEv:
 	movq	8(%rcx), %rcx
 	movq	144(%r9,%rdx,8), %rdx
 	movzbl	(%rdx,%rax), %edx
-	movq	160(%rcx), %rax
-	cmpq	152(%rcx), %rdx
+	movq	168(%rcx), %rax
+	cmpq	160(%rcx), %rdx
 	jnb	.L81
 	movq	(%rax,%rdx,8), %rdx
 	movq	%r8, %rcx

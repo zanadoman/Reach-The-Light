@@ -131,7 +131,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	cmpq	$8, %r14
 	jne	.L2
 	movq	8(%rbp), %rax
-	movl	$144, %ecx
+	movl	$152, %ecx
 	movq	24(%rax), %rax
 	movq	136(%rax), %rdx
 	movzbl	(%rdx), %edx
@@ -253,7 +253,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 .L8:
 	movq	%rbx, %rcx
-	movl	$144, %edx
+	movl	$152, %edx
 	call	_ZdlPvy
 	movq	%rsi, %rcx
 .LEHB6:
@@ -266,7 +266,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	call	_Unwind_Resume
 .L9:
 	movq	%rbx, %rcx
-	movl	$144, %edx
+	movl	$152, %edx
 	call	_ZdlPvy
 	movq	%rsi, %rcx
 	call	_Unwind_Resume
@@ -345,7 +345,7 @@ _ZN10scene_playD2Ev:
 	je	.L17
 	movq	%rbx, %rcx
 	call	_ZN10act_playerD1Ev
-	movl	$144, %edx
+	movl	$152, %edx
 	movq	%rbx, %rcx
 	addq	$32, %rsp
 	popq	%rbx
@@ -405,7 +405,7 @@ _ZN10scene_play6UpdateEv:
 	call	_ZN3neo6stringC1Ev
 .LEHE7:
 	movq	1056(%r12), %rax
-	movzbl	112(%rax), %eax
+	movzbl	120(%rax), %eax
 	testb	%al, %al
 	je	.L37
 	movq	%rax, 72(%rsp)

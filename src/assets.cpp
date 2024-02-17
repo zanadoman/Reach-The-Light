@@ -63,6 +63,7 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadTexture("assets/firefly/firefly10.png"),
     };
     this->FireflyBloom = this->Engine->Assets.LoadTexture("assets/firefly/bloom.png");
+    this->FireflyMask = this->Engine->Assets.LoadTexture("assets/firefly/mask.png");
 
     this->TileTextures =
     {

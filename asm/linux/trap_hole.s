@@ -51,12 +51,12 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %r12
 	movq	(%rbx), %rax
-	movl	168(%r12), %edx
+	movl	176(%r12), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	176(%r12), %rdx
+	movq	184(%r12), %rdx
 	cltq
-	cmpq	168(%r12), %rax
+	cmpq	176(%r12), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -109,12 +109,12 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbp
 	movq	8(%rax), %r14
 	movq	(%rbx), %rax
-	movl	184(%r14), %edx
+	movl	192(%r14), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	192(%r14), %rdx
+	movq	200(%r14), %rdx
 	cltq
-	cmpq	184(%r14), %rax
+	cmpq	192(%r14), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -163,12 +163,12 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbp
 	movq	8(%rax), %r14
 	movq	(%rbx), %rax
-	movl	184(%r14), %edx
+	movl	192(%r14), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	192(%r14), %rdx
+	movq	200(%r14), %rdx
 	cltq
-	cmpq	184(%r14), %rax
+	cmpq	192(%r14), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -213,12 +213,12 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
-	movl	184(%r13), %edx
+	movl	192(%r13), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	192(%r13), %rdx
+	movq	200(%r13), %rdx
 	cltq
-	cmpq	184(%r13), %rax
+	cmpq	192(%r13), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -248,12 +248,12 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %r13
 	movq	$100, 144(%r13)
-	movl	184(%r14), %edx
+	movl	192(%r14), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	192(%r14), %rdx
+	movq	200(%r14), %rdx
 	cltq
-	cmpq	184(%r14), %rax
+	cmpq	192(%r14), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r13, %rdi
@@ -280,12 +280,12 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %r12
 	movq	$100, 144(%r12)
-	movl	184(%r13), %edx
+	movl	192(%r13), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	192(%r13), %rdx
+	movq	200(%r13), %rdx
 	cltq
-	cmpq	184(%r13), %rax
+	cmpq	192(%r13), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r12, %rdi
@@ -313,11 +313,11 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
 	addq	$320, %rdi
-	movl	184(%r12), %edx
+	movl	192(%r12), %edx
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	192(%r12), %rdx
+	movq	200(%r12), %rdx
 	cltq
-	cmpq	184(%r12), %rax
+	cmpq	192(%r12), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	addq	$40, %rsp

@@ -120,6 +120,7 @@ struct assets
 
     array<uint64> Firefly;
     uint64 FireflyBloom;
+    uint64 FireflyMask;
 
     array<uint64> TileTextures;
     array<uint64> TileBackgrounds;
@@ -246,6 +247,7 @@ struct act_player
     engine::flipbook Latch;
     engine::flipbook Firefly;
     engine::texturebox FireflyBloom;
+    engine::texturebox FireflyMask;
     
     uint8 Health;
     uint32 DamageTick;
