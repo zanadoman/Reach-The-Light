@@ -10,9 +10,9 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	pushq	%rbx
 	.cfi_def_cfa_offset 16
 	.cfi_offset 3, -16
-	movl	$20, %ecx
+	movl	$26, %ecx
 	movq	%rdi, %rbx
-	movl	$20, %r8d
+	movl	$18, %r8d
 	subq	$16, %rsp
 	.cfi_def_cfa_offset 32
 	movq	%rsi, (%rdi)
@@ -27,12 +27,23 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	movq	%rax, 16(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	movl	$75, %esi
+	movq	%rax, 24(%rbx)
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rdx
+	movq	16(%rbx), %rax
+	addq	$264, %rdx
+	leaq	72(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE@PLT
+	movq	24(%rbx), %rdx
 	movsd	8(%rsp), %xmm1
 	movq	.LC1(%rip), %rcx
-	movq	%rax, 24(%rbx)
-	movq	%rcx, 40(%rbx)
-	movb	$1, 18(%rax)
-	movsd	%xmm1, 32(%rbx)
+	movq	%rax, 32(%rbx)
+	movb	$0, 18(%rdx)
+	movq	%rcx, 48(%rbx)
+	movl	$1966110, 16(%rax)
+	movb	$-125, 36(%rax)
+	movsd	%xmm1, 40(%rbx)
 	addq	$16, %rsp
 	.cfi_def_cfa_offset 16
 	popq	%rbx
@@ -100,7 +111,7 @@ _ZN8act_tuna6UpdateEv:
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	movq	(%rbx), %rax
-	movsd	40(%rbx), %xmm3
+	movsd	48(%rbx), %xmm3
 	movsd	%xmm0, 8(%rsp)
 	leaq	400(%rax), %rdi
 	movsd	%xmm3, (%rsp)
@@ -115,16 +126,16 @@ _ZN8act_tuna6UpdateEv:
 	movq	16(%rbx), %rdi
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	movapd	%xmm0, %xmm2
-	movsd	32(%rbx), %xmm0
+	movsd	40(%rbx), %xmm0
 	movapd	%xmm0, %xmm1
-	subsd	.LC2(%rip), %xmm1
+	subsd	.LC3(%rip), %xmm1
 	comisd	%xmm2, %xmm1
 	jb	.L15
 	movq	16(%rbx), %rdi
 	movapd	%xmm1, %xmm0
 	call	_ZN3wze6engine6actors5actor4SetYEd@PLT
 	movq	.LC1(%rip), %rax
-	movq	%rax, 40(%rbx)
+	movq	%rax, 48(%rbx)
 .L11:
 	addq	$24, %rsp
 	.cfi_remember_state
@@ -139,18 +150,18 @@ _ZN8act_tuna6UpdateEv:
 	.p2align 3
 .L15:
 	.cfi_restore_state
-	addsd	.LC2(%rip), %xmm0
+	addsd	.LC3(%rip), %xmm0
 	movq	16(%rbx), %rdi
 	movsd	%xmm0, (%rsp)
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	comisd	(%rsp), %xmm0
 	jb	.L11
-	movsd	.LC2(%rip), %xmm0
-	addsd	32(%rbx), %xmm0
+	movsd	.LC3(%rip), %xmm0
+	addsd	40(%rbx), %xmm0
 	movq	16(%rbx), %rdi
 	call	_ZN3wze6engine6actors5actor4SetYEd@PLT
-	movq	.LC3(%rip), %rax
-	movq	%rax, 40(%rbx)
+	movq	.LC4(%rip), %rax
+	movq	%rax, 48(%rbx)
 	addq	$24, %rsp
 	.cfi_def_cfa_offset 24
 	xorl	%eax, %eax
@@ -172,11 +183,11 @@ _ZN8act_tuna6UpdateEv:
 	.long	-343597384
 	.long	1065269329
 	.align 8
-.LC2:
+.LC3:
 	.long	0
 	.long	1073217536
 	.align 8
-.LC3:
+.LC4:
 	.long	-343597384
 	.long	-1082214319
 	.hidden	DW.ref.__gxx_personality_v0

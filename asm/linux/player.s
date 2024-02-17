@@ -145,36 +145,36 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	movq	56(%rbx), %rdi
 	addsd	.LC2(%rip), %xmm3
 	movapd	%xmm3, %xmm0
-	movsd	%xmm3, 8(%rsp)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetXEd@PLT
 	movsd	(%rsp), %xmm0
 	movq	56(%rbx), %rdi
 	addsd	.LC3(%rip), %xmm0
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd@PLT
 	movq	56(%rbx), %rdi
-	movl	$2, %esi
+	movl	$4, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
 	movq	56(%rbx), %rdi
 	movl	$2, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
 	movsd	8(%rsp), %xmm3
 	movq	64(%rbx), %rdi
+	addsd	.LC4(%rip), %xmm3
 	movapd	%xmm3, %xmm0
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetXEd@PLT
 	movsd	(%rsp), %xmm0
 	movq	64(%rbx), %rdi
-	subsd	.LC4(%rip), %xmm0
+	subsd	.LC5(%rip), %xmm0
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd@PLT
 	movq	64(%rbx), %rdi
-	movl	$2, %esi
+	movl	$4, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
 	movq	64(%rbx), %rdi
 	movl	$2, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
-	movl	.LC5(%rip), %ebp
+	movl	.LC6(%rip), %ebp
 	movq	72(%rbx), %rdi
 	movsd	(%rsp), %xmm0
-	addsd	.LC6(%rip), %xmm0
+	addsd	.LC7(%rip), %xmm0
 	movl	%ebp, 16(%rdi)
 	movq	%xmm0, %r14
 	call	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetYEd@PLT
@@ -225,7 +225,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6camera4BindEy@PLT
 	movq	(%rbx), %rdi
-	movsd	.LC10(%rip), %xmm0
+	movq	.LC5(%rip), %rax
 	addq	$16, %rsp
 	.cfi_def_cfa_offset 32
 	popq	%rbx
@@ -233,6 +233,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	popq	%rbp
 	.cfi_def_cfa_offset 16
 	addq	$80, %rdi
+	movq	%rax, %xmm0
 	popq	%r14
 	.cfi_def_cfa_offset 8
 	jmp	_ZN3wze6engine6camera7SetZoomEd@PLT
@@ -373,7 +374,7 @@ _ZN10act_player6UpdateEv:
 	je	.L13
 	movq	%r14, %rdi
 	call	_ZN8act_tunaD1Ev@PLT
-	movl	$48, %esi
+	movl	$56, %esi
 	movq	%r14, %rdi
 	call	_ZdlPvm@PLT
 	movq	24(%rbx), %rax
@@ -902,7 +903,7 @@ _ZN10act_player6UpdateEv:
 	minsd	%xmm0, %xmm1
 	movsd	%xmm1, 144(%rbx)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
-	movsd	.LC2(%rip), %xmm7
+	movsd	.LC4(%rip), %xmm7
 	movq	%rbp, %rdi
 	addsd	%xmm7, %xmm0
 	movsd	%xmm7, (%rsp)
@@ -947,7 +948,7 @@ _ZN10act_player6UpdateEv:
 	maxsd	%xmm0, %xmm1
 	movsd	%xmm1, 144(%rbx)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
-	movsd	.LC2(%rip), %xmm6
+	movsd	.LC4(%rip), %xmm6
 	movq	%rbp, %rdi
 	subsd	%xmm6, %xmm0
 	movsd	%xmm6, (%rsp)
@@ -1242,7 +1243,7 @@ _ZN10act_player6UpdateEv.cold:
 	.align 8
 .LC2:
 	.long	0
-	.long	1075838976
+	.long	1075445760
 	.align 8
 .LC3:
 	.long	0
@@ -1250,21 +1251,21 @@ _ZN10act_player6UpdateEv.cold:
 	.align 8
 .LC4:
 	.long	0
-	.long	1075445760
+	.long	1075838976
+	.align 8
+.LC5:
+	.long	0
+	.long	1075052544
 	.section	.rodata.cst4,"aM",@progbits,4
 	.align 4
-.LC5:
+.LC6:
 	.value	32
 	.value	32
 	.section	.rodata.cst8
 	.align 8
-.LC6:
+.LC7:
 	.long	-858993459
 	.long	1072483532
-	.align 8
-.LC10:
-	.long	0
-	.long	1075052544
 	.align 8
 .LC12:
 	.long	-1717986918

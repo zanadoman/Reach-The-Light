@@ -125,7 +125,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 	.p2align 3
 .L64:
 	.cfi_restore_state
-	movl	$48, %edi
+	movl	$56, %edi
 	call	_Znwm@PLT
 .LEHE2:
 	movsd	16(%rsp), %xmm1
@@ -528,7 +528,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 	.cfi_offset 13, -32
 	.cfi_offset 14, -24
 	.cfi_offset 15, -16
-	movl	$48, %esi
+	movl	$56, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
 	movq	40(%rsp), %rax

@@ -19,23 +19,34 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	movq	%rdx, (%rcx)
 	movq	%rcx, %rbx
 	movq	%r8, 8(%rcx)
-	leaq	256(%rdx), %rcx
 	xorl	%r8d, %r8d
+	leaq	256(%rdx), %rcx
 	xorl	%edx, %edx
 	movq	%rax, 56(%rsp)
-	movl	$20, 48(%rsp)
-	movl	$20, 40(%rsp)
+	movl	$18, 48(%rsp)
+	movl	$26, 40(%rsp)
 	movsd	%xmm6, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	movl	$6, %edx
 	movq	%rax, 16(%rbx)
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
-	movq	.LC1(%rip), %rdx
-	movsd	%xmm6, 32(%rbx)
+	movq	16(%rbx), %rdx
 	movq	%rax, 24(%rbx)
-	movq	%rdx, 40(%rbx)
-	movb	$1, 18(%rax)
+	movq	8(%rbx), %rax
+	leaq	72(%rdx), %rcx
+	movl	$75, %edx
+	movq	8(%rax), %rax
+	leaq	264(%rax), %r8
+	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
+	movq	.LC1(%rip), %rcx
+	movq	24(%rbx), %rdx
+	movsd	%xmm6, 40(%rbx)
+	movq	%rax, 32(%rbx)
+	movb	$0, 18(%rdx)
+	movq	%rcx, 48(%rbx)
+	movl	$1966110, 16(%rax)
+	movb	$-125, 36(%rax)
 	movaps	64(%rsp), %xmm6
 	addq	$80, %rsp
 	popq	%rbx
@@ -105,7 +116,7 @@ _ZN8act_tuna6UpdateEv:
 	movq	%rsi, %rcx
 	call	_ZN3wze6engine6actors5actor4GetYEv
 	movq	(%rbx), %rax
-	movsd	40(%rbx), %xmm7
+	movsd	48(%rbx), %xmm7
 	movapd	%xmm0, %xmm6
 	leaq	400(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
@@ -118,8 +129,8 @@ _ZN8act_tuna6UpdateEv:
 	call	_ZN3wze6engine6actors5actor4SetYEd
 	movq	16(%rbx), %rcx
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	32(%rbx), %xmm6
-	movsd	.LC2(%rip), %xmm7
+	movsd	40(%rbx), %xmm6
+	movsd	.LC3(%rip), %xmm7
 	movapd	%xmm6, %xmm1
 	subsd	%xmm7, %xmm1
 	comisd	%xmm0, %xmm1
@@ -127,7 +138,7 @@ _ZN8act_tuna6UpdateEv:
 	movq	16(%rbx), %rcx
 	call	_ZN3wze6engine6actors5actor4SetYEd
 	movq	.LC1(%rip), %rax
-	movq	%rax, 40(%rbx)
+	movq	%rax, 48(%rbx)
 .L9:
 	movaps	32(%rsp), %xmm6
 	movaps	48(%rsp), %xmm7
@@ -144,12 +155,12 @@ _ZN8act_tuna6UpdateEv:
 	call	_ZN3wze6engine6actors5actor4GetYEv
 	comisd	%xmm6, %xmm0
 	jb	.L9
-	addsd	32(%rbx), %xmm7
+	addsd	40(%rbx), %xmm7
 	movq	16(%rbx), %rcx
 	movapd	%xmm7, %xmm1
 	call	_ZN3wze6engine6actors5actor4SetYEd
-	movq	.LC3(%rip), %rax
-	movq	%rax, 40(%rbx)
+	movq	.LC4(%rip), %rax
+	movq	%rax, 48(%rbx)
 	jmp	.L9
 	.seh_endproc
 	.section .rdata,"dr"
@@ -162,16 +173,17 @@ _ZN8act_tuna6UpdateEv:
 	.long	-343597384
 	.long	1065269329
 	.align 8
-.LC2:
+.LC3:
 	.long	0
 	.long	1073217536
 	.align 8
-.LC3:
+.LC4:
 	.long	-343597384
 	.long	-1082214319
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes3NewEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef

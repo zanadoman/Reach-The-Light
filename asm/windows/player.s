@@ -44,17 +44,20 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$120, %rsp
-	.seh_stackalloc	120
+	subq	$136, %rsp
+	.seh_stackalloc	136
 	movaps	%xmm6, 80(%rsp)
 	.seh_savexmm	%xmm6, 80
 	movaps	%xmm7, 96(%rsp)
 	.seh_savexmm	%xmm7, 96
+	movaps	%xmm8, 112(%rsp)
+	.seh_savexmm	%xmm8, 112
 	.seh_endprologue
-	movsd	.LC0(%rip), %xmm7
-	movq	176(%rsp), %rax
-	movsd	192(%rsp), %xmm6
-	movsd	184(%rsp), %xmm3
+	movsd	.LC0(%rip), %xmm8
+	movq	192(%rsp), %rax
+	movsd	208(%rsp), %xmm6
+	movsd	200(%rsp), %xmm7
+	movapd	%xmm7, %xmm3
 	movq	%r9, 16(%rcx)
 	movq	%rcx, %rbx
 	movq	%rdx, (%rcx)
@@ -65,9 +68,8 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	xorl	%edx, %edx
 	movl	$15, 48(%rsp)
 	movl	$16, 40(%rsp)
-	movsd	%xmm7, 56(%rsp)
+	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm6, 32(%rsp)
-	movsd	%xmm3, 72(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	movl	$1, %edx
 	movq	%rax, 32(%rbx)
@@ -163,7 +165,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movapd	%xmm6, %xmm1
 	movq	40(%rbx), %rcx
-	subsd	%xmm7, %xmm1
+	subsd	%xmm8, %xmm1
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd
 	movq	40(%rbx), %rcx
 	movl	$15, %edx
@@ -177,38 +179,38 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	movq	48(%rbx), %rcx
 	movl	$60, %edx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt
-	movsd	72(%rsp), %xmm3
+	movsd	.LC2(%rip), %xmm1
 	movq	56(%rbx), %rcx
-	addsd	.LC2(%rip), %xmm3
-	movapd	%xmm3, %xmm1
-	movapd	%xmm3, %xmm7
+	addsd	%xmm7, %xmm1
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetXEd
 	movsd	.LC3(%rip), %xmm1
 	movq	56(%rbx), %rcx
 	addsd	%xmm6, %xmm1
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd
 	movq	56(%rbx), %rcx
-	movl	$2, %edx
+	movl	$4, %edx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt
 	movq	56(%rbx), %rcx
 	movl	$2, %edx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt
+	addsd	.LC4(%rip), %xmm7
 	movq	64(%rbx), %rcx
 	movapd	%xmm7, %xmm1
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetXEd
 	movapd	%xmm6, %xmm1
 	movq	64(%rbx), %rcx
-	subsd	.LC4(%rip), %xmm1
+	movsd	.LC5(%rip), %xmm7
+	subsd	%xmm7, %xmm1
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd
 	movq	64(%rbx), %rcx
-	movl	$2, %edx
+	movl	$4, %edx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt
 	movq	64(%rbx), %rcx
 	movl	$2, %edx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt
-	movl	.LC5(%rip), %esi
+	movl	.LC6(%rip), %esi
 	movq	72(%rbx), %rcx
-	addsd	.LC6(%rip), %xmm6
+	addsd	.LC7(%rip), %xmm6
 	movl	%esi, 16(%rcx)
 	movapd	%xmm6, %xmm1
 	movsd	%xmm6, 72(%rsp)
@@ -260,11 +262,12 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6camera4BindEy
 	movq	(%rbx), %rcx
+	movapd	%xmm7, %xmm1
 	movaps	80(%rsp), %xmm6
-	movsd	.LC10(%rip), %xmm1
 	movaps	96(%rsp), %xmm7
+	movaps	112(%rsp), %xmm8
 	addq	$80, %rcx
-	addq	$120, %rsp
+	addq	$136, %rsp
 	popq	%rbx
 	popq	%rsi
 	jmp	_ZN3wze6engine6camera7SetZoomEd
@@ -407,7 +410,7 @@ _ZN10act_player6UpdateEv:
 	je	.L12
 	movq	%r12, %rcx
 	call	_ZN8act_tunaD1Ev
-	movl	$48, %edx
+	movl	$56, %edx
 	movq	%r12, %rcx
 	call	_ZdlPvy
 	movq	24(%rbx), %rax
@@ -929,7 +932,7 @@ _ZN10act_player6UpdateEv:
 	minsd	%xmm0, %xmm1
 	movsd	%xmm1, 144(%rbx)
 	call	_ZN3wze6engine6actors5actor4GetXEv
-	movsd	.LC2(%rip), %xmm6
+	movsd	.LC4(%rip), %xmm6
 	movapd	%xmm0, %xmm1
 	movq	%rsi, %rcx
 	addsd	%xmm6, %xmm1
@@ -975,7 +978,7 @@ _ZN10act_player6UpdateEv:
 	maxsd	%xmm0, %xmm1
 	movsd	%xmm1, 144(%rbx)
 	call	_ZN3wze6engine6actors5actor4GetXEv
-	movsd	.LC2(%rip), %xmm6
+	movsd	.LC4(%rip), %xmm6
 	movapd	%xmm0, %xmm1
 	movq	%rsi, %rcx
 	subsd	%xmm6, %xmm1
@@ -1271,7 +1274,7 @@ _ZN10act_player6UpdateEv.cold:
 	.align 8
 .LC2:
 	.long	0
-	.long	1075838976
+	.long	1075445760
 	.align 8
 .LC3:
 	.long	0
@@ -1279,19 +1282,19 @@ _ZN10act_player6UpdateEv.cold:
 	.align 8
 .LC4:
 	.long	0
-	.long	1075445760
-	.align 4
+	.long	1075838976
+	.align 8
 .LC5:
-	.word	32
-	.word	32
-	.align 8
-.LC6:
-	.long	-858993459
-	.long	1072483532
-	.align 8
-.LC10:
 	.long	0
 	.long	1075052544
+	.align 4
+.LC6:
+	.word	32
+	.word	32
+	.align 8
+.LC7:
+	.long	-858993459
+	.long	1072483532
 	.align 8
 .LC12:
 	.long	-1717986918

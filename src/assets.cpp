@@ -117,6 +117,42 @@ assets::assets(engine* Engine) : Engine(Engine)
     this->TrapSpider = this->Engine->Assets.LoadTexture("assets/traps/spider.png");
     this->TrapWeb = this->Engine->Assets.LoadTexture("assets/traps/web.png");
 
+    this->TunaTextures =
+    {
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna1.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna2.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna3.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna4.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna5.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna6.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna7.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna8.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna9.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna10.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna11.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna12.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna13.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna14.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna15.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna16.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna17.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna18.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna19.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna20.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna21.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna22.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna23.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna24.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna25.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna26.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna27.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna28.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna29.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna30.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna31.png"),
+        this->Engine->Assets.LoadTexture("assets/tuna/tuna32.png")
+    };
+
     this->CrateTexture = this->Engine->Assets.LoadTexture("assets/etc/crate.png");
 }
 

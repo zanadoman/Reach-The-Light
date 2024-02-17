@@ -2,12 +2,17 @@
 
 act_tuna::act_tuna(engine* Engine, game* Game, double X, double Y) : Engine(Engine), Game(Game)
 {
-    this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 20, 20, 1);
+    this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 26, 18, 1);
     this->OverlapBox = this->Actor->Overlapboxes.New(BOX_TUNA);
+    this->Flipbook = this->Actor->Flipbooks.New(75, &this->Game->Assets->TunaTextures);
     this->OriginY = Y;
     this->VelocityY = 0.0075;
 
-    this->OverlapBox->Visible = true;
+    this->OverlapBox->Visible = DEBUG;
+
+    this->Flipbook->Width = 30;
+    this->Flipbook->Height = 30;
+    this->Flipbook->Priority = 131;
 }
 
 act_tuna::~act_tuna()

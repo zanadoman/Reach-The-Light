@@ -136,7 +136,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 	.p2align 4,,10
 	.p2align 3
 .L47:
-	movl	$48, %ecx
+	movl	$56, %ecx
 	call	_Znwy
 .LEHE2:
 	movsd	%xmm6, 32(%rsp)
@@ -575,7 +575,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 	call	_Unwind_Resume
 .L32:
 	movq	%rbx, %rcx
-	movl	$48, %edx
+	movl	$56, %edx
 	call	_ZdlPvy
 	movq	%rsi, %rcx
 	call	_Unwind_Resume

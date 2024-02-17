@@ -136,6 +136,8 @@ struct assets
     uint64 TrapSpider;
     uint64 TrapWeb;
 
+    array<uint64> TunaTextures;
+    
     uint64 CrateTexture;
 
     assets(engine* Engine);
@@ -282,6 +284,7 @@ struct act_tuna
 
     engine::actor Actor;
     engine::overlapbox OverlapBox;
+    engine::flipbook Flipbook;
 
     double OriginY;
     double VelocityY;

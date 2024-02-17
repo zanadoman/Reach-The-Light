@@ -431,7 +431,7 @@ _ZN10scene_playD2Ev:
 	movq	%rsi, %rcx
 	addl	$1, %ebx
 	call	_ZN8act_tunaD1Ev
-	movl	$48, %edx
+	movl	$56, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
 	movq	1080(%rbp), %rdx

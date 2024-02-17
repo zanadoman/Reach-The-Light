@@ -32,14 +32,14 @@ act_player::act_player(engine* Engine, game* Game, bool* RotateTiles, array<act_
     this->SimulationBox->SetWidth(64);
     this->SimulationBox->SetHeight(60);
 
-    this->LatchBox1->SetX(X + 8);
+    this->LatchBox1->SetX(X + 6.5);
     this->LatchBox1->SetY(Y + 9);
-    this->LatchBox1->SetHeight(2);
+    this->LatchBox1->SetHeight(4);
     this->LatchBox1->SetWidth(2);
 
     this->LatchBox2->SetX(X + 8);
-    this->LatchBox2->SetY(Y - 6.5);
-    this->LatchBox2->SetHeight(2);
+    this->LatchBox2->SetY(Y - 5);
+    this->LatchBox2->SetHeight(4);
     this->LatchBox2->SetWidth(2);
 
     this->Idle->Width = 32;
