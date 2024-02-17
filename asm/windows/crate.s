@@ -35,10 +35,10 @@ _Z6printfPKcz:
 	.text
 	.align 2
 	.p2align 4
-	.globl	_ZN9act_crateC2EPN3wze6engineEP4gamedd
-	.def	_ZN9act_crateC2EPN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN9act_crateC2EPN3wze6engineEP4gamedd
-_ZN9act_crateC2EPN3wze6engineEP4gamedd:
+	.globl	_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd
+	.def	_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd
+_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 .LFB8432:
 	pushq	%rbx
 	.seh_pushreg	%rbx
@@ -46,9 +46,11 @@ _ZN9act_crateC2EPN3wze6engineEP4gamedd:
 	.seh_stackalloc	64
 	.seh_endprologue
 	movq	.LC0(%rip), %rax
-	movsd	112(%rsp), %xmm0
-	movq	%rdx, (%rcx)
+	movsd	120(%rsp), %xmm0
+	movsd	112(%rsp), %xmm3
+	movq	%r9, 16(%rcx)
 	movq	%rcx, %rbx
+	movq	%rdx, (%rcx)
 	movq	%r8, 8(%rcx)
 	xorl	%r8d, %r8d
 	leaq	256(%rdx), %rcx
@@ -59,37 +61,37 @@ _ZN9act_crateC2EPN3wze6engineEP4gamedd:
 	movsd	%xmm0, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	xorl	%edx, %edx
-	movq	%rax, 16(%rbx)
+	movq	%rax, 24(%rbx)
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
-	movq	%rax, 24(%rbx)
+	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
 	movq	208(%rax), %rdx
-	movq	16(%rbx), %rax
+	movq	24(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
-	movq	16(%rbx), %rcx
+	movq	24(%rbx), %rcx
 	movl	$1, %edx
-	movq	$0x000000000, 40(%rbx)
-	movq	%rax, 32(%rbx)
+	movq	$0x000000000, 48(%rbx)
+	movq	%rax, 40(%rbx)
 	movq	$49, 184(%rcx)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	movq	24(%rbx), %rcx
+	movq	32(%rbx), %rcx
 	movl	$120, %edx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt
-	movq	24(%rbx), %rcx
+	movq	32(%rbx), %rcx
 	movl	$120, %edx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt
-	movq	32(%rbx), %rax
+	movq	40(%rbx), %rax
 	movb	$-127, 36(%rax)
 	addq	$64, %rsp
 	popq	%rbx
 	ret
 	.seh_endproc
-	.globl	_ZN9act_crateC1EPN3wze6engineEP4gamedd
-	.def	_ZN9act_crateC1EPN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
-	.set	_ZN9act_crateC1EPN3wze6engineEP4gamedd,_ZN9act_crateC2EPN3wze6engineEP4gamedd
+	.globl	_ZN9act_crateC1EPN3wze6engineEP4gameP10act_playerdd
+	.def	_ZN9act_crateC1EPN3wze6engineEP4gameP10act_playerdd;	.scl	2;	.type	32;	.endef
+	.set	_ZN9act_crateC1EPN3wze6engineEP4gameP10act_playerdd,_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd
 	.align 2
 	.p2align 4
 	.globl	_ZN9act_crateD2Ev
@@ -103,7 +105,7 @@ _ZN9act_crateD2Ev:
 	.seh_stackalloc	32
 	.seh_endprologue
 	movq	(%rcx), %rax
-	movq	16(%rcx), %rcx
+	movq	24(%rcx), %rcx
 	leaq	256(%rax), %rbx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rbx, %rcx
@@ -156,7 +158,7 @@ _ZN9act_crate6UpdateEv:
 	.seh_savexmm	%xmm8, 128
 	.seh_endprologue
 	movq	%rcx, %rsi
-	movq	24(%rcx), %rcx
+	movq	32(%rcx), %rcx
 	leaq	72(%rsp), %rax
 	leaq	80(%rsp), %rdx
 	leaq	32(%rsp), %r9
@@ -202,19 +204,15 @@ _ZN9act_crate6UpdateEv:
 	jb	.L6
 .L10:
 	pxor	%xmm0, %xmm0
-	comisd	40(%rsi), %xmm0
+	comisd	48(%rsi), %xmm0
 	ja	.L7
-	movq	8(%rsi), %rax
-	movq	24(%rsi), %rdi
-	movq	48(%rax), %rax
-	movq	1064(%rax), %rax
-	movq	32(%rax), %rcx
+	movq	16(%rsi), %rax
+	movq	32(%rsi), %rdi
+	movq	48(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv
 	movq	%rax, %rbx
-	movq	8(%rsi), %rax
-	movq	48(%rax), %rax
-	movq	1064(%rax), %rax
-	movq	16(%rax), %rcx
+	movq	16(%rsi), %rax
+	movq	32(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rax, %rdx
 	movq	%rbx, %r8
@@ -228,28 +226,28 @@ _ZN9act_crate6UpdateEv:
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	movl	%eax, %eax
 	pxor	%xmm1, %xmm1
-	movsd	40(%rsi), %xmm0
-	movq	16(%rsi), %rcx
+	movsd	48(%rsi), %xmm0
+	movq	24(%rsi), %rcx
 	cvtsi2sdq	%rax, %xmm1
 	mulsd	.LC2(%rip), %xmm1
 	subsd	%xmm1, %xmm0
-	movsd	%xmm0, 40(%rsi)
+	movsd	%xmm0, 48(%rsi)
 	call	_ZN3wze6engine6actors5actor4GetYEv
 	movq	(%rsi), %rax
-	movsd	40(%rsi), %xmm7
+	movsd	48(%rsi), %xmm7
 	movapd	%xmm0, %xmm6
 	leaq	400(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	movl	%eax, %eax
 	pxor	%xmm1, %xmm1
-	movq	16(%rsi), %rbx
+	movq	24(%rsi), %rbx
 	cvtsi2sdq	%rax, %xmm1
 	movq	%rbx, %rcx
 	mulsd	%xmm7, %xmm1
 	addsd	%xmm1, %xmm6
 	call	_ZN3wze6engine6actors5actor4GetYEv
 	movq	(%rsi), %rax
-	movsd	40(%rsi), %xmm8
+	movsd	48(%rsi), %xmm8
 	movapd	%xmm0, %xmm7
 	leaq	400(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
@@ -296,9 +294,9 @@ _ZN9act_crate6UpdateEv:
 	.p2align 3
 .L30:
 	pxor	%xmm0, %xmm0
-	comisd	40(%rsi), %xmm0
+	comisd	48(%rsi), %xmm0
 	jbe	.L12
-	movsd	%xmm0, 40(%rsi)
+	movsd	%xmm0, 48(%rsi)
 	jmp	.L12
 .L29:
 	movq	%rax, %rsi

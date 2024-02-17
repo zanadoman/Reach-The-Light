@@ -458,10 +458,10 @@ _ZN22tile_vertical_rotatingD2Ev:
 	.set	_ZN22tile_vertical_rotatingD1Ev,_ZN22tile_vertical_rotatingD2Ev
 	.align 2
 	.p2align 4
-	.globl	_ZN22tile_vertical_rotating6RotateEv
-	.def	_ZN22tile_vertical_rotating6RotateEv;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN22tile_vertical_rotating6RotateEv
-_ZN22tile_vertical_rotating6RotateEv:
+	.globl	_ZN22tile_vertical_rotating6RotateEb
+	.def	_ZN22tile_vertical_rotating6RotateEb;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN22tile_vertical_rotating6RotateEb
+_ZN22tile_vertical_rotating6RotateEb:
 .LFB8437:
 	pushq	%rsi
 	.seh_pushreg	%rsi
@@ -477,9 +477,7 @@ _ZN22tile_vertical_rotating6RotateEv:
 	movq	40(%rcx), %rsi
 	movq	%rcx, %rbx
 	movq	16(%rcx), %rcx
-	movq	8(%rbx), %rax
-	movq	48(%rax), %rax
-	cmpb	$0, 1088(%rax)
+	testb	%dl, %dl
 	je	.L19
 	call	_ZN3wze6engine6actors5actor4GetXEv
 	movq	%rsi, %rcx
