@@ -1008,11 +1008,11 @@ _ZN10act_player6UpdateEv.cold:
 	.align 8
 .LC2:
 	.long	0
-	.long	1075314688
+	.long	1075970048
 	.align 8
 .LC3:
 	.long	0
-	.long	1074528256
+	.long	1075445760
 	.section	.rodata.cst4,"aM",@progbits,4
 	.align 4
 .LC4:

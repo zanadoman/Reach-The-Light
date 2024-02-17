@@ -29,12 +29,12 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->SimulationBox->SetHeight(60);
 
     this->LatchBox1->SetX(X + 8);
-    this->LatchBox1->SetY(Y + 6);
+    this->LatchBox1->SetY(Y + 9);
     this->LatchBox1->SetHeight(2);
     this->LatchBox1->SetWidth(2);
 
     this->LatchBox2->SetX(X + 8);
-    this->LatchBox2->SetY(Y - 3.5);
+    this->LatchBox2->SetY(Y - 6.5);
     this->LatchBox2->SetHeight(2);
     this->LatchBox2->SetWidth(2);
 
