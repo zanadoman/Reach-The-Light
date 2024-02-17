@@ -9,6 +9,8 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->LatchBox2 = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Idle = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdle);
     this->Run = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerRun);
+    this->Jump = this->Actor->Flipbooks.New(50, &this->Game->Assets->PlayerJump);
+    this->Fall = this->Actor->Flipbooks.New(50, &this->Game->Assets->PlayerFall);
     this->Health = 5;
     this->DamageTick = 0;
     this->VelocityX = 0;
@@ -46,6 +48,22 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->Run->Visible = false;
     this->Run->Paused = true;
     this->Run->Priority = 131;
+
+    this->Jump->Width = 32;
+    this->Jump->Height = 32;
+    this->Jump->SetY(Y + 0.9);
+    this->Jump->Visible = false;
+    this->Jump->Paused = true;
+    this->Jump->Loop = false;
+    this->Jump->Priority = 131;
+
+    this->Fall->Width = 32;
+    this->Fall->Height = 32;
+    this->Fall->SetY(Y + 0.9);
+    this->Fall->Visible = false;
+    this->Fall->Paused = true;
+    this->Fall->Loop = false;
+    this->Fall->Priority = 131;
 
     this->Engine->Camera.Bind(this->Actor->GetID());
     this->Engine->Camera.SetZoom(5);
@@ -137,6 +155,8 @@ uint8 act_player::Update()
         this->LatchBox2->SetX(this->Actor->GetX() - 8);
         this->Idle->FlipHorizontal = true;
         this->Run->FlipHorizontal = true;
+        this->Jump->FlipHorizontal = true;
+        this->Fall->FlipHorizontal = true;
     }
     else if (this->VelocityX < 0)
     {
@@ -158,6 +178,8 @@ uint8 act_player::Update()
         this->LatchBox2->SetX(this->Actor->GetX() + 8);
         this->Idle->FlipHorizontal = false;
         this->Run->FlipHorizontal = false;
+        this->Jump->FlipHorizontal = false;
+        this->Fall->FlipHorizontal = false;
     }
     else if (0 < this->VelocityX)
     {
@@ -171,6 +193,7 @@ uint8 act_player::Update()
     if (this->VelocityY == 0 && this->Engine->Keys[KEY_SPACE])
     {
         this->VelocityY = 0.3;
+        this->Jump->Reset();
     }
 
     if (this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime() != this->Actor->SetX(this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime()) && this->Engine->Keys[KEY_SPACE])
@@ -230,15 +253,42 @@ uint8 act_player::Update()
         else if (this->VelocityY < 0)
         {
             this->VelocityY = 0;
+            this->Fall->Reset();
         }
     }
 
-    if (this->VelocityX != 0)
+    if (this->VelocityY < 0)
+    {
+        this->Idle->Visible = false;
+        this->Idle->Paused = true;
+        this->Run->Visible = false;
+        this->Run->Paused = true;
+        this->Jump->Visible = false;
+        this->Jump->Paused = true;
+        this->Fall->Visible = true;
+        this->Fall->Paused = false;
+    }
+    else if (0 < this->VelocityY)
+    {
+        this->Idle->Visible = false;
+        this->Idle->Paused = true;
+        this->Run->Visible = false;
+        this->Run->Paused = true;
+        this->Jump->Visible = true;
+        this->Jump->Paused = false;
+        this->Fall->Visible = false;
+        this->Fall->Paused = true;
+    }
+    else if (this->VelocityX != 0)
     {
         this->Idle->Visible = false;
         this->Idle->Paused = true;
         this->Run->Visible = true;
         this->Run->Paused = false;
+        this->Jump->Visible = false;
+        this->Jump->Paused = true;
+        this->Fall->Visible = false;
+        this->Fall->Paused = true;
     }
     else
     {
@@ -246,6 +296,10 @@ uint8 act_player::Update()
         this->Idle->Paused = false;
         this->Run->Visible = false;
         this->Run->Paused = true;
+        this->Jump->Visible = false;
+        this->Jump->Paused = true;
+        this->Fall->Visible = false;
+        this->Fall->Paused = true;
     }
 
     return 0;

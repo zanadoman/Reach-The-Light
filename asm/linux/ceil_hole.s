@@ -51,12 +51,12 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %r12
 	movq	(%rbx), %rax
-	movl	96(%r12), %edx
+	movl	128(%r12), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	104(%r12), %rdx
+	movq	136(%r12), %rdx
 	cltq
-	cmpq	96(%r12), %rax
+	cmpq	128(%r12), %rax
 	jnb	.L12
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -108,12 +108,12 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	addq	$40, %r13
 	movq	8(%rax), %r14
 	movq	(%rbx), %rax
-	movl	112(%r14), %edx
+	movl	144(%r14), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	120(%r14), %rdx
+	movq	152(%r14), %rdx
 	cltq
-	cmpq	112(%r14), %rax
+	cmpq	144(%r14), %rax
 	jnb	.L12
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r13, %rdi
@@ -162,13 +162,13 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
-	movl	112(%r13), %edx
+	movl	144(%r13), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	120(%r13), %rdx
+	movq	152(%r13), %rdx
 	movsd	8(%rsp), %xmm1
 	cltq
-	cmpq	112(%r13), %rax
+	cmpq	144(%r13), %rax
 	jnb	.L12
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -199,12 +199,12 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %r13
 	movq	$100, 144(%r13)
-	movl	112(%r14), %edx
+	movl	144(%r14), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	120(%r14), %rdx
+	movq	152(%r14), %rdx
 	cltq
-	cmpq	112(%r14), %rax
+	cmpq	144(%r14), %rax
 	jnb	.L12
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r13, %rdi
@@ -231,12 +231,12 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %r12
 	movq	$100, 144(%r12)
-	movl	112(%r13), %edx
+	movl	144(%r13), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	120(%r13), %rdx
+	movq	152(%r13), %rdx
 	cltq
-	cmpq	112(%r13), %rax
+	cmpq	144(%r13), %rax
 	jnb	.L12
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r12, %rdi
@@ -264,11 +264,11 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
 	addq	$320, %rdi
-	movl	112(%r12), %edx
+	movl	144(%r12), %edx
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	120(%r12), %rdx
+	movq	152(%r12), %rdx
 	cltq
-	cmpq	112(%r12), %rax
+	cmpq	144(%r12), %rax
 	jnb	.L12
 	movq	(%rdx,%rax,8), %rsi
 	addq	$24, %rsp

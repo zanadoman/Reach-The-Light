@@ -131,7 +131,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	cmpq	$8, %rax
 	jne	.L2
 	movq	8(%r13), %rax
-	movl	$104, %edi
+	movl	$120, %edi
 	movq	24(%rax), %rax
 	movq	136(%rax), %rdx
 	movzbl	(%rdx), %edx
@@ -255,7 +255,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	.cfi_offset 14, -24
 	.cfi_offset 15, -16
 	movq	%rbx, %rdi
-	movl	$104, %esi
+	movl	$120, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbp, %rdi
 .LEHB6:
@@ -268,7 +268,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	call	_Unwind_Resume@PLT
 .L9:
 	movq	%rbx, %rdi
-	movl	$104, %esi
+	movl	$120, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbp, %rdi
 	call	_Unwind_Resume@PLT
@@ -350,7 +350,7 @@ _ZN10scene_playD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN10act_playerD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$104, %esi
+	movl	$120, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_def_cfa_offset 40
@@ -428,7 +428,7 @@ _ZN10scene_play6UpdateEv:
 	call	_ZN3neo6stringC1Ev@PLT
 .LEHE7:
 	movq	1056(%r13), %rax
-	movzbl	72(%rax), %eax
+	movzbl	88(%rax), %eax
 	testb	%al, %al
 	je	.L41
 	movq	%rax, 48(%rsp)

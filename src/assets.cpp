@@ -18,7 +18,6 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadTexture("assets/player/idle/idle5.png"),
         this->Engine->Assets.LoadTexture("assets/player/idle/idle6.png"),
     };
-
     this->PlayerRun =
     {
         this->Engine->Assets.LoadTexture("assets/player/run/run1.png"),
@@ -27,6 +26,18 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadTexture("assets/player/run/run4.png"),
         this->Engine->Assets.LoadTexture("assets/player/run/run5.png"),
         this->Engine->Assets.LoadTexture("assets/player/run/run6.png"),
+    };
+    this->PlayerJump =
+    {
+        this->Engine->Assets.LoadTexture("assets/player/jump/jump1.png"),
+        this->Engine->Assets.LoadTexture("assets/player/jump/jump2.png"),
+        this->Engine->Assets.LoadTexture("assets/player/jump/jump3.png")
+    };
+    this->PlayerFall =
+    {
+        this->Engine->Assets.LoadTexture("assets/player/fall/fall1.png"),
+        this->Engine->Assets.LoadTexture("assets/player/fall/fall2.png"),
+        this->Engine->Assets.LoadTexture("assets/player/fall/fall3.png")
     };
 
     this->TileTextures =

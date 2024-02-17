@@ -43,54 +43,66 @@
 	.string	"assets/player/run/run5.png"
 .LC17:
 	.string	"assets/player/run/run6.png"
+.LC18:
+	.string	"assets/player/jump/jump1.png"
+.LC19:
+	.string	"assets/player/jump/jump2.png"
+.LC20:
+	.string	"assets/player/jump/jump3.png"
+.LC21:
+	.string	"assets/player/fall/fall1.png"
+.LC22:
+	.string	"assets/player/fall/fall2.png"
+.LC23:
+	.string	"assets/player/fall/fall3.png"
 	.section	.rodata.str1.8
 	.align 8
-.LC18:
+.LC24:
 	.string	"assets/tiles/top_left_corner.png"
 	.align 8
-.LC19:
+.LC25:
 	.string	"assets/tiles/top_right_corner.png"
 	.align 8
-.LC20:
+.LC26:
 	.string	"assets/tiles/bot_left_corner.png"
 	.align 8
-.LC21:
+.LC27:
 	.string	"assets/tiles/bot_right_corner.png"
 	.align 8
-.LC22:
+.LC28:
 	.string	"assets/tiles/horizontal_corridor.png"
 	.align 8
-.LC23:
+.LC29:
 	.string	"assets/tiles/vertical_corridor.png"
 	.align 8
-.LC24:
+.LC30:
 	.string	"assets/tiles/center_corridor.png"
 	.section	.rodata.str1.1
-.LC25:
+.LC31:
 	.string	"assets/tiles/floor_hole.png"
-.LC26:
+.LC32:
 	.string	"assets/tiles/ceil_hole.png"
-.LC27:
+.LC33:
 	.string	"assets/tiles/trap_hole.png"
 	.section	.rodata.str1.8
 	.align 8
-.LC28:
+.LC34:
 	.string	"assets/tiles/horizontal_rotating.png"
 	.align 8
-.LC29:
+.LC35:
 	.string	"assets/tiles/vertical_rotating.png"
 	.section	.rodata.str1.1
-.LC30:
+.LC36:
 	.string	"assets/tiles/background.png"
-.LC31:
+.LC37:
 	.string	"assets/tiles/platform.png"
-.LC32:
+.LC38:
 	.string	"assets/etc/crate.png"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB33:
+.LCOLDB39:
 	.text
-.LHOTB33:
+.LHOTB39:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -108,10 +120,10 @@ _ZN6assetsC2EPN3wze6engineE:
 	.cfi_def_cfa_offset 24
 	.cfi_offset 3, -24
 	movq	%rdi, %rbx
-	subq	$232, %rsp
-	.cfi_def_cfa_offset 256
+	subq	$296, %rsp
+	.cfi_def_cfa_offset 320
 	movq	%fs:40, %rax
-	movq	%rax, 216(%rsp)
+	movq	%rax, 280(%rsp)
 	xorl	%eax, %eax
 	movq	%rsi, (%rdi)
 	movq	$0, 48(%rdi)
@@ -124,6 +136,10 @@ _ZN6assetsC2EPN3wze6engineE:
 	movq	$0, 104(%rdi)
 	movq	$0, 112(%rdi)
 	movq	$0, 120(%rdi)
+	movq	$0, 128(%rdi)
+	movq	$0, 136(%rdi)
+	movq	$0, 144(%rdi)
+	movq	$0, 152(%rdi)
 	leaq	328(%rsi), %rdi
 	leaq	.LC0(%rip), %rsi
 .LEHB0:
@@ -156,181 +172,227 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	.LC5(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 16(%rsp)
+	movq	%rax, 80(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC6(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 24(%rsp)
+	movq	%rax, 88(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC7(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 32(%rsp)
+	movq	%rax, 96(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC8(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 40(%rsp)
+	movq	%rax, 104(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC9(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 48(%rsp)
+	movq	%rax, 112(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC10(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
 	movq	48(%rbx), %rdx
-	movq	%rax, 56(%rsp)
+	movq	%rax, 120(%rsp)
 	cmpq	$6, %rdx
-	jne	.L27
+	jne	.L34
 	movq	56(%rbx), %rsi
 .L4:
 	salq	$3, %rdx
-	leaq	16(%rsp), %rdi
+	leaq	80(%rsp), %rdi
 	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
 	movq	(%rbx), %rax
 	leaq	.LC12(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 64(%rsp)
+	movq	%rax, 128(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC13(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 72(%rsp)
+	movq	%rax, 136(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC14(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 80(%rsp)
+	movq	%rax, 144(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC15(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 88(%rsp)
+	movq	%rax, 152(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC16(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 96(%rsp)
+	movq	%rax, 160(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC17(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
 	movq	64(%rbx), %rdx
-	movq	%rax, 104(%rsp)
+	movq	%rax, 168(%rsp)
 	cmpq	$6, %rdx
-	jne	.L28
+	jne	.L35
 	movq	72(%rbx), %rsi
 .L7:
 	salq	$3, %rdx
-	leaq	64(%rsp), %rdi
+	leaq	128(%rsp), %rdi
 	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
 	movq	(%rbx), %rax
 	leaq	.LC18(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 112(%rsp)
+	movq	%rax, 16(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC19(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 120(%rsp)
+	movq	%rax, 24(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC20(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 128(%rsp)
+	movq	80(%rbx), %rdx
+	movq	%rax, 32(%rsp)
+	cmpq	$3, %rdx
+	jne	.L36
+	movq	88(%rbx), %rsi
+.L11:
+	salq	$3, %rdx
+	leaq	16(%rsp), %rdi
+	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
 	movq	(%rbx), %rax
 	leaq	.LC21(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 136(%rsp)
+	movq	%rax, 48(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC22(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 144(%rsp)
+	movq	%rax, 56(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC23(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 152(%rsp)
+	movq	96(%rbx), %rdx
+	movq	%rax, 64(%rsp)
+	cmpq	$3, %rdx
+	jne	.L37
+	movq	104(%rbx), %rsi
+.L14:
+	salq	$3, %rdx
+	leaq	48(%rsp), %rdi
+	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
 	movq	(%rbx), %rax
 	leaq	.LC24(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 160(%rsp)
+	movq	%rax, 176(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC25(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 168(%rsp)
+	movq	%rax, 184(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC26(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 176(%rsp)
+	movq	%rax, 192(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC27(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 184(%rsp)
+	movq	%rax, 200(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC28(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 192(%rsp)
+	movq	%rax, 208(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC29(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	80(%rbx), %rdx
-	movq	%rax, 200(%rsp)
-	cmpq	$12, %rdx
-	jne	.L29
-	movq	88(%rbx), %rsi
-.L11:
-	salq	$3, %rdx
-	leaq	112(%rsp), %rdi
-	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
+	movq	%rax, 216(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC30(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	96(%rbx), %rdx
-	movq	%rax, (%rsp)
-	cmpq	$1, %rdx
-	jne	.L30
-	movq	104(%rbx), %rsi
-.L14:
-	salq	$3, %rdx
-	movq	%rsp, %rdi
-	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
+	movq	%rax, 224(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC31(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	112(%rbx), %rdx
-	movq	%rax, 8(%rsp)
-	cmpq	$1, %rdx
-	jne	.L31
-	movq	120(%rbx), %rsi
-.L17:
-	salq	$3, %rdx
-	leaq	8(%rsp), %rdi
-	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
+	movq	%rax, 232(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC32(%rip), %rsi
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
-	movq	%rax, 128(%rbx)
-	movq	216(%rsp), %rax
+	movq	%rax, 240(%rsp)
+	movq	(%rbx), %rax
+	leaq	.LC33(%rip), %rsi
+	leaq	328(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	movq	%rax, 248(%rsp)
+	movq	(%rbx), %rax
+	leaq	.LC34(%rip), %rsi
+	leaq	328(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	movq	%rax, 256(%rsp)
+	movq	(%rbx), %rax
+	leaq	.LC35(%rip), %rsi
+	leaq	328(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	movq	112(%rbx), %rdx
+	movq	%rax, 264(%rsp)
+	cmpq	$12, %rdx
+	jne	.L38
+	movq	120(%rbx), %rsi
+.L17:
+	salq	$3, %rdx
+	leaq	176(%rsp), %rdi
+	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
+	movq	(%rbx), %rax
+	leaq	.LC36(%rip), %rsi
+	leaq	328(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	movq	128(%rbx), %rdx
+	movq	%rax, (%rsp)
+	cmpq	$1, %rdx
+	jne	.L39
+	movq	136(%rbx), %rsi
+.L20:
+	salq	$3, %rdx
+	movq	%rsp, %rdi
+	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
+	movq	(%rbx), %rax
+	leaq	.LC37(%rip), %rsi
+	leaq	328(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	movq	144(%rbx), %rdx
+	movq	%rax, 8(%rsp)
+	cmpq	$1, %rdx
+	jne	.L40
+	movq	152(%rbx), %rsi
+.L23:
+	salq	$3, %rdx
+	leaq	8(%rsp), %rdi
+	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
+	movq	(%rbx), %rax
+	leaq	.LC38(%rip), %rsi
+	leaq	328(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	movq	%rax, 160(%rbx)
+	movq	280(%rsp), %rax
 	subq	%fs:40, %rax
-	jne	.L32
-	addq	$232, %rsp
+	jne	.L41
+	addq	$296, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
 	popq	%rbx
@@ -340,21 +402,21 @@ _ZN6assetsC2EPN3wze6engineE:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L29:
+.L36:
 	.cfi_restore_state
-	movq	$12, 80(%rbx)
+	movq	$3, 80(%rbx)
 	movq	88(%rbx), %rdi
-	movl	$96, %esi
+	movl	$24, %esi
 	call	realloc@PLT
 	movq	%rax, 88(%rbx)
 	movq	%rax, %rsi
 	testq	%rax, %rax
-	je	.L10
+	je	.L13
 	movq	80(%rbx), %rdx
 	jmp	.L11
 	.p2align 4,,10
 	.p2align 3
-.L28:
+.L35:
 	movq	$6, 64(%rbx)
 	movq	72(%rbx), %rdi
 	movl	$48, %esi
@@ -367,7 +429,7 @@ _ZN6assetsC2EPN3wze6engineE:
 	jmp	.L7
 	.p2align 4,,10
 	.p2align 3
-.L27:
+.L34:
 	movq	$6, 48(%rbx)
 	movq	56(%rbx), %rdi
 	movl	$48, %esi
@@ -380,10 +442,23 @@ _ZN6assetsC2EPN3wze6engineE:
 	jmp	.L4
 	.p2align 4,,10
 	.p2align 3
-.L31:
-	movq	$1, 112(%rbx)
-	movq	120(%rbx), %rdi
+.L39:
+	movq	$1, 128(%rbx)
+	movq	136(%rbx), %rdi
 	movl	$8, %esi
+	call	realloc@PLT
+	movq	%rax, 136(%rbx)
+	movq	%rax, %rsi
+	testq	%rax, %rax
+	je	.L22
+	movq	128(%rbx), %rdx
+	jmp	.L20
+	.p2align 4,,10
+	.p2align 3
+.L38:
+	movq	$12, 112(%rbx)
+	movq	120(%rbx), %rdi
+	movl	$96, %esi
 	call	realloc@PLT
 	movq	%rax, 120(%rbx)
 	movq	%rax, %rsi
@@ -393,19 +468,32 @@ _ZN6assetsC2EPN3wze6engineE:
 	jmp	.L17
 	.p2align 4,,10
 	.p2align 3
-.L30:
-	movq	$1, 96(%rbx)
-	movq	104(%rbx), %rdi
+.L40:
+	movq	$1, 144(%rbx)
+	movq	152(%rbx), %rdi
 	movl	$8, %esi
+	call	realloc@PLT
+	movq	%rax, 152(%rbx)
+	movq	%rax, %rsi
+	testq	%rax, %rax
+	je	.L22
+	movq	144(%rbx), %rdx
+	jmp	.L23
+	.p2align 4,,10
+	.p2align 3
+.L37:
+	movq	$3, 96(%rbx)
+	movq	104(%rbx), %rdi
+	movl	$24, %esi
 	call	realloc@PLT
 	movq	%rax, 104(%rbx)
 	movq	%rax, %rsi
 	testq	%rax, %rax
-	je	.L16
+	je	.L13
 	movq	96(%rbx), %rdx
 	jmp	.L14
-.L3:
-	movl	$6, %edx
+.L13:
+	movl	$3, %edx
 	movl	$8, %esi
 	leaq	.LC11(%rip), %rdi
 	xorl	%eax, %eax
@@ -413,14 +501,23 @@ _ZN6assetsC2EPN3wze6engineE:
 .L8:
 	movl	$1, %edi
 	call	exit@PLT
-.L16:
+.L22:
 	movl	$1, %edx
 	movl	$8, %esi
 	leaq	.LC11(%rip), %rdi
 	xorl	%eax, %eax
 	call	printf@PLT
 	jmp	.L8
-.L10:
+.L3:
+	movl	$6, %edx
+	movl	$8, %esi
+	leaq	.LC11(%rip), %rdi
+	xorl	%eax, %eax
+	call	printf@PLT
+	jmp	.L8
+.L41:
+	call	__stack_chk_fail@PLT
+.L16:
 	movl	$12, %edx
 	movl	$8, %esi
 	leaq	.LC11(%rip), %rdi
@@ -428,11 +525,9 @@ _ZN6assetsC2EPN3wze6engineE:
 	call	printf@PLT
 .LEHE0:
 	jmp	.L8
-.L32:
-	call	__stack_chk_fail@PLT
-.L21:
+.L27:
 	movq	%rax, %rbp
-	jmp	.L18
+	jmp	.L24
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
 .LLSDA8157:
@@ -443,7 +538,7 @@ _ZN6assetsC2EPN3wze6engineE:
 .LLSDACSB8157:
 	.uleb128 .LEHB0-.LFB8157
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L21-.LFB8157
+	.uleb128 .L27-.LFB8157
 	.uleb128 0
 .LLSDACSE8157:
 	.text
@@ -455,10 +550,14 @@ _ZN6assetsC2EPN3wze6engineE:
 	.type	_ZN6assetsC2EPN3wze6engineE.cold, @function
 _ZN6assetsC2EPN3wze6engineE.cold:
 .LFSB8157:
-.L18:
-	.cfi_def_cfa_offset 256
+.L24:
+	.cfi_def_cfa_offset 320
 	.cfi_offset 3, -24
 	.cfi_offset 6, -16
+	movq	152(%rbx), %rdi
+	call	free@PLT
+	movq	136(%rbx), %rdi
+	call	free@PLT
 	movq	120(%rbx), %rdi
 	call	free@PLT
 	movq	104(%rbx), %rdi
@@ -469,14 +568,14 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	call	free@PLT
 	movq	56(%rbx), %rdi
 	call	free@PLT
-	movq	216(%rsp), %rax
+	movq	280(%rsp), %rax
 	subq	%fs:40, %rax
-	jne	.L33
+	jne	.L42
 	movq	%rbp, %rdi
 .LEHB1:
 	call	_Unwind_Resume@PLT
 .LEHE1:
-.L33:
+.L42:
 	call	__stack_chk_fail@PLT
 	.cfi_endproc
 .LFE8157:
@@ -487,7 +586,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB1-.LCOLDB33
+	.uleb128 .LEHB1-.LCOLDB39
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -497,9 +596,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.size	_ZN6assetsC2EPN3wze6engineE, .-_ZN6assetsC2EPN3wze6engineE
 	.section	.text.unlikely
 	.size	_ZN6assetsC2EPN3wze6engineE.cold, .-_ZN6assetsC2EPN3wze6engineE.cold
-.LCOLDE33:
+.LCOLDE39:
 	.text
-.LHOTE33:
+.LHOTE39:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE
 	.align 2
@@ -535,6 +634,10 @@ _ZN6assetsD2Ev:
 	xorl	%edx, %edx
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets19PurgeCursorTexturesESt16initializer_listIyE@PLT
+	movq	152(%rbx), %rdi
+	call	free@PLT
+	movq	136(%rbx), %rdi
+	call	free@PLT
 	movq	120(%rbx), %rdi
 	call	free@PLT
 	movq	104(%rbx), %rdi
