@@ -494,7 +494,7 @@ _ZN10scene_play6UpdateEv:
 	movq	40(%r12), %rax
 	movzbl	137(%rax), %eax
 	testb	%al, %al
-	je	.L58
+	je	.L56
 	leaq	40(%rsp), %r13
 	movq	%rax, 48(%rsp)
 	movl	$1, %edx
@@ -578,60 +578,58 @@ _ZN10scene_play6UpdateEv:
 	leaq	128(%rbx), %r15
 	cmpq	%r13, %r15
 	jne	.L42
-	cmpb	$0, 1072(%r12)
-	je	.L49
 	movq	%rbp, %r15
 	.p2align 4,,10
 	.p2align 3
-.L45:
+.L44:
 	leaq	-128(%r15), %rbx
 	.p2align 4,,10
 	.p2align 3
-.L47:
+.L45:
 	movq	(%rbx), %rdi
 	movl	$1, %esi
 	call	_ZN10tile_token6RotateEb@PLT
 	addq	$8, %rbx
 	cmpq	%r15, %rbx
-	jne	.L47
+	jne	.L45
 	subq	$-128, %r15
 	cmpq	%r13, %r15
-	jne	.L45
+	jne	.L44
 	.p2align 4,,10
 	.p2align 3
-.L49:
+.L46:
 	leaq	-128(%rbp), %rbx
 	.p2align 4,,10
 	.p2align 3
-.L48:
+.L47:
 	movq	(%rbx), %rdi
 	call	_ZN10tile_token6UpdateEv@PLT
 	addq	$8, %rbx
 	cmpq	%rbp, %rbx
-	jne	.L48
+	jne	.L47
 	leaq	128(%rbx), %rbp
 	cmpq	%r13, %rbp
-	jne	.L49
+	jne	.L46
 	movq	1080(%r12), %rcx
 	xorl	%ebx, %ebx
 	xorl	%eax, %eax
 	testq	%rcx, %rcx
-	je	.L54
+	je	.L52
 	.p2align 4,,10
 	.p2align 3
-.L51:
+.L49:
 	movq	1088(%r12), %rdx
 	movq	(%rdx,%rax,8), %rdi
 	testq	%rdi, %rdi
-	je	.L53
+	je	.L51
 	call	_ZN8act_tuna6UpdateEv@PLT
 	movq	1080(%r12), %rcx
-.L53:
+.L51:
 	addl	$1, %ebx
 	movzbl	%bl, %eax
 	cmpq	%rcx, %rax
-	jb	.L51
-.L54:
+	jb	.L49
+.L52:
 	movq	40(%r12), %rdi
 	call	_ZN10act_player6UpdateEv@PLT
 	movq	(%r12), %rdi
@@ -647,7 +645,7 @@ _ZN10scene_play6UpdateEv:
 	call	_ZN3neo6stringD1Ev@PLT
 	movq	56(%rsp), %rax
 	subq	%fs:40, %rax
-	jne	.L75
+	jne	.L72
 	addq	$72, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 56
@@ -665,15 +663,15 @@ _ZN10scene_play6UpdateEv:
 	popq	%r15
 	.cfi_def_cfa_offset 8
 	ret
-.L58:
+.L56:
 	.cfi_restore_state
 	movl	$4, %ebx
 	jmp	.L41
-.L75:
+.L72:
 	call	__stack_chk_fail@PLT
-.L61:
+.L59:
 	movq	%rax, %rbx
-	jmp	.L55
+	jmp	.L53
 	.section	.gcc_except_table
 .LLSDA8162:
 	.byte	0xff
@@ -687,7 +685,7 @@ _ZN10scene_play6UpdateEv:
 	.uleb128 0
 	.uleb128 .LEHB8-.LFB8162
 	.uleb128 .LEHE8-.LEHB8
-	.uleb128 .L61-.LFB8162
+	.uleb128 .L59-.LFB8162
 	.uleb128 0
 .LLSDACSE8162:
 	.text
@@ -699,7 +697,7 @@ _ZN10scene_play6UpdateEv:
 	.type	_ZN10scene_play6UpdateEv.cold, @function
 _ZN10scene_play6UpdateEv.cold:
 .LFSB8162:
-.L55:
+.L53:
 	.cfi_def_cfa_offset 128
 	.cfi_offset 3, -56
 	.cfi_offset 6, -48
@@ -711,12 +709,12 @@ _ZN10scene_play6UpdateEv.cold:
 	call	_ZN3neo6stringD1Ev@PLT
 	movq	56(%rsp), %rax
 	subq	%fs:40, %rax
-	jne	.L76
+	jne	.L73
 	movq	%rbx, %rdi
 .LEHB9:
 	call	_Unwind_Resume@PLT
 .LEHE9:
-.L76:
+.L73:
 	call	__stack_chk_fail@PLT
 	.cfi_endproc
 .LFE8162:
