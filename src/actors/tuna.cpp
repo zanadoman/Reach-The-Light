@@ -5,7 +5,7 @@ act_tuna::act_tuna(engine* Engine, game* Game, double X, double Y) : Engine(Engi
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 10, 10, 1);
     this->OverlapBox = this->Actor->Overlapboxes.New(BOX_TUNA);
     this->OriginY = Y;
-    this->VelocityY = 0.025;
+    this->VelocityY = 0.0075;
 
     this->OverlapBox->Visible = true;
 }
@@ -19,15 +19,15 @@ uint8 act_tuna::Update()
 {
     this->Actor->SetY(this->Actor->GetY() + this->VelocityY * this->Engine->Timing.GetDeltaTime());
 
-    if (this->Actor->GetY() <= this->OriginY - 5)
+    if (this->Actor->GetY() <= this->OriginY - 1.5)
     {
-        this->Actor->SetY(this->OriginY - 5);
-        this->VelocityY = 0.01;
+        this->Actor->SetY(this->OriginY - 1.5);
+        this->VelocityY = 0.0075;
     }
-    else if (this->OriginY + 5 <= this->Actor->GetY())
+    else if (this->OriginY + 1.5 <= this->Actor->GetY())
     {
-        this->Actor->SetY(this->OriginY + 5);
-        this->VelocityY = -0.01;
+        this->Actor->SetY(this->OriginY + 1.5);
+        this->VelocityY = -0.0075;
     }
 
     return 0;

@@ -1,17 +1,55 @@
 	.file	"token.cpp"
 	.text
+	.section	.text$_Z6printfPKcz,"x"
+	.linkonce discard
+	.p2align 4
+	.globl	_Z6printfPKcz
+	.def	_Z6printfPKcz;	.scl	2;	.type	32;	.endef
+	.seh_proc	_Z6printfPKcz
+_Z6printfPKcz:
+.LFB11:
+	pushq	%rsi
+	.seh_pushreg	%rsi
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$56, %rsp
+	.seh_stackalloc	56
+	.seh_endprologue
+	leaq	88(%rsp), %rsi
+	movq	%rdx, 88(%rsp)
+	movq	%rcx, %rbx
+	movl	$1, %ecx
+	movq	%r8, 96(%rsp)
+	movq	%r9, 104(%rsp)
+	movq	%rsi, 40(%rsp)
+	call	*__imp___acrt_iob_func(%rip)
+	movq	%rsi, %r8
+	movq	%rbx, %rdx
+	movq	%rax, %rcx
+	call	__mingw_vfprintf
+	addq	$56, %rsp
+	popq	%rbx
+	popq	%rsi
+	ret
+	.seh_endproc
+	.section .rdata,"dr"
+	.align 8
+.LC0:
+	.ascii "neo::array+=: Memory allocation failed\12Params: Elements(type, length): %ld, %ld\12\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB0:
+.LCOLDB1:
 	.text
-.LHOTB0:
+.LHOTB1:
 	.align 2
 	.p2align 4
-	.globl	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd
-	.def	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd
-_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
+	.globl	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamePN3neo5arrayIP8act_tunaEEdd
+	.def	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamePN3neo5arrayIP8act_tunaEEdd;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamePN3neo5arrayIP8act_tunaEEdd
+_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamePN3neo5arrayIP8act_tunaEEdd:
 .LFB8432:
+	pushq	%r13
+	.seh_pushreg	%r13
 	pushq	%r12
 	.seh_pushreg	%r12
 	pushq	%rbp
@@ -22,300 +60,345 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$48, %rsp
-	.seh_stackalloc	48
+	subq	$88, %rsp
+	.seh_stackalloc	88
+	movaps	%xmm6, 64(%rsp)
+	.seh_savexmm	%xmm6, 64
 	.seh_endprologue
-	movq	%rcx, %rsi
+	movq	176(%rsp), %r12
+	movsd	192(%rsp), %xmm6
+	movq	%rcx, %rdi
 	movl	%edx, %ebx
-	movq	%r8, %rbp
-	movq	%r9, %rdi
+	movq	%r8, %rsi
+	movq	%r9, %rbp
 	cmpl	$11, %edx
-	ja	.L2
+	ja	.L4
 	movl	%edx, %eax
-	leaq	.L4(%rip), %rdx
+	leaq	.L6(%rip), %rdx
 	movslq	(%rdx,%rax,4), %rax
 	addq	%rdx, %rax
 	jmp	*%rax
 	.section .rdata,"dr"
 	.align 4
-.L4:
-	.long	.L15-.L4
-	.long	.L14-.L4
-	.long	.L13-.L4
-	.long	.L12-.L4
-	.long	.L11-.L4
-	.long	.L10-.L4
-	.long	.L9-.L4
-	.long	.L8-.L4
-	.long	.L7-.L4
-	.long	.L6-.L4
-	.long	.L5-.L4
-	.long	.L3-.L4
+.L6:
+	.long	.L17-.L6
+	.long	.L16-.L6
+	.long	.L15-.L6
+	.long	.L14-.L6
+	.long	.L13-.L6
+	.long	.L12-.L6
+	.long	.L11-.L6
+	.long	.L10-.L6
+	.long	.L9-.L6
+	.long	.L8-.L6
+	.long	.L7-.L6
+	.long	.L5-.L6
 	.text
 	.p2align 4,,10
 	.p2align 3
-.L5:
+.L7:
 	movl	$88, %ecx
 .LEHB0:
 	call	_Znwy
 .LEHE0:
-	movq	%rdi, %r8
-	movq	%rbp, %rdx
-	movsd	136(%rsp), %xmm0
-	movsd	128(%rsp), %xmm3
+	movsd	%xmm6, 32(%rsp)
+	movq	%rbp, %r8
+	movq	%rsi, %rdx
+	movsd	184(%rsp), %xmm3
 	movq	%rax, %rcx
-	movq	%rax, %r12
-	movsd	%xmm0, 32(%rsp)
+	movq	%rax, %r13
 .LEHB1:
 	call	_ZN24tile_horizontal_rotatingC1EPN3wze6engineEP4gamedd
 .LEHE1:
 	.p2align 4,,10
 	.p2align 3
-.L41:
-	movq	%r12, (%rsi)
-.L2:
-	movl	%ebx, 8(%rsi)
-	addq	$48, %rsp
+.L46:
+	movq	%r13, (%rdi)
+.L4:
+	movl	%ebx, 8(%rdi)
+	xorl	%edx, %edx
+	leaq	320(%rsi), %rcx
+	movl	$12, %r8d
+.LEHB2:
+	call	_ZN3wze6engine4math6RandomEii
+	testl	%eax, %eax
+	je	.L47
+.L3:
+	movaps	64(%rsp), %xmm6
+	addq	$88, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
 	popq	%rbp
 	popq	%r12
+	popq	%r13
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L3:
-	movl	$88, %ecx
-.LEHB2:
+.L47:
+	movl	$48, %ecx
 	call	_Znwy
 .LEHE2:
-	movq	%rdi, %r8
-	movq	%rbp, %rdx
-	movsd	136(%rsp), %xmm1
-	movsd	128(%rsp), %xmm3
+	movsd	%xmm6, 32(%rsp)
+	movq	%rbp, %r8
+	movq	%rsi, %rdx
+	movsd	184(%rsp), %xmm3
 	movq	%rax, %rcx
-	movq	%rax, %r12
-	movsd	%xmm1, 32(%rsp)
+	movq	%rax, %rbx
 .LEHB3:
-	call	_ZN22tile_vertical_rotatingC1EPN3wze6engineEP4gamedd
+	call	_ZN8act_tunaC1EPN3wze6engineEP4gamedd
 .LEHE3:
-	jmp	.L41
+	movq	(%r12), %rax
+	movq	8(%r12), %rcx
+	movq	%rbx, 56(%rsp)
+	leaq	1(%rax), %rdx
+	movq	%rdx, (%r12)
+	salq	$3, %rdx
+	call	realloc
+	movq	%rax, 8(%r12)
+	testq	%rax, %rax
+	je	.L48
+	movq	(%r12), %rdx
+	leaq	56(%rsp), %rcx
+	movl	$8, %r8d
+	leaq	-8(%rax,%rdx,8), %rdx
+.LEHB4:
+	call	_ZN3neo6memory6CopyToEPKvPvy
+	jmp	.L3
 	.p2align 4,,10
 	.p2align 3
-.L15:
-	movl	$104, %ecx
-.LEHB4:
+.L5:
+	movl	$88, %ecx
 	call	_Znwy
 .LEHE4:
-	movq	%rdi, %r8
-	movq	%rbp, %rdx
-	movsd	136(%rsp), %xmm0
-	movsd	128(%rsp), %xmm3
+	movsd	%xmm6, 32(%rsp)
+	movq	%rbp, %r8
+	movq	%rsi, %rdx
+	movsd	184(%rsp), %xmm3
 	movq	%rax, %rcx
-	movq	%rax, %r12
-	movsd	%xmm0, 32(%rsp)
+	movq	%rax, %r13
 .LEHB5:
-	call	_ZN20tile_top_left_cornerC1EPN3wze6engineEP4gamedd
+	call	_ZN22tile_vertical_rotatingC1EPN3wze6engineEP4gamedd
 .LEHE5:
-	jmp	.L41
+	jmp	.L46
 	.p2align 4,,10
 	.p2align 3
-.L14:
-	movl	$88, %ecx
+.L17:
+	movl	$104, %ecx
 .LEHB6:
 	call	_Znwy
 .LEHE6:
-	movq	%rdi, %r8
-	movq	%rbp, %rdx
-	movsd	136(%rsp), %xmm1
-	movsd	128(%rsp), %xmm3
+	movsd	%xmm6, 32(%rsp)
+	movq	%rbp, %r8
+	movq	%rsi, %rdx
+	movsd	184(%rsp), %xmm3
 	movq	%rax, %rcx
-	movq	%rax, %r12
-	movsd	%xmm1, 32(%rsp)
+	movq	%rax, %r13
 .LEHB7:
-	call	_ZN21tile_top_right_cornerC1EPN3wze6engineEP4gamedd
+	call	_ZN20tile_top_left_cornerC1EPN3wze6engineEP4gamedd
 .LEHE7:
-	jmp	.L41
+	jmp	.L46
 	.p2align 4,,10
 	.p2align 3
-.L13:
+.L16:
 	movl	$88, %ecx
 .LEHB8:
 	call	_Znwy
 .LEHE8:
-	movq	%rdi, %r8
-	movq	%rbp, %rdx
-	movsd	136(%rsp), %xmm2
-	movsd	128(%rsp), %xmm3
+	movsd	%xmm6, 32(%rsp)
+	movq	%rbp, %r8
+	movq	%rsi, %rdx
+	movsd	184(%rsp), %xmm3
 	movq	%rax, %rcx
-	movq	%rax, %r12
-	movsd	%xmm2, 32(%rsp)
+	movq	%rax, %r13
 .LEHB9:
-	call	_ZN20tile_bot_left_cornerC1EPN3wze6engineEP4gamedd
+	call	_ZN21tile_top_right_cornerC1EPN3wze6engineEP4gamedd
 .LEHE9:
-	jmp	.L41
+	jmp	.L46
 	.p2align 4,,10
 	.p2align 3
-.L12:
-	movl	$80, %ecx
+.L15:
+	movl	$88, %ecx
 .LEHB10:
 	call	_Znwy
 .LEHE10:
-	movq	%rdi, %r8
-	movq	%rbp, %rdx
-	movsd	136(%rsp), %xmm4
-	movsd	128(%rsp), %xmm3
+	movsd	%xmm6, 32(%rsp)
+	movq	%rbp, %r8
+	movq	%rsi, %rdx
+	movsd	184(%rsp), %xmm3
 	movq	%rax, %rcx
-	movq	%rax, %r12
-	movsd	%xmm4, 32(%rsp)
+	movq	%rax, %r13
 .LEHB11:
-	call	_ZN21tile_bot_right_cornerC1EPN3wze6engineEP4gamedd
+	call	_ZN20tile_bot_left_cornerC1EPN3wze6engineEP4gamedd
 .LEHE11:
-	jmp	.L41
+	jmp	.L46
 	.p2align 4,,10
 	.p2align 3
-.L11:
-	movl	$88, %ecx
+.L14:
+	movl	$80, %ecx
 .LEHB12:
 	call	_Znwy
 .LEHE12:
-	movq	%rdi, %r8
-	movq	%rbp, %rdx
-	movsd	136(%rsp), %xmm5
-	movsd	128(%rsp), %xmm3
+	movsd	%xmm6, 32(%rsp)
+	movq	%rbp, %r8
+	movq	%rsi, %rdx
+	movsd	184(%rsp), %xmm3
 	movq	%rax, %rcx
-	movq	%rax, %r12
-	movsd	%xmm5, 32(%rsp)
+	movq	%rax, %r13
 .LEHB13:
-	call	_ZN24tile_horizontal_corridorC1EPN3wze6engineEP4gamedd
+	call	_ZN21tile_bot_right_cornerC1EPN3wze6engineEP4gamedd
 .LEHE13:
-	jmp	.L41
+	jmp	.L46
 	.p2align 4,,10
 	.p2align 3
-.L10:
-	movl	$96, %ecx
+.L13:
+	movl	$88, %ecx
 .LEHB14:
 	call	_Znwy
 .LEHE14:
-	movq	%rdi, %r8
-	movq	%rbp, %rdx
-	movsd	136(%rsp), %xmm0
-	movsd	128(%rsp), %xmm3
+	movsd	%xmm6, 32(%rsp)
+	movq	%rbp, %r8
+	movq	%rsi, %rdx
+	movsd	184(%rsp), %xmm3
 	movq	%rax, %rcx
-	movq	%rax, %r12
-	movsd	%xmm0, 32(%rsp)
+	movq	%rax, %r13
 .LEHB15:
-	call	_ZN22tile_vertical_corridorC1EPN3wze6engineEP4gamedd
+	call	_ZN24tile_horizontal_corridorC1EPN3wze6engineEP4gamedd
 .LEHE15:
-	jmp	.L41
+	jmp	.L46
 	.p2align 4,,10
 	.p2align 3
-.L9:
-	movl	$64, %ecx
+.L12:
+	movl	$96, %ecx
 .LEHB16:
 	call	_Znwy
 .LEHE16:
-	movq	%rdi, %r8
-	movq	%rbp, %rdx
-	movsd	136(%rsp), %xmm1
-	movsd	128(%rsp), %xmm3
+	movsd	%xmm6, 32(%rsp)
+	movq	%rbp, %r8
+	movq	%rsi, %rdx
+	movsd	184(%rsp), %xmm3
 	movq	%rax, %rcx
-	movq	%rax, %r12
-	movsd	%xmm1, 32(%rsp)
+	movq	%rax, %r13
 .LEHB17:
-	call	_ZN20tile_center_corridorC1EPN3wze6engineEP4gamedd
+	call	_ZN22tile_vertical_corridorC1EPN3wze6engineEP4gamedd
 .LEHE17:
-	jmp	.L41
+	jmp	.L46
 	.p2align 4,,10
 	.p2align 3
-.L8:
-	movl	$72, %ecx
+.L11:
+	movl	$64, %ecx
 .LEHB18:
 	call	_Znwy
 .LEHE18:
-	movq	%rdi, %r8
-	movq	%rbp, %rdx
-	movsd	136(%rsp), %xmm2
-	movsd	128(%rsp), %xmm3
+	movsd	%xmm6, 32(%rsp)
+	movq	%rbp, %r8
+	movq	%rsi, %rdx
+	movsd	184(%rsp), %xmm3
 	movq	%rax, %rcx
-	movq	%rax, %r12
-	movsd	%xmm2, 32(%rsp)
+	movq	%rax, %r13
 .LEHB19:
-	call	_ZN15tile_floor_holeC1EPN3wze6engineEP4gamedd
+	call	_ZN20tile_center_corridorC1EPN3wze6engineEP4gamedd
 .LEHE19:
-	jmp	.L41
+	jmp	.L46
 	.p2align 4,,10
 	.p2align 3
-.L7:
-	movl	$80, %ecx
+.L10:
+	movl	$72, %ecx
 .LEHB20:
 	call	_Znwy
 .LEHE20:
-	movq	%rdi, %r8
-	movq	%rbp, %rdx
-	movsd	136(%rsp), %xmm4
-	movsd	128(%rsp), %xmm3
+	movsd	%xmm6, 32(%rsp)
+	movq	%rbp, %r8
+	movq	%rsi, %rdx
+	movsd	184(%rsp), %xmm3
 	movq	%rax, %rcx
-	movq	%rax, %r12
-	movsd	%xmm4, 32(%rsp)
+	movq	%rax, %r13
 .LEHB21:
-	call	_ZN14tile_ceil_holeC1EPN3wze6engineEP4gamedd
+	call	_ZN15tile_floor_holeC1EPN3wze6engineEP4gamedd
 .LEHE21:
-	jmp	.L41
+	jmp	.L46
 	.p2align 4,,10
 	.p2align 3
-.L6:
-	movl	$88, %ecx
+.L9:
+	movl	$80, %ecx
 .LEHB22:
 	call	_Znwy
 .LEHE22:
-	movq	%rdi, %r8
-	movq	%rbp, %rdx
-	movsd	136(%rsp), %xmm5
-	movsd	128(%rsp), %xmm3
+	movsd	%xmm6, 32(%rsp)
+	movq	%rbp, %r8
+	movq	%rsi, %rdx
+	movsd	184(%rsp), %xmm3
 	movq	%rax, %rcx
-	movq	%rax, %r12
-	movsd	%xmm5, 32(%rsp)
+	movq	%rax, %r13
 .LEHB23:
-	call	_ZN14tile_trap_holeC1EPN3wze6engineEP4gamedd
+	call	_ZN14tile_ceil_holeC1EPN3wze6engineEP4gamedd
 .LEHE23:
-	jmp	.L41
-.L38:
+	jmp	.L46
+	.p2align 4,,10
+	.p2align 3
+.L8:
+	movl	$88, %ecx
+.LEHB24:
+	call	_Znwy
+.LEHE24:
+	movsd	%xmm6, 32(%rsp)
+	movq	%rbp, %r8
+	movq	%rsi, %rdx
+	movsd	184(%rsp), %xmm3
+	movq	%rax, %rcx
+	movq	%rax, %r13
+.LEHB25:
+	call	_ZN14tile_trap_holeC1EPN3wze6engineEP4gamedd
+.LEHE25:
+	jmp	.L46
+.L48:
+	leaq	.LC0(%rip), %rcx
+	movl	$1, %r8d
+	movl	$8, %edx
+.LEHB26:
+	call	_Z6printfPKcz
+.LEHE26:
+	movl	$1, %ecx
+	call	exit
+.L42:
 	movq	%rax, %rbx
-	jmp	.L26
-.L37:
+	jmp	.L31
+.L41:
 	movq	%rax, %rbx
-	jmp	.L25
-.L36:
-	movq	%rax, %rbx
-	jmp	.L24
-.L35:
-	movq	%rax, %rbx
-	jmp	.L23
-.L34:
-	movq	%rax, %rbx
-	jmp	.L22
-.L33:
-	movq	%rax, %rbx
-	jmp	.L21
-.L32:
-	movq	%rax, %rbx
-	jmp	.L20
-.L31:
-	movq	%rax, %rbx
-	jmp	.L19
-.L30:
-	movq	%rax, %rbx
-	jmp	.L18
-.L29:
-	movq	%rax, %rbx
-	jmp	.L17
-.L28:
-	movq	%rax, %rbx
-	jmp	.L16
+	jmp	.L28
 .L39:
 	movq	%rax, %rbx
+	jmp	.L26
+.L40:
+	movq	%rax, %rbx
 	jmp	.L27
+.L38:
+	movq	%rax, %rbx
+	jmp	.L25
+.L37:
+	movq	%rax, %rbx
+	jmp	.L31
+.L36:
+	movq	%rax, %rbx
+	jmp	.L28
+.L35:
+	movq	%rax, %rbx
+	jmp	.L31
+.L34:
+	movq	%rax, %rbx
+	jmp	.L31
+.L33:
+	movq	%rax, %rbx
+	jmp	.L20
+.L44:
+	movq	%rax, %rbx
+	jmp	.L31
+.L43:
+	movq	%rax, %rbx
+	jmp	.L31
+.L45:
+	movq	%rax, %rsi
+	jmp	.L32
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
@@ -331,7 +414,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.uleb128 0
 	.uleb128 .LEHB1-.LFB8432
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L38-.LFB8432
+	.uleb128 .L43-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB2-.LFB8432
 	.uleb128 .LEHE2-.LEHB2
@@ -339,7 +422,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.uleb128 0
 	.uleb128 .LEHB3-.LFB8432
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L39-.LFB8432
+	.uleb128 .L45-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB4-.LFB8432
 	.uleb128 .LEHE4-.LEHB4
@@ -347,7 +430,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.uleb128 0
 	.uleb128 .LEHB5-.LFB8432
 	.uleb128 .LEHE5-.LEHB5
-	.uleb128 .L28-.LFB8432
+	.uleb128 .L44-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB6-.LFB8432
 	.uleb128 .LEHE6-.LEHB6
@@ -355,7 +438,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.uleb128 0
 	.uleb128 .LEHB7-.LFB8432
 	.uleb128 .LEHE7-.LEHB7
-	.uleb128 .L29-.LFB8432
+	.uleb128 .L33-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB8-.LFB8432
 	.uleb128 .LEHE8-.LEHB8
@@ -363,7 +446,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.uleb128 0
 	.uleb128 .LEHB9-.LFB8432
 	.uleb128 .LEHE9-.LEHB9
-	.uleb128 .L30-.LFB8432
+	.uleb128 .L34-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB10-.LFB8432
 	.uleb128 .LEHE10-.LEHB10
@@ -371,7 +454,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.uleb128 0
 	.uleb128 .LEHB11-.LFB8432
 	.uleb128 .LEHE11-.LEHB11
-	.uleb128 .L31-.LFB8432
+	.uleb128 .L35-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB12-.LFB8432
 	.uleb128 .LEHE12-.LEHB12
@@ -379,7 +462,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.uleb128 0
 	.uleb128 .LEHB13-.LFB8432
 	.uleb128 .LEHE13-.LEHB13
-	.uleb128 .L32-.LFB8432
+	.uleb128 .L36-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB14-.LFB8432
 	.uleb128 .LEHE14-.LEHB14
@@ -387,7 +470,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.uleb128 0
 	.uleb128 .LEHB15-.LFB8432
 	.uleb128 .LEHE15-.LEHB15
-	.uleb128 .L33-.LFB8432
+	.uleb128 .L37-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB16-.LFB8432
 	.uleb128 .LEHE16-.LEHB16
@@ -395,7 +478,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.uleb128 0
 	.uleb128 .LEHB17-.LFB8432
 	.uleb128 .LEHE17-.LEHB17
-	.uleb128 .L34-.LFB8432
+	.uleb128 .L38-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB18-.LFB8432
 	.uleb128 .LEHE18-.LEHB18
@@ -403,7 +486,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.uleb128 0
 	.uleb128 .LEHB19-.LFB8432
 	.uleb128 .LEHE19-.LEHB19
-	.uleb128 .L35-.LFB8432
+	.uleb128 .L39-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB20-.LFB8432
 	.uleb128 .LEHE20-.LEHB20
@@ -411,7 +494,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.uleb128 0
 	.uleb128 .LEHB21-.LFB8432
 	.uleb128 .LEHE21-.LEHB21
-	.uleb128 .L36-.LFB8432
+	.uleb128 .L40-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB22-.LFB8432
 	.uleb128 .LEHE22-.LEHB22
@@ -419,97 +502,81 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.uleb128 0
 	.uleb128 .LEHB23-.LFB8432
 	.uleb128 .LEHE23-.LEHB23
-	.uleb128 .L37-.LFB8432
+	.uleb128 .L41-.LFB8432
+	.uleb128 0
+	.uleb128 .LEHB24-.LFB8432
+	.uleb128 .LEHE24-.LEHB24
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB25-.LFB8432
+	.uleb128 .LEHE25-.LEHB25
+	.uleb128 .L42-.LFB8432
+	.uleb128 0
+	.uleb128 .LEHB26-.LFB8432
+	.uleb128 .LEHE26-.LEHB26
+	.uleb128 0
 	.uleb128 0
 .LLSDACSE8432:
 	.text
 	.seh_endproc
 	.section	.text.unlikely,"x"
-	.def	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold;	.scl	3;	.type	32;	.endef
-	.seh_proc	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold
-	.seh_stackalloc	88
-	.seh_savereg	%rbx, 48
-	.seh_savereg	%rsi, 56
-	.seh_savereg	%rdi, 64
-	.seh_savereg	%rbp, 72
-	.seh_savereg	%r12, 80
+	.def	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamePN3neo5arrayIP8act_tunaEEdd.cold;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamePN3neo5arrayIP8act_tunaEEdd.cold
+	.seh_stackalloc	136
+	.seh_savereg	%rbx, 88
+	.seh_savereg	%rsi, 96
+	.seh_savereg	%rdi, 104
+	.seh_savereg	%rbp, 112
+	.seh_savexmm	%xmm6, 64
+	.seh_savereg	%r12, 120
+	.seh_savereg	%r13, 128
 	.seh_endprologue
-_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold:
-.L26:
-	movq	%r12, %rcx
+_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamePN3neo5arrayIP8act_tunaEEdd.cold:
+.L31:
+	movq	%r13, %rcx
 	movl	$88, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
-.LEHB24:
+.LEHB27:
 	call	_Unwind_Resume
-.L25:
-	movq	%r12, %rcx
-	movl	$88, %edx
-	call	_ZdlPvy
-	movq	%rbx, %rcx
-	call	_Unwind_Resume
-.L24:
-	movq	%r12, %rcx
+.L28:
+	movq	%r13, %rcx
 	movl	$80, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
-.L23:
-	movq	%r12, %rcx
+.L27:
+	movq	%r13, %rcx
 	movl	$72, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
-.L22:
-	movq	%r12, %rcx
+.L26:
+	movq	%r13, %rcx
 	movl	$64, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
-.L21:
-	movq	%r12, %rcx
+.L25:
+	movq	%r13, %rcx
 	movl	$96, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
 .L20:
-	movq	%r12, %rcx
-	movl	$88, %edx
-	call	_ZdlPvy
-	movq	%rbx, %rcx
-	call	_Unwind_Resume
-.L19:
-	movq	%r12, %rcx
-	movl	$80, %edx
-	call	_ZdlPvy
-	movq	%rbx, %rcx
-	call	_Unwind_Resume
-.L18:
-	movq	%r12, %rcx
-	movl	$88, %edx
-	call	_ZdlPvy
-	movq	%rbx, %rcx
-	call	_Unwind_Resume
-.L17:
-	movq	%r12, %rcx
-	movl	$88, %edx
-	call	_ZdlPvy
-	movq	%rbx, %rcx
-	call	_Unwind_Resume
-.L16:
-	movq	%r12, %rcx
+	movq	%r13, %rcx
 	movl	$104, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
-.L27:
-	movq	%r12, %rcx
-	movl	$88, %edx
-	call	_ZdlPvy
+.L32:
 	movq	%rbx, %rcx
+	movl	$48, %edx
+	call	_ZdlPvy
+	movq	%rsi, %rcx
 	call	_Unwind_Resume
 	nop
-.LEHE24:
+.LEHE27:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 .LLSDAC8432:
@@ -518,8 +585,8 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB24-.LCOLDB0
-	.uleb128 .LEHE24-.LEHB24
+	.uleb128 .LEHB27-.LCOLDB1
+	.uleb128 .LEHE27-.LEHB27
 	.uleb128 0
 	.uleb128 0
 .LLSDACSEC8432:
@@ -527,12 +594,12 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE0:
+.LCOLDE1:
 	.text
-.LHOTE0:
-	.globl	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gamedd
-	.def	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
-	.set	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gamedd,_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd
+.LHOTE1:
+	.globl	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gamePN3neo5arrayIP8act_tunaEEdd
+	.def	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gamePN3neo5arrayIP8act_tunaEEdd;	.scl	2;	.type	32;	.endef
+	.set	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gamePN3neo5arrayIP8act_tunaEEdd,_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamePN3neo5arrayIP8act_tunaEEdd
 	.align 2
 	.p2align 4
 	.globl	_ZN10tile_tokenD2Ev
@@ -546,9 +613,9 @@ _ZN10tile_tokenD2Ev:
 	.seh_stackalloc	32
 	.seh_endprologue
 	cmpl	$11, 8(%rcx)
-	ja	.L43
+	ja	.L49
 	movl	8(%rcx), %eax
-	leaq	.L46(%rip), %rdx
+	leaq	.L52(%rip), %rdx
 	movq	(%rcx), %rbx
 	movslq	(%rdx,%rax,4), %rax
 	addq	%rdx, %rax
@@ -556,125 +623,125 @@ _ZN10tile_tokenD2Ev:
 	jmp	*%rax
 	.section .rdata,"dr"
 	.align 4
-.L46:
-	.long	.L57-.L46
-	.long	.L56-.L46
-	.long	.L55-.L46
-	.long	.L54-.L46
-	.long	.L53-.L46
-	.long	.L52-.L46
-	.long	.L51-.L46
-	.long	.L50-.L46
-	.long	.L49-.L46
-	.long	.L48-.L46
-	.long	.L47-.L46
-	.long	.L45-.L46
+.L52:
+	.long	.L63-.L52
+	.long	.L62-.L52
+	.long	.L61-.L52
+	.long	.L60-.L52
+	.long	.L59-.L52
+	.long	.L58-.L52
+	.long	.L57-.L52
+	.long	.L56-.L52
+	.long	.L55-.L52
+	.long	.L54-.L52
+	.long	.L53-.L52
+	.long	.L51-.L52
 	.text
 	.p2align 4,,10
 	.p2align 3
-.L45:
-	jne	.L96
-.L43:
+.L51:
+	jne	.L102
+.L49:
 	addq	$32, %rsp
 	popq	%rbx
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L47:
-	je	.L43
+.L53:
+	je	.L49
 	movq	%rbx, %rcx
 	call	_ZN24tile_horizontal_rotatingD1Ev
-	jmp	.L95
+	jmp	.L101
 	.p2align 4,,10
 	.p2align 3
-.L57:
-	je	.L43
+.L63:
+	je	.L49
 	movq	%rbx, %rcx
 	call	_ZN20tile_top_left_cornerD1Ev
 	movl	$104, %edx
-	jmp	.L94
+	jmp	.L100
 	.p2align 4,,10
 	.p2align 3
-.L56:
-	je	.L43
+.L62:
+	je	.L49
 	movq	%rbx, %rcx
 	call	_ZN21tile_top_right_cornerD1Ev
-	jmp	.L95
+	jmp	.L101
 	.p2align 4,,10
 	.p2align 3
-.L55:
-	je	.L43
+.L61:
+	je	.L49
 	movq	%rbx, %rcx
 	call	_ZN20tile_bot_left_cornerD1Ev
-	jmp	.L95
+	jmp	.L101
 	.p2align 4,,10
 	.p2align 3
-.L54:
-	je	.L43
+.L60:
+	je	.L49
 	movq	%rbx, %rcx
 	call	_ZN21tile_bot_right_cornerD1Ev
 	movl	$80, %edx
-	jmp	.L94
+	jmp	.L100
 	.p2align 4,,10
 	.p2align 3
-.L53:
-	je	.L43
+.L59:
+	je	.L49
 	movq	%rbx, %rcx
 	call	_ZN24tile_horizontal_corridorD1Ev
-	jmp	.L95
+	jmp	.L101
 	.p2align 4,,10
 	.p2align 3
-.L52:
-	je	.L43
+.L58:
+	je	.L49
 	movq	%rbx, %rcx
 	call	_ZN22tile_vertical_corridorD1Ev
 	movl	$96, %edx
-	jmp	.L94
+	jmp	.L100
 	.p2align 4,,10
 	.p2align 3
-.L51:
-	je	.L43
+.L57:
+	je	.L49
 	movq	%rbx, %rcx
 	call	_ZN20tile_center_corridorD1Ev
 	movl	$64, %edx
-	jmp	.L94
+	jmp	.L100
 	.p2align 4,,10
 	.p2align 3
-.L50:
-	je	.L43
+.L56:
+	je	.L49
 	movq	%rbx, %rcx
 	call	_ZN15tile_floor_holeD1Ev
 	movl	$72, %edx
-	jmp	.L94
+	jmp	.L100
 	.p2align 4,,10
 	.p2align 3
-.L49:
-	je	.L43
+.L55:
+	je	.L49
 	movq	%rbx, %rcx
 	call	_ZN14tile_ceil_holeD1Ev
 	movl	$80, %edx
-	jmp	.L94
+	jmp	.L100
 	.p2align 4,,10
 	.p2align 3
-.L48:
-	je	.L43
+.L54:
+	je	.L49
 	movq	%rbx, %rcx
 	call	_ZN14tile_trap_holeD1Ev
 	.p2align 4,,10
 	.p2align 3
-.L95:
+.L101:
 	movl	$88, %edx
-.L94:
+.L100:
 	movq	%rbx, %rcx
 	addq	$32, %rsp
 	popq	%rbx
 	jmp	_ZdlPvy
 	.p2align 4,,10
 	.p2align 3
-.L96:
+.L102:
 	movq	%rbx, %rcx
 	call	_ZN22tile_vertical_rotatingD1Ev
-	jmp	.L95
+	jmp	.L101
 	.seh_endproc
 	.globl	_ZN10tile_tokenD1Ev
 	.def	_ZN10tile_tokenD1Ev;	.scl	2;	.type	32;	.endef
@@ -689,26 +756,26 @@ _ZN10tile_token6UpdateEv:
 	.seh_endprologue
 	movl	8(%rcx), %eax
 	cmpl	$4, %eax
-	je	.L98
+	je	.L104
 	cmpl	$9, %eax
-	je	.L99
+	je	.L105
 	testl	%eax, %eax
-	jne	.L100
+	jne	.L106
 	movq	(%rcx), %rcx
 	jmp	_ZN20tile_top_left_corner6UpdateEv
 	.p2align 4,,10
 	.p2align 3
-.L99:
+.L105:
 	movq	(%rcx), %rcx
 	jmp	_ZN14tile_trap_hole6UpdateEv
 	.p2align 4,,10
 	.p2align 3
-.L98:
+.L104:
 	movq	(%rcx), %rcx
 	jmp	_ZN24tile_horizontal_corridor6UpdateEv
 	.p2align 4,,10
 	.p2align 3
-.L100:
+.L106:
 	xorl	%eax, %eax
 	ret
 	.seh_endproc
@@ -722,19 +789,19 @@ _ZN10tile_token6RotateEv:
 	.seh_endprologue
 	movl	8(%rcx), %eax
 	cmpl	$10, %eax
-	je	.L102
+	je	.L108
 	cmpl	$11, %eax
-	je	.L103
+	je	.L109
 	xorl	%eax, %eax
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L103:
+.L109:
 	movq	(%rcx), %rcx
 	jmp	_ZN22tile_vertical_rotating6RotateEv
 	.p2align 4,,10
 	.p2align 3
-.L102:
+.L108:
 	movq	(%rcx), %rcx
 	jmp	_ZN24tile_horizontal_rotating6RotateEv
 	.seh_endproc
@@ -752,42 +819,42 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	.seh_endprologue
 	cmpl	$11, 8(%rcx)
 	movq	%rcx, %rbx
-	ja	.L107
+	ja	.L113
 	movl	8(%rcx), %eax
-	leaq	.L109(%rip), %rdx
+	leaq	.L115(%rip), %rdx
 	movslq	(%rdx,%rax,4), %rax
 	addq	%rdx, %rax
 	jmp	*%rax
 	.section .rdata,"dr"
 	.align 4
-.L109:
-	.long	.L115-.L109
-	.long	.L108-.L109
-	.long	.L108-.L109
-	.long	.L117-.L109
-	.long	.L108-.L109
-	.long	.L115-.L109
-	.long	.L114-.L109
-	.long	.L113-.L109
-	.long	.L112-.L109
-	.long	.L111-.L109
-	.long	.L108-.L109
-	.long	.L108-.L109
+.L115:
+	.long	.L121-.L115
+	.long	.L114-.L115
+	.long	.L114-.L115
+	.long	.L123-.L115
+	.long	.L114-.L115
+	.long	.L121-.L115
+	.long	.L120-.L115
+	.long	.L119-.L115
+	.long	.L118-.L115
+	.long	.L117-.L115
+	.long	.L114-.L115
+	.long	.L114-.L115
 	.text
 	.p2align 4,,10
 	.p2align 3
-.L108:
+.L114:
 	movq	(%rcx), %rax
 	xorl	%edx, %edx
 	movq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	(%rbx), %rax
 	movq	48(%rax), %rcx
-.L126:
+.L132:
 	xorl	%edx, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	(%rbx), %rax
-.L125:
+.L131:
 	movq	56(%rax), %rcx
 	xorl	%edx, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
@@ -803,14 +870,14 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	xorl	%edx, %edx
 	movq	80(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-.L107:
+.L113:
 	xorl	%eax, %eax
 	addq	$32, %rsp
 	popq	%rbx
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L115:
+.L121:
 	movq	(%rcx), %rax
 	xorl	%edx, %edx
 	movq	48(%rax), %rcx
@@ -841,12 +908,12 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L117:
+.L123:
 	movq	(%rcx), %rax
 	xorl	%edx, %edx
 	movq	32(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-.L112:
+.L118:
 	movq	(%rbx), %rax
 	xorl	%edx, %edx
 	movq	40(%rax), %rcx
@@ -873,7 +940,7 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L113:
+.L119:
 	movq	(%rcx), %rax
 	xorl	%edx, %edx
 	movq	32(%rax), %rcx
@@ -894,10 +961,10 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	xorl	%edx, %edx
 	movq	64(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	jmp	.L107
+	jmp	.L113
 	.p2align 4,,10
 	.p2align 3
-.L114:
+.L120:
 	movq	(%rcx), %rax
 	xorl	%edx, %edx
 	movq	32(%rax), %rcx
@@ -914,10 +981,10 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	xorl	%edx, %edx
 	movq	56(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	jmp	.L107
+	jmp	.L113
 	.p2align 4,,10
 	.p2align 3
-.L111:
+.L117:
 	movq	(%rcx), %rax
 	xorl	%edx, %edx
 	movq	40(%rax), %rcx
@@ -925,12 +992,17 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	movq	(%rbx), %rax
 	movq	48(%rax), %rcx
 	testq	%rcx, %rcx
-	jne	.L126
-	jmp	.L125
+	jne	.L132
+	jmp	.L131
 	.seh_endproc
 	.ident	"GCC: (GNU) 13.1.0"
+	.def	__mingw_vfprintf;	.scl	2;	.type	32;	.endef
 	.def	_Znwy;	.scl	2;	.type	32;	.endef
 	.def	_ZN24tile_horizontal_rotatingC1EPN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine4math6RandomEii;	.scl	2;	.type	32;	.endef
+	.def	_ZN8act_tunaC1EPN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
+	.def	realloc;	.scl	2;	.type	32;	.endef
+	.def	_ZN3neo6memory6CopyToEPKvPvy;	.scl	2;	.type	32;	.endef
 	.def	_ZN22tile_vertical_rotatingC1EPN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
 	.def	_ZN20tile_top_left_cornerC1EPN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
 	.def	_ZN21tile_top_right_cornerC1EPN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
@@ -942,6 +1014,7 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	.def	_ZN15tile_floor_holeC1EPN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
 	.def	_ZN14tile_ceil_holeC1EPN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
 	.def	_ZN14tile_trap_holeC1EPN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
+	.def	exit;	.scl	2;	.type	32;	.endef
 	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
 	.def	_ZN24tile_horizontal_rotatingD1Ev;	.scl	2;	.type	32;	.endef

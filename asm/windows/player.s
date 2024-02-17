@@ -406,7 +406,7 @@ _ZN10act_player6UpdateEv:
 	jne	.L7
 	movl	124(%rbx), %eax
 	leaq	400(%rdx), %rcx
-	leal	500(%rax), %esi
+	leal	1000(%rax), %esi
 	call	_ZN3wze6engine6timing14GetCurrentTickEv
 	movq	(%rbx), %rdx
 	cmpl	%esi, %eax
@@ -1057,7 +1057,7 @@ _ZN10act_player6UpdateEv:
 	movq	8(%rbx), %rax
 	movq	(%rbx), %rdx
 	movq	48(%rax), %rax
-	xorb	$1, 1064(%rax)
+	xorb	$1, 1080(%rax)
 	jmp	.L7
 	.p2align 4,,10
 	.p2align 3

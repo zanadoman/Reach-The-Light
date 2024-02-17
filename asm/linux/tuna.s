@@ -169,16 +169,16 @@ _ZN8act_tuna6UpdateEv:
 	.long	1072693248
 	.align 8
 .LC1:
-	.long	-1717986918
-	.long	1067030937
+	.long	-343597384
+	.long	1065269329
 	.align 8
 .LC2:
 	.long	0
-	.long	1075052544
+	.long	1073217536
 	.align 8
 .LC3:
-	.long	-1717986918
-	.long	-1080452711
+	.long	-343597384
+	.long	-1082214319
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

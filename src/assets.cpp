@@ -82,7 +82,8 @@ assets::assets(engine* Engine) : Engine(Engine)
     };
     this->TileBackgrounds =
     {
-        this->Engine->Assets.LoadTexture("assets/tiles/background.png")
+        this->Engine->Assets.LoadTexture("assets/tiles/background/background1.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/background/background2.png")
     };
     this->TilePlatforms =
     {
