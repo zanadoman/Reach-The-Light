@@ -49,6 +49,21 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadTexture("assets/player/latch/latch6.png")
     };
 
+    this->Firefly =
+    {
+        this->Engine->Assets.LoadTexture("assets/firefly/firefly1.png"),
+        this->Engine->Assets.LoadTexture("assets/firefly/firefly2.png"),
+        this->Engine->Assets.LoadTexture("assets/firefly/firefly3.png"),
+        this->Engine->Assets.LoadTexture("assets/firefly/firefly4.png"),
+        this->Engine->Assets.LoadTexture("assets/firefly/firefly5.png"),
+        this->Engine->Assets.LoadTexture("assets/firefly/firefly6.png"),
+        this->Engine->Assets.LoadTexture("assets/firefly/firefly7.png"),
+        this->Engine->Assets.LoadTexture("assets/firefly/firefly8.png"),
+        this->Engine->Assets.LoadTexture("assets/firefly/firefly9.png"),
+        this->Engine->Assets.LoadTexture("assets/firefly/firefly10.png"),
+    };
+    this->FireflyBloom = this->Engine->Assets.LoadTexture("assets/firefly/bloom.png");
+
     this->TileTextures =
     {
         this->Engine->Assets.LoadTexture("assets/tiles/top_left_corner.png"),

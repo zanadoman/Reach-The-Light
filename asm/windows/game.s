@@ -23,7 +23,7 @@ _ZN4gameC2EPN3wze6engineE:
 	.seh_endprologue
 	movq	%rdx, (%rcx)
 	movq	%rcx, %rbx
-	movl	$184, %ecx
+	movl	$208, %ecx
 	movq	%rdx, %rsi
 .LEHB0:
 	call	_Znwy
@@ -140,7 +140,7 @@ _ZN4gameC2EPN3wze6engineE:
 _ZN4gameC2EPN3wze6engineE.cold:
 .L2:
 	movq	%rdi, %rcx
-	movl	$184, %edx
+	movl	$208, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 .LEHB8:
@@ -245,7 +245,7 @@ _ZN4gameD2Ev:
 	je	.L12
 	movq	%rbx, %rcx
 	call	_ZN6assetsD1Ev
-	movl	$184, %edx
+	movl	$208, %edx
 	movq	%rbx, %rcx
 	addq	$40, %rsp
 	popq	%rbx

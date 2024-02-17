@@ -12,6 +12,8 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->Jump = this->Actor->Flipbooks.New(50, &this->Game->Assets->PlayerJump);
     this->Fall = this->Actor->Flipbooks.New(50, &this->Game->Assets->PlayerFall);
     this->Latch = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerLatch);
+    this->Firefly = this->Actor->Flipbooks.New(25, &this->Game->Assets->Firefly);
+    this->FireflyBloom = this->Actor->Textureboxes.New(this->Game->Assets->FireflyBloom);
     this->Health = 5;
     this->DamageTick = 0;
     this->VelocityX = 0;
@@ -73,6 +75,14 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->Latch->Paused = true;
     this->Latch->Priority = 131;
 
+    this->Firefly->Width = 8;
+    this->Firefly->Height = 8;
+    this->Firefly->Priority = 132;
+    this->FireflyBloom->Width = 12;
+    this->FireflyBloom->Height = 12;
+    this->FireflyBloom->ColorA = 192;
+    this->FireflyBloom->Priority = 133;
+
     this->Engine->Camera.Bind(this->Actor->GetID());
     this->Engine->Camera.SetZoom(5);
 }
@@ -86,6 +96,7 @@ uint8 act_player::Update()
 {
     array<array<uint64>> OverlapState;
     bool LatchBox1Active, LatchBox2Active;
+    double FireflyLength, FireflyAngle;
 
     this->Run->ColorR = 255;
     this->Idle->ColorR = 255;
@@ -255,6 +266,17 @@ uint8 act_player::Update()
             this->VelocityY = 0;
             this->Fall->Reset();
         }
+    }
+
+    FireflyLength = engine::vector::Length(this->Actor->GetX(), this->Actor->GetY(), this->Engine->Mouse.GetX(1), this->Engine->Mouse.GetY(1));
+    FireflyAngle = engine::vector::Angle(this->Actor->GetX(), this->Actor->GetY(), this->Engine->Mouse.GetX(1), this->Engine->Mouse.GetY(1));
+
+    if (FireflyLength == FireflyLength && FireflyAngle == FireflyAngle)
+    {
+        this->Firefly->SetOffsetLength(engine::math::Clamp<double>(FireflyLength, 0, 50));
+        this->Firefly->SetOffsetAngle(FireflyAngle);
+        this->FireflyBloom->SetX(this->Firefly->GetX());
+        this->FireflyBloom->SetY(this->Firefly->GetY());
     }
 
     if (this->VelocityY < 0)
