@@ -103,7 +103,10 @@ assets::assets(engine* Engine) : Engine(Engine)
     };
     this->TilePlatforms =
     {
-        this->Engine->Assets.LoadTexture("assets/tiles/platform.png")
+        this->Engine->Assets.LoadTexture("assets/tiles/platform/platform1.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/platform/platform2.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/platform/platform3.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/platform/platform4.png")
     };
 
     this->CrateTexture = this->Engine->Assets.LoadTexture("assets/etc/crate.png");

@@ -10,8 +10,8 @@ tile_vertical_rotating::tile_vertical_rotating(engine* Engine, game* Game, doubl
 
     this->Background->Priority = 127;
 
-    this->Lever->SetWidth(15);
-    this->Lever->SetHeight(15);
+    this->Lever->SetWidth(20);
+    this->Lever->SetHeight(20);
     this->Lever->Visible = DEBUG;
 
     this->HitboxLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y, 20, 60, 1);

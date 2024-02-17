@@ -506,24 +506,24 @@ _ZN10scene_play6UpdateEv:
 	movaps	%xmm6, 96(%rsp)
 	.seh_savexmm	%xmm6, 96
 	.seh_endprologue
-	leaq	80(%rsp), %r13
-	movq	%rcx, %rbp
-	movq	%r13, %rcx
+	leaq	80(%rsp), %r12
+	movq	%rcx, %rsi
+	movq	%r12, %rcx
 .LEHB7:
 	call	_ZN3neo6stringC1Ev
 .LEHE7:
-	movq	40(%rbp), %rax
+	movq	40(%rsi), %rax
 	movzbl	137(%rax), %eax
 	testb	%al, %al
 	je	.L53
-	leaq	48(%rsp), %rdi
+	leaq	48(%rsp), %rbp
 	movq	%rax, 72(%rsp)
 	leaq	64(%rsp), %r14
-	movq	%r13, %rcx
+	movq	%r12, %rcx
 	leaq	.LC9(%rip), %rax
-	movq	%rdi, %rdx
-	movq	24(%rbp), %r12
-	leaq	72(%rsp), %rsi
+	movq	%rbp, %rdx
+	movq	24(%rsi), %r13
+	leaq	72(%rsp), %rdi
 	movq	%rax, 64(%rsp)
 	movq	%r14, 48(%rsp)
 	movq	$1, 56(%rsp)
@@ -531,32 +531,32 @@ _ZN10scene_play6UpdateEv:
 	call	_ZN3neo6stringaSESt16initializer_listIPKcE
 	leaq	32(%rsp), %rbx
 	movq	%rax, %rcx
-	movq	%rsi, 32(%rsp)
+	movq	%rdi, 32(%rsp)
 	movq	$1, 40(%rsp)
 	movq	%rbx, %rdx
 	call	_ZN3neo6stringpLESt16initializer_listIyE
 	movq	%rax, %rcx
 	call	_ZN3neo6stringclEv
 	movq	%rax, %rdx
-	movq	%r12, %rcx
+	movq	%r13, %rcx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox10SetLiteralEPKc
-	movq	16(%rbp), %rcx
-	movq	24(%rbp), %r12
+	movq	16(%rsi), %rcx
+	movq	24(%rsi), %r13
 	call	_ZN3wze6engine6actors5actor4GetXEv
-	movq	24(%rbp), %rcx
+	movq	24(%rsi), %rcx
 	movapd	%xmm0, %xmm6
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox8GetWidthEv
 	shrw	%ax
 	pxor	%xmm1, %xmm1
-	movq	%r12, %rcx
+	movq	%r13, %rcx
 	movzwl	%ax, %eax
 	cvtsi2sdl	%eax, %xmm1
 	addsd	%xmm6, %xmm1
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
-	movq	40(%rbp), %rax
-	movq	%rdi, %rdx
-	movq	%r13, %rcx
-	movq	32(%rbp), %r12
+	movq	40(%rsi), %rax
+	movq	%rbp, %rdx
+	movq	%r12, %rcx
+	movq	32(%rsi), %r13
 	movzbl	136(%rax), %eax
 	movq	%r14, 48(%rsp)
 	movq	$1, 56(%rsp)
@@ -566,18 +566,18 @@ _ZN10scene_play6UpdateEv:
 	call	_ZN3neo6stringaSESt16initializer_listIPKcE
 	movq	%rax, %rcx
 	movq	%rbx, %rdx
-	movq	%rsi, 32(%rsp)
+	movq	%rdi, 32(%rsp)
 	movq	$1, 40(%rsp)
 	call	_ZN3neo6stringpLESt16initializer_listIyE
 	movq	%rax, %rcx
 	call	_ZN3neo6stringclEv
 	movq	%rax, %rdx
-	movq	%r12, %rcx
+	movq	%r13, %rcx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox10SetLiteralEPKc
-	movq	16(%rbp), %rcx
-	movq	32(%rbp), %rbx
+	movq	16(%rsi), %rcx
+	movq	32(%rsi), %rbx
 	call	_ZN3wze6engine6actors5actor4GetXEv
-	movq	32(%rbp), %rcx
+	movq	32(%rsi), %rcx
 	movapd	%xmm0, %xmm6
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox8GetWidthEv
 	shrw	%ax
@@ -587,40 +587,40 @@ _ZN10scene_play6UpdateEv:
 	cvtsi2sdl	%eax, %xmm1
 	addsd	%xmm6, %xmm1
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
-	leaq	176(%rbp), %rdi
-	leaq	1200(%rbp), %r12
-	movq	%rdi, %rsi
+	leaq	176(%rsi), %rdi
+	leaq	1200(%rsi), %rbp
+	movq	%rdi, %r13
 	.p2align 4,,10
 	.p2align 3
 .L41:
-	leaq	-128(%rsi), %rbx
+	leaq	-128(%r13), %rbx
 	.p2align 4,,10
 	.p2align 3
 .L42:
 	movq	(%rbx), %rcx
 	call	_ZN10tile_token19ResetCollisionLayerEv
 	addq	$8, %rbx
-	cmpq	%rsi, %rbx
+	cmpq	%r13, %rbx
 	jne	.L42
-	leaq	128(%rbx), %rsi
-	cmpq	%r12, %rsi
+	leaq	128(%rbx), %r13
+	cmpq	%rbp, %r13
 	jne	.L41
-	movq	%rdi, %rsi
+	movq	%rdi, %r13
 	.p2align 4,,10
 	.p2align 3
 .L43:
-	leaq	-128(%rsi), %rbx
+	leaq	-128(%r13), %rbx
 	.p2align 4,,10
 	.p2align 3
 .L44:
+	movzbl	1072(%rsi), %edx
 	movq	(%rbx), %rcx
-	movl	$1, %edx
 	call	_ZN10tile_token6RotateEb
 	addq	$8, %rbx
-	cmpq	%rsi, %rbx
+	cmpq	%r13, %rbx
 	jne	.L44
-	subq	$-128, %rsi
-	cmpq	%r12, %rsi
+	subq	$-128, %r13
+	cmpq	%rbp, %r13
 	jne	.L43
 	.p2align 4,,10
 	.p2align 3
@@ -635,9 +635,9 @@ _ZN10scene_play6UpdateEv:
 	cmpq	%rdi, %rbx
 	jne	.L46
 	leaq	128(%rbx), %rdi
-	cmpq	%r12, %rdi
+	cmpq	%rbp, %rdi
 	jne	.L45
-	movq	1080(%rbp), %r8
+	movq	1080(%rsi), %r8
 	xorl	%ebx, %ebx
 	xorl	%eax, %eax
 	testq	%r8, %r8
@@ -645,21 +645,21 @@ _ZN10scene_play6UpdateEv:
 	.p2align 4,,10
 	.p2align 3
 .L48:
-	movq	1088(%rbp), %rdx
+	movq	1088(%rsi), %rdx
 	movq	(%rdx,%rax,8), %rcx
 	testq	%rcx, %rcx
 	je	.L50
 	call	_ZN8act_tuna6UpdateEv
-	movq	1080(%rbp), %r8
+	movq	1080(%rsi), %r8
 .L50:
 	addl	$1, %ebx
 	movzbl	%bl, %eax
 	cmpq	%r8, %rax
 	jb	.L48
 .L51:
-	movq	40(%rbp), %rcx
+	movq	40(%rsi), %rcx
 	call	_ZN10act_player6UpdateEv
-	movq	0(%rbp), %rcx
+	movq	(%rsi), %rcx
 	movl	$41, %edx
 	addq	$176, %rcx
 	call	_ZN3wze6engine4keysixENS_3keyE
@@ -668,7 +668,7 @@ _ZN10scene_play6UpdateEv:
 	movl	$2, %ebx
 	subl	%eax, %ebx
 .L40:
-	movq	%r13, %rcx
+	movq	%r12, %rcx
 	call	_ZN3neo6stringD1Ev
 	nop
 	movaps	96(%rsp), %xmm6
@@ -722,7 +722,7 @@ _ZN10scene_play6UpdateEv:
 	.seh_endprologue
 _ZN10scene_play6UpdateEv.cold:
 .L52:
-	movq	%r13, %rcx
+	movq	%r12, %rcx
 	call	_ZN3neo6stringD1Ev
 	movq	%rbx, %rcx
 .LEHB9:

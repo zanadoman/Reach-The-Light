@@ -108,14 +108,14 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	16(%rbx), %rax
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
-	movl	$15, %edx
+	movl	$20, %edx
 	movq	%rax, %rcx
 	movq	%rax, 32(%rbx)
 	movq	24(%rbx), %rax
 	movb	$127, 36(%rax)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt
 	movq	32(%rbx), %rcx
-	movl	$15, %edx
+	movl	$20, %edx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt
 	movq	32(%rbx), %rax
 	movl	$2, %r8d

@@ -67,14 +67,14 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	16(%rbx), %rax
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
-	movl	$15, %esi
+	movl	$20, %esi
 	movq	%rax, %rdi
 	movq	%rax, 32(%rbx)
 	movq	24(%rbx), %rax
 	movb	$127, 36(%rax)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
 	movq	32(%rbx), %rdi
-	movl	$15, %esi
+	movl	$20, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
 	movq	32(%rbx), %rax
 	movl	$60, %ecx
