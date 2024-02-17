@@ -6,14 +6,22 @@ tile_top_right_corner::tile_top_right_corner(engine* Engine, game* Game, double 
 
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
-    this->Spikes = this->Actor->Overlapboxes.New(BOX_DAMAGE);
+    this->SpikesOverlapBox = this->Actor->Overlapboxes.New(BOX_DAMAGE);
+    this->SpikesTextureBox = this->Actor->Textureboxes.New(this->Game->Assets->TrapSpikes);
 
     this->Background->Priority = 127;
 
-    this->Spikes->SetY(Y + 27.5);
-    this->Spikes->SetWidth(30);
-    this->Spikes->SetHeight(5);
-    this->Spikes->Visible = DEBUG;
+    this->SpikesOverlapBox->SetY(Y + 27.5);
+    this->SpikesOverlapBox->SetWidth(29);
+    this->SpikesOverlapBox->SetHeight(5);
+    this->SpikesOverlapBox->Visible = DEBUG;
+
+    this->SpikesTextureBox->SetY(Y + 27.5);
+    this->SpikesTextureBox->Width = 29;
+    this->SpikesTextureBox->Height = 5;
+    this->SpikesTextureBox->FlipVertical = true;
+    this->SpikesTextureBox->Priority = 129;
+
 
     this->HitboxTop = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y + 40, 60, 20, 1);
     this->HitboxTop->Overlapboxes.New(BOX_PLATFORM);

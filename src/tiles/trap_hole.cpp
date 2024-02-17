@@ -31,7 +31,7 @@ tile_trap_hole::tile_trap_hole(engine* Engine, game* Game, act_player* Player, d
     this->HitboxBot->Resistance = 100;
     for (uint8 i = 0; i < 3; i++)
     {
-        tmp = this->HitboxBot->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Math.Random(0, this->Game->Assets->TilePlatforms.Length())]);
+        tmp = this->HitboxBot->Textureboxes.New(this->Game->Assets->TrapPlatform);
         tmp->SetX(X - 20 + 20 * i);
         tmp->Width = 20;
         tmp->Height = 20;

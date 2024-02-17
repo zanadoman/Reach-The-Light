@@ -190,7 +190,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 	.p2align 4,,10
 	.p2align 3
 .L14:
-	movl	$88, %edi
+	movl	$96, %edi
 .LEHB8:
 	call	_Znwm@PLT
 .LEHE8:
@@ -260,7 +260,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 	.p2align 4,,10
 	.p2align 3
 .L10:
-	movl	$96, %edi
+	movl	$112, %edi
 .LEHB16:
 	call	_Znwm@PLT
 .LEHE16:
@@ -311,7 +311,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 	.p2align 4,,10
 	.p2align 3
 .L7:
-	movl	$80, %edi
+	movl	$88, %edi
 .LEHB22:
 	call	_Znwm@PLT
 .LEHE22:
@@ -363,7 +363,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 	jmp	.L32
 .L50:
 	movq	%rax, %rbx
-	jmp	.L36
+	jmp	.L28
 .L51:
 	movq	%rax, %rbx
 	jmp	.L30
@@ -375,7 +375,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 	jmp	.L36
 .L53:
 	movq	%rax, %rbx
-	jmp	.L34
+	jmp	.L40
 .L56:
 	movq	%rax, %rbx
 	jmp	.L40
@@ -384,16 +384,16 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 	jmp	.L40
 .L48:
 	movq	%rax, %rbx
-	jmp	.L34
+	jmp	.L24
 .L47:
 	movq	%rax, %rbx
 	jmp	.L40
 .L46:
 	movq	%rax, %rbx
-	jmp	.L40
+	jmp	.L36
 .L45:
 	movq	%rax, %rbx
-	jmp	.L18
+	jmp	.L28
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
 .LLSDA8157:
@@ -557,8 +557,8 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 	je	.L41
 .L62:
 	call	__stack_chk_fail@PLT
-.L36:
-	movl	$96, %esi
+.L28:
+	movl	$112, %esi
 	movq	%r15, %rdi
 	call	_ZdlPvm@PLT
 	movq	40(%rsp), %rax
@@ -573,16 +573,16 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 	subq	%fs:40, %rax
 	je	.L41
 	jmp	.L62
-.L34:
-	movl	$80, %esi
+.L36:
+	movl	$96, %esi
 	movq	%r15, %rdi
 	call	_ZdlPvm@PLT
 	movq	40(%rsp), %rax
 	subq	%fs:40, %rax
 	je	.L41
 	jmp	.L62
-.L18:
-	movl	$112, %esi
+.L24:
+	movl	$80, %esi
 	movq	%r15, %rdi
 	call	_ZdlPvm@PLT
 	movq	40(%rsp), %rax
@@ -698,7 +698,7 @@ _ZN10tile_tokenD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN21tile_top_right_cornerD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$88, %esi
+	movl	$96, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_restore 3
@@ -754,7 +754,7 @@ _ZN10tile_tokenD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN22tile_vertical_corridorD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$96, %esi
+	movl	$112, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_restore 3
@@ -796,7 +796,7 @@ _ZN10tile_tokenD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN14tile_ceil_holeD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$80, %esi
+	movl	$88, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_restore 3
@@ -917,14 +917,14 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	.align 4
 .L134:
 	.long	.L145-.L134
-	.long	.L133-.L134
+	.long	.L144-.L134
 	.long	.L133-.L134
 	.long	.L142-.L134
 	.long	.L133-.L134
 	.long	.L140-.L134
 	.long	.L139-.L134
 	.long	.L138-.L134
-	.long	.L137-.L134
+	.long	.L155-.L134
 	.long	.L136-.L134
 	.long	.L133-.L134
 	.long	.L133-.L134
@@ -936,6 +936,7 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	xorl	%esi, %esi
 	movq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+.L155:
 	movq	(%rbx), %rax
 	xorl	%esi, %esi
 	movq	48(%rax), %rdi
@@ -964,22 +965,37 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L142:
+.L140:
 	.cfi_restore_state
 	movq	(%rdi), %rax
 	xorl	%esi, %esi
-	movq	32(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-.L137:
-	movq	(%rbx), %rax
-	xorl	%esi, %esi
-	movq	40(%rax), %rdi
+	movq	64(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	(%rbx), %rax
 	xorl	%esi, %esi
-	movq	48(%rax), %rdi
+	movq	72(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	80(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	88(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	96(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	104(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	jmp	.L132
+	.p2align 4,,10
+	.p2align 3
+.L145:
+	movq	(%rdi), %rax
 	xorl	%esi, %esi
 	movq	56(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
@@ -991,39 +1007,22 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	xorl	%esi, %esi
 	movq	72(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	xorl	%eax, %eax
-	popq	%rbx
-	.cfi_remember_state
-	.cfi_def_cfa_offset 8
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L138:
-	.cfi_restore_state
-	movq	(%rdi), %rax
+	movq	(%rbx), %rax
 	xorl	%esi, %esi
-	movq	32(%rax), %rdi
+	movq	80(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	(%rbx), %rax
 	xorl	%esi, %esi
-	movq	40(%rax), %rdi
+	movq	88(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	(%rbx), %rax
 	xorl	%esi, %esi
-	movq	48(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	(%rbx), %rax
-	xorl	%esi, %esi
-	movq	56(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	(%rbx), %rax
-	xorl	%esi, %esi
-	movq	64(%rax), %rdi
+	movq	96(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	jmp	.L132
 	.p2align 4,,10
 	.p2align 3
-.L140:
+.L144:
 	movq	(%rdi), %rax
 	xorl	%esi, %esi
 	movq	48(%rax), %rdi
@@ -1057,8 +1056,48 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L139:
+.L136:
 	.cfi_restore_state
+	movq	(%rdi), %rax
+	xorl	%esi, %esi
+	movq	48(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	movq	56(%rax), %rdi
+	testq	%rdi, %rdi
+	jne	.L154
+	jmp	.L146
+	.p2align 4,,10
+	.p2align 3
+.L142:
+	movq	(%rdi), %rax
+	xorl	%esi, %esi
+	movq	32(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	40(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	48(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	56(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	64(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	72(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	jmp	.L132
+	.p2align 4,,10
+	.p2align 3
+.L139:
 	movq	(%rdi), %rax
 	xorl	%esi, %esi
 	movq	32(%rax), %rdi
@@ -1078,8 +1117,20 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	jmp	.L132
 	.p2align 4,,10
 	.p2align 3
-.L145:
+.L138:
 	movq	(%rdi), %rax
+	xorl	%esi, %esi
+	movq	32(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	40(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	xorl	%esi, %esi
+	movq	48(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
 	xorl	%esi, %esi
 	movq	56(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
@@ -1087,35 +1138,7 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	xorl	%esi, %esi
 	movq	64(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	(%rbx), %rax
-	xorl	%esi, %esi
-	movq	72(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	(%rbx), %rax
-	xorl	%esi, %esi
-	movq	80(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	(%rbx), %rax
-	xorl	%esi, %esi
-	movq	88(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	(%rbx), %rax
-	xorl	%esi, %esi
-	movq	96(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	jmp	.L132
-	.p2align 4,,10
-	.p2align 3
-.L136:
-	movq	(%rdi), %rax
-	xorl	%esi, %esi
-	movq	48(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	movq	(%rbx), %rax
-	movq	56(%rax), %rdi
-	testq	%rdi, %rdi
-	jne	.L154
-	jmp	.L146
 .L151:
 	.cfi_def_cfa_offset 8
 	.cfi_restore 3

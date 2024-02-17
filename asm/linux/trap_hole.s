@@ -58,7 +58,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gameP10act_playerdd:
 	movq	184(%r12), %rdx
 	cltq
 	cmpq	176(%r12), %rax
-	jnb	.L15
+	jnb	.L14
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
 	xorl	%r12d, %r12d
@@ -116,7 +116,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gameP10act_playerdd:
 	movq	200(%r14), %rdx
 	cltq
 	cmpq	192(%r14), %rax
-	jnb	.L15
+	jnb	.L14
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
@@ -156,23 +156,13 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gameP10act_playerdd:
 	movq	%rax, 56(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
-	movq	56(%rbx), %rbp
-	movq	$100, 184(%rbp)
-.L8:
+	movq	56(%rbx), %rdi
+	movq	$100, 184(%rdi)
+.L7:
 	movq	8(%rbx), %rax
-	xorl	%esi, %esi
-	addq	$40, %rbp
-	movq	8(%rax), %r14
-	movq	(%rbx), %rax
-	movl	192(%r14), %edx
-	leaq	320(%rax), %rdi
-	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	200(%r14), %rdx
-	cltq
-	cmpq	192(%r14), %rax
-	jnb	.L15
-	movq	(%rdx,%rax,8), %rsi
-	movq	%rbp, %rdi
+	addq	$40, %rdi
+	movq	8(%rax), %rax
+	movq	240(%rax), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	pxor	%xmm0, %xmm0
 	cvtsi2sdl	%r12d, %xmm0
@@ -183,12 +173,12 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gameP10act_playerdd:
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd@PLT
 	movl	%r13d, 16(%rbp)
 	cmpl	$60, %r12d
-	je	.L7
-	movq	56(%rbx), %rbp
-	jmp	.L8
+	je	.L6
+	movq	56(%rbx), %rdi
+	jmp	.L7
 	.p2align 4,,10
 	.p2align 3
-.L7:
+.L6:
 	movq	(%rbx), %rax
 	movsd	8(%rsp), %xmm6
 	movl	$20, %ecx
@@ -220,7 +210,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gameP10act_playerdd:
 	movq	200(%r13), %rdx
 	cltq
 	cmpq	192(%r13), %rax
-	jnb	.L15
+	jnb	.L14
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
@@ -255,7 +245,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gameP10act_playerdd:
 	movq	200(%r14), %rdx
 	cltq
 	cmpq	192(%r14), %rax
-	jnb	.L15
+	jnb	.L14
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r13, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
@@ -287,7 +277,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gameP10act_playerdd:
 	movq	200(%r13), %rdx
 	cltq
 	cmpq	192(%r13), %rax
-	jnb	.L15
+	jnb	.L14
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r12, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
@@ -319,7 +309,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gameP10act_playerdd:
 	movq	200(%r12), %rdx
 	cltq
 	cmpq	192(%r12), %rax
-	jnb	.L15
+	jnb	.L14
 	movq	(%rdx,%rax,8), %rsi
 	addq	$40, %rsp
 	.cfi_remember_state
@@ -338,7 +328,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gameP10act_playerdd:
 	popq	%r15
 	.cfi_def_cfa_offset 8
 	jmp	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-.L15:
+.L14:
 	.cfi_restore_state
 	movq	%rax, %rsi
 	leaq	.LC1(%rip), %rdi
@@ -385,14 +375,14 @@ _ZN14tile_trap_holeD2Ev:
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
 	movq	56(%rbx), %rdi
 	testq	%rdi, %rdi
-	je	.L18
+	je	.L17
 	movq	(%rbx), %rax
 	leaq	256(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
-.L18:
+.L17:
 	movq	(%rbx), %rax
 	movq	64(%rbx), %rdi
 	leaq	256(%rax), %rbp
@@ -451,7 +441,7 @@ _ZN14tile_trap_hole6UpdateEv:
 .LFB8162:
 	.cfi_startproc
 	cmpq	$0, 56(%rdi)
-	je	.L31
+	je	.L30
 	pushq	%r12
 	.cfi_def_cfa_offset 16
 	.cfi_offset 12, -16
@@ -475,7 +465,7 @@ _ZN14tile_trap_hole6UpdateEv:
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
 	testb	%al, %al
-	jne	.L34
+	jne	.L33
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
@@ -487,7 +477,7 @@ _ZN14tile_trap_hole6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L34:
+.L33:
 	.cfi_restore_state
 	movq	(%rbx), %rax
 	movq	56(%rbx), %rdi
@@ -507,7 +497,7 @@ _ZN14tile_trap_hole6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L31:
+.L30:
 	.cfi_restore 3
 	.cfi_restore 6
 	.cfi_restore 12

@@ -130,6 +130,9 @@ struct assets
     uint64 TileRotatingOFF;
     uint64 TileRotatingON;
 
+    uint64 TrapSpikes;
+    uint64 TrapSpikesSmall;
+    uint64 TrapPlatform;
     uint64 TrapSpider;
 
     uint64 CrateTexture;
@@ -415,7 +418,8 @@ struct tile_top_right_corner
 
     engine::actor Actor;
     engine::texturebox Background;
-    engine::overlapbox Spikes;
+    engine::overlapbox SpikesOverlapBox;
+    engine::texturebox SpikesTextureBox;
 
     engine::actor HitboxTop;
     engine::actor HitboxRight;
@@ -495,8 +499,10 @@ struct tile_vertical_corridor
 
     engine::actor Actor;
     engine::texturebox Background;
-    engine::overlapbox SmallSpikes1;
-    engine::overlapbox SmallSpikes2;
+    engine::overlapbox SmallSpikesLeftOverlapBox;
+    engine::overlapbox SmallSpikesRightOverlapBox;
+    engine::texturebox SmallSpikesLeftTextureBox;
+    engine::texturebox SmallSpikesRightTextureBox;
 
     engine::actor HitboxLeft;
     engine::actor HitboxRight;
@@ -551,7 +557,8 @@ struct tile_ceil_hole
 
     engine::actor Actor;
     engine::texturebox Background;
-    engine::overlapbox Spikes;
+    engine::overlapbox SpikesOverlapBox;
+    engine::texturebox SpikesTextureBox;
 
     engine::actor HitboxBot;
     engine::actor HitboxTopLeft;

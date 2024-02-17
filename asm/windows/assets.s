@@ -201,14 +201,20 @@ _Z6printfPKcz:
 .LC67:
 	.ascii "assets/tiles/background/rotating_on.png\0"
 .LC68:
-	.ascii "assets/traps/spider.png\0"
+	.ascii "assets/traps/spikes.png\0"
 .LC69:
+	.ascii "assets/traps/spikes_small.png\0"
+.LC70:
+	.ascii "assets/traps/platform.png\0"
+.LC71:
+	.ascii "assets/traps/spider.png\0"
+.LC72:
 	.ascii "assets/etc/crate.png\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB70:
+.LCOLDB73:
 	.text
-.LHOTB70:
+.LHOTB73:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -694,6 +700,21 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	328(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 232(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC70(%rip), %rdx
+	leaq	328(%rax), %rcx
+	call	_ZN3wze6engine6assets11LoadTextureEPKc
+	movq	%rax, 240(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC71(%rip), %rdx
+	leaq	328(%rax), %rcx
+	call	_ZN3wze6engine6assets11LoadTextureEPKc
+	movq	%rax, 248(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC72(%rip), %rdx
+	leaq	328(%rax), %rcx
+	call	_ZN3wze6engine6assets11LoadTextureEPKc
+	movq	%rax, 256(%rbx)
 	addq	$584, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -919,7 +940,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB1-.LCOLDB70
+	.uleb128 .LEHB1-.LCOLDB73
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -928,9 +949,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE70:
+.LCOLDE73:
 	.text
-.LHOTE70:
+.LHOTE73:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.def	_ZN6assetsC1EPN3wze6engineE;	.scl	2;	.type	32;	.endef
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE

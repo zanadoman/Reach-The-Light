@@ -111,6 +111,9 @@ assets::assets(engine* Engine) : Engine(Engine)
     this->TileRotatingOFF = {this->Engine->Assets.LoadTexture("assets/tiles/background/rotating_off.png")};
     this->TileRotatingON = {this->Engine->Assets.LoadTexture("assets/tiles/background/rotating_on.png")};
 
+    this->TrapSpikes = this->Engine->Assets.LoadTexture("assets/traps/spikes.png");
+    this->TrapSpikesSmall = this->Engine->Assets.LoadTexture("assets/traps/spikes_small.png");  
+    this->TrapPlatform = this->Engine->Assets.LoadTexture("assets/traps/platform.png");
     this->TrapSpider = this->Engine->Assets.LoadTexture("assets/traps/spider.png");
 
     this->CrateTexture = this->Engine->Assets.LoadTexture("assets/etc/crate.png");

@@ -69,7 +69,7 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	%rax, 32(%r13)
 	movq	8(%r13), %rax
 	movq	8(%rax), %rax
-	movq	224(%rax), %rsi
+	movq	248(%rax), %rsi
 	movq	16(%r13), %rax
 	leaq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT

@@ -6,30 +6,49 @@ tile_vertical_corridor::tile_vertical_corridor(engine* Engine, game* Game, doubl
 
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
-    this->SmallSpikes1 = this->Actor->Overlapboxes.New(BOX_DAMAGE);
-    this->SmallSpikes2 = this->Actor->Overlapboxes.New(BOX_DAMAGE);
+    this->SmallSpikesLeftOverlapBox = this->Actor->Overlapboxes.New(BOX_DAMAGE);
+    this->SmallSpikesRightOverlapBox = this->Actor->Overlapboxes.New(BOX_DAMAGE);
+    this->SmallSpikesLeftTextureBox = this->Actor->Textureboxes.New(this->Game->Assets->TrapSpikesSmall);
+    this->SmallSpikesRightTextureBox = this->Actor->Textureboxes.New(this->Game->Assets->TrapSpikesSmall);
 
     this->Background->Priority = 127;
 
-    this->SmallSpikes1->SetWidth(3);
-    this->SmallSpikes1->SetHeight(10);
-    this->SmallSpikes1->SetX(X - 28);
-    this->SmallSpikes1->Visible = DEBUG;
+    this->SmallSpikesLeftOverlapBox->SetWidth(3);
+    this->SmallSpikesLeftOverlapBox->SetHeight(9);
+    this->SmallSpikesLeftOverlapBox->SetX(X - 28);
+    this->SmallSpikesLeftOverlapBox->Visible = DEBUG;
 
-    this->SmallSpikes2->SetWidth(3);
-    this->SmallSpikes2->SetHeight(12);
-    this->SmallSpikes2->SetX(X + 28);
-    this->SmallSpikes2->Visible = DEBUG;
+    this->SmallSpikesRightOverlapBox->SetWidth(3);
+    this->SmallSpikesRightOverlapBox->SetHeight(9);
+    this->SmallSpikesRightOverlapBox->SetX(X + 28);
+    this->SmallSpikesRightOverlapBox->Visible = DEBUG;
+
+    this->SmallSpikesLeftTextureBox->Width = 3;
+    this->SmallSpikesLeftTextureBox->Height = 9;
+    this->SmallSpikesLeftTextureBox->SetX(X - 28);
+    this->SmallSpikesLeftTextureBox->Priority = 129;
+
+    this->SmallSpikesRightTextureBox->Width = 3;
+    this->SmallSpikesRightTextureBox->Height = 9;
+    this->SmallSpikesRightTextureBox->SetX(X + 28);
+    this->SmallSpikesRightTextureBox->FlipHorizontal = true;
+    this->SmallSpikesRightTextureBox->Priority = 129;
 
     if (this->Engine->Math.Random(0, 2))
     {
-        this->SmallSpikes1->SetY(Y + 10);
-        this->SmallSpikes2->SetY(Y - 12);
+        this->SmallSpikesLeftOverlapBox->SetY(Y + 12);
+        this->SmallSpikesRightOverlapBox->SetY(Y - 12);
+
+        this->SmallSpikesLeftTextureBox->SetY(Y + 12);
+        this->SmallSpikesRightTextureBox->SetY(Y - 12);
     }
     else
     {
-        this->SmallSpikes1->SetY(Y - 10);
-        this->SmallSpikes2->SetY(Y + 12);
+        this->SmallSpikesLeftOverlapBox->SetY(Y - 12);
+        this->SmallSpikesRightOverlapBox->SetY(Y + 12);
+
+        this->SmallSpikesLeftTextureBox->SetY(Y - 12);
+        this->SmallSpikesRightTextureBox->SetY(Y + 12);
     }
 
     this->HitboxLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y, 20, 60, 1);
