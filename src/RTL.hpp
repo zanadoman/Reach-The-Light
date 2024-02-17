@@ -6,7 +6,7 @@
 
 #define MAP_X 8
 #define MAP_Y 16
-#define DEBUG true
+#define DEBUG false
 
 using namespace neo;
 using namespace wze;
@@ -129,6 +129,8 @@ struct assets
     array<uint64> TilePlatforms;
     uint64 TileRotatingOFF;
     uint64 TileRotatingON;
+
+    uint64 TrapSpider;
 
     uint64 CrateTexture;
 
@@ -388,7 +390,8 @@ struct tile_top_left_corner
 
     engine::actor Actor;
     engine::texturebox Background;
-    engine::overlapbox Spider;
+    engine::overlapbox SpiderOverlapBox;
+    engine::texturebox SpiderTextureBox;
     engine::colorbox String;
 
     engine::actor HitboxTop;

@@ -87,7 +87,7 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movq	32(%rbx), %rax
 	movq	40(%rbx), %rdi
 	movl	$3, %esi
-	movb	$1, 18(%rax)
+	movb	$0, 18(%rax)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
 	movq	40(%rbx), %rdi
 	movl	$12, %esi
@@ -100,7 +100,7 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movq	40(%rbx), %rax
 	movl	$2, %edx
 	xorl	%esi, %esi
-	movb	$1, 18(%rax)
+	movb	$0, 18(%rax)
 	movq	(%rbx), %rax
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT

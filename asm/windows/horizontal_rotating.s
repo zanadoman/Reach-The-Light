@@ -112,7 +112,7 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	xorl	%edx, %edx
 	movsd	.LC1(%rip), %xmm11
 	movl	$2, %r8d
-	movb	$1, 18(%rax)
+	movb	$0, 18(%rax)
 	movq	(%rbx), %rax
 	addsd	%xmm11, %xmm10
 	movl	$20, 48(%rsp)

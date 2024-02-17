@@ -111,7 +111,7 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	movl	$2, %r8d
 	xorl	%edx, %edx
 	movsd	.LC1(%rip), %xmm10
-	movb	$1, 18(%rax)
+	movb	$0, 18(%rax)
 	movq	(%rbx), %rax
 	subsd	%xmm10, %xmm11
 	movl	$60, 48(%rsp)

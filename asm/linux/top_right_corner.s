@@ -87,7 +87,7 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	addsd	8(%rsp), %xmm3
 	movl	$20, %r8d
 	movl	$2, %edx
-	movb	$1, 18(%rax)
+	movb	$0, 18(%rax)
 	movq	(%rbx), %rax
 	movsd	16(%rsp), %xmm0
 	leaq	256(%rax), %rdi

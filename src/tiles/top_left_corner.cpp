@@ -6,25 +6,31 @@ tile_top_left_corner::tile_top_left_corner(engine* Engine, game* Game, double X,
 
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
-    this->Spider = this->Actor->Overlapboxes.New(BOX_DAMAGE);
+    this->SpiderOverlapBox = this->Actor->Overlapboxes.New(BOX_DAMAGE);
+    this->SpiderTextureBox = this->Actor->Textureboxes.New(this->Game->Assets->TrapSpider);
     this->String = this->Actor->Colorboxes.New();
+    this->SpiderVelocityY = -0.025;
 
     this->Background->Priority = 127;
 
-    this->Spider->SetY(Y + 25);
-    this->Spider->SetWidth(10);
-    this->Spider->SetHeight(10);
-    this->Spider->Visible = DEBUG;
-    this->SpiderVelocityY = -0.025;
+    this->SpiderOverlapBox->SetY(Y + 25);
+    this->SpiderOverlapBox->SetWidth(10);
+    this->SpiderOverlapBox->SetHeight(10);
+    this->SpiderOverlapBox->Visible = DEBUG;
+
+    this->SpiderTextureBox->SetY(Y + 25);
+    this->SpiderTextureBox->Width = 12;
+    this->SpiderTextureBox->Height = 12;
+    this->SpiderTextureBox->Priority = 129;
 
     this->String->Width = 1;
-    this->String->Height = ((Y + 30) - this->Spider->GetY());
-    this->String->SetY((this->Spider->GetY() + (Y + 30)) / 2);
+    this->String->Height = ((Y + 30) - this->SpiderOverlapBox->GetY());
+    this->String->SetY((this->SpiderOverlapBox->GetY() + (Y + 30)) / 2);
     this->String->ColorR = 192;
     this->String->ColorG = 192;
     this->String->ColorB = 192;
     this->String->ColorA = 192;
-    this->String->Priority = 129;
+    this->String->Priority = 128;
 
     this->HitboxTop = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y + 40, 60, 20, 1);
     this->HitboxTop->Overlapboxes.New(BOX_PLATFORM);
@@ -82,21 +88,22 @@ tile_top_left_corner::~tile_top_left_corner()
 
 uint8 tile_top_left_corner::Update()
 {
-    this->Spider->SetY(this->Spider->GetY() + this->SpiderVelocityY * this->Engine->Timing.GetDeltaTime());
+    this->SpiderOverlapBox->SetY(this->SpiderOverlapBox->GetY() + this->SpiderVelocityY * this->Engine->Timing.GetDeltaTime());
+    this->SpiderTextureBox->SetY(this->SpiderOverlapBox->GetY());
 
-    if (this->Spider->GetY() <= this->Actor->GetY())
+    if (this->SpiderOverlapBox->GetY() <= this->Actor->GetY())
     {
-        this->Spider->SetY(this->Actor->GetY());
+        this->SpiderOverlapBox->SetY(this->Actor->GetY());
         this->SpiderVelocityY = 0.025;
     }
-    else if (this->Actor->GetY() + 25 <= this->Spider->GetY())
+    else if (this->Actor->GetY() + 25 <= this->SpiderOverlapBox->GetY())
     {
-        this->Spider->SetY(this->Actor->GetY() + 25);
+        this->SpiderOverlapBox->SetY(this->Actor->GetY() + 25);
         this->SpiderVelocityY = -0.025;
     }
 
-    this->String->Height = this->Actor->GetY() + 30 - this->Spider->GetY();
-    this->String->SetY((this->Spider->GetY() + (this->Actor->GetY() + 30)) / 2);
+    this->String->Height = this->Actor->GetY() + 30 - this->SpiderOverlapBox->GetY();
+    this->String->SetY((this->SpiderOverlapBox->GetY() + (this->Actor->GetY() + 30)) / 2);
 
     return 0;
 }

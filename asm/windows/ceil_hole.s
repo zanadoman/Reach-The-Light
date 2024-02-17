@@ -124,7 +124,7 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	xorl	%edx, %edx
 	movsd	.LC3(%rip), %xmm9
 	movl	$2, %r8d
-	movb	$1, 18(%rax)
+	movb	$0, 18(%rax)
 	movq	(%rbx), %rax
 	subsd	%xmm9, %xmm10
 	movl	$20, 48(%rsp)

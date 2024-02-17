@@ -73,7 +73,7 @@ _ZN24tile_horizontal_rotatingC2EPN3wze6engineEP4gamedd:
 	addsd	24(%rsp), %xmm5
 	movl	$20, %r8d
 	movl	$2, %edx
-	movb	$1, 18(%rax)
+	movb	$0, 18(%rax)
 	movq	(%rbx), %rax
 	movsd	8(%rsp), %xmm0
 	leaq	256(%rax), %rdi

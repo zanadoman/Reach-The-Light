@@ -93,7 +93,7 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movsd	16(%rsp), %xmm0
 	movl	$20, %r8d
 	movl	$2, %edx
-	movb	$1, 18(%rax)
+	movb	$0, 18(%rax)
 	movq	0(%r13), %rax
 	subsd	.LC3(%rip), %xmm1
 	leaq	256(%rax), %rdi

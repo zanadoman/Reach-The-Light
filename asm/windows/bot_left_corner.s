@@ -131,7 +131,7 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	xorl	%edx, %edx
 	movsd	.LC3(%rip), %xmm10
 	movl	$2, %r8d
-	movb	$1, 18(%rax)
+	movb	$0, 18(%rax)
 	movq	(%rbx), %rax
 	subsd	%xmm10, %xmm11
 	movl	$20, 48(%rsp)

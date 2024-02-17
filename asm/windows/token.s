@@ -184,7 +184,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 	.p2align 4,,10
 	.p2align 3
 .L17:
-	movl	$104, %ecx
+	movl	$112, %ecx
 .LEHB6:
 	call	_Znwy
 .LEHE6:
@@ -569,7 +569,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 	call	_Unwind_Resume
 .L20:
 	movq	%r13, %rcx
-	movl	$104, %edx
+	movl	$112, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
@@ -662,7 +662,7 @@ _ZN10tile_tokenD2Ev:
 	je	.L49
 	movq	%rbx, %rcx
 	call	_ZN20tile_top_left_cornerD1Ev
-	movl	$104, %edx
+	movl	$112, %edx
 	jmp	.L100
 	.p2align 4,,10
 	.p2align 3
@@ -836,7 +836,7 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	.section .rdata,"dr"
 	.align 4
 .L115:
-	.long	.L121-.L115
+	.long	.L126-.L115
 	.long	.L114-.L115
 	.long	.L114-.L115
 	.long	.L123-.L115
@@ -883,39 +883,6 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L121:
-	movq	(%rcx), %rax
-	xorl	%edx, %edx
-	movq	48(%rax), %rcx
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	movq	(%rbx), %rax
-	movq	56(%rax), %rcx
-.L131:
-	xorl	%edx, %edx
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	movq	(%rbx), %rax
-.L127:
-	movq	64(%rax), %rcx
-	xorl	%edx, %edx
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	movq	(%rbx), %rax
-	xorl	%edx, %edx
-	movq	72(%rax), %rcx
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	movq	(%rbx), %rax
-	xorl	%edx, %edx
-	movq	80(%rax), %rcx
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	movq	(%rbx), %rax
-	xorl	%edx, %edx
-	movq	88(%rax), %rcx
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	xorl	%eax, %eax
-	addq	$32, %rsp
-	popq	%rbx
-	ret
-	.p2align 4,,10
-	.p2align 3
 .L123:
 	movq	(%rcx), %rax
 	xorl	%edx, %edx
@@ -948,6 +915,66 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
+.L126:
+	movq	(%rcx), %rax
+	xorl	%edx, %edx
+	movq	56(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	64(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	72(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	80(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	88(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	96(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	jmp	.L113
+	.p2align 4,,10
+	.p2align 3
+.L117:
+	movq	(%rcx), %rax
+	xorl	%edx, %edx
+	movq	48(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	movq	56(%rax), %rcx
+	testq	%rcx, %rcx
+	jne	.L131
+	jmp	.L127
+	.p2align 4,,10
+	.p2align 3
+.L120:
+	movq	(%rcx), %rax
+	xorl	%edx, %edx
+	movq	32(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	40(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	48(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	56(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	jmp	.L113
+	.p2align 4,,10
+	.p2align 3
 .L119:
 	movq	(%rcx), %rax
 	xorl	%edx, %edx
@@ -972,36 +999,37 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	jmp	.L113
 	.p2align 4,,10
 	.p2align 3
-.L120:
-	movq	(%rcx), %rax
-	xorl	%edx, %edx
-	movq	32(%rax), %rcx
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	movq	(%rbx), %rax
-	xorl	%edx, %edx
-	movq	40(%rax), %rcx
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	movq	(%rbx), %rax
-	xorl	%edx, %edx
-	movq	48(%rax), %rcx
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	movq	(%rbx), %rax
-	xorl	%edx, %edx
-	movq	56(%rax), %rcx
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	jmp	.L113
-	.p2align 4,,10
-	.p2align 3
-.L117:
+.L121:
 	movq	(%rcx), %rax
 	xorl	%edx, %edx
 	movq	48(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	(%rbx), %rax
 	movq	56(%rax), %rcx
-	testq	%rcx, %rcx
-	jne	.L131
-	jmp	.L127
+.L131:
+	xorl	%edx, %edx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+.L127:
+	movq	64(%rax), %rcx
+	xorl	%edx, %edx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	72(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	80(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	xorl	%edx, %edx
+	movq	88(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	xorl	%eax, %eax
+	addq	$32, %rsp
+	popq	%rbx
+	ret
 	.seh_endproc
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	__mingw_vfprintf;	.scl	2;	.type	32;	.endef

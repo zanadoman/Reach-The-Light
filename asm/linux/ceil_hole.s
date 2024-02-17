@@ -87,7 +87,7 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movl	$20, %r8d
 	movl	$60, %ecx
 	subsd	.LC3(%rip), %xmm1
-	movb	$1, 18(%rax)
+	movb	$0, 18(%rax)
 	movq	(%rbx), %rax
 	movl	$2, %edx
 	leaq	256(%rax), %rdi
