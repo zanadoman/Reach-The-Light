@@ -65,7 +65,7 @@ _ZN9act_crateC2EPN3wze6engineEP4gamedd:
 	movq	%rax, 24(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	128(%rax), %rdx
+	movq	160(%rax), %rdx
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy

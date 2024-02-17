@@ -91,12 +91,12 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rdi
 	movq	(%rbx), %rax
-	movl	96(%rdi), %r8d
+	movl	128(%rdi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	104(%rdi), %rdx
+	movq	136(%rdi), %rdx
 	cltq
-	cmpq	96(%rdi), %rax
+	cmpq	128(%rdi), %rax
 	jnb	.L16
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rsi, %rcx
@@ -154,12 +154,12 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	xorl	%edx, %edx
 	movq	8(%rax), %rsi
 	movq	(%rbx), %rax
-	movl	112(%rsi), %r8d
+	movl	144(%rsi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	120(%rsi), %rdx
+	movq	152(%rsi), %rdx
 	cltq
-	cmpq	112(%rsi), %rax
+	cmpq	144(%rsi), %rax
 	jnb	.L16
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rbp, %rcx
@@ -206,12 +206,12 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	xorl	%edx, %edx
 	movq	8(%rax), %rsi
 	movq	(%rbx), %rax
-	movl	112(%rsi), %r8d
+	movl	144(%rsi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	120(%rsi), %rdx
+	movq	152(%rsi), %rdx
 	cltq
-	cmpq	112(%rsi), %rax
+	cmpq	144(%rsi), %rax
 	jnb	.L16
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rbp, %rcx
@@ -255,12 +255,12 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %rsi
 	movq	$100, 144(%rsi)
-	movl	112(%rdi), %r8d
+	movl	144(%rdi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	120(%rdi), %rdx
+	movq	152(%rdi), %rdx
 	cltq
-	cmpq	112(%rdi), %rax
+	cmpq	144(%rdi), %rax
 	jnb	.L16
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rsi, %rcx
@@ -287,12 +287,12 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %rsi
 	movq	$100, 144(%rsi)
-	movl	112(%rdi), %r8d
+	movl	144(%rdi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	120(%rdi), %rdx
+	movq	152(%rdi), %rdx
 	cltq
-	cmpq	112(%rdi), %rax
+	cmpq	144(%rdi), %rax
 	jnb	.L16
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rsi, %rcx
@@ -318,12 +318,12 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rsi
 	movq	(%rbx), %rax
-	movl	112(%rsi), %r8d
+	movl	144(%rsi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	120(%rsi), %rdx
+	movq	152(%rsi), %rdx
 	cltq
-	cmpq	112(%rsi), %rax
+	cmpq	144(%rsi), %rax
 	jnb	.L16
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
@@ -350,11 +350,11 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	addq	$320, %rcx
 	movq	8(%rax), %rsi
-	movl	112(%rsi), %r8d
+	movl	144(%rsi), %r8d
 	call	_ZN3wze6engine4math6RandomEii
-	movq	120(%rsi), %rdx
+	movq	152(%rsi), %rdx
 	cltq
-	cmpq	112(%rsi), %rax
+	cmpq	144(%rsi), %rax
 	jnb	.L16
 	movq	(%rdx,%rax,8), %rdx
 	movaps	64(%rsp), %xmm6
