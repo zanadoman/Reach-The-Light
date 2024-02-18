@@ -79,10 +79,10 @@ _ZN3mapD2Ev:
 	.set	_ZN3mapD1Ev,_ZN3mapD2Ev
 	.align 2
 	.p2align 4
-	.globl	_ZN3map5ResetEv
-	.def	_ZN3map5ResetEv;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN3map5ResetEv
-_ZN3map5ResetEv:
+	.globl	_ZN3map4Map1Ev
+	.def	_ZN3map4Map1Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN3map4Map1Ev
+_ZN3map4Map1Ev:
 .LFB8437:
 	.seh_endprologue
 	movdqa	.LC1(%rip), %xmm0
@@ -251,7 +251,7 @@ _ZN3mapC2Ev:
 	jmp	.L11
 .L30:
 	movq	%rbx, %rcx
-	call	_ZN3map5ResetEv
+	call	_ZN3map4Map1Ev
 	jmp	.L6
 .L10:
 	movl	$5, %r8d
@@ -337,6 +337,35 @@ _ZN3mapC2Ev.cold:
 	.globl	_ZN3mapC1Ev
 	.def	_ZN3mapC1Ev;	.scl	2;	.type	32;	.endef
 	.set	_ZN3mapC1Ev,_ZN3mapC2Ev
+	.align 2
+	.p2align 4
+	.globl	_ZN3map4Map2Ev
+	.def	_ZN3map4Map2Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN3map4Map2Ev
+_ZN3map4Map2Ev:
+.LFB8438:
+	.seh_endprologue
+	movdqa	.LC15(%rip), %xmm0
+	movq	136(%rcx), %rax
+	movups	%xmm0, (%rcx)
+	movdqa	.LC16(%rip), %xmm0
+	movups	%xmm0, 16(%rcx)
+	movdqa	.LC17(%rip), %xmm0
+	movups	%xmm0, 32(%rcx)
+	movdqa	.LC18(%rip), %xmm0
+	movups	%xmm0, 48(%rcx)
+	movdqa	.LC19(%rip), %xmm0
+	movups	%xmm0, 64(%rcx)
+	movdqa	.LC20(%rip), %xmm0
+	movups	%xmm0, 80(%rcx)
+	movdqa	.LC21(%rip), %xmm0
+	movups	%xmm0, 96(%rcx)
+	movdqa	.LC22(%rip), %xmm0
+	movups	%xmm0, 112(%rcx)
+	movb	$0, (%rax)
+	xorl	%eax, %eax
+	ret
+	.seh_endproc
 	.section .rdata,"dr"
 	.align 16
 .LC1:
@@ -479,6 +508,150 @@ _ZN3mapC2Ev.cold:
 	.byte	5
 	.byte	1
 	.byte	5
+	.byte	1
+	.byte	3
+	.byte	1
+	.align 16
+.LC15:
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	5
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	5
+	.byte	0
+	.align 16
+.LC16:
+	.byte	4
+	.byte	8
+	.byte	9
+	.byte	4
+	.byte	8
+	.byte	0
+	.byte	4
+	.byte	4
+	.byte	3
+	.byte	7
+	.byte	4
+	.byte	8
+	.byte	9
+	.byte	3
+	.byte	10
+	.byte	1
+	.align 16
+.LC17:
+	.byte	8
+	.byte	11
+	.byte	1
+	.byte	3
+	.byte	1
+	.byte	3
+	.byte	6
+	.byte	9
+	.byte	10
+	.byte	9
+	.byte	3
+	.byte	1
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	0
+	.align 16
+.LC18:
+	.byte	8
+	.byte	7
+	.byte	4
+	.byte	4
+	.byte	2
+	.byte	0
+	.byte	3
+	.byte	1
+	.byte	2
+	.byte	8
+	.byte	0
+	.byte	8
+	.byte	9
+	.byte	2
+	.byte	7
+	.byte	3
+	.align 16
+.LC19:
+	.byte	4
+	.byte	8
+	.byte	9
+	.byte	8
+	.byte	1
+	.byte	4
+	.byte	4
+	.byte	2
+	.byte	4
+	.byte	10
+	.byte	1
+	.byte	11
+	.byte	3
+	.byte	7
+	.byte	4
+	.byte	2
+	.align 16
+.LC20:
+	.byte	3
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	0
+	.byte	8
+	.byte	7
+	.byte	8
+	.byte	6
+	.byte	1
+	.byte	8
+	.byte	6
+	.byte	0
+	.byte	8
+	.byte	5
+	.byte	7
+	.align 16
+.LC21:
+	.byte	2
+	.byte	1
+	.byte	4
+	.byte	4
+	.byte	4
+	.byte	8
+	.byte	6
+	.byte	1
+	.byte	4
+	.byte	2
+	.byte	7
+	.byte	4
+	.byte	8
+	.byte	7
+	.byte	2
+	.byte	7
+	.align 16
+.LC22:
+	.byte	3
+	.byte	5
+	.byte	5
+	.byte	1
+	.byte	3
+	.byte	1
+	.byte	3
+	.byte	5
+	.byte	3
+	.byte	1
+	.byte	3
+	.byte	1
+	.byte	3
 	.byte	1
 	.byte	3
 	.byte	1

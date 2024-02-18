@@ -10,7 +10,7 @@
 .LC8:
 	.string	"Seg\303\255ts\303\251g"
 .LC10:
-	.string	"Kil\303\251p"
+	.string	"Kil\303\251p\303\251s"
 .LC13:
 	.string	"Eg\303\251r \303\251rz\303\251kenys\303\251g"
 .LC16:

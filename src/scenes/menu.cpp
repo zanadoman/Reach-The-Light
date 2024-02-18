@@ -8,7 +8,7 @@ scene_menu::scene_menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->Play = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 225, 200, 75, 0, "Játék");
     this->Editor = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 125, 200, 75, 0, "Pályák");
     this->Help = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 25, 200, 75, 0, "Segítség");
-    this->Quit = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() - 75, 200, 75, 0, "Kilép");
+    this->Quit = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() - 75, 200, 75, 0, "Kilépés");
     this->MouseSensitivity = new gui_slider(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() - 225, 400, 15, "Egér érzékenység", 0.1, 2, this->Game->Settings->MouseSensitivity);
     this->Volume = new gui_slider(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() - 300, 400, 15, "Hangerő", 0, 100, this->Game->Settings->Volume);
     this->FrameRate = new gui_slider(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() - 375, 400, 15, "FPS", 30, 1000, this->Game->Settings->FrameRate);

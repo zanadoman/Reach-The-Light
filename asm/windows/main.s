@@ -327,24 +327,22 @@ main:
 	movl	$1440, 32(%rsp)
 	leaq	.LC8(%rip), %rdx
 	movq	%rax, %rcx
-	movq	%rax, %rsi
+	movq	%rax, %rdi
 .LEHB1:
 	call	_ZN3wze6engineC1EPKcS2_tth
 .LEHE1:
-	movq	%rsi, %rcx
-.LEHB2:
-	call	_Z15DisplayPressKitPN3wze6engineE
 	movl	$80, %ecx
+.LEHB2:
 	call	_Znwy
 .LEHE2:
-	movq	%rsi, %rdx
+	movq	%rdi, %rdx
 	movq	%rax, %rcx
 	movq	%rax, %rbp
 .LEHB3:
 	call	_ZN4gameC1EPN3wze6engineE
 .LEHE3:
 	movq	%rbp, %rcx
-	leaq	400(%rsi), %rdi
+	leaq	400(%rdi), %rsi
 	leaq	.LC0(%rip), %r12
 .LEHB4:
 	call	_Z8PrintMapP4game
@@ -356,9 +354,9 @@ main:
 	call	_ZN4game6UpdateEv
 	testb	%al, %al
 	jne	.L30
-	movq	%rdi, %rcx
+	movq	%rsi, %rcx
 	call	_ZN3wze6engine6timing13GetRenderTimeEv
-	movq	%rdi, %rcx
+	movq	%rsi, %rcx
 	movl	%eax, %ebx
 	call	_ZN3wze6engine6timing11GetGameTimeEv
 	movl	%ebx, %r8d
@@ -366,7 +364,7 @@ main:
 	movl	%eax, %edx
 	call	_Z6printfPKcz.constprop.0
 .L27:
-	movq	%rsi, %rcx
+	movq	%rdi, %rcx
 	call	_ZN3wze6engine6UpdateEv
 .LEHE4:
 	testb	%al, %al
@@ -377,10 +375,10 @@ main:
 	movl	$80, %edx
 	movq	%rbp, %rcx
 	call	_ZdlPvy
-	movq	%rsi, %rcx
+	movq	%rdi, %rcx
 	call	_ZN3wze6engineD1Ev
 	movl	$456, %edx
-	movq	%rsi, %rcx
+	movq	%rdi, %rcx
 	call	_ZdlPvy
 	xorl	%eax, %eax
 	addq	$48, %rsp
@@ -440,7 +438,7 @@ main:
 	.seh_endprologue
 main.cold:
 .L31:
-	movq	%rsi, %rcx
+	movq	%rdi, %rcx
 	movl	$456, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx

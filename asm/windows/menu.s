@@ -10,7 +10,7 @@
 .LC8:
 	.ascii "Seg\303\255ts\303\251g\0"
 .LC10:
-	.ascii "Kil\303\251p\0"
+	.ascii "Kil\303\251p\303\251s\0"
 .LC13:
 	.ascii "Eg\303\251r \303\251rz\303\251kenys\303\251g\0"
 .LC16:

@@ -46,7 +46,7 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	movb	$0, 18(%rdx)
 	movq	%rcx, 48(%rbx)
 	movl	$1966110, 16(%rax)
-	movb	$-125, 36(%rax)
+	movb	$-128, 36(%rax)
 	movaps	64(%rsp), %xmm6
 	addq	$80, %rsp
 	popq	%rbx
