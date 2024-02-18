@@ -9,6 +9,8 @@ assets::assets(engine* Engine) : Engine(Engine)
 
     this->ButtonTexture = this->Engine->Assets.LoadTexture("assets/gui/gui_button.png");
 
+    this->MenuBackground = this->Engine->Assets.LoadTexture("assets/etc/menu_background.png");
+
     this->PlayerIdle =
     {
         this->Engine->Assets.LoadTexture("assets/player/idle/idle1.png"),

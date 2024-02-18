@@ -4,15 +4,22 @@ scene_menu::scene_menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, this->Engine->Window.GetWidth() >> 1, this->Engine->Window.GetHeight() >> 1, 0, 0, 0);
     this->Title = this->Actor->Textboxes.New("Reach The Light", this->Game->Assets->HackBoldItalicFont);
-    this->Play = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() + 225, 300, 100, 0, "Játék");
-    this->Editor = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() + 75, 300, 100, 0, "Pinceditor");
-    this->Credits = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 75, 300, 100, 0, "Készítők");
-    this->Quit = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 225, 300, 100, 0, "Kilép");
-    this->Volume = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 425, 500, 20, "Hangerő", 0, 100, this->Game->Settings->Volume);
-    this->FrameRate = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 500, 500, 20, "FPS", 30, 1000, this->Game->Settings->FrameRate);
+    this->Background = this->Actor->Textureboxes.New(this->Game->Assets->MenuBackground);
+    this->Play = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 150, 200, 75, 0, "Játék");
+    this->Editor = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 50, 200, 75, 0, "Pályák");
+    this->Credits = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() - 50, 200, 75, 0, "Készítők");
+    this->Quit = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() - 150, 200, 75, 0, "Kilép");
+    this->Volume = new gui_slider(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() - 300, 400, 15, "Hangerő", 0, 100, this->Game->Settings->Volume);
+    this->FrameRate = new gui_slider(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() - 375, 400, 15, "FPS", 30, 1000, this->Game->Settings->FrameRate);
 
-    this->Title->SetY(this->Actor->GetY() + 500);
-    this->Title->SetHeight(100);
+    this->Title->SetX(this->Actor->GetX() - 600);
+    this->Title->SetY(this->Actor->GetY() + 300);
+    this->Title->SetHeight(75);
+
+    this->Background->SetX(this->Actor->GetX() + 500);
+    this->Background->SetY(this->Actor->GetY());
+    this->Background->Width = 1440;
+    this->Background->Height = 1440;
 }
 
 scene_menu::~scene_menu()

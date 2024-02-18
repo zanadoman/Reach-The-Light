@@ -51,12 +51,12 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %r12
 	movq	(%rbx), %rax
-	movl	200(%r12), %edx
+	movl	208(%r12), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	208(%r12), %rdx
+	movq	216(%r12), %rdx
 	cltq
-	cmpq	200(%r12), %rax
+	cmpq	208(%r12), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -70,7 +70,7 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	248(%rax), %rsi
+	movq	256(%rax), %rsi
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
@@ -126,12 +126,12 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	addq	$40, %r13
 	movq	8(%rax), %r14
 	movq	(%rbx), %rax
-	movl	216(%r14), %edx
+	movl	224(%r14), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	224(%r14), %rdx
+	movq	232(%r14), %rdx
 	cltq
-	cmpq	216(%r14), %rax
+	cmpq	224(%r14), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r13, %rdi
@@ -180,12 +180,12 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	addq	$40, %r14
 	movq	8(%rax), %r15
 	movq	(%rbx), %rax
-	movl	216(%r15), %edx
+	movl	224(%r15), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	224(%r15), %rdx
+	movq	232(%r15), %rdx
 	cltq
-	cmpq	216(%r15), %rax
+	cmpq	224(%r15), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r14, %rdi
@@ -232,12 +232,12 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %r12
 	movq	$100, 144(%r12)
-	movl	216(%r14), %edx
+	movl	224(%r14), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	224(%r14), %rdx
+	movq	232(%r14), %rdx
 	cltq
-	cmpq	216(%r14), %rax
+	cmpq	224(%r14), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r12, %rdi
@@ -264,12 +264,12 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %r12
 	movq	$100, 144(%r12)
-	movl	216(%r14), %edx
+	movl	224(%r14), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	224(%r14), %rdx
+	movq	232(%r14), %rdx
 	cltq
-	cmpq	216(%r14), %rax
+	cmpq	224(%r14), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r12, %rdi
@@ -298,13 +298,13 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
-	movl	216(%r12), %edx
+	movl	224(%r12), %edx
 	leaq	320(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	224(%r12), %rdx
+	movq	232(%r12), %rdx
 	movsd	8(%rsp), %xmm1
 	cltq
-	cmpq	216(%r12), %rax
+	cmpq	224(%r12), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -333,11 +333,11 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
 	addq	$320, %rdi
-	movl	216(%r12), %edx
+	movl	224(%r12), %edx
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	224(%r12), %rdx
+	movq	232(%r12), %rdx
 	cltq
-	cmpq	216(%r12), %rax
+	cmpq	224(%r12), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	addq	$40, %rsp

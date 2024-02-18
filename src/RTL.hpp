@@ -114,6 +114,8 @@ struct assets
 
     uint64 ButtonTexture;
 
+    uint64 MenuBackground;
+
     array<uint64> PlayerIdle;
     array<uint64> PlayerRun;
     array<uint64> PlayerJump;
@@ -180,6 +182,7 @@ struct scene_menu
 
     engine::actor Actor;
     engine::textbox Title;
+    engine::texturebox Background;
 
     gui_button* Play;
     gui_button* Editor;
