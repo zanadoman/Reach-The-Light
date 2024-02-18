@@ -197,7 +197,7 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 .LEHE9:
 	movq	16(%rbx), %rax
 	movq	%rbp, 64(%rbx)
-	movabsq	$-9214329515756224012, %rcx
+	movabsq	$-4607164757855174156, %rcx
 	movb	$0, 168(%rax)
 	movq	24(%rbx), %rax
 	movq	%rcx, 16(%rax)

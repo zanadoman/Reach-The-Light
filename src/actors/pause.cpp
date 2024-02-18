@@ -13,7 +13,7 @@ act_pause::act_pause(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->Actor->Visible = false;
 
     this->ColorBox->Width = 500;
-    this->ColorBox->Height = 500;
+    this->ColorBox->Height = 600;
     this->ColorBox->ColorR = 16;
     this->ColorBox->ColorG = 16;
     this->ColorBox->ColorB = 16;
