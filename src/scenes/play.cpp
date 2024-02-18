@@ -19,6 +19,7 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     };
     this->TunaCount = this->Actor->Textboxes.New("0/0", this->Game->Assets->HackBoldFont);
     this->TunaFlipbook = this->Actor->Flipbooks.New(75, &this->Game->Assets->TunaTextures);
+    this->Pause = new act_pause(this->Engine, this->Game);
     if (this->Game->Map->Tiles[*this->Game->Map->Spawn][0] == TILE_HORIZONTAL_CORRIDOR)
     {
         this->Player = new act_player(this->Engine, this->Game, &this->RotateTiles, &this->Tunas, -350 + 100 * *this->Game->Map->Spawn, -741);
@@ -72,6 +73,8 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 
 scene_play::~scene_play()
 {
+    delete this->Pause;
+    delete this->Player;
     for (uint8 i = 0; i < MAP_X; i++)
     {
         for (uint8 j = 0; j < MAP_Y; j++)
@@ -79,91 +82,93 @@ scene_play::~scene_play()
             delete this->Tiles[i][j];
         }
     }
-
     for (uint8 i = 0; i < this->Tunas.Length(); i++)
     {
         delete this->Tunas[i];
     }
-
-    delete this->Player;
 }
 
 scene scene_play::Update()
 {
+    act_pause::state PauseState;
     string str;
 
     this->FrameTime->SetLiteral((((str += {"FrameTime: "}) += {(uint64)this->Engine->Timing.GetFrameTime()}) += {"ms"})());
     this->FrameTime->SetX(10 + (this->FrameTime->GetWidth() >> 1));
 
-    if (this->Player->Health == 0 && this->Player->DamageTick + 2500 <= this->Engine->Timing.GetCurrentTick())
-    {
-        return SCENE_GAME_OVER;
-    }
+    PauseState = this->Pause->Update();
 
-    for (uint8 i = 0; i < this->HealthCounter.Length(); i++)
+    if (PauseState == act_pause::UNPAUSED)
     {
-        if (i < this->Player->Health)
+        if (this->Player->Health == 0 && this->Player->DamageTick + 2500 <= this->Engine->Timing.GetCurrentTick())
         {
-            if (i % 2)
+            return SCENE_GAME_OVER;
+        }
+
+        for (uint8 i = 0; i < this->HealthCounter.Length(); i++)
+        {
+            if (i < this->Player->Health)
             {
-                this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthRightFull);
+                if (i % 2)
+                {
+                    this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthRightFull);
+                }
+                else
+                {
+                    this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthLeftFull);
+                }
             }
             else
             {
-                this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthLeftFull);
+                if (i % 2)
+                {
+                    this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthRightEmpty);
+                }
+                else
+                {
+                    this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthLeftEmpty);
+                }
             }
         }
-        else
+
+        this->TunaCount->SetLiteral((((str = {(uint64)this->Player->Score}) += {"/"}) += {this->Tunas.Length()})());
+        this->TunaCount->SetX(this->Actor->GetX() + 5 + (this->TunaCount->GetWidth() >> 1));
+
+        for (uint8 i = 0; i < MAP_X; i++)
         {
-            if (i % 2)
+            for (uint8 j = 0; j < MAP_Y; j++)
             {
-                this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthRightEmpty);
+                this->Tiles[i][j]->ResetCollisionLayer();
             }
-            else
+        }
+
+        for (uint8 i = 0; i < MAP_X; i++)
+        {
+            for (uint8 j = 0; j < MAP_Y; j++)
             {
-                this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthLeftEmpty);
+                this->Tiles[i][j]->Rotate(this->RotateTiles);
             }
         }
-    }
 
-    this->TunaCount->SetLiteral((((str = {(uint64)this->Player->Score}) += {"/"}) += {this->Tunas.Length()})());
-    this->TunaCount->SetX(this->Actor->GetX() + 5 + (this->TunaCount->GetWidth() >> 1));
-
-    for (uint8 i = 0; i < MAP_X; i++)
-    {
-        for (uint8 j = 0; j < MAP_Y; j++)
+        for (uint8 i = 0; i < MAP_X; i++)
         {
-            this->Tiles[i][j]->ResetCollisionLayer();
+            for (uint8 j = 0; j < MAP_Y; j++)
+            {
+                this->Tiles[i][j]->Update();
+            }
         }
-    }
 
-    for (uint8 i = 0; i < MAP_X; i++)
-    {
-        for (uint8 j = 0; j < MAP_Y; j++)
+        for (uint8 i = 0; i < this->Tunas.Length(); i++)
         {
-            this->Tiles[i][j]->Rotate(this->RotateTiles);
+            if (this->Tunas[i] != NULL)
+            {
+                this->Tunas[i]->Update();
+            }
         }
+
+        this->Player->Update();
     }
-
-    for (uint8 i = 0; i < MAP_X; i++)
-    {
-        for (uint8 j = 0; j < MAP_Y; j++)
-        {
-            this->Tiles[i][j]->Update();
-        }
-    }
-
-    for (uint8 i = 0; i < this->Tunas.Length(); i++)
-    {
-        if (this->Tunas[i] != NULL)
-        {
-            this->Tunas[i]->Update();
-        }
-    }
-
-    this->Player->Update();
-
-    if (this->Engine->Keys[KEY_ESCAPE])
+    else if (PauseState == act_pause::MENU)
     {
         return SCENE_MENU;
     }

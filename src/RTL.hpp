@@ -19,6 +19,7 @@ struct scene_menu;
 struct scene_play;
 struct scene_editor;
 struct scene_game_over;
+struct act_pause;
 struct act_player;
 struct act_tuna;
 struct act_crate;
@@ -214,6 +215,7 @@ struct scene_play
     engine::textbox TunaCount;
     engine::flipbook TunaFlipbook;
 
+    act_pause* Pause;
     act_player* Player;
     tile_token* Tiles[MAP_X][MAP_Y];
     bool RotateTiles;
@@ -257,6 +259,32 @@ struct scene_game_over
 };
 
 //__________ACTORS___________________________________________________________________________________
+
+struct act_pause
+{
+    engine* Engine;
+    game* Game;
+
+    typedef enum
+    {
+        UNPAUSED,
+        PAUSED,
+        MENU
+    } state;
+
+    engine::actor Actor;
+    engine::colorbox ColorBox;
+
+    gui_button* Resume;
+    gui_button* Menu;
+    gui_slider* MouseSensitivity;
+    gui_slider* Volume;
+    gui_slider* FrameRate;
+
+    act_pause(engine* Engine, game* Game);
+    ~act_pause();
+    state Update();
+};
 
 struct act_player
 {
