@@ -9,6 +9,7 @@ act_pause::act_pause(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->MouseSensitivity = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 50, 400, 15, "Egér érzékenység", 0.1, 2, this->Game->Settings->MouseSensitivity);
     this->Volume = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 125, 400, 15, "Hangerő", 0, 100, this->Game->Settings->Volume);
     this->FrameRate = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 200, 400, 15, "FPS", 30, 1000, this->Game->Settings->FrameRate);
+    this->PauseTick = 0;
 
     this->Actor->Visible = false;
 
@@ -39,7 +40,7 @@ act_pause::~act_pause()
 
 act_pause::state act_pause::Update()
 {
-    if (!this->Actor->Visible && this->Engine->Keys[KEY_ESCAPE])
+    if (!this->Actor->Visible && this->PauseTick + 100 < this->Engine->Timing.GetCurrentTick() && this->Engine->Keys[KEY_ESCAPE])
     {
         this->Actor->Visible = true;
         this->Resume->Actor->Visible = true;
@@ -48,11 +49,12 @@ act_pause::state act_pause::Update()
         this->Volume->Actor->Visible = true;
         this->FrameRate->Actor->Visible = true;
         this->Engine->Mouse.SetAbsolute();
+        this->PauseTick = this->Engine->Timing.GetCurrentTick();
     }
 
     if (this->Actor->Visible)
     {
-        if (this->Resume->Update())
+        if (this->Resume->Update() || (this->PauseTick + 100 < this->Engine->Timing.GetCurrentTick() && this->Engine->Keys[KEY_ESCAPE]))
         {
             this->Actor->Visible = false;
             this->Resume->Actor->Visible = false;
@@ -61,6 +63,7 @@ act_pause::state act_pause::Update()
             this->Volume->Actor->Visible = false;
             this->FrameRate->Actor->Visible = false;
             this->Engine->Mouse.SetRelative();
+            this->PauseTick = this->Engine->Timing.GetCurrentTick();
             return UNPAUSED;
         }
 

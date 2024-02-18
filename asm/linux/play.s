@@ -183,7 +183,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	leaq	72(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE@PLT
 	movq	%rax, 56(%r12)
-	movl	$72, %edi
+	movl	$80, %edi
 	call	_Znwm@PLT
 .LEHE0:
 	movq	8(%r12), %rdx
@@ -558,7 +558,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	.cfi_offset 13, -32
 	.cfi_offset 14, -24
 	.cfi_offset 15, -16
-	movl	$72, %esi
+	movl	$80, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
 .L18:
@@ -638,7 +638,7 @@ _ZN10scene_playD2Ev:
 	je	.L44
 	movq	%rbx, %rdi
 	call	_ZN9act_pauseD1Ev@PLT
-	movl	$72, %esi
+	movl	$80, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
 .L44:

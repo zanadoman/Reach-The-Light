@@ -298,6 +298,7 @@ struct act_pause
     gui_slider* MouseSensitivity;
     gui_slider* Volume;
     gui_slider* FrameRate;
+    uint32 PauseTick;
 
     act_pause(engine* Engine, game* Game);
     ~act_pause();
