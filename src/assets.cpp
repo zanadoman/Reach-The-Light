@@ -83,27 +83,27 @@ assets::assets(engine* Engine) : Engine(Engine)
 
     this->TileTextures =
     {
-        this->Engine->Assets.LoadTexture("assets/tiles/top_left_corner.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/top_right_corner.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/bot_left_corner.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/bot_right_corner.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/horizontal_corridor.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/vertical_corridor.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/center_corridor.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/floor_hole.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/ceil_hole.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/trap_hole.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/horizontal_rotating.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/vertical_rotating.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/icons/top_left_corner.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/icons/top_right_corner.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/icons/bot_left_corner.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/icons/bot_right_corner.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/icons/horizontal_corridor.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/icons/vertical_corridor.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/icons/center_corridor.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/icons/floor_hole.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/icons/ceil_hole.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/icons/trap_hole.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/icons/horizontal_rotating.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/icons/vertical_rotating.png"),
     };
     this->TileBackgrounds =
     {
-        this->Engine->Assets.LoadTexture("assets/tiles/background/background1.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/background/background2.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/background/background3.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/background/background4.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/background/background5.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/background/background6.png")
+        this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/background1.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/background2.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/background3.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/background4.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/background5.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/background6.png")
     };
     this->TileBackgrounds +=
     {
@@ -119,13 +119,13 @@ assets::assets(engine* Engine) : Engine(Engine)
     };
     this->TilePlatforms =
     {
-        this->Engine->Assets.LoadTexture("assets/tiles/platform/platform1.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/platform/platform2.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/platform/platform3.png"),
-        this->Engine->Assets.LoadTexture("assets/tiles/platform/platform4.png")
+        this->Engine->Assets.LoadTexture("assets/tiles/platforms/platform1.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/platforms/platform2.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/platforms/platform3.png"),
+        this->Engine->Assets.LoadTexture("assets/tiles/platforms/platform4.png")
     };
-    this->TileRotatingOFF = {this->Engine->Assets.LoadTexture("assets/tiles/background/rotating_off.png")};
-    this->TileRotatingON = {this->Engine->Assets.LoadTexture("assets/tiles/background/rotating_on.png")};
+    this->TileRotatingOFF = {this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/rotating_off.png")};
+    this->TileRotatingON = {this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/rotating_on.png")};
 
     this->TrapSpikes = this->Engine->Assets.LoadTexture("assets/traps/spikes.png");
     this->TrapSpikesSmall = this->Engine->Assets.LoadTexture("assets/traps/spikes_small.png");  

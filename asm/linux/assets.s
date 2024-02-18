@@ -128,57 +128,58 @@
 	.section	.rodata.str1.8
 	.align 8
 .LC55:
-	.string	"assets/tiles/top_left_corner.png"
+	.string	"assets/tiles/icons/top_left_corner.png"
 	.align 8
 .LC56:
-	.string	"assets/tiles/top_right_corner.png"
+	.string	"assets/tiles/icons/top_right_corner.png"
 	.align 8
 .LC57:
-	.string	"assets/tiles/bot_left_corner.png"
+	.string	"assets/tiles/icons/bot_left_corner.png"
 	.align 8
 .LC58:
-	.string	"assets/tiles/bot_right_corner.png"
+	.string	"assets/tiles/icons/bot_right_corner.png"
 	.align 8
 .LC59:
-	.string	"assets/tiles/horizontal_corridor.png"
+	.string	"assets/tiles/icons/horizontal_corridor.png"
 	.align 8
 .LC60:
-	.string	"assets/tiles/vertical_corridor.png"
+	.string	"assets/tiles/icons/vertical_corridor.png"
 	.align 8
 .LC61:
-	.string	"assets/tiles/center_corridor.png"
-	.section	.rodata.str1.1
+	.string	"assets/tiles/icons/center_corridor.png"
+	.align 8
 .LC62:
-	.string	"assets/tiles/floor_hole.png"
+	.string	"assets/tiles/icons/floor_hole.png"
+	.align 8
 .LC63:
-	.string	"assets/tiles/ceil_hole.png"
+	.string	"assets/tiles/icons/ceil_hole.png"
+	.align 8
 .LC64:
-	.string	"assets/tiles/trap_hole.png"
-	.section	.rodata.str1.8
+	.string	"assets/tiles/icons/trap_hole.png"
 	.align 8
 .LC65:
-	.string	"assets/tiles/horizontal_rotating.png"
+	.string	"assets/tiles/icons/horizontal_rotating.png"
 	.align 8
 .LC66:
-	.string	"assets/tiles/vertical_rotating.png"
+	.string	"assets/tiles/icons/vertical_rotating.png"
 	.align 8
 .LC67:
-	.string	"assets/tiles/background/background1.png"
+	.string	"assets/tiles/backgrounds/background1.png"
 	.align 8
 .LC68:
-	.string	"assets/tiles/background/background2.png"
+	.string	"assets/tiles/backgrounds/background2.png"
 	.align 8
 .LC69:
-	.string	"assets/tiles/background/background3.png"
+	.string	"assets/tiles/backgrounds/background3.png"
 	.align 8
 .LC70:
-	.string	"assets/tiles/background/background4.png"
+	.string	"assets/tiles/backgrounds/background4.png"
 	.align 8
 .LC71:
-	.string	"assets/tiles/background/background5.png"
+	.string	"assets/tiles/backgrounds/background5.png"
 	.align 8
 .LC72:
-	.string	"assets/tiles/background/background6.png"
+	.string	"assets/tiles/backgrounds/background6.png"
 	.align 8
 .LC73:
 	.string	"neo::array[]: Index out of range\nParams: Index: %lld\n"
@@ -187,22 +188,22 @@
 	.string	"neo::array+=: Memory allocation failed\nParams: Elements(type, length): %ld, %ld\n"
 	.align 8
 .LC75:
-	.string	"assets/tiles/platform/platform1.png"
+	.string	"assets/tiles/platforms/platform1.png"
 	.align 8
 .LC76:
-	.string	"assets/tiles/platform/platform2.png"
+	.string	"assets/tiles/platforms/platform2.png"
 	.align 8
 .LC77:
-	.string	"assets/tiles/platform/platform3.png"
+	.string	"assets/tiles/platforms/platform3.png"
 	.align 8
 .LC78:
-	.string	"assets/tiles/platform/platform4.png"
+	.string	"assets/tiles/platforms/platform4.png"
 	.align 8
 .LC79:
-	.string	"assets/tiles/background/rotating_off.png"
+	.string	"assets/tiles/backgrounds/rotating_off.png"
 	.align 8
 .LC80:
-	.string	"assets/tiles/background/rotating_on.png"
+	.string	"assets/tiles/backgrounds/rotating_on.png"
 	.section	.rodata.str1.1
 .LC81:
 	.string	"assets/traps/spikes.png"

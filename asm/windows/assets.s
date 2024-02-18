@@ -153,55 +153,58 @@ _Z6printfPKcz:
 	.ascii "assets/firefly/mask.png\0"
 	.align 8
 .LC55:
-	.ascii "assets/tiles/top_left_corner.png\0"
+	.ascii "assets/tiles/icons/top_left_corner.png\0"
 	.align 8
 .LC56:
-	.ascii "assets/tiles/top_right_corner.png\0"
+	.ascii "assets/tiles/icons/top_right_corner.png\0"
 	.align 8
 .LC57:
-	.ascii "assets/tiles/bot_left_corner.png\0"
+	.ascii "assets/tiles/icons/bot_left_corner.png\0"
 	.align 8
 .LC58:
-	.ascii "assets/tiles/bot_right_corner.png\0"
+	.ascii "assets/tiles/icons/bot_right_corner.png\0"
 	.align 8
 .LC59:
-	.ascii "assets/tiles/horizontal_corridor.png\0"
+	.ascii "assets/tiles/icons/horizontal_corridor.png\0"
 	.align 8
 .LC60:
-	.ascii "assets/tiles/vertical_corridor.png\0"
+	.ascii "assets/tiles/icons/vertical_corridor.png\0"
 	.align 8
 .LC61:
-	.ascii "assets/tiles/center_corridor.png\0"
+	.ascii "assets/tiles/icons/center_corridor.png\0"
+	.align 8
 .LC62:
-	.ascii "assets/tiles/floor_hole.png\0"
+	.ascii "assets/tiles/icons/floor_hole.png\0"
+	.align 8
 .LC63:
-	.ascii "assets/tiles/ceil_hole.png\0"
+	.ascii "assets/tiles/icons/ceil_hole.png\0"
+	.align 8
 .LC64:
-	.ascii "assets/tiles/trap_hole.png\0"
+	.ascii "assets/tiles/icons/trap_hole.png\0"
 	.align 8
 .LC65:
-	.ascii "assets/tiles/horizontal_rotating.png\0"
+	.ascii "assets/tiles/icons/horizontal_rotating.png\0"
 	.align 8
 .LC66:
-	.ascii "assets/tiles/vertical_rotating.png\0"
+	.ascii "assets/tiles/icons/vertical_rotating.png\0"
 	.align 8
 .LC67:
-	.ascii "assets/tiles/background/background1.png\0"
+	.ascii "assets/tiles/backgrounds/background1.png\0"
 	.align 8
 .LC68:
-	.ascii "assets/tiles/background/background2.png\0"
+	.ascii "assets/tiles/backgrounds/background2.png\0"
 	.align 8
 .LC69:
-	.ascii "assets/tiles/background/background3.png\0"
+	.ascii "assets/tiles/backgrounds/background3.png\0"
 	.align 8
 .LC70:
-	.ascii "assets/tiles/background/background4.png\0"
+	.ascii "assets/tiles/backgrounds/background4.png\0"
 	.align 8
 .LC71:
-	.ascii "assets/tiles/background/background5.png\0"
+	.ascii "assets/tiles/backgrounds/background5.png\0"
 	.align 8
 .LC72:
-	.ascii "assets/tiles/background/background6.png\0"
+	.ascii "assets/tiles/backgrounds/background6.png\0"
 	.align 8
 .LC73:
 	.ascii "neo::array[]: Index out of range\12Params: Index: %lld\12\0"
@@ -210,22 +213,22 @@ _Z6printfPKcz:
 	.ascii "neo::array+=: Memory allocation failed\12Params: Elements(type, length): %ld, %ld\12\0"
 	.align 8
 .LC75:
-	.ascii "assets/tiles/platform/platform1.png\0"
+	.ascii "assets/tiles/platforms/platform1.png\0"
 	.align 8
 .LC76:
-	.ascii "assets/tiles/platform/platform2.png\0"
+	.ascii "assets/tiles/platforms/platform2.png\0"
 	.align 8
 .LC77:
-	.ascii "assets/tiles/platform/platform3.png\0"
+	.ascii "assets/tiles/platforms/platform3.png\0"
 	.align 8
 .LC78:
-	.ascii "assets/tiles/platform/platform4.png\0"
+	.ascii "assets/tiles/platforms/platform4.png\0"
 	.align 8
 .LC79:
-	.ascii "assets/tiles/background/rotating_off.png\0"
+	.ascii "assets/tiles/backgrounds/rotating_off.png\0"
 	.align 8
 .LC80:
-	.ascii "assets/tiles/background/rotating_on.png\0"
+	.ascii "assets/tiles/backgrounds/rotating_on.png\0"
 .LC81:
 	.ascii "assets/traps/spikes.png\0"
 .LC82:
