@@ -262,7 +262,7 @@ main:
 	movq	%rbp, %rdi
 .LEHB2:
 	call	_Z15DisplayPressKitPN3wze6engineE
-	movl	$72, %edi
+	movl	$80, %edi
 	call	_Znwm@PLT
 .LEHE2:
 	movq	%rbp, %rsi
@@ -303,7 +303,7 @@ main:
 .L29:
 	movq	%r12, %rdi
 	call	_ZN4gameD1Ev@PLT
-	movl	$72, %esi
+	movl	$80, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
 	movq	%rbp, %rdi
@@ -384,7 +384,7 @@ main.cold:
 	call	_Unwind_Resume@PLT
 .L31:
 	movq	%r12, %rdi
-	movl	$72, %esi
+	movl	$80, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT

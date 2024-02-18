@@ -7,7 +7,7 @@ scene_menu::scene_menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->MenuBackground);
     this->Play = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 225, 200, 75, 0, "Játék");
     this->Editor = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 125, 200, 75, 0, "Pályák");
-    this->Credits = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 25, 200, 75, 0, "Készítők");
+    this->Help = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 25, 200, 75, 0, "Segítség");
     this->Quit = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() - 75, 200, 75, 0, "Kilép");
     this->MouseSensitivity = new gui_slider(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() - 225, 400, 15, "Egér érzékenység", 0.1, 2, this->Game->Settings->MouseSensitivity);
     this->Volume = new gui_slider(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() - 300, 400, 15, "Hangerő", 0, 100, this->Game->Settings->Volume);
@@ -28,7 +28,7 @@ scene_menu::~scene_menu()
     this->Engine->Actors.Delete(this->Actor->GetID());
     delete this->Play;
     delete this->Editor;
-    delete this->Credits;
+    delete this->Help;
     delete this->Quit;
     delete this->MouseSensitivity;
     delete this->Volume;
@@ -45,7 +45,10 @@ scene scene_menu::Update()
     {
         return SCENE_EDITOR;
     }
-    this->Credits->Update();
+    if (this->Help->Update())
+    {
+        return SCENE_HELP;
+    }
     if (this->Quit->Update())
     {
         return SCENE_NONE;

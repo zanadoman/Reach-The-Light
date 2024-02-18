@@ -8,7 +8,7 @@
 .LC6:
 	.string	"P\303\241ly\303\241k"
 .LC8:
-	.string	"K\303\251sz\303\255t\305\221k"
+	.string	"Seg\303\255ts\303\251g"
 .LC10:
 	.string	"Kil\303\251p"
 .LC13:
@@ -624,12 +624,29 @@ _ZN10scene_menu6UpdateEv:
 	jne	.L46
 	movq	56(%rbx), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
+	movl	%eax, %edx
+	movl	$4, %eax
+	testb	%dl, %dl
+	jne	.L46
 	movq	64(%rbx), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
 	movl	%eax, %edx
 	xorl	%eax, %eax
 	testb	%dl, %dl
-	jne	.L46
+	je	.L53
+.L46:
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L53:
+	.cfi_restore_state
 	movq	(%rbx), %rax
 	movq	72(%rbx), %rdi
 	leaq	200(%rax), %rbp
@@ -665,10 +682,9 @@ _ZN10scene_menu6UpdateEv:
 	idivl	%ecx
 	movzbl	%al, %esi
 	call	_ZN3wze6engine6timing18SetTargetFrameTimeEh@PLT
-	movl	$1, %eax
-.L46:
 	popq	%rbx
 	.cfi_def_cfa_offset 24
+	movl	$1, %eax
 	popq	%rbp
 	.cfi_def_cfa_offset 16
 	popq	%r12

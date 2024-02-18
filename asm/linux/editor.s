@@ -4,7 +4,7 @@
 .LC1:
 	.string	"P\303\241lya 1"
 .LC4:
-	.string	"Kil\303\251p\303\251s"
+	.string	"Vissza"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
 .LCOLDB7:

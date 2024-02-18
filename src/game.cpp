@@ -26,6 +26,10 @@ game::~game()
             delete this->Editor;
         break;
 
+        case SCENE_HELP:
+            delete this->Help;
+        break;
+
         case SCENE_GAME_OVER:
             delete this->GameOver;
         break;
@@ -58,6 +62,10 @@ uint8 game::Update()
             this->SwitchScene(this->Editor->Update());
         break;
 
+        case SCENE_HELP:
+            this->SwitchScene(this->Help->Update());
+        break;
+
         case SCENE_GAME_OVER:
             this->SwitchScene(this->GameOver->Update());
         break;
@@ -82,6 +90,10 @@ uint8 game::SwitchScene(scene NewScene)
 
             case SCENE_EDITOR:
                 delete this->Editor;
+            break;
+
+            case SCENE_HELP:
+                delete this->Help;
             break;
 
             case SCENE_GAME_OVER:
@@ -112,6 +124,10 @@ uint8 game::SwitchScene(scene NewScene)
 
             case SCENE_EDITOR:
                 this->Editor = new scene_editor(this->Engine, this);
+            break;
+
+            case SCENE_HELP:
+                this->Help = new scene_help(this->Engine, this);
             break;
 
             case SCENE_GAME_OVER:

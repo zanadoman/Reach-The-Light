@@ -4,7 +4,7 @@ scene_editor::scene_editor(engine* Engine, game* Game) : Engine(Engine), Game(Ga
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, this->Engine->Window.GetWidth() >> 1, this->Engine->Window.GetWidth() >> 1, 0, 0, 0);
     this->Reset = new gui_button(this->Engine, this->Game, 0, -900, 200, 75, 1, "Pálya 1");
-    this->Exit = new gui_button(this->Engine, this->Game, 0, -1050, 200, 75, 1, "Kilépés");
+    this->Exit = new gui_button(this->Engine, this->Game, 0, -1050, 200, 75, 1, "Vissza");
 
     for (uint8 i = 0; i < MAP_X; i++)
     {

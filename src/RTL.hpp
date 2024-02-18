@@ -18,6 +18,7 @@ struct map;
 struct scene_menu;
 struct scene_play;
 struct scene_editor;
+struct scene_help;
 struct scene_game_over;
 struct act_pause;
 struct act_player;
@@ -46,6 +47,7 @@ typedef enum
     SCENE_MENU,
     SCENE_PLAY,
     SCENE_EDITOR,
+    SCENE_HELP,
     SCENE_GAME_OVER
 } scene;
 
@@ -96,6 +98,7 @@ struct game
     scene_menu* Menu;
     scene_play* Play;
     scene_editor* Editor;
+    scene_help* Help;
     scene_game_over* GameOver;
 
     game(engine* Engine);
@@ -193,7 +196,7 @@ struct scene_menu
 
     gui_button* Play;
     gui_button* Editor;
-    gui_button* Credits;
+    gui_button* Help;
     gui_button* Quit;
     gui_slider* MouseSensitivity;
     gui_slider* Volume;
@@ -239,6 +242,20 @@ struct scene_editor
 
     scene_editor(engine* Engine, game* Game);
     ~scene_editor();
+    scene Update();
+};
+
+struct scene_help
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+
+    gui_button* Exit;
+
+    scene_help(engine* Engine, game* Game);
+    ~scene_help();
     scene Update();
 };
 

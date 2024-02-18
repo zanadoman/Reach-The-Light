@@ -1028,7 +1028,7 @@ _ZN10scene_play6UpdateEv:
 	movq	72(%rbp), %rdx
 	jmp	.L70
 .L92:
-	movl	$4, %ebx
+	movl	$5, %ebx
 	jmp	.L71
 .L110:
 	call	__stack_chk_fail@PLT
