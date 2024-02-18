@@ -204,6 +204,7 @@ uint8 act_player::Update()
             this->Fall->FlipHorizontal = true;
             this->Latch->FlipHorizontal = true;
             this->Hurt->FlipHorizontal = true;
+            this->Dead->FlipHorizontal = true;
         }
         else if (this->VelocityX < 0)
         {
@@ -229,6 +230,7 @@ uint8 act_player::Update()
             this->Fall->FlipHorizontal = false;
             this->Latch->FlipHorizontal = false;
             this->Hurt->FlipHorizontal = false;
+            this->Dead->FlipHorizontal = false;
         }
         else if (0 < this->VelocityX)
         {

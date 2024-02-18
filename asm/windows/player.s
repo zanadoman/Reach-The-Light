@@ -768,6 +768,8 @@ _ZN10act_player6UpdateEv:
 	movb	$1, 32(%rax)
 	movq	112(%rbx), %rax
 	movb	$1, 32(%rax)
+	movq	120(%rbx), %rax
+	movb	$1, 32(%rax)
 	jmp	.L44
 	.p2align 4,,10
 	.p2align 3
@@ -822,6 +824,8 @@ _ZN10act_player6UpdateEv:
 	movq	104(%rbx), %rax
 	movb	$0, 32(%rax)
 	movq	112(%rbx), %rax
+	movb	$0, 32(%rax)
+	movq	120(%rbx), %rax
 	movb	$0, 32(%rax)
 	jmp	.L59
 	.p2align 4,,10
