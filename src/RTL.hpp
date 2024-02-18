@@ -238,6 +238,14 @@ struct scene_editor
     game* Game;
 
     engine::actor Actor;
+    engine::textbox ScrollUpHint;
+    engine::textbox ScrollDownHint;
+    engine::textbox ZoomInHint;
+    engine::textbox ZoomOutHint;
+    engine::textbox TileChangeHint;
+    engine::textbox SpawnChangeHint1;
+    engine::textbox SpawnChangeHint2;
+    engine::textbox SaveHint;
 
     gui_button* Map1;
     gui_button* Map2;
