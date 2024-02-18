@@ -1441,12 +1441,12 @@ _ZN10act_player6UpdateEv.cold:
 	.long	1074737971
 	.align 8
 .LC14:
-	.long	-1717986918
-	.long	-1077306983
+	.long	858993459
+	.long	-1077726413
 	.align 8
 .LC15:
-	.long	-1717986918
-	.long	1070176665
+	.long	858993459
+	.long	1069757235
 	.align 8
 .LC17:
 	.long	-1717986918
@@ -1457,16 +1457,16 @@ _ZN10act_player6UpdateEv.cold:
 	.long	1067030937
 	.align 8
 .LC20:
-	.long	-1133871366
-	.long	1061720948
+	.long	810889825
+	.long	1061398826
 	.align 8
 .LC21:
-	.long	858993459
-	.long	1070805811
+	.long	-1717986918
+	.long	1070700953
 	.align 8
 .LC22:
-	.long	-1133871366
-	.long	-1085762700
+	.long	810889825
+	.long	-1086084822
 	.align 8
 .LC23:
 	.long	-1717986918

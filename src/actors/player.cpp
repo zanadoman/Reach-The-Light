@@ -190,10 +190,10 @@ uint8 act_player::Update()
 
         if ((this->Engine->Keys[KEY_A] || this->Engine->Keys[KEY_LEFT]) && !(this->Engine->Keys[KEY_D] || this->Engine->Keys[KEY_RIGHT]))
         {
-            this->VelocityX -= 0.00075 * this->Engine->Timing.GetDeltaTime();
-            if (this->VelocityX < -0.2)
+            this->VelocityX -= 0.0006 * this->Engine->Timing.GetDeltaTime();
+            if (this->VelocityX < -0.15)
             {
-                this->VelocityX = -0.2;
+                this->VelocityX = -0.15;
             }
 
             this->LatchBox1->SetX(this->Actor->GetX() - 8);
@@ -207,7 +207,7 @@ uint8 act_player::Update()
         }
         else if (this->VelocityX < 0)
         {
-            this->VelocityX += 0.00075 * this->Engine->Timing.GetDeltaTime();
+            this->VelocityX += 0.0006 * this->Engine->Timing.GetDeltaTime();
             if (0 < this->VelocityX)
             {
                 this->VelocityX = 0;
@@ -215,10 +215,10 @@ uint8 act_player::Update()
         }
         if ((this->Engine->Keys[KEY_D] || this->Engine->Keys[KEY_RIGHT]) && !(this->Engine->Keys[KEY_A] || this->Engine->Keys[KEY_LEFT]))
         {
-            this->VelocityX += 0.00075 * this->Engine->Timing.GetDeltaTime();
-            if (0.2 < this->VelocityX)
+            this->VelocityX += 0.0006 * this->Engine->Timing.GetDeltaTime();
+            if (0.15 < this->VelocityX)
             {
-                this->VelocityX = 0.2;
+                this->VelocityX = 0.15;
             }
 
             this->LatchBox1->SetX(this->Actor->GetX() + 8);
@@ -232,7 +232,7 @@ uint8 act_player::Update()
         }
         else if (0 < this->VelocityX)
         {
-            this->VelocityX -= 0.00075 * this->Engine->Timing.GetDeltaTime();
+            this->VelocityX -= 0.0006 * this->Engine->Timing.GetDeltaTime();
             if (this->VelocityX < 0)
             {
                 this->VelocityX = 0;
@@ -241,7 +241,7 @@ uint8 act_player::Update()
 
         if (this->VelocityY == 0 && (this->Engine->Keys[KEY_W] || this->Engine->Keys[KEY_SPACE] || this->Engine->Keys[KEY_UP]))
         {
-            this->VelocityY = 0.3;
+            this->VelocityY = 0.275;
             this->Jump->Reset();
         }
 
@@ -277,14 +277,14 @@ uint8 act_player::Update()
             this->Idle->Angle = 0;
             this->Run->Angle = 0;
 
-            this->VelocityY -= 0.00075 * this->Engine->Timing.GetDeltaTime();
+            this->VelocityY -= 0.0006 * this->Engine->Timing.GetDeltaTime();
         }
 
         if (this->Actor->GetY() + this->VelocityY * this->Engine->Timing.GetDeltaTime() != this->Actor->SetY(this->Actor->GetY() + this->VelocityY * this->Engine->Timing.GetDeltaTime()))
         {
             if (0 < this->VelocityY)
             {
-                this->VelocityY = -0.00075 * this->Engine->Timing.GetDeltaTime();
+                this->VelocityY = -0.0006 * this->Engine->Timing.GetDeltaTime();
             }
             else if (this->VelocityY < 0)
             {

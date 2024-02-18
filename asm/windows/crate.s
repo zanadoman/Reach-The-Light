@@ -374,8 +374,8 @@ _ZN9act_crate6UpdateEv.cold:
 	.long	1072693248
 	.align 8
 .LC2:
-	.long	-1133871366
-	.long	1061720948
+	.long	810889825
+	.long	1061398826
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	__mingw_vfprintf;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
