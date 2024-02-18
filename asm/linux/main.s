@@ -20,7 +20,7 @@ main:
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	movl	$456, %edi
+	movl	$464, %edi
 	pushq	%rbx
 	.cfi_def_cfa_offset 24
 	.cfi_offset 3, -24
@@ -39,8 +39,11 @@ main:
 .LEHB1:
 	call	_ZN3wze6engineC1EPKcS2_tth@PLT
 .LEHE1:
-	movl	$80, %edi
+	movl	$32, %esi
+	leaq	400(%rbx), %rdi
 .LEHB2:
+	call	_ZN3wze6engine6timing15SetMaxDeltaTimeEj@PLT
+	movl	$80, %edi
 	call	_Znwm@PLT
 .LEHE2:
 	movq	%rbx, %rsi
@@ -73,7 +76,7 @@ main:
 	movq	%rbx, %rdi
 	call	_ZN3wze6engineD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$456, %esi
+	movl	$464, %esi
 	call	_ZdlPvm@PLT
 	addq	$8, %rsp
 	.cfi_remember_state
@@ -134,7 +137,7 @@ main.cold:
 	.cfi_offset 3, -24
 	.cfi_offset 6, -16
 	movq	%rbx, %rdi
-	movl	$456, %esi
+	movl	$464, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbp, %rdi
 .LEHB5:

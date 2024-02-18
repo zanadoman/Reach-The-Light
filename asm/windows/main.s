@@ -85,7 +85,7 @@ main:
 	.seh_stackalloc	56
 	.seh_endprologue
 	call	__main
-	movl	$456, %ecx
+	movl	$464, %ecx
 .LEHB0:
 	call	_Znwy
 .LEHE0:
@@ -99,8 +99,11 @@ main:
 .LEHB1:
 	call	_ZN3wze6engineC1EPKcS2_tth
 .LEHE1:
-	movl	$80, %ecx
+	movl	$32, %edx
+	leaq	400(%rbx), %rcx
 .LEHB2:
+	call	_ZN3wze6engine6timing15SetMaxDeltaTimeEj
+	movl	$80, %ecx
 	call	_Znwy
 .LEHE2:
 	movq	%rbx, %rdx
@@ -132,7 +135,7 @@ main:
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_ZN3wze6engineD1Ev
-	movl	$456, %edx
+	movl	$464, %edx
 	movq	%rbx, %rcx
 	call	_ZdlPvy
 	xorl	%eax, %eax
@@ -188,7 +191,7 @@ main:
 main.cold:
 .L8:
 	movq	%rbx, %rcx
-	movl	$456, %edx
+	movl	$464, %edx
 	call	_ZdlPvy
 	movq	%rsi, %rcx
 .LEHB5:
@@ -431,6 +434,7 @@ _Z8PrintMapP4game:
 	.def	__mingw_vfprintf;	.scl	2;	.type	32;	.endef
 	.def	_Znwy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engineC1EPKcS2_tth;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6timing15SetMaxDeltaTimeEj;	.scl	2;	.type	32;	.endef
 	.def	_ZN4gameC1EPN3wze6engineE;	.scl	2;	.type	32;	.endef
 	.def	_ZN4game6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6UpdateEv;	.scl	2;	.type	32;	.endef
