@@ -37,7 +37,7 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	leaq	72(%rdx), %rcx
 	movl	$75, %edx
 	movq	8(%rax), %rax
-	leaq	288(%rax), %r8
+	leaq	328(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	.LC1(%rip), %rcx
 	movq	24(%rbx), %rdx

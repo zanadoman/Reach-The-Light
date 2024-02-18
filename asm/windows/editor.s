@@ -2,7 +2,7 @@
 	.text
 	.section .rdata,"dr"
 .LC1:
-	.ascii "Alaphelyzet\0"
+	.ascii "P\303\241lya 1\0"
 .LC4:
 	.ascii "Kil\303\251p\303\251s\0"
 	.section	.text.unlikely,"x"
@@ -72,11 +72,11 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movsd	.LC2(%rip), %xmm6
 	movq	%rax, %rbx
 	leaq	.LC1(%rip), %rax
-	movl	$100, 48(%rsp)
+	movl	$75, 48(%rsp)
 	movq	%rax, 64(%rsp)
 	movq	.LC3(%rip), %rax
 	movq	%rbx, %rcx
-	movl	$300, 40(%rsp)
+	movl	$200, 40(%rsp)
 	movq	%rax, 32(%rsp)
 	movsd	%xmm6, 56(%rsp)
 	movq	8(%rbp), %r8
@@ -93,11 +93,11 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	pxor	%xmm3, %xmm3
 	movq	%rax, %rbx
 	leaq	.LC4(%rip), %rax
-	movl	$100, 48(%rsp)
+	movl	$75, 48(%rsp)
 	movq	%rax, 64(%rsp)
 	movq	.LC5(%rip), %rax
 	movq	%rbx, %rcx
-	movl	$300, 40(%rsp)
+	movl	$200, 40(%rsp)
 	movq	%rax, 32(%rsp)
 	movq	8(%rbp), %r8
 .LEHB3:

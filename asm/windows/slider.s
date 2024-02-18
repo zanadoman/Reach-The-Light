@@ -347,12 +347,12 @@ _ZN10gui_slider6UpdateEv:
 .LEHB4:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv
 	testb	$1, %al
-	je	.L25
+	je	.L26
 	movq	24(%rbx), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv
 	movq	48(%rbx), %rdi
 	testb	$2, %al
-	jne	.L28
+	jne	.L29
 .L8:
 	movq	%rdi, %rcx
 	movsd	96(%rbx), %xmm7
@@ -360,28 +360,24 @@ _ZN10gui_slider6UpdateEv:
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv
 	movsd	72(%rbx), %xmm1
 	movapd	%xmm0, %xmm6
-	movq	40(%rbx), %rdi
-	addq	$56, %rbx
-	movsd	24(%rbx), %xmm0
-	leaq	104(%rsp), %rbp
-	leaq	96(%rsp), %r12
-	subsd	%xmm1, %xmm6
-	subsd	%xmm1, %xmm0
-	divsd	%xmm0, %xmm6
-	mulsd	%xmm7, %xmm6
-	addsd	32(%rbx), %xmm6
-	movapd	%xmm6, %xmm0
-	call	round
-	leaq	64(%rsp), %rdx
+	leaq	56(%rbx), %rbp
 	movq	%rsi, %rcx
-	movq	%rbx, 88(%rsp)
-	movq	$1, 72(%rsp)
-	cvttsd2siq	%xmm0, %rax
-	movq	%rax, 104(%rsp)
+	movsd	80(%rbx), %xmm0
+	leaq	64(%rsp), %rdx
+	movq	%rbp, 88(%rsp)
 	leaq	.LC7(%rip), %rax
+	subsd	%xmm1, %xmm6
 	movq	%rax, 96(%rsp)
 	leaq	88(%rsp), %rax
+	subsd	%xmm1, %xmm0
+	leaq	104(%rsp), %rdi
+	leaq	96(%rsp), %r12
+	divsd	%xmm0, %xmm6
+	mulsd	%xmm7, %xmm6
+	addsd	88(%rbx), %xmm6
 	movq	%rax, 64(%rsp)
+	movq	$1, 72(%rsp)
+	movsd	%xmm6, 104(%rsp)
 	call	_ZN3neo6stringaSESt16initializer_listIPS0_E
 	movq	%rax, %rcx
 	leaq	48(%rsp), %rdx
@@ -390,13 +386,35 @@ _ZN10gui_slider6UpdateEv:
 	call	_ZN3neo6stringpLESt16initializer_listIPKcE
 	movq	%rax, %rcx
 	leaq	32(%rsp), %rdx
-	movq	%rbp, 32(%rsp)
+	movq	%rdi, 32(%rsp)
 	movq	$1, 40(%rsp)
-	call	_ZN3neo6stringpLESt16initializer_listIxE
-	movq	%rax, %rcx
+	call	_ZN3neo6stringpLESt16initializer_listIdE
+	movq	%rbp, %rcx
+	call	_ZN3neo6string6LengthEv
+	movq	%rsi, %rcx
+	leaq	6(%rax), %rdi
+	call	_ZN3neo6string6LengthEv
+	cmpq	%rax, %rdi
+	jnb	.L12
+	movq	%rsi, %rcx
+	call	_ZN3neo6string6LengthEv
+	movq	%rbp, %rcx
+	movq	%rax, %rdi
+	call	_ZN3neo6string6LengthEv
+	subq	$7, %rdi
+	movq	%rbp, %rcx
+	subq	%rax, %rdi
+	call	_ZN3neo6string6LengthEv
+	leaq	6(%rax), %rdx
+	movq	%rdi, %r8
+	movq	%rsi, %rcx
+	call	_ZN3neo6string6RemoveEyy
+.L12:
+	movq	%rsi, %rcx
+	movq	40(%rbx), %rbx
 	call	_ZN3neo6stringclEv
 	movq	%rax, %rdx
-	movq	%rdi, %rcx
+	movq	%rbx, %rcx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox10SetLiteralEPKc
 	movq	%rsi, %rcx
 	call	_ZN3neo6stringD1Ev
@@ -412,7 +430,7 @@ _ZN10gui_slider6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L28:
+.L29:
 	movq	(%rbx), %rax
 	pxor	%xmm1, %xmm1
 	leaq	200(%rax), %rcx
@@ -425,7 +443,7 @@ _ZN10gui_slider6UpdateEv:
 	movsd	72(%rbx), %xmm1
 	movq	48(%rbx), %rcx
 	comisd	%xmm0, %xmm1
-	ja	.L27
+	ja	.L28
 	movsd	80(%rbx), %xmm6
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv
 	comisd	%xmm6, %xmm0
@@ -433,17 +451,17 @@ _ZN10gui_slider6UpdateEv:
 	jbe	.L8
 	movsd	80(%rbx), %xmm1
 	movq	%rdi, %rcx
-.L27:
+.L28:
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd
 .LEHE4:
 	.p2align 4,,10
 	.p2align 3
-.L25:
+.L26:
 	movq	48(%rbx), %rdi
 	jmp	.L8
-.L13:
+.L14:
 	movq	%rax, %rbx
-	jmp	.L12
+	jmp	.L13
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 .LLSDA8437:
@@ -458,7 +476,7 @@ _ZN10gui_slider6UpdateEv:
 	.uleb128 0
 	.uleb128 .LEHB4-.LFB8437
 	.uleb128 .LEHE4-.LEHB4
-	.uleb128 .L13-.LFB8437
+	.uleb128 .L14-.LFB8437
 	.uleb128 0
 .LLSDACSE8437:
 	.text
@@ -476,7 +494,7 @@ _ZN10gui_slider6UpdateEv:
 	.seh_savereg	%r12, 192
 	.seh_endprologue
 _ZN10gui_slider6UpdateEv.cold:
-.L12:
+.L13:
 	movq	%rsi, %rcx
 	call	_ZN3neo6stringD1Ev
 	movq	%rbx, %rcx
@@ -537,10 +555,11 @@ _ZN10gui_slider6UpdateEv.cold:
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv;	.scl	2;	.type	32;	.endef
-	.def	round;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringaSESt16initializer_listIPS0_E;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringpLESt16initializer_listIPKcE;	.scl	2;	.type	32;	.endef
-	.def	_ZN3neo6stringpLESt16initializer_listIxE;	.scl	2;	.type	32;	.endef
+	.def	_ZN3neo6stringpLESt16initializer_listIdE;	.scl	2;	.type	32;	.endef
+	.def	_ZN3neo6string6LengthEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3neo6string6RemoveEyy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringclEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes7textbox10SetLiteralEPKc;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5mouse4GetXEd;	.scl	2;	.type	32;	.endef

@@ -89,12 +89,12 @@ _ZN15tile_floor_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rdi
 	movq	(%rbx), %rax
-	movl	200(%rdi), %r8d
+	movl	240(%rdi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	208(%rdi), %rdx
+	movq	248(%rdi), %rdx
 	cltq
-	cmpq	200(%rdi), %rax
+	cmpq	240(%rdi), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rsi, %rcx
@@ -129,12 +129,12 @@ _ZN15tile_floor_holeC2EPN3wze6engineEP4gamedd:
 	xorl	%edx, %edx
 	movq	8(%rax), %rbp
 	movq	(%rbx), %rax
-	movl	216(%rbp), %r8d
+	movl	256(%rbp), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	224(%rbp), %rdx
+	movq	264(%rbp), %rdx
 	cltq
-	cmpq	216(%rbp), %rax
+	cmpq	256(%rbp), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rsi, %rcx
@@ -179,12 +179,12 @@ _ZN15tile_floor_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rsi
 	movq	(%rbx), %rax
-	movl	216(%rsi), %r8d
+	movl	256(%rsi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	224(%rsi), %rdx
+	movq	264(%rsi), %rdx
 	cltq
-	cmpq	216(%rsi), %rax
+	cmpq	256(%rsi), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
@@ -211,12 +211,12 @@ _ZN15tile_floor_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rsi
 	movq	(%rbx), %rax
-	movl	216(%rsi), %r8d
+	movl	256(%rsi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	224(%rsi), %rdx
+	movq	264(%rsi), %rdx
 	cltq
-	cmpq	216(%rsi), %rax
+	cmpq	256(%rsi), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
@@ -243,12 +243,12 @@ _ZN15tile_floor_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rsi
 	movq	(%rbx), %rax
-	movl	216(%rsi), %r8d
+	movl	256(%rsi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	224(%rsi), %rdx
+	movq	264(%rsi), %rdx
 	cltq
-	cmpq	216(%rsi), %rax
+	cmpq	256(%rsi), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
@@ -275,11 +275,11 @@ _ZN15tile_floor_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	addq	$320, %rcx
 	movq	8(%rax), %rsi
-	movl	216(%rsi), %r8d
+	movl	256(%rsi), %r8d
 	call	_ZN3wze6engine4math6RandomEii
-	movq	224(%rsi), %rdx
+	movq	264(%rsi), %rdx
 	cltq
-	cmpq	216(%rsi), %rax
+	cmpq	256(%rsi), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movaps	64(%rsp), %xmm6

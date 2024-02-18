@@ -16,14 +16,16 @@ _ZN8settingsC2Ev:
 	subq	$32, %rsp
 	.seh_stackalloc	32
 	.seh_endprologue
-	movl	$16, %r8d
+	movl	$24, %r8d
 	movq	%rcx, %rbx
 	movq	%rcx, %rdx
 	leaq	.LC0(%rip), %rcx
 	call	_ZN3neo6memory6LoadToEPKcPvy
 	testb	%al, %al
 	je	.L1
+	movq	.LC2(%rip), %rax
 	movapd	.LC1(%rip), %xmm0
+	movq	%rax, 16(%rbx)
 	movups	%xmm0, (%rbx)
 .L1:
 	addq	$32, %rsp
@@ -44,7 +46,7 @@ _ZN8settingsD2Ev:
 	.seh_stackalloc	40
 	.seh_endprologue
 	leaq	.LC0(%rip), %r8
-	movl	$16, %edx
+	movl	$24, %edx
 	call	_ZN3neo6memory4SaveEPKvyPKc
 	nop
 	addq	$40, %rsp
@@ -68,7 +70,11 @@ _ZN8settingsD2Ev:
 	.align 16
 .LC1:
 	.long	0
+	.long	1072693248
+	.long	0
 	.long	1078525952
+	.align 8
+.LC2:
 	.long	0
 	.long	1078853632
 	.ident	"GCC: (GNU) 13.1.0"
