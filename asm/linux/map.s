@@ -360,6 +360,36 @@ _ZN3map4Map2Ev:
 	.cfi_endproc
 .LFE8163:
 	.size	_ZN3map4Map2Ev, .-_ZN3map4Map2Ev
+	.align 2
+	.p2align 4
+	.globl	_ZN3map4Map3Ev
+	.type	_ZN3map4Map3Ev, @function
+_ZN3map4Map3Ev:
+.LFB8164:
+	.cfi_startproc
+	movdqa	.LC23(%rip), %xmm0
+	movq	136(%rdi), %rax
+	movups	%xmm0, (%rdi)
+	movdqa	.LC24(%rip), %xmm0
+	movups	%xmm0, 16(%rdi)
+	movdqa	.LC25(%rip), %xmm0
+	movups	%xmm0, 32(%rdi)
+	movdqa	.LC26(%rip), %xmm0
+	movups	%xmm0, 48(%rdi)
+	movdqa	.LC27(%rip), %xmm0
+	movups	%xmm0, 64(%rdi)
+	movdqa	.LC28(%rip), %xmm0
+	movups	%xmm0, 80(%rdi)
+	movdqa	.LC29(%rip), %xmm0
+	movups	%xmm0, 96(%rdi)
+	movdqa	.LC30(%rip), %xmm0
+	movups	%xmm0, 112(%rdi)
+	movb	$4, (%rax)
+	xorl	%eax, %eax
+	ret
+	.cfi_endproc
+.LFE8164:
+	.size	_ZN3map4Map3Ev, .-_ZN3map4Map3Ev
 	.section	.rodata.cst16,"aM",@progbits,16
 	.align 16
 .LC1:
@@ -648,6 +678,150 @@ _ZN3map4Map2Ev:
 	.byte	3
 	.byte	1
 	.byte	3
+	.byte	1
+	.align 16
+.LC23:
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	5
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	5
+	.byte	0
+	.align 16
+.LC24:
+	.byte	4
+	.byte	8
+	.byte	1
+	.byte	2
+	.byte	9
+	.byte	4
+	.byte	4
+	.byte	4
+	.byte	3
+	.byte	6
+	.byte	9
+	.byte	4
+	.byte	8
+	.byte	10
+	.byte	2
+	.byte	1
+	.align 16
+.LC25:
+	.byte	8
+	.byte	6
+	.byte	5
+	.byte	4
+	.byte	3
+	.byte	1
+	.byte	3
+	.byte	9
+	.byte	2
+	.byte	9
+	.byte	3
+	.byte	1
+	.byte	3
+	.byte	7
+	.byte	10
+	.byte	0
+	.align 16
+.LC26:
+	.byte	8
+	.byte	1
+	.byte	4
+	.byte	8
+	.byte	5
+	.byte	0
+	.byte	2
+	.byte	7
+	.byte	8
+	.byte	6
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	3
+	.byte	7
+	.byte	3
+	.align 16
+.LC27:
+	.byte	4
+	.byte	2
+	.byte	11
+	.byte	9
+	.byte	2
+	.byte	7
+	.byte	8
+	.byte	9
+	.byte	4
+	.byte	8
+	.byte	1
+	.byte	8
+	.byte	9
+	.byte	2
+	.byte	7
+	.byte	2
+	.align 16
+.LC28:
+	.byte	8
+	.byte	6
+	.byte	11
+	.byte	6
+	.byte	7
+	.byte	8
+	.byte	1
+	.byte	8
+	.byte	6
+	.byte	7
+	.byte	8
+	.byte	6
+	.byte	7
+	.byte	4
+	.byte	8
+	.byte	9
+	.align 16
+.LC29:
+	.byte	8
+	.byte	1
+	.byte	4
+	.byte	4
+	.byte	4
+	.byte	4
+	.byte	2
+	.byte	6
+	.byte	6
+	.byte	1
+	.byte	4
+	.byte	4
+	.byte	8
+	.byte	1
+	.byte	3
+	.byte	7
+	.align 16
+.LC30:
+	.byte	3
+	.byte	5
+	.byte	5
+	.byte	1
+	.byte	3
+	.byte	1
+	.byte	3
+	.byte	1
+	.byte	3
+	.byte	5
+	.byte	1
+	.byte	1
+	.byte	3
+	.byte	5
+	.byte	5
 	.byte	1
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0

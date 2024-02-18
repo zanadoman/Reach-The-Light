@@ -5,6 +5,7 @@ scene_editor::scene_editor(engine* Engine, game* Game) : Engine(Engine), Game(Ga
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, this->Engine->Window.GetWidth() >> 1, this->Engine->Window.GetWidth() >> 1, 0, 0, 0);
     this->Map1 = new gui_button(this->Engine, this->Game, -225, 875, 200, 75, 1, "Pálya 1");
     this->Map2 = new gui_button(this->Engine, this->Game, 0, 875, 200, 75,1, "Pálya 2");
+    this->Map3 = new gui_button(this->Engine, this->Game, 225, 875, 200, 75,1, "Pálya 3");
     this->Exit = new gui_button(this->Engine, this->Game, 0, -875, 200, 75, 1, "Vissza");
 
     for (uint8 i = 0; i < MAP_X; i++)
@@ -23,6 +24,7 @@ scene_editor::~scene_editor()
     this->Engine->Actors.Delete(this->Actor->GetID());
     delete this->Map1;
     delete this->Map2;
+    delete this->Map3;
     delete this->Exit;
     for (uint8 i = 0; i < MAP_X; i++)
     {
@@ -75,6 +77,10 @@ scene scene_editor::Update()
     if (this->Map2->Update())
     {
         this->Game->Map->Map2();
+    }
+    if (this->Map3->Update())
+    {
+        this->Game->Map->Map3();
     }
     if (this->Exit->Update() || this->Engine->Keys[KEY_ESCAPE])
     {

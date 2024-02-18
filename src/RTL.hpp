@@ -183,6 +183,7 @@ struct map
     ~map();
     uint8 Map1();
     uint8 Map2();
+    uint8 Map3();
 };
 
 //__________SCENES___________________________________________________________________________________
@@ -240,6 +241,7 @@ struct scene_editor
 
     gui_button* Map1;
     gui_button* Map2;
+    gui_button* Map3;
     gui_button* Exit;
     gui_tile* Tiles[MAP_X][MAP_Y];
 

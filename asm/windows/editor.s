@@ -5,13 +5,15 @@
 	.ascii "P\303\241lya 1\0"
 .LC5:
 	.ascii "P\303\241lya 2\0"
-.LC6:
+.LC7:
+	.ascii "P\303\241lya 3\0"
+.LC8:
 	.ascii "Vissza\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB9:
+.LCOLDB11:
 	.text
-.LHOTB9:
+.LHOTB11:
 	.align 2
 	.p2align 4
 	.globl	_ZN12scene_editorC2EPN3wze6engineEP4game
@@ -112,21 +114,40 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	call	_Znwy
 .LEHE4:
 	movq	0(%rbp), %rdx
-	movsd	%xmm6, 56(%rsp)
-	pxor	%xmm3, %xmm3
-	movq	%rax, %rbx
-	leaq	.LC6(%rip), %rax
 	movl	$75, 48(%rsp)
-	movq	%rax, 64(%rsp)
-	movq	.LC7(%rip), %rax
-	movq	%rbx, %rcx
+	movq	%rax, %rbx
+	leaq	.LC7(%rip), %rax
 	movl	$200, 40(%rsp)
-	movq	%rax, 32(%rsp)
+	movsd	.LC6(%rip), %xmm3
+	movq	%rax, 64(%rsp)
+	movq	%rbx, %rcx
+	movsd	%xmm6, 56(%rsp)
+	movsd	%xmm7, 32(%rsp)
 	movq	8(%rbp), %r8
 .LEHB5:
 	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc
 .LEHE5:
 	movq	%rbx, 40(%rbp)
+	movl	$64, %ecx
+.LEHB6:
+	call	_Znwy
+.LEHE6:
+	movq	0(%rbp), %rdx
+	movsd	%xmm6, 56(%rsp)
+	pxor	%xmm3, %xmm3
+	movq	%rax, %rbx
+	leaq	.LC8(%rip), %rax
+	movl	$75, 48(%rsp)
+	movq	%rax, 64(%rsp)
+	movq	.LC9(%rip), %rax
+	movq	%rbx, %rcx
+	movl	$200, 40(%rsp)
+	movq	%rax, 32(%rsp)
+	movq	8(%rbp), %r8
+.LEHB7:
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc
+.LEHE7:
+	movq	%rbx, 48(%rbp)
 	movq	%rbp, %r12
 	movl	$-350, %r15d
 	xorl	%r14d, %r14d
@@ -142,9 +163,9 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	.p2align 3
 .L3:
 	movl	$80, %ecx
-.LEHB6:
+.LEHB8:
 	call	_Znwy
-.LEHE6:
+.LEHE8:
 	pxor	%xmm0, %xmm0
 	movq	0(%rbp), %rdx
 	movl	%ebx, 64(%rsp)
@@ -157,10 +178,10 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movl	$100, 40(%rsp)
 	movsd	%xmm0, 32(%rsp)
 	movq	8(%rbp), %r8
-.LEHB7:
+.LEHB9:
 	call	_ZN8gui_tileC1EPN3wze6engineEP4gameddtthh
-.LEHE7:
-	movq	%rsi, 48(%r12,%rbx,8)
+.LEHE9:
+	movq	%rsi, 56(%r12,%rbx,8)
 	addq	$1, %rbx
 	addl	$100, %edi
 	cmpq	$16, %rbx
@@ -171,7 +192,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	cmpq	$8, %r14
 	jne	.L2
 	movq	0(%rbp), %rcx
-	movsd	.LC8(%rip), %xmm1
+	movsd	.LC10(%rip), %xmm1
 	movaps	80(%rsp), %xmm6
 	movaps	96(%rsp), %xmm7
 	addq	$80, %rcx
@@ -184,19 +205,22 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	popq	%r13
 	popq	%r14
 	popq	%r15
-.LEHB8:
+.LEHB10:
 	jmp	_ZN3wze6engine6camera10SetOriginYEd
-.LEHE8:
-.L9:
+.LEHE10:
+.L10:
 	movq	%rax, %rsi
 	jmp	.L5
-.L12:
+.L14:
 	movq	%rax, %rbx
-	jmp	.L8
-.L11:
+	jmp	.L9
+.L12:
 	movq	%rax, %rsi
 	jmp	.L7
-.L10:
+.L13:
+	movq	%rax, %rsi
+	jmp	.L8
+.L11:
 	movq	%rax, %rsi
 	jmp	.L6
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
@@ -214,7 +238,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	.uleb128 0
 	.uleb128 .LEHB1-.LFB8432
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L9-.LFB8432
+	.uleb128 .L10-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB2-.LFB8432
 	.uleb128 .LEHE2-.LEHB2
@@ -222,7 +246,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	.uleb128 0
 	.uleb128 .LEHB3-.LFB8432
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L10-.LFB8432
+	.uleb128 .L11-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB4-.LFB8432
 	.uleb128 .LEHE4-.LEHB4
@@ -230,7 +254,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	.uleb128 0
 	.uleb128 .LEHB5-.LFB8432
 	.uleb128 .LEHE5-.LEHB5
-	.uleb128 .L11-.LFB8432
+	.uleb128 .L12-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB6-.LFB8432
 	.uleb128 .LEHE6-.LEHB6
@@ -238,10 +262,18 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	.uleb128 0
 	.uleb128 .LEHB7-.LFB8432
 	.uleb128 .LEHE7-.LEHB7
-	.uleb128 .L12-.LFB8432
+	.uleb128 .L13-.LFB8432
 	.uleb128 0
 	.uleb128 .LEHB8-.LFB8432
 	.uleb128 .LEHE8-.LEHB8
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB9-.LFB8432
+	.uleb128 .LEHE9-.LEHB9
+	.uleb128 .L14-.LFB8432
+	.uleb128 0
+	.uleb128 .LEHB10-.LFB8432
+	.uleb128 .LEHE10-.LEHB10
 	.uleb128 0
 	.uleb128 0
 .LLSDACSE8432:
@@ -268,13 +300,19 @@ _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 	movl	$64, %edx
 	call	_ZdlPvy
 	movq	%rsi, %rcx
-.LEHB9:
+.LEHB11:
 	call	_Unwind_Resume
-.L8:
+.L9:
 	movq	%rsi, %rcx
 	movl	$80, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
+	call	_Unwind_Resume
+.L8:
+	movq	%rbx, %rcx
+	movl	$64, %edx
+	call	_ZdlPvy
+	movq	%rsi, %rcx
 	call	_Unwind_Resume
 .L7:
 	movq	%rbx, %rcx
@@ -289,7 +327,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 	movq	%rsi, %rcx
 	call	_Unwind_Resume
 	nop
-.LEHE9:
+.LEHE11:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 .LLSDAC8432:
@@ -298,8 +336,8 @@ _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB9-.LCOLDB9
-	.uleb128 .LEHE9-.LEHB9
+	.uleb128 .LEHB11-.LCOLDB11
+	.uleb128 .LEHE11-.LEHB11
 	.uleb128 0
 	.uleb128 0
 .LLSDACSEC8432:
@@ -307,9 +345,9 @@ _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE9:
+.LCOLDE11:
 	.text
-.LHOTE9:
+.LHOTE11:
 	.globl	_ZN12scene_editorC1EPN3wze6engineEP4game
 	.def	_ZN12scene_editorC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.set	_ZN12scene_editorC1EPN3wze6engineEP4game,_ZN12scene_editorC2EPN3wze6engineEP4game
@@ -341,24 +379,6 @@ _ZN12scene_editorD2Ev:
 	call	_ZN3wze6engine6actors6DeleteEy
 	movq	24(%rbp), %rbx
 	testq	%rbx, %rbx
-	je	.L16
-	movq	%rbx, %rcx
-	call	_ZN10gui_buttonD1Ev
-	movl	$64, %edx
-	movq	%rbx, %rcx
-	call	_ZdlPvy
-.L16:
-	movq	32(%rbp), %rbx
-	testq	%rbx, %rbx
-	je	.L17
-	movq	%rbx, %rcx
-	call	_ZN10gui_buttonD1Ev
-	movl	$64, %edx
-	movq	%rbx, %rcx
-	call	_ZdlPvy
-.L17:
-	movq	40(%rbp), %rbx
-	testq	%rbx, %rbx
 	je	.L18
 	movq	%rbx, %rcx
 	call	_ZN10gui_buttonD1Ev
@@ -366,30 +386,57 @@ _ZN12scene_editorD2Ev:
 	movq	%rbx, %rcx
 	call	_ZdlPvy
 .L18:
-	leaq	176(%rbp), %rdi
-	addq	$1200, %rbp
+	movq	32(%rbp), %rbx
+	testq	%rbx, %rbx
+	je	.L19
+	movq	%rbx, %rcx
+	call	_ZN10gui_buttonD1Ev
+	movl	$64, %edx
+	movq	%rbx, %rcx
+	call	_ZdlPvy
+.L19:
+	movq	40(%rbp), %rbx
+	testq	%rbx, %rbx
+	je	.L20
+	movq	%rbx, %rcx
+	call	_ZN10gui_buttonD1Ev
+	movl	$64, %edx
+	movq	%rbx, %rcx
+	call	_ZdlPvy
+.L20:
+	movq	48(%rbp), %rbx
+	testq	%rbx, %rbx
+	je	.L21
+	movq	%rbx, %rcx
+	call	_ZN10gui_buttonD1Ev
+	movl	$64, %edx
+	movq	%rbx, %rcx
+	call	_ZdlPvy
+.L21:
+	leaq	184(%rbp), %rdi
+	addq	$1208, %rbp
 	.p2align 4,,10
 	.p2align 3
-.L19:
+.L22:
 	leaq	-128(%rdi), %rbx
 	.p2align 4,,10
 	.p2align 3
-.L21:
+.L24:
 	movq	(%rbx), %rsi
 	testq	%rsi, %rsi
-	je	.L20
+	je	.L23
 	movq	%rsi, %rcx
 	call	_ZN8gui_tileD1Ev
 	movl	$80, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
-.L20:
+.L23:
 	addq	$8, %rbx
 	cmpq	%rdi, %rbx
-	jne	.L21
+	jne	.L24
 	leaq	128(%rbx), %rdi
 	cmpq	%rbp, %rdi
-	jne	.L19
+	jne	.L22
 	addq	$40, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -433,23 +480,23 @@ _ZN12scene_editor6UpdateEv:
 	.seh_savexmm	%xmm7, 48
 	.seh_endprologue
 	movq	%rcx, %rdi
-	leaq	176(%rcx), %rsi
-	leaq	1200(%rcx), %rbp
+	leaq	184(%rcx), %rsi
+	leaq	1208(%rcx), %rbp
 	.p2align 4,,10
 	.p2align 3
-.L37:
+.L43:
 	leaq	-128(%rsi), %rbx
 	.p2align 4,,10
 	.p2align 3
-.L38:
+.L44:
 	movq	(%rbx), %rcx
 	addq	$8, %rbx
 	call	_ZN8gui_tile6UpdateEv
 	cmpq	%rsi, %rbx
-	jne	.L38
+	jne	.L44
 	leaq	128(%rbx), %rsi
 	cmpq	%rbp, %rsi
-	jne	.L37
+	jne	.L43
 	movq	(%rdi), %rax
 	movl	$235, %edx
 	leaq	176(%rax), %rcx
@@ -457,25 +504,25 @@ _ZN12scene_editor6UpdateEv:
 	testb	%al, %al
 	movq	(%rdi), %rax
 	leaq	176(%rax), %rcx
-	je	.L40
+	je	.L46
 	movl	$224, %edx
 	call	_ZN3wze6engine4keysixENS_3keyE
 	testb	%al, %al
 	movq	(%rdi), %rax
 	leaq	80(%rax), %rbx
 	movq	%rbx, %rcx
-	je	.L41
+	je	.L47
 	call	_ZN3wze6engine6camera7GetZoomEv
 	movapd	%xmm0, %xmm1
-	subsd	.LC12(%rip), %xmm1
-	movsd	.LC10(%rip), %xmm0
+	subsd	.LC14(%rip), %xmm1
+	movsd	.LC12(%rip), %xmm0
 	comisd	%xmm1, %xmm0
-	ja	.L77
-.L124:
-	movsd	.LC11(%rip), %xmm0
+	ja	.L84
+.L134:
+	movsd	.LC13(%rip), %xmm0
 	minsd	%xmm1, %xmm0
 	movapd	%xmm0, %xmm1
-.L53:
+.L59:
 	movq	%rbx, %rcx
 	call	_ZN3wze6engine6camera7SetZoomEd
 	movq	(%rdi), %rax
@@ -483,44 +530,49 @@ _ZN12scene_editor6UpdateEv:
 	movq	%rbx, %rcx
 	call	_ZN3wze6engine6camera7GetZoomEv
 	movq	(%rdi), %rax
-	movsd	.LC8(%rip), %xmm6
+	movsd	.LC10(%rip), %xmm6
 	leaq	80(%rax), %rcx
 	mulsd	%xmm0, %xmm6
 	call	_ZN3wze6engine6camera7GetZoomEv
-	movsd	.LC13(%rip), %xmm7
+	movsd	.LC15(%rip), %xmm7
 	movq	(%rdi), %rax
 	mulsd	%xmm0, %xmm7
 	leaq	80(%rax), %rcx
 	call	_ZN3wze6engine6camera10GetOriginYEv
 	movapd	%xmm0, %xmm1
 	comisd	%xmm7, %xmm6
-	jbe	.L108
-.L113:
+	jbe	.L118
+.L123:
 	comisd	%xmm1, %xmm7
-	ja	.L109
+	ja	.L119
 	minsd	%xmm1, %xmm6
 	movapd	%xmm6, %xmm1
-.L60:
+.L66:
 	movq	%rbx, %rcx
 	call	_ZN3wze6engine6camera10SetOriginYEd
-.L47:
+.L53:
 	movq	24(%rdi), %rcx
 	call	_ZN10gui_button6UpdateEv
 	testb	%al, %al
-	jne	.L125
-.L62:
+	jne	.L135
+.L68:
 	movq	32(%rdi), %rcx
 	call	_ZN10gui_button6UpdateEv
 	testb	%al, %al
-	jne	.L126
-.L63:
+	jne	.L136
+.L69:
 	movq	40(%rdi), %rcx
 	call	_ZN10gui_button6UpdateEv
 	testb	%al, %al
-	je	.L64
-.L66:
+	jne	.L137
+.L70:
+	movq	48(%rdi), %rcx
+	call	_ZN10gui_button6UpdateEv
+	testb	%al, %al
+	je	.L71
+.L73:
 	movl	$1, %eax
-.L36:
+.L42:
 	movaps	32(%rsp), %xmm6
 	movaps	48(%rsp), %xmm7
 	addq	$72, %rsp
@@ -529,11 +581,11 @@ _ZN12scene_editor6UpdateEv:
 	popq	%rdi
 	popq	%rbp
 	ret
-.L40:
+.L46:
 	movl	$236, %edx
 	call	_ZN3wze6engine4keysixENS_3keyE
 	testb	%al, %al
-	je	.L47
+	je	.L53
 	movq	(%rdi), %rax
 	movl	$224, %edx
 	leaq	176(%rax), %rcx
@@ -542,82 +594,87 @@ _ZN12scene_editor6UpdateEv:
 	movq	(%rdi), %rax
 	leaq	80(%rax), %rbx
 	movq	%rbx, %rcx
-	je	.L52
+	je	.L58
 	call	_ZN3wze6engine6camera7GetZoomEv
-	movsd	.LC12(%rip), %xmm1
+	movsd	.LC14(%rip), %xmm1
 	addsd	%xmm0, %xmm1
-	movsd	.LC10(%rip), %xmm0
+	movsd	.LC12(%rip), %xmm0
 	comisd	%xmm1, %xmm0
-	jbe	.L124
-.L77:
+	jbe	.L134
+.L84:
 	movapd	%xmm0, %xmm1
-	jmp	.L53
-.L41:
+	jmp	.L59
+.L47:
 	call	_ZN3wze6engine6camera7GetZoomEv
 	movq	(%rdi), %rax
-	movsd	.LC8(%rip), %xmm6
+	movsd	.LC10(%rip), %xmm6
 	leaq	80(%rax), %rcx
 	mulsd	%xmm0, %xmm6
 	call	_ZN3wze6engine6camera7GetZoomEv
-	movsd	.LC13(%rip), %xmm7
+	movsd	.LC15(%rip), %xmm7
 	movq	(%rdi), %rax
 	mulsd	%xmm0, %xmm7
 	leaq	80(%rax), %rcx
 	call	_ZN3wze6engine6camera10GetOriginYEv
 	movapd	%xmm0, %xmm1
-	subsd	.LC14(%rip), %xmm1
+	subsd	.LC16(%rip), %xmm1
 	comisd	%xmm7, %xmm6
-	ja	.L113
-.L108:
+	ja	.L123
+.L118:
 	comisd	%xmm6, %xmm7
-	jbe	.L60
+	jbe	.L66
 	comisd	%xmm1, %xmm6
-	ja	.L85
+	ja	.L92
 	minsd	%xmm1, %xmm7
-.L109:
+.L119:
 	movapd	%xmm7, %xmm1
 	movq	%rbx, %rcx
 	call	_ZN3wze6engine6camera10SetOriginYEd
-	jmp	.L47
-.L64:
+	jmp	.L53
+.L71:
 	movq	(%rdi), %rcx
 	movl	$41, %edx
 	addq	$176, %rcx
 	call	_ZN3wze6engine4keysixENS_3keyE
 	testb	%al, %al
-	jne	.L66
+	jne	.L73
 	movl	$3, %eax
-	jmp	.L36
-.L126:
+	jmp	.L42
+.L137:
+	movq	8(%rdi), %rax
+	movq	24(%rax), %rcx
+	call	_ZN3map4Map3Ev
+	jmp	.L70
+.L136:
 	movq	8(%rdi), %rax
 	movq	24(%rax), %rcx
 	call	_ZN3map4Map2Ev
-	jmp	.L63
-.L125:
+	jmp	.L69
+.L135:
 	movq	8(%rdi), %rax
 	movq	24(%rax), %rcx
 	call	_ZN3map4Map1Ev
-	jmp	.L62
-.L52:
+	jmp	.L68
+.L58:
 	call	_ZN3wze6engine6camera7GetZoomEv
 	movq	(%rdi), %rax
-	movsd	.LC8(%rip), %xmm6
+	movsd	.LC10(%rip), %xmm6
 	leaq	80(%rax), %rcx
 	mulsd	%xmm0, %xmm6
 	call	_ZN3wze6engine6camera7GetZoomEv
-	movsd	.LC13(%rip), %xmm7
+	movsd	.LC15(%rip), %xmm7
 	movq	(%rdi), %rax
 	mulsd	%xmm0, %xmm7
 	leaq	80(%rax), %rcx
 	call	_ZN3wze6engine6camera10GetOriginYEv
-	movsd	.LC14(%rip), %xmm1
+	movsd	.LC16(%rip), %xmm1
 	addsd	%xmm0, %xmm1
 	comisd	%xmm7, %xmm6
-	jbe	.L108
-	jmp	.L113
-.L85:
+	jbe	.L118
+	jmp	.L123
+.L92:
 	movapd	%xmm6, %xmm1
-	jmp	.L60
+	jmp	.L66
 	.seh_endproc
 	.section .rdata,"dr"
 	.align 8
@@ -633,31 +690,35 @@ _ZN12scene_editor6UpdateEv:
 	.long	0
 	.long	1082873856
 	.align 8
-.LC7:
+.LC6:
+	.long	0
+	.long	1080827904
+	.align 8
+.LC9:
 	.long	0
 	.long	-1064609792
 	.align 8
-.LC8:
+.LC10:
 	.long	0
 	.long	1081876480
 	.align 8
-.LC10:
+.LC12:
 	.long	1717986918
 	.long	1072064102
 	.align 8
-.LC11:
+.LC13:
 	.long	0
 	.long	1073217536
 	.align 8
-.LC12:
+.LC14:
 	.long	-1717986918
 	.long	1070176665
 	.align 8
-.LC13:
+.LC15:
 	.long	0
 	.long	-1065607168
 	.align 8
-.LC14:
+.LC16:
 	.long	0
 	.long	1078525952
 	.ident	"GCC: (GNU) 13.1.0"
@@ -679,5 +740,6 @@ _ZN12scene_editor6UpdateEv:
 	.def	_ZN3wze6engine6camera7SetZoomEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera10GetOriginYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN10gui_button6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3map4Map3Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN3map4Map2Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN3map4Map1Ev;	.scl	2;	.type	32;	.endef

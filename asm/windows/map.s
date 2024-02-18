@@ -366,6 +366,35 @@ _ZN3map4Map2Ev:
 	xorl	%eax, %eax
 	ret
 	.seh_endproc
+	.align 2
+	.p2align 4
+	.globl	_ZN3map4Map3Ev
+	.def	_ZN3map4Map3Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN3map4Map3Ev
+_ZN3map4Map3Ev:
+.LFB8439:
+	.seh_endprologue
+	movdqa	.LC23(%rip), %xmm0
+	movq	136(%rcx), %rax
+	movups	%xmm0, (%rcx)
+	movdqa	.LC24(%rip), %xmm0
+	movups	%xmm0, 16(%rcx)
+	movdqa	.LC25(%rip), %xmm0
+	movups	%xmm0, 32(%rcx)
+	movdqa	.LC26(%rip), %xmm0
+	movups	%xmm0, 48(%rcx)
+	movdqa	.LC27(%rip), %xmm0
+	movups	%xmm0, 64(%rcx)
+	movdqa	.LC28(%rip), %xmm0
+	movups	%xmm0, 80(%rcx)
+	movdqa	.LC29(%rip), %xmm0
+	movups	%xmm0, 96(%rcx)
+	movdqa	.LC30(%rip), %xmm0
+	movups	%xmm0, 112(%rcx)
+	movb	$4, (%rax)
+	xorl	%eax, %eax
+	ret
+	.seh_endproc
 	.section .rdata,"dr"
 	.align 16
 .LC1:
@@ -654,6 +683,150 @@ _ZN3map4Map2Ev:
 	.byte	3
 	.byte	1
 	.byte	3
+	.byte	1
+	.align 16
+.LC23:
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	5
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	5
+	.byte	0
+	.align 16
+.LC24:
+	.byte	4
+	.byte	8
+	.byte	1
+	.byte	2
+	.byte	9
+	.byte	4
+	.byte	4
+	.byte	4
+	.byte	3
+	.byte	6
+	.byte	9
+	.byte	4
+	.byte	8
+	.byte	10
+	.byte	2
+	.byte	1
+	.align 16
+.LC25:
+	.byte	8
+	.byte	6
+	.byte	5
+	.byte	4
+	.byte	3
+	.byte	1
+	.byte	3
+	.byte	9
+	.byte	2
+	.byte	9
+	.byte	3
+	.byte	1
+	.byte	3
+	.byte	7
+	.byte	10
+	.byte	0
+	.align 16
+.LC26:
+	.byte	8
+	.byte	1
+	.byte	4
+	.byte	8
+	.byte	5
+	.byte	0
+	.byte	2
+	.byte	7
+	.byte	8
+	.byte	6
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	3
+	.byte	7
+	.byte	3
+	.align 16
+.LC27:
+	.byte	4
+	.byte	2
+	.byte	11
+	.byte	9
+	.byte	2
+	.byte	7
+	.byte	8
+	.byte	9
+	.byte	4
+	.byte	8
+	.byte	1
+	.byte	8
+	.byte	9
+	.byte	2
+	.byte	7
+	.byte	2
+	.align 16
+.LC28:
+	.byte	8
+	.byte	6
+	.byte	11
+	.byte	6
+	.byte	7
+	.byte	8
+	.byte	1
+	.byte	8
+	.byte	6
+	.byte	7
+	.byte	8
+	.byte	6
+	.byte	7
+	.byte	4
+	.byte	8
+	.byte	9
+	.align 16
+.LC29:
+	.byte	8
+	.byte	1
+	.byte	4
+	.byte	4
+	.byte	4
+	.byte	4
+	.byte	2
+	.byte	6
+	.byte	6
+	.byte	1
+	.byte	4
+	.byte	4
+	.byte	8
+	.byte	1
+	.byte	3
+	.byte	7
+	.align 16
+.LC30:
+	.byte	3
+	.byte	5
+	.byte	5
+	.byte	1
+	.byte	3
+	.byte	1
+	.byte	3
+	.byte	1
+	.byte	3
+	.byte	5
+	.byte	1
+	.byte	1
+	.byte	3
+	.byte	5
+	.byte	5
 	.byte	1
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	__mingw_vfprintf;	.scl	2;	.type	32;	.endef
