@@ -11,7 +11,7 @@ sint32 main()
     Engine = new engine("Reach The Light", "assets/icon.png", 2560, 1440, 1000 / 60);
     //DisplayPressKit(Engine);
     Game = new game(Engine);
-    PrintMap(Game);
+    //PrintMap(Game);
 
     while (Engine->Update())
     {
@@ -19,8 +19,6 @@ sint32 main()
         {
             break;
         }
-
-        printf("%d %d\n", Engine->Timing.GetGameTime(), Engine->Timing.GetRenderTime());
     }
 
     delete Game;
