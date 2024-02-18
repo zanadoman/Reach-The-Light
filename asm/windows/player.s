@@ -96,7 +96,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	movq	8(%rbx), %rax
 	leaq	72(%rsi), %rcx
 	movq	8(%rax), %rax
-	leaq	88(%rax), %r8
+	leaq	96(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	32(%rbx), %rsi
 	movl	$125, %edx
@@ -104,7 +104,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	movq	8(%rbx), %rax
 	leaq	72(%rsi), %rcx
 	movq	8(%rax), %rax
-	leaq	104(%rax), %r8
+	leaq	112(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	32(%rbx), %rsi
 	movl	$50, %edx
@@ -112,7 +112,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	movq	8(%rbx), %rax
 	leaq	72(%rsi), %rcx
 	movq	8(%rax), %rax
-	leaq	120(%rax), %r8
+	leaq	128(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	32(%rbx), %rsi
 	movl	$50, %edx
@@ -120,7 +120,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	movq	8(%rbx), %rax
 	leaq	72(%rsi), %rcx
 	movq	8(%rax), %rax
-	leaq	136(%rax), %r8
+	leaq	144(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	32(%rbx), %rsi
 	movl	$125, %edx
@@ -128,7 +128,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	movq	8(%rbx), %rax
 	leaq	72(%rsi), %rcx
 	movq	8(%rax), %rax
-	leaq	152(%rax), %r8
+	leaq	160(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	32(%rbx), %rsi
 	movl	$25, %edx
@@ -136,26 +136,26 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	movq	8(%rbx), %rax
 	leaq	72(%rsi), %rcx
 	movq	8(%rax), %rax
-	leaq	192(%rax), %r8
+	leaq	200(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	%rax, 128(%rbx)
-	movq	8(%rbx), %rax
-	movq	8(%rax), %rax
-	movq	208(%rax), %rdx
-	movq	32(%rbx), %rax
-	leaq	40(%rax), %rcx
-	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
-	movq	%rax, 136(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
 	movq	216(%rax), %rdx
 	movq	32(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
+	movq	%rax, 136(%rbx)
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rax
+	movq	224(%rax), %rdx
+	movq	32(%rbx), %rax
+	leaq	40(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 144(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	184(%rax), %rdx
+	movq	192(%rax), %rdx
 	movq	32(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -165,7 +165,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd:
 	movq	8(%rbx), %rax
 	leaq	72(%rsi), %rcx
 	movq	8(%rax), %rax
-	leaq	168(%rax), %r8
+	leaq	176(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	32(%rbx), %rcx
 	pxor	%xmm0, %xmm0

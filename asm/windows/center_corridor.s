@@ -85,12 +85,12 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rdi
 	movq	(%rbx), %rax
-	movl	240(%rdi), %r8d
+	movl	248(%rdi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	248(%rdi), %rdx
+	movq	256(%rdi), %rdx
 	cltq
-	cmpq	240(%rdi), %rax
+	cmpq	248(%rdi), %rax
 	jnb	.L10
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rsi, %rcx
@@ -123,12 +123,12 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rsi
 	movq	(%rbx), %rax
-	movl	256(%rsi), %r8d
+	movl	264(%rsi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	264(%rsi), %rdx
+	movq	272(%rsi), %rdx
 	cltq
-	cmpq	256(%rsi), %rax
+	cmpq	264(%rsi), %rax
 	jnb	.L10
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
@@ -155,12 +155,12 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rsi
 	movq	(%rbx), %rax
-	movl	256(%rsi), %r8d
+	movl	264(%rsi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	264(%rsi), %rdx
+	movq	272(%rsi), %rdx
 	cltq
-	cmpq	256(%rsi), %rax
+	cmpq	264(%rsi), %rax
 	jnb	.L10
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
@@ -187,12 +187,12 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rsi
 	movq	(%rbx), %rax
-	movl	256(%rsi), %r8d
+	movl	264(%rsi), %r8d
 	leaq	320(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	264(%rsi), %rdx
+	movq	272(%rsi), %rdx
 	cltq
-	cmpq	256(%rsi), %rax
+	cmpq	264(%rsi), %rax
 	jnb	.L10
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
@@ -219,11 +219,11 @@ _ZN20tile_center_corridorC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	addq	$320, %rcx
 	movq	8(%rax), %rsi
-	movl	256(%rsi), %r8d
+	movl	264(%rsi), %r8d
 	call	_ZN3wze6engine4math6RandomEii
-	movq	264(%rsi), %rdx
+	movq	272(%rsi), %rdx
 	cltq
-	cmpq	256(%rsi), %rax
+	cmpq	264(%rsi), %rax
 	jnb	.L10
 	movq	(%rdx,%rax,8), %rdx
 	movaps	64(%rsp), %xmm6

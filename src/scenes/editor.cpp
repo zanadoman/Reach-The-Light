@@ -3,6 +3,10 @@
 scene_editor::scene_editor(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, 0, 0, 0, 0, 1);
+    this->HintBubble1 = this->Actor->Textureboxes.New(this->Game->Assets->TextBubble);
+    this->HintBubble2 = this->Actor->Textureboxes.New(this->Game->Assets->TextBubble);
+    this->Player1 = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdle);
+    this->Player2 = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdle);
     this->ScrollUpHint = this->Actor->Textboxes.New("Felgördítés: görgő fel", this->Game->Assets->HackBoldFont);
     this->ScrollDownHint = this->Actor->Textboxes.New("Legördítés: görgő le", this->Game->Assets->HackBoldFont);
     this->ZoomInHint = this->Actor->Textboxes.New("Nagyítás: ctrl + görgő fel", this->Game->Assets->HackBoldFont);
@@ -16,37 +20,57 @@ scene_editor::scene_editor(engine* Engine, game* Game) : Engine(Engine), Game(Ga
     this->Map3 = new gui_button(this->Engine, this->Game, 225, 875, 200, 75,1, "Pálya 3");
     this->Exit = new gui_button(this->Engine, this->Game, 0, -875, 200, 75, 1, "Vissza");
 
-    this->ScrollUpHint->SetY(60);
+    this->HintBubble1->SetX(-815);
+    this->HintBubble1->SetY(390);
+    this->HintBubble1->Width = 840;
+    this->HintBubble1->Height = 290;
+
+    this->HintBubble2->SetX(-815);
+    this->HintBubble2->SetY(-280);
+    this->HintBubble2->Width = 840;
+    this->HintBubble2->Height = 290;
+
+    this->Player1->SetX(-835);
+    this->Player1->SetY(210);
+    this->Player1->Width = 128;
+    this->Player1->Height = 128;
+
+    this->Player2->SetX(-835);
+    this->Player2->SetY(-460);
+    this->Player2->Width = 128;
+    this->Player2->Height = 128;
+
+    this->ScrollUpHint->SetX(-815);
+    this->ScrollUpHint->SetY(470);
     this->ScrollUpHint->SetHeight(30);
-    this->ScrollUpHint->SetX(-900 + (this->ScrollUpHint->GetWidth() >> 1));
 
-    this->ScrollDownHint->SetY(20);
+    this->ScrollDownHint->SetX(-815);
+    this->ScrollDownHint->SetY(430);
     this->ScrollDownHint->SetHeight(30);
-    this->ScrollDownHint->SetX(-900 + (this->ScrollDownHint->GetWidth() >> 1));
 
-    this->ZoomInHint->SetY(-20);
+    this->ZoomInHint->SetX(-815);
+    this->ZoomInHint->SetY(390);
     this->ZoomInHint->SetHeight(30);
-    this->ZoomInHint->SetX(-900 + (this->ZoomInHint->GetWidth() >> 1));
 
-    this->ZoomOutHint->SetY(-60);
+    this->ZoomOutHint->SetX(-815);
+    this->ZoomOutHint->SetY(350);
     this->ZoomOutHint->SetHeight(30);
-    this->ZoomOutHint->SetX(-900 + (this->ZoomOutHint->GetWidth() >> 1));
 
-    this->TileChangeHint->SetY(60);
+    this->TileChangeHint->SetX(-815);
+    this->TileChangeHint->SetY(-200);
     this->TileChangeHint->SetHeight(30);
-    this->TileChangeHint->SetX(450 + (this->TileChangeHint->GetWidth() >> 1));
 
-    this->SpawnChangeHint1->SetY(20);
+    this->SpawnChangeHint1->SetX(-815);
+    this->SpawnChangeHint1->SetY(-240);
     this->SpawnChangeHint1->SetHeight(30);
-    this->SpawnChangeHint1->SetX(450 + (this->SpawnChangeHint1->GetWidth() >> 1));
 
-    this->SpawnChangeHint2->SetY(-20);
+    this->SpawnChangeHint2->SetX(-815);
+    this->SpawnChangeHint2->SetY(-280);
     this->SpawnChangeHint2->SetHeight(30);
-    this->SpawnChangeHint2->SetX(450 + (this->SpawnChangeHint2->GetWidth() >> 1));
 
-    this->SaveHint->SetY(-60);
+    this->SaveHint->SetX(-815);
+    this->SaveHint->SetY(-320);
     this->SaveHint->SetHeight(30);
-    this->SaveHint->SetX(450 + (this->SaveHint->GetWidth() >> 1));
 
     for (uint8 i = 0; i < MAP_X; i++)
     {

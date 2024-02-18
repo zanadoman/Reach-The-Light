@@ -60,8 +60,8 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddtthh:
 	movq	24(%rcx), %rcx
 	movq	144(%rcx,%r15,8), %rcx
 	movzbl	(%rcx,%rdx), %esi
-	movq	232(%rax), %rcx
-	cmpq	224(%rax), %rsi
+	movq	240(%rax), %rcx
+	cmpq	232(%rax), %rsi
 	jnb	.L47
 	movq	(%rcx,%rsi,8), %rsi
 	movq	%rdx, 8(%rsp)
@@ -401,8 +401,8 @@ _ZN8gui_tile6UpdateEv:
 	movq	8(%rcx), %rcx
 	movq	144(%rsi,%rdx,8), %rdx
 	movzbl	(%rdx,%rax), %esi
-	movq	232(%rcx), %rax
-	cmpq	224(%rcx), %rsi
+	movq	240(%rcx), %rax
+	cmpq	232(%rcx), %rsi
 	jnb	.L109
 	movq	(%rax,%rsi,8), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy@PLT

@@ -117,6 +117,7 @@ struct assets
     uint64 HackRegularFont;
 
     uint64 ButtonTexture;
+    uint64 TextBubble;
 
     uint64 HearthLeftFull;
     uint64 HearthLeftEmpty;
@@ -238,6 +239,10 @@ struct scene_editor
     game* Game;
 
     engine::actor Actor;
+    engine::texturebox HintBubble1;
+    engine::texturebox HintBubble2;
+    engine::flipbook Player1;
+    engine::flipbook Player2;
     engine::textbox ScrollUpHint;
     engine::textbox ScrollDownHint;
     engine::textbox ZoomInHint;

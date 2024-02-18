@@ -33,9 +33,9 @@
 	.ascii "Vissza\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB23:
+.LCOLDB33:
 	.text
-.LHOTB23:
+.LHOTB33:
 	.align 2
 	.p2align 4
 	.globl	_ZN12scene_editorC2EPN3wze6engineEP4game
@@ -75,8 +75,8 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	%rdx, (%rcx)
 	movq	%rcx, %rbp
 	movq	%r8, 8(%rcx)
-	leaq	256(%rdx), %rcx
 	xorl	%r8d, %r8d
+	leaq	256(%rdx), %rcx
 	xorl	%edx, %edx
 	movl	$0, 48(%rsp)
 	movl	$0, 40(%rsp)
@@ -86,37 +86,35 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	movq	8(%rbp), %rdx
 	movq	%rax, 16(%rbp)
-	leaq	104(%rax), %rcx
+	leaq	40(%rax), %rcx
 	movq	8(%rdx), %rdx
-	movq	8(%rdx), %r8
-	leaq	.LC2(%rip), %rdx
-	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
-	movq	16(%rbp), %rdi
-	leaq	.LC3(%rip), %rdx
+	movq	48(%rdx), %rdx
+	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 24(%rbp)
 	movq	8(%rbp), %rax
-	leaq	104(%rdi), %rcx
 	movq	8(%rax), %rax
-	movq	8(%rax), %r8
-	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
+	movq	48(%rax), %rdx
+	movq	16(%rbp), %rax
+	leaq	40(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	16(%rbp), %rdi
-	leaq	.LC4(%rip), %rdx
+	movl	$125, %edx
 	movq	%rax, 32(%rbp)
 	movq	8(%rbp), %rax
-	leaq	104(%rdi), %rcx
+	leaq	72(%rdi), %rcx
 	movq	8(%rax), %rax
-	movq	8(%rax), %r8
-	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
+	leaq	96(%rax), %r8
+	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	16(%rbp), %rdi
-	leaq	.LC5(%rip), %rdx
+	movl	$125, %edx
 	movq	%rax, 40(%rbp)
 	movq	8(%rbp), %rax
-	leaq	104(%rdi), %rcx
+	leaq	72(%rdi), %rcx
 	movq	8(%rax), %rax
-	movq	8(%rax), %r8
-	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
+	leaq	96(%rax), %r8
+	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	16(%rbp), %rdi
-	leaq	.LC6(%rip), %rdx
+	leaq	.LC2(%rip), %rdx
 	movq	%rax, 48(%rbp)
 	movq	8(%rbp), %rax
 	leaq	104(%rdi), %rcx
@@ -124,7 +122,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movq	16(%rbp), %rdi
-	leaq	.LC7(%rip), %rdx
+	leaq	.LC3(%rip), %rdx
 	movq	%rax, 56(%rbp)
 	movq	8(%rbp), %rax
 	leaq	104(%rdi), %rcx
@@ -132,7 +130,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movq	16(%rbp), %rdi
-	leaq	.LC8(%rip), %rdx
+	leaq	.LC4(%rip), %rdx
 	movq	%rax, 64(%rbp)
 	movq	8(%rbp), %rax
 	leaq	104(%rdi), %rcx
@@ -140,15 +138,47 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movq	16(%rbp), %rdi
-	leaq	.LC9(%rip), %rdx
+	leaq	.LC5(%rip), %rdx
 	movq	%rax, 72(%rbp)
 	movq	8(%rbp), %rax
 	leaq	104(%rdi), %rcx
 	movq	8(%rax), %rax
 	movq	8(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
-	movl	$64, %ecx
+	movq	16(%rbp), %rdi
+	leaq	.LC6(%rip), %rdx
 	movq	%rax, 80(%rbp)
+	movq	8(%rbp), %rax
+	leaq	104(%rdi), %rcx
+	movq	8(%rax), %rax
+	movq	8(%rax), %r8
+	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
+	movq	16(%rbp), %rdi
+	leaq	.LC7(%rip), %rdx
+	movq	%rax, 88(%rbp)
+	movq	8(%rbp), %rax
+	leaq	104(%rdi), %rcx
+	movq	8(%rax), %rax
+	movq	8(%rax), %r8
+	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
+	movq	16(%rbp), %rdi
+	leaq	.LC8(%rip), %rdx
+	movq	%rax, 96(%rbp)
+	movq	8(%rbp), %rax
+	leaq	104(%rdi), %rcx
+	movq	8(%rax), %rax
+	movq	8(%rax), %r8
+	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
+	movq	16(%rbp), %rdi
+	leaq	.LC9(%rip), %rdx
+	movq	%rax, 104(%rbp)
+	movq	8(%rbp), %rax
+	leaq	104(%rdi), %rcx
+	movq	8(%rax), %rax
+	movq	8(%rax), %r8
+	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
+	movl	$64, %ecx
+	movq	%rax, 112(%rbp)
 	call	_Znwy
 .LEHE0:
 	movsd	.LC12(%rip), %xmm7
@@ -166,7 +196,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 .LEHB1:
 	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc
 .LEHE1:
-	movq	%rbx, 88(%rbp)
+	movq	%rbx, 120(%rbp)
 	movl	$64, %ecx
 .LEHB2:
 	call	_Znwy
@@ -185,7 +215,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 .LEHB3:
 	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc
 .LEHE3:
-	movq	%rbx, 96(%rbp)
+	movq	%rbx, 128(%rbp)
 	movl	$64, %ecx
 .LEHB4:
 	call	_Znwy
@@ -204,7 +234,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 .LEHB5:
 	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc
 .LEHE5:
-	movq	%rbx, 104(%rbp)
+	movq	%rbx, 136(%rbp)
 	movl	$64, %ecx
 .LEHB6:
 	call	_Znwy
@@ -224,143 +254,121 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 .LEHB7:
 	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc
 .LEHE7:
-	movsd	.LC18(%rip), %xmm9
-	movq	%rbx, 112(%rbp)
+	movsd	.LC18(%rip), %xmm6
+	movq	24(%rbp), %rcx
 	movq	%rbp, %r12
 	movl	$-350, %r15d
-	movq	24(%rbp), %rcx
-	movapd	%xmm9, %xmm1
+	movq	%rbx, 144(%rbp)
+	movapd	%xmm6, %xmm1
 .LEHB8:
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd
 	movq	24(%rbp), %rcx
-	movl	$30, %edx
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
-	movq	24(%rbp), %rbx
-	movq	%rbx, %rcx
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox8GetWidthEv
-	pxor	%xmm1, %xmm1
-	movq	%rbx, %rcx
-	shrw	%ax
-	movzwl	%ax, %eax
-	subl	$900, %eax
-	cvtsi2sdl	%eax, %xmm1
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
-	movq	32(%rbp), %rcx
 	movsd	.LC19(%rip), %xmm8
 	movapd	%xmm8, %xmm1
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
-	movq	32(%rbp), %rcx
-	movl	$30, %edx
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
-	movq	32(%rbp), %rbx
-	movq	%rbx, %rcx
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox8GetWidthEv
-	pxor	%xmm1, %xmm1
-	movq	%rbx, %rcx
-	shrw	%ax
-	movzwl	%ax, %eax
-	subl	$900, %eax
-	cvtsi2sdl	%eax, %xmm1
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
-	movsd	.LC20(%rip), %xmm7
-	movq	40(%rbp), %rcx
-	movapd	%xmm7, %xmm1
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
-	movq	40(%rbp), %rcx
-	movl	$30, %edx
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
-	movq	40(%rbp), %rbx
-	movq	%rbx, %rcx
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox8GetWidthEv
-	pxor	%xmm1, %xmm1
-	movq	%rbx, %rcx
-	shrw	%ax
-	movzwl	%ax, %eax
-	subl	$900, %eax
-	cvtsi2sdl	%eax, %xmm1
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
-	movsd	.LC21(%rip), %xmm6
-	movq	48(%rbp), %rcx
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
+	movq	24(%rbp), %rax
+	movl	.LC20(%rip), %ebx
 	movapd	%xmm6, %xmm1
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
-	movq	48(%rbp), %rcx
-	movl	$30, %edx
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
-	movq	48(%rbp), %rbx
-	movq	%rbx, %rcx
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox8GetWidthEv
-	pxor	%xmm1, %xmm1
-	movq	%rbx, %rcx
-	shrw	%ax
-	movzwl	%ax, %eax
-	subl	$900, %eax
-	cvtsi2sdl	%eax, %xmm1
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
-	movq	56(%rbp), %rcx
+	movq	32(%rbp), %rcx
+	movl	%ebx, 16(%rax)
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd
+	movsd	.LC21(%rip), %xmm7
+	movq	32(%rbp), %rcx
+	movapd	%xmm7, %xmm1
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
+	movq	32(%rbp), %rax
+	movq	40(%rbp), %rcx
+	movsd	.LC22(%rip), %xmm9
+	movl	%ebx, 16(%rax)
 	movapd	%xmm9, %xmm1
+	call	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetXEd
+	movq	40(%rbp), %rcx
+	movsd	.LC23(%rip), %xmm1
+	call	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetYEd
+	movq	40(%rbp), %rax
+	movl	.LC24(%rip), %ebx
+	movapd	%xmm9, %xmm1
+	movq	48(%rbp), %rcx
+	movl	%ebx, 16(%rax)
+	call	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetXEd
+	movq	48(%rbp), %rcx
+	movsd	.LC25(%rip), %xmm1
+	call	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetYEd
+	movq	48(%rbp), %rax
+	movq	56(%rbp), %rcx
+	movapd	%xmm6, %xmm1
+	movl	%ebx, 16(%rax)
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
+	movsd	.LC26(%rip), %xmm1
+	movq	56(%rbp), %rcx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
 	movq	56(%rbp), %rcx
 	movl	$30, %edx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
-	movq	56(%rbp), %rbx
-	movq	%rbx, %rcx
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox8GetWidthEv
-	pxor	%xmm1, %xmm1
-	movq	%rbx, %rcx
-	shrw	%ax
-	addw	$450, %ax
-	movzwl	%ax, %eax
-	cvtsi2sdl	%eax, %xmm1
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
 	movq	64(%rbp), %rcx
+	movapd	%xmm6, %xmm1
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
+	movsd	.LC27(%rip), %xmm1
+	movq	64(%rbp), %rcx
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
+	movq	64(%rbp), %rcx
+	movl	$30, %edx
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
+	movq	72(%rbp), %rcx
+	movapd	%xmm6, %xmm1
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
+	movq	72(%rbp), %rcx
 	movapd	%xmm8, %xmm1
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
-	movq	64(%rbp), %rcx
-	movl	$30, %edx
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
-	movq	64(%rbp), %rbx
-	movq	%rbx, %rcx
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox8GetWidthEv
-	pxor	%xmm1, %xmm1
-	movq	%rbx, %rcx
-	xorl	%r14d, %r14d
-	shrw	%ax
-	addw	$450, %ax
-	movzwl	%ax, %eax
-	cvtsi2sdl	%eax, %xmm1
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
-	movq	72(%rbp), %rcx
-	movapd	%xmm7, %xmm1
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
 	movq	72(%rbp), %rcx
 	movl	$30, %edx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
-	movq	72(%rbp), %rbx
-	movq	%rbx, %rcx
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox8GetWidthEv
-	pxor	%xmm1, %xmm1
-	movq	%rbx, %rcx
-	shrw	%ax
-	addw	$450, %ax
-	movzwl	%ax, %eax
-	cvtsi2sdl	%eax, %xmm1
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
 	movq	80(%rbp), %rcx
 	movapd	%xmm6, %xmm1
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
+	movsd	.LC28(%rip), %xmm1
+	movq	80(%rbp), %rcx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
 	movq	80(%rbp), %rcx
 	movl	$30, %edx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
-	movq	80(%rbp), %rbx
-	movq	%rbx, %rcx
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox8GetWidthEv
-	pxor	%xmm1, %xmm1
-	movq	%rbx, %rcx
-	shrw	%ax
-	addw	$450, %ax
-	movzwl	%ax, %eax
-	cvtsi2sdl	%eax, %xmm1
+	movq	88(%rbp), %rcx
+	movapd	%xmm6, %xmm1
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
+	movsd	.LC29(%rip), %xmm1
+	movq	88(%rbp), %rcx
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
+	movq	88(%rbp), %rcx
+	movl	$30, %edx
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
+	movq	96(%rbp), %rcx
+	movapd	%xmm6, %xmm1
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
+	movsd	.LC30(%rip), %xmm1
+	movq	96(%rbp), %rcx
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
+	movq	96(%rbp), %rcx
+	movl	$30, %edx
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
+	movq	104(%rbp), %rcx
+	movapd	%xmm6, %xmm1
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
+	movq	104(%rbp), %rcx
+	movapd	%xmm7, %xmm1
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
+	movq	104(%rbp), %rcx
+	movl	$30, %edx
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
+	movq	112(%rbp), %rcx
+	movapd	%xmm6, %xmm1
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
+	movq	112(%rbp), %rcx
+	movsd	.LC31(%rip), %xmm1
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
+	movq	112(%rbp), %rcx
+	movl	$30, %edx
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
+	xorl	%r14d, %r14d
 	.p2align 4,,10
 	.p2align 3
 .L2:
@@ -390,7 +398,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 .LEHB9:
 	call	_ZN8gui_tileC1EPN3wze6engineEP4gameddtthh
 .LEHE9:
-	movq	%rsi, 120(%r12,%rbx,8)
+	movq	%rsi, 152(%r12,%rbx,8)
 	addq	$1, %rbx
 	addl	$100, %edi
 	cmpq	$16, %rbx
@@ -401,7 +409,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	cmpq	$8, %r14
 	jne	.L2
 	movq	0(%rbp), %rcx
-	movsd	.LC22(%rip), %xmm1
+	movsd	.LC32(%rip), %xmm1
 	movaps	80(%rsp), %xmm6
 	movaps	96(%rsp), %xmm7
 	movaps	112(%rsp), %xmm8
@@ -549,7 +557,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB11-.LCOLDB23
+	.uleb128 .LEHB11-.LCOLDB33
 	.uleb128 .LEHE11-.LEHB11
 	.uleb128 0
 	.uleb128 0
@@ -558,9 +566,9 @@ _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE23:
+.LCOLDE33:
 	.text
-.LHOTE23:
+.LHOTE33:
 	.globl	_ZN12scene_editorC1EPN3wze6engineEP4game
 	.def	_ZN12scene_editorC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.set	_ZN12scene_editorC1EPN3wze6engineEP4game,_ZN12scene_editorC2EPN3wze6engineEP4game
@@ -590,7 +598,7 @@ _ZN12scene_editorD2Ev:
 	movq	%rbx, %rcx
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6actors6DeleteEy
-	movq	88(%rbp), %rbx
+	movq	120(%rbp), %rbx
 	testq	%rbx, %rbx
 	je	.L18
 	movq	%rbx, %rcx
@@ -599,7 +607,7 @@ _ZN12scene_editorD2Ev:
 	movq	%rbx, %rcx
 	call	_ZdlPvy
 .L18:
-	movq	96(%rbp), %rbx
+	movq	128(%rbp), %rbx
 	testq	%rbx, %rbx
 	je	.L19
 	movq	%rbx, %rcx
@@ -608,7 +616,7 @@ _ZN12scene_editorD2Ev:
 	movq	%rbx, %rcx
 	call	_ZdlPvy
 .L19:
-	movq	104(%rbp), %rbx
+	movq	136(%rbp), %rbx
 	testq	%rbx, %rbx
 	je	.L20
 	movq	%rbx, %rcx
@@ -617,7 +625,7 @@ _ZN12scene_editorD2Ev:
 	movq	%rbx, %rcx
 	call	_ZdlPvy
 .L20:
-	movq	112(%rbp), %rbx
+	movq	144(%rbp), %rbx
 	testq	%rbx, %rbx
 	je	.L21
 	movq	%rbx, %rcx
@@ -626,8 +634,8 @@ _ZN12scene_editorD2Ev:
 	movq	%rbx, %rcx
 	call	_ZdlPvy
 .L21:
-	leaq	248(%rbp), %rdi
-	addq	$1272, %rbp
+	leaq	280(%rbp), %rdi
+	addq	$1304, %rbp
 	.p2align 4,,10
 	.p2align 3
 .L22:
@@ -693,8 +701,8 @@ _ZN12scene_editor6UpdateEv:
 	.seh_savexmm	%xmm7, 48
 	.seh_endprologue
 	movq	%rcx, %rdi
-	leaq	248(%rcx), %rsi
-	leaq	1272(%rcx), %rbp
+	leaq	280(%rcx), %rsi
+	leaq	1304(%rcx), %rbp
 	.p2align 4,,10
 	.p2align 3
 .L43:
@@ -727,12 +735,12 @@ _ZN12scene_editor6UpdateEv:
 	je	.L47
 	call	_ZN3wze6engine6camera7GetZoomEv
 	movapd	%xmm0, %xmm1
-	subsd	.LC26(%rip), %xmm1
-	movsd	.LC24(%rip), %xmm0
+	subsd	.LC36(%rip), %xmm1
+	movsd	.LC34(%rip), %xmm0
 	comisd	%xmm1, %xmm0
 	ja	.L84
 .L134:
-	movsd	.LC25(%rip), %xmm0
+	movsd	.LC35(%rip), %xmm0
 	minsd	%xmm1, %xmm0
 	movapd	%xmm0, %xmm1
 .L59:
@@ -743,11 +751,11 @@ _ZN12scene_editor6UpdateEv:
 	movq	%rbx, %rcx
 	call	_ZN3wze6engine6camera7GetZoomEv
 	movq	(%rdi), %rax
-	movsd	.LC22(%rip), %xmm6
+	movsd	.LC32(%rip), %xmm6
 	leaq	80(%rax), %rcx
 	mulsd	%xmm0, %xmm6
 	call	_ZN3wze6engine6camera7GetZoomEv
-	movsd	.LC27(%rip), %xmm7
+	movsd	.LC37(%rip), %xmm7
 	movq	(%rdi), %rax
 	mulsd	%xmm0, %xmm7
 	leaq	80(%rax), %rcx
@@ -764,22 +772,22 @@ _ZN12scene_editor6UpdateEv:
 	movq	%rbx, %rcx
 	call	_ZN3wze6engine6camera10SetOriginYEd
 .L53:
-	movq	88(%rdi), %rcx
+	movq	120(%rdi), %rcx
 	call	_ZN10gui_button6UpdateEv
 	testb	%al, %al
 	jne	.L135
 .L68:
-	movq	96(%rdi), %rcx
+	movq	128(%rdi), %rcx
 	call	_ZN10gui_button6UpdateEv
 	testb	%al, %al
 	jne	.L136
 .L69:
-	movq	104(%rdi), %rcx
+	movq	136(%rdi), %rcx
 	call	_ZN10gui_button6UpdateEv
 	testb	%al, %al
 	jne	.L137
 .L70:
-	movq	112(%rdi), %rcx
+	movq	144(%rdi), %rcx
 	call	_ZN10gui_button6UpdateEv
 	testb	%al, %al
 	je	.L71
@@ -809,9 +817,9 @@ _ZN12scene_editor6UpdateEv:
 	movq	%rbx, %rcx
 	je	.L58
 	call	_ZN3wze6engine6camera7GetZoomEv
-	movsd	.LC26(%rip), %xmm1
+	movsd	.LC36(%rip), %xmm1
 	addsd	%xmm0, %xmm1
-	movsd	.LC24(%rip), %xmm0
+	movsd	.LC34(%rip), %xmm0
 	comisd	%xmm1, %xmm0
 	jbe	.L134
 .L84:
@@ -820,17 +828,17 @@ _ZN12scene_editor6UpdateEv:
 .L47:
 	call	_ZN3wze6engine6camera7GetZoomEv
 	movq	(%rdi), %rax
-	movsd	.LC22(%rip), %xmm6
+	movsd	.LC32(%rip), %xmm6
 	leaq	80(%rax), %rcx
 	mulsd	%xmm0, %xmm6
 	call	_ZN3wze6engine6camera7GetZoomEv
-	movsd	.LC27(%rip), %xmm7
+	movsd	.LC37(%rip), %xmm7
 	movq	(%rdi), %rax
 	mulsd	%xmm0, %xmm7
 	leaq	80(%rax), %rcx
 	call	_ZN3wze6engine6camera10GetOriginYEv
 	movapd	%xmm0, %xmm1
-	subsd	.LC28(%rip), %xmm1
+	subsd	.LC38(%rip), %xmm1
 	comisd	%xmm7, %xmm6
 	ja	.L123
 .L118:
@@ -871,16 +879,16 @@ _ZN12scene_editor6UpdateEv:
 .L58:
 	call	_ZN3wze6engine6camera7GetZoomEv
 	movq	(%rdi), %rax
-	movsd	.LC22(%rip), %xmm6
+	movsd	.LC32(%rip), %xmm6
 	leaq	80(%rax), %rcx
 	mulsd	%xmm0, %xmm6
 	call	_ZN3wze6engine6camera7GetZoomEv
-	movsd	.LC27(%rip), %xmm7
+	movsd	.LC37(%rip), %xmm7
 	movq	(%rdi), %rax
 	mulsd	%xmm0, %xmm7
 	leaq	80(%rax), %rcx
 	call	_ZN3wze6engine6camera10GetOriginYEv
-	movsd	.LC28(%rip), %xmm1
+	movsd	.LC38(%rip), %xmm1
 	addsd	%xmm0, %xmm1
 	comisd	%xmm7, %xmm6
 	jbe	.L118
@@ -913,52 +921,97 @@ _ZN12scene_editor6UpdateEv:
 	.align 8
 .LC18:
 	.long	0
-	.long	1078853632
+	.long	-1064732672
 	.align 8
 .LC19:
 	.long	0
-	.long	1077149696
-	.align 8
+	.long	1081630720
+	.align 4
 .LC20:
-	.long	0
-	.long	-1070333952
+	.word	840
+	.word	290
 	.align 8
 .LC21:
 	.long	0
-	.long	-1068630016
+	.long	-1066303488
 	.align 8
 .LC22:
 	.long	0
-	.long	1081876480
+	.long	-1064691712
 	.align 8
+.LC23:
+	.long	0
+	.long	1080705024
+	.align 4
 .LC24:
-	.long	1717986918
-	.long	1072064102
+	.word	128
+	.word	128
 	.align 8
 .LC25:
 	.long	0
-	.long	1073217536
+	.long	-1065566208
 	.align 8
 .LC26:
-	.long	-1717986918
-	.long	1070176665
+	.long	0
+	.long	1081958400
 	.align 8
 .LC27:
 	.long	0
-	.long	-1065607168
+	.long	1081794560
 	.align 8
 .LC28:
+	.long	0
+	.long	1081466880
+	.align 8
+.LC29:
+	.long	0
+	.long	-1066860544
+	.align 8
+.LC30:
+	.long	0
+	.long	-1066532864
+	.align 8
+.LC31:
+	.long	0
+	.long	-1066139648
+	.align 8
+.LC32:
+	.long	0
+	.long	1081876480
+	.align 8
+.LC34:
+	.long	1717986918
+	.long	1072064102
+	.align 8
+.LC35:
+	.long	0
+	.long	1073217536
+	.align 8
+.LC36:
+	.long	-1717986918
+	.long	1070176665
+	.align 8
+.LC37:
+	.long	0
+	.long	-1065607168
+	.align 8
+.LC38:
 	.long	0
 	.long	1078525952
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12textureboxes3NewEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy;	.scl	2;	.type	32;	.endef
 	.def	_Znwy;	.scl	2;	.type	32;	.endef
 	.def	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetXEd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetYEd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6actors5actor9textboxes7textbox8GetWidthEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN8gui_tileC1EPN3wze6engineEP4gameddtthh;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera10SetOriginYEd;	.scl	2;	.type	32;	.endef
 	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef

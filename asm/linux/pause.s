@@ -475,23 +475,79 @@ _ZN9act_pause6UpdateEv:
 	pushq	%rbx
 	.cfi_def_cfa_offset 32
 	.cfi_offset 3, -32
-	movq	16(%rdi), %rax
 	movq	%rdi, %rbx
+	movq	(%rdi), %rdi
+	movq	16(%rbx), %rax
 	cmpb	$0, 168(%rax)
-	je	.L35
-.L41:
+	jne	.L38
+	movl	72(%rbx), %eax
+	addq	$400, %rdi
+	leal	100(%rax), %ebp
+	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
+	cmpl	%eax, %ebp
+	jb	.L49
+.L51:
+	movq	(%rbx), %rdi
+.L38:
+	call	_ZN3wze6engine6window8HasFocusEv@PLT
+	testb	%al, %al
+	jne	.L36
+.L37:
+	movq	16(%rbx), %rax
+	movb	$1, 168(%rax)
+	movq	32(%rbx), %rax
+	movq	16(%rax), %rax
+	movb	$1, 168(%rax)
+	movq	40(%rbx), %rax
+	movq	16(%rax), %rax
+	movb	$1, 168(%rax)
+	movq	48(%rbx), %rax
+	movq	16(%rax), %rax
+	movb	$1, 168(%rax)
+	movq	56(%rbx), %rax
+	movq	16(%rax), %rax
+	movb	$1, 168(%rax)
+	movq	64(%rbx), %rax
+	movq	16(%rax), %rax
+	movb	$1, 168(%rax)
+	movq	(%rbx), %rax
+	leaq	200(%rax), %rdi
+	call	_ZN3wze6engine5mouse11SetAbsoluteEv@PLT
+	movq	(%rbx), %rax
+	leaq	400(%rax), %rdi
+	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
+	movl	%eax, 72(%rbx)
+.L36:
+	movq	16(%rbx), %rax
+	cmpb	$0, 168(%rax)
+	jne	.L39
+.L42:
+	xorl	%eax, %eax
+.L34:
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L39:
+	.cfi_restore_state
 	movq	32(%rbx), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
 	testb	%al, %al
-	jne	.L36
+	jne	.L44
 	movl	72(%rbx), %eax
 	leal	100(%rax), %ebp
 	movq	(%rbx), %rax
 	leaq	400(%rax), %rdi
 	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
 	cmpl	%eax, %ebp
-	jb	.L51
-.L44:
+	jb	.L52
+.L43:
 	movq	40(%rbx), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
 	movl	%eax, %edx
@@ -537,42 +593,24 @@ _ZN9act_pause6UpdateEv:
 	jmp	.L34
 	.p2align 4,,10
 	.p2align 3
-.L35:
-	movl	72(%rdi), %eax
-	leal	100(%rax), %ebp
-	movq	(%rdi), %rax
-	leaq	400(%rax), %rdi
-	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
-	cmpl	%eax, %ebp
-	jb	.L52
-.L39:
-	movq	16(%rbx), %rax
-	cmpb	$0, 168(%rax)
-	jne	.L41
-.L43:
-	xorl	%eax, %eax
-.L34:
-	popq	%rbx
-	.cfi_remember_state
-	.cfi_def_cfa_offset 24
-	popq	%rbp
-	.cfi_def_cfa_offset 16
-	popq	%r12
-	.cfi_def_cfa_offset 8
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L51:
-	.cfi_restore_state
+.L49:
 	movq	(%rbx), %rax
 	movl	$41, %esi
 	leaq	176(%rax), %rdi
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
 	testb	%al, %al
-	je	.L44
+	jne	.L37
+	jmp	.L51
 	.p2align 4,,10
 	.p2align 3
-.L36:
+.L52:
+	movq	(%rbx), %rax
+	movl	$41, %esi
+	leaq	176(%rax), %rdi
+	call	_ZN3wze6engine4keysixENS_3keyE@PLT
+	testb	%al, %al
+	je	.L43
+.L44:
 	movq	16(%rbx), %rax
 	movb	$0, 168(%rax)
 	movq	32(%rbx), %rax
@@ -597,41 +635,7 @@ _ZN9act_pause6UpdateEv:
 	leaq	400(%rax), %rdi
 	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
 	movl	%eax, 72(%rbx)
-	jmp	.L43
-	.p2align 4,,10
-	.p2align 3
-.L52:
-	movq	(%rbx), %rax
-	movl	$41, %esi
-	leaq	176(%rax), %rdi
-	call	_ZN3wze6engine4keysixENS_3keyE@PLT
-	testb	%al, %al
-	je	.L39
-	movq	16(%rbx), %rax
-	movb	$1, 168(%rax)
-	movq	32(%rbx), %rax
-	movq	16(%rax), %rax
-	movb	$1, 168(%rax)
-	movq	40(%rbx), %rax
-	movq	16(%rax), %rax
-	movb	$1, 168(%rax)
-	movq	48(%rbx), %rax
-	movq	16(%rax), %rax
-	movb	$1, 168(%rax)
-	movq	56(%rbx), %rax
-	movq	16(%rax), %rax
-	movb	$1, 168(%rax)
-	movq	64(%rbx), %rax
-	movq	16(%rax), %rax
-	movb	$1, 168(%rax)
-	movq	(%rbx), %rax
-	leaq	200(%rax), %rdi
-	call	_ZN3wze6engine5mouse11SetAbsoluteEv@PLT
-	movq	(%rbx), %rax
-	leaq	400(%rax), %rdi
-	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
-	movl	%eax, 72(%rbx)
-	jmp	.L39
+	jmp	.L42
 	.cfi_endproc
 .LFE8162:
 	.size	_ZN9act_pause6UpdateEv, .-_ZN9act_pause6UpdateEv

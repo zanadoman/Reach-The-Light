@@ -40,7 +40,7 @@ act_pause::~act_pause()
 
 act_pause::state act_pause::Update()
 {
-    if (!this->Actor->Visible && this->PauseTick + 100 < this->Engine->Timing.GetCurrentTick() && this->Engine->Keys[KEY_ESCAPE])
+    if ((!this->Actor->Visible && this->PauseTick + 100 < this->Engine->Timing.GetCurrentTick() && this->Engine->Keys[KEY_ESCAPE]) || !this->Engine->Window.HasFocus())
     {
         this->Actor->Visible = true;
         this->Resume->Actor->Visible = true;
