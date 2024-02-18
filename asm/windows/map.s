@@ -806,7 +806,7 @@ _ZN3map4Map3Ev:
 	.byte	1
 	.byte	4
 	.byte	4
-	.byte	8
+	.byte	3
 	.byte	1
 	.byte	3
 	.byte	7
@@ -823,8 +823,8 @@ _ZN3map4Map3Ev:
 	.byte	3
 	.byte	5
 	.byte	1
-	.byte	1
 	.byte	3
+	.byte	5
 	.byte	5
 	.byte	5
 	.byte	1

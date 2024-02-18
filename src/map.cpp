@@ -433,7 +433,7 @@ uint8 map::Map3()
     this->Raw[105] = 1;
     this->Raw[106] = 4;
     this->Raw[107] = 4;
-    this->Raw[108] = 8;
+    this->Raw[108] = 3;
     this->Raw[109] = 1;
     this->Raw[110] = 3;
     this->Raw[111] = 7;
@@ -448,12 +448,12 @@ uint8 map::Map3()
     this->Raw[120] = 3;
     this->Raw[121] = 5;
     this->Raw[122] = 1;
-    this->Raw[123] = 1;
-    this->Raw[124] = 3;
+    this->Raw[123] = 3;
+    this->Raw[124] = 5;
     this->Raw[125] = 5;
     this->Raw[126] = 5;
     this->Raw[127] = 1;
-
+    
     *this->Spawn = 4;
 
     return 0;
