@@ -199,7 +199,7 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movl	$2, %r8d
 	movl	$1966110, 16(%rax)
 	subsd	%xmm9, %xmm10
-	movb	$-127, 36(%rax)
+	movb	$-124, 36(%rax)
 	movq	(%rbx), %rax
 	movl	$20, 48(%rsp)
 	movl	$60, 40(%rsp)

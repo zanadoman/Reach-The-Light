@@ -4,7 +4,7 @@
 .LC1:
 	.ascii "P\303\241lya 1\0"
 .LC4:
-	.ascii "Kil\303\251p\303\251s\0"
+	.ascii "Vissza\0"
 	.section	.text.unlikely,"x"
 	.align 2
 .LCOLDB7:

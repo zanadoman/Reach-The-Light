@@ -1204,7 +1204,7 @@ _ZN10act_player6UpdateEv:
 	movq	8(%rbx), %rax
 	movq	16(%rbx), %rdx
 	movq	48(%rax), %rax
-	movzbl	1096(%rax), %eax
+	movzbl	1104(%rax), %eax
 	xorl	$1, %eax
 	movb	%al, (%rdx)
 	jmp	.L17

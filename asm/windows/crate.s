@@ -84,7 +84,7 @@ _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 	movl	$120, %edx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt
 	movq	40(%rbx), %rax
-	movb	$-127, 36(%rax)
+	movb	$-128, 36(%rax)
 	addq	$64, %rsp
 	popq	%rbx
 	ret
