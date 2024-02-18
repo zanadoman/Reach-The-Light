@@ -328,7 +328,7 @@ _ZN3mapC2Ev.cold:
 	.byte	2
 	.byte	1
 	.byte	4
-	.byte	3
+	.byte	8
 	.byte	1
 	.byte	8
 	.byte	9
@@ -421,9 +421,9 @@ _ZN3mapC2Ev.cold:
 	.byte	4
 	.byte	8
 	.byte	5
-	.byte	7
+	.byte	6
+	.byte	0
 	.byte	4
-	.byte	8
 	.align 16
 .LC8:
 	.byte	3
