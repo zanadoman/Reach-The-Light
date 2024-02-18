@@ -47,9 +47,9 @@ _ZN3mapD2Ev:
 	.set	_ZN3mapD1Ev,_ZN3mapD2Ev
 	.align 2
 	.p2align 4
-	.globl	_ZN3map5ResetEv
-	.type	_ZN3map5ResetEv, @function
-_ZN3map5ResetEv:
+	.globl	_ZN3map4Map1Ev
+	.type	_ZN3map4Map1Ev, @function
+_ZN3map4Map1Ev:
 .LFB8162:
 	.cfi_startproc
 	movdqa	.LC1(%rip), %xmm0
@@ -74,7 +74,7 @@ _ZN3map5ResetEv:
 	ret
 	.cfi_endproc
 .LFE8162:
-	.size	_ZN3map5ResetEv, .-_ZN3map5ResetEv
+	.size	_ZN3map4Map1Ev, .-_ZN3map4Map1Ev
 	.section	.rodata.str1.8,"aMS",@progbits,1
 	.align 8
 .LC10:
@@ -233,7 +233,7 @@ _ZN3mapC2Ev:
 	jmp	.L11
 .L33:
 	movq	%rbx, %rdi
-	call	_ZN3map5ResetEv
+	call	_ZN3map4Map1Ev
 	jmp	.L6
 .L10:
 	movl	$5, %edx
@@ -330,6 +330,36 @@ _ZN3mapC2Ev.cold:
 .LHOTE14:
 	.globl	_ZN3mapC1Ev
 	.set	_ZN3mapC1Ev,_ZN3mapC2Ev
+	.align 2
+	.p2align 4
+	.globl	_ZN3map4Map2Ev
+	.type	_ZN3map4Map2Ev, @function
+_ZN3map4Map2Ev:
+.LFB8163:
+	.cfi_startproc
+	movdqa	.LC15(%rip), %xmm0
+	movq	136(%rdi), %rax
+	movups	%xmm0, (%rdi)
+	movdqa	.LC16(%rip), %xmm0
+	movups	%xmm0, 16(%rdi)
+	movdqa	.LC17(%rip), %xmm0
+	movups	%xmm0, 32(%rdi)
+	movdqa	.LC18(%rip), %xmm0
+	movups	%xmm0, 48(%rdi)
+	movdqa	.LC19(%rip), %xmm0
+	movups	%xmm0, 64(%rdi)
+	movdqa	.LC20(%rip), %xmm0
+	movups	%xmm0, 80(%rdi)
+	movdqa	.LC21(%rip), %xmm0
+	movups	%xmm0, 96(%rdi)
+	movdqa	.LC22(%rip), %xmm0
+	movups	%xmm0, 112(%rdi)
+	movb	$0, (%rax)
+	xorl	%eax, %eax
+	ret
+	.cfi_endproc
+.LFE8163:
+	.size	_ZN3map4Map2Ev, .-_ZN3map4Map2Ev
 	.section	.rodata.cst16,"aM",@progbits,16
 	.align 16
 .LC1:
@@ -472,6 +502,150 @@ _ZN3mapC2Ev.cold:
 	.byte	5
 	.byte	1
 	.byte	5
+	.byte	1
+	.byte	3
+	.byte	1
+	.align 16
+.LC15:
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	5
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	0
+	.byte	2
+	.byte	5
+	.byte	0
+	.align 16
+.LC16:
+	.byte	4
+	.byte	8
+	.byte	9
+	.byte	4
+	.byte	8
+	.byte	0
+	.byte	4
+	.byte	4
+	.byte	3
+	.byte	7
+	.byte	4
+	.byte	8
+	.byte	9
+	.byte	3
+	.byte	10
+	.byte	1
+	.align 16
+.LC17:
+	.byte	8
+	.byte	11
+	.byte	1
+	.byte	3
+	.byte	1
+	.byte	3
+	.byte	6
+	.byte	9
+	.byte	10
+	.byte	9
+	.byte	3
+	.byte	1
+	.byte	4
+	.byte	5
+	.byte	6
+	.byte	0
+	.align 16
+.LC18:
+	.byte	8
+	.byte	7
+	.byte	4
+	.byte	4
+	.byte	2
+	.byte	0
+	.byte	3
+	.byte	1
+	.byte	2
+	.byte	8
+	.byte	0
+	.byte	8
+	.byte	9
+	.byte	2
+	.byte	7
+	.byte	3
+	.align 16
+.LC19:
+	.byte	4
+	.byte	8
+	.byte	9
+	.byte	8
+	.byte	1
+	.byte	4
+	.byte	4
+	.byte	2
+	.byte	4
+	.byte	10
+	.byte	1
+	.byte	11
+	.byte	3
+	.byte	7
+	.byte	4
+	.byte	2
+	.align 16
+.LC20:
+	.byte	3
+	.byte	6
+	.byte	6
+	.byte	6
+	.byte	0
+	.byte	8
+	.byte	7
+	.byte	8
+	.byte	6
+	.byte	1
+	.byte	8
+	.byte	6
+	.byte	0
+	.byte	8
+	.byte	5
+	.byte	7
+	.align 16
+.LC21:
+	.byte	2
+	.byte	1
+	.byte	4
+	.byte	4
+	.byte	4
+	.byte	8
+	.byte	6
+	.byte	1
+	.byte	4
+	.byte	2
+	.byte	7
+	.byte	4
+	.byte	8
+	.byte	7
+	.byte	2
+	.byte	7
+	.align 16
+.LC22:
+	.byte	3
+	.byte	5
+	.byte	5
+	.byte	1
+	.byte	3
+	.byte	1
+	.byte	3
+	.byte	5
+	.byte	3
+	.byte	1
+	.byte	3
+	.byte	1
+	.byte	3
 	.byte	1
 	.byte	3
 	.byte	1

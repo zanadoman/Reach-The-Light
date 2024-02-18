@@ -42,7 +42,7 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	movb	$0, 18(%rdx)
 	movq	%rcx, 48(%rbx)
 	movl	$1966110, 16(%rax)
-	movb	$-125, 36(%rax)
+	movb	$-128, 36(%rax)
 	movsd	%xmm1, 40(%rbx)
 	addq	$16, %rsp
 	.cfi_def_cfa_offset 16

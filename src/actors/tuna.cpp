@@ -12,7 +12,7 @@ act_tuna::act_tuna(engine* Engine, game* Game, double X, double Y) : Engine(Engi
 
     this->Flipbook->Width = 30;
     this->Flipbook->Height = 30;
-    this->Flipbook->Priority = 131;
+    this->Flipbook->Priority = 128;
 }
 
 act_tuna::~act_tuna()

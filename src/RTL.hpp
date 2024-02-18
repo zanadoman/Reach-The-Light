@@ -181,7 +181,8 @@ struct map
 
     map();
     ~map();
-    uint8 Reset();
+    uint8 Map1();
+    uint8 Map2();
 };
 
 //__________SCENES___________________________________________________________________________________
@@ -237,7 +238,8 @@ struct scene_editor
 
     engine::actor Actor;
 
-    gui_button* Reset;
+    gui_button* Map1;
+    gui_button* Map2;
     gui_button* Exit;
     gui_tile* Tiles[MAP_X][MAP_Y];
 

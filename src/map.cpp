@@ -6,7 +6,7 @@ map::map()
 
     if (memory::LoadTo("saves/map", this->Raw, sizeof(uint8) * MAP_X * MAP_Y + sizeof(uint8)))
     {
-        this->Reset();
+        this->Map1();
     }
 
     for (uint8 i = 0, j = 0; i < MAP_X * MAP_Y; i++)
@@ -51,7 +51,7 @@ map::~map()
     memory::Save(this->Raw, sizeof(uint8) * MAP_X * MAP_Y + sizeof(uint8), "saves/map");
 }
 
-uint8 map::Reset()
+uint8 map::Map1()
 {
     this->Raw[0] = 2;
     this->Raw[1] = 0;
@@ -183,6 +183,142 @@ uint8 map::Reset()
     this->Raw[127] = 1;
     
     *this->Spawn = 3;
+
+    return 0;
+}
+
+uint8 map::Map2()
+{
+    this->Raw[0] = 2;
+    this->Raw[1] = 0;
+    this->Raw[2] = 2;
+    this->Raw[3] = 0;
+    this->Raw[4] = 2;
+    this->Raw[5] = 5;
+    this->Raw[6] = 0;
+    this->Raw[7] = 2;
+    this->Raw[8] = 0;
+    this->Raw[9] = 2;
+    this->Raw[10] = 0;
+    this->Raw[11] = 2;
+    this->Raw[12] = 0;
+    this->Raw[13] = 2;
+    this->Raw[14] = 5;
+    this->Raw[15] = 0;
+    this->Raw[16] = 4;
+    this->Raw[17] = 8;
+    this->Raw[18] = 9;
+    this->Raw[19] = 4;
+    this->Raw[20] = 8;
+    this->Raw[21] = 0;
+    this->Raw[22] = 4;
+    this->Raw[23] = 4;
+    this->Raw[24] = 3;
+    this->Raw[25] = 7;
+    this->Raw[26] = 4;
+    this->Raw[27] = 8;
+    this->Raw[28] = 9;
+    this->Raw[29] = 3;
+    this->Raw[30] = 10;
+    this->Raw[31] = 1;
+    this->Raw[32] = 8;
+    this->Raw[33] = 11;
+    this->Raw[34] = 1;
+    this->Raw[35] = 3;
+    this->Raw[36] = 1;
+    this->Raw[37] = 3;
+    this->Raw[38] = 6;
+    this->Raw[39] = 9;
+    this->Raw[40] = 10;
+    this->Raw[41] = 9;
+    this->Raw[42] = 3;
+    this->Raw[43] = 1;
+    this->Raw[44] = 4;
+    this->Raw[45] = 5;
+    this->Raw[46] = 6;
+    this->Raw[47] = 0;
+    this->Raw[48] = 8;
+    this->Raw[49] = 7;
+    this->Raw[50] = 4;
+    this->Raw[51] = 4;
+    this->Raw[52] = 2;
+    this->Raw[53] = 0;
+    this->Raw[54] = 3;
+    this->Raw[55] = 1;
+    this->Raw[56] = 2;
+    this->Raw[57] = 8;
+    this->Raw[58] = 0;
+    this->Raw[59] = 8;
+    this->Raw[60] = 9;
+    this->Raw[61] = 2;
+    this->Raw[62] = 7;
+    this->Raw[63] = 3;
+    this->Raw[64] = 4;
+    this->Raw[65] = 8;
+    this->Raw[66] = 9;
+    this->Raw[67] = 8;
+    this->Raw[68] = 1;
+    this->Raw[69] = 4;
+    this->Raw[70] = 4;
+    this->Raw[71] = 2;
+    this->Raw[72] = 4;
+    this->Raw[73] = 10;
+    this->Raw[74] = 1;
+    this->Raw[75] = 11;
+    this->Raw[76] = 3;
+    this->Raw[77] = 7;
+    this->Raw[78] = 4;
+    this->Raw[79] = 2;
+    this->Raw[80] = 3;
+    this->Raw[81] = 6;
+    this->Raw[82] = 6;
+    this->Raw[83] = 6;
+    this->Raw[84] = 0;
+    this->Raw[85] = 8;
+    this->Raw[86] = 7;
+    this->Raw[87] = 8;
+    this->Raw[88] = 6;
+    this->Raw[89] = 1;
+    this->Raw[90] = 8;
+    this->Raw[91] = 6;
+    this->Raw[92] = 0;
+    this->Raw[93] = 8;
+    this->Raw[94] = 5;
+    this->Raw[95] = 7;
+    this->Raw[96] = 2;
+    this->Raw[97] = 1;
+    this->Raw[98] = 4;
+    this->Raw[99] = 4;
+    this->Raw[100] = 4;
+    this->Raw[101] = 8;
+    this->Raw[102] = 6;
+    this->Raw[103] = 1;
+    this->Raw[104] = 4;
+    this->Raw[105] = 2;
+    this->Raw[106] = 7;
+    this->Raw[107] = 4;
+    this->Raw[108] = 8;
+    this->Raw[109] = 7;
+    this->Raw[110] = 2;
+    this->Raw[111] = 7;
+    this->Raw[112] = 3;
+    this->Raw[113] = 5;
+    this->Raw[114] = 5;
+    this->Raw[115] = 1;
+    this->Raw[116] = 3;
+    this->Raw[117] = 1;
+    this->Raw[118] = 3;
+    this->Raw[119] = 5;
+    this->Raw[120] = 3;
+    this->Raw[121] = 1;
+    this->Raw[122] = 3;
+    this->Raw[123] = 1;
+    this->Raw[124] = 3;
+    this->Raw[125] = 1;
+    this->Raw[126] = 3;
+    this->Raw[127] = 1;
+
+    *this->Spawn = 0;
 
     return 0;
 }

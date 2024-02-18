@@ -259,10 +259,8 @@ main:
 .LEHB1:
 	call	_ZN3wze6engineC1EPKcS2_tth@PLT
 .LEHE1:
-	movq	%rbp, %rdi
-.LEHB2:
-	call	_Z15DisplayPressKitPN3wze6engineE
 	movl	$80, %edi
+.LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
 	movq	%rbp, %rsi
