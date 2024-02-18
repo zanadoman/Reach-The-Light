@@ -18,7 +18,7 @@ act_player::act_player(engine* Engine, game* Game, bool* RotateTiles, array<act_
     this->Hurt = this->Actor->Textureboxes.New(this->Game->Assets->PlayerHurt);
     this->Dead = this->Actor->Flipbooks.New(100, &this->Game->Assets->PlayerDead);
     this->Score = 0;
-    this->Health = 5;
+    this->Health = 10;
     this->DamageTick = 0;
     this->VelocityX = 0;
     this->VelocityY = 0;

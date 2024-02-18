@@ -2,9 +2,23 @@
 
 scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
-    this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, 10, this->Engine->Window.GetHeight() - 10, 0, 0, 0);
-    this->Health = this->Actor->Textboxes.New("HP: 3", this->Game->Assets->HackBoldFont);
-    this->Score = this->Actor->Textboxes.New("SCORE: 0", this->Game->Assets->HackBoldFont);
+    this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, this->Engine->Window.GetWidth() >> 1, this->Engine->Window.GetHeight() >> 1, 0, 0, 0);
+    this->FrameTime = this->Actor->Textboxes.New("0 FPS", this->Game->Assets->HackRegularFont);
+    this->HealthCounter =
+    {
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthLeftFull),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthRightFull),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthLeftFull),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthRightFull),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthLeftFull),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthRightFull),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthLeftFull),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthRightFull),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthLeftFull),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthRightFull),
+    };
+    this->TunaCount = this->Actor->Textboxes.New("0/0", this->Game->Assets->HackBoldFont);
+    this->TunaFlipbook = this->Actor->Flipbooks.New(75, &this->Game->Assets->TunaTextures);
     if (this->Game->Map->Tiles[*this->Game->Map->Spawn][0] == TILE_HORIZONTAL_CORRIDOR)
     {
         this->Player = new act_player(this->Engine, this->Game, &this->RotateTiles, &this->Tunas, -350 + 100 * *this->Game->Map->Spawn, -741);
@@ -22,13 +36,34 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     }
     this->RotateTiles = false;
 
-    this->Health->SetHeight(50);
-    this->Health->SetX(this->Actor->GetX() + (this->Health->GetWidth() >> 1));
-    this->Health->SetY(this->Actor->GetY() - 25);
+    this->FrameTime->SetHeight(25);
+    this->FrameTime->SetX(10 + (this->FrameTime->GetWidth() >> 1));
+    this->FrameTime->SetY(this->Engine->Window.GetHeight() - 10 - (this->FrameTime->GetHeight() >> 1));
 
-    this->Score->SetHeight(50);
-    this->Score->SetX(this->Actor->GetX() + (this->Score->GetWidth() >> 1));
-    this->Score->SetY(this->Actor->GetY() - 100);
+    for (uint8 i = 0; i < this->HealthCounter.Length(); i++)
+    {
+        if (i % 2)
+        {
+            this->HealthCounter[i]->SetX(this->Actor->GetX() - 145 + 80 * ((i - 1) / 2.0));   
+        }
+        else
+        {
+            this->HealthCounter[i]->SetX(this->Actor->GetX() - 175 + 80 * (i / 2.0));
+        }
+
+        this->HealthCounter[i]->Width = 30;
+        this->HealthCounter[i]->Height = 72;
+        this->HealthCounter[i]->SetY(this->Actor->GetY() - 650);
+    }
+
+    this->TunaCount->SetX(this->Actor->GetX() + 5 + (this->TunaCount->GetWidth() >> 1));
+    this->TunaCount->SetY(this->Actor->GetY() - 550);
+    this->TunaCount->SetHeight(50);
+    
+    this->TunaFlipbook->SetX(this->Actor->GetX() - 41);
+    this->TunaFlipbook->SetY(this->Actor->GetY() - 550);
+    this->TunaFlipbook->Height = 72;
+    this->TunaFlipbook->Width = 72;
 }
 
 scene_play::~scene_play()
@@ -53,16 +88,42 @@ scene scene_play::Update()
 {
     string str;
 
+    this->FrameTime->SetLiteral((((str += {"FrameTime: "}) += {(uint64)this->Engine->Timing.GetFrameTime()}) += {"ms"})());
+    this->FrameTime->SetX(10 + (this->FrameTime->GetWidth() >> 1));
+
     if (this->Player->Health == 0 && this->Player->DamageTick + 2500 <= this->Engine->Timing.GetCurrentTick())
     {
         return SCENE_GAME_OVER;
     }
 
-    this->Health->SetLiteral(((str = {"HP: "}) += {(uint64)this->Player->Health})());
-    this->Health->SetX(this->Actor->GetX() + (this->Health->GetWidth() >> 1));
+    for (uint8 i = 0; i < this->HealthCounter.Length(); i++)
+    {
+        if (i < this->Player->Health)
+        {
+            if (i % 2)
+            {
+                this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthRightFull);
+            }
+            else
+            {
+                this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthLeftFull);
+            }
+        }
+        else
+        {
+            if (i % 2)
+            {
+                this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthRightEmpty);
+            }
+            else
+            {
+                this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthLeftEmpty);
+            }
+        }
+    }
 
-    this->Score->SetLiteral(((str = {"SCORE: "}) += {(uint64)this->Player->Score})());
-    this->Score->SetX(this->Actor->GetX() + (this->Score->GetWidth() >> 1));
+    this->TunaCount->SetLiteral((((str = {(uint64)this->Player->Score}) += {"/"}) += {this->Tunas.Length()})());
+    this->TunaCount->SetX(this->Actor->GetX() + 5 + (this->TunaCount->GetWidth() >> 1));
 
     for (uint8 i = 0; i < MAP_X; i++)
     {

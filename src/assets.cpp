@@ -7,7 +7,11 @@ assets::assets(engine* Engine) : Engine(Engine)
     this->HackItalicFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Italic.ttf", 72);
     this->HackRegularFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Regular.ttf", 72);
 
-    this->ButtonTexture = this->Engine->Assets.LoadTexture("assets/gui/gui_button.png");
+    this->ButtonTexture = this->Engine->Assets.LoadTexture("assets/gui/button.png");
+    this->HearthLeftFull = this->Engine->Assets.LoadTexture("assets/gui/hearth_left_full.png");
+    this->HearthLeftEmpty = this->Engine->Assets.LoadTexture("assets/gui/hearth_left_empty.png");
+    this->HearthRightFull = this->Engine->Assets.LoadTexture("assets/gui/hearth_right_full.png");
+    this->HearthRightEmpty = this->Engine->Assets.LoadTexture("assets/gui/hearth_right_empty.png");
 
     this->MenuBackground = this->Engine->Assets.LoadTexture("assets/etc/menu_background.png");
 

@@ -2,7 +2,7 @@
 	.text
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .LC1:
-	.string	"Alaphelyzet"
+	.string	"P\303\241lya 1"
 .LC4:
 	.string	"Kil\303\251p\303\251s"
 	.section	.text.unlikely,"ax",@progbits
@@ -70,9 +70,9 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	leaq	.LC1(%rip), %r9
 	movq	%rax, %rbx
 	movq	.LC2(%rip), %rax
-	movl	$100, %r8d
+	movl	$75, %r8d
 	movsd	.LC3(%rip), %xmm1
-	movl	$300, %ecx
+	movl	$200, %ecx
 	pxor	%xmm0, %xmm0
 	movq	%rbx, %rdi
 	movq	%rax, %xmm2
@@ -89,9 +89,9 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	leaq	.LC4(%rip), %r9
 	movq	%rax, %rbx
 	movq	.LC2(%rip), %rax
-	movl	$100, %r8d
+	movl	$75, %r8d
 	movsd	.LC5(%rip), %xmm1
-	movl	$300, %ecx
+	movl	$200, %ecx
 	pxor	%xmm0, %xmm0
 	movq	%rbx, %rdi
 	movq	%rax, %xmm2

@@ -114,6 +114,11 @@ struct assets
 
     uint64 ButtonTexture;
 
+    uint64 HearthLeftFull;
+    uint64 HearthLeftEmpty;
+    uint64 HearthRightFull;
+    uint64 HearthRightEmpty;
+
     uint64 MenuBackground;
 
     array<uint64> PlayerIdle;
@@ -202,8 +207,10 @@ struct scene_play
     game* Game;
 
     engine::actor Actor;
-    engine::textbox Health;
-    engine::textbox Score;
+    engine::textbox FrameTime;
+    array<engine::texturebox> HealthCounter;
+    engine::textbox TunaCount;
+    engine::flipbook TunaFlipbook;
 
     act_player* Player;
     tile_token* Tiles[MAP_X][MAP_Y];
