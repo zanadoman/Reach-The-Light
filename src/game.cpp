@@ -93,6 +93,7 @@ uint8 game::SwitchScene(scene NewScene)
         }
 
         this->Engine->Actors.Purge({});
+        this->Engine->Mouse.SetAbsolute();
         this->Engine->Camera.SetOriginX(0);
         this->Engine->Camera.SetOriginY(0);
         this->Engine->Camera.SetOffsetX(0);

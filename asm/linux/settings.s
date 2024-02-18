@@ -16,12 +16,14 @@ _ZN8settingsC2Ev:
 	.cfi_offset 3, -16
 	movq	%rdi, %rsi
 	movq	%rdi, %rbx
-	movl	$16, %edx
+	movl	$24, %edx
 	leaq	.LC0(%rip), %rdi
 	call	_ZN3neo6memory6LoadToEPKcPvy@PLT
 	testb	%al, %al
 	je	.L1
+	movq	.LC2(%rip), %rax
 	movapd	.LC1(%rip), %xmm0
+	movq	%rax, 16(%rbx)
 	movups	%xmm0, (%rbx)
 .L1:
 	popq	%rbx
@@ -44,7 +46,7 @@ _ZN8settingsD2Ev:
 	subq	$8, %rsp
 	.cfi_def_cfa_offset 16
 	leaq	.LC0(%rip), %rdx
-	movl	$16, %esi
+	movl	$24, %esi
 	call	_ZN3neo6memory4SaveEPKvyPKc@PLT
 	addq	$8, %rsp
 	.cfi_def_cfa_offset 8
@@ -68,7 +70,12 @@ _ZN8settingsD2Ev:
 	.align 16
 .LC1:
 	.long	0
+	.long	1072693248
+	.long	0
 	.long	1078525952
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align 8
+.LC2:
 	.long	0
 	.long	1078853632
 	.hidden	DW.ref.__gxx_personality_v0

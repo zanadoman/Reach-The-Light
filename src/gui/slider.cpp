@@ -57,7 +57,14 @@ double gui_slider::Update()
 
     result = (this->Max - this->Min) * ((this->Indicator->GetX() - this->IndicatorMinX) / (this->IndicatorMaxX - this->IndicatorMinX)) + this->Min;
 
-    this->Textbox->SetLiteral((((str = {&this->Literal}) += {": "}) += {(sint64)round(result)})());
+    ((str = {&this->Literal}) += {": "}) += {result};
+
+    if (this->Literal.Length() + 6 < str.Length())
+    {
+        str.Remove(this->Literal.Length() + 6, str.Length() - 1 - (this->Literal.Length() + 6));
+    }
+
+    this->Textbox->SetLiteral(str());
 
     return result;
 }

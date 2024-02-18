@@ -103,9 +103,6 @@ act_player::act_player(engine* Engine, game* Game, bool* RotateTiles, array<act_
     this->FireflyMask->Width = 3000;
     this->FireflyMask->Height = 3000;
     this->FireflyMask->Priority = 134;
-
-    this->Engine->Camera.Bind(this->Actor->GetID());
-    this->Engine->Camera.SetZoom(5);
 }
 
 act_player::~act_player()
@@ -117,7 +114,6 @@ uint8 act_player::Update()
 {
     array<array<uint64>> OverlapState;
     bool LatchBox1Active, LatchBox2Active;
-    double FireflyLength, FireflyAngle;
 
     LatchBox1Active = false;
     LatchBox2Active = false;
@@ -170,7 +166,7 @@ uint8 act_player::Update()
                     break;
 
                     case BOX_LEVER:
-                        if (!this->InteractKey && this->Engine->Keys[KEY_S])
+                        if (!this->InteractKey && (this->Engine->Keys[KEY_S] || this->Engine->Keys[KEY_DOWN]))
                         {
                             *this->RotateTiles = !this->Game->Play->RotateTiles;
                         }
@@ -181,7 +177,7 @@ uint8 act_player::Update()
             }
         }
 
-        this->InteractKey = this->Engine->Keys[KEY_S];
+        this->InteractKey = (this->Engine->Keys[KEY_S] || this->Engine->Keys[KEY_DOWN]);
 
         this->SimulationBox->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
         for (uint16 i = 1; i < OverlapState.Length(); i++)
@@ -192,7 +188,7 @@ uint8 act_player::Update()
             }
         }
 
-        if (this->Engine->Keys[KEY_A] && !this->Engine->Keys[KEY_D])
+        if ((this->Engine->Keys[KEY_A] || this->Engine->Keys[KEY_LEFT]) && !(this->Engine->Keys[KEY_D] || this->Engine->Keys[KEY_RIGHT]))
         {
             this->VelocityX -= 0.00075 * this->Engine->Timing.GetDeltaTime();
             if (this->VelocityX < -0.2)
@@ -217,7 +213,7 @@ uint8 act_player::Update()
                 this->VelocityX = 0;
             }
         }
-        if (this->Engine->Keys[KEY_D] && !this->Engine->Keys[KEY_A])
+        if ((this->Engine->Keys[KEY_D] || this->Engine->Keys[KEY_RIGHT]) && !(this->Engine->Keys[KEY_A] || this->Engine->Keys[KEY_LEFT]))
         {
             this->VelocityX += 0.00075 * this->Engine->Timing.GetDeltaTime();
             if (0.2 < this->VelocityX)
@@ -243,13 +239,13 @@ uint8 act_player::Update()
             }
         }
 
-        if (this->VelocityY == 0 && this->Engine->Keys[KEY_SPACE])
+        if (this->VelocityY == 0 && (this->Engine->Keys[KEY_W] || this->Engine->Keys[KEY_SPACE] || this->Engine->Keys[KEY_UP]))
         {
             this->VelocityY = 0.3;
             this->Jump->Reset();
         }
 
-        if (this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime() != this->Actor->SetX(this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime()) && this->Engine->Keys[KEY_SPACE])
+        if (this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime() != this->Actor->SetX(this->Actor->GetX() + this->VelocityX * this->Engine->Timing.GetDeltaTime()) && (this->Engine->Keys[KEY_W] || this->Engine->Keys[KEY_SPACE] || this->Engine->Keys[KEY_UP]))
         {
             this->LatchBox1->GetOverlapState(&OverlapState, {ACT_PLATFORM}, {});
             for (uint64 i = 0; i < OverlapState.Length(); i++)
@@ -314,18 +310,18 @@ uint8 act_player::Update()
         }
     }
 
-    FireflyLength = engine::vector::Length(this->Actor->GetX(), this->Actor->GetY(), this->Engine->Mouse.GetX(1), this->Engine->Mouse.GetY(1));
-    FireflyAngle = engine::vector::Angle(this->Actor->GetX(), this->Actor->GetY(), this->Engine->Mouse.GetX(1), this->Engine->Mouse.GetY(1));
+    this->Firefly->SetX(this->Firefly->GetX() + this->Engine->Mouse.GetMotionX());
+    this->Firefly->SetY(this->Firefly->GetY() + this->Engine->Mouse.GetMotionY());
 
-    if (FireflyLength == FireflyLength && FireflyAngle == FireflyAngle)
+    if (50 < this->Firefly->GetOffsetLength())
     {
-        this->Firefly->SetOffsetLength(engine::math::Clamp<double>(FireflyLength, 0, 50));
-        this->Firefly->SetOffsetAngle(FireflyAngle);
-        this->FireflyBloom->SetX(this->Firefly->GetX());
-        this->FireflyBloom->SetY(this->Firefly->GetY());
-        this->FireflyMask->SetX(this->Firefly->GetX());
-        this->FireflyMask->SetY(this->Firefly->GetY());
+        this->Firefly->SetOffsetLength(50);
     }
+
+    this->FireflyBloom->SetX(this->Firefly->GetX());
+    this->FireflyBloom->SetY(this->Firefly->GetY());
+    this->FireflyMask->SetX(this->Firefly->GetX());
+    this->FireflyMask->SetY(this->Firefly->GetY());
 
     this->FireflyMask->ColorA = round(engine::math::Clamp<double>(((MAP_Y >> 1) * 100 - this->Actor->GetY()) / 100 * 255, 0, 255));
 

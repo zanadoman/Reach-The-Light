@@ -64,6 +64,10 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->TunaFlipbook->SetY(this->Actor->GetY() - 550);
     this->TunaFlipbook->Height = 72;
     this->TunaFlipbook->Width = 72;
+
+    this->Engine->Mouse.SetRelative();
+    this->Engine->Camera.Bind(this->Player->Actor->GetID());
+    this->Engine->Camera.SetZoom(5);
 }
 
 scene_play::~scene_play()

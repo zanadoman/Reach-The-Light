@@ -380,6 +380,22 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetYEd@PLT
 	movq	56(%r12), %rax
 	movl	$4718664, 16(%rax)
+	movq	(%r12), %rax
+	leaq	200(%rax), %rdi
+	call	_ZN3wze6engine5mouse11SetRelativeEv@PLT
+	movq	(%r12), %rax
+	leaq	80(%rax), %rbx
+	movq	64(%r12), %rax
+	movq	32(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rax, %rsi
+	movq	%rbx, %rdi
+	call	_ZN3wze6engine6camera4BindEy@PLT
+	movq	(%r12), %rax
+	leaq	80(%rax), %rdi
+	movq	.LC13(%rip), %rax
+	movq	%rax, %xmm0
+	call	_ZN3wze6engine6camera7SetZoomEd@PLT
 	movq	120(%rsp), %rax
 	subq	%fs:40, %rax
 	jne	.L39
@@ -464,7 +480,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	jmp	.L19
 .L25:
 	movq	%rax, %rbp
-	jmp	.L19
+	jmp	.L17
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
 .LLSDA8157:
@@ -511,7 +527,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	.type	_ZN10scene_playC2EPN3wze6engineEP4game.cold, @function
 _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 .LFSB8157:
-.L19:
+.L17:
 	.cfi_def_cfa_offset 192
 	.cfi_offset 3, -56
 	.cfi_offset 6, -48
@@ -542,6 +558,11 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	jmp	.L18
 .L40:
 	call	__stack_chk_fail@PLT
+.L19:
+	movl	$192, %esi
+	movq	%rbx, %rdi
+	call	_ZdlPvm@PLT
+	jmp	.L18
 	.cfi_endproc
 .LFE8157:
 	.section	.gcc_except_table

@@ -2,8 +2,9 @@
 
 settings::settings()
 {
-    if (memory::LoadTo("saves/settings", &this->Volume, sizeof(settings)))
+    if (memory::LoadTo("saves/settings", &this->MouseSensitivity, sizeof(settings)))
     {
+        this->MouseSensitivity = 1;
         this->Volume = 50;
         this->FrameRate = 60;
     }
@@ -11,5 +12,5 @@ settings::settings()
 
 settings::~settings()
 {
-    memory::Save(&this->Volume, sizeof(settings), "saves/settings");
+    memory::Save(&this->MouseSensitivity, sizeof(settings), "saves/settings");
 }

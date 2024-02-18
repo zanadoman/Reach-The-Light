@@ -155,6 +155,7 @@ struct assets
 
 struct settings
 {
+    double MouseSensitivity;
     double Volume;
     double FrameRate;
 
@@ -193,6 +194,7 @@ struct scene_menu
     gui_button* Editor;
     gui_button* Credits;
     gui_button* Quit;
+    gui_slider* MouseSensitivity;
     gui_slider* Volume;
     gui_slider* FrameRate;
 

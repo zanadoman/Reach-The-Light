@@ -37,7 +37,7 @@ _ZN4gameC2EPN3wze6engineE:
 	call	_ZN6assetsC1EPN3wze6engineE@PLT
 .LEHE1:
 	movq	%r12, 8(%rbx)
-	movl	$16, %edi
+	movl	$24, %edi
 .LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
@@ -57,7 +57,7 @@ _ZN4gameC2EPN3wze6engineE:
 	call	_ZN3mapC1Ev@PLT
 .LEHE5:
 	movq	%r12, 24(%rbx)
-	movl	$88, %edi
+	movl	$96, %edi
 	movl	$1, 32(%rbx)
 .LEHB6:
 	call	_Znwm@PLT
@@ -154,7 +154,7 @@ _ZN4gameC2EPN3wze6engineE.cold:
 	call	_Unwind_Resume@PLT
 .L5:
 	movq	%r12, %rdi
-	movl	$88, %esi
+	movl	$96, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
@@ -166,7 +166,7 @@ _ZN4gameC2EPN3wze6engineE.cold:
 	call	_Unwind_Resume@PLT
 .L3:
 	movq	%r12, %rdi
-	movl	$16, %esi
+	movl	$24, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
@@ -244,7 +244,7 @@ _ZN4gameD2Ev:
 	je	.L21
 	movq	%rbp, %rdi
 	call	_ZN8settingsD1Ev@PLT
-	movl	$16, %esi
+	movl	$24, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 .L21:
@@ -310,7 +310,7 @@ _ZN4gameD2Ev:
 	je	.L18
 	movq	%rbp, %rdi
 	call	_ZN10scene_menuD1Ev@PLT
-	movl	$88, %esi
+	movl	$96, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 	jmp	.L18
@@ -371,6 +371,9 @@ _ZN4game11SwitchSceneE5scene:
 	leaq	256(%rax), %rdi
 .LEHB9:
 	call	_ZN3wze6engine6actors5PurgeESt16initializer_listIyE@PLT
+	movq	(%rbx), %rax
+	leaq	200(%rax), %rdi
+	call	_ZN3wze6engine5mouse11SetAbsoluteEv@PLT
 	movq	(%rbx), %rax
 	pxor	%xmm0, %xmm0
 	leaq	80(%rax), %rdi
@@ -453,7 +456,7 @@ _ZN4game11SwitchSceneE5scene:
 	je	.L48
 	movq	%r12, %rdi
 	call	_ZN10scene_menuD1Ev@PLT
-	movl	$88, %esi
+	movl	$96, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
 	jmp	.L48
@@ -488,7 +491,7 @@ _ZN4game11SwitchSceneE5scene:
 	.p2align 3
 .L52:
 	.cfi_restore_state
-	movl	$88, %edi
+	movl	$96, %edi
 .LEHB13:
 	call	_Znwm@PLT
 .LEHE13:
@@ -629,7 +632,7 @@ _ZN4game11SwitchSceneE5scene.cold:
 	call	_Unwind_Resume@PLT
 .L56:
 	movq	%r12, %rdi
-	movl	$88, %esi
+	movl	$96, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
