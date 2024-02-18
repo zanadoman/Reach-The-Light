@@ -17,6 +17,21 @@ map::map()
         }
     }
     
+    this->TopAllowed =
+    {
+        TILE_TOP_LEFT_CORNER,
+        TILE_TOP_RIGHT_CORNER,
+        TILE_HORIZONTAL_CORRIDOR,
+        TILE_FLOOR_HOLE,
+        TILE_TRAP_HOLE
+    };
+    this->BotAllowed =
+    {
+        TILE_BOT_LEFT_CORNER,
+        TILE_BOT_RIGHT_CORNER,
+        TILE_HORIZONTAL_CORRIDOR,
+        TILE_CEIL_HOLE
+    };
     this->LeftAllowed = 
     {
         TILE_TOP_LEFT_CORNER,
@@ -28,13 +43,6 @@ map::map()
         TILE_TOP_RIGHT_CORNER,
         TILE_BOT_RIGHT_CORNER,
         TILE_VERTICAL_CORRIDOR
-    };
-    this->BottomAllowed =
-    {
-        TILE_BOT_LEFT_CORNER,
-        TILE_BOT_RIGHT_CORNER,
-        TILE_HORIZONTAL_CORRIDOR,
-        TILE_CEIL_HOLE
     };
 }
 

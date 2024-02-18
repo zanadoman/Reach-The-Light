@@ -12,9 +12,31 @@ gui_tile::gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width,
     this->TileX = TileX;
     this->TileY = TileY;
     
-    if (((this->TileX == 0 && this->TileY == 0) || (this->TileX == 0 && this->TileY == MAP_Y - 1) || (this->TileX == MAP_X - 1 && this->TileY == 0) || (this->TileX == MAP_X - 1 && this->TileY == MAP_Y - 1)))
+    if ((this->TileX == 3 && this->TileY == MAP_Y - 1) || (this->TileX == 4 && this->TileY == MAP_Y - 1) || (this->TileX == 0 && this->TileY == 0) || (this->TileX == 0 && this->TileY == MAP_Y - 1) || (this->TileX == MAP_X - 1 && this->TileY == 0) || (this->TileX == MAP_X - 1 && this->TileY == MAP_Y - 1))
     {
         this->Type = this->Game->Map->Tiles[TileX][TileY];
+    }
+    else if (TileY == 15)
+    {
+        for (uint8 i = 0; i < this->Game->Map->TopAllowed.Length(); i++)
+        {
+            if (this->Game->Map->Tiles[TileX][TileY] == this->Game->Map->TopAllowed[i])
+            {
+                this->Type = i;
+                break;
+            }
+        }
+    }
+    else if (TileY == 0)
+    {
+        for (uint8 i = 0; i < this->Game->Map->BotAllowed.Length(); i++)
+        {
+            if (this->Game->Map->Tiles[TileX][TileY] == this->Game->Map->BotAllowed[i])
+            {
+                this->Type = i;
+                break;
+            }
+        }
     }
     else if (TileX == 0)
     {
@@ -32,17 +54,6 @@ gui_tile::gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width,
         for (uint8 i = 0; i < this->Game->Map->RightAllowed.Length(); i++)
         {
             if (this->Game->Map->Tiles[TileX][TileY] == this->Game->Map->RightAllowed[i])
-            {
-                this->Type = i;
-                break;
-            }
-        }
-    }
-    else if (TileY == 0)
-    {
-        for (uint8 i = 0; i < this->Game->Map->BottomAllowed.Length(); i++)
-        {
-            if (this->Game->Map->Tiles[TileX][TileY] == this->Game->Map->BottomAllowed[i])
             {
                 this->Type = i;
                 break;
@@ -93,11 +104,29 @@ uint8 gui_tile::Update()
         this->Left->Visible = true;
         this->Right->Visible = true;
 
-        if (!((this->TileX == 0 && this->TileY == 0) || (this->TileX == 0 && this->TileY == MAP_Y - 1) || (this->TileX == MAP_X - 1 && this->TileY == 0) || (this->TileX == MAP_X - 1 && this->TileY == MAP_Y - 1)))
+        if (!((this->TileX == 3 && this->TileY == MAP_Y - 1) || (this->TileX == 4 && this->TileY == MAP_Y - 1) || (this->TileX == 0 && this->TileY == 0) || (this->TileX == 0 && this->TileY == MAP_Y - 1) || (this->TileX == MAP_X - 1 && this->TileY == 0) || (this->TileX == MAP_X - 1 && this->TileY == MAP_Y - 1)))
         {
             if (this->Overlapbox->GetButtonState() & BTN_RELEASED_LMB)
             {
-                if (this->TileX == 0)
+                if (this->TileY == MAP_Y - 1)
+                {
+                    if (this->Game->Map->TopAllowed.Length() <= ++this->Type)
+                    {
+                        this->Type = 0;
+                    }
+
+                    this->Game->Map->Tiles[this->TileX][this->TileY] = this->Game->Map->TopAllowed[this->Type];
+                }
+                else if (this->TileY == 0)
+                {
+                    if (this->Game->Map->BotAllowed.Length() <= ++this->Type)
+                    {
+                        this->Type = 0;
+                    }
+
+                    this->Game->Map->Tiles[this->TileX][this->TileY] = this->Game->Map->BotAllowed[this->Type];
+                }
+                else if (this->TileX == 0)
                 {
                     if (this->Game->Map->LeftAllowed.Length() <= ++this->Type)
                     {
@@ -115,15 +144,6 @@ uint8 gui_tile::Update()
 
                     this->Game->Map->Tiles[this->TileX][this->TileY] = this->Game->Map->RightAllowed[this->Type];
                 }
-                else if (this->TileY == 0)
-                {
-                    if (this->Game->Map->BottomAllowed.Length() <= ++this->Type)
-                    {
-                        this->Type = 0;
-                    }
-
-                    this->Game->Map->Tiles[this->TileX][this->TileY] = this->Game->Map->BottomAllowed[this->Type];
-                }
                 else
                 {
                     if (TILE_COUNT <= ++this->Type)
@@ -137,7 +157,25 @@ uint8 gui_tile::Update()
 
             if (this->Overlapbox->GetButtonState() & BTN_RELEASED_RMB)
             {
-                if (this->TileX == 0)
+                if (this->TileY == MAP_Y - 1)
+                {
+                    if (this->Game->Map->TopAllowed.Length() <= --this->Type)
+                    {
+                        this->Type = this->Game->Map->TopAllowed.Length() - 1;
+                    }
+
+                    this->Game->Map->Tiles[this->TileX][this->TileY] = this->Game->Map->TopAllowed[this->Type];
+                }
+                else if (this->TileY == 0)
+                {
+                    if (this->Game->Map->BotAllowed.Length() <= --this->Type)
+                    {
+                        this->Type = this->Game->Map->BotAllowed.Length() - 1;
+                    }
+
+                    this->Game->Map->Tiles[this->TileX][this->TileY] = this->Game->Map->BotAllowed[this->Type];
+                }
+                else if (this->TileX == 0)
                 {
                     if (this->Game->Map->LeftAllowed.Length() <= --this->Type)
                     {
@@ -154,15 +192,6 @@ uint8 gui_tile::Update()
                     }
 
                     this->Game->Map->Tiles[this->TileX][this->TileY] = this->Game->Map->RightAllowed[this->Type];
-                }
-                else if (this->TileY == 0)
-                {
-                    if (this->Game->Map->BottomAllowed.Length() <= --this->Type)
-                    {
-                        this->Type = this->Game->Map->BottomAllowed.Length() - 1;
-                    }
-
-                    this->Game->Map->Tiles[this->TileX][this->TileY] = this->Game->Map->BottomAllowed[this->Type];
                 }
                 else
                 {

@@ -174,9 +174,10 @@ struct map
     uint8* Spawn;
     uint8* Tiles[MAP_X];
 
+    array<uint8> TopAllowed;
+    array<uint8> BotAllowed;
     array<uint8> LeftAllowed;
     array<uint8> RightAllowed;
-    array<uint8> BottomAllowed;
 
     map();
     ~map();
