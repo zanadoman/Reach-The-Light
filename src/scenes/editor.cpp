@@ -20,56 +20,57 @@ scene_editor::scene_editor(engine* Engine, game* Game) : Engine(Engine), Game(Ga
     this->Map3 = new gui_button(this->Engine, this->Game, 225, 875, 200, 75,1, "Pálya 3");
     this->Exit = new gui_button(this->Engine, this->Game, 0, -875, 200, 75, 1, "Vissza");
 
-    this->HintBubble1->SetX(-815);
+    this->HintBubble1->SetX(-840);
     this->HintBubble1->SetY(390);
     this->HintBubble1->Width = 840;
     this->HintBubble1->Height = 290;
 
-    this->HintBubble2->SetX(-815);
-    this->HintBubble2->SetY(-280);
+    this->HintBubble2->SetX(840);
+    this->HintBubble2->SetY(180);
     this->HintBubble2->Width = 840;
     this->HintBubble2->Height = 290;
 
-    this->Player1->SetX(-835);
+    this->Player1->SetX(-860);
     this->Player1->SetY(210);
     this->Player1->Width = 128;
     this->Player1->Height = 128;
 
-    this->Player2->SetX(-835);
-    this->Player2->SetY(-460);
+    this->Player2->SetX(860);
+    this->Player2->SetY(0);
     this->Player2->Width = 128;
     this->Player2->Height = 128;
+    this->Player2->FlipHorizontal = true;
 
-    this->ScrollUpHint->SetX(-815);
+    this->ScrollUpHint->SetX(-840);
     this->ScrollUpHint->SetY(470);
     this->ScrollUpHint->SetHeight(30);
 
-    this->ScrollDownHint->SetX(-815);
+    this->ScrollDownHint->SetX(-840);
     this->ScrollDownHint->SetY(430);
     this->ScrollDownHint->SetHeight(30);
 
-    this->ZoomInHint->SetX(-815);
+    this->ZoomInHint->SetX(-840);
     this->ZoomInHint->SetY(390);
     this->ZoomInHint->SetHeight(30);
 
-    this->ZoomOutHint->SetX(-815);
+    this->ZoomOutHint->SetX(-840);
     this->ZoomOutHint->SetY(350);
     this->ZoomOutHint->SetHeight(30);
 
-    this->TileChangeHint->SetX(-815);
-    this->TileChangeHint->SetY(-200);
+    this->TileChangeHint->SetX(840);
+    this->TileChangeHint->SetY(260);
     this->TileChangeHint->SetHeight(30);
 
-    this->SpawnChangeHint1->SetX(-815);
-    this->SpawnChangeHint1->SetY(-240);
+    this->SpawnChangeHint1->SetX(840);
+    this->SpawnChangeHint1->SetY(220);
     this->SpawnChangeHint1->SetHeight(30);
 
-    this->SpawnChangeHint2->SetX(-815);
-    this->SpawnChangeHint2->SetY(-280);
+    this->SpawnChangeHint2->SetX(840);
+    this->SpawnChangeHint2->SetY(180);
     this->SpawnChangeHint2->SetHeight(30);
 
-    this->SaveHint->SetX(-815);
-    this->SaveHint->SetY(-320);
+    this->SaveHint->SetX(840);
+    this->SaveHint->SetY(140);
     this->SaveHint->SetHeight(30);
 
     for (uint8 i = 0; i < MAP_X; i++)
