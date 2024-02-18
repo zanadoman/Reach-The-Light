@@ -35,7 +35,7 @@ tile_bot_left_corner::tile_bot_left_corner(engine* Engine, game* Game, double X,
     this->WebTextureBox->SetY(Y - 15);
     this->WebTextureBox->Width = 30;
     this->WebTextureBox->Height = 30;
-    this->WebTextureBox->Priority = 129;
+    this->WebTextureBox->Priority = 132;
 
     this->HitboxBot = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y - 40, 60, 20, 1);
     this->HitboxBot->Overlapboxes.New(BOX_PLATFORM);

@@ -45,7 +45,7 @@ _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 	movl	$120, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
 	movq	40(%rbx), %rax
-	movb	$-127, 36(%rax)
+	movb	$-128, 36(%rax)
 	popq	%rbx
 	.cfi_def_cfa_offset 8
 	ret

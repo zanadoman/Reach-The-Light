@@ -159,7 +159,7 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	subsd	.LC7(%rip), %xmm1
 	movl	$1966110, 16(%rax)
 	movl	$2, %edx
-	movb	$-127, 36(%rax)
+	movb	$-124, 36(%rax)
 	movq	0(%r13), %rax
 	movq	%xmm1, %r15
 	leaq	256(%rax), %rdi
