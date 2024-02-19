@@ -328,11 +328,13 @@ _Z6printfPKcz:
 	.align 8
 .LC126:
 	.ascii "assets/etc/trapdoor_opened.png\0"
+.LC127:
+	.ascii "assets/audio/footstep.wav\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB127:
+.LCOLDB128:
 	.text
-.LHOTB127:
+.LHOTB128:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -1123,6 +1125,11 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	328(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 368(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC127(%rip), %rdx
+	leaq	328(%rax), %rcx
+	call	_ZN3wze6engine6assets9LoadSoundEPKc
+	movq	%rax, 376(%rbx)
 	addq	$936, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -1384,7 +1391,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB1-.LCOLDB127
+	.uleb128 .LEHB1-.LCOLDB128
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1393,9 +1400,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE127:
+.LCOLDE128:
 	.text
-.LHOTE127:
+.LHOTE128:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.def	_ZN6assetsC1EPN3wze6engineE;	.scl	2;	.type	32;	.endef
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE
@@ -1484,6 +1491,7 @@ _ZN6assetsD2Ev:
 	.def	_ZN3wze6engine6assets11LoadTextureEPKc;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6memory6CopyToEPKvPvy;	.scl	2;	.type	32;	.endef
 	.def	realloc;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6assets9LoadSoundEPKc;	.scl	2;	.type	32;	.endef
 	.def	exit;	.scl	2;	.type	32;	.endef
 	.def	free;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef

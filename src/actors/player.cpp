@@ -422,6 +422,10 @@ uint8 act_player::Update()
         this->Hurt->Visible = false;
         this->Dead->Visible = false;
         this->Dead->Paused = true;
+        if (!this->Engine->Audio.IsPlaying(CH_FOOTSTEP))
+        {
+            this->Engine->Audio.Play(this->Game->Assets->FootStepAudio, CH_FOOTSTEP, 1);
+        }
     }
     else
     {

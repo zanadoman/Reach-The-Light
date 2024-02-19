@@ -72,6 +72,11 @@ typedef enum
 
 typedef enum
 {
+    CH_FOOTSTEP
+} channel;
+
+typedef enum
+{
     TILE_TOP_LEFT_CORNER,
     TILE_TOP_RIGHT_CORNER,
     TILE_BOT_LEFT_CORNER,
@@ -157,6 +162,8 @@ struct assets
 
     uint64 TrapdoorClosed;
     uint64 TrapdoorOpened;
+
+    uint64 FootStepAudio;
 
     assets(engine* Engine);
     ~assets();
