@@ -350,11 +350,13 @@ _Z6printfPKcz:
 	.ascii "assets/audio/trapdoor.wav\0"
 .LC137:
 	.ascii "assets/audio/tuna.wav\0"
+.LC138:
+	.ascii "assets/audio/heartbeat.wav\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB138:
+.LCOLDB139:
 	.text
-.LHOTB138:
+.LHOTB139:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -1200,6 +1202,11 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets9LoadSoundEPKc
 	movq	%rax, 456(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC138(%rip), %rdx
+	leaq	344(%rax), %rcx
+	call	_ZN3wze6engine6assets9LoadSoundEPKc
+	movq	%rax, 464(%rbx)
 	addq	$936, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -1461,7 +1468,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB1-.LCOLDB138
+	.uleb128 .LEHB1-.LCOLDB139
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1470,9 +1477,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE138:
+.LCOLDE139:
 	.text
-.LHOTE138:
+.LHOTE139:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.def	_ZN6assetsC1EPN3wze6engineE;	.scl	2;	.type	32;	.endef
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE
