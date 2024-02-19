@@ -1205,12 +1205,8 @@ _ZN10act_player6UpdateEv:
 	testb	%al, %al
 	je	.L29
 .L30:
-	movq	8(%rbx), %rax
-	movq	16(%rbx), %rdx
-	movq	48(%rax), %rax
-	movzbl	1104(%rax), %eax
-	xorl	$1, %eax
-	movb	%al, (%rdx)
+	movq	16(%rbx), %rax
+	xorb	$1, (%rax)
 	jmp	.L17
 	.p2align 4,,10
 	.p2align 3

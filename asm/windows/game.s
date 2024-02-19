@@ -23,7 +23,7 @@ _ZN4gameC2EPN3wze6engineE:
 	.seh_endprologue
 	movq	%rdx, (%rcx)
 	movq	%rcx, %rbx
-	movl	$360, %ecx
+	movl	$376, %ecx
 	movq	%rdx, %rsi
 .LEHB0:
 	call	_Znwy
@@ -140,7 +140,7 @@ _ZN4gameC2EPN3wze6engineE:
 _ZN4gameC2EPN3wze6engineE.cold:
 .L2:
 	movq	%rdi, %rcx
-	movl	$360, %edx
+	movl	$376, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 .LEHB8:
@@ -257,7 +257,7 @@ _ZN4gameD2Ev:
 	je	.L12
 	movq	%rbx, %rcx
 	call	_ZN6assetsD1Ev
-	movl	$360, %edx
+	movl	$376, %edx
 	movq	%rbx, %rcx
 	addq	$40, %rsp
 	popq	%rbx
@@ -290,7 +290,7 @@ _ZN4gameD2Ev:
 	je	.L13
 	movq	%rsi, %rcx
 	call	_ZN10scene_playD1Ev
-	movl	$1128, %edx
+	movl	$1144, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
 	jmp	.L13
@@ -314,7 +314,7 @@ _ZN4gameD2Ev:
 	je	.L13
 	movq	%rsi, %rcx
 	call	_ZN10scene_helpD1Ev
-	movl	$32, %edx
+	movl	$104, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
 	jmp	.L13
@@ -473,7 +473,7 @@ _ZN4game11SwitchSceneE5scene:
 	je	.L46
 	movq	%rdi, %rcx
 	call	_ZN10scene_playD1Ev
-	movl	$1128, %edx
+	movl	$1144, %edx
 	movq	%rdi, %rcx
 	call	_ZdlPvy
 	jmp	.L46
@@ -497,7 +497,7 @@ _ZN4game11SwitchSceneE5scene:
 	je	.L46
 	movq	%rdi, %rcx
 	call	_ZN10scene_helpD1Ev
-	movl	$32, %edx
+	movl	$104, %edx
 	movq	%rdi, %rcx
 	call	_ZdlPvy
 	jmp	.L46
@@ -516,7 +516,7 @@ _ZN4game11SwitchSceneE5scene:
 	.p2align 4,,10
 	.p2align 3
 .L58:
-	movl	$1128, %ecx
+	movl	$1144, %ecx
 .LEHB13:
 	call	_Znwy
 .LEHE13:
@@ -550,7 +550,7 @@ _ZN4game11SwitchSceneE5scene:
 	.p2align 4,,10
 	.p2align 3
 .L56:
-	movl	$32, %ecx
+	movl	$104, %ecx
 .LEHB17:
 	call	_Znwy
 .LEHE17:
@@ -648,7 +648,7 @@ _ZN4game11SwitchSceneE5scene.cold:
 	call	_Unwind_Resume
 .L63:
 	movq	%rdi, %rcx
-	movl	$32, %edx
+	movl	$104, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
@@ -660,7 +660,7 @@ _ZN4game11SwitchSceneE5scene.cold:
 	call	_Unwind_Resume
 .L61:
 	movq	%rdi, %rcx
-	movl	$1128, %edx
+	movl	$1144, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume

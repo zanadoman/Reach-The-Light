@@ -6,6 +6,7 @@ act_trapdoor::act_trapdoor(engine* Engine, game* Game, uint8* PlayerScore, uint8
     this->Texturebox = this->Actor->Textureboxes.New(this->Game->Assets->TrapdoorClosed);
     this->MaxScore = MaxScore;
 
+    this->Actor->Resistance = 100;
     this->Actor->SetCollisionLayer(1);
 }
 
