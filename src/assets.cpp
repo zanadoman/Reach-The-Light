@@ -9,6 +9,7 @@ assets::assets(engine* Engine) : Engine(Engine)
 
     this->ButtonTexture = this->Engine->Assets.LoadTexture("assets/gui/button.png");
     this->TextBubble = this->Engine->Assets.LoadTexture("assets/gui/text_bubble.png");
+    this->PauseTexture = this->Engine->Assets.LoadTexture("assets/gui/pause.png");
 
     this->HearthLeftFull = this->Engine->Assets.LoadTexture("assets/gui/hearth/left_full.png");
     this->HearthLeftEmpty = this->Engine->Assets.LoadTexture("assets/gui/hearth/left_empty.png");

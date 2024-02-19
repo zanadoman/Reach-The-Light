@@ -133,6 +133,7 @@ struct assets
 
     uint64 ButtonTexture;
     uint64 TextBubble;
+    uint64 PauseTexture;
 
     uint64 HearthLeftFull;
     uint64 HearthLeftEmpty;
@@ -347,7 +348,7 @@ struct act_pause
     } state;
 
     engine::actor Actor;
-    engine::colorbox ColorBox;
+    engine::texturebox Texturebox;
 
     gui_button* Resume;
     gui_button* Menu;

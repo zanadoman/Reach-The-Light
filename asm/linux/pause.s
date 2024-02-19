@@ -59,9 +59,12 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	xorl	%esi, %esi
 	cvtsi2sdl	%eax, %xmm0
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
+	movq	8(%rbx), %rdx
 	movq	%rax, 16(%rbx)
-	leaq	8(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor10colorboxes3NewEv@PLT
+	leaq	40(%rax), %rdi
+	movq	8(%rdx), %rdx
+	movq	56(%rdx), %rsi
+	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movl	$64, %edi
 	movq	%rax, 24(%rbx)
 	call	_Znwm@PLT
@@ -202,7 +205,7 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	movb	$0, 168(%rax)
 	movq	24(%rbx), %rax
 	movq	%rcx, 16(%rax)
-	movb	$127, 25(%rax)
+	movb	$127, 36(%rax)
 	movq	32(%rbx), %rax
 	movq	16(%rax), %rax
 	movb	$0, 168(%rax)

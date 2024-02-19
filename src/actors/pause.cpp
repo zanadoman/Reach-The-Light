@@ -3,7 +3,7 @@
 act_pause::act_pause(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, this->Engine->Window.GetWidth() >> 1, this->Engine->Window.GetHeight() >> 1, 0, 0, 0);
-    this->ColorBox = this->Actor->Colorboxes.New();
+    this->Texturebox = this->Actor->Textureboxes.New(this->Game->Assets->PauseTexture);
     this->Resume = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() + 200, 200, 75, 0, "Folytat");
     this->Menu = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() + 100, 200, 75, 0, "Menü");
     this->MouseSensitivity = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 50, 400, 15, "Egér érzékenység", 0.1, 2, this->Game->Settings->MouseSensitivity);
@@ -13,13 +13,13 @@ act_pause::act_pause(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 
     this->Actor->Visible = false;
 
-    this->ColorBox->Width = 500;
-    this->ColorBox->Height = 600;
-    this->ColorBox->ColorR = 16;
-    this->ColorBox->ColorG = 16;
-    this->ColorBox->ColorB = 16;
-    this->ColorBox->ColorA = 192;
-    this->ColorBox->Priority = 127;
+    this->Texturebox->Width = 500;
+    this->Texturebox->Height = 600;
+    this->Texturebox->ColorR = 16;
+    this->Texturebox->ColorG = 16;
+    this->Texturebox->ColorB = 16;
+    this->Texturebox->ColorA = 192;
+    this->Texturebox->Priority = 127;
 
     this->Resume->Actor->Visible = false;
     this->Menu->Actor->Visible = false;
