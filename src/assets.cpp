@@ -193,6 +193,7 @@ assets::assets(engine* Engine) : Engine(Engine)
     this->LeverAudio = this->Engine->Assets.LoadSound("assets/audio/lever.wav");
     this->TrapdoorAudio = this->Engine->Assets.LoadSound("assets/audio/trapdoor.wav");
     this->TunaAudio = this->Engine->Assets.LoadSound("assets/audio/tuna.wav");
+    this->HeartBeatAudio = this->Engine->Assets.LoadSound("assets/audio/heartbeat.wav");
 }
 
 assets::~assets()

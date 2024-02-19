@@ -82,6 +82,7 @@ typedef enum
     CH_LEVER,
     CH_TRAPDOOR,
     CH_TUNA,
+    CH_HEARTBEAT,
     CH_COUNT
 } channel;
 
@@ -184,6 +185,7 @@ struct assets
     uint64 LeverAudio;
     uint64 TrapdoorAudio;
     uint64 TunaAudio;
+    uint64 HeartBeatAudio;
 
     assets(engine* Engine);
     ~assets();

@@ -106,6 +106,20 @@ scene scene_play::Update()
 
     PauseState = this->Pause->Update();
 
+    if (!this->Engine->Window.HasFocus())
+    {
+        this->Engine->Audio.PauseAll();
+    }
+    else
+    {
+        this->Engine->Audio.ResumeAll();
+    }
+
+    if (this->Player->Health == 1 && this->Engine->Audio[CH_HEARTBEAT].SoundID == 0)
+    {
+        this->Engine->Audio.Play(this->Game->Assets->HeartBeatAudio, CH_HEARTBEAT, 0.5);
+    }
+
     if (PauseState == act_pause::UNPAUSED)
     {
         if (this->Player->Health == 0 && this->Player->DamageTick + 2500 <= this->Engine->Timing.GetCurrentTick())
