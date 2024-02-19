@@ -22,7 +22,7 @@ _ZN12act_trapdoorC2EPN3wze6engineEP4gamePhhdd:
 	movq	%rcx, %rbx
 	movq	%rdx, (%rcx)
 	movq	%r8, 8(%rcx)
-	leaq	264(%rdx), %rcx
+	leaq	272(%rdx), %rcx
 	xorl	%r8d, %r8d
 	xorl	%edx, %edx
 	movq	%rax, 56(%rsp)
@@ -63,7 +63,7 @@ _ZN12act_trapdoorD2Ev:
 	.seh_endprologue
 	movq	(%rcx), %rax
 	movq	24(%rcx), %rcx
-	leaq	264(%rax), %rbx
+	leaq	272(%rax), %rbx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rbx, %rcx
 	movq	%rax, %rdx

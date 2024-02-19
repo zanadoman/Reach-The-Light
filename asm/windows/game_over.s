@@ -48,7 +48,7 @@ _ZN15scene_game_overC2EPN3wze6engineEP4game:
 	xorl	%edx, %edx
 	shrw	%ax
 	movl	$0, 48(%rsp)
-	leaq	264(%rsi), %rcx
+	leaq	272(%rsi), %rcx
 	movzwl	%ax, %eax
 	movl	$0, 40(%rsp)
 	cvtsi2sdl	%eax, %xmm3
@@ -231,7 +231,7 @@ _ZN15scene_game_overD2Ev:
 	.seh_stackalloc	40
 	.seh_endprologue
 	movq	(%rcx), %rax
-	leaq	264(%rax), %rsi
+	leaq	272(%rax), %rsi
 	movq	%rcx, %rbx
 	movq	16(%rcx), %rcx
 	call	_ZN3wze6engine6actors5actor5GetIDEv

@@ -406,11 +406,11 @@ _ZN4game11SwitchSceneE5scene:
 	leaq	32(%rsp), %rdx
 	movq	$0, 32(%rsp)
 	movq	$0, 40(%rsp)
-	leaq	264(%rax), %rcx
+	leaq	272(%rax), %rcx
 .LEHB11:
 	call	_ZN3wze6engine6actors5PurgeESt16initializer_listIyE
 	movq	(%rbx), %rax
-	leaq	208(%rax), %rcx
+	leaq	216(%rax), %rcx
 	call	_ZN3wze6engine5mouse11SetAbsoluteEv
 	movq	(%rbx), %rax
 	pxor	%xmm1, %xmm1

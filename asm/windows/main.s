@@ -85,7 +85,7 @@ main:
 	.seh_stackalloc	56
 	.seh_endprologue
 	call	__main
-	movl	$472, %ecx
+	movl	$480, %ecx
 .LEHB0:
 	call	_Znwy
 .LEHE0:
@@ -104,7 +104,7 @@ main:
 .LEHB2:
 	call	_ZN3wze6engine5audio15SetChannelCountEt
 	movl	$32, %edx
-	leaq	408(%rbx), %rcx
+	leaq	416(%rbx), %rcx
 	call	_ZN3wze6engine6timing15SetMaxDeltaTimeEj
 	movl	$80, %ecx
 	call	_Znwy
@@ -138,7 +138,7 @@ main:
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_ZN3wze6engineD1Ev
-	movl	$472, %edx
+	movl	$480, %edx
 	movq	%rbx, %rcx
 	call	_ZdlPvy
 	xorl	%eax, %eax
@@ -194,7 +194,7 @@ main:
 main.cold:
 .L8:
 	movq	%rbx, %rcx
-	movl	$472, %edx
+	movl	$480, %edx
 	call	_ZdlPvy
 	movq	%rsi, %rcx
 .LEHB5:
@@ -262,10 +262,10 @@ _Z15DisplayPressKitPN3wze6engineE:
 	.seh_endprologue
 	leaq	.LC6(%rip), %rdx
 	pxor	%xmm6, %xmm6
-	leaq	336(%rcx), %r13
+	leaq	344(%rcx), %r13
 	movq	%rcx, %rbx
 	movq	%r13, %rcx
-	leaq	264(%rbx), %r14
+	leaq	272(%rbx), %r14
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rbx, %rcx
 	movq	%rax, %rbp
@@ -289,7 +289,7 @@ _Z15DisplayPressKitPN3wze6engineE:
 	xorl	%edx, %edx
 	movq	%r14, %rcx
 	movzwl	%ax, %eax
-	leaq	408(%rbx), %rdi
+	leaq	416(%rbx), %rdi
 	movq	$0x000000000, 56(%rsp)
 	cvtsi2sdl	%eax, %xmm3
 	movsd	%xmm6, 32(%rsp)

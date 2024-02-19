@@ -37,7 +37,7 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddtthh:
 	.cfi_offset 3, -56
 	movq	%rdi, %rbx
 	movq	%rsi, %rdi
-	addq	$264, %rdi
+	addq	$272, %rdi
 	subq	$24, %rsp
 	.cfi_def_cfa_offset 80
 	movsd	.LC0(%rip), %xmm2
@@ -302,7 +302,7 @@ _ZN8gui_tileD2Ev:
 	.cfi_offset 3, -16
 	movq	(%rdi), %rax
 	movq	16(%rdi), %rdi
-	leaq	264(%rax), %rbx
+	leaq	272(%rax), %rbx
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbx, %rdi
 	movq	%rax, %rsi

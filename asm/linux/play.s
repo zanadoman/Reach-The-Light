@@ -48,7 +48,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	pushq	%rbx
 	.cfi_def_cfa_offset 56
 	.cfi_offset 3, -56
-	leaq	264(%rsi), %rbx
+	leaq	272(%rsi), %rbx
 	subq	$136, %rsp
 	.cfi_def_cfa_offset 192
 	movq	%fs:40, %rax
@@ -429,7 +429,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	56(%r12), %rax
 	movl	$4718664, 16(%rax)
 	movq	(%r12), %rax
-	leaq	208(%rax), %rdi
+	leaq	216(%rax), %rdi
 	call	_ZN3wze6engine5mouse11SetRelativeEv@PLT
 	movq	(%r12), %rax
 	leaq	80(%rax), %rbx
@@ -801,7 +801,7 @@ _ZN10scene_playD2Ev:
 	movq	0(%r13), %rax
 	xorl	%esi, %esi
 	leaq	160(%rax), %rdi
-	call	_ZN3wze6engine5audio4StopEt@PLT
+	call	_ZN3wze6engine5audio11StopChannelEt@PLT
 	movq	1136(%r13), %rdi
 	call	free@PLT
 	movq	40(%r13), %rdi
@@ -884,7 +884,7 @@ _ZN10scene_play6UpdateEv:
 	movq	24(%rbp), %rbx
 	movq	%rax, 48(%rsp)
 	movq	0(%rbp), %rax
-	leaq	408(%rax), %rdi
+	leaq	416(%rax), %rdi
 .LEHB15:
 	call	_ZN3wze6engine6timing12GetFrameTimeEv@PLT
 	movl	%eax, %eax
@@ -1126,7 +1126,7 @@ _ZN10scene_play6UpdateEv:
 .L123:
 	movq	0(%rbp), %rax
 	movl	156(%rdx), %ebx
-	leaq	408(%rax), %rdi
+	leaq	416(%rax), %rdi
 	addl	$2500, %ebx
 	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
 .LEHE15:

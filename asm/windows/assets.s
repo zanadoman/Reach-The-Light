@@ -390,7 +390,7 @@ _ZN6assetsC2EPN3wze6engineE:
 	movq	$0, 272(%rcx)
 	movq	$0, 336(%rcx)
 	movq	$0, 344(%rcx)
-	leaq	336(%rdx), %rcx
+	leaq	344(%rdx), %rcx
 	leaq	.LC0(%rip), %rdx
 .LEHB0:
 	call	_ZN3wze6engine6assets8LoadFontEPKch
@@ -398,84 +398,84 @@ _ZN6assetsC2EPN3wze6engineE:
 	movq	(%rbx), %rax
 	movl	$72, %r8d
 	leaq	.LC1(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets8LoadFontEPKch
 	movq	%rax, 16(%rbx)
 	movq	(%rbx), %rax
 	movl	$72, %r8d
 	leaq	.LC2(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets8LoadFontEPKch
 	movq	%rax, 24(%rbx)
 	movq	(%rbx), %rax
 	movl	$72, %r8d
 	leaq	.LC3(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets8LoadFontEPKch
 	movq	%rax, 32(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC4(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 40(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC5(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 48(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC6(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 56(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC7(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 64(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC8(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 72(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC9(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 80(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC10(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 88(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC11(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 128(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC12(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 136(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC13(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 144(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC14(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 152(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC15(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 160(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC16(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 168(%rsp)
 	movq	96(%rbx), %rax
@@ -488,32 +488,32 @@ _ZN6assetsC2EPN3wze6engineE:
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	movq	(%rbx), %rax
 	leaq	.LC18(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 176(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC19(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 184(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC20(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 192(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC21(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 200(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC22(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 208(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC23(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 216(%rsp)
 	movq	112(%rbx), %rax
@@ -526,17 +526,17 @@ _ZN6assetsC2EPN3wze6engineE:
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	movq	(%rbx), %rax
 	leaq	.LC24(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 32(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC25(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 40(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC26(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 48(%rsp)
 	movq	128(%rbx), %rax
@@ -549,17 +549,17 @@ _ZN6assetsC2EPN3wze6engineE:
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	movq	(%rbx), %rax
 	leaq	.LC27(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 64(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC28(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 72(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC29(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 80(%rsp)
 	movq	144(%rbx), %rax
@@ -572,32 +572,32 @@ _ZN6assetsC2EPN3wze6engineE:
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	movq	(%rbx), %rax
 	leaq	.LC30(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 224(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC31(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 232(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC32(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 240(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC33(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 248(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC34(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 256(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC35(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 264(%rsp)
 	movq	160(%rbx), %rax
@@ -610,62 +610,62 @@ _ZN6assetsC2EPN3wze6engineE:
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	movq	(%rbx), %rax
 	leaq	.LC36(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 480(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC37(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 488(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC38(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 496(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC39(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 504(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC40(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 512(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC41(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 520(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC42(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 528(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC43(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 536(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC44(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 544(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC45(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 552(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC46(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 560(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC47(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 568(%rsp)
 	movq	176(%rbx), %rax
@@ -678,57 +678,57 @@ _ZN6assetsC2EPN3wze6engineE:
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	movq	(%rbx), %rax
 	leaq	.LC48(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 192(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC49(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 400(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC50(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 408(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC51(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 416(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC52(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 424(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC53(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 432(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC54(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 440(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC55(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 448(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC56(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 456(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC57(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 464(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC58(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 472(%rsp)
 	movq	200(%rbx), %rax
@@ -741,72 +741,72 @@ _ZN6assetsC2EPN3wze6engineE:
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	movq	(%rbx), %rax
 	leaq	.LC59(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 216(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC60(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 224(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC61(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 576(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC62(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 584(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC63(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 592(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC64(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 600(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC65(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 608(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC66(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 616(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC67(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 624(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC68(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 632(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC69(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 640(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC70(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 648(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC71(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 656(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC72(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 664(%rsp)
 	movq	232(%rbx), %rax
@@ -819,32 +819,32 @@ _ZN6assetsC2EPN3wze6engineE:
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	movq	(%rbx), %rax
 	leaq	.LC73(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 272(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC74(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 280(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC75(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 288(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC76(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 296(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC77(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 304(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC78(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 312(%rsp)
 	movq	248(%rbx), %rax
@@ -897,22 +897,22 @@ _ZN6assetsC2EPN3wze6engineE:
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	movq	(%rbx), %rax
 	leaq	.LC81(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 96(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC82(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 104(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC83(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 112(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC84(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 120(%rsp)
 	movq	264(%rbx), %rax
@@ -925,197 +925,197 @@ _ZN6assetsC2EPN3wze6engineE:
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	movq	(%rbx), %rax
 	leaq	.LC85(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 280(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC86(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 288(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC87(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 296(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC88(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 304(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC89(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 312(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC90(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 320(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC91(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 328(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC92(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 672(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC93(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 680(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC94(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 688(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC95(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 696(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC96(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 704(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC97(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 712(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC98(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 720(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC99(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 728(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC100(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 736(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC101(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 744(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC102(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 752(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC103(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 760(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC104(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 768(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC105(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 776(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC106(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 784(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC107(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 792(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC108(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 800(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC109(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 808(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC110(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 816(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC111(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 824(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC112(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 832(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC113(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 840(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC114(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 848(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC115(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 856(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC116(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 864(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC117(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 872(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC118(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 880(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC119(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 888(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC120(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 896(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC121(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 904(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC122(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 912(%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC123(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 920(%rsp)
 	movq	336(%rbx), %rax
@@ -1128,62 +1128,62 @@ _ZN6assetsC2EPN3wze6engineE:
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	movq	(%rbx), %rax
 	leaq	.LC124(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 352(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC125(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 360(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC126(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 368(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC127(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets9LoadSoundEPKc
 	movq	%rax, 376(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC128(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets9LoadSoundEPKc
 	movq	%rax, 384(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC129(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets9LoadSoundEPKc
 	movq	%rax, 392(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC130(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets9LoadSoundEPKc
 	movq	%rax, 400(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC131(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets9LoadSoundEPKc
 	movq	%rax, 408(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC132(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets9LoadSoundEPKc
 	movq	%rax, 416(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC133(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets9LoadSoundEPKc
 	movq	%rax, 424(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC134(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets9LoadSoundEPKc
 	movq	%rax, 432(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC135(%rip), %rdx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets9LoadSoundEPKc
 	movq	%rax, 440(%rbx)
 	addq	$936, %rsp
@@ -1479,7 +1479,7 @@ _ZN6assetsD2Ev:
 	movq	(%rcx), %rax
 	leaq	32(%rsp), %rsi
 	movq	%rcx, %rbx
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	movq	$0, 32(%rsp)
 	movq	$0, 40(%rsp)
 	movq	%rsi, %rdx
@@ -1488,19 +1488,19 @@ _ZN6assetsD2Ev:
 	movq	%rsi, %rdx
 	movq	$0, 32(%rsp)
 	movq	$0, 40(%rsp)
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets11PurgeSoundsESt16initializer_listIyE
 	movq	(%rbx), %rax
 	movq	%rsi, %rdx
 	movq	$0, 32(%rsp)
 	movq	$0, 40(%rsp)
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets10PurgeFontsESt16initializer_listIyE
 	movq	(%rbx), %rax
 	movq	%rsi, %rdx
 	movq	$0, 32(%rsp)
 	movq	$0, 40(%rsp)
-	leaq	336(%rax), %rcx
+	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets19PurgeCursorTexturesESt16initializer_listIyE
 	movq	344(%rbx), %rcx
 	call	free

@@ -82,7 +82,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	.seh_endprologue
 	movq	%rcx, %rdi
 	movq	%rdx, %rcx
-	leaq	264(%rdx), %rbx
+	leaq	272(%rdx), %rbx
 	movq	%rdx, (%rdi)
 	movq	%r8, 8(%rdi)
 	movq	$0, 32(%rdi)
@@ -472,7 +472,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	56(%rdi), %rax
 	movl	$4718664, 16(%rax)
 	movq	(%rdi), %rax
-	leaq	208(%rax), %rcx
+	leaq	216(%rax), %rcx
 	call	_ZN3wze6engine5mouse11SetRelativeEv
 	movq	(%rdi), %rax
 	leaq	80(%rax), %rbx
@@ -828,7 +828,7 @@ _ZN10scene_playD2Ev:
 	movq	0(%rbp), %rax
 	xorl	%edx, %edx
 	leaq	160(%rax), %rcx
-	call	_ZN3wze6engine5audio4StopEt
+	call	_ZN3wze6engine5audio11StopChannelEt
 	movq	1136(%rbp), %rcx
 	call	free
 	movq	40(%rbp), %rcx
@@ -904,7 +904,7 @@ _ZN10scene_play6UpdateEv:
 	movq	24(%rsi), %rbx
 	movq	%rax, 88(%rsp)
 	movq	(%rsi), %rax
-	leaq	408(%rax), %rcx
+	leaq	416(%rax), %rcx
 .LEHB15:
 	call	_ZN3wze6engine6timing12GetFrameTimeEv
 	movl	%eax, %eax
@@ -1145,7 +1145,7 @@ _ZN10scene_play6UpdateEv:
 .L115:
 	movq	(%rsi), %rax
 	movl	156(%rdx), %ebx
-	leaq	408(%rax), %rcx
+	leaq	416(%rax), %rcx
 	addl	$2500, %ebx
 	call	_ZN3wze6engine6timing14GetCurrentTickEv
 .LEHE15:
@@ -1318,7 +1318,7 @@ _ZN10scene_play6UpdateEv.cold:
 	.def	_ZN10tile_tokenD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN12act_trapdoorD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN8act_tunaD1Ev;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5audio4StopEt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio11StopChannelEt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringC1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing12GetFrameTimeEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringpLESt16initializer_listIPKcE;	.scl	2;	.type	32;	.endef

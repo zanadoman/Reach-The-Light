@@ -404,11 +404,11 @@ _ZN4game11SwitchSceneE5scene:
 	movq	(%rbx), %rax
 	xorl	%esi, %esi
 	xorl	%edx, %edx
-	leaq	264(%rax), %rdi
+	leaq	272(%rax), %rdi
 .LEHB9:
 	call	_ZN3wze6engine6actors5PurgeESt16initializer_listIyE@PLT
 	movq	(%rbx), %rax
-	leaq	208(%rax), %rdi
+	leaq	216(%rax), %rdi
 	call	_ZN3wze6engine5mouse11SetAbsoluteEv@PLT
 	movq	(%rbx), %rax
 	pxor	%xmm0, %xmm0

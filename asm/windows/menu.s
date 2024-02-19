@@ -62,7 +62,7 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	xorl	%edx, %edx
 	shrw	%ax
 	movl	$0, 48(%rsp)
-	leaq	264(%rsi), %rcx
+	leaq	272(%rsi), %rcx
 	movzwl	%ax, %eax
 	movl	$0, 40(%rsp)
 	cvtsi2sdl	%eax, %xmm3
@@ -518,7 +518,7 @@ _ZN10scene_menuD2Ev:
 	.seh_stackalloc	40
 	.seh_endprologue
 	movq	(%rcx), %rax
-	leaq	264(%rax), %rsi
+	leaq	272(%rax), %rsi
 	movq	%rcx, %rbx
 	movq	16(%rcx), %rcx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
@@ -663,7 +663,7 @@ _ZN10scene_menu6UpdateEv:
 .L50:
 	movq	(%rbx), %rax
 	movq	72(%rbx), %rcx
-	leaq	208(%rax), %rsi
+	leaq	216(%rax), %rsi
 	movq	8(%rbx), %rax
 	movq	16(%rax), %rdi
 	call	_ZN10gui_slider6UpdateEv
@@ -684,7 +684,7 @@ _ZN10scene_menu6UpdateEv:
 	call	_ZN3wze6engine5audio15SetGlobalVolumeEd
 	movq	(%rbx), %rax
 	movq	88(%rbx), %rcx
-	leaq	408(%rax), %rsi
+	leaq	416(%rax), %rsi
 	movq	8(%rbx), %rax
 	movq	16(%rax), %rdi
 	call	_ZN10gui_slider6UpdateEv

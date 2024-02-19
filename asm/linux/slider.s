@@ -60,7 +60,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	movzwl	%bp, %ecx
 	pxor	%xmm2, %xmm2
 	xorl	%esi, %esi
-	leaq	264(%rax), %rdi
+	leaq	272(%rax), %rdi
 	movzwl	%r13w, %r8d
 .LEHB1:
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
@@ -307,7 +307,7 @@ _ZN10gui_sliderD2Ev:
 	.cfi_def_cfa_offset 32
 	movq	(%rdi), %rax
 	movq	16(%rdi), %rdi
-	leaq	264(%rax), %rbp
+	leaq	272(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
@@ -392,7 +392,7 @@ _ZN10gui_slider6UpdateEv:
 	movq	(%rbx), %rax
 	pxor	%xmm0, %xmm0
 	movq	48(%rbx), %r12
-	leaq	208(%rax), %rdi
+	leaq	216(%rax), %rdi
 	call	_ZN3wze6engine5mouse4GetXEd@PLT
 	movq	%r12, %rdi
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd@PLT

@@ -61,7 +61,7 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	xorl	%r8d, %r8d
 	xorl	%edx, %edx
 	movzwl	%ax, %eax
-	leaq	264(%rbp), %rdi
+	leaq	272(%rbp), %rdi
 	xorl	%esi, %esi
 	cvtsi2sdl	%eax, %xmm0
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
@@ -494,7 +494,7 @@ _ZN10scene_menuD2Ev:
 	.cfi_def_cfa_offset 32
 	movq	(%rdi), %rax
 	movq	16(%rdi), %rdi
-	leaq	264(%rax), %rbp
+	leaq	272(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
@@ -649,7 +649,7 @@ _ZN10scene_menu6UpdateEv:
 	.cfi_restore_state
 	movq	(%rbx), %rax
 	movq	72(%rbx), %rdi
-	leaq	208(%rax), %rbp
+	leaq	216(%rax), %rbp
 	movq	8(%rbx), %rax
 	movq	16(%rax), %r12
 	call	_ZN10gui_slider6UpdateEv@PLT
@@ -668,7 +668,7 @@ _ZN10scene_menu6UpdateEv:
 	call	_ZN3wze6engine5audio15SetGlobalVolumeEd@PLT
 	movq	(%rbx), %rax
 	movq	88(%rbx), %rdi
-	leaq	408(%rax), %rbp
+	leaq	416(%rax), %rbp
 	movq	8(%rbx), %rax
 	movq	16(%rax), %r12
 	call	_ZN10gui_slider6UpdateEv@PLT

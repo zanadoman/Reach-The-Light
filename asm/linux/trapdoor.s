@@ -23,7 +23,7 @@ _ZN12act_trapdoorC2EPN3wze6engineEP4gamePhhdd:
 	movq	%rdx, 8(%rdi)
 	xorl	%edx, %edx
 	movq	%rcx, 16(%rdi)
-	leaq	264(%rsi), %rdi
+	leaq	272(%rsi), %rdi
 	movl	$60, %ecx
 	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
@@ -64,7 +64,7 @@ _ZN12act_trapdoorD2Ev:
 	.cfi_offset 3, -16
 	movq	(%rdi), %rax
 	movq	24(%rdi), %rdi
-	leaq	264(%rax), %rbx
+	leaq	272(%rax), %rbx
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbx, %rdi
 	movq	%rax, %rsi

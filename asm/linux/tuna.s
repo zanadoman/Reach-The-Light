@@ -18,7 +18,7 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	movq	%rsi, (%rdi)
 	movsd	.LC0(%rip), %xmm2
 	movq	%rdx, 8(%rdi)
-	leaq	264(%rsi), %rdi
+	leaq	272(%rsi), %rdi
 	xorl	%edx, %edx
 	xorl	%esi, %esi
 	movsd	%xmm1, 8(%rsp)
@@ -68,7 +68,7 @@ _ZN8act_tunaD2Ev:
 	.cfi_offset 3, -16
 	movq	(%rdi), %rax
 	movq	16(%rdi), %rdi
-	leaq	264(%rax), %rbx
+	leaq	272(%rax), %rbx
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbx, %rdi
 	movq	%rax, %rsi
@@ -113,7 +113,7 @@ _ZN8act_tuna6UpdateEv:
 	movq	(%rbx), %rax
 	movsd	48(%rbx), %xmm3
 	movsd	%xmm0, 8(%rsp)
-	leaq	408(%rax), %rdi
+	leaq	416(%rax), %rdi
 	movsd	%xmm3, (%rsp)
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	pxor	%xmm0, %xmm0

@@ -74,7 +74,7 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddtthh:
 	movq	%rdx, (%rcx)
 	movq	%rcx, %rbx
 	movq	%r8, 8(%rcx)
-	leaq	264(%rdx), %rcx
+	leaq	272(%rdx), %rcx
 	xorl	%r8d, %r8d
 	xorl	%edx, %edx
 	movq	%rax, 56(%rsp)
@@ -332,7 +332,7 @@ _ZN8gui_tileD2Ev:
 	.seh_endprologue
 	movq	(%rcx), %rax
 	movq	16(%rcx), %rcx
-	leaq	264(%rax), %rbx
+	leaq	272(%rax), %rbx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rbx, %rcx
 	movq	%rax, %rdx

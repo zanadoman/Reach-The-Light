@@ -53,7 +53,7 @@ _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 	movq	%rdx, (%rcx)
 	movq	%r8, 8(%rcx)
 	xorl	%r8d, %r8d
-	leaq	264(%rdx), %rcx
+	leaq	272(%rdx), %rcx
 	xorl	%edx, %edx
 	movq	%rax, 56(%rsp)
 	movl	$30, 48(%rsp)
@@ -106,7 +106,7 @@ _ZN9act_crateD2Ev:
 	.seh_endprologue
 	movq	(%rcx), %rax
 	movq	24(%rcx), %rcx
-	leaq	264(%rax), %rbx
+	leaq	272(%rax), %rbx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rbx, %rcx
 	movq	%rax, %rdx
@@ -192,7 +192,7 @@ _ZN9act_crate6UpdateEv:
 	cmpq	$0, (%rax)
 	je	.L9
 	movq	(%rsi), %rax
-	leaq	264(%rax), %rcx
+	leaq	272(%rax), %rcx
 	call	_ZN3wze6engine6actorsixEy
 	movq	%rax, %rcx
 	movl	$1, %edx
@@ -222,7 +222,7 @@ _ZN9act_crate6UpdateEv:
 	je	.L12
 .L7:
 	movq	(%rsi), %rax
-	leaq	408(%rax), %rcx
+	leaq	416(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	movl	%eax, %eax
 	pxor	%xmm1, %xmm1
@@ -236,7 +236,7 @@ _ZN9act_crate6UpdateEv:
 	movq	(%rsi), %rax
 	movsd	48(%rsi), %xmm7
 	movapd	%xmm0, %xmm6
-	leaq	408(%rax), %rcx
+	leaq	416(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	movl	%eax, %eax
 	pxor	%xmm1, %xmm1
@@ -249,7 +249,7 @@ _ZN9act_crate6UpdateEv:
 	movq	(%rsi), %rax
 	movsd	48(%rsi), %xmm8
 	movapd	%xmm0, %xmm7
-	leaq	408(%rax), %rcx
+	leaq	416(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	movl	%eax, %eax
 	pxor	%xmm1, %xmm1
@@ -297,7 +297,7 @@ _ZN9act_crate6UpdateEv:
 	comisd	%xmm6, %xmm0
 	jbe	.L12
 	movq	(%rsi), %rax
-	leaq	408(%rax), %rcx
+	leaq	416(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	movl	%eax, %eax
 	pxor	%xmm0, %xmm0

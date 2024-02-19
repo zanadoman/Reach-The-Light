@@ -93,7 +93,7 @@ scene_play::~scene_play()
         delete this->Tunas[i];
     }
 
-    this->Engine->Audio.Stop(CH_MUSIC);
+    this->Engine->Audio.StopChannel(CH_MUSIC);
 }
 
 scene scene_play::Update()

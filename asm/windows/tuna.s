@@ -20,7 +20,7 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	movq	%rcx, %rbx
 	movq	%r8, 8(%rcx)
 	xorl	%r8d, %r8d
-	leaq	264(%rdx), %rcx
+	leaq	272(%rdx), %rcx
 	xorl	%edx, %edx
 	movq	%rax, 56(%rsp)
 	movl	$18, 48(%rsp)
@@ -69,7 +69,7 @@ _ZN8act_tunaD2Ev:
 	.seh_endprologue
 	movq	(%rcx), %rax
 	movq	16(%rcx), %rcx
-	leaq	264(%rax), %rbx
+	leaq	272(%rax), %rbx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rbx, %rcx
 	movq	%rax, %rdx
@@ -118,7 +118,7 @@ _ZN8act_tuna6UpdateEv:
 	movq	(%rbx), %rax
 	movsd	48(%rbx), %xmm7
 	movapd	%xmm0, %xmm6
-	leaq	408(%rax), %rcx
+	leaq	416(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	pxor	%xmm1, %xmm1
 	movq	%rsi, %rcx

@@ -39,7 +39,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	%rsi, (%rdi)
 	movq	.LC0(%rip), %rax
 	movq	%rdx, 8(%rdi)
-	leaq	264(%rsi), %rdi
+	leaq	272(%rsi), %rdi
 	movl	$1, %edx
 	xorl	%esi, %esi
 	movq	%rax, %xmm2
@@ -52,7 +52,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	8(%rax), %rbp
 	movq	0(%r13), %rax
 	movl	248(%rbp), %edx
-	leaq	328(%rax), %rdi
+	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
 	movq	256(%rbp), %rdx
 	cltq
@@ -73,7 +73,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	0(%r13), %rax
 	movl	$20, %r8d
 	movsd	%xmm1, 16(%rsp)
-	leaq	264(%rax), %rdi
+	leaq	272(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
@@ -91,7 +91,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	8(%rax), %r14
 	movq	0(%r13), %rax
 	movl	264(%r14), %edx
-	leaq	328(%rax), %rdi
+	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
 	movq	272(%r14), %rdx
 	cltq
@@ -125,7 +125,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movl	$60, %r8d
 	movl	$20, %ecx
 	movl	$2, %edx
-	leaq	264(%rax), %rdi
+	leaq	272(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%r15, %xmm1
 	movq	%rax, %xmm2
@@ -144,7 +144,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	8(%rax), %r14
 	movq	0(%r13), %rax
 	movl	264(%r14), %edx
-	leaq	328(%rax), %rdi
+	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
 	movq	272(%r14), %rdx
 	cltq
@@ -179,7 +179,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movl	$20, %r8d
 	movl	$2, %edx
 	subsd	.LC2(%rip), %xmm3
-	leaq	264(%rax), %rdi
+	leaq	272(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	addsd	%xmm5, %xmm1
 	movq	%rax, %xmm2
@@ -199,7 +199,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
 	movl	264(%r12), %edx
-	leaq	328(%rax), %rdi
+	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
 	movq	272(%r12), %rdx
 	movsd	8(%rsp), %xmm1
@@ -217,7 +217,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movsd	24(%rsp), %xmm0
 	movl	$20, %r8d
 	movl	$2, %edx
-	leaq	264(%rax), %rdi
+	leaq	272(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
@@ -233,7 +233,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
 	movl	264(%r12), %edx
-	leaq	328(%rax), %rdi
+	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
 	movq	272(%r12), %rdx
 	cltq
@@ -249,7 +249,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movl	$20, %r8d
 	movl	$20, %ecx
 	movl	$2, %edx
-	leaq	264(%rax), %rdi
+	leaq	272(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
@@ -265,7 +265,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbx
 	movq	$100, 144(%rbx)
 	movl	264(%rbp), %edx
-	leaq	328(%rax), %rdi
+	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
 	movq	272(%rbp), %rdx
 	cltq
@@ -281,7 +281,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movsd	24(%rsp), %xmm0
 	movl	$20, %r8d
 	movl	$2, %edx
-	leaq	264(%rax), %rdi
+	leaq	272(%rax), %rdi
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
@@ -296,7 +296,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	8(%rax), %rbp
 	addq	$40, %rbx
 	movq	$100, 144(%rbx)
-	addq	$328, %rdi
+	addq	$336, %rdi
 	movl	264(%rbp), %edx
 	call	_ZN3wze6engine4math6RandomEii@PLT
 	movq	272(%rbp), %rdx
@@ -354,49 +354,49 @@ _ZN21tile_bot_right_cornerD2Ev:
 	.cfi_def_cfa_offset 32
 	movq	(%rdi), %rax
 	movq	16(%rdi), %rdi
-	leaq	264(%rax), %rbp
+	leaq	272(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
 	movq	(%rbx), %rax
 	movq	32(%rbx), %rdi
-	leaq	264(%rax), %rbp
+	leaq	272(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
 	movq	(%rbx), %rax
 	movq	40(%rbx), %rdi
-	leaq	264(%rax), %rbp
+	leaq	272(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
 	movq	(%rbx), %rax
 	movq	48(%rbx), %rdi
-	leaq	264(%rax), %rbp
+	leaq	272(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
 	movq	(%rbx), %rax
 	movq	56(%rbx), %rdi
-	leaq	264(%rax), %rbp
+	leaq	272(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
 	movq	(%rbx), %rax
 	movq	64(%rbx), %rdi
-	leaq	264(%rax), %rbp
+	leaq	272(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
 	movq	(%rbx), %rax
 	movq	72(%rbx), %rdi
-	leaq	264(%rax), %rbp
+	leaq	272(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
