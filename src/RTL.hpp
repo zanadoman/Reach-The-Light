@@ -75,6 +75,7 @@ typedef enum
     CH_MUSIC,
     CH_GUI,
     CH_PLAYER_FALL,
+    CH_PLAYER_JUMP,
     CH_CRATE_FALL,
     CH_HURT,
     CH_COLLAPSE,
@@ -176,6 +177,7 @@ struct assets
     uint64 Music;
     uint64 GuiAudio;
     uint64 PlayerFallAudio;
+    uint64 PlayerJumpAudio;
     uint64 CrateFallAudio;
     uint64 HurtAudio;
     uint64 CollapseAudio;

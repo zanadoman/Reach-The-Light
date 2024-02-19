@@ -67,7 +67,7 @@ _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	352(%rax), %rdx
+	movq	360(%rax), %rdx
 	movq	24(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -311,9 +311,9 @@ _ZN9act_crate6UpdateEv:
 .L44:
 	movq	8(%rsi), %rax
 	movsd	.LC0(%rip), %xmm3
-	movl	$3, %r8d
+	movl	$4, %r8d
 	movq	8(%rax), %rax
-	movq	400(%rax), %rdx
+	movq	416(%rax), %rdx
 	movq	(%rsi), %rax
 	leaq	160(%rax), %rcx
 	call	_ZN3wze6engine5audio4PlayEytd

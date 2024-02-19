@@ -281,9 +281,9 @@ _ZN9act_crate6UpdateEv:
 .L49:
 	movq	8(%rbp), %rax
 	movsd	.LC0(%rip), %xmm0
-	movl	$3, %edx
+	movl	$4, %edx
 	movq	8(%rax), %rax
-	movq	408(%rax), %rsi
+	movq	416(%rax), %rsi
 	movq	0(%rbp), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytd@PLT

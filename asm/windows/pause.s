@@ -63,9 +63,12 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	movsd	%xmm6, 32(%rsp)
 	movq	$0x000000000, 56(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
+	movq	8(%rbx), %rdx
 	movq	%rax, 16(%rbx)
-	leaq	8(%rax), %rcx
-	call	_ZN3wze6engine6actors5actor10colorboxes3NewEv
+	leaq	40(%rax), %rcx
+	movq	8(%rdx), %rdx
+	movq	56(%rdx), %rdx
+	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movl	$64, %ecx
 	movq	%rax, 24(%rbx)
 	call	_Znwy
@@ -218,7 +221,7 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	movb	$0, 168(%rax)
 	movq	24(%rbx), %rax
 	movq	%rdx, 16(%rax)
-	movb	$127, 25(%rax)
+	movb	$127, 36(%rax)
 	movq	32(%rbx), %rax
 	movq	16(%rax), %rax
 	movb	$0, 168(%rax)
@@ -679,7 +682,7 @@ _ZN9act_pause6UpdateEv:
 	.def	_ZN3wze6engine6window9GetHeightEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6window8GetWidthEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6actors5actor10colorboxes3NewEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12textureboxes3NewEy;	.scl	2;	.type	32;	.endef
 	.def	_Znwy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetXEv;	.scl	2;	.type	32;	.endef

@@ -79,7 +79,7 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	movq	%rax, 24(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	88(%rax), %rdx
+	movq	96(%rax), %rdx
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy

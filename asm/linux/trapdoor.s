@@ -146,11 +146,11 @@ _ZN12act_trapdoor6UpdateEv:
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy@PLT
 	movq	8(%rbx), %rax
 	movq	(%rbx), %rdi
-	movl	$7, %edx
+	movl	$8, %edx
 	movsd	.LC2(%rip), %xmm0
 	movq	8(%rax), %rax
 	addq	$160, %rdi
-	movq	440(%rax), %rsi
+	movq	448(%rax), %rsi
 	call	_ZN3wze6engine5audio4PlayEytd@PLT
 	addq	$8, %rsp
 	.cfi_def_cfa_offset 24

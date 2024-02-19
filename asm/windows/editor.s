@@ -103,7 +103,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rbp), %rax
 	leaq	72(%rdi), %rcx
 	movq	8(%rax), %rax
-	leaq	96(%rax), %r8
+	leaq	104(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	16(%rbp), %rdi
 	movl	$125, %edx
@@ -111,7 +111,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rbp), %rax
 	leaq	72(%rdi), %rcx
 	movq	8(%rax), %rax
-	leaq	96(%rax), %r8
+	leaq	104(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	16(%rbp), %rdi
 	leaq	.LC2(%rip), %rdx

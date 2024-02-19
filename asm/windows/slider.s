@@ -463,7 +463,7 @@ _ZN10gui_slider6UpdateEv:
 	movsd	.LC7(%rip), %xmm3
 	movl	$1, %r8d
 	movq	8(%rax), %rax
-	movq	384(%rax), %rdx
+	movq	392(%rax), %rdx
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rcx
 	call	_ZN3wze6engine5audio4PlayEytd
