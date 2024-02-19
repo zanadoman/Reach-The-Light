@@ -248,6 +248,14 @@ _ZN10gui_button6UpdateEv:
 	cvttsd2sil	%xmm0, %edx
 	movzwl	%dx, %edx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
+	movq	8(%rbx), %rax
+	movq	(%rbx), %rcx
+	movl	$1, %r8d
+	movsd	.LC1(%rip), %xmm3
+	movq	8(%rax), %rax
+	addq	$160, %rcx
+	movq	384(%rax), %rdx
+	call	_ZN3wze6engine5audio4PlayEytd
 	nop
 	movaps	32(%rsp), %xmm6
 	movl	$1, %eax
@@ -294,3 +302,4 @@ _ZN10gui_button6UpdateEv:
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing12GetDeltaTimeEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio4PlayEytd;	.scl	2;	.type	32;	.endef

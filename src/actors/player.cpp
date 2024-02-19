@@ -170,6 +170,7 @@ uint8 act_player::Update()
                         if (!this->InteractKey && (this->Engine->Keys[KEY_S] || this->Engine->Keys[KEY_DOWN]))
                         {
                             *this->RotateTiles = !*this->RotateTiles;
+                            this->Engine->Audio.Play(this->Game->Assets->LeverAudio, CH_LEVER, 1);
                         }
                     break;
                 }
@@ -293,7 +294,7 @@ uint8 act_player::Update()
             {
                 if (this->VelocityY < -0.0006 * this->Engine->Timing.GetDeltaTime())
                 {
-                    this->Engine->Audio.Play(this->Game->Assets->PlayerFallAudio, CH_PLAYER_FALL, 0.5);
+                    this->Engine->Audio.Play(this->Game->Assets->PlayerFallAudio, CH_PLAYER_FALL, 0.25);
                 }
                 this->VelocityY = 0;
                 this->Fall->Reset();

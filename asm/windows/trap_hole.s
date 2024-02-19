@@ -473,7 +473,7 @@ _ZN14tile_trap_hole6UpdateEv:
 	.seh_endprologue
 	cmpq	$0, 56(%rcx)
 	movq	%rcx, %rbx
-	je	.L23
+	je	.L25
 	movq	16(%rcx), %rax
 	movq	40(%rcx), %rdi
 	movq	40(%rax), %rcx
@@ -488,7 +488,7 @@ _ZN14tile_trap_hole6UpdateEv:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy
 	testb	%al, %al
 	jne	.L28
-.L23:
+.L25:
 	xorl	%eax, %eax
 	addq	$32, %rsp
 	popq	%rbx
@@ -505,8 +505,16 @@ _ZN14tile_trap_hole6UpdateEv:
 	movq	%rsi, %rcx
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6actors6DeleteEy
-	xorl	%eax, %eax
+	movq	8(%rbx), %rax
+	movq	(%rbx), %rcx
 	movq	$0, 56(%rbx)
+	movsd	.LC0(%rip), %xmm3
+	movl	$5, %r8d
+	movq	8(%rax), %rax
+	addq	$160, %rcx
+	movq	416(%rax), %rdx
+	call	_ZN3wze6engine5audio4PlayEytd
+	xorl	%eax, %eax
 	addq	$32, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -549,3 +557,4 @@ _ZN14tile_trap_hole6UpdateEv:
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio4PlayEytd;	.scl	2;	.type	32;	.endef

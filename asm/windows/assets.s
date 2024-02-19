@@ -329,12 +329,24 @@ _Z6printfPKcz:
 .LC126:
 	.ascii "assets/etc/trapdoor_opened.png\0"
 .LC127:
-	.ascii "assets/audio/footstep.wav\0"
+	.ascii "assets/audio/music.wav\0"
+.LC128:
+	.ascii "assets/audio/gui.mp3\0"
+.LC129:
+	.ascii "assets/audio/player_fall.mp3\0"
+.LC130:
+	.ascii "assets/audio/crate_fall.wav\0"
+.LC131:
+	.ascii "assets/audio/hurt.wav\0"
+.LC132:
+	.ascii "assets/audio/collapse.wav\0"
+.LC133:
+	.ascii "assets/audio/lever.wav\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB128:
+.LCOLDB134:
 	.text
-.LHOTB128:
+.LHOTB134:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -1130,6 +1142,36 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	328(%rax), %rcx
 	call	_ZN3wze6engine6assets9LoadSoundEPKc
 	movq	%rax, 376(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC128(%rip), %rdx
+	leaq	328(%rax), %rcx
+	call	_ZN3wze6engine6assets9LoadSoundEPKc
+	movq	%rax, 384(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC129(%rip), %rdx
+	leaq	328(%rax), %rcx
+	call	_ZN3wze6engine6assets9LoadSoundEPKc
+	movq	%rax, 392(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC130(%rip), %rdx
+	leaq	328(%rax), %rcx
+	call	_ZN3wze6engine6assets9LoadSoundEPKc
+	movq	%rax, 400(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC131(%rip), %rdx
+	leaq	328(%rax), %rcx
+	call	_ZN3wze6engine6assets9LoadSoundEPKc
+	movq	%rax, 408(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC132(%rip), %rdx
+	leaq	328(%rax), %rcx
+	call	_ZN3wze6engine6assets9LoadSoundEPKc
+	movq	%rax, 416(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC133(%rip), %rdx
+	leaq	328(%rax), %rcx
+	call	_ZN3wze6engine6assets9LoadSoundEPKc
+	movq	%rax, 424(%rbx)
 	addq	$936, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -1391,7 +1433,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB1-.LCOLDB128
+	.uleb128 .LEHB1-.LCOLDB134
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1400,9 +1442,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE128:
+.LCOLDE134:
 	.text
-.LHOTE128:
+.LHOTE134:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.def	_ZN6assetsC1EPN3wze6engineE;	.scl	2;	.type	32;	.endef
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE

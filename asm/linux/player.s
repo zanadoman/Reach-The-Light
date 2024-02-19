@@ -1181,11 +1181,24 @@ _ZN10act_player6UpdateEv:
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
 	movq	(%rbx), %rdi
 	testb	%al, %al
-	je	.L30
+	jne	.L31
+	addq	$176, %rdi
+	movl	$81, %esi
+	call	_ZN3wze6engine4keysixENS_3keyE@PLT
+	movq	(%rbx), %rdi
+	testb	%al, %al
+	je	.L18
 .L31:
 	movq	16(%rbx), %rax
+	movsd	.LC0(%rip), %xmm0
+	movl	$6, %edx
+	addq	$160, %rdi
 	xorb	$1, (%rax)
-	jmp	.L18
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rax
+	movq	424(%rax), %rsi
+	call	_ZN3wze6engine5audio4PlayEytd@PLT
+	jmp	.L199
 	.p2align 4,,10
 	.p2align 3
 .L138:
@@ -1310,14 +1323,6 @@ _ZN10act_player6UpdateEv:
 	movb	$0, 37(%r8)
 	movb	$1, 39(%r8)
 	jmp	.L201
-.L30:
-	addq	$176, %rdi
-	movl	$81, %esi
-	call	_ZN3wze6engine4keysixENS_3keyE@PLT
-	movq	(%rbx), %rdi
-	testb	%al, %al
-	jne	.L31
-	jmp	.L18
 .L196:
 	movq	%rbp, %rsi
 	leaq	.LC16(%rip), %rdi
@@ -1474,7 +1479,7 @@ _ZN10act_player6UpdateEv.cold:
 	.align 8
 .LC23:
 	.long	0
-	.long	1071644672
+	.long	1070596096
 	.align 8
 .LC24:
 	.long	-1717986918

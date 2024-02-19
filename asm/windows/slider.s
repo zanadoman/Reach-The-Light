@@ -306,13 +306,13 @@ _ZN10gui_sliderD2Ev:
 	.def	_ZN10gui_sliderD1Ev;	.scl	2;	.type	32;	.endef
 	.set	_ZN10gui_sliderD1Ev,_ZN10gui_sliderD2Ev
 	.section .rdata,"dr"
-.LC7:
+.LC8:
 	.ascii ": \0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB8:
+.LCOLDB9:
 	.text
-.LHOTB8:
+.LHOTB9:
 	.align 2
 	.p2align 4
 	.globl	_ZN10gui_slider6UpdateEv
@@ -347,14 +347,38 @@ _ZN10gui_slider6UpdateEv:
 .LEHB4:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv
 	testb	$1, %al
-	je	.L26
+	je	.L27
 	movq	24(%rbx), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv
-	movq	48(%rbx), %rdi
 	testb	$2, %al
-	jne	.L29
-.L8:
+	je	.L9
+	movq	(%rbx), %rax
+	pxor	%xmm1, %xmm1
+	movq	48(%rbx), %rdi
+	leaq	200(%rax), %rcx
+	call	_ZN3wze6engine5mouse4GetXEd
+	movapd	%xmm0, %xmm1
 	movq	%rdi, %rcx
+	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd
+	movq	48(%rbx), %rcx
+	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv
+	movsd	72(%rbx), %xmm1
+	movq	48(%rbx), %rcx
+	comisd	%xmm0, %xmm1
+	ja	.L29
+	movsd	80(%rbx), %xmm6
+	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv
+	comisd	%xmm6, %xmm0
+	movq	48(%rbx), %rcx
+	jbe	.L8
+	movsd	80(%rbx), %xmm1
+.L29:
+	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd
+	.p2align 4,,10
+	.p2align 3
+.L27:
+	movq	48(%rbx), %rcx
+.L8:
 	movsd	96(%rbx), %xmm7
 	subsd	88(%rbx), %xmm7
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv
@@ -365,7 +389,7 @@ _ZN10gui_slider6UpdateEv:
 	movsd	80(%rbx), %xmm0
 	leaq	64(%rsp), %rdx
 	movq	%rbp, 88(%rsp)
-	leaq	.LC7(%rip), %rax
+	leaq	.LC8(%rip), %rax
 	subsd	%xmm1, %xmm6
 	movq	%rax, 96(%rsp)
 	leaq	88(%rsp), %rax
@@ -395,7 +419,7 @@ _ZN10gui_slider6UpdateEv:
 	leaq	6(%rax), %rdi
 	call	_ZN3neo6string6LengthEv
 	cmpq	%rax, %rdi
-	jnb	.L12
+	jnb	.L13
 	movq	%rsi, %rcx
 	call	_ZN3neo6string6LengthEv
 	movq	%rbp, %rcx
@@ -409,7 +433,7 @@ _ZN10gui_slider6UpdateEv:
 	movq	%rdi, %r8
 	movq	%rsi, %rcx
 	call	_ZN3neo6string6RemoveEyy
-.L12:
+.L13:
 	movq	%rsi, %rcx
 	movq	40(%rbx), %rbx
 	call	_ZN3neo6stringclEv
@@ -430,38 +454,24 @@ _ZN10gui_slider6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L29:
+.L9:
+	movq	24(%rbx), %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv
+	testb	$4, %al
+	je	.L27
+	movq	8(%rbx), %rax
+	movsd	.LC7(%rip), %xmm3
+	movl	$1, %r8d
+	movq	8(%rax), %rax
+	movq	384(%rax), %rdx
 	movq	(%rbx), %rax
-	pxor	%xmm1, %xmm1
-	leaq	200(%rax), %rcx
-	call	_ZN3wze6engine5mouse4GetXEd
-	movapd	%xmm0, %xmm1
-	movq	%rdi, %rcx
-	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd
-	movq	48(%rbx), %rcx
-	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv
-	movsd	72(%rbx), %xmm1
-	movq	48(%rbx), %rcx
-	comisd	%xmm0, %xmm1
-	ja	.L28
-	movsd	80(%rbx), %xmm6
-	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv
-	comisd	%xmm6, %xmm0
-	movq	48(%rbx), %rdi
-	jbe	.L8
-	movsd	80(%rbx), %xmm1
-	movq	%rdi, %rcx
-.L28:
-	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd
+	leaq	160(%rax), %rcx
+	call	_ZN3wze6engine5audio4PlayEytd
 .LEHE4:
-	.p2align 4,,10
-	.p2align 3
-.L26:
-	movq	48(%rbx), %rdi
-	jmp	.L8
-.L14:
+	jmp	.L27
+.L15:
 	movq	%rax, %rbx
-	jmp	.L13
+	jmp	.L14
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 .LLSDA8437:
@@ -476,7 +486,7 @@ _ZN10gui_slider6UpdateEv:
 	.uleb128 0
 	.uleb128 .LEHB4-.LFB8437
 	.uleb128 .LEHE4-.LEHB4
-	.uleb128 .L14-.LFB8437
+	.uleb128 .L15-.LFB8437
 	.uleb128 0
 .LLSDACSE8437:
 	.text
@@ -494,7 +504,7 @@ _ZN10gui_slider6UpdateEv:
 	.seh_savereg	%r12, 192
 	.seh_endprologue
 _ZN10gui_slider6UpdateEv.cold:
-.L13:
+.L14:
 	movq	%rsi, %rcx
 	call	_ZN3neo6stringD1Ev
 	movq	%rbx, %rcx
@@ -510,7 +520,7 @@ _ZN10gui_slider6UpdateEv.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8437-.LLSDACSBC8437
 .LLSDACSBC8437:
-	.uleb128 .LEHB5-.LCOLDB8
+	.uleb128 .LEHB5-.LCOLDB9
 	.uleb128 .LEHE5-.LEHB5
 	.uleb128 0
 	.uleb128 0
@@ -519,9 +529,9 @@ _ZN10gui_slider6UpdateEv.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE8:
+.LCOLDE9:
 	.text
-.LHOTE8:
+.LHOTE9:
 	.section .rdata,"dr"
 	.align 8
 .LC2:
@@ -535,6 +545,10 @@ _ZN10gui_slider6UpdateEv.cold:
 .LC5:
 	.long	0
 	.long	1071644672
+	.align 8
+.LC7:
+	.long	0
+	.long	1072693248
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	_ZN3neo6stringC1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
@@ -554,6 +568,7 @@ _ZN10gui_slider6UpdateEv.cold:
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5mouse4GetXEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringaSESt16initializer_listIPS0_E;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringpLESt16initializer_listIPKcE;	.scl	2;	.type	32;	.endef
@@ -562,4 +577,4 @@ _ZN10gui_slider6UpdateEv.cold:
 	.def	_ZN3neo6string6RemoveEyy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringclEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes7textbox10SetLiteralEPKc;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5mouse4GetXEd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio4PlayEytd;	.scl	2;	.type	32;	.endef

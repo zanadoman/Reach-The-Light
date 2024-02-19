@@ -132,9 +132,9 @@ _ZN9act_crateD2Ev:
 	.set	_ZN9act_crateD1Ev,_ZN9act_crateD2Ev
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB3:
+.LCOLDB4:
 	.text
-.LHOTB3:
+.LHOTB4:
 	.align 2
 	.p2align 4
 	.globl	_ZN9act_crate6UpdateEv
@@ -258,17 +258,16 @@ _ZN9act_crate6UpdateEv:
 	mulsd	%xmm8, %xmm1
 	addsd	%xmm7, %xmm1
 	call	_ZN3wze6engine6actors5actor4SetYEd
-.LEHE0:
 	ucomisd	%xmm0, %xmm6
-	jp	.L30
-	jne	.L30
+	jp	.L34
+	jne	.L34
 .L12:
 	xorl	%ebx, %ebx
 	cmpq	$0, 80(%rsp)
-	je	.L23
+	je	.L27
 	.p2align 4,,10
 	.p2align 3
-.L22:
+.L26:
 	movq	%rbx, %rax
 	addq	$1, %rbx
 	salq	$4, %rax
@@ -276,8 +275,8 @@ _ZN9act_crate6UpdateEv:
 	movq	8(%rax), %rcx
 	call	free
 	cmpq	80(%rsp), %rbx
-	jb	.L22
-.L23:
+	jb	.L26
+.L27:
 	movq	88(%rsp), %rcx
 	call	free
 	nop
@@ -292,15 +291,37 @@ _ZN9act_crate6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L30:
+.L34:
+	movsd	48(%rsi), %xmm6
 	pxor	%xmm0, %xmm0
-	comisd	48(%rsi), %xmm0
+	comisd	%xmm6, %xmm0
 	jbe	.L12
-	movsd	%xmm0, 48(%rsi)
+	movq	(%rsi), %rax
+	leaq	400(%rax), %rcx
+	call	_ZN3wze6engine6timing12GetDeltaTimeEv
+	movl	%eax, %eax
+	pxor	%xmm0, %xmm0
+	cvtsi2sdq	%rax, %xmm0
+	mulsd	.LC3(%rip), %xmm0
+	comisd	%xmm6, %xmm0
+	ja	.L44
+.L22:
+	movq	$0x000000000, 48(%rsi)
 	jmp	.L12
-.L29:
+.L44:
+	movq	8(%rsi), %rax
+	movsd	.LC0(%rip), %xmm3
+	movl	$3, %r8d
+	movq	8(%rax), %rax
+	movq	400(%rax), %rdx
+	movq	(%rsi), %rax
+	leaq	160(%rax), %rcx
+	call	_ZN3wze6engine5audio4PlayEytd
+.LEHE0:
+	jmp	.L22
+.L33:
 	movq	%rax, %rsi
-	jmp	.L24
+	jmp	.L28
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 .LLSDA8437:
@@ -311,7 +332,7 @@ _ZN9act_crate6UpdateEv:
 .LLSDACSB8437:
 	.uleb128 .LEHB0-.LFB8437
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L29-.LFB8437
+	.uleb128 .L33-.LFB8437
 	.uleb128 0
 .LLSDACSE8437:
 	.text
@@ -328,19 +349,19 @@ _ZN9act_crate6UpdateEv:
 	.seh_savexmm	%xmm8, 128
 	.seh_endprologue
 _ZN9act_crate6UpdateEv.cold:
-.L24:
+.L28:
 	xorl	%ebx, %ebx
-.L25:
+.L29:
 	movq	88(%rsp), %rcx
 	cmpq	80(%rsp), %rbx
-	jnb	.L39
+	jnb	.L45
 	movq	%rbx, %rax
 	addq	$1, %rbx
 	salq	$4, %rax
 	movq	8(%rcx,%rax), %rcx
 	call	free
-	jmp	.L25
-.L39:
+	jmp	.L29
+.L45:
 	call	free
 	movq	%rsi, %rcx
 .LEHB1:
@@ -355,7 +376,7 @@ _ZN9act_crate6UpdateEv.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8437-.LLSDACSBC8437
 .LLSDACSBC8437:
-	.uleb128 .LEHB1-.LCOLDB3
+	.uleb128 .LEHB1-.LCOLDB4
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -364,9 +385,9 @@ _ZN9act_crate6UpdateEv.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE3:
+.LCOLDE4:
 	.text
-.LHOTE3:
+.LHOTE4:
 	.section .rdata,"dr"
 	.align 8
 .LC0:
@@ -376,6 +397,10 @@ _ZN9act_crate6UpdateEv.cold:
 .LC2:
 	.long	810889825
 	.long	1061398826
+	.align 8
+.LC3:
+	.long	810889825
+	.long	-1086084822
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	__mingw_vfprintf;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
@@ -394,4 +419,5 @@ _ZN9act_crate6UpdateEv.cold:
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4SetYEd;	.scl	2;	.type	32;	.endef
 	.def	free;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio4PlayEytd;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
