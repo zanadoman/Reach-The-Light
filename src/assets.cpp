@@ -182,8 +182,10 @@ assets::assets(engine* Engine) : Engine(Engine)
     this->TrapdoorClosed = this->Engine->Assets.LoadTexture("assets/etc/trapdoor_closed.png");
     this->TrapdoorOpened = this->Engine->Assets.LoadTexture("assets/etc/trapdoor_opened.png");
 
+    this->Music = this->Engine->Assets.LoadSound("assets/audio/music.wav");
     this->GuiAudio = this->Engine->Assets.LoadSound("assets/audio/gui.mp3");
-    this->FootStepAudio = this->Engine->Assets.LoadSound("assets/audio/footstep.mp3");
+    this->FallingAudio = this->Engine->Assets.LoadSound("assets/audio/fall.mp3");
+    this->HurtAudio = this->Engine->Assets.LoadSound("assets/audio/hurt.wav");
 }
 
 assets::~assets()

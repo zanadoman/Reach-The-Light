@@ -142,6 +142,7 @@ uint8 act_player::Update()
                         {
                             this->Health--;
                             this->DamageTick = this->Engine->Timing.GetCurrentTick();
+                            this->Engine->Audio.Play(this->Game->Assets->HurtAudio, CH_HURT, 1);
                         }
                     break;
 
@@ -290,6 +291,10 @@ uint8 act_player::Update()
             }
             else if (this->VelocityY < 0)
             {
+                if (this->VelocityY < -0.0006 * this->Engine->Timing.GetDeltaTime())
+                {
+                    this->Engine->Audio.Play(this->Game->Assets->FallingAudio, CH_FALLING, 0.5);
+                }
                 this->VelocityY = 0;
                 this->Fall->Reset();
             }
@@ -422,10 +427,6 @@ uint8 act_player::Update()
         this->Hurt->Visible = false;
         this->Dead->Visible = false;
         this->Dead->Paused = true;
-        if (!this->Engine->Audio.IsPlaying(CH_FOOTSTEP))
-        {
-            this->Engine->Audio.Play(this->Game->Assets->FootStepAudio, CH_FOOTSTEP, 1);
-        }
     }
     else
     {

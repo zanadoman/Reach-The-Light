@@ -71,6 +71,8 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->Engine->Mouse.SetRelative();
     this->Engine->Camera.Bind(this->Player->Actor->GetID());
     this->Engine->Camera.SetZoom(5);
+
+    this->Engine->Audio.Play(this->Game->Assets->Music, CH_MUSIC, 1, 65535);
 }
 
 scene_play::~scene_play()
@@ -90,6 +92,8 @@ scene_play::~scene_play()
     {
         delete this->Tunas[i];
     }
+
+    this->Engine->Audio.Stop(CH_MUSIC);
 }
 
 scene scene_play::Update()

@@ -72,8 +72,10 @@ typedef enum
 
 typedef enum
 {
+    CH_MUSIC,
     CH_GUI,
-    CH_FOOTSTEP
+    CH_FALLING,
+    CH_HURT
 } channel;
 
 typedef enum
@@ -164,8 +166,10 @@ struct assets
     uint64 TrapdoorClosed;
     uint64 TrapdoorOpened;
 
+    uint64 Music;
     uint64 GuiAudio;
-    uint64 FootStepAudio;
+    uint64 FallingAudio;
+    uint64 HurtAudio;
 
     assets(engine* Engine);
     ~assets();
