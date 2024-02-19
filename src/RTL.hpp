@@ -24,6 +24,7 @@ struct act_pause;
 struct act_player;
 struct act_tuna;
 struct act_crate;
+struct act_trapdoor;
 struct gui_button;
 struct gui_slider;
 struct gui_tile;
@@ -154,6 +155,9 @@ struct assets
 
     uint64 CrateTexture;
 
+    uint64 TrapdoorClosed;
+    uint64 TrapdoorOpened;
+
     assets(engine* Engine);
     ~assets();
 };
@@ -226,6 +230,8 @@ struct scene_play
     act_player* Player;
     tile_token* Tiles[MAP_X][MAP_Y];
     bool RotateTiles;
+    act_trapdoor* TrapdoorLeft;
+    act_trapdoor* TrapdoorRight;
     array<act_tuna*> Tunas;
 
     scene_play(engine* Engine, game* Game);
@@ -389,6 +395,22 @@ struct act_crate
 
     act_crate(engine* Engine, game* Game, act_player* Player, double X, double Y);
     ~act_crate();
+    uint8 Update();
+};
+
+struct act_trapdoor
+{
+    engine* Engine;
+    game* Game;
+    uint8* PlayerScore;
+
+    engine::actor Actor;
+    engine::texturebox Texturebox;
+
+    uint8 MaxScore;
+
+    act_trapdoor(engine* Engine, game* Game, uint8* PlayerScore, uint8 MaxScore, double X, double Y);
+    ~act_trapdoor();
     uint8 Update();
 };
 

@@ -168,7 +168,7 @@ uint8 act_player::Update()
                     case BOX_LEVER:
                         if (!this->InteractKey && (this->Engine->Keys[KEY_S] || this->Engine->Keys[KEY_DOWN]))
                         {
-                            *this->RotateTiles = !this->Game->Play->RotateTiles;
+                            *this->RotateTiles = !*this->RotateTiles;
                         }
                     break;
                 }

@@ -178,6 +178,9 @@ assets::assets(engine* Engine) : Engine(Engine)
     };
 
     this->CrateTexture = this->Engine->Assets.LoadTexture("assets/etc/crate.png");
+
+    this->TrapdoorClosed = this->Engine->Assets.LoadTexture("assets/etc/trapdoor_closed.png");
+    this->TrapdoorOpened = this->Engine->Assets.LoadTexture("assets/etc/trapdoor_opened.png");
 }
 
 assets::~assets()

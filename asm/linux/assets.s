@@ -300,11 +300,18 @@
 	.string	"assets/tuna/tuna32.png"
 .LC124:
 	.string	"assets/etc/crate.png"
+	.section	.rodata.str1.8
+	.align 8
+.LC125:
+	.string	"assets/etc/trapdoor_closed.png"
+	.align 8
+.LC126:
+	.string	"assets/etc/trapdoor_opened.png"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB125:
+.LCOLDB127:
 	.text
-.LHOTB125:
+.LHOTB127:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -1091,6 +1098,16 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
 	movq	%rax, 352(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC125(%rip), %rsi
+	leaq	328(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	movq	%rax, 360(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC126(%rip), %rsi
+	leaq	328(%rax), %rdi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	movq	%rax, 368(%rbx)
 	movq	904(%rsp), %rax
 	subq	%fs:40, %rax
 	jne	.L75
@@ -1375,7 +1392,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB1-.LCOLDB125
+	.uleb128 .LEHB1-.LCOLDB127
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1385,9 +1402,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.size	_ZN6assetsC2EPN3wze6engineE, .-_ZN6assetsC2EPN3wze6engineE
 	.section	.text.unlikely
 	.size	_ZN6assetsC2EPN3wze6engineE.cold, .-_ZN6assetsC2EPN3wze6engineE.cold
-.LCOLDE125:
+.LCOLDE127:
 	.text
-.LHOTE125:
+.LHOTE127:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE
 	.align 2
