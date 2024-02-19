@@ -95,8 +95,8 @@ _ZN12act_trapdoor6UpdateEv:
 .LFB8162:
 	.cfi_startproc
 	movq	16(%rdi), %rax
-	movzbl	40(%rdi), %edx
-	cmpb	%dl, (%rax)
+	movzbl	40(%rdi), %ecx
+	cmpb	%cl, (%rax)
 	je	.L12
 	xorl	%eax, %eax
 	ret
@@ -106,14 +106,30 @@ _ZN12act_trapdoor6UpdateEv:
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	xorl	%esi, %esi
 	pushq	%rbx
 	.cfi_def_cfa_offset 24
 	.cfi_offset 3, -24
 	movq	%rdi, %rbx
 	subq	$8, %rsp
 	.cfi_def_cfa_offset 32
+	movq	32(%rdi), %rax
+	cmpw	$60, 18(%rax)
+	jne	.L13
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L13:
+	.cfi_restore_state
 	movq	24(%rdi), %rdi
+	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	32(%rbx), %rbp
 	movl	$60, %eax
@@ -128,6 +144,14 @@ _ZN12act_trapdoor6UpdateEv:
 	movq	8(%rax), %rax
 	movq	368(%rax), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy@PLT
+	movq	8(%rbx), %rax
+	movq	(%rbx), %rdi
+	movl	$7, %edx
+	movsd	.LC2(%rip), %xmm0
+	movq	8(%rax), %rax
+	addq	$160, %rdi
+	movq	432(%rax), %rsi
+	call	_ZN3wze6engine5audio4PlayEytd@PLT
 	addq	$8, %rsp
 	.cfi_def_cfa_offset 24
 	xorl	%eax, %eax
@@ -148,6 +172,10 @@ _ZN12act_trapdoor6UpdateEv:
 .LC1:
 	.long	0
 	.long	1077641216
+	.align 8
+.LC2:
+	.long	0
+	.long	1072168960
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

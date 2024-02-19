@@ -142,7 +142,7 @@ uint8 act_player::Update()
                         {
                             this->Health--;
                             this->DamageTick = this->Engine->Timing.GetCurrentTick();
-                            this->Engine->Audio.Play(this->Game->Assets->HurtAudio, CH_HURT, 1);
+                            this->Engine->Audio.Play(this->Game->Assets->HurtAudio, CH_HURT, 0.75);
                         }
                     break;
 

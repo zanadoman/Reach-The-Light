@@ -322,11 +322,13 @@
 	.string	"assets/audio/collapse.wav"
 .LC133:
 	.string	"assets/audio/lever.wav"
+.LC134:
+	.string	"assets/audio/trapdoor.wav"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB134:
+.LCOLDB135:
 	.text
-.LHOTB134:
+.LHOTB135:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -1158,6 +1160,11 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
 	movq	%rax, 424(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC134(%rip), %rsi
+	leaq	328(%rax), %rdi
+	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
+	movq	%rax, 432(%rbx)
 	movq	904(%rsp), %rax
 	subq	%fs:40, %rax
 	jne	.L75
@@ -1442,7 +1449,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB1-.LCOLDB134
+	.uleb128 .LEHB1-.LCOLDB135
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1452,9 +1459,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.size	_ZN6assetsC2EPN3wze6engineE, .-_ZN6assetsC2EPN3wze6engineE
 	.section	.text.unlikely
 	.size	_ZN6assetsC2EPN3wze6engineE.cold, .-_ZN6assetsC2EPN3wze6engineE.cold
-.LCOLDE134:
+.LCOLDE135:
 	.text
-.LHOTE134:
+.LHOTE135:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE
 	.align 2

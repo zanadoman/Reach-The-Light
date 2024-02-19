@@ -17,13 +17,15 @@ act_trapdoor::~act_trapdoor()
 
 uint8 act_trapdoor::Update()
 {
-    if (*this->PlayerScore == this->MaxScore)
+    if (*this->PlayerScore == this->MaxScore && this->Texturebox->Height != 60)
     {
         this->Actor->SetCollisionLayer(0);
 
         this->Texturebox->Height = 60;
         this->Texturebox->SetY(this->Actor->GetY() - 27.5);
         this->Texturebox->SetTextureID(this->Game->Assets->TrapdoorOpened);
+        
+        this->Engine->Audio.Play(this->Game->Assets->TrapdoorAudio, CH_TRAPDOOR, 0.75);
     }
 
     return 0;
