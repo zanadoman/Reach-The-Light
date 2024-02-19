@@ -988,7 +988,7 @@ _ZN10scene_play6UpdateEv:
 	movq	%r12, %r15
 	.p2align 4,,10
 	.p2align 3
-.L92:
+.L90:
 	leaq	-128(%r15), %rbx
 	.p2align 4,,10
 	.p2align 3
@@ -1000,66 +1000,66 @@ _ZN10scene_play6UpdateEv:
 	jne	.L91
 	subq	$-128, %r15
 	cmpq	%r13, %r15
-	jne	.L92
+	jne	.L90
 	movq	%r12, %r15
 	.p2align 4,,10
 	.p2align 3
-.L93:
+.L92:
 	leaq	-128(%r15), %rbx
 	.p2align 4,,10
 	.p2align 3
-.L94:
+.L93:
 	movzbl	1104(%rbp), %esi
 	movq	(%rbx), %rdi
 	call	_ZN10tile_token6RotateEb@PLT
 	addq	$8, %rbx
 	cmpq	%rbx, %r15
-	jne	.L94
+	jne	.L93
 	subq	$-128, %r15
 	cmpq	%r13, %r15
-	jne	.L93
-	movq	1112(%rbp), %rdi
-	call	_ZN12act_trapdoor6UpdateEv@PLT
-	movq	1120(%rbp), %rdi
-	call	_ZN12act_trapdoor6UpdateEv@PLT
+	jne	.L92
 	.p2align 4,,10
 	.p2align 3
-.L96:
+.L94:
 	leaq	-128(%r12), %rbx
 	.p2align 4,,10
 	.p2align 3
-.L97:
+.L95:
 	movq	(%rbx), %rdi
 	call	_ZN10tile_token6UpdateEv@PLT
 	addq	$8, %rbx
 	cmpq	%rbx, %r12
-	jne	.L97
+	jne	.L95
 	subq	$-128, %r12
 	cmpq	%r12, %r13
-	jne	.L96
+	jne	.L94
 	movq	1128(%rbp), %rcx
 	xorl	%ebx, %ebx
 	xorl	%eax, %eax
 	testq	%rcx, %rcx
-	je	.L102
+	je	.L100
 	.p2align 4,,10
 	.p2align 3
-.L99:
+.L97:
 	movq	1136(%rbp), %rdx
 	movq	(%rdx,%rax,8), %rdi
 	testq	%rdi, %rdi
-	je	.L101
+	je	.L99
 	call	_ZN8act_tuna6UpdateEv@PLT
 	movq	1128(%rbp), %rcx
-.L101:
+.L99:
 	addl	$1, %ebx
 	movzbl	%bl, %eax
 	cmpq	%rcx, %rax
-	jb	.L99
-.L102:
+	jb	.L97
+.L100:
 	movq	72(%rbp), %rdi
 	call	_ZN10act_player6UpdateEv@PLT
-.L100:
+	movq	1112(%rbp), %rdi
+	call	_ZN12act_trapdoor6UpdateEv@PLT
+	movq	1120(%rbp), %rdi
+	call	_ZN12act_trapdoor6UpdateEv@PLT
+.L101:
 	movl	$2, %ebx
 .L83:
 	movq	%r14, %rdi
@@ -1088,7 +1088,7 @@ _ZN10scene_play6UpdateEv:
 	.cfi_restore_state
 	movl	$1, %ebx
 	cmpl	$2, %eax
-	jne	.L100
+	jne	.L101
 	jmp	.L83
 	.p2align 4,,10
 	.p2align 3
@@ -1110,17 +1110,17 @@ _ZN10scene_play6UpdateEv:
 	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
 .LEHE15:
 	cmpl	%ebx, %eax
-	jnb	.L106
+	jnb	.L105
 	movq	72(%rbp), %rdx
 	jmp	.L82
-.L106:
+.L105:
 	movl	$5, %ebx
 	jmp	.L83
 .L124:
 	call	__stack_chk_fail@PLT
 .L108:
 	movq	%rax, %rbx
-	jmp	.L103
+	jmp	.L102
 	.section	.gcc_except_table
 .LLSDA8162:
 	.byte	0xff
@@ -1146,7 +1146,7 @@ _ZN10scene_play6UpdateEv:
 	.type	_ZN10scene_play6UpdateEv.cold, @function
 _ZN10scene_play6UpdateEv.cold:
 .LFSB8162:
-.L103:
+.L102:
 	.cfi_def_cfa_offset 128
 	.cfi_offset 3, -56
 	.cfi_offset 6, -48

@@ -275,6 +275,15 @@ struct scene_help
     game* Game;
 
     engine::actor Actor;
+    engine::textbox Title;
+    engine::textbox MissionTitle;
+    engine::textbox ControlsTitle;
+    engine::textbox ControlsHorizontal;
+    engine::textbox ControlsVertical;
+    engine::textbox ControlsLatch;
+    engine::textbox ControlsFirefly;
+    engine::textbox ControlsMenu;
+    engine::textbox TrapsTitle;
 
     gui_button* Exit;
 
