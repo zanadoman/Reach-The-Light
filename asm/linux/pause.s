@@ -51,7 +51,7 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	movsd	(%rsp), %xmm1
 	xorl	%ecx, %ecx
 	shrw	%ax
-	leaq	256(%rbp), %rdi
+	leaq	264(%rbp), %rdi
 	pxor	%xmm2, %xmm2
 	xorl	%edx, %edx
 	movzwl	%ax, %eax
@@ -378,7 +378,7 @@ _ZN9act_pauseD2Ev:
 	.cfi_def_cfa_offset 32
 	movq	(%rdi), %rax
 	movq	16(%rdi), %rdi
-	leaq	256(%rax), %rbp
+	leaq	264(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
@@ -481,7 +481,7 @@ _ZN9act_pause6UpdateEv:
 	cmpb	$0, 168(%rax)
 	jne	.L38
 	movl	72(%rbx), %eax
-	addq	$400, %rdi
+	addq	$408, %rdi
 	leal	100(%rax), %ebp
 	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
 	cmpl	%eax, %ebp
@@ -511,10 +511,10 @@ _ZN9act_pause6UpdateEv:
 	movq	16(%rax), %rax
 	movb	$1, 168(%rax)
 	movq	(%rbx), %rax
-	leaq	200(%rax), %rdi
+	leaq	208(%rax), %rdi
 	call	_ZN3wze6engine5mouse11SetAbsoluteEv@PLT
 	movq	(%rbx), %rax
-	leaq	400(%rax), %rdi
+	leaq	408(%rax), %rdi
 	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
 	movl	%eax, 72(%rbx)
 .L36:
@@ -543,7 +543,7 @@ _ZN9act_pause6UpdateEv:
 	movl	72(%rbx), %eax
 	leal	100(%rax), %ebp
 	movq	(%rbx), %rax
-	leaq	400(%rax), %rdi
+	leaq	408(%rax), %rdi
 	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
 	cmpl	%eax, %ebp
 	jb	.L52
@@ -556,7 +556,7 @@ _ZN9act_pause6UpdateEv:
 	jne	.L34
 	movq	(%rbx), %rax
 	movq	48(%rbx), %rdi
-	leaq	200(%rax), %rbp
+	leaq	208(%rax), %rbp
 	movq	8(%rbx), %rax
 	movq	16(%rax), %r12
 	call	_ZN10gui_slider6UpdateEv@PLT
@@ -575,7 +575,7 @@ _ZN9act_pause6UpdateEv:
 	call	_ZN3wze6engine5audio15SetGlobalVolumeEd@PLT
 	movq	(%rbx), %rax
 	movq	64(%rbx), %rdi
-	leaq	400(%rax), %rbp
+	leaq	408(%rax), %rbp
 	movq	8(%rbx), %rax
 	movq	16(%rax), %r12
 	call	_ZN10gui_slider6UpdateEv@PLT
@@ -596,7 +596,7 @@ _ZN9act_pause6UpdateEv:
 .L49:
 	movq	(%rbx), %rax
 	movl	$41, %esi
-	leaq	176(%rax), %rdi
+	leaq	184(%rax), %rdi
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
 	testb	%al, %al
 	jne	.L37
@@ -606,7 +606,7 @@ _ZN9act_pause6UpdateEv:
 .L52:
 	movq	(%rbx), %rax
 	movl	$41, %esi
-	leaq	176(%rax), %rdi
+	leaq	184(%rax), %rdi
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
 	testb	%al, %al
 	je	.L43
@@ -629,10 +629,10 @@ _ZN9act_pause6UpdateEv:
 	movq	16(%rax), %rax
 	movb	$0, 168(%rax)
 	movq	(%rbx), %rax
-	leaq	200(%rax), %rdi
+	leaq	208(%rax), %rdi
 	call	_ZN3wze6engine5mouse11SetRelativeEv@PLT
 	movq	(%rbx), %rax
-	leaq	400(%rax), %rdi
+	leaq	408(%rax), %rdi
 	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
 	movl	%eax, 72(%rbx)
 	jmp	.L42

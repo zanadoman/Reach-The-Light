@@ -127,6 +127,7 @@ uint8 act_player::Update()
                 this->Score++;
                 delete (*this->Tunas)[i];
                 (*this->Tunas)[i] = NULL;
+                this->Engine->Audio.Play(this->Game->Assets->TunaAudio, CH_TUNA, 0.5);
             }
         }
         

@@ -96,7 +96,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 	movl	%ebx, 8(%r12)
 	xorl	%esi, %esi
 	movl	$12, %edx
-	leaq	320(%rbp), %rdi
+	leaq	328(%rbp), %rdi
 .LEHB2:
 	call	_ZN3wze6engine4math6RandomEii@PLT
 	testl	%eax, %eax

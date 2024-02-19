@@ -67,7 +67,7 @@ _ZN10scene_helpC2EPN3wze6engineEP4game:
 	xorl	%ecx, %ecx
 	xorl	%edx, %edx
 	movzwl	%ax, %eax
-	leaq	256(%rbp), %rdi
+	leaq	264(%rbp), %rdi
 	xorl	%esi, %esi
 	cvtsi2sdl	%eax, %xmm0
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
@@ -346,7 +346,7 @@ _ZN10scene_helpD2Ev:
 	.cfi_def_cfa_offset 32
 	movq	(%rdi), %rax
 	movq	16(%rdi), %rdi
-	leaq	256(%rax), %rbp
+	leaq	264(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
 	movq	%rax, %rsi

@@ -26,7 +26,7 @@ _ZN4gameC2EPN3wze6engineE:
 	.cfi_offset 3, -32
 	movq	%rdi, %rbx
 	movq	%rsi, (%rdi)
-	movl	$432, %edi
+	movl	$448, %edi
 .LEHB0:
 	call	_Znwm@PLT
 .LEHE0:
@@ -147,7 +147,7 @@ _ZN4gameC2EPN3wze6engineE.cold:
 	.cfi_offset 6, -24
 	.cfi_offset 12, -16
 	movq	%r12, %rdi
-	movl	$432, %esi
+	movl	$448, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 .LEHB8:
@@ -270,7 +270,7 @@ _ZN4gameD2Ev:
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
 	movq	%rbx, %rdi
-	movl	$432, %esi
+	movl	$448, %esi
 	popq	%rbx
 	.cfi_def_cfa_offset 16
 	popq	%rbp
@@ -404,11 +404,11 @@ _ZN4game11SwitchSceneE5scene:
 	movq	(%rbx), %rax
 	xorl	%esi, %esi
 	xorl	%edx, %edx
-	leaq	256(%rax), %rdi
+	leaq	264(%rax), %rdi
 .LEHB9:
 	call	_ZN3wze6engine6actors5PurgeESt16initializer_listIyE@PLT
 	movq	(%rbx), %rax
-	leaq	200(%rax), %rdi
+	leaq	208(%rax), %rdi
 	call	_ZN3wze6engine5mouse11SetAbsoluteEv@PLT
 	movq	(%rbx), %rax
 	pxor	%xmm0, %xmm0

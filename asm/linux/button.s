@@ -35,7 +35,7 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc:
 	.cfi_offset 3, -56
 	movq	%rdi, %rbx
 	movq	%rsi, %rdi
-	addq	$256, %rdi
+	addq	$264, %rdi
 	subq	$8, %rsp
 	.cfi_def_cfa_offset 64
 	movq	%rsi, (%rbx)
@@ -118,7 +118,7 @@ _ZN10gui_buttonD2Ev:
 	.cfi_offset 3, -16
 	movq	(%rdi), %rax
 	movq	16(%rdi), %rdi
-	leaq	256(%rax), %rbx
+	leaq	264(%rax), %rbx
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbx, %rdi
 	movq	%rax, %rsi
@@ -204,7 +204,7 @@ _ZN10gui_button6UpdateEv:
 	comisd	.LC1(%rip), %xmm1
 	jbe	.L15
 	movq	(%rbx), %rax
-	leaq	400(%rax), %rdi
+	leaq	408(%rax), %rdi
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	pxor	%xmm0, %xmm0
 	movsd	56(%rbx), %xmm1
@@ -222,7 +222,7 @@ _ZN10gui_button6UpdateEv:
 	.p2align 3
 .L23:
 	movq	(%rbx), %rax
-	leaq	400(%rax), %rdi
+	leaq	408(%rax), %rdi
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	pxor	%xmm2, %xmm2
 	movsd	.LC7(%rip), %xmm1

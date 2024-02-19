@@ -79,7 +79,9 @@ typedef enum
     CH_HURT,
     CH_COLLAPSE,
     CH_LEVER,
-    CH_TRAPDOOR
+    CH_TRAPDOOR,
+    CH_TUNA,
+    CH_COUNT
 } channel;
 
 typedef enum
@@ -178,6 +180,7 @@ struct assets
     uint64 CollapseAudio;
     uint64 LeverAudio;
     uint64 TrapdoorAudio;
+    uint64 TunaAudio;
 
     assets(engine* Engine);
     ~assets();

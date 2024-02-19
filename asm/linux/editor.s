@@ -71,7 +71,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	%rsi, (%rdi)
 	movq	.LC0(%rip), %rax
 	movq	%rdx, 8(%rdi)
-	leaq	256(%rsi), %rdi
+	leaq	264(%rsi), %rdi
 	xorl	%edx, %edx
 	xorl	%esi, %esi
 	movq	%rax, %xmm2
@@ -601,7 +601,7 @@ _ZN12scene_editorD2Ev:
 	.cfi_def_cfa_offset 48
 	movq	(%rdi), %rax
 	movq	16(%rdi), %rdi
-	leaq	256(%rax), %rbx
+	leaq	264(%rax), %rbx
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbx, %rdi
 	movq	%rax, %rsi
@@ -732,11 +732,11 @@ _ZN12scene_editor6UpdateEv:
 	jne	.L45
 	movq	(%r12), %rax
 	movl	$235, %esi
-	leaq	176(%rax), %rdi
+	leaq	184(%rax), %rdi
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
 	testb	%al, %al
 	movq	(%r12), %rax
-	leaq	176(%rax), %rdi
+	leaq	184(%rax), %rdi
 	je	.L48
 	movl	$224, %esi
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
@@ -827,7 +827,7 @@ _ZN12scene_editor6UpdateEv:
 	je	.L55
 	movq	(%r12), %rax
 	movl	$224, %esi
-	leaq	176(%rax), %rdi
+	leaq	184(%rax), %rdi
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
 	testb	%al, %al
 	movq	(%r12), %rax
@@ -875,7 +875,7 @@ _ZN12scene_editor6UpdateEv:
 .L73:
 	movq	(%r12), %rdi
 	movl	$41, %esi
-	addq	$176, %rdi
+	addq	$184, %rdi
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
 	testb	%al, %al
 	jne	.L75

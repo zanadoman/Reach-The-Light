@@ -9,6 +9,7 @@ sint32 main()
     game* Game;
     
     Engine = new engine("Reach The Light", "assets/icon.png", 2560, 1440, 1000 / 60);
+    Engine->Audio.SetChannelCount(CH_COUNT);
     Engine->Timing.SetMaxDeltaTime(32);
     //DisplayPressKit(Engine);
     Game = new game(Engine);
