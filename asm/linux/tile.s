@@ -339,15 +339,7 @@ _ZN8gui_tile6UpdateEv:
 	movq	24(%rdi), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
 	testb	$1, %al
-	movq	40(%rbx), %rax
 	je	.L54
-	movb	$1, 26(%rax)
-	movq	48(%rbx), %rax
-	movb	$1, 26(%rax)
-	movq	56(%rbx), %rax
-	movb	$1, 26(%rax)
-	movq	64(%rbx), %rax
-	movb	$1, 26(%rax)
 	movzwl	72(%rbx), %eax
 	leal	-3840(%rax), %edx
 	cmpw	$7, %dx
@@ -359,51 +351,28 @@ _ZN8gui_tile6UpdateEv:
 	cmpw	$7, %ax
 	je	.L59
 	testb	%dl, %dl
-	jne	.L111
+	jne	.L113
 .L59:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
 	testb	$16, %al
-	je	.L83
+	je	.L85
 	movq	8(%rbx), %rcx
 	movzbl	73(%rbx), %eax
 	movzbl	72(%rbx), %edx
 	movq	24(%rcx), %rsi
 	testb	%al, %al
-	jne	.L112
-	movq	136(%rsi), %rax
-	movb	%dl, (%rax)
-	jmp	.L83
-	.p2align 4,,10
-	.p2align 3
-.L54:
-	movb	$0, 26(%rax)
-	movq	48(%rbx), %rax
-	movb	$0, 26(%rax)
-	movq	56(%rbx), %rax
-	movb	$0, 26(%rax)
-	movq	64(%rbx), %rax
-	movb	$0, 26(%rax)
-.L83:
-	movq	8(%rbx), %rcx
-	movzbl	73(%rbx), %eax
-	movzbl	72(%rbx), %edx
+	je	.L106
 	movq	32(%rbx), %rdi
-	movq	24(%rcx), %rsi
-	testb	%al, %al
-	jne	.L84
-	movq	136(%rsi), %r8
-	cmpb	%dl, (%r8)
-	je	.L113
-.L84:
+.L86:
 	movl	$-1, %r8d
 	movw	%r8w, 21(%rdi)
-.L85:
+.L87:
 	movq	8(%rcx), %rcx
 	movq	144(%rsi,%rdx,8), %rdx
 	movzbl	(%rdx,%rax), %esi
 	movq	240(%rcx), %rax
 	cmpq	232(%rcx), %rsi
-	jnb	.L109
+	jnb	.L111
 	movq	(%rax,%rsi,8), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy@PLT
 	xorl	%eax, %eax
@@ -413,26 +382,62 @@ _ZN8gui_tile6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L55:
+.L54:
 	.cfi_restore_state
+	movq	40(%rbx), %rax
+	movb	$0, 26(%rax)
+	movq	48(%rbx), %rax
+	movb	$0, 26(%rax)
+	movq	56(%rbx), %rax
+	movb	$0, 26(%rax)
+	movq	64(%rbx), %rax
+	movb	$0, 26(%rax)
+.L85:
+	movq	8(%rbx), %rcx
+	movzbl	73(%rbx), %eax
+	movzbl	72(%rbx), %edx
+	movq	32(%rbx), %rdi
+	movq	24(%rcx), %rsi
+	testb	%al, %al
+	jne	.L86
+	movq	136(%rsi), %r8
+	cmpb	%dl, (%r8)
+	jne	.L86
+	movl	$-32640, %r9d
+	movw	%r9w, 21(%rdi)
+	jmp	.L87
+	.p2align 4,,10
+	.p2align 3
+.L55:
 	movq	$-154, %rcx
 	btq	%rdx, %rcx
 	setc	%dl
 	jmp	.L56
 	.p2align 4,,10
 	.p2align 3
-.L113:
-	movl	$-32640, %r9d
-	movw	%r9w, 21(%rdi)
+.L106:
+	movq	136(%rsi), %rax
+	movsd	.LC0(%rip), %xmm0
+	movb	%dl, (%rax)
+	movq	8(%rbx), %rax
+	xorl	%edx, %edx
+	movq	8(%rax), %rax
+	movq	376(%rax), %rsi
+	movq	(%rbx), %rax
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audio4PlayEytd@PLT
 	jmp	.L85
 	.p2align 4,,10
 	.p2align 3
-.L112:
-	movq	32(%rbx), %rdi
-	jmp	.L84
-	.p2align 4,,10
-	.p2align 3
-.L111:
+.L113:
+	movq	40(%rbx), %rax
+	movb	$1, 26(%rax)
+	movq	48(%rbx), %rax
+	movb	$1, 26(%rax)
+	movq	56(%rbx), %rax
+	movb	$1, 26(%rax)
+	movq	64(%rbx), %rax
+	movb	$1, 26(%rax)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
 	testb	$4, %al
 	je	.L60
@@ -443,29 +448,36 @@ _ZN8gui_tile6UpdateEv:
 	cmpb	$15, %dl
 	je	.L114
 	testb	%dl, %dl
-	jne	.L64
+	jne	.L65
 	movq	24(%rcx), %rdx
 	movzbl	%al, %ecx
 	movq	224(%rdx), %rsi
 	cmpq	%rsi, %rcx
-	jb	.L65
+	jb	.L66
 	movb	$0, 74(%rbx)
 	movq	232(%rdx), %rax
 	testq	%rsi, %rsi
-	je	.L109
+	je	.L111
 	xorl	%ecx, %ecx
-.L66:
+.L67:
 	movzbl	72(%rbx), %esi
 	movzbl	(%rax,%rcx), %eax
 	movq	144(%rdx,%rsi,8), %rdx
 	movb	%al, (%rdx)
-	.p2align 4,,10
-	.p2align 3
+.L64:
+	movq	8(%rbx), %rax
+	movsd	.LC0(%rip), %xmm0
+	xorl	%edx, %edx
+	movq	8(%rax), %rax
+	movq	376(%rax), %rsi
+	movq	(%rbx), %rax
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audio4PlayEytd@PLT
 .L60:
 	movq	24(%rbx), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
 	testb	$64, %al
-	je	.L107
+	je	.L109
 	movzbl	74(%rbx), %eax
 	movzbl	73(%rbx), %edx
 	movq	8(%rbx), %rcx
@@ -473,39 +485,34 @@ _ZN8gui_tile6UpdateEv:
 	cmpb	$15, %dl
 	je	.L115
 	testb	%dl, %dl
-	jne	.L77
+	jne	.L79
 	movq	24(%rcx), %rdx
 	movzbl	%al, %esi
 	movq	224(%rdx), %rcx
 	movb	%al, 74(%rbx)
 	movq	232(%rdx), %rdi
 	cmpq	%rcx, %rsi
-	jb	.L78
+	jb	.L80
 	leal	-1(%rcx), %eax
 	movzbl	%al, %esi
 	movb	%al, 74(%rbx)
 	cmpq	%rcx, %rsi
-	jnb	.L109
-.L78:
+	jnb	.L111
+.L80:
 	movzbl	72(%rbx), %eax
 	movq	144(%rdx,%rax,8), %rax
 	movzbl	(%rdi,%rsi), %edx
 	movb	%dl, (%rax)
-	movq	24(%rbx), %rdi
-	jmp	.L59
-.L79:
-	cmpb	$7, %sil
-	je	.L116
-	movl	$11, %edi
-	cmpb	%dil, %al
-	cmova	%edi, %eax
-	movb	%al, 74(%rbx)
-	movq	24(%rcx), %rcx
-	movq	144(%rcx,%rsi,8), %rcx
-	movb	%al, (%rcx,%rdx)
-	.p2align 4,,10
-	.p2align 3
-.L107:
+.L78:
+	movq	8(%rbx), %rax
+	movsd	.LC0(%rip), %xmm0
+	xorl	%edx, %edx
+	movq	8(%rax), %rax
+	movq	376(%rax), %rsi
+	movq	(%rbx), %rax
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audio4PlayEytd@PLT
+.L109:
 	movq	24(%rbx), %rdi
 	jmp	.L59
 .L115:
@@ -515,19 +522,18 @@ _ZN8gui_tile6UpdateEv:
 	movb	%al, 74(%rbx)
 	movq	216(%rdx), %rdi
 	cmpq	%rcx, %rsi
-	jb	.L76
+	jb	.L77
 	leal	-1(%rcx), %eax
 	movzbl	%al, %esi
 	movb	%al, 74(%rbx)
 	cmpq	%rcx, %rsi
-	jnb	.L109
-.L76:
+	jnb	.L111
+.L77:
 	movzbl	72(%rbx), %eax
 	movq	144(%rdx,%rax,8), %rax
 	movzbl	(%rdi,%rsi), %edx
 	movb	%dl, 15(%rax)
-	movq	24(%rbx), %rdi
-	jmp	.L59
+	jmp	.L78
 .L114:
 	movq	24(%rcx), %rdx
 	movzbl	%al, %ecx
@@ -537,65 +543,75 @@ _ZN8gui_tile6UpdateEv:
 	movb	$0, 74(%rbx)
 	movq	216(%rdx), %rdi
 	testq	%rsi, %rsi
-	je	.L109
+	je	.L111
 	xorl	%ecx, %ecx
 .L63:
 	movzbl	72(%rbx), %eax
 	movq	144(%rdx,%rax,8), %rax
 	movzbl	(%rdi,%rcx), %edx
 	movb	%dl, 15(%rax)
-	jmp	.L60
-.L64:
+	jmp	.L64
+.L65:
 	movzbl	72(%rbx), %esi
 	testb	%sil, %sil
-	jne	.L67
+	jne	.L68
 	movq	24(%rcx), %rcx
 	movzbl	%al, %esi
 	movq	240(%rcx), %rdi
 	cmpq	%rdi, %rsi
-	jb	.L68
+	jb	.L69
 	movb	$0, 74(%rbx)
 	xorl	%esi, %esi
 	movq	248(%rcx), %rax
 	testq	%rdi, %rdi
-	je	.L109
-.L69:
+	je	.L111
+.L70:
 	movzbl	(%rax,%rsi), %esi
 	movq	144(%rcx), %rax
 	movb	%sil, (%rax,%rdx)
-	jmp	.L60
-.L77:
+	jmp	.L64
+.L79:
 	movzbl	72(%rbx), %esi
 	testb	%sil, %sil
-	jne	.L79
+	jne	.L81
 	movq	24(%rcx), %rcx
 	movq	240(%rcx), %rdi
 	movb	%al, 74(%rbx)
 	movzbl	%al, %eax
 	movq	248(%rcx), %r8
 	cmpq	%rdi, %rax
-	jb	.L80
+	jb	.L82
 	leal	-1(%rdi), %eax
 	movb	%al, 74(%rbx)
 	movzbl	%al, %eax
 	cmpq	%rdi, %rax
-	jnb	.L110
-.L80:
+	jnb	.L112
+.L82:
 	movzbl	(%r8,%rax), %esi
 	movzbl	%dl, %eax
 	movq	144(%rcx), %rdx
 	movb	%sil, (%rdx,%rax)
-	movq	24(%rbx), %rdi
-	jmp	.L59
+	jmp	.L78
 .L62:
 	movb	%al, 74(%rbx)
 	movq	216(%rdx), %rdi
 	jmp	.L63
-.L65:
+.L66:
 	movb	%al, 74(%rbx)
 	movq	232(%rdx), %rax
-	jmp	.L66
-.L67:
+	jmp	.L67
+.L81:
+	cmpb	$7, %sil
+	je	.L116
+	movl	$11, %edi
+	cmpb	%dil, %al
+	cmova	%edi, %eax
+	movb	%al, 74(%rbx)
+	movq	24(%rcx), %rcx
+	movq	144(%rcx,%rsi,8), %rcx
+	movb	%al, (%rcx,%rdx)
+	jmp	.L78
+.L68:
 	cmpb	$7, %sil
 	je	.L117
 	xorl	%edi, %edi
@@ -605,11 +621,11 @@ _ZN8gui_tile6UpdateEv:
 	movq	24(%rcx), %rcx
 	movq	144(%rcx,%rsi,8), %rcx
 	movb	%al, (%rcx,%rdx)
-	jmp	.L60
-.L68:
+	jmp	.L64
+.L69:
 	movb	%al, 74(%rbx)
 	movq	248(%rcx), %rax
-	jmp	.L69
+	jmp	.L70
 .L116:
 	movq	24(%rcx), %rcx
 	movq	256(%rcx), %rdi
@@ -617,42 +633,41 @@ _ZN8gui_tile6UpdateEv:
 	movzbl	%al, %eax
 	movq	264(%rcx), %r8
 	cmpq	%rdi, %rax
-	jb	.L82
+	jb	.L84
 	leal	-1(%rdi), %eax
 	movb	%al, 74(%rbx)
 	movzbl	%al, %eax
 	cmpq	%rdi, %rax
-	jnb	.L110
-.L82:
+	jnb	.L112
+.L84:
 	movzbl	(%r8,%rax), %esi
 	movq	200(%rcx), %rax
 	movb	%sil, (%rax,%rdx)
-	movq	24(%rbx), %rdi
-	jmp	.L59
+	jmp	.L78
 .L117:
 	movq	24(%rcx), %rsi
 	movzbl	%al, %ecx
 	movq	256(%rsi), %rdi
 	cmpq	%rdi, %rcx
-	jb	.L71
+	jb	.L72
 	movb	$0, 74(%rbx)
 	xorl	%eax, %eax
 	movq	264(%rsi), %rcx
 	testq	%rdi, %rdi
 	je	.L118
-.L72:
+.L73:
 	movzbl	(%rcx,%rax), %ecx
 	movq	200(%rsi), %rax
 	movb	%cl, (%rax,%rdx)
-	jmp	.L60
-.L71:
+	jmp	.L64
+.L72:
 	movb	%al, 74(%rbx)
 	movq	%rcx, %rax
 	movq	264(%rsi), %rcx
-	jmp	.L72
-.L110:
+	jmp	.L73
+.L112:
 	movq	%rax, %rsi
-.L109:
+.L111:
 	leaq	.LC1(%rip), %rdi
 	xorl	%eax, %eax
 	call	printf@PLT

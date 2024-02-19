@@ -99,13 +99,13 @@ uint8 gui_tile::Update()
 {
     if (this->Overlapbox->GetButtonState() & BTN_HOVERED)
     {
-        this->Top->Visible = true;
-        this->Bottom->Visible = true;
-        this->Left->Visible = true;
-        this->Right->Visible = true;
-
         if (!((this->TileX == 3 && this->TileY == MAP_Y - 1) || (this->TileX == 4 && this->TileY == MAP_Y - 1) || (this->TileX == 0 && this->TileY == 0) || (this->TileX == 0 && this->TileY == MAP_Y - 1) || (this->TileX == MAP_X - 1 && this->TileY == 0) || (this->TileX == MAP_X - 1 && this->TileY == MAP_Y - 1)))
         {
+            this->Top->Visible = true;
+            this->Bottom->Visible = true;
+            this->Left->Visible = true;
+            this->Right->Visible = true;
+
             if (this->Overlapbox->GetButtonState() & BTN_RELEASED_LMB)
             {
                 if (this->TileY == MAP_Y - 1)
@@ -153,6 +153,8 @@ uint8 gui_tile::Update()
 
                     this->Game->Map->Tiles[this->TileX][this->TileY] = this->Type;
                 }
+
+                this->Engine->Audio.Play(this->Game->Assets->GuiAudio, CH_GUI, 1);
             }
 
             if (this->Overlapbox->GetButtonState() & BTN_RELEASED_RMB)
@@ -202,12 +204,15 @@ uint8 gui_tile::Update()
 
                     this->Game->Map->Tiles[this->TileX][this->TileY] = this->Type;
                 }
+
+                this->Engine->Audio.Play(this->Game->Assets->GuiAudio, CH_GUI, 1);
             }
         }
 
         if ((this->Overlapbox->GetButtonState() & BTN_RELEASED_MMB) && this->TileY == 0)
         {
             *this->Game->Map->Spawn = this->TileX;
+            this->Engine->Audio.Play(this->Game->Assets->GuiAudio, CH_GUI, 1);
         }
     }
     else

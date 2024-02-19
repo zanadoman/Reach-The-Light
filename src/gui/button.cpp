@@ -51,6 +51,7 @@ bool gui_button::Update()
             this->Texturebox->Width = this->Width * size;
             this->Texturebox->Height = this->Height * size;
             this->Textbox->SetHeight(this->Height * size * 0.5);
+            this->Engine->Audio.Play(this->Game->Assets->GuiAudio, CH_GUI, 1);
 
             return true;
         }

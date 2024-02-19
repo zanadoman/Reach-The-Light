@@ -335,13 +335,13 @@ _ZN10gui_sliderD2Ev:
 	.globl	_ZN10gui_sliderD1Ev
 	.set	_ZN10gui_sliderD1Ev,_ZN10gui_sliderD2Ev
 	.section	.rodata.str1.1,"aMS",@progbits,1
-.LC7:
+.LC8:
 	.string	": "
 	.section	.text.unlikely
 	.align 2
-.LCOLDB8:
+.LCOLDB9:
 	.text
-.LHOTB8:
+.LHOTB9:
 	.align 2
 	.p2align 4
 	.globl	_ZN10gui_slider6UpdateEv
@@ -384,16 +384,41 @@ _ZN10gui_slider6UpdateEv:
 .LEHB4:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
 	testb	$1, %al
-	je	.L34
+	je	.L35
 	movq	24(%rbx), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
-	movq	48(%rbx), %r12
 	testb	$2, %al
-	jne	.L37
+	je	.L15
+	movq	(%rbx), %rax
+	pxor	%xmm0, %xmm0
+	movq	48(%rbx), %r12
+	leaq	200(%rax), %rdi
+	call	_ZN3wze6engine5mouse4GetXEd@PLT
+	movq	%r12, %rdi
+	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd@PLT
+	movq	48(%rbx), %rdi
+	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv@PLT
+	movapd	%xmm0, %xmm1
+	movsd	72(%rbx), %xmm0
+	movq	48(%rbx), %rdi
+	comisd	%xmm1, %xmm0
+	ja	.L37
+	movsd	80(%rbx), %xmm4
+	movsd	%xmm4, 8(%rsp)
+	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv@PLT
+	comisd	8(%rsp), %xmm0
+	movq	48(%rbx), %rdi
+	jbe	.L14
+	movsd	80(%rbx), %xmm0
+.L37:
+	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd@PLT
+	.p2align 4,,10
+	.p2align 3
+.L35:
+	movq	48(%rbx), %rdi
 .L14:
 	movsd	96(%rbx), %xmm0
 	subsd	88(%rbx), %xmm0
-	movq	%r12, %rdi
 	movsd	%xmm0, 8(%rsp)
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv@PLT
 	movsd	72(%rbx), %xmm2
@@ -403,7 +428,7 @@ _ZN10gui_slider6UpdateEv:
 	leaq	32(%rsp), %rsi
 	movl	$1, %edx
 	movq	%r13, 32(%rsp)
-	leaq	.LC7(%rip), %rax
+	leaq	.LC8(%rip), %rax
 	subsd	%xmm2, %xmm0
 	subsd	%xmm2, %xmm1
 	movq	%rax, 40(%rsp)
@@ -429,7 +454,7 @@ _ZN10gui_slider6UpdateEv:
 	leaq	6(%rax), %r12
 	call	_ZN3neo6string6LengthEv@PLT
 	cmpq	%rax, %r12
-	jnb	.L18
+	jnb	.L19
 	movq	%rbp, %rdi
 	call	_ZN3neo6string6LengthEv@PLT
 	movq	%r13, %rdi
@@ -443,7 +468,7 @@ _ZN10gui_slider6UpdateEv:
 	movq	%r12, %rdx
 	movq	%rbp, %rdi
 	call	_ZN3neo6string6RemoveEyy@PLT
-.L18:
+.L19:
 	movq	%rbp, %rdi
 	movq	40(%rbx), %rbx
 	call	_ZN3neo6stringclEv@PLT
@@ -474,42 +499,27 @@ _ZN10gui_slider6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L37:
+.L15:
 	.cfi_restore_state
+	movq	24(%rbx), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
+	testb	$4, %al
+	je	.L35
+	movq	8(%rbx), %rax
+	movsd	.LC7(%rip), %xmm0
+	xorl	%edx, %edx
+	movq	8(%rax), %rax
+	movq	376(%rax), %rsi
 	movq	(%rbx), %rax
-	pxor	%xmm0, %xmm0
-	leaq	200(%rax), %rdi
-	call	_ZN3wze6engine5mouse4GetXEd@PLT
-	movq	%r12, %rdi
-	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd@PLT
-	movq	48(%rbx), %rdi
-	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv@PLT
-	movapd	%xmm0, %xmm1
-	movsd	72(%rbx), %xmm0
-	movq	48(%rbx), %rdi
-	comisd	%xmm1, %xmm0
-	ja	.L36
-	movsd	80(%rbx), %xmm4
-	movsd	%xmm4, 8(%rsp)
-	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv@PLT
-	comisd	8(%rsp), %xmm0
-	movq	48(%rbx), %r12
-	jbe	.L14
-	movsd	80(%rbx), %xmm0
-	movq	%r12, %rdi
-.L36:
-	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd@PLT
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audio4PlayEytd@PLT
 .LEHE4:
-	.p2align 4,,10
-	.p2align 3
-.L34:
-	movq	48(%rbx), %r12
-	jmp	.L14
+	jmp	.L35
 .L38:
 	call	__stack_chk_fail@PLT
-.L22:
+.L23:
 	movq	%rax, %rbx
-	jmp	.L19
+	jmp	.L20
 	.section	.gcc_except_table
 .LLSDA8162:
 	.byte	0xff
@@ -523,7 +533,7 @@ _ZN10gui_slider6UpdateEv:
 	.uleb128 0
 	.uleb128 .LEHB4-.LFB8162
 	.uleb128 .LEHE4-.LEHB4
-	.uleb128 .L22-.LFB8162
+	.uleb128 .L23-.LFB8162
 	.uleb128 0
 .LLSDACSE8162:
 	.text
@@ -535,7 +545,7 @@ _ZN10gui_slider6UpdateEv:
 	.type	_ZN10gui_slider6UpdateEv.cold, @function
 _ZN10gui_slider6UpdateEv.cold:
 .LFSB8162:
-.L19:
+.L20:
 	.cfi_def_cfa_offset 128
 	.cfi_offset 3, -56
 	.cfi_offset 6, -48
@@ -563,7 +573,7 @@ _ZN10gui_slider6UpdateEv.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8162-.LLSDACSBC8162
 .LLSDACSBC8162:
-	.uleb128 .LEHB5-.LCOLDB8
+	.uleb128 .LEHB5-.LCOLDB9
 	.uleb128 .LEHE5-.LEHB5
 	.uleb128 0
 	.uleb128 0
@@ -573,9 +583,9 @@ _ZN10gui_slider6UpdateEv.cold:
 	.size	_ZN10gui_slider6UpdateEv, .-_ZN10gui_slider6UpdateEv
 	.section	.text.unlikely
 	.size	_ZN10gui_slider6UpdateEv.cold, .-_ZN10gui_slider6UpdateEv.cold
-.LCOLDE8:
+.LCOLDE9:
 	.text
-.LHOTE8:
+.LHOTE9:
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC2:
@@ -589,6 +599,10 @@ _ZN10gui_slider6UpdateEv.cold:
 .LC5:
 	.long	0
 	.long	1071644672
+	.align 8
+.LC7:
+	.long	0
+	.long	1072693248
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

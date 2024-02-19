@@ -41,17 +41,24 @@ double gui_slider::Update()
     
     string str;
 
-    if (this->Overlapbox->GetButtonState() & BTN_HOVERED && this->Overlapbox->GetButtonState() & BTN_PRESSED_LMB)
+    if (this->Overlapbox->GetButtonState() & BTN_HOVERED)
     {
-        this->Indicator->SetX(this->Engine->Mouse.GetX(0));
+        if (this->Overlapbox->GetButtonState() & BTN_PRESSED_LMB)
+        {
+            this->Indicator->SetX(this->Engine->Mouse.GetX(0));
 
-        if (this->Indicator->GetX() < this->IndicatorMinX)
-        {
-            this->Indicator->SetX(this->IndicatorMinX);
+            if (this->Indicator->GetX() < this->IndicatorMinX)
+            {
+                this->Indicator->SetX(this->IndicatorMinX);
+            }
+            else if (this->IndicatorMaxX < this->Indicator->GetX())
+            {
+                this->Indicator->SetX(this->IndicatorMaxX);
+            }
         }
-        else if (this->IndicatorMaxX < this->Indicator->GetX())
+        else if (this->Overlapbox->GetButtonState() & BTN_RELEASED_LMB)
         {
-            this->Indicator->SetX(this->IndicatorMaxX);
+            this->Engine->Audio.Play(this->Game->Assets->GuiAudio, CH_GUI, 1);   
         }
     }
 

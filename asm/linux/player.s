@@ -1311,7 +1311,7 @@ _ZN10act_player6UpdateEv:
 	movsd	.LC0(%rip), %xmm0
 	movq	8(%rax), %rax
 	addq	$160, %rdi
-	movq	376(%rax), %rsi
+	movq	384(%rax), %rsi
 	call	_ZN3wze6engine5audio4PlayEytd@PLT
 	jmp	.L116
 .L192:

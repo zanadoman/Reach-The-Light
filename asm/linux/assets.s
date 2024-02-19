@@ -309,12 +309,14 @@
 	.string	"assets/etc/trapdoor_opened.png"
 	.section	.rodata.str1.1
 .LC127:
-	.string	"assets/audio/footstep.wav"
+	.string	"assets/audio/gui.mp3"
+.LC128:
+	.string	"assets/audio/footstep.mp3"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB128:
+.LCOLDB129:
 	.text
-.LHOTB128:
+.LHOTB129:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -1116,6 +1118,11 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	328(%rax), %rdi
 	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
 	movq	%rax, 376(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC128(%rip), %rsi
+	leaq	328(%rax), %rdi
+	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
+	movq	%rax, 384(%rbx)
 	movq	904(%rsp), %rax
 	subq	%fs:40, %rax
 	jne	.L75
@@ -1400,7 +1407,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB1-.LCOLDB128
+	.uleb128 .LEHB1-.LCOLDB129
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1410,9 +1417,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.size	_ZN6assetsC2EPN3wze6engineE, .-_ZN6assetsC2EPN3wze6engineE
 	.section	.text.unlikely
 	.size	_ZN6assetsC2EPN3wze6engineE.cold, .-_ZN6assetsC2EPN3wze6engineE.cold
-.LCOLDE128:
+.LCOLDE129:
 	.text
-.LHOTE128:
+.LHOTE129:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE
 	.align 2
