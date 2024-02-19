@@ -1127,16 +1127,16 @@ _ZN10scene_play6UpdateEv:
 .L127:
 	movq	0(%rbp), %rax
 	leaq	32(%rsp), %rdi
-	movl	$10, %edx
+	movl	$11, %edx
 	leaq	160(%rax), %rsi
 	call	_ZN3wze6engine5audioixEt@PLT
 	cmpq	$0, 32(%rsp)
 	jne	.L85
 	movq	8(%rbp), %rax
 	movsd	.LC9(%rip), %xmm0
-	movl	$10, %edx
+	movl	$11, %edx
 	movq	8(%rax), %rax
-	movq	464(%rax), %rsi
+	movq	472(%rax), %rsi
 	movq	0(%rbp), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytd@PLT

@@ -311,9 +311,9 @@ _ZN9act_crate6UpdateEv:
 .L44:
 	movq	8(%rsi), %rax
 	movsd	.LC0(%rip), %xmm3
-	movl	$4, %r8d
+	movl	$5, %r8d
 	movq	8(%rax), %rax
-	movq	416(%rax), %rdx
+	movq	424(%rax), %rdx
 	movq	(%rsi), %rax
 	leaq	160(%rax), %rcx
 	call	_ZN3wze6engine5audio4PlayEytd

@@ -273,6 +273,10 @@ uint8 act_player::Update()
 
             if (LatchBox1Active && LatchBox2Active)
             {
+                if (this->VelocityY != 0.275)
+                {
+                    this->Engine->Audio.Play(this->Game->Assets->PlayerLatchAudio, CH_PLAYER_LATCH, 0.5);
+                }
                 this->VelocityX = 0;
                 this->VelocityY = 0;
             }
@@ -287,7 +291,7 @@ uint8 act_player::Update()
 
         if (this->VelocityY == 0.275 - 0.0006 * this->Engine->Timing.GetDeltaTime())
         {
-            this->Engine->Audio.Play(this->Game->Assets->PlayerJumpAudio, CH_PLAYER_JUMP, 0.25);
+            this->Engine->Audio.Play(this->Game->Assets->PlayerJumpAudio, CH_PLAYER_JUMP, 0.2);
         }
 
         if (this->Actor->GetY() + this->VelocityY * this->Engine->Timing.GetDeltaTime() != this->Actor->SetY(this->Actor->GetY() + this->VelocityY * this->Engine->Timing.GetDeltaTime()))

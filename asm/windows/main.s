@@ -100,7 +100,7 @@ main:
 	call	_ZN3wze6engineC1EPKcS2_tth
 .LEHE1:
 	leaq	160(%rbx), %rcx
-	movl	$11, %edx
+	movl	$12, %edx
 .LEHB2:
 	call	_ZN3wze6engine5audio15SetChannelCountEt
 	movl	$32, %edx

@@ -490,10 +490,10 @@ _ZN14tile_trap_hole6UpdateEv:
 	movq	(%rbx), %rdi
 	movq	$0, 56(%rbx)
 	movsd	.LC0(%rip), %xmm0
-	movl	$6, %edx
+	movl	$7, %edx
 	movq	8(%rax), %rax
 	addq	$160, %rdi
-	movq	432(%rax), %rsi
+	movq	440(%rax), %rsi
 	call	_ZN3wze6engine5audio4PlayEytd@PLT
 	popq	%rbx
 	.cfi_def_cfa_offset 24

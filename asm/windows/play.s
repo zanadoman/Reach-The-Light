@@ -1145,7 +1145,7 @@ _ZN10scene_play6UpdateEv:
 	jne	.L80
 .L119:
 	movq	(%rsi), %rax
-	movl	$10, %r8d
+	movl	$11, %r8d
 	movq	%r13, %rcx
 	leaq	160(%rax), %rdx
 	call	_ZN3wze6engine5audioixEt
@@ -1153,9 +1153,9 @@ _ZN10scene_play6UpdateEv:
 	jne	.L80
 	movq	8(%rsi), %rax
 	movsd	.LC9(%rip), %xmm3
-	movl	$10, %r8d
+	movl	$11, %r8d
 	movq	8(%rax), %rax
-	movq	464(%rax), %rdx
+	movq	472(%rax), %rdx
 	movq	(%rsi), %rax
 	leaq	160(%rax), %rcx
 	call	_ZN3wze6engine5audio4PlayEytd

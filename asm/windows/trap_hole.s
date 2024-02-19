@@ -509,10 +509,10 @@ _ZN14tile_trap_hole6UpdateEv:
 	movq	(%rbx), %rcx
 	movq	$0, 56(%rbx)
 	movsd	.LC0(%rip), %xmm3
-	movl	$6, %r8d
+	movl	$7, %r8d
 	movq	8(%rax), %rax
 	addq	$160, %rcx
-	movq	432(%rax), %rdx
+	movq	440(%rax), %rdx
 	call	_ZN3wze6engine5audio4PlayEytd
 	xorl	%eax, %eax
 	addq	$32, %rsp

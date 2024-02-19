@@ -137,11 +137,11 @@ _ZN12act_trapdoor6UpdateEv:
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
 	movq	8(%rbx), %rax
 	movq	(%rbx), %rcx
-	movl	$8, %r8d
+	movl	$9, %r8d
 	movsd	.LC2(%rip), %xmm3
 	movq	8(%rax), %rax
 	addq	$160, %rcx
-	movq	448(%rax), %rdx
+	movq	456(%rax), %rdx
 	call	_ZN3wze6engine5audio4PlayEytd
 	xorl	%eax, %eax
 	addq	$40, %rsp
