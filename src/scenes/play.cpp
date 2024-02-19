@@ -154,9 +154,6 @@ scene scene_play::Update()
             }
         }
 
-        this->TrapdoorLeft->Update();
-        this->TrapdoorRight->Update();
-
         for (uint8 i = 0; i < MAP_X; i++)
         {
             for (uint8 j = 0; j < MAP_Y; j++)
@@ -174,6 +171,9 @@ scene scene_play::Update()
         }
 
         this->Player->Update();
+
+        this->TrapdoorLeft->Update();
+        this->TrapdoorRight->Update();
     }
     else if (PauseState == act_pause::MENU)
     {
