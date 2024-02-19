@@ -60,7 +60,7 @@ _ZN10scene_helpC2EPN3wze6engineEP4game:
 	xorl	%edx, %edx
 	shrw	%ax
 	movl	$0, 48(%rsp)
-	leaq	256(%rsi), %rcx
+	leaq	264(%rsi), %rcx
 	movzwl	%ax, %eax
 	movl	$0, 40(%rsp)
 	cvtsi2sdl	%eax, %xmm3
@@ -346,7 +346,7 @@ _ZN10scene_helpD2Ev:
 	.seh_stackalloc	40
 	.seh_endprologue
 	movq	(%rcx), %rax
-	leaq	256(%rax), %rsi
+	leaq	264(%rax), %rsi
 	movq	%rcx, %rbx
 	movq	16(%rcx), %rcx
 	call	_ZN3wze6engine6actors5actor5GetIDEv

@@ -54,7 +54,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	movl	%ebp, 40(%rsp)
 	xorl	%edx, %edx
 	movq	$0x000000000, 56(%rsp)
-	leaq	256(%rax), %rcx
+	leaq	264(%rax), %rcx
 	movsd	216(%rsp), %xmm3
 	movsd	%xmm0, 32(%rsp)
 .LEHB1:
@@ -279,7 +279,7 @@ _ZN10gui_sliderD2Ev:
 	.seh_stackalloc	40
 	.seh_endprologue
 	movq	(%rcx), %rax
-	leaq	256(%rax), %rsi
+	leaq	264(%rax), %rsi
 	movq	%rcx, %rbx
 	movq	16(%rcx), %rcx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
@@ -355,7 +355,7 @@ _ZN10gui_slider6UpdateEv:
 	movq	(%rbx), %rax
 	pxor	%xmm1, %xmm1
 	movq	48(%rbx), %rdi
-	leaq	200(%rax), %rcx
+	leaq	208(%rax), %rcx
 	call	_ZN3wze6engine5mouse4GetXEd
 	movapd	%xmm0, %xmm1
 	movq	%rdi, %rcx

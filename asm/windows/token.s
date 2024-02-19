@@ -117,7 +117,7 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaE
 .L4:
 	movl	%ebx, 8(%rdi)
 	xorl	%edx, %edx
-	leaq	320(%rsi), %rcx
+	leaq	328(%rsi), %rcx
 	movl	$12, %r8d
 .LEHB2:
 	call	_ZN3wze6engine4math6RandomEii

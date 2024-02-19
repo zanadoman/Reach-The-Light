@@ -82,7 +82,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	.seh_endprologue
 	movq	%rcx, %rdi
 	movq	%rdx, %rcx
-	leaq	256(%rdx), %rbx
+	leaq	264(%rdx), %rbx
 	movq	%rdx, (%rdi)
 	movq	%r8, 8(%rdi)
 	movq	$0, 32(%rdi)
@@ -472,7 +472,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	56(%rdi), %rax
 	movl	$4718664, 16(%rax)
 	movq	(%rdi), %rax
-	leaq	200(%rax), %rcx
+	leaq	208(%rax), %rcx
 	call	_ZN3wze6engine5mouse11SetRelativeEv
 	movq	(%rdi), %rax
 	leaq	80(%rax), %rbx
@@ -904,7 +904,7 @@ _ZN10scene_play6UpdateEv:
 	movq	24(%rsi), %rbx
 	movq	%rax, 88(%rsp)
 	movq	(%rsi), %rax
-	leaq	400(%rax), %rcx
+	leaq	408(%rax), %rcx
 .LEHB15:
 	call	_ZN3wze6engine6timing12GetFrameTimeEv
 	movl	%eax, %eax
@@ -1145,7 +1145,7 @@ _ZN10scene_play6UpdateEv:
 .L115:
 	movq	(%rsi), %rax
 	movl	156(%rdx), %ebx
-	leaq	400(%rax), %rcx
+	leaq	408(%rax), %rcx
 	addl	$2500, %ebx
 	call	_ZN3wze6engine6timing14GetCurrentTickEv
 .LEHE15:

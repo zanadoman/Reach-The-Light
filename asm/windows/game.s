@@ -23,7 +23,7 @@ _ZN4gameC2EPN3wze6engineE:
 	.seh_endprologue
 	movq	%rdx, (%rcx)
 	movq	%rcx, %rbx
-	movl	$432, %ecx
+	movl	$448, %ecx
 	movq	%rdx, %rsi
 .LEHB0:
 	call	_Znwy
@@ -140,7 +140,7 @@ _ZN4gameC2EPN3wze6engineE:
 _ZN4gameC2EPN3wze6engineE.cold:
 .L2:
 	movq	%rdi, %rcx
-	movl	$432, %edx
+	movl	$448, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 .LEHB8:
@@ -257,7 +257,7 @@ _ZN4gameD2Ev:
 	je	.L12
 	movq	%rbx, %rcx
 	call	_ZN6assetsD1Ev
-	movl	$432, %edx
+	movl	$448, %edx
 	movq	%rbx, %rcx
 	addq	$40, %rsp
 	popq	%rbx
@@ -406,11 +406,11 @@ _ZN4game11SwitchSceneE5scene:
 	leaq	32(%rsp), %rdx
 	movq	$0, 32(%rsp)
 	movq	$0, 40(%rsp)
-	leaq	256(%rax), %rcx
+	leaq	264(%rax), %rcx
 .LEHB11:
 	call	_ZN3wze6engine6actors5PurgeESt16initializer_listIyE
 	movq	(%rbx), %rax
-	leaq	200(%rax), %rcx
+	leaq	208(%rax), %rcx
 	call	_ZN3wze6engine5mouse11SetAbsoluteEv
 	movq	(%rbx), %rax
 	pxor	%xmm1, %xmm1

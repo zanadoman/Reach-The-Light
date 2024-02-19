@@ -31,7 +31,7 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc:
 	movq	%rcx, %rbx
 	movq	%r8, 8(%rcx)
 	xorl	%r8d, %r8d
-	leaq	256(%rdx), %rcx
+	leaq	264(%rdx), %rcx
 	xorl	%edx, %edx
 	movq	$0x000000000, 56(%rsp)
 	movl	%edi, 48(%rsp)
@@ -105,7 +105,7 @@ _ZN10gui_buttonD2Ev:
 	.seh_endprologue
 	movq	(%rcx), %rax
 	movq	16(%rcx), %rcx
-	leaq	256(%rax), %rbx
+	leaq	264(%rax), %rbx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rbx, %rcx
 	movq	%rax, %rdx
@@ -197,7 +197,7 @@ _ZN10gui_button6UpdateEv:
 	comisd	%xmm6, %xmm1
 	jbe	.L13
 	movq	(%rbx), %rax
-	leaq	400(%rax), %rcx
+	leaq	408(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	pxor	%xmm0, %xmm0
 	movsd	56(%rbx), %xmm1
@@ -214,7 +214,7 @@ _ZN10gui_button6UpdateEv:
 	.p2align 3
 .L20:
 	movq	(%rbx), %rax
-	leaq	400(%rax), %rcx
+	leaq	408(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	pxor	%xmm1, %xmm1
 	movsd	.LC7(%rip), %xmm0

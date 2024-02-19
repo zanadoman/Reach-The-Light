@@ -22,7 +22,7 @@ _ZN12act_trapdoorC2EPN3wze6engineEP4gamePhhdd:
 	movq	%rcx, %rbx
 	movq	%rdx, (%rcx)
 	movq	%r8, 8(%rcx)
-	leaq	256(%rdx), %rcx
+	leaq	264(%rdx), %rcx
 	xorl	%r8d, %r8d
 	xorl	%edx, %edx
 	movq	%rax, 56(%rsp)
@@ -63,7 +63,7 @@ _ZN12act_trapdoorD2Ev:
 	.seh_endprologue
 	movq	(%rcx), %rax
 	movq	24(%rcx), %rcx
-	leaq	256(%rax), %rbx
+	leaq	264(%rax), %rbx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rbx, %rcx
 	movq	%rax, %rdx
@@ -106,6 +106,7 @@ _ZN12act_trapdoor6UpdateEv:
 	movq	%rcx, %rbx
 	cmpb	%sil, (%rax)
 	je	.L6
+.L5:
 	xorl	%eax, %eax
 	addq	$40, %rsp
 	popq	%rbx
@@ -114,6 +115,9 @@ _ZN12act_trapdoor6UpdateEv:
 	.p2align 4,,10
 	.p2align 3
 .L6:
+	movq	32(%rcx), %rax
+	cmpw	$60, 18(%rax)
+	je	.L5
 	movq	24(%rcx), %rcx
 	xorl	%edx, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
@@ -131,6 +135,14 @@ _ZN12act_trapdoor6UpdateEv:
 	movq	8(%rax), %rax
 	movq	368(%rax), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
+	movq	8(%rbx), %rax
+	movq	(%rbx), %rcx
+	movl	$7, %r8d
+	movsd	.LC2(%rip), %xmm3
+	movq	8(%rax), %rax
+	addq	$160, %rcx
+	movq	432(%rax), %rdx
+	call	_ZN3wze6engine5audio4PlayEytd
 	xorl	%eax, %eax
 	addq	$40, %rsp
 	popq	%rbx
@@ -146,6 +158,10 @@ _ZN12act_trapdoor6UpdateEv:
 .LC1:
 	.long	0
 	.long	1077641216
+	.align 8
+.LC2:
+	.long	0
+	.long	1072168960
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes3NewEy;	.scl	2;	.type	32;	.endef
@@ -155,3 +171,4 @@ _ZN12act_trapdoor6UpdateEv:
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio4PlayEytd;	.scl	2;	.type	32;	.endef

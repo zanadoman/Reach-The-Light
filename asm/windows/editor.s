@@ -76,7 +76,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	%rcx, %rbp
 	movq	%r8, 8(%rcx)
 	xorl	%r8d, %r8d
-	leaq	256(%rdx), %rcx
+	leaq	264(%rdx), %rcx
 	xorl	%edx, %edx
 	movl	$0, 48(%rsp)
 	movl	$0, 40(%rsp)
@@ -592,7 +592,7 @@ _ZN12scene_editorD2Ev:
 	.seh_stackalloc	40
 	.seh_endprologue
 	movq	(%rcx), %rax
-	leaq	256(%rax), %rbx
+	leaq	264(%rax), %rbx
 	movq	%rcx, %rbp
 	movq	16(%rcx), %rcx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
@@ -721,11 +721,11 @@ _ZN12scene_editor6UpdateEv:
 	jne	.L43
 	movq	(%rdi), %rax
 	movl	$235, %edx
-	leaq	176(%rax), %rcx
+	leaq	184(%rax), %rcx
 	call	_ZN3wze6engine4keysixENS_3keyE
 	testb	%al, %al
 	movq	(%rdi), %rax
-	leaq	176(%rax), %rcx
+	leaq	184(%rax), %rcx
 	je	.L46
 	movl	$224, %edx
 	call	_ZN3wze6engine4keysixENS_3keyE
@@ -810,7 +810,7 @@ _ZN12scene_editor6UpdateEv:
 	je	.L53
 	movq	(%rdi), %rax
 	movl	$224, %edx
-	leaq	176(%rax), %rcx
+	leaq	184(%rax), %rcx
 	call	_ZN3wze6engine4keysixENS_3keyE
 	testb	%al, %al
 	movq	(%rdi), %rax
@@ -856,7 +856,7 @@ _ZN12scene_editor6UpdateEv:
 .L71:
 	movq	(%rdi), %rcx
 	movl	$41, %edx
-	addq	$176, %rcx
+	addq	$184, %rcx
 	call	_ZN3wze6engine4keysixENS_3keyE
 	testb	%al, %al
 	jne	.L73
