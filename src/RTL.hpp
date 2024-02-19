@@ -74,7 +74,8 @@ typedef enum
 {
     CH_MUSIC,
     CH_GUI,
-    CH_FALLING,
+    CH_PLAYER_FALL,
+    CH_CRATE_FALL,
     CH_HURT
 } channel;
 
@@ -168,7 +169,8 @@ struct assets
 
     uint64 Music;
     uint64 GuiAudio;
-    uint64 FallingAudio;
+    uint64 PlayerFallAudio;
+    uint64 CrateFallAudio;
     uint64 HurtAudio;
 
     assets(engine* Engine);

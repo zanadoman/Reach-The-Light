@@ -293,7 +293,7 @@ uint8 act_player::Update()
             {
                 if (this->VelocityY < -0.0006 * this->Engine->Timing.GetDeltaTime())
                 {
-                    this->Engine->Audio.Play(this->Game->Assets->FallingAudio, CH_FALLING, 0.5);
+                    this->Engine->Audio.Play(this->Game->Assets->PlayerFallAudio, CH_PLAYER_FALL, 0.5);
                 }
                 this->VelocityY = 0;
                 this->Fall->Reset();

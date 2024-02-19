@@ -475,10 +475,10 @@ _ZN10act_player6UpdateEv:
 	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
 	movl	%eax, 156(%rbx)
 	movq	8(%rbx), %rax
-	movl	$3, %edx
+	movl	$4, %edx
 	movsd	.LC0(%rip), %xmm0
 	movq	8(%rax), %rax
-	movq	400(%rax), %rsi
+	movq	408(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytd@PLT

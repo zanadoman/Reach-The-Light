@@ -184,7 +184,8 @@ assets::assets(engine* Engine) : Engine(Engine)
 
     this->Music = this->Engine->Assets.LoadSound("assets/audio/music.wav");
     this->GuiAudio = this->Engine->Assets.LoadSound("assets/audio/gui.mp3");
-    this->FallingAudio = this->Engine->Assets.LoadSound("assets/audio/fall.mp3");
+    this->PlayerFallAudio = this->Engine->Assets.LoadSound("assets/audio/player_fall.mp3");
+    this->CrateFallAudio = this->Engine->Assets.LoadSound("assets/audio/crate_fall.wav");
     this->HurtAudio = this->Engine->Assets.LoadSound("assets/audio/hurt.wav");
 }
 
