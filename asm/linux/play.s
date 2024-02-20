@@ -308,7 +308,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	call	_ZN12act_trapdoorC1EPN3wze6engineEP4gamePhhdd@PLT
 .LEHE9:
 	movq	%rbp, 1128(%r12)
-	movl	$48, %edi
+	movl	$64, %edi
 .LEHB10:
 	call	_Znwm@PLT
 .LEHE10:
@@ -464,7 +464,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movl	$65535, %ecx
 	xorl	%edx, %edx
 	movq	8(%rax), %rax
-	movq	392(%rax), %rsi
+	movq	400(%rax), %rsi
 	movq	(%r12), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
@@ -546,7 +546,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	jmp	.L18
 .L34:
 	movq	%rax, %rbx
-	jmp	.L24
+	jmp	.L23
 .L31:
 	movq	%rax, %rbx
 	jmp	.L20
@@ -555,7 +555,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	jmp	.L20
 .L33:
 	movq	%rax, %rbx
-	jmp	.L24
+	jmp	.L23
 .L32:
 	movq	%rax, %rbx
 	jmp	.L21
@@ -666,7 +666,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 .LEHB15:
 	call	_Unwind_Resume@PLT
 .LEHE15:
-.L24:
+.L23:
 	movl	$48, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
@@ -675,6 +675,11 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	call	__stack_chk_fail@PLT
 .L20:
 	movl	$192, %esi
+	movq	%rbp, %rdi
+	call	_ZdlPvm@PLT
+	jmp	.L18
+.L24:
+	movl	$64, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 	jmp	.L18
@@ -827,7 +832,7 @@ _ZN10scene_playD2Ev:
 	je	.L60
 	movq	%rbx, %rdi
 	call	_ZN10tile_houseD1Ev@PLT
-	movl	$48, %esi
+	movl	$64, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
 .L60:
@@ -1172,7 +1177,7 @@ _ZN10scene_play6UpdateEv:
 	xorl	%ecx, %ecx
 	movl	$11, %edx
 	movq	8(%rax), %rax
-	movq	480(%rax), %rsi
+	movq	488(%rax), %rsi
 	movq	0(%rbp), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT

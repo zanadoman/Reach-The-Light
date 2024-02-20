@@ -313,34 +313,36 @@
 .LC128:
 	.string	"assets/house/frame.png"
 .LC129:
-	.string	"assets/audio/music.wav"
+	.string	"assets/etc/grass.png"
 .LC130:
-	.string	"assets/audio/gui.mp3"
+	.string	"assets/audio/music.wav"
 .LC131:
-	.string	"assets/audio/player_fall.mp3"
+	.string	"assets/audio/gui.mp3"
 .LC132:
-	.string	"assets/audio/jump.wav"
+	.string	"assets/audio/player_fall.mp3"
 .LC133:
-	.string	"assets/audio/latch.ogg"
+	.string	"assets/audio/jump.wav"
 .LC134:
-	.string	"assets/audio/crate_fall.wav"
+	.string	"assets/audio/latch.ogg"
 .LC135:
-	.string	"assets/audio/hurt.wav"
+	.string	"assets/audio/crate_fall.wav"
 .LC136:
-	.string	"assets/audio/collapse.wav"
+	.string	"assets/audio/hurt.wav"
 .LC137:
-	.string	"assets/audio/lever.wav"
+	.string	"assets/audio/collapse.wav"
 .LC138:
-	.string	"assets/audio/trapdoor.wav"
+	.string	"assets/audio/lever.wav"
 .LC139:
-	.string	"assets/audio/tuna.wav"
+	.string	"assets/audio/trapdoor.wav"
 .LC140:
+	.string	"assets/audio/tuna.wav"
+.LC141:
 	.string	"assets/audio/heartbeat.wav"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB141:
+.LCOLDB142:
 	.text
-.LHOTB141:
+.LHOTB142:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -1150,7 +1152,7 @@ _ZN6assetsC2EPN3wze6engineE:
 	movq	(%rbx), %rax
 	leaq	.LC129(%rip), %rsi
 	leaq	344(%rax), %rdi
-	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
 	movq	%rax, 392(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC130(%rip), %rsi
@@ -1207,6 +1209,11 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	344(%rax), %rdi
 	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
 	movq	%rax, 480(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC141(%rip), %rsi
+	leaq	344(%rax), %rdi
+	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
+	movq	%rax, 488(%rbx)
 	movq	904(%rsp), %rax
 	subq	%fs:40, %rax
 	jne	.L75
@@ -1491,7 +1498,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB1-.LCOLDB141
+	.uleb128 .LEHB1-.LCOLDB142
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1501,9 +1508,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.size	_ZN6assetsC2EPN3wze6engineE, .-_ZN6assetsC2EPN3wze6engineE
 	.section	.text.unlikely
 	.size	_ZN6assetsC2EPN3wze6engineE.cold, .-_ZN6assetsC2EPN3wze6engineE.cold
-.LCOLDE141:
+.LCOLDE142:
 	.text
-.LHOTE141:
+.LHOTE142:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE
 	.align 2

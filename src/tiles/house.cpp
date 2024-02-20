@@ -1,6 +1,6 @@
 #include "../RTL.hpp"
 
-tile_house::tile_house(engine* Engine, game* Game, act_player* Player, double X, double Y) : Engine(Engine), Game(Game), Player(Player)
+tile_house::tile_house(engine* Engine, game* Game, act_player* Player, double X, double Y) : Engine(Engine), Game(Game), Player(Player), Grasses(30)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 200, 100, 1);
     this->House = this->Actor->Textureboxes.New(this->Game->Assets->HouseFrame);
@@ -10,13 +10,23 @@ tile_house::tile_house(engine* Engine, game* Game, act_player* Player, double X,
     this->House->Height = 150;
     this->House->SetY(this->Actor->GetY() + 25);
 
-    this->Sky->Width = 700;
-    this->Sky->Height = 500;
+    this->Sky->Width = 800;
+    this->Sky->Height = 800;
     this->Sky->ColorR = 113;
     this->Sky->ColorG = 168;
     this->Sky->ColorB = 183;
     this->Sky->ColorA = 0;
     this->Sky->Priority = 126;
+
+    for (uint8 i = 0; i < this->Grasses.Length(); i++)
+    {
+        this->Grasses[i] = this->Actor->Textureboxes.New(this->Game->Assets->GrassTexture);
+        this->Grasses[i]->SetX(-390 + i * 20 + (i < 15 ? 0 : 200));
+        this->Grasses[i]->SetY(this->Actor->GetY() - 47.5);
+        this->Grasses[i]->Width = 20;
+        this->Grasses[i]->Height = 20;
+        this->Grasses[i]->Priority = 129;
+    }
 }
 
 tile_house::~tile_house()
@@ -26,7 +36,7 @@ tile_house::~tile_house()
 
 uint8 tile_house::Update()
 {
-    this->Sky->ColorA = round(engine::math::Clamp<double>(255 -this->Player->FireflyMask->ColorA, 0, 255));
+    this->Sky->ColorA = round(engine::math::Clamp<double>(255 - this->Player->FireflyMask->ColorA, 0, 255));
 
     return 0;
 }

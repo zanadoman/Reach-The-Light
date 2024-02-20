@@ -178,6 +178,7 @@ struct assets
     uint64 TrapdoorOpened;
 
     uint64 HouseFrame;
+    uint64 GrassTexture;
 
     uint64 Music;
     uint64 GuiAudio;
@@ -546,6 +547,7 @@ struct tile_house
     engine::actor Actor;
     engine::texturebox House;
     engine::colorbox Sky;
+    array<engine::texturebox> Grasses;
 
     tile_house(engine* Engine, game* Game, act_player* Player, double X, double Y);
     ~tile_house();
