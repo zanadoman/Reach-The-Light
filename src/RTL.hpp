@@ -24,7 +24,6 @@ struct act_pause;
 struct act_player;
 struct act_tuna;
 struct act_crate;
-struct act_trapdoor;
 struct gui_button;
 struct gui_slider;
 struct gui_tile;
@@ -266,8 +265,6 @@ struct scene_play
     tile_token* Tiles[MAP_X][MAP_Y];
     tile_house* House;
     bool RotateTiles;
-    act_trapdoor* TrapdoorLeft;
-    act_trapdoor* TrapdoorRight;
     array<act_tuna*> Tunas;
 
     scene_play(engine* Engine, game* Game);
@@ -443,22 +440,6 @@ struct act_crate
     uint8 Update();
 };
 
-struct act_trapdoor
-{
-    engine* Engine;
-    game* Game;
-    uint8* PlayerScore;
-
-    engine::actor Actor;
-    engine::texturebox Texturebox;
-
-    uint8 MaxScore;
-
-    act_trapdoor(engine* Engine, game* Game, uint8* PlayerScore, uint8 MaxScore, double X, double Y);
-    ~act_trapdoor();
-    uint8 Update();
-};
-
 //__________GUI______________________________________________________________________________________
 
 struct gui_button
@@ -546,6 +527,8 @@ struct tile_house
 
     engine::actor Actor;
     engine::texturebox House;
+    engine::texturebox LeftTrapdoor;
+    engine::texturebox RightTrapdoor;
     engine::colorbox Sky;
     array<engine::texturebox> Grasses;
 
@@ -558,7 +541,9 @@ struct tile_house
     engine::actor HitboxLeftTrapdoor;
     engine::actor HitboxRightTrapdoor;
 
-    tile_house(engine* Engine, game* Game, act_player* Player, double X, double Y);
+    uint8 MaxScore;
+
+    tile_house(engine* Engine, game* Game, act_player* Player, uint8 MaxScore, double X, double Y);
     ~tile_house();
     uint8 Update();
 };
