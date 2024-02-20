@@ -1,6 +1,6 @@
 #include "../RTL.hpp"
 
-act_pause::act_pause(engine* Engine, game* Game) : Engine(Engine), Game(Game)
+gui_pause::gui_pause(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, this->Engine->Window.GetWidth() >> 1, this->Engine->Window.GetHeight() >> 1, 0, 0, 0);
     this->Texturebox = this->Actor->Textureboxes.New(this->Game->Assets->PauseTexture);
@@ -28,7 +28,7 @@ act_pause::act_pause(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->FrameRate->Actor->Visible = false;
 }
 
-act_pause::~act_pause()
+gui_pause::~gui_pause()
 {
     this->Engine->Actors.Delete(this->Actor->GetID());
     delete this->Resume;
@@ -38,7 +38,7 @@ act_pause::~act_pause()
     delete this->FrameRate;
 }
 
-act_pause::state act_pause::Update()
+gui_pause::state gui_pause::Update()
 {
     if ((!this->Actor->Visible && this->PauseTick + 100 < this->Engine->Timing.GetCurrentTick() && this->Engine->Keys[KEY_ESCAPE]) || !this->Engine->Window.HasFocus())
     {

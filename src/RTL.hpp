@@ -20,13 +20,13 @@ struct scene_play;
 struct scene_editor;
 struct scene_help;
 struct scene_game_over;
-struct act_pause;
 struct act_player;
 struct act_tuna;
 struct act_crate;
 struct gui_button;
 struct gui_slider;
 struct gui_tile;
+struct gui_pause;
 struct tile_token;
 struct tile_house;
 struct tile_top_left_corner;
@@ -260,7 +260,7 @@ struct scene_play
     engine::textbox TunaCount;
     engine::flipbook TunaFlipbook;
 
-    act_pause* Pause;
+    gui_pause* Pause;
     act_player* Player;
     tile_token* Tiles[MAP_X][MAP_Y];
     tile_house* House;
@@ -342,33 +342,6 @@ struct scene_game_over
 };
 
 //__________ACTORS___________________________________________________________________________________
-
-struct act_pause
-{
-    engine* Engine;
-    game* Game;
-
-    typedef enum
-    {
-        UNPAUSED,
-        PAUSED,
-        MENU
-    } state;
-
-    engine::actor Actor;
-    engine::texturebox Texturebox;
-
-    gui_button* Resume;
-    gui_button* Menu;
-    gui_slider* MouseSensitivity;
-    gui_slider* Volume;
-    gui_slider* FrameRate;
-    uint32 PauseTick;
-
-    act_pause(engine* Engine, game* Game);
-    ~act_pause();
-    state Update();
-};
 
 struct act_player
 {
@@ -503,6 +476,33 @@ struct gui_tile
     gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, uint8 TileX, uint8 TileY);
     ~gui_tile();
     uint8 Update();
+};
+
+struct gui_pause
+{
+    engine* Engine;
+    game* Game;
+
+    typedef enum
+    {
+        UNPAUSED,
+        PAUSED,
+        MENU
+    } state;
+
+    engine::actor Actor;
+    engine::texturebox Texturebox;
+
+    gui_button* Resume;
+    gui_button* Menu;
+    gui_slider* MouseSensitivity;
+    gui_slider* Volume;
+    gui_slider* FrameRate;
+    uint32 PauseTick;
+
+    gui_pause(engine* Engine, game* Game);
+    ~gui_pause();
+    state Update();
 };
 
 //__________TILES____________________________________________________________________________________

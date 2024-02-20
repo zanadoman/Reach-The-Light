@@ -18,9 +18,9 @@
 .LHOTB14:
 	.align 2
 	.p2align 4
-	.globl	_ZN9act_pauseC2EPN3wze6engineEP4game
-	.type	_ZN9act_pauseC2EPN3wze6engineEP4game, @function
-_ZN9act_pauseC2EPN3wze6engineEP4game:
+	.globl	_ZN9gui_pauseC2EPN3wze6engineEP4game
+	.type	_ZN9gui_pauseC2EPN3wze6engineEP4game, @function
+_ZN9gui_pauseC2EPN3wze6engineEP4game:
 .LFB8157:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
@@ -299,8 +299,8 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
 	.cfi_lsda 0x1b,.LLSDAC8157
-	.type	_ZN9act_pauseC2EPN3wze6engineEP4game.cold, @function
-_ZN9act_pauseC2EPN3wze6engineEP4game.cold:
+	.type	_ZN9gui_pauseC2EPN3wze6engineEP4game.cold, @function
+_ZN9gui_pauseC2EPN3wze6engineEP4game.cold:
 .LFSB8157:
 .L2:
 	.cfi_def_cfa_offset 48
@@ -353,19 +353,19 @@ _ZN9act_pauseC2EPN3wze6engineEP4game.cold:
 .LLSDACSEC8157:
 	.section	.text.unlikely
 	.text
-	.size	_ZN9act_pauseC2EPN3wze6engineEP4game, .-_ZN9act_pauseC2EPN3wze6engineEP4game
+	.size	_ZN9gui_pauseC2EPN3wze6engineEP4game, .-_ZN9gui_pauseC2EPN3wze6engineEP4game
 	.section	.text.unlikely
-	.size	_ZN9act_pauseC2EPN3wze6engineEP4game.cold, .-_ZN9act_pauseC2EPN3wze6engineEP4game.cold
+	.size	_ZN9gui_pauseC2EPN3wze6engineEP4game.cold, .-_ZN9gui_pauseC2EPN3wze6engineEP4game.cold
 .LCOLDE14:
 	.text
 .LHOTE14:
-	.globl	_ZN9act_pauseC1EPN3wze6engineEP4game
-	.set	_ZN9act_pauseC1EPN3wze6engineEP4game,_ZN9act_pauseC2EPN3wze6engineEP4game
+	.globl	_ZN9gui_pauseC1EPN3wze6engineEP4game
+	.set	_ZN9gui_pauseC1EPN3wze6engineEP4game,_ZN9gui_pauseC2EPN3wze6engineEP4game
 	.align 2
 	.p2align 4
-	.globl	_ZN9act_pauseD2Ev
-	.type	_ZN9act_pauseD2Ev, @function
-_ZN9act_pauseD2Ev:
+	.globl	_ZN9gui_pauseD2Ev
+	.type	_ZN9gui_pauseD2Ev, @function
+_ZN9gui_pauseD2Ev:
 .LFB8160:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
@@ -459,14 +459,14 @@ _ZN9act_pauseD2Ev:
 .LLSDACSB8160:
 .LLSDACSE8160:
 	.text
-	.size	_ZN9act_pauseD2Ev, .-_ZN9act_pauseD2Ev
-	.globl	_ZN9act_pauseD1Ev
-	.set	_ZN9act_pauseD1Ev,_ZN9act_pauseD2Ev
+	.size	_ZN9gui_pauseD2Ev, .-_ZN9gui_pauseD2Ev
+	.globl	_ZN9gui_pauseD1Ev
+	.set	_ZN9gui_pauseD1Ev,_ZN9gui_pauseD2Ev
 	.align 2
 	.p2align 4
-	.globl	_ZN9act_pause6UpdateEv
-	.type	_ZN9act_pause6UpdateEv, @function
-_ZN9act_pause6UpdateEv:
+	.globl	_ZN9gui_pause6UpdateEv
+	.type	_ZN9gui_pause6UpdateEv, @function
+_ZN9gui_pause6UpdateEv:
 .LFB8162:
 	.cfi_startproc
 	pushq	%r12
@@ -641,7 +641,7 @@ _ZN9act_pause6UpdateEv:
 	jmp	.L42
 	.cfi_endproc
 .LFE8162:
-	.size	_ZN9act_pause6UpdateEv, .-_ZN9act_pause6UpdateEv
+	.size	_ZN9gui_pause6UpdateEv, .-_ZN9gui_pause6UpdateEv
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC1:

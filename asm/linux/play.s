@@ -191,7 +191,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	%rax, %rdi
 	movq	%rax, %rbx
 .LEHB1:
-	call	_ZN9act_pauseC1EPN3wze6engineEP4game@PLT
+	call	_ZN9gui_pauseC1EPN3wze6engineEP4game@PLT
 .LEHE1:
 	movq	8(%r12), %rax
 	movq	%rbx, 64(%r12)
@@ -680,7 +680,7 @@ _ZN10scene_playD2Ev:
 	testq	%rbx, %rbx
 	je	.L46
 	movq	%rbx, %rdi
-	call	_ZN9act_pauseD1Ev@PLT
+	call	_ZN9gui_pauseD1Ev@PLT
 	movl	$80, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
@@ -881,7 +881,7 @@ _ZN10scene_play6UpdateEv:
 	cvtsi2sdl	%eax, %xmm0
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd@PLT
 	movq	64(%rbp), %rdi
-	call	_ZN9act_pause6UpdateEv@PLT
+	call	_ZN9gui_pause6UpdateEv@PLT
 	movq	0(%rbp), %rdi
 	movl	%eax, %ebx
 	call	_ZN3wze6engine6window8HasFocusEv@PLT

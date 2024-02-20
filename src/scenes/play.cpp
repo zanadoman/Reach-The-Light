@@ -19,7 +19,7 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     };
     this->TunaCount = this->Actor->Textboxes.New("0/0", this->Game->Assets->HackBoldFont);
     this->TunaFlipbook = this->Actor->Flipbooks.New(75, &this->Game->Assets->TunaTextures);
-    this->Pause = new act_pause(this->Engine, this->Game);
+    this->Pause = new gui_pause(this->Engine, this->Game);
     if (this->Game->Map->Tiles[*this->Game->Map->Spawn][0] == TILE_HORIZONTAL_CORRIDOR)
     {
         this->Player = new act_player(this->Engine, this->Game, &this->RotateTiles, &this->Tunas, -350 + 100 * *this->Game->Map->Spawn, -741);
@@ -96,7 +96,7 @@ scene_play::~scene_play()
 
 scene scene_play::Update()
 {
-    act_pause::state PauseState;
+    gui_pause::state PauseState;
     string str;
 
     this->FrameTime->SetLiteral((((str += {"FrameTime: "}) += {(uint64)this->Engine->Timing.GetFrameTime()}) += {"ms"})());
@@ -118,7 +118,7 @@ scene scene_play::Update()
         this->Engine->Audio.Play(this->Game->Assets->HeartBeatAudio, CH_HEARTBEAT, 0.5, 0);
     }
 
-    if (PauseState == act_pause::UNPAUSED)
+    if (PauseState == gui_pause::UNPAUSED)
     {
         if (this->Player->Health == 0 && this->Player->DamageTick + 2500 <= this->Engine->Timing.GetCurrentTick())
         {
@@ -189,7 +189,7 @@ scene scene_play::Update()
 
         this->Player->Update();
     }
-    else if (PauseState == act_pause::MENU)
+    else if (PauseState == gui_pause::MENU)
     {
         return SCENE_MENU;
     }
