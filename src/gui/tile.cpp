@@ -156,7 +156,8 @@ uint8 gui_tile::Update()
 
                 this->Engine->Audio.Play(this->Game->Assets->ButtonAudio, CH_BUTTON, 1, 0);
             }
-            else if (this->Overlapbox->GetButtonState() & BTN_RELEASED_RMB)
+            
+            if (this->Overlapbox->GetButtonState() & BTN_RELEASED_RMB)
             {
                 if (this->TileY == MAP_Y - 1)
                 {
@@ -207,7 +208,8 @@ uint8 gui_tile::Update()
                 this->Engine->Audio.Play(this->Game->Assets->ButtonAudio, CH_BUTTON, 1, 0);
             }
         }
-        else if ((this->Overlapbox->GetButtonState() & BTN_RELEASED_MMB) && this->TileY == 0)
+        
+        if ((this->Overlapbox->GetButtonState() & BTN_RELEASED_MMB) && this->TileY == 0)
         {
             *this->Game->Map->Spawn = this->TileX;
             this->Engine->Audio.Play(this->Game->Assets->ButtonAudio, CH_BUTTON, 1, 0);
