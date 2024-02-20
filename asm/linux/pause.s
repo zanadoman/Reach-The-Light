@@ -65,7 +65,7 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	movq	8(%rdx), %rdx
 	movq	64(%rdx), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movl	$64, %edi
+	movl	$56, %edi
 	movq	%rax, 24(%rbx)
 	call	_Znwm@PLT
 .LEHE0:
@@ -80,15 +80,13 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
 	pxor	%xmm2, %xmm2
-	movl	$200, %ecx
-	movsd	(%rsp), %xmm1
-	leaq	.LC2(%rip), %r9
-	movl	$75, %r8d
 	movq	%rbp, %rdi
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc@PLT
+	movsd	(%rsp), %xmm1
+	leaq	.LC2(%rip), %rcx
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc@PLT
 .LEHE1:
 	movq	%rbp, 32(%rbx)
-	movl	$64, %edi
+	movl	$56, %edi
 .LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
@@ -103,12 +101,10 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
 	pxor	%xmm2, %xmm2
-	movl	$200, %ecx
-	movsd	(%rsp), %xmm1
-	leaq	.LC4(%rip), %r9
-	movl	$75, %r8d
 	movq	%rbp, %rdi
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc@PLT
+	movsd	(%rsp), %xmm1
+	leaq	.LC4(%rip), %rcx
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc@PLT
 .LEHE3:
 	movq	%rbp, 40(%rbx)
 	movl	$104, %edi
@@ -307,7 +303,7 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game.cold:
 	.cfi_offset 3, -24
 	.cfi_offset 6, -16
 	movq	%rbp, %rdi
-	movl	$64, %esi
+	movl	$56, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 .LEHB10:
@@ -332,7 +328,7 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game.cold:
 	call	_Unwind_Resume@PLT
 .L3:
 	movq	%rbp, %rdi
-	movl	$64, %esi
+	movl	$56, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
@@ -391,7 +387,7 @@ _ZN9gui_pauseD2Ev:
 	je	.L16
 	movq	%rbp, %rdi
 	call	_ZN10gui_buttonD1Ev@PLT
-	movl	$64, %esi
+	movl	$56, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 .L16:
@@ -400,7 +396,7 @@ _ZN9gui_pauseD2Ev:
 	je	.L17
 	movq	%rbp, %rdi
 	call	_ZN10gui_buttonD1Ev@PLT
-	movl	$64, %esi
+	movl	$56, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 .L17:

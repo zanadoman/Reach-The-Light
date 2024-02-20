@@ -414,11 +414,9 @@ struct gui_button
     engine::texturebox Texturebox;
     engine::textbox Textbox;
 
-    uint16 Width;
-    uint16 Height;
     double size;
 
-    gui_button(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, double Layer, const char* Literal);
+    gui_button(engine* Engine, game* Game, double X, double Y, double Layer, const char* Literal);
     ~gui_button();
     bool Update();
 };

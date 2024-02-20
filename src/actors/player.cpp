@@ -120,7 +120,7 @@ uint8 act_player::Update()
 
     if (this->Health != 0)
     {
-        if (this->Engine->Keys[KEY_L] && this->Engine->Keys[KEY_I] && this->Engine->Keys[KEY_F] && this->Engine->Keys[KEY_E])
+        if (this->Engine->Keys[KEY_H] && this->Engine->Keys[KEY_E] && this->Engine->Keys[KEY_A] && this->Engine->Keys[KEY_L])
         {
             this->Health = 10;
         }

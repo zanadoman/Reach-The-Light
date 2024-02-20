@@ -1,16 +1,12 @@
 #include "../RTL.hpp"
 
-gui_button::gui_button(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, double Layer, const char* Literal) : Engine(Engine), Game(Game)
+gui_button::gui_button(engine* Engine, game* Game, double X, double Y, double Layer, const char* Literal) : Engine(Engine), Game(Game)
 {
-    this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, Width, Height, 0);
+    this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 200, 75, Layer);
     this->Overlapbox = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Texturebox = this->Actor->Textureboxes.New(this->Game->Assets->ButtonTexture);
     this->Textbox = this->Actor->Textboxes.New(Literal, this->Game->Assets->HackBoldFont);
-    this->Height = Height;
-    this->Width = Width;
     this->size = 1;
-
-    this->Actor->SetLayer(Layer);
 
     this->Texturebox->ColorR = 224;
     this->Texturebox->ColorG = 224;
@@ -20,7 +16,7 @@ gui_button::gui_button(engine* Engine, game* Game, double X, double Y, uint16 Wi
     this->Textbox->ColorG = 0;
     this->Textbox->ColorB = 0;
     this->Textbox->Priority = this->Textbox->Priority + 1;
-    this->Textbox->SetHeight(Height * 0.5);
+    this->Textbox->SetHeight(this->Actor->GetHeight() * 0.5);
 }
 
 gui_button::~gui_button()
@@ -48,9 +44,9 @@ bool gui_button::Update()
 
         if (this->Overlapbox->GetButtonState() & BTN_RELEASED_LMB)
         {
-            this->Texturebox->Width = this->Width * size;
-            this->Texturebox->Height = this->Height * size;
-            this->Textbox->SetHeight(this->Height * size * 0.5);
+            this->Texturebox->Width = this->Actor->GetWidth() * size;
+            this->Texturebox->Height = this->Actor->GetHeight() * size;
+            this->Textbox->SetHeight(this->Actor->GetHeight() * size * 0.5);
             this->Engine->Audio.Play(this->Game->Assets->ButtonAudio, CH_BUTTON, 1, 0);
 
             return true;
@@ -73,9 +69,9 @@ bool gui_button::Update()
         }
     }
 
-    this->Texturebox->Width = this->Width * size;
-    this->Texturebox->Height = this->Height * size;
-    this->Textbox->SetHeight(this->Height * size * 0.5);
+    this->Texturebox->Width = this->Actor->GetWidth() * size;
+    this->Texturebox->Height = this->Actor->GetHeight() * size;
+    this->Textbox->SetHeight(this->Actor->GetHeight() * size * 0.5);
 
     return false;
 }

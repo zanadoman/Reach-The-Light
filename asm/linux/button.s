@@ -2,46 +2,28 @@
 	.text
 	.align 2
 	.p2align 4
-	.globl	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc
-	.type	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc, @function
-_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc:
+	.globl	_ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc
+	.type	_ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc, @function
+_ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
 .LFB8157:
 	.cfi_startproc
-	pushq	%r15
-	.cfi_def_cfa_offset 16
-	.cfi_offset 15, -16
-	movq	%xmm2, %r15
-	pxor	%xmm2, %xmm2
-	pushq	%r14
-	.cfi_def_cfa_offset 24
-	.cfi_offset 14, -24
-	movzwl	%r8w, %r14d
-	pushq	%r13
-	.cfi_def_cfa_offset 32
-	.cfi_offset 13, -32
-	movl	%r8d, %r13d
-	movl	%r14d, %r8d
-	pushq	%r12
-	.cfi_def_cfa_offset 40
-	.cfi_offset 12, -40
-	movl	%ecx, %r12d
-	movzwl	%cx, %ecx
 	pushq	%rbp
-	.cfi_def_cfa_offset 48
-	.cfi_offset 6, -48
-	movq	%r9, %rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movl	$75, %r8d
+	movq	%rcx, %rbp
+	movl	$200, %ecx
 	pushq	%rbx
-	.cfi_def_cfa_offset 56
-	.cfi_offset 3, -56
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
 	movq	%rdi, %rbx
-	movq	%rsi, %rdi
-	addq	$272, %rdi
 	subq	$8, %rsp
-	.cfi_def_cfa_offset 64
-	movq	%rsi, (%rbx)
-	xorl	%esi, %esi
-	movq	%rdx, 8(%rbx)
+	.cfi_def_cfa_offset 32
+	movq	%rsi, (%rdi)
+	movq	%rdx, 8(%rdi)
 	xorl	%edx, %edx
+	leaq	272(%rsi), %rdi
+	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	xorl	%esi, %esi
 	movq	%rax, 16(%rbx)
@@ -62,48 +44,39 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc:
 	movq	16(%rbx), %rax
 	leaq	104(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
-	movw	%r13w, 50(%rbx)
-	movq	16(%rbx), %rdi
-	movq	%r15, %xmm0
-	movq	%rax, 40(%rbx)
-	movq	.LC1(%rip), %rax
-	movw	%r12w, 48(%rbx)
-	movq	%rax, 56(%rbx)
-	call	_ZN3wze6engine6actors5actor8SetLayerEd@PLT
-	pxor	%xmm0, %xmm0
-	movq	40(%rbx), %rdi
-	xorl	%ecx, %ecx
-	cvtsi2sdl	%r14d, %xmm0
-	movq	32(%rbx), %rax
 	movl	$-7968, %edx
-	mulsd	.LC3(%rip), %xmm0
+	xorl	%ecx, %ecx
+	movq	16(%rbx), %rdi
+	movq	%rax, %rbp
+	movq	%rax, 40(%rbx)
+	movq	.LC0(%rip), %rax
+	movq	%rax, 48(%rbx)
+	movq	32(%rbx), %rax
 	movw	%dx, 20(%rax)
 	movb	$-32, 22(%rax)
-	addb	$1, 36(%rdi)
-	movw	%cx, 16(%rdi)
-	cvttsd2sil	%xmm0, %esi
-	movb	$0, 18(%rdi)
+	addb	$1, 36(%rbp)
+	movw	%cx, 16(%rbp)
+	movb	$0, 18(%rbp)
+	call	_ZN3wze6engine6actors5actor9GetHeightEv@PLT
+	pxor	%xmm0, %xmm0
+	movq	%rbp, %rdi
+	movzwl	%ax, %eax
+	cvtsi2sdl	%eax, %xmm0
+	mulsd	.LC2(%rip), %xmm0
 	addq	$8, %rsp
-	.cfi_def_cfa_offset 56
-	popq	%rbx
-	.cfi_def_cfa_offset 48
-	popq	%rbp
-	.cfi_def_cfa_offset 40
-	popq	%r12
-	.cfi_def_cfa_offset 32
-	popq	%r13
 	.cfi_def_cfa_offset 24
-	popq	%r14
+	popq	%rbx
 	.cfi_def_cfa_offset 16
-	popq	%r15
+	popq	%rbp
 	.cfi_def_cfa_offset 8
+	cvttsd2sil	%xmm0, %esi
 	movzwl	%si, %esi
 	jmp	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
 	.cfi_endproc
 .LFE8157:
-	.size	_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc, .-_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc
-	.globl	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc
-	.set	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc,_ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc
+	.size	_ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc, .-_ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc
+	.globl	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc
+	.set	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc,_ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc
 	.align 2
 	.p2align 4
 	.globl	_ZN10gui_buttonD2Ev
@@ -148,10 +121,15 @@ _ZN10gui_buttonD2Ev:
 _ZN10gui_button6UpdateEv:
 .LFB8162:
 	.cfi_startproc
-	pushq	%rbx
+	pushq	%rbp
 	.cfi_def_cfa_offset 16
-	.cfi_offset 3, -16
+	.cfi_offset 6, -16
+	pushq	%rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
 	movq	%rdi, %rbx
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 32
 	movq	24(%rdi), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
 	testb	$1, %al
@@ -159,38 +137,52 @@ _ZN10gui_button6UpdateEv:
 	je	.L7
 	movl	$-32640, %ecx
 	movb	$-128, 22(%rax)
-	movsd	.LC5(%rip), %xmm3
+	movsd	.LC4(%rip), %xmm3
 	movw	%cx, 20(%rax)
-	comisd	56(%rbx), %xmm3
-	ja	.L23
-.L9:
+	comisd	48(%rbx), %xmm3
+	ja	.L24
 	movq	24(%rbx), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
-	movsd	56(%rbx), %xmm1
 	testb	$4, %al
-	movq	32(%rbx), %rax
-	jne	.L14
+	jne	.L25
 .L15:
-	movzwl	48(%rbx), %edx
+	movq	16(%rbx), %rdi
+	call	_ZN3wze6engine6actors5actor8GetWidthEv@PLT
 	pxor	%xmm0, %xmm0
-	movq	40(%rbx), %rdi
-	cvtsi2sdl	%edx, %xmm0
-	mulsd	%xmm1, %xmm0
-	cvttsd2sil	%xmm0, %edx
+	movq	32(%rbx), %rdx
+	movq	16(%rbx), %rdi
+	movzwl	%ax, %eax
+	cvtsi2sdl	%eax, %xmm0
+	mulsd	48(%rbx), %xmm0
+	cvttsd2sil	%xmm0, %eax
+	movw	%ax, 16(%rdx)
+	call	_ZN3wze6engine6actors5actor9GetHeightEv@PLT
 	pxor	%xmm0, %xmm0
-	movw	%dx, 16(%rax)
-	movzwl	50(%rbx), %edx
-	cvtsi2sdl	%edx, %xmm0
-	mulsd	%xmm1, %xmm0
-	cvttsd2sil	%xmm0, %edx
-	mulsd	.LC3(%rip), %xmm0
-	movw	%dx, 18(%rax)
+	movq	32(%rbx), %rdx
+	movq	16(%rbx), %rdi
+	movzwl	%ax, %eax
+	movq	40(%rbx), %rbp
+	cvtsi2sdl	%eax, %xmm0
+	mulsd	48(%rbx), %xmm0
+	cvttsd2sil	%xmm0, %eax
+	movw	%ax, 18(%rdx)
+	call	_ZN3wze6engine6actors5actor9GetHeightEv@PLT
+	pxor	%xmm0, %xmm0
+	movq	%rbp, %rdi
+	movzwl	%ax, %eax
+	cvtsi2sdl	%eax, %xmm0
+	mulsd	48(%rbx), %xmm0
+	mulsd	.LC2(%rip), %xmm0
 	cvttsd2sil	%xmm0, %esi
 	movzwl	%si, %esi
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
 	xorl	%eax, %eax
 	popq	%rbx
-	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbp
 	.cfi_def_cfa_offset 8
 	ret
 	.p2align 4,,10
@@ -200,107 +192,114 @@ _ZN10gui_button6UpdateEv:
 	movl	$-7968, %edx
 	movb	$-32, 22(%rax)
 	movw	%dx, 20(%rax)
-	movsd	56(%rbx), %xmm1
-	comisd	.LC1(%rip), %xmm1
+	movsd	48(%rbx), %xmm0
+	comisd	.LC0(%rip), %xmm0
 	jbe	.L15
 	movq	(%rbx), %rax
 	leaq	416(%rax), %rdi
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	pxor	%xmm0, %xmm0
-	movsd	56(%rbx), %xmm1
-	movsd	.LC1(%rip), %xmm4
+	movsd	48(%rbx), %xmm1
 	movl	%eax, %eax
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC6(%rip), %xmm0
+	mulsd	.LC5(%rip), %xmm0
 	subsd	%xmm0, %xmm1
-	comisd	%xmm1, %xmm4
-	movsd	%xmm1, 56(%rbx)
-	ja	.L20
-	movq	32(%rbx), %rax
+	movsd	.LC0(%rip), %xmm0
+	maxsd	%xmm1, %xmm0
+	movsd	%xmm0, 48(%rbx)
 	jmp	.L15
 	.p2align 4,,10
 	.p2align 3
-.L23:
+.L24:
 	movq	(%rbx), %rax
 	leaq	416(%rax), %rdi
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
 	pxor	%xmm2, %xmm2
-	movsd	.LC7(%rip), %xmm1
-	movsd	.LC5(%rip), %xmm0
+	movq	24(%rbx), %rdi
+	movsd	.LC6(%rip), %xmm1
 	movl	%eax, %eax
+	movsd	.LC4(%rip), %xmm0
 	cvtsi2sdq	%rax, %xmm2
-	mulsd	.LC6(%rip), %xmm2
-	addsd	56(%rbx), %xmm2
+	mulsd	.LC5(%rip), %xmm2
+	addsd	48(%rbx), %xmm2
 	cmpltsd	%xmm2, %xmm1
 	andpd	%xmm1, %xmm0
 	andnpd	%xmm2, %xmm1
 	orpd	%xmm0, %xmm1
-	movsd	%xmm1, 56(%rbx)
-	jmp	.L9
-	.p2align 4,,10
-	.p2align 3
-.L14:
-	movzwl	48(%rbx), %edx
+	movsd	%xmm1, 48(%rbx)
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
+	testb	$4, %al
+	je	.L15
+.L25:
+	movq	16(%rbx), %rdi
+	call	_ZN3wze6engine6actors5actor8GetWidthEv@PLT
 	pxor	%xmm0, %xmm0
-	movq	40(%rbx), %rdi
-	cvtsi2sdl	%edx, %xmm0
-	mulsd	%xmm1, %xmm0
-	cvttsd2sil	%xmm0, %edx
+	movq	32(%rbx), %rdx
+	movq	16(%rbx), %rdi
+	movzwl	%ax, %eax
+	cvtsi2sdl	%eax, %xmm0
+	mulsd	48(%rbx), %xmm0
+	cvttsd2sil	%xmm0, %eax
+	movw	%ax, 16(%rdx)
+	call	_ZN3wze6engine6actors5actor9GetHeightEv@PLT
 	pxor	%xmm0, %xmm0
-	movw	%dx, 16(%rax)
-	movzwl	50(%rbx), %edx
-	cvtsi2sdl	%edx, %xmm0
-	mulsd	%xmm1, %xmm0
-	cvttsd2sil	%xmm0, %edx
-	mulsd	.LC3(%rip), %xmm0
-	movw	%dx, 18(%rax)
+	movq	32(%rbx), %rdx
+	movq	16(%rbx), %rdi
+	movzwl	%ax, %eax
+	movq	40(%rbx), %rbp
+	cvtsi2sdl	%eax, %xmm0
+	mulsd	48(%rbx), %xmm0
+	cvttsd2sil	%xmm0, %eax
+	movw	%ax, 18(%rdx)
+	call	_ZN3wze6engine6actors5actor9GetHeightEv@PLT
+	pxor	%xmm0, %xmm0
+	movq	%rbp, %rdi
+	movzwl	%ax, %eax
+	cvtsi2sdl	%eax, %xmm0
+	mulsd	48(%rbx), %xmm0
+	mulsd	.LC2(%rip), %xmm0
 	cvttsd2sil	%xmm0, %esi
 	movzwl	%si, %esi
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
 	movq	8(%rbx), %rax
 	movq	(%rbx), %rdi
 	xorl	%ecx, %ecx
-	movsd	.LC1(%rip), %xmm0
+	movsd	.LC0(%rip), %xmm0
 	movl	$1, %edx
 	movq	8(%rax), %rax
 	addq	$160, %rdi
 	movq	408(%rax), %rsi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 24
 	movl	$1, %eax
 	popq	%rbx
-	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbp
 	.cfi_def_cfa_offset 8
 	ret
-	.p2align 4,,10
-	.p2align 3
-.L20:
-	.cfi_restore_state
-	movq	32(%rbx), %rax
-	movsd	%xmm4, 56(%rbx)
-	movapd	%xmm4, %xmm1
-	jmp	.L15
 	.cfi_endproc
 .LFE8162:
 	.size	_ZN10gui_button6UpdateEv, .-_ZN10gui_button6UpdateEv
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
-.LC1:
+.LC0:
 	.long	0
 	.long	1072693248
 	.align 8
-.LC3:
+.LC2:
 	.long	0
 	.long	1071644672
 	.align 8
-.LC5:
+.LC4:
 	.long	-1717986918
 	.long	1072798105
 	.align 8
-.LC6:
+.LC5:
 	.long	-755914244
 	.long	1062232653
 	.align 8
-.LC7:
+.LC6:
 	.long	0
 	.long	1072955392
 	.hidden	DW.ref.__gxx_personality_v0

@@ -51,7 +51,7 @@ _ZN10scene_helpC2EPN3wze6engineEP4game:
 	xorl	%esi, %esi
 	cvtsi2sdl	%eax, %xmm0
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$64, %edi
+	movl	$56, %edi
 	movq	%rax, 16(%rbx)
 	call	_Znwm@PLT
 .LEHE0:
@@ -66,12 +66,10 @@ _ZN10scene_helpC2EPN3wze6engineEP4game:
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
 	pxor	%xmm2, %xmm2
-	movl	$200, %ecx
-	movsd	8(%rsp), %xmm1
-	leaq	.LC2(%rip), %r9
-	movl	$75, %r8d
 	movq	%rbp, %rdi
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc@PLT
+	movsd	8(%rsp), %xmm1
+	leaq	.LC2(%rip), %rcx
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc@PLT
 .LEHE1:
 	movq	%rbp, 24(%rbx)
 	addq	$24, %rsp
@@ -117,7 +115,7 @@ _ZN10scene_helpC2EPN3wze6engineEP4game.cold:
 	.cfi_offset 3, -24
 	.cfi_offset 6, -16
 	movq	%rbp, %rdi
-	movl	$64, %esi
+	movl	$56, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 .LEHB2:
@@ -163,7 +161,7 @@ _ZN10scene_helpD2Ev:
 	movq	%rbx, %rdi
 	call	_ZN10gui_buttonD1Ev@PLT
 	movq	%rbx, %rdi
-	movl	$64, %esi
+	movl	$56, %esi
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_def_cfa_offset 8

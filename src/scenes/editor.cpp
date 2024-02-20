@@ -15,10 +15,10 @@ scene_editor::scene_editor(engine* Engine, game* Game) : Engine(Engine), Game(Ga
     this->SpawnChangeHint1 = this->Actor->Textboxes.New("Kezdőpont módosítása: görgő klikk", this->Game->Assets->HackBoldFont);
     this->SpawnChangeHint2 = this->Actor->Textboxes.New("(kezdőpont csak a legalsó sorban lehet)", this->Game->Assets->HackBoldFont);
     this->SaveHint = this->Actor->Textboxes.New("A pálya kilépéskor automatikusan mentésre kerül", this->Game->Assets->HackBoldFont);
-    this->Map1 = new gui_button(this->Engine, this->Game, -225, 875, 200, 75, 1, "Pálya 1");
-    this->Map2 = new gui_button(this->Engine, this->Game, 0, 875, 200, 75,1, "Pálya 2");
-    this->Map3 = new gui_button(this->Engine, this->Game, 225, 875, 200, 75,1, "Pálya 3");
-    this->Exit = new gui_button(this->Engine, this->Game, 0, -875, 200, 75, 1, "Vissza");
+    this->Map1 = new gui_button(this->Engine, this->Game, -225, 875, 1, "Pálya 1");
+    this->Map2 = new gui_button(this->Engine, this->Game, 0, 875, 1, "Pálya 2");
+    this->Map3 = new gui_button(this->Engine, this->Game, 225, 875, 1, "Pálya 3");
+    this->Exit = new gui_button(this->Engine, this->Game, 0, -875, 1, "Vissza");
 
     this->HintBubble1->SetX(-840);
     this->HintBubble1->SetY(390);

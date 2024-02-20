@@ -350,7 +350,7 @@ _ZN10act_player6UpdateEv:
 	movq	$0, 24(%rsp)
 	je	.L7
 	movq	(%rdi), %rax
-	movl	$15, %esi
+	movl	$11, %esi
 	leaq	192(%rax), %rdi
 .LEHB0:
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
@@ -1207,19 +1207,19 @@ _ZN10act_player6UpdateEv:
 	.p2align 3
 .L225:
 	movq	(%rbx), %rax
-	movl	$12, %esi
-	leaq	192(%rax), %rdi
-	call	_ZN3wze6engine4keysixENS_3keyE@PLT
-	testb	%al, %al
-	je	.L9
-	movq	(%rbx), %rax
-	movl	$9, %esi
-	leaq	192(%rax), %rdi
-	call	_ZN3wze6engine4keysixENS_3keyE@PLT
-	testb	%al, %al
-	je	.L9
-	movq	(%rbx), %rax
 	movl	$8, %esi
+	leaq	192(%rax), %rdi
+	call	_ZN3wze6engine4keysixENS_3keyE@PLT
+	testb	%al, %al
+	je	.L9
+	movq	(%rbx), %rax
+	movl	$4, %esi
+	leaq	192(%rax), %rdi
+	call	_ZN3wze6engine4keysixENS_3keyE@PLT
+	testb	%al, %al
+	je	.L9
+	movq	(%rbx), %rax
+	movl	$15, %esi
 	leaq	192(%rax), %rdi
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
 	testb	%al, %al

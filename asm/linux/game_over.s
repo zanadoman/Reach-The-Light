@@ -62,7 +62,7 @@ _ZN15scene_game_overC2EPN3wze6engineEP4game:
 	movq	8(%rdx), %rdx
 	movq	8(%rdx), %rdx
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
-	movl	$64, %edi
+	movl	$56, %edi
 	movq	%rax, 24(%rbx)
 	call	_Znwm@PLT
 .LEHE0:
@@ -77,15 +77,13 @@ _ZN15scene_game_overC2EPN3wze6engineEP4game:
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
 	pxor	%xmm2, %xmm2
-	movl	$300, %ecx
-	movsd	8(%rsp), %xmm1
-	leaq	.LC3(%rip), %r9
-	movl	$100, %r8d
 	movq	%rbp, %rdi
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc@PLT
+	movsd	8(%rsp), %xmm1
+	leaq	.LC3(%rip), %rcx
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc@PLT
 .LEHE1:
 	movq	%rbp, 32(%rbx)
-	movl	$64, %edi
+	movl	$56, %edi
 .LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
@@ -100,12 +98,10 @@ _ZN15scene_game_overC2EPN3wze6engineEP4game:
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
 	pxor	%xmm2, %xmm2
-	movl	$300, %ecx
-	movsd	8(%rsp), %xmm1
-	leaq	.LC4(%rip), %r9
-	movl	$100, %r8d
 	movq	%rbp, %rdi
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc@PLT
+	movsd	8(%rsp), %xmm1
+	leaq	.LC4(%rip), %rcx
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc@PLT
 .LEHE3:
 	movq	%rbp, 40(%rbx)
 	movq	16(%rbx), %rdi
@@ -176,14 +172,14 @@ _ZN15scene_game_overC2EPN3wze6engineEP4game.cold:
 	.cfi_offset 3, -24
 	.cfi_offset 6, -16
 	movq	%rbp, %rdi
-	movl	$64, %esi
+	movl	$56, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 .LEHB5:
 	call	_Unwind_Resume@PLT
 .L3:
 	movq	%rbp, %rdi
-	movl	$64, %esi
+	movl	$56, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT
@@ -242,7 +238,7 @@ _ZN15scene_game_overD2Ev:
 	je	.L9
 	movq	%rbp, %rdi
 	call	_ZN10gui_buttonD1Ev@PLT
-	movl	$64, %esi
+	movl	$56, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 .L9:
@@ -255,7 +251,7 @@ _ZN15scene_game_overD2Ev:
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
 	movq	%rbx, %rdi
-	movl	$64, %esi
+	movl	$56, %esi
 	popq	%rbx
 	.cfi_def_cfa_offset 16
 	popq	%rbp

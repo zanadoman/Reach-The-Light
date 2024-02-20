@@ -51,8 +51,8 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	.cfi_def_cfa_offset 16
 	.cfi_offset 15, -16
 	pxor	%xmm1, %xmm1
-	xorl	%r8d, %r8d
 	xorl	%ecx, %ecx
+	xorl	%r8d, %r8d
 	pushq	%r14
 	.cfi_def_cfa_offset 24
 	.cfi_offset 14, -24
@@ -174,16 +174,14 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	16(%r13), %rax
 	leaq	104(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
-	movl	$64, %edi
+	movl	$56, %edi
 	movq	%rax, 112(%r13)
 	call	_Znwm@PLT
 .LEHE0:
 	movq	8(%r13), %rdx
 	movq	0(%r13), %rsi
-	leaq	.LC10(%rip), %r9
+	leaq	.LC10(%rip), %rcx
 	movq	%rax, %rbx
-	movl	$75, %r8d
-	movl	$200, %ecx
 	movq	.LC0(%rip), %rax
 	movsd	.LC12(%rip), %xmm0
 	movq	%rbx, %rdi
@@ -191,39 +189,35 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	.LC11(%rip), %rax
 	movq	%rax, %xmm1
 .LEHB1:
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc@PLT
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc@PLT
 .LEHE1:
 	movq	%rbx, 120(%r13)
-	movl	$64, %edi
+	movl	$56, %edi
 .LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
 	movq	8(%r13), %rdx
 	movq	0(%r13), %rsi
-	leaq	.LC13(%rip), %r9
+	leaq	.LC13(%rip), %rcx
 	movq	%rax, %rbx
 	movq	.LC0(%rip), %rax
-	movl	$75, %r8d
 	pxor	%xmm0, %xmm0
-	movl	$200, %ecx
 	movq	%rbx, %rdi
 	movq	%rax, %xmm2
 	movq	.LC11(%rip), %rax
 	movq	%rax, %xmm1
 .LEHB3:
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc@PLT
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc@PLT
 .LEHE3:
 	movq	%rbx, 128(%r13)
-	movl	$64, %edi
+	movl	$56, %edi
 .LEHB4:
 	call	_Znwm@PLT
 .LEHE4:
 	movq	8(%r13), %rdx
 	movq	0(%r13), %rsi
-	leaq	.LC14(%rip), %r9
+	leaq	.LC14(%rip), %rcx
 	movq	%rax, %rbx
-	movl	$75, %r8d
-	movl	$200, %ecx
 	movq	.LC0(%rip), %rax
 	movsd	.LC15(%rip), %xmm0
 	movq	%rbx, %rdi
@@ -231,26 +225,24 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	.LC11(%rip), %rax
 	movq	%rax, %xmm1
 .LEHB5:
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc@PLT
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc@PLT
 .LEHE5:
 	movq	%rbx, 136(%r13)
-	movl	$64, %edi
+	movl	$56, %edi
 .LEHB6:
 	call	_Znwm@PLT
 .LEHE6:
 	movq	8(%r13), %rdx
 	movq	0(%r13), %rsi
-	leaq	.LC16(%rip), %r9
+	leaq	.LC16(%rip), %rcx
 	movq	%rax, %rbx
 	movq	.LC0(%rip), %rax
-	movl	$75, %r8d
 	movsd	.LC17(%rip), %xmm1
-	movl	$200, %ecx
 	pxor	%xmm0, %xmm0
 	movq	%rbx, %rdi
 	movq	%rax, %xmm2
 .LEHB7:
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc@PLT
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc@PLT
 .LEHE7:
 	movq	.LC18(%rip), %rax
 	movq	%rbx, 144(%r13)
@@ -524,7 +516,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 	.cfi_offset 14, -24
 	.cfi_offset 15, -16
 	movq	%rbx, %rdi
-	movl	$64, %esi
+	movl	$56, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbp, %rdi
 .LEHB11:
@@ -537,19 +529,19 @@ _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 	call	_Unwind_Resume@PLT
 .L8:
 	movq	%rbx, %rdi
-	movl	$64, %esi
+	movl	$56, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbp, %rdi
 	call	_Unwind_Resume@PLT
 .L7:
 	movq	%rbx, %rdi
-	movl	$64, %esi
+	movl	$56, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbp, %rdi
 	call	_Unwind_Resume@PLT
 .L6:
 	movq	%rbx, %rdi
-	movl	$64, %esi
+	movl	$56, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbp, %rdi
 	call	_Unwind_Resume@PLT
@@ -614,7 +606,7 @@ _ZN12scene_editorD2Ev:
 	je	.L19
 	movq	%rbx, %rdi
 	call	_ZN10gui_buttonD1Ev@PLT
-	movl	$64, %esi
+	movl	$56, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
 .L19:
@@ -623,7 +615,7 @@ _ZN12scene_editorD2Ev:
 	je	.L20
 	movq	%rbx, %rdi
 	call	_ZN10gui_buttonD1Ev@PLT
-	movl	$64, %esi
+	movl	$56, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
 .L20:
@@ -632,7 +624,7 @@ _ZN12scene_editorD2Ev:
 	je	.L21
 	movq	%rbx, %rdi
 	call	_ZN10gui_buttonD1Ev@PLT
-	movl	$64, %esi
+	movl	$56, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
 .L21:
@@ -641,7 +633,7 @@ _ZN12scene_editorD2Ev:
 	je	.L22
 	movq	%rbx, %rdi
 	call	_ZN10gui_buttonD1Ev@PLT
-	movl	$64, %esi
+	movl	$56, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
 .L22:
