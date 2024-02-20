@@ -109,19 +109,19 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	movq	%rax, 24(%rbx)
 	leaq	40(%rax), %rcx
 	movq	8(%rdx), %rdx
-	movq	384(%rdx), %rdx
+	movq	376(%rdx), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	376(%rax), %rdx
+	movq	384(%rax), %rdx
 	movq	24(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 40(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	376(%rax), %rdx
+	movq	384(%rax), %rdx
 	movq	24(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy

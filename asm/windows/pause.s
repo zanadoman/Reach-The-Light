@@ -9,34 +9,32 @@
 	.ascii "Eg\303\251r \303\251rz\303\251kenys\303\251g\0"
 .LC10:
 	.ascii "Hanger\305\221\0"
-.LC13:
+.LC14:
 	.ascii "FPS\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB14:
+.LCOLDB15:
 	.text
-.LHOTB14:
+.LHOTB15:
 	.align 2
 	.p2align 4
-	.globl	_ZN9act_pauseC2EPN3wze6engineEP4game
-	.def	_ZN9act_pauseC2EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN9act_pauseC2EPN3wze6engineEP4game
-_ZN9act_pauseC2EPN3wze6engineEP4game:
+	.globl	_ZN9gui_pauseC2EPN3wze6engineEP4game
+	.def	_ZN9gui_pauseC2EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN9gui_pauseC2EPN3wze6engineEP4game
+_ZN9gui_pauseC2EPN3wze6engineEP4game:
 .LFB8432:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$168, %rsp
-	.seh_stackalloc	168
+	subq	$152, %rsp
+	.seh_stackalloc	152
 	movaps	%xmm6, 96(%rsp)
 	.seh_savexmm	%xmm6, 96
 	movaps	%xmm7, 112(%rsp)
 	.seh_savexmm	%xmm7, 112
 	movaps	%xmm8, 128(%rsp)
 	.seh_savexmm	%xmm8, 128
-	movaps	%xmm9, 144(%rsp)
-	.seh_savexmm	%xmm9, 144
 	.seh_endprologue
 	pxor	%xmm6, %xmm6
 	movq	%rdx, (%rcx)
@@ -67,7 +65,7 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	movq	%rax, 16(%rbx)
 	leaq	40(%rax), %rcx
 	movq	8(%rdx), %rdx
-	movq	56(%rdx), %rdx
+	movq	64(%rdx), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movl	$64, %ecx
 	movq	%rax, 24(%rbx)
@@ -77,10 +75,9 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	movq	%rax, %rsi
 .LEHB1:
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	.LC1(%rip), %xmm7
+	movsd	.LC1(%rip), %xmm6
 	movq	16(%rbx), %rcx
-	movapd	%xmm0, %xmm6
-	addsd	%xmm7, %xmm6
+	addsd	%xmm0, %xmm6
 	call	_ZN3wze6engine6actors5actor4GetXEv
 	leaq	.LC2(%rip), %rax
 	movq	(%rbx), %rdx
@@ -103,10 +100,10 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	movq	%rax, %rsi
 .LEHB3:
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	.LC3(%rip), %xmm9
+	movsd	.LC3(%rip), %xmm8
 	movq	16(%rbx), %rcx
 	movapd	%xmm0, %xmm6
-	addsd	%xmm9, %xmm6
+	addsd	%xmm8, %xmm6
 	call	_ZN3wze6engine6actors5actor4GetXEv
 	leaq	.LC4(%rip), %rax
 	movq	(%rbx), %rdx
@@ -129,7 +126,7 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	movq	%rax, %rsi
 	movq	8(%rbx), %rax
 	movq	16(%rax), %rax
-	movsd	(%rax), %xmm8
+	movsd	(%rax), %xmm7
 .LEHB5:
 	call	_ZN3wze6engine6actors5actor4GetYEv
 	movq	16(%rbx), %rcx
@@ -138,10 +135,10 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors5actor4GetXEv
 	movq	.LC6(%rip), %rax
 	movq	(%rbx), %rdx
-	movsd	%xmm8, 80(%rsp)
-	movq	%rsi, %rcx
-	movl	$15, 48(%rsp)
+	movsd	%xmm7, 80(%rsp)
 	movapd	%xmm0, %xmm3
+	movl	$15, 48(%rsp)
+	movq	%rsi, %rcx
 	movq	%rax, 72(%rsp)
 	movq	.LC7(%rip), %rax
 	movl	$400, 40(%rsp)
@@ -161,7 +158,7 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	movq	%rax, %rsi
 	movq	8(%rbx), %rax
 	movq	16(%rax), %rax
-	movsd	8(%rax), %xmm8
+	movsd	8(%rax), %xmm7
 .LEHB7:
 	call	_ZN3wze6engine6actors5actor4GetYEv
 	movq	16(%rbx), %rcx
@@ -170,14 +167,14 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors5actor4GetXEv
 	leaq	.LC10(%rip), %rax
 	movq	(%rbx), %rdx
-	movsd	%xmm8, 80(%rsp)
-	movq	%rsi, %rcx
-	movq	$0x000000000, 64(%rsp)
+	movsd	%xmm7, 80(%rsp)
 	movapd	%xmm0, %xmm3
+	movq	$0x000000000, 64(%rsp)
+	movq	%rsi, %rcx
 	movq	%rax, 56(%rsp)
 	movl	$15, 48(%rsp)
 	movl	$400, 40(%rsp)
-	movsd	%xmm9, 72(%rsp)
+	movsd	%xmm8, 72(%rsp)
 	movsd	%xmm6, 32(%rsp)
 	movq	8(%rbx), %r8
 	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd
@@ -191,24 +188,24 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	movq	%rax, %rsi
 	movq	8(%rbx), %rax
 	movq	16(%rax), %rax
-	movsd	16(%rax), %xmm8
+	movsd	16(%rax), %xmm7
 .LEHB9:
 	call	_ZN3wze6engine6actors5actor4GetYEv
 	movq	16(%rbx), %rcx
 	movapd	%xmm0, %xmm6
-	subsd	%xmm7, %xmm6
+	subsd	.LC11(%rip), %xmm6
 	call	_ZN3wze6engine6actors5actor4GetXEv
-	movq	.LC11(%rip), %rax
-	movq	(%rbx), %rdx
-	movsd	%xmm8, 80(%rsp)
-	movq	%rsi, %rcx
-	movl	$15, 48(%rsp)
-	movapd	%xmm0, %xmm3
-	movq	%rax, 72(%rsp)
 	movq	.LC12(%rip), %rax
+	movq	(%rbx), %rdx
+	movsd	%xmm7, 80(%rsp)
+	movapd	%xmm0, %xmm3
+	movl	$15, 48(%rsp)
+	movq	%rsi, %rcx
+	movq	%rax, 72(%rsp)
+	movq	.LC13(%rip), %rax
 	movl	$400, 40(%rsp)
 	movq	%rax, 64(%rsp)
-	leaq	.LC13(%rip), %rax
+	leaq	.LC14(%rip), %rax
 	movq	%rax, 56(%rsp)
 	movsd	%xmm6, 32(%rsp)
 	movq	8(%rbx), %r8
@@ -239,8 +236,7 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	movaps	96(%rsp), %xmm6
 	movaps	128(%rsp), %xmm8
 	movaps	112(%rsp), %xmm7
-	movaps	144(%rsp), %xmm9
-	addq	$168, %rsp
+	addq	$152, %rsp
 	popq	%rbx
 	popq	%rsi
 	ret
@@ -312,17 +308,16 @@ _ZN9act_pauseC2EPN3wze6engineEP4game:
 	.text
 	.seh_endproc
 	.section	.text.unlikely,"x"
-	.def	_ZN9act_pauseC2EPN3wze6engineEP4game.cold;	.scl	3;	.type	32;	.endef
-	.seh_proc	_ZN9act_pauseC2EPN3wze6engineEP4game.cold
-	.seh_stackalloc	184
-	.seh_savereg	%rbx, 168
-	.seh_savereg	%rsi, 176
+	.def	_ZN9gui_pauseC2EPN3wze6engineEP4game.cold;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN9gui_pauseC2EPN3wze6engineEP4game.cold
+	.seh_stackalloc	168
+	.seh_savereg	%rbx, 152
+	.seh_savereg	%rsi, 160
 	.seh_savexmm	%xmm6, 96
 	.seh_savexmm	%xmm7, 112
 	.seh_savexmm	%xmm8, 128
-	.seh_savexmm	%xmm9, 144
 	.seh_endprologue
-_ZN9act_pauseC2EPN3wze6engineEP4game.cold:
+_ZN9gui_pauseC2EPN3wze6engineEP4game.cold:
 .L2:
 	movq	%rsi, %rcx
 	movl	$64, %edx
@@ -364,7 +359,7 @@ _ZN9act_pauseC2EPN3wze6engineEP4game.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB10-.LCOLDB14
+	.uleb128 .LEHB10-.LCOLDB15
 	.uleb128 .LEHE10-.LEHB10
 	.uleb128 0
 	.uleb128 0
@@ -373,18 +368,18 @@ _ZN9act_pauseC2EPN3wze6engineEP4game.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE14:
+.LCOLDE15:
 	.text
-.LHOTE14:
-	.globl	_ZN9act_pauseC1EPN3wze6engineEP4game
-	.def	_ZN9act_pauseC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
-	.set	_ZN9act_pauseC1EPN3wze6engineEP4game,_ZN9act_pauseC2EPN3wze6engineEP4game
+.LHOTE15:
+	.globl	_ZN9gui_pauseC1EPN3wze6engineEP4game
+	.def	_ZN9gui_pauseC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
+	.set	_ZN9gui_pauseC1EPN3wze6engineEP4game,_ZN9gui_pauseC2EPN3wze6engineEP4game
 	.align 2
 	.p2align 4
-	.globl	_ZN9act_pauseD2Ev
-	.def	_ZN9act_pauseD2Ev;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN9act_pauseD2Ev
-_ZN9act_pauseD2Ev:
+	.globl	_ZN9gui_pauseD2Ev
+	.def	_ZN9gui_pauseD2Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN9gui_pauseD2Ev
+_ZN9gui_pauseD2Ev:
 .LFB8435:
 	pushq	%rsi
 	.seh_pushreg	%rsi
@@ -466,15 +461,15 @@ _ZN9act_pauseD2Ev:
 .LLSDACSE8435:
 	.text
 	.seh_endproc
-	.globl	_ZN9act_pauseD1Ev
-	.def	_ZN9act_pauseD1Ev;	.scl	2;	.type	32;	.endef
-	.set	_ZN9act_pauseD1Ev,_ZN9act_pauseD2Ev
+	.globl	_ZN9gui_pauseD1Ev
+	.def	_ZN9gui_pauseD1Ev;	.scl	2;	.type	32;	.endef
+	.set	_ZN9gui_pauseD1Ev,_ZN9gui_pauseD2Ev
 	.align 2
 	.p2align 4
-	.globl	_ZN9act_pause6UpdateEv
-	.def	_ZN9act_pause6UpdateEv;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN9act_pause6UpdateEv
-_ZN9act_pause6UpdateEv:
+	.globl	_ZN9gui_pause6UpdateEv
+	.def	_ZN9gui_pause6UpdateEv;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN9gui_pause6UpdateEv
+_ZN9gui_pause6UpdateEv:
 .LFB8437:
 	pushq	%rdi
 	.seh_pushreg	%rdi
@@ -657,7 +652,7 @@ _ZN9act_pause6UpdateEv:
 	.align 8
 .LC5:
 	.long	0
-	.long	1078525952
+	.long	1079164928
 	.align 8
 .LC6:
 	.long	0
@@ -669,13 +664,17 @@ _ZN9act_pause6UpdateEv:
 	.align 8
 .LC9:
 	.long	0
-	.long	1079984128
+	.long	1080213504
 	.align 8
 .LC11:
 	.long	0
-	.long	1083129856
+	.long	1080827904
 	.align 8
 .LC12:
+	.long	0
+	.long	1083129856
+	.align 8
+.LC13:
 	.long	0
 	.long	1077805056
 	.ident	"GCC: (GNU) 13.1.0"

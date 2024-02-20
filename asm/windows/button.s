@@ -46,7 +46,7 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc:
 	movq	%rax, 24(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	40(%rax), %rdx
+	movq	56(%rax), %rdx
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy

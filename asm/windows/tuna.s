@@ -37,14 +37,12 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	leaq	72(%rdx), %rcx
 	movl	$75, %edx
 	movq	8(%rax), %rax
-	leaq	344(%rax), %r8
+	leaq	352(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
-	movq	.LC1(%rip), %rcx
-	movq	24(%rbx), %rdx
+	movq	.LC1(%rip), %rdx
 	movsd	%xmm6, 40(%rbx)
 	movq	%rax, 32(%rbx)
-	movb	$0, 18(%rdx)
-	movq	%rcx, 48(%rbx)
+	movq	%rdx, 48(%rbx)
 	movl	$1966110, 16(%rax)
 	movb	$-128, 36(%rax)
 	movaps	64(%rsp), %xmm6

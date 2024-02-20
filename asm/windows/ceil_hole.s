@@ -89,12 +89,12 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rdi
 	movq	(%rbx), %rax
-	movl	256(%rdi), %r8d
+	movl	264(%rdi), %r8d
 	leaq	336(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	264(%rdi), %rdx
+	movq	272(%rdi), %rdx
 	cltq
-	cmpq	256(%rdi), %rax
+	cmpq	264(%rdi), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rsi, %rcx
@@ -109,7 +109,7 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	304(%rax), %rdx
+	movq	312(%rax), %rdx
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -127,10 +127,8 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	32(%rbx), %rcx
 	movl	$5, %edx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt
-	movq	32(%rbx), %rax
 	movsd	72(%rsp), %xmm1
 	movq	40(%rbx), %rcx
-	movb	$0, 18(%rax)
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
 	movq	40(%rbx), %rax
 	movapd	%xmm6, %xmm3
@@ -161,12 +159,12 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	xorl	%edx, %edx
 	movq	8(%rax), %rbp
 	movq	(%rbx), %rax
-	movl	272(%rbp), %r8d
+	movl	280(%rbp), %r8d
 	leaq	336(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	280(%rbp), %rdx
+	movq	288(%rbp), %rdx
 	cltq
-	cmpq	272(%rbp), %rax
+	cmpq	280(%rbp), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rsi, %rcx
@@ -212,12 +210,12 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rsi
 	movq	(%rbx), %rax
-	movl	272(%rsi), %r8d
+	movl	280(%rsi), %r8d
 	leaq	336(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	280(%rsi), %rdx
+	movq	288(%rsi), %rdx
 	cltq
-	cmpq	272(%rsi), %rax
+	cmpq	280(%rsi), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
@@ -244,12 +242,12 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %rsi
 	movq	$100, 144(%rsi)
-	movl	272(%rdi), %r8d
+	movl	280(%rdi), %r8d
 	leaq	336(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	280(%rdi), %rdx
+	movq	288(%rdi), %rdx
 	cltq
-	cmpq	272(%rdi), %rax
+	cmpq	280(%rdi), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rsi, %rcx
@@ -275,12 +273,12 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rsi
 	movq	(%rbx), %rax
-	movl	272(%rsi), %r8d
+	movl	280(%rsi), %r8d
 	leaq	336(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	280(%rsi), %rdx
+	movq	288(%rsi), %rdx
 	cltq
-	cmpq	272(%rsi), %rax
+	cmpq	280(%rsi), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
@@ -307,11 +305,11 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	addq	$336, %rcx
 	movq	8(%rax), %rsi
-	movl	272(%rsi), %r8d
+	movl	280(%rsi), %r8d
 	call	_ZN3wze6engine4math6RandomEii
-	movq	280(%rsi), %rdx
+	movq	288(%rsi), %rdx
 	cltq
-	cmpq	272(%rsi), %rax
+	cmpq	280(%rsi), %rax
 	jnb	.L13
 	movq	(%rdx,%rax,8), %rdx
 	movaps	80(%rsp), %xmm6

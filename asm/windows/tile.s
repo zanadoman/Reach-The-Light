@@ -39,10 +39,10 @@ _Z6printfPKcz:
 	.text
 	.align 2
 	.p2align 4
-	.globl	_ZN8gui_tileC2EPN3wze6engineEP4gameddtthh
-	.def	_ZN8gui_tileC2EPN3wze6engineEP4gameddtthh;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN8gui_tileC2EPN3wze6engineEP4gameddtthh
-_ZN8gui_tileC2EPN3wze6engineEP4gameddtthh:
+	.globl	_ZN8gui_tileC2EPN3wze6engineEP4gameddhh
+	.def	_ZN8gui_tileC2EPN3wze6engineEP4gameddhh;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8gui_tileC2EPN3wze6engineEP4gameddhh
+_ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
 .LFB8432:
 	pushq	%r14
 	.seh_pushreg	%r14
@@ -64,8 +64,8 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddtthh:
 	.seh_savexmm	%xmm6, 64
 	.seh_endprologue
 	movq	.LC0(%rip), %rax
-	movl	200(%rsp), %r12d
-	movl	208(%rsp), %ebp
+	movl	184(%rsp), %r12d
+	movl	192(%rsp), %ebp
 	movsd	176(%rsp), %xmm0
 	movzbl	%r12b, %r13d
 	movzbl	%bpl, %r14d
@@ -78,11 +78,9 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddtthh:
 	xorl	%r8d, %r8d
 	xorl	%edx, %edx
 	movq	%rax, 56(%rsp)
-	movzwl	192(%rsp), %eax
+	movl	$100, 48(%rsp)
+	movl	$100, 40(%rsp)
 	movsd	%xmm0, 32(%rsp)
-	movl	%eax, 48(%rsp)
-	movzwl	184(%rsp), %eax
-	movl	%eax, 40(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	xorl	%edx, %edx
 	movq	%rax, 16(%rbx)
@@ -95,9 +93,9 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddtthh:
 	movq	8(%rdx), %rax
 	movq	24(%rdx), %rdx
 	movq	144(%rdx,%r13,8), %rdx
-	movq	248(%rax), %r8
+	movq	256(%rax), %r8
 	movzbl	(%rdx,%r14), %edx
-	cmpq	240(%rax), %rdx
+	cmpq	248(%rax), %rdx
 	jnb	.L47
 	movq	(%r8,%rdx,8), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -171,52 +169,52 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddtthh:
 	movzbl	(%rax,%r14), %eax
 	movb	%al, 74(%rbx)
 .L8:
-	movq	40(%rbx), %rsi
-	movl	.LC2(%rip), %edi
 	movq	16(%rbx), %rcx
-	movl	%edi, 16(%rsi)
+	movq	40(%rbx), %rsi
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	.LC3(%rip), %xmm6
+	movsd	.LC2(%rip), %xmm6
 	movq	%rsi, %rcx
 	movapd	%xmm0, %xmm1
 	addsd	%xmm6, %xmm1
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetYEd
 	movq	40(%rbx), %rax
-	movq	48(%rbx), %rsi
+	movl	.LC3(%rip), %esi
 	movl	$129, %edx
 	movq	16(%rbx), %rcx
+	movq	48(%rbx), %rdi
 	movw	%dx, 25(%rax)
-	movl	%edi, 16(%rsi)
+	movl	%esi, 16(%rax)
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movq	%rsi, %rcx
+	movq	%rdi, %rcx
 	movapd	%xmm0, %xmm1
 	subsd	%xmm6, %xmm1
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetYEd
 	movq	48(%rbx), %rax
-	movq	56(%rbx), %rsi
 	movl	$129, %ecx
-	movl	.LC4(%rip), %edi
+	movl	%esi, 16(%rax)
+	movq	56(%rbx), %rsi
 	movw	%cx, 25(%rax)
 	movq	16(%rbx), %rcx
-	movl	%edi, 16(%rsi)
 	call	_ZN3wze6engine6actors5actor4GetXEv
 	movq	%rsi, %rcx
 	movapd	%xmm0, %xmm1
 	subsd	%xmm6, %xmm1
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd
 	movq	56(%rbx), %rax
-	movq	64(%rbx), %rsi
+	movl	.LC4(%rip), %esi
 	movl	$129, %r8d
 	movq	16(%rbx), %rcx
+	movq	64(%rbx), %rdi
+	movl	%esi, 16(%rax)
 	movw	%r8w, 25(%rax)
-	movl	%edi, 16(%rsi)
 	call	_ZN3wze6engine6actors5actor4GetXEv
-	movq	%rsi, %rcx
+	movq	%rdi, %rcx
 	movapd	%xmm0, %xmm1
 	addsd	%xmm6, %xmm1
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd
 	movq	64(%rbx), %rax
 	movl	$129, %r9d
+	movl	%esi, 16(%rax)
 	movw	%r9w, 25(%rax)
 	movaps	64(%rsp), %xmm6
 	addq	$80, %rsp
@@ -315,9 +313,9 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddtthh:
 	call	exit
 	nop
 	.seh_endproc
-	.globl	_ZN8gui_tileC1EPN3wze6engineEP4gameddtthh
-	.def	_ZN8gui_tileC1EPN3wze6engineEP4gameddtthh;	.scl	2;	.type	32;	.endef
-	.set	_ZN8gui_tileC1EPN3wze6engineEP4gameddtthh,_ZN8gui_tileC2EPN3wze6engineEP4gameddtthh
+	.globl	_ZN8gui_tileC1EPN3wze6engineEP4gameddhh
+	.def	_ZN8gui_tileC1EPN3wze6engineEP4gameddhh;	.scl	2;	.type	32;	.endef
+	.set	_ZN8gui_tileC1EPN3wze6engineEP4gameddhh,_ZN8gui_tileC2EPN3wze6engineEP4gameddhh
 	.align 2
 	.p2align 4
 	.globl	_ZN8gui_tileD2Ev
@@ -403,8 +401,8 @@ _ZN8gui_tile6UpdateEv:
 	movq	8(%rcx), %rcx
 	movq	144(%r9,%rdx,8), %rdx
 	movzbl	(%rdx,%rax), %edx
-	movq	248(%rcx), %rax
-	cmpq	240(%rcx), %rdx
+	movq	256(%rcx), %rax
+	cmpq	248(%rcx), %rdx
 	jnb	.L112
 	movq	(%rax,%rdx,8), %rdx
 	movq	%r8, %rcx
@@ -726,14 +724,14 @@ _ZN8gui_tile6UpdateEv:
 .LC0:
 	.long	0
 	.long	1072693248
-	.align 4
-.LC2:
-	.word	104
-	.word	4
 	.align 8
-.LC3:
+.LC2:
 	.long	0
 	.long	1078525952
+	.align 4
+.LC3:
+	.word	104
+	.word	4
 	.align 4
 .LC4:
 	.word	4

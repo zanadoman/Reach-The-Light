@@ -119,70 +119,70 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	%rax, 24(%rdi)
 	movq	8(%rdi), %rax
 	movq	8(%rax), %rax
-	movq	64(%rax), %rdx
+	movq	80(%rax), %rdx
 	movq	16(%rdi), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 80(%rsp)
 	movq	8(%rdi), %rax
 	movq	8(%rax), %rax
-	movq	80(%rax), %rdx
+	movq	96(%rax), %rdx
 	movq	16(%rdi), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 88(%rsp)
 	movq	8(%rdi), %rax
 	movq	8(%rax), %rax
-	movq	64(%rax), %rdx
+	movq	80(%rax), %rdx
 	movq	16(%rdi), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 96(%rsp)
 	movq	8(%rdi), %rax
 	movq	8(%rax), %rax
-	movq	80(%rax), %rdx
+	movq	96(%rax), %rdx
 	movq	16(%rdi), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 104(%rsp)
 	movq	8(%rdi), %rax
 	movq	8(%rax), %rax
-	movq	64(%rax), %rdx
+	movq	80(%rax), %rdx
 	movq	16(%rdi), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 112(%rsp)
 	movq	8(%rdi), %rax
 	movq	8(%rax), %rax
-	movq	80(%rax), %rdx
+	movq	96(%rax), %rdx
 	movq	16(%rdi), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 120(%rsp)
 	movq	8(%rdi), %rax
 	movq	8(%rax), %rax
-	movq	64(%rax), %rdx
+	movq	80(%rax), %rdx
 	movq	16(%rdi), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 128(%rsp)
 	movq	8(%rdi), %rax
 	movq	8(%rax), %rax
-	movq	80(%rax), %rdx
+	movq	96(%rax), %rdx
 	movq	16(%rdi), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 136(%rsp)
 	movq	8(%rdi), %rax
 	movq	8(%rax), %rax
-	movq	64(%rax), %rdx
+	movq	80(%rax), %rdx
 	movq	16(%rdi), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 144(%rsp)
 	movq	8(%rdi), %rax
 	movq	8(%rax), %rax
-	movq	80(%rax), %rdx
+	movq	96(%rax), %rdx
 	movq	16(%rdi), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -208,7 +208,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	16(%rdi), %rsi
 	movq	8(%rax), %rax
 	leaq	72(%rsi), %rcx
-	leaq	344(%rax), %r8
+	leaq	352(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	%rax, 56(%rdi)
 	movl	$80, %ecx
@@ -219,7 +219,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	%rax, %rcx
 	movq	%rax, %rbx
 .LEHB1:
-	call	_ZN9act_pauseC1EPN3wze6engineEP4game
+	call	_ZN9gui_pauseC1EPN3wze6engineEP4game
 .LEHE1:
 	movq	8(%rdi), %rax
 	movq	%rbx, 64(%rdi)
@@ -706,7 +706,7 @@ _ZN10scene_playD2Ev:
 	testq	%rbx, %rbx
 	je	.L42
 	movq	%rbx, %rcx
-	call	_ZN9act_pauseD1Ev
+	call	_ZN9gui_pauseD1Ev
 	movl	$80, %edx
 	movq	%rbx, %rcx
 	call	_ZdlPvy
@@ -904,7 +904,7 @@ _ZN10scene_play6UpdateEv:
 	cvtsi2sdl	%eax, %xmm1
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
 	movq	64(%rsi), %rcx
-	call	_ZN9act_pause6UpdateEv
+	call	_ZN9gui_pause6UpdateEv
 	movq	(%rsi), %rcx
 	movl	%eax, %ebx
 	call	_ZN3wze6engine6window8HasFocusEv
@@ -934,7 +934,7 @@ _ZN10scene_play6UpdateEv:
 .L111:
 	testb	%r8b, %r8b
 	je	.L78
-	movq	80(%rax), %rdx
+	movq	96(%rax), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
 .L79:
 	addl	$1, %ebx
@@ -953,7 +953,7 @@ _ZN10scene_play6UpdateEv:
 	jb	.L111
 	testb	%r8b, %r8b
 	je	.L80
-	movq	88(%rax), %rdx
+	movq	104(%rax), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
 	addl	$1, %ebx
 	movq	72(%rsi), %rdx
@@ -1125,13 +1125,13 @@ _ZN10scene_play6UpdateEv:
 	.p2align 4,,10
 	.p2align 3
 .L78:
-	movq	64(%rax), %rdx
+	movq	80(%rax), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
 	jmp	.L79
 	.p2align 4,,10
 	.p2align 3
 .L80:
-	movq	72(%rax), %rdx
+	movq	88(%rax), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
 	jmp	.L79
 .L110:
@@ -1272,7 +1272,7 @@ _ZN10scene_play6UpdateEv.cold:
 	.def	_ZN3neo6memory6CopyToEPKvPvy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE;	.scl	2;	.type	32;	.endef
 	.def	_Znwy;	.scl	2;	.type	32;	.endef
-	.def	_ZN9act_pauseC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
+	.def	_ZN9gui_pauseC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.def	_ZN10act_playerC1EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd;	.scl	2;	.type	32;	.endef
 	.def	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaEEdd;	.scl	2;	.type	32;	.endef
 	.def	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerhdd;	.scl	2;	.type	32;	.endef
@@ -1297,7 +1297,7 @@ _ZN10scene_play6UpdateEv.cold:
 	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
 	.def	free;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
-	.def	_ZN9act_pauseD1Ev;	.scl	2;	.type	32;	.endef
+	.def	_ZN9gui_pauseD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN10act_playerD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN10tile_tokenD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN8act_tunaD1Ev;	.scl	2;	.type	32;	.endef
@@ -1309,7 +1309,7 @@ _ZN10scene_play6UpdateEv.cold:
 	.def	_ZN3neo6stringpLESt16initializer_listIyE;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringclEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes7textbox10SetLiteralEPKc;	.scl	2;	.type	32;	.endef
-	.def	_ZN9act_pause6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN9gui_pause6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6window8HasFocusEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5audio8PauseAllEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy;	.scl	2;	.type	32;	.endef

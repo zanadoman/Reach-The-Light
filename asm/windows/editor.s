@@ -88,12 +88,12 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	%rax, 16(%rbp)
 	leaq	40(%rax), %rcx
 	movq	8(%rdx), %rdx
-	movq	48(%rdx), %rdx
+	movq	72(%rdx), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 24(%rbp)
 	movq	8(%rbp), %rax
 	movq	8(%rax), %rax
-	movq	48(%rax), %rdx
+	movq	72(%rax), %rdx
 	movq	16(%rbp), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -103,7 +103,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rbp), %rax
 	leaq	72(%rdi), %rcx
 	movq	8(%rax), %rax
-	leaq	104(%rax), %r8
+	leaq	112(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	16(%rbp), %rdi
 	movl	$125, %edx
@@ -111,7 +111,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rbp), %rax
 	leaq	72(%rdi), %rcx
 	movq	8(%rax), %rax
-	leaq	104(%rax), %r8
+	leaq	112(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	16(%rbp), %rdi
 	leaq	.LC2(%rip), %rdx
@@ -386,18 +386,16 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 .LEHE8:
 	pxor	%xmm0, %xmm0
 	movq	0(%rbp), %rdx
-	movl	%ebx, 64(%rsp)
+	movl	%ebx, 48(%rsp)
 	cvtsi2sdl	%edi, %xmm0
-	movl	%r13d, 56(%rsp)
+	movl	%r13d, 40(%rsp)
 	movapd	%xmm6, %xmm3
 	movq	%rax, %rcx
-	movl	$100, 48(%rsp)
 	movq	%rax, %rsi
-	movl	$100, 40(%rsp)
 	movsd	%xmm0, 32(%rsp)
 	movq	8(%rbp), %r8
 .LEHB9:
-	call	_ZN8gui_tileC1EPN3wze6engineEP4gameddtthh
+	call	_ZN8gui_tileC1EPN3wze6engineEP4gameddhh
 .LEHE9:
 	movq	%rsi, 152(%r12,%rbx,8)
 	addq	$1, %rbx
@@ -1017,7 +1015,7 @@ _ZN12scene_editor6UpdateEv:
 	.def	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt;	.scl	2;	.type	32;	.endef
-	.def	_ZN8gui_tileC1EPN3wze6engineEP4gameddtthh;	.scl	2;	.type	32;	.endef
+	.def	_ZN8gui_tileC1EPN3wze6engineEP4gameddhh;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera10SetOriginYEd;	.scl	2;	.type	32;	.endef
 	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef

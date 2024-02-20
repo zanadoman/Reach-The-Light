@@ -103,8 +103,8 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	movzwl	%ax, %eax
 	pxor	%xmm1, %xmm1
 	movq	%rdi, %rcx
+	addl	%eax, %eax
 	cvtsi2sdl	%eax, %xmm1
-	mulsd	.LC2(%rip), %xmm1
 	addsd	%xmm6, %xmm1
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
 	movq	16(%rbx), %rcx
@@ -112,10 +112,9 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	call	_ZN3wze6engine6actors5actor9GetHeightEv
 	movzwl	%ax, %eax
 	pxor	%xmm0, %xmm0
-	movsd	.LC3(%rip), %xmm6
 	movq	%rdi, %rcx
 	cvtsi2sdl	%eax, %xmm0
-	mulsd	%xmm6, %xmm0
+	mulsd	.LC2(%rip), %xmm0
 	cvttsd2sil	%xmm0, %edx
 	movzwl	%dx, %edx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
@@ -129,9 +128,9 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	pxor	%xmm0, %xmm0
 	movq	48(%rbx), %rdx
 	cvtsi2sdl	%eax, %xmm0
+	mulsd	.LC4(%rip), %xmm0
 	movb	$-127, 25(%rdx)
 	movq	16(%rbx), %rcx
-	mulsd	%xmm6, %xmm0
 	cvttsd2sil	%xmm0, %eax
 	pxor	%xmm0, %xmm0
 	movw	%ax, 18(%rdx)
@@ -539,7 +538,7 @@ _ZN10gui_slider6UpdateEv.cold:
 	.long	0
 	.long	1073479680
 	.align 8
-.LC3:
+.LC4:
 	.long	0
 	.long	1073217536
 	.align 8
