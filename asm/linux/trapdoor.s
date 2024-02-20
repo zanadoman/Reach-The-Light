@@ -35,7 +35,7 @@ _ZN12act_trapdoorC2EPN3wze6engineEP4gamePhhdd:
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	24(%rbx), %rdi
 	movb	%bpl, 40(%rbx)
-	movl	$1, %esi
+	xorl	%esi, %esi
 	movq	%rax, 32(%rbx)
 	movq	$100, 184(%rdi)
 	addq	$8, %rsp
@@ -151,7 +151,7 @@ _ZN12act_trapdoor6UpdateEv:
 	movl	$9, %edx
 	movq	8(%rax), %rax
 	addq	$160, %rdi
-	movq	456(%rax), %rsi
+	movq	464(%rax), %rsi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	addq	$8, %rsp
 	.cfi_def_cfa_offset 24

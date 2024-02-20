@@ -416,7 +416,7 @@ _ZN10act_player6UpdateEv:
 	xorl	%ecx, %ecx
 	movl	$10, %edx
 	movq	8(%rax), %rax
-	movq	464(%rax), %rsi
+	movq	472(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
 	movq	.LC18(%rip), %rax
@@ -490,7 +490,7 @@ _ZN10act_player6UpdateEv:
 	movl	$6, %edx
 	movsd	.LC18(%rip), %xmm0
 	movq	8(%rax), %rax
-	movq	432(%rax), %rsi
+	movq	440(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
@@ -869,7 +869,7 @@ _ZN10act_player6UpdateEv:
 	xorl	%ecx, %ecx
 	movl	$3, %edx
 	movq	8(%rax), %rax
-	movq	408(%rax), %rsi
+	movq	416(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
@@ -1240,7 +1240,7 @@ _ZN10act_player6UpdateEv:
 	xorb	$1, (%rax)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	448(%rax), %rsi
+	movq	456(%rax), %rsi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	jmp	.L203
 	.p2align 4,,10
@@ -1326,7 +1326,7 @@ _ZN10act_player6UpdateEv:
 	xorl	%ecx, %ecx
 	movl	$2, %edx
 	movq	8(%rax), %rax
-	movq	400(%rax), %rsi
+	movq	408(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
@@ -1345,7 +1345,7 @@ _ZN10act_player6UpdateEv:
 	movl	$4, %edx
 	movsd	.LC18(%rip), %xmm0
 	movq	8(%rax), %rax
-	movq	416(%rax), %rsi
+	movq	424(%rax), %rsi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	movq	(%rbx), %rdi
 	jmp	.L87

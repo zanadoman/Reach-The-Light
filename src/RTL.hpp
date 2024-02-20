@@ -25,6 +25,7 @@ struct act_player;
 struct act_tuna;
 struct act_crate;
 struct act_trapdoor;
+struct act_house;
 struct gui_button;
 struct gui_slider;
 struct gui_tile;
@@ -176,6 +177,8 @@ struct assets
     uint64 TrapdoorClosed;
     uint64 TrapdoorOpened;
 
+    uint64 HouseFrame;
+
     uint64 Music;
     uint64 GuiAudio;
     uint64 PlayerFallAudio;
@@ -263,6 +266,7 @@ struct scene_play
     bool RotateTiles;
     act_trapdoor* TrapdoorLeft;
     act_trapdoor* TrapdoorRight;
+    act_house* House;
     array<act_tuna*> Tunas;
 
     scene_play(engine* Engine, game* Game);
@@ -452,6 +456,18 @@ struct act_trapdoor
     act_trapdoor(engine* Engine, game* Game, uint8* PlayerScore, uint8 MaxScore, double X, double Y);
     ~act_trapdoor();
     uint8 Update();
+};
+
+struct act_house
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    engine::texturebox Frame;
+
+    act_house(engine* Engine, game* Game, double X, double Y);
+    ~act_house();
 };
 
 //__________GUI______________________________________________________________________________________

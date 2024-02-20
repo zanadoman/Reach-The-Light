@@ -38,6 +38,7 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->RotateTiles = false;
     this->TrapdoorLeft = new act_trapdoor(this->Engine, this->Game, &this->Player->Score, this->Tunas.Length(), -50, 797.5);
     this->TrapdoorRight = new act_trapdoor(this->Engine, this->Game, &this->Player->Score, this->Tunas.Length(), 50, 797.5);
+    this->House = new act_house(this->Engine, this->Game, 0, 850);
 
     this->FrameTime->SetHeight(25);
     this->FrameTime->SetX(10 + (this->FrameTime->GetWidth() >> 1));
@@ -92,6 +93,7 @@ scene_play::~scene_play()
     {
         delete this->Tunas[i];
     }
+    delete this->House;
 
     this->Engine->Audio.StopChannel(CH_MUSIC);
 }

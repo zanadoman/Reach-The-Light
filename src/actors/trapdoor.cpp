@@ -7,7 +7,7 @@ act_trapdoor::act_trapdoor(engine* Engine, game* Game, uint8* PlayerScore, uint8
     this->MaxScore = MaxScore;
 
     this->Actor->Resistance = 100;
-    this->Actor->SetCollisionLayer(1);
+    this->Actor->SetCollisionLayer(0);
 }
 
 act_trapdoor::~act_trapdoor()
