@@ -35,7 +35,7 @@ _ZN12act_trapdoorC2EPN3wze6engineEP4gamePhhdd:
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	24(%rbx), %rdi
 	movb	%bpl, 40(%rbx)
-	xorl	%esi, %esi
+	movl	$1, %esi
 	movq	%rax, 32(%rbx)
 	movq	$100, 184(%rdi)
 	addq	$8, %rsp

@@ -1293,7 +1293,7 @@ _ZN10scene_play6UpdateEv.cold:
 	.align 8
 .LC6:
 	.long	0
-	.long	1082715136
+	.long	1082725376
 	.align 8
 .LC7:
 	.long	0
