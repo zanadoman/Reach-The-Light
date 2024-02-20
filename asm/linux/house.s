@@ -7,14 +7,19 @@
 _ZN9act_houseC2EPN3wze6engineEP4gamedd:
 .LFB8157:
 	.cfi_startproc
-	pushq	%rbx
+	pushq	%rbp
 	.cfi_def_cfa_offset 16
-	.cfi_offset 3, -16
-	movsd	.LC0(%rip), %xmm2
-	movq	%rdi, %rbx
-	movl	$200, %ecx
-	movq	%rsi, (%rdi)
+	.cfi_offset 6, -16
 	movl	$100, %r8d
+	movl	$200, %ecx
+	pushq	%rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+	movq	%rdi, %rbx
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 32
+	movq	%rsi, (%rdi)
+	movsd	.LC0(%rip), %xmm2
 	movq	%rdx, 8(%rdi)
 	leaq	272(%rsi), %rdi
 	xorl	%edx, %edx
@@ -27,11 +32,19 @@ _ZN9act_houseC2EPN3wze6engineEP4gamedd:
 	movq	384(%rdx), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	16(%rbx), %rdi
-	movsd	.LC1(%rip), %xmm0
 	movq	%rax, 24(%rbx)
+	movq	%rax, %rbp
+	movl	$9830650, 16(%rax)
+	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
+	addsd	.LC2(%rip), %xmm0
+	movq	%rbp, %rdi
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 24
 	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
 	.cfi_def_cfa_offset 8
-	jmp	_ZN3wze6engine6actors5actor8SetDepthEd@PLT
+	jmp	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
 	.cfi_endproc
 .LFE8157:
 	.size	_ZN9act_houseC2EPN3wze6engineEP4gamedd, .-_ZN9act_houseC2EPN3wze6engineEP4gamedd
@@ -77,12 +90,12 @@ _ZN9act_houseD2Ev:
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC0:
-	.long	1717986918
-	.long	1072588390
+	.long	0
+	.long	1072693248
 	.align 8
-.LC1:
-	.long	-1717986918
-	.long	1069128089
+.LC2:
+	.long	0
+	.long	1077477376
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat
