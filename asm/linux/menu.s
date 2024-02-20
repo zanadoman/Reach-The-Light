@@ -180,18 +180,16 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	movq	16(%rbx), %rdi
 	movsd	%xmm0, 8(%rsp)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
-	movq	8(%rbx), %rdx
-	movq	(%rbx), %rsi
-	movl	$15, %r8d
-	movq	%rbp, %rdi
-	movsd	(%rsp), %xmm4
 	subsd	.LC3(%rip), %xmm0
-	leaq	.LC13(%rip), %r9
-	movl	$400, %ecx
+	movq	8(%rbx), %rdx
+	movq	%rbp, %rdi
+	leaq	.LC13(%rip), %rcx
+	movq	(%rbx), %rsi
+	movsd	(%rsp), %xmm4
 	movsd	.LC11(%rip), %xmm3
 	movsd	.LC12(%rip), %xmm2
 	movsd	8(%rsp), %xmm1
-	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT
+	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd@PLT
 .LEHE9:
 	movq	%rbp, 72(%rbx)
 	movl	$104, %edi
@@ -213,15 +211,13 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
 	pxor	%xmm2, %xmm2
-	movl	$400, %ecx
+	movq	%rbp, %rdi
 	subsd	.LC3(%rip), %xmm0
 	movsd	(%rsp), %xmm4
-	movq	%rbp, %rdi
-	leaq	.LC16(%rip), %r9
+	leaq	.LC16(%rip), %rcx
 	movsd	.LC15(%rip), %xmm3
 	movsd	8(%rsp), %xmm1
-	movl	$15, %r8d
-	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT
+	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd@PLT
 .LEHE11:
 	movq	%rbp, 80(%rbx)
 	movl	$104, %edi
@@ -240,18 +236,16 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	movq	16(%rbx), %rdi
 	movsd	%xmm0, 8(%rsp)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
-	movq	8(%rbx), %rdx
-	movq	(%rbx), %rsi
-	movl	$15, %r8d
-	movq	%rbp, %rdi
-	movsd	(%rsp), %xmm4
 	subsd	.LC3(%rip), %xmm0
-	leaq	.LC20(%rip), %r9
-	movl	$400, %ecx
+	movq	8(%rbx), %rdx
+	movq	%rbp, %rdi
+	leaq	.LC20(%rip), %rcx
+	movq	(%rbx), %rsi
+	movsd	(%rsp), %xmm4
 	movsd	.LC18(%rip), %xmm3
 	movsd	.LC19(%rip), %xmm2
 	movsd	8(%rsp), %xmm1
-	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT
+	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd@PLT
 .LEHE13:
 	movq	%rbp, 88(%rbx)
 	movq	16(%rbx), %rdi

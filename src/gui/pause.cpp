@@ -6,9 +6,9 @@ gui_pause::gui_pause(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->Texturebox = this->Actor->Textureboxes.New(this->Game->Assets->PauseTexture);
     this->Resume = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() + 200, 0, "Folytat");
     this->Menu = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() + 100, 0, "Menü");
-    this->MouseSensitivity = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 75, 400, 15, "Egér érzékenység", 0.1, 2, this->Game->Settings->MouseSensitivity);
-    this->Volume = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 150, 400, 15, "Hangerő", 0, 100, this->Game->Settings->Volume);
-    this->FrameRate = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 225, 400, 15, "FPS", 30, 1000, this->Game->Settings->FrameRate);
+    this->MouseSensitivity = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 75, "Egér érzékenység", 0.1, 2, this->Game->Settings->MouseSensitivity);
+    this->Volume = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 150, "Hangerő", 0, 100, this->Game->Settings->Volume);
+    this->FrameRate = new gui_slider(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 225, "FPS", 30, 1000, this->Game->Settings->FrameRate);
     this->PauseTick = 0;
 
     this->Actor->Visible = false;

@@ -125,15 +125,13 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
-	movl	$15, %r8d
+	leaq	.LC8(%rip), %rcx
 	movq	%rbp, %rdi
 	movsd	(%rsp), %xmm4
 	movsd	.LC6(%rip), %xmm3
-	leaq	.LC8(%rip), %r9
-	movl	$400, %ecx
 	movsd	.LC7(%rip), %xmm2
 	movsd	8(%rsp), %xmm1
-	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT
+	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd@PLT
 .LEHE5:
 	movq	%rbp, 48(%rbx)
 	movl	$104, %edi
@@ -155,15 +153,13 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
 	pxor	%xmm2, %xmm2
-	movl	$400, %ecx
+	movq	%rbp, %rdi
 	movq	.LC3(%rip), %rax
 	movsd	(%rsp), %xmm4
-	movq	%rbp, %rdi
-	leaq	.LC10(%rip), %r9
+	leaq	.LC10(%rip), %rcx
 	movsd	8(%rsp), %xmm1
-	movl	$15, %r8d
 	movq	%rax, %xmm3
-	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT
+	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd@PLT
 .LEHE7:
 	movq	%rbp, 56(%rbx)
 	movl	$104, %edi
@@ -184,15 +180,13 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	8(%rbx), %rdx
 	movq	(%rbx), %rsi
-	movl	$15, %r8d
+	leaq	.LC14(%rip), %rcx
 	movq	%rbp, %rdi
 	movsd	(%rsp), %xmm4
 	movsd	.LC12(%rip), %xmm3
-	leaq	.LC14(%rip), %r9
-	movl	$400, %ecx
 	movsd	.LC13(%rip), %xmm2
 	movsd	8(%rsp), %xmm1
-	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT
+	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd@PLT
 .LEHE9:
 	movq	16(%rbx), %rax
 	movq	%rbp, 64(%rbx)

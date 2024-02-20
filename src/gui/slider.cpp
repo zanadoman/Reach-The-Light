@@ -1,8 +1,8 @@
 #include "../RTL.hpp"
 
-gui_slider::gui_slider(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, const char* Literal, double Min, double Max, double Value) : Engine(Engine), Game(Game)
+gui_slider::gui_slider(engine* Engine, game* Game, double X, double Y, const char* Literal, double Min, double Max, double Value) : Engine(Engine), Game(Game)
 {
-    this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, Width, Height, 0);
+    this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 400, 15, 0);
     this->Overlapbox = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Colorbox = this->Actor->Colorboxes.New();
     this->Textbox = this->Actor->Textboxes.New(Literal, this->Game->Assets->HackRegularFont);

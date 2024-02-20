@@ -438,7 +438,7 @@ struct gui_slider
     double Min;
     double Max;
 
-    gui_slider(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, const char* Literal, double Min, double Max, double Value);
+    gui_slider(engine* Engine, game* Game, double X, double Y, const char* Literal, double Min, double Max, double Value);
     ~gui_slider();
     double Update();
 };
