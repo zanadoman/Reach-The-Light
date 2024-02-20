@@ -7,6 +7,7 @@ assets::assets(engine* Engine) : Engine(Engine)
     this->HackItalicFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Italic.ttf", 72);
     this->HackRegularFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Regular.ttf", 72);
 
+    this->MenuTitleTexture = this->Engine->Assets.LoadTexture("assets/gui/menu_title.png");
     this->MenuBackgroundTexture = this->Engine->Assets.LoadTexture("assets/gui/menu_background.png");
 
     this->ButtonTexture = this->Engine->Assets.LoadTexture("assets/gui/button.png");

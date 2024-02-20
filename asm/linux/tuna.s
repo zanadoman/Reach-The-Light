@@ -32,7 +32,7 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rdx
 	movq	16(%rbx), %rax
-	addq	$344, %rdx
+	addq	$352, %rdx
 	leaq	72(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE@PLT
 	movsd	8(%rsp), %xmm1

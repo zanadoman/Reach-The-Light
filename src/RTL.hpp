@@ -133,6 +133,7 @@ struct assets
     uint64 HackItalicFont;
     uint64 HackRegularFont;
 
+    uint64 MenuTitleTexture;
     uint64 MenuBackgroundTexture;
 
     uint64 ButtonTexture;
@@ -230,7 +231,7 @@ struct scene_menu
     game* Game;
 
     engine::actor Actor;
-    engine::textbox Title;
+    engine::texturebox Title;
     engine::texturebox Background;
 
     gui_button* Play;

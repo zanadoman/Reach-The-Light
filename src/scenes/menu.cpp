@@ -3,7 +3,7 @@
 scene_menu::scene_menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, this->Engine->Window.GetWidth() >> 1, this->Engine->Window.GetHeight() >> 1, 0, 0, 0);
-    this->Title = this->Actor->Textboxes.New("Reach The Light", this->Game->Assets->HackBoldItalicFont);
+    this->Title = this->Actor->Textureboxes.New(this->Game->Assets->MenuTitleTexture);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->MenuBackgroundTexture);
     this->Play = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 225, 200, 75, 0, "Játék");
     this->Editor = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 125, 200, 75, 0, "Pályák");
@@ -14,8 +14,9 @@ scene_menu::scene_menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->FrameRate = new gui_slider(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() - 375, 400, 15, "FPS", 30, 1000, this->Game->Settings->FrameRate);
 
     this->Title->SetX(this->Actor->GetX() - 600);
-    this->Title->SetY(this->Actor->GetY() + 375);
-    this->Title->SetHeight(75);
+    this->Title->SetY(this->Actor->GetY() + 450);
+    this->Title->Width = 854;
+    this->Title->Height = 480;
 
     this->Background->SetX(this->Actor->GetX() + 500);
     this->Background->SetY(this->Actor->GetY());
