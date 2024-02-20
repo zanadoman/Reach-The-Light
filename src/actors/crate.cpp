@@ -12,8 +12,6 @@ act_crate::act_crate(engine* Engine, game* Game, act_player* Player, double X, d
 
     this->SimulationBox->SetWidth(120);
     this->SimulationBox->SetHeight(120);
-
-    this->Texturebox->Priority = 128;
 }
 
 act_crate::~act_crate()
