@@ -104,7 +104,7 @@ tile_house::~tile_house()
 
 uint8 tile_house::Update()
 {
-    this->Sky->ColorA = round(engine::math::Clamp<double>(255 - this->Player->FireflyMask->ColorA, 0, 255));
+    this->Sky->ColorA = round(engine::math::Clamp<double>(255 - ((MAP_Y * 100 - (this->Player->Actor->GetY() + (MAP_Y >> 1) * 100)) / 20 * 255), 0, 255));
 
     if ((this->Player->Score == this->Tunas->Length() || (this->Engine->Keys[KEY_O] && this->Engine->Keys[KEY_P] && this->Engine->Keys[KEY_E] && this->Engine->Keys[KEY_N])) && this->HitboxLeftTrapdoor != NULL && this->HitboxRightTrapdoor != NULL)
     {

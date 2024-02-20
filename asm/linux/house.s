@@ -581,23 +581,42 @@ _ZN10tile_house6UpdateEv:
 	movq	%rdi, %rbx
 	subq	$8, %rsp
 	.cfi_def_cfa_offset 32
-	movq	16(%rdi), %rdx
-	movq	56(%rdi), %rcx
-	movq	144(%rdx), %rax
-	movzbl	23(%rax), %esi
-	movl	$255, %eax
-	subl	%esi, %eax
-	movb	%al, 23(%rcx)
-	movq	144(%rdi), %rax
-	movzbl	152(%rdx), %edx
+	movq	16(%rdi), %rax
+	movq	32(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
+	movsd	.LC16(%rip), %xmm1
+	xorl	%eax, %eax
+	addsd	%xmm0, %xmm1
+	movsd	.LC17(%rip), %xmm0
+	subsd	%xmm1, %xmm0
+	movsd	.LC18(%rip), %xmm1
+	divsd	.LC4(%rip), %xmm0
+	mulsd	%xmm1, %xmm0
+	movapd	%xmm1, %xmm2
+	subsd	%xmm0, %xmm2
+	pxor	%xmm0, %xmm0
+	comisd	%xmm2, %xmm0
+	ja	.L35
+	comisd	%xmm1, %xmm2
+	movl	$-1, %eax
+	ja	.L35
+	movapd	%xmm2, %xmm0
+	call	round@PLT
+	cvttsd2sil	%xmm0, %eax
+.L35:
+	movq	56(%rbx), %rdx
+	movb	%al, 23(%rdx)
+	movq	16(%rbx), %rax
+	movzbl	152(%rax), %edx
+	movq	144(%rbx), %rax
 	cmpq	(%rax), %rdx
-	jne	.L35
-.L40:
+	jne	.L36
+.L41:
 	movq	128(%rbx), %rdi
 	testq	%rdi, %rdi
-	je	.L39
+	je	.L40
 	cmpq	$0, 136(%rbx)
-	je	.L39
+	je	.L40
 	movq	(%rbx), %rax
 	leaq	272(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
@@ -616,7 +635,7 @@ _ZN10tile_house6UpdateEv:
 	movq	(%rbx), %rdi
 	xorl	%ecx, %ecx
 	movq	$0, 136(%rbx)
-	movsd	.LC16(%rip), %xmm0
+	movsd	.LC19(%rip), %xmm0
 	movl	$9, %edx
 	movb	$1, 37(%rax)
 	movq	48(%rbx), %rax
@@ -626,7 +645,7 @@ _ZN10tile_house6UpdateEv:
 	movq	8(%rax), %rax
 	movq	472(%rax), %rsi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
-.L39:
+.L40:
 	addq	$8, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
@@ -638,33 +657,33 @@ _ZN10tile_house6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L35:
+.L36:
 	.cfi_restore_state
-	movq	(%rdi), %rax
+	movq	(%rbx), %rax
 	movl	$18, %esi
 	leaq	192(%rax), %rdi
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
 	testb	%al, %al
-	je	.L39
+	je	.L40
 	movq	(%rbx), %rax
 	movl	$19, %esi
 	leaq	192(%rax), %rdi
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
 	testb	%al, %al
-	je	.L39
+	je	.L40
 	movq	(%rbx), %rax
 	movl	$8, %esi
 	leaq	192(%rax), %rdi
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
 	testb	%al, %al
-	je	.L39
+	je	.L40
 	movq	(%rbx), %rax
 	movl	$17, %esi
 	leaq	192(%rax), %rdi
 	call	_ZN3wze6engine4keysixENS_3keyE@PLT
 	testb	%al, %al
-	jne	.L40
-	jmp	.L39
+	jne	.L41
+	jmp	.L40
 	.cfi_endproc
 .LFE8162:
 	.size	_ZN10tile_house6UpdateEv, .-_ZN10tile_house6UpdateEv
@@ -719,6 +738,18 @@ _ZN10tile_house6UpdateEv:
 	.long	1079410688
 	.align 8
 .LC16:
+	.long	0
+	.long	1082720256
+	.align 8
+.LC17:
+	.long	0
+	.long	1083768832
+	.align 8
+.LC18:
+	.long	0
+	.long	1081073664
+	.align 8
+.LC19:
 	.long	0
 	.long	1072168960
 	.hidden	DW.ref.__gxx_personality_v0
