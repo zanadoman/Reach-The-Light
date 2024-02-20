@@ -12,7 +12,6 @@ tile_vertical_rotating::tile_vertical_rotating(engine* Engine, game* Game, doubl
 
     this->Lever->SetWidth(20);
     this->Lever->SetHeight(20);
-    this->Lever->Visible = DEBUG;
 
     this->HitboxLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y, 20, 60, 1);
     this->HitboxLeft->Overlapboxes.New(BOX_PLATFORM);

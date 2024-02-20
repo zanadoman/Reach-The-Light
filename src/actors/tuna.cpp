@@ -8,8 +8,6 @@ act_tuna::act_tuna(engine* Engine, game* Game, double X, double Y) : Engine(Engi
     this->OriginY = Y;
     this->VelocityY = 0.0075;
 
-    this->OverlapBox->Visible = DEBUG;
-
     this->Flipbook->Width = 30;
     this->Flipbook->Height = 30;
     this->Flipbook->Priority = 128;

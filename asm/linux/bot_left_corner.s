@@ -101,11 +101,9 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	32(%r13), %rdi
 	movl	$10, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
-	movq	32(%r13), %rax
 	movsd	8(%rsp), %xmm5
-	subsd	.LC4(%rip), %xmm5
 	movq	40(%r13), %rdi
-	movb	$0, 18(%rax)
+	subsd	.LC4(%rip), %xmm5
 	movapd	%xmm5, %xmm0
 	movsd	%xmm5, 16(%rsp)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetXEd@PLT
@@ -121,11 +119,9 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	40(%r13), %rdi
 	movl	$20, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
-	movq	40(%r13), %rax
 	movsd	8(%rsp), %xmm6
-	subsd	.LC3(%rip), %xmm6
 	movq	48(%r13), %rdi
-	movb	$0, 18(%rax)
+	subsd	.LC3(%rip), %xmm6
 	movapd	%xmm6, %xmm0
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetXEd@PLT
 	movsd	(%rsp), %xmm0
@@ -138,11 +134,9 @@ _ZN20tile_bot_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	48(%r13), %rdi
 	movl	$10, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
-	movq	48(%r13), %rax
 	movsd	8(%rsp), %xmm7
-	subsd	.LC5(%rip), %xmm7
 	movq	56(%r13), %rdi
-	movb	$0, 18(%rax)
+	subsd	.LC5(%rip), %xmm7
 	movapd	%xmm7, %xmm0
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd@PLT
 	movsd	(%rsp), %xmm4

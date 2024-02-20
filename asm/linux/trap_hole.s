@@ -81,21 +81,19 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gameP10act_playerdd:
 	movq	40(%rbx), %rdi
 	movl	$3, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
-	movq	40(%rbx), %rax
-	movl	$60, %ecx
-	xorl	%esi, %esi
-	movsd	.LC3(%rip), %xmm5
-	addsd	24(%rsp), %xmm5
-	movl	$20, %r8d
-	movl	$2, %edx
-	movb	$0, 18(%rax)
 	movq	(%rbx), %rax
 	movsd	8(%rsp), %xmm0
+	xorl	%esi, %esi
+	movl	$20, %r8d
+	movl	$60, %ecx
+	movl	$2, %edx
+	movsd	.LC3(%rip), %xmm5
+	addsd	24(%rsp), %xmm5
 	leaq	272(%rax), %rdi
-	movapd	%xmm5, %xmm1
 	movq	.LC0(%rip), %rax
-	movq	%xmm5, %r15
 	movq	%rax, %xmm2
+	movapd	%xmm5, %xmm1
+	movq	%xmm5, %r15
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$2, %esi
 	movq	%rax, 48(%rbx)

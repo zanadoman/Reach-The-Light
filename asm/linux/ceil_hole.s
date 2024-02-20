@@ -89,10 +89,8 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	32(%rbx), %rdi
 	movl	$5, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
-	movq	32(%rbx), %rax
 	movsd	24(%rsp), %xmm1
 	movq	40(%rbx), %rdi
-	movb	$0, 18(%rax)
 	movapd	%xmm1, %xmm0
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
 	movq	40(%rbx), %rax

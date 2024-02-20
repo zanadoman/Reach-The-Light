@@ -35,11 +35,9 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	addq	$344, %rdx
 	leaq	72(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE@PLT
-	movq	24(%rbx), %rdx
 	movsd	8(%rsp), %xmm1
 	movq	.LC1(%rip), %rcx
 	movq	%rax, 32(%rbx)
-	movb	$0, 18(%rdx)
 	movq	%rcx, 48(%rbx)
 	movl	$1966110, 16(%rax)
 	movb	$-128, 36(%rax)

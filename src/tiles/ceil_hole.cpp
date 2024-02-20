@@ -14,7 +14,6 @@ tile_ceil_hole::tile_ceil_hole(engine* Engine, game* Game, double X, double Y) :
     this->SpikesOverlapBox->SetY(Y - 27.5);
     this->SpikesOverlapBox->SetWidth(29);
     this->SpikesOverlapBox->SetHeight(5);
-    this->SpikesOverlapBox->Visible = DEBUG;
 
     this->SpikesTextureBox->SetY(Y - 27.5);
     this->SpikesTextureBox->Width = 29;

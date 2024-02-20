@@ -6,7 +6,6 @@
 
 #define MAP_X 8
 #define MAP_Y 16
-#define DEBUG false
 
 using namespace neo;
 using namespace wze;

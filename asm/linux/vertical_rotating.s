@@ -66,20 +66,18 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	32(%rbx), %rdi
 	movl	$20, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
-	movq	32(%rbx), %rax
+	movq	(%rbx), %rax
 	movq	%r15, %xmm0
 	xorl	%esi, %esi
 	movsd	8(%rsp), %xmm1
 	movl	$60, %r8d
 	movl	$20, %ecx
 	subsd	.LC1(%rip), %xmm0
-	movb	$0, 18(%rax)
-	movq	(%rbx), %rax
-	movl	$2, %edx
 	leaq	272(%rax), %rdi
 	movq	.LC0(%rip), %rax
-	movsd	%xmm0, 24(%rsp)
+	movl	$2, %edx
 	movq	%rax, %xmm2
+	movsd	%xmm0, 24(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movl	$2, %esi
 	movq	%rax, 40(%rbx)

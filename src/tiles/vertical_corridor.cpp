@@ -16,12 +16,10 @@ tile_vertical_corridor::tile_vertical_corridor(engine* Engine, game* Game, doubl
     this->SmallSpikesLeftOverlapBox->SetWidth(3);
     this->SmallSpikesLeftOverlapBox->SetHeight(9);
     this->SmallSpikesLeftOverlapBox->SetX(X - 28);
-    this->SmallSpikesLeftOverlapBox->Visible = DEBUG;
 
     this->SmallSpikesRightOverlapBox->SetWidth(3);
     this->SmallSpikesRightOverlapBox->SetHeight(9);
     this->SmallSpikesRightOverlapBox->SetX(X + 28);
-    this->SmallSpikesRightOverlapBox->Visible = DEBUG;
 
     this->SmallSpikesLeftTextureBox->Width = 3;
     this->SmallSpikesLeftTextureBox->Height = 9;

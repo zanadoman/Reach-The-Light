@@ -17,19 +17,16 @@ tile_bot_left_corner::tile_bot_left_corner(engine* Engine, game* Game, double X,
     this->WebOverlapboxTopLeft->SetY(Y - 5);
     this->WebOverlapboxTopLeft->SetWidth(10);
     this->WebOverlapboxTopLeft->SetHeight(10);
-    this->WebOverlapboxTopLeft->Visible = DEBUG;
 
     this->WebOverlapboxCenter->SetX(X - 20);
     this->WebOverlapboxCenter->SetY(Y - 20);
     this->WebOverlapboxCenter->SetWidth(20);
     this->WebOverlapboxCenter->SetHeight(20);
-    this->WebOverlapboxCenter->Visible = DEBUG;
 
     this->WebOverlapboxBotRight->SetX(X - 5);
     this->WebOverlapboxBotRight->SetY(Y - 25);
     this->WebOverlapboxBotRight->SetWidth(10);
     this->WebOverlapboxBotRight->SetHeight(10);
-    this->WebOverlapboxBotRight->Visible = DEBUG;
 
     this->WebTextureBox->SetX(X - 15);
     this->WebTextureBox->SetY(Y - 15);

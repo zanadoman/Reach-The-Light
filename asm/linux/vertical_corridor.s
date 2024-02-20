@@ -100,10 +100,8 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm2, %xmm0
 	movsd	%xmm2, 24(%rsp)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetXEd@PLT
-	movq	32(%rbx), %rax
 	movq	40(%rbx), %rdi
 	movl	$3, %esi
-	movb	$0, 18(%rax)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
 	movq	40(%rbx), %rdi
 	movl	$9, %esi
@@ -114,11 +112,9 @@ _ZN22tile_vertical_corridorC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm1, %xmm0
 	movsd	%xmm1, 8(%rsp)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetXEd@PLT
-	movq	40(%rbx), %rax
 	movq	48(%rbx), %rdi
 	movl	.LC3(%rip), %ebp
 	movsd	24(%rsp), %xmm2
-	movb	$0, 18(%rax)
 	movl	%ebp, 16(%rdi)
 	movapd	%xmm2, %xmm0
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd@PLT
