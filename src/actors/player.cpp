@@ -347,7 +347,7 @@ uint8 act_player::Update()
     this->FireflyMask->SetY(this->Firefly->GetY());
 
     this->FireflyMask->ColorA = round(engine::math::Clamp<double>((MAP_Y * 100 - (this->Actor->GetY() + (MAP_Y >> 1) * 100)) / 20 * 255, 0, 255));
-    this->Engine->Camera.SetZoom(engine::math::Clamp<double>(7 - 2 * ((MAP_Y * 100 - (this->Actor->GetY() + (MAP_Y >> 1) * 100)) / 20 * 255), 5, 7));
+    this->Engine->Camera.SetZoom(engine::math::Clamp<double>(7 - 2 * ((MAP_Y * 100 - (this->Actor->GetY() + (MAP_Y >> 1) * 100)) / 20), 5, 7));
 
     if (this->Health == 0)
     {

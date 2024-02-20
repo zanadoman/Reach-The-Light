@@ -43,12 +43,9 @@ _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
 	movq	32(%rbx), %rdi
 	movl	$120, %esi
-	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
-	movq	40(%rbx), %rax
-	movb	$-128, 36(%rax)
 	popq	%rbx
 	.cfi_def_cfa_offset 8
-	ret
+	jmp	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
 	.cfi_endproc
 .LFE8157:
 	.size	_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd, .-_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd

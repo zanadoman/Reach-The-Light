@@ -589,8 +589,8 @@ _ZN10tile_house6UpdateEv:
 	addsd	%xmm0, %xmm1
 	movsd	.LC17(%rip), %xmm0
 	subsd	%xmm1, %xmm0
-	movsd	.LC18(%rip), %xmm1
-	divsd	.LC4(%rip), %xmm0
+	movsd	.LC19(%rip), %xmm1
+	divsd	.LC18(%rip), %xmm0
 	mulsd	%xmm1, %xmm0
 	movapd	%xmm1, %xmm2
 	subsd	%xmm0, %xmm2
@@ -635,7 +635,7 @@ _ZN10tile_house6UpdateEv:
 	movq	(%rbx), %rdi
 	xorl	%ecx, %ecx
 	movq	$0, 136(%rbx)
-	movsd	.LC19(%rip), %xmm0
+	movsd	.LC20(%rip), %xmm0
 	movl	$9, %edx
 	movb	$1, 37(%rax)
 	movq	48(%rbx), %rax
@@ -747,9 +747,13 @@ _ZN10tile_house6UpdateEv:
 	.align 8
 .LC18:
 	.long	0
-	.long	1081073664
+	.long	1077149696
 	.align 8
 .LC19:
+	.long	0
+	.long	1081073664
+	.align 8
+.LC20:
 	.long	0
 	.long	1072168960
 	.hidden	DW.ref.__gxx_personality_v0
