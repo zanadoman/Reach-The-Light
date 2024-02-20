@@ -50,6 +50,8 @@ gui_pause::state gui_pause::Update()
         this->FrameRate->Actor->Visible = true;
         this->Engine->Mouse.SetAbsolute();
         this->PauseTick = this->Engine->Timing.GetCurrentTick();
+
+        return PAUSED;
     }
 
     if (this->Actor->Visible)
@@ -64,9 +66,9 @@ gui_pause::state gui_pause::Update()
             this->FrameRate->Actor->Visible = false;
             this->Engine->Mouse.SetRelative();
             this->PauseTick = this->Engine->Timing.GetCurrentTick();
+            
             return UNPAUSED;
         }
-
         if (this->Menu->Update())
         {
             return MENU;
