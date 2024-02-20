@@ -3,9 +3,9 @@
 tile_house::tile_house(engine* Engine, game* Game, act_player* Player, uint8 MaxScore, double X, double Y) : Engine(Engine), Game(Game), Player(Player), Grasses(30)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 200, 100, 1);
-    this->House = this->Actor->Textureboxes.New(this->Game->Assets->HouseFrame);
-    this->LeftTrapdoor = this->Actor->Textureboxes.New(this->Game->Assets->TrapdoorOpened);
-    this->RightTrapdoor = this->Actor->Textureboxes.New(this->Game->Assets->TrapdoorOpened);
+    this->House = this->Actor->Textureboxes.New(this->Game->Assets->HouseTexture);
+    this->LeftTrapdoor = this->Actor->Textureboxes.New(this->Game->Assets->TrapdoorTexture);
+    this->RightTrapdoor = this->Actor->Textureboxes.New(this->Game->Assets->TrapdoorTexture);
     this->Sky = this->Actor->Colorboxes.New();
     this->MaxScore = MaxScore;
 

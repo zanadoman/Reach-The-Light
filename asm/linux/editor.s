@@ -81,12 +81,12 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	%rax, 16(%r13)
 	leaq	40(%rax), %rdi
 	movq	8(%rdx), %rdx
-	movq	48(%rdx), %rsi
+	movq	64(%rdx), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	%rax, 24(%r13)
 	movq	8(%r13), %rax
 	movq	8(%rax), %rax
-	movq	48(%rax), %rsi
+	movq	64(%rax), %rsi
 	movq	16(%r13), %rax
 	leaq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT

@@ -6,16 +6,16 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->FrameTime = this->Actor->Textboxes.New("0 FPS", this->Game->Assets->HackRegularFont);
     this->HealthCounter =
     {
-        this->Actor->Textureboxes.New(this->Game->Assets->HearthLeftFull),
-        this->Actor->Textureboxes.New(this->Game->Assets->HearthRightFull),
-        this->Actor->Textureboxes.New(this->Game->Assets->HearthLeftFull),
-        this->Actor->Textureboxes.New(this->Game->Assets->HearthRightFull),
-        this->Actor->Textureboxes.New(this->Game->Assets->HearthLeftFull),
-        this->Actor->Textureboxes.New(this->Game->Assets->HearthRightFull),
-        this->Actor->Textureboxes.New(this->Game->Assets->HearthLeftFull),
-        this->Actor->Textureboxes.New(this->Game->Assets->HearthRightFull),
-        this->Actor->Textureboxes.New(this->Game->Assets->HearthLeftFull),
-        this->Actor->Textureboxes.New(this->Game->Assets->HearthRightFull),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthLeftFullTexture),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthRightFullTexture),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthLeftFullTexture),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthRightFullTexture),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthLeftFullTexture),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthRightFullTexture),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthLeftFullTexture),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthRightFullTexture),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthLeftFullTexture),
+        this->Actor->Textureboxes.New(this->Game->Assets->HearthRightFullTexture),
     };
     this->TunaCount = this->Actor->Textboxes.New("0/0", this->Game->Assets->HackBoldFont);
     this->TunaFlipbook = this->Actor->Flipbooks.New(75, &this->Game->Assets->TunaTextures);
@@ -131,22 +131,22 @@ scene scene_play::Update()
             {
                 if (i % 2)
                 {
-                    this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthRightFull);
+                    this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthRightFullTexture);
                 }
                 else
                 {
-                    this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthLeftFull);
+                    this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthLeftFullTexture);
                 }
             }
             else
             {
                 if (i % 2)
                 {
-                    this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthRightEmpty);
+                    this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthRightEmptyTexture);
                 }
                 else
                 {
-                    this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthLeftEmpty);
+                    this->HealthCounter[i]->SetTextureID(this->Game->Assets->HearthLeftEmptyTexture);
                 }
             }
         }

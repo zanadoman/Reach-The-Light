@@ -282,7 +282,7 @@ _ZN9act_crate6UpdateEv:
 	movq	8(%rbp), %rax
 	movsd	.LC0(%rip), %xmm0
 	xorl	%ecx, %ecx
-	movl	$5, %edx
+	movl	$6, %edx
 	movq	8(%rax), %rax
 	movq	440(%rax), %rsi
 	movq	0(%rbp), %rax

@@ -3,10 +3,10 @@
 scene_editor::scene_editor(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, 0, 0, 0, 0, 1);
-    this->HintBubble1 = this->Actor->Textureboxes.New(this->Game->Assets->TextBubble);
-    this->HintBubble2 = this->Actor->Textureboxes.New(this->Game->Assets->TextBubble);
-    this->Player1 = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdle);
-    this->Player2 = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdle);
+    this->HintBubble1 = this->Actor->Textureboxes.New(this->Game->Assets->TextBubbleTexture);
+    this->HintBubble2 = this->Actor->Textureboxes.New(this->Game->Assets->TextBubbleTexture);
+    this->Player1 = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdleTextures);
+    this->Player2 = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdleTextures);
     this->ScrollUpHint = this->Actor->Textboxes.New("Felgördítés: görgő fel", this->Game->Assets->HackBoldFont);
     this->ScrollDownHint = this->Actor->Textboxes.New("Legördítés: görgő le", this->Game->Assets->HackBoldFont);
     this->ZoomInHint = this->Actor->Textboxes.New("Nagyítás: ctrl + görgő fel", this->Game->Assets->HackBoldFont);

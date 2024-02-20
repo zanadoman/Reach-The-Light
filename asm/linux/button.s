@@ -50,7 +50,7 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gameddttdPKc:
 	movq	%rax, 24(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	40(%rax), %rsi
+	movq	48(%rax), %rsi
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
@@ -264,7 +264,7 @@ _ZN10gui_button6UpdateEv:
 	movl	$1, %edx
 	movq	8(%rax), %rax
 	addq	$160, %rdi
-	movq	408(%rax), %rsi
+	movq	400(%rax), %rsi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	movl	$1, %eax
 	popq	%rbx

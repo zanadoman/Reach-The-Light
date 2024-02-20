@@ -7,16 +7,16 @@ act_player::act_player(engine* Engine, game* Game, bool* RotateTiles, array<act_
     this->SimulationBox = this->Actor->Overlapboxes.New(BOX_NONE);
     this->LatchBox1 = this->Actor->Overlapboxes.New(BOX_NONE);
     this->LatchBox2 = this->Actor->Overlapboxes.New(BOX_NONE);
-    this->Idle = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdle);
-    this->Run = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerRun);
-    this->Jump = this->Actor->Flipbooks.New(50, &this->Game->Assets->PlayerJump);
-    this->Fall = this->Actor->Flipbooks.New(50, &this->Game->Assets->PlayerFall);
-    this->Latch = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerLatch);
-    this->Firefly = this->Actor->Flipbooks.New(25, &this->Game->Assets->Firefly);
-    this->FireflyBloom = this->Actor->Textureboxes.New(this->Game->Assets->FireflyBloom);
-    this->FireflyMask = this->Actor->Textureboxes.New(this->Game->Assets->FireflyMask);
-    this->Hurt = this->Actor->Textureboxes.New(this->Game->Assets->PlayerHurt);
-    this->Dead = this->Actor->Flipbooks.New(100, &this->Game->Assets->PlayerDead);
+    this->Idle = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdleTextures);
+    this->Run = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerRunTextures);
+    this->Jump = this->Actor->Flipbooks.New(50, &this->Game->Assets->PlayerJumpTextures);
+    this->Fall = this->Actor->Flipbooks.New(50, &this->Game->Assets->PlayerFallTextures);
+    this->Latch = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerLatchTextures);
+    this->Firefly = this->Actor->Flipbooks.New(25, &this->Game->Assets->FireflyTextures);
+    this->FireflyBloom = this->Actor->Textureboxes.New(this->Game->Assets->FireflyBloomTexture);
+    this->FireflyMask = this->Actor->Textureboxes.New(this->Game->Assets->FireflyMaskTexture);
+    this->Hurt = this->Actor->Textureboxes.New(this->Game->Assets->PlayerHurtTexture);
+    this->Dead = this->Actor->Flipbooks.New(100, &this->Game->Assets->PlayerDeadTextures);
     this->Score = 0;
     this->Health = 10;
     this->DamageTick = 0;
@@ -148,7 +148,7 @@ uint8 act_player::Update()
                         {
                             this->Health--;
                             this->DamageTick = this->Engine->Timing.GetCurrentTick();
-                            this->Engine->Audio.Play(this->Game->Assets->HurtAudio, CH_HURT, 0.5, 0);
+                            this->Engine->Audio.Play(this->Game->Assets->PlayerHurtAudio, CH_PLAYER_HURT, 0.5, 0);
                         }
                     break;
 

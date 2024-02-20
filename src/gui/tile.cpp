@@ -4,7 +4,7 @@ gui_tile::gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width,
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, Width, Height, 1);
     this->Overlapbox = this->Actor->Overlapboxes.New(BOX_NONE);
-    this->Texturebox = this->Actor->Textureboxes.New(this->Game->Assets->TileTextures[this->Game->Map->Tiles[TileX][TileY]]);
+    this->Texturebox = this->Actor->Textureboxes.New(this->Game->Assets->TileIconTextures[this->Game->Map->Tiles[TileX][TileY]]);
     this->Top = this->Actor->Colorboxes.New();
     this->Bottom = this->Actor->Colorboxes.New();
     this->Left = this->Actor->Colorboxes.New();
@@ -154,7 +154,7 @@ uint8 gui_tile::Update()
                     this->Game->Map->Tiles[this->TileX][this->TileY] = this->Type;
                 }
 
-                this->Engine->Audio.Play(this->Game->Assets->GuiAudio, CH_GUI, 1, 0);
+                this->Engine->Audio.Play(this->Game->Assets->ButtonAudio, CH_BUTTON, 1, 0);
             }
 
             if (this->Overlapbox->GetButtonState() & BTN_RELEASED_RMB)
@@ -205,14 +205,14 @@ uint8 gui_tile::Update()
                     this->Game->Map->Tiles[this->TileX][this->TileY] = this->Type;
                 }
 
-                this->Engine->Audio.Play(this->Game->Assets->GuiAudio, CH_GUI, 1, 0);
+                this->Engine->Audio.Play(this->Game->Assets->ButtonAudio, CH_BUTTON, 1, 0);
             }
         }
 
         if ((this->Overlapbox->GetButtonState() & BTN_RELEASED_MMB) && this->TileY == 0)
         {
             *this->Game->Map->Spawn = this->TileX;
-            this->Engine->Audio.Play(this->Game->Assets->GuiAudio, CH_GUI, 1, 0);
+            this->Engine->Audio.Play(this->Game->Assets->ButtonAudio, CH_BUTTON, 1, 0);
         }
     }
     else
@@ -233,7 +233,7 @@ uint8 gui_tile::Update()
         this->Texturebox->ColorG = 255;
         this->Texturebox->ColorB = 255;
     }
-    this->Texturebox->SetTextureID(this->Game->Assets->TileTextures[this->Game->Map->Tiles[this->TileX][this->TileY]]);
+    this->Texturebox->SetTextureID(this->Game->Assets->TileIconTextures[this->Game->Map->Tiles[this->TileX][this->TileY]]);
 
     return 0;
 }

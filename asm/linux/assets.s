@@ -12,28 +12,30 @@
 	.string	"assets/fonts/Hack-Italic.ttf"
 .LC3:
 	.string	"assets/fonts/Hack-Regular.ttf"
-.LC4:
-	.string	"assets/gui/button.png"
-.LC5:
-	.string	"assets/gui/text_bubble.png"
-.LC6:
-	.string	"assets/gui/pause.png"
 	.section	.rodata.str1.8
 	.align 8
+.LC4:
+	.string	"assets/gui/menu_background.png"
+	.section	.rodata.str1.1
+.LC5:
+	.string	"assets/gui/button.png"
+.LC6:
+	.string	"assets/gui/pause.png"
 .LC7:
-	.string	"assets/gui/hearth/left_full.png"
+	.string	"assets/gui/text_bubble.png"
+	.section	.rodata.str1.8
 	.align 8
 .LC8:
-	.string	"assets/gui/hearth/left_empty.png"
+	.string	"assets/gui/hearth/left_full.png"
 	.align 8
 .LC9:
-	.string	"assets/gui/hearth/right_full.png"
+	.string	"assets/gui/hearth/left_empty.png"
 	.align 8
 .LC10:
-	.string	"assets/gui/hearth/right_empty.png"
+	.string	"assets/gui/hearth/right_full.png"
 	.align 8
 .LC11:
-	.string	"assets/gui/menu_background.png"
+	.string	"assets/gui/hearth/right_empty.png"
 	.section	.rodata.str1.1
 .LC12:
 	.string	"assets/player/idle/idle1.png"
@@ -302,24 +304,23 @@
 	.string	"assets/tuna/tuna32.png"
 .LC125:
 	.string	"assets/etc/crate.png"
-	.section	.rodata.str1.8
-	.align 8
 .LC126:
-	.string	"assets/etc/trapdoor_closed.png"
+	.string	"assets/house/frame.png"
+	.section	.rodata.str1.8
 	.align 8
 .LC127:
 	.string	"assets/etc/trapdoor_opened.png"
 	.section	.rodata.str1.1
 .LC128:
-	.string	"assets/house/frame.png"
-.LC129:
 	.string	"assets/etc/grass.png"
-.LC130:
+.LC129:
 	.string	"assets/audio/music.wav"
-.LC131:
+.LC130:
 	.string	"assets/audio/gui.mp3"
-.LC132:
+.LC131:
 	.string	"assets/audio/player_fall.mp3"
+.LC132:
+	.string	"assets/audio/hurt.wav"
 .LC133:
 	.string	"assets/audio/jump.wav"
 .LC134:
@@ -327,22 +328,20 @@
 .LC135:
 	.string	"assets/audio/crate_fall.wav"
 .LC136:
-	.string	"assets/audio/hurt.wav"
-.LC137:
 	.string	"assets/audio/collapse.wav"
-.LC138:
+.LC137:
 	.string	"assets/audio/lever.wav"
-.LC139:
+.LC138:
 	.string	"assets/audio/trapdoor.wav"
-.LC140:
+.LC139:
 	.string	"assets/audio/tuna.wav"
-.LC141:
+.LC140:
 	.string	"assets/audio/heartbeat.wav"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB142:
+.LCOLDB141:
 	.text
-.LHOTB142:
+.LHOTB141:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -1152,7 +1151,7 @@ _ZN6assetsC2EPN3wze6engineE:
 	movq	(%rbx), %rax
 	leaq	.LC129(%rip), %rsi
 	leaq	344(%rax), %rdi
-	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
+	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
 	movq	%rax, 392(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC130(%rip), %rsi
@@ -1209,11 +1208,6 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	344(%rax), %rdi
 	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
 	movq	%rax, 480(%rbx)
-	movq	(%rbx), %rax
-	leaq	.LC141(%rip), %rsi
-	leaq	344(%rax), %rdi
-	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
-	movq	%rax, 488(%rbx)
 	movq	904(%rsp), %rax
 	subq	%fs:40, %rax
 	jne	.L75
@@ -1498,7 +1492,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB1-.LCOLDB142
+	.uleb128 .LEHB1-.LCOLDB141
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1508,9 +1502,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.size	_ZN6assetsC2EPN3wze6engineE, .-_ZN6assetsC2EPN3wze6engineE
 	.section	.text.unlikely
 	.size	_ZN6assetsC2EPN3wze6engineE.cold, .-_ZN6assetsC2EPN3wze6engineE.cold
-.LCOLDE142:
+.LCOLDE141:
 	.text
-.LHOTE142:
+.LHOTE141:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE
 	.align 2

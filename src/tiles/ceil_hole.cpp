@@ -5,9 +5,9 @@ tile_ceil_hole::tile_ceil_hole(engine* Engine, game* Game, double X, double Y) :
     engine::texturebox tmp;
 
     this->Actor = this->Engine->Actors.New(NULL, ACT_TILE, X, Y, 100, 100, 1);
-    this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgrounds[this->Engine->Math.Random(0, this->Game->Assets->TileBackgrounds.Length())]);
+    this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgroundTextures[this->Engine->Math.Random(0, this->Game->Assets->TileBackgroundTextures.Length())]);
     this->SpikesOverlapBox = this->Actor->Overlapboxes.New(BOX_DAMAGE);
-    this->SpikesTextureBox = this->Actor->Textureboxes.New(this->Game->Assets->TrapSpikes);
+    this->SpikesTextureBox = this->Actor->Textureboxes.New(this->Game->Assets->TrapSpikesTexture);
 
     this->Background->Priority = 127;
 
@@ -26,7 +26,7 @@ tile_ceil_hole::tile_ceil_hole(engine* Engine, game* Game, double X, double Y) :
     this->HitboxBot->Resistance = 100;
     for (uint8 i = 0; i < 3; i++)
     {
-        tmp = this->HitboxBot->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Math.Random(0, this->Game->Assets->TilePlatforms.Length())]);
+        tmp = this->HitboxBot->Textureboxes.New(this->Game->Assets->TilePlatformTextures[this->Engine->Math.Random(0, this->Game->Assets->TilePlatformTextures.Length())]);
         tmp->SetX(X - 20 + 20 * i);
         tmp->Width = 20;
         tmp->Height = 20;
@@ -35,22 +35,22 @@ tile_ceil_hole::tile_ceil_hole(engine* Engine, game* Game, double X, double Y) :
     this->HitboxTopLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y + 40, 20, 20, 1);
     this->HitboxTopLeft->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxTopLeft->Resistance = 100;
-    this->HitboxTopLeft->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Math.Random(0, this->Game->Assets->TilePlatforms.Length())]);
+    this->HitboxTopLeft->Textureboxes.New(this->Game->Assets->TilePlatformTextures[this->Engine->Math.Random(0, this->Game->Assets->TilePlatformTextures.Length())]);
     
     this->HitboxTopRight = this->Engine->Actors.New(NULL, ACT_PLATFORM, X + 40, Y + 40, 20, 20, 1);
     this->HitboxTopRight->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxTopRight->Resistance = 100;
-    this->HitboxTopRight->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Math.Random(0, this->Game->Assets->TilePlatforms.Length())]);
+    this->HitboxTopRight->Textureboxes.New(this->Game->Assets->TilePlatformTextures[this->Engine->Math.Random(0, this->Game->Assets->TilePlatformTextures.Length())]);
     
     this->HitboxBotLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y - 40, 20, 20, 1);
     this->HitboxBotLeft->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxBotLeft->Resistance = 100;
-    this->HitboxBotLeft->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Math.Random(0, this->Game->Assets->TilePlatforms.Length())]);
+    this->HitboxBotLeft->Textureboxes.New(this->Game->Assets->TilePlatformTextures[this->Engine->Math.Random(0, this->Game->Assets->TilePlatformTextures.Length())]);
     
     this->HitboxBotRight = this->Engine->Actors.New(NULL, ACT_PLATFORM, X + 40, Y - 40, 20, 20, 1);
     this->HitboxBotRight->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxBotRight->Resistance = 100;
-    this->HitboxBotRight->Textureboxes.New(this->Game->Assets->TilePlatforms[this->Engine->Math.Random(0, this->Game->Assets->TilePlatforms.Length())]);
+    this->HitboxBotRight->Textureboxes.New(this->Game->Assets->TilePlatformTextures[this->Engine->Math.Random(0, this->Game->Assets->TilePlatformTextures.Length())]);
 }
 
 tile_ceil_hole::~tile_ceil_hole()

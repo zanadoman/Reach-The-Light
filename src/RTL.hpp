@@ -73,13 +73,13 @@ typedef enum
 typedef enum
 {
     CH_MUSIC,
-    CH_GUI,
+    CH_BUTTON,
     CH_PLAYER_FALL,
+    CH_PLAYER_HURT,
     CH_PLAYER_JUMP,
     CH_PLAYER_LATCH,
     CH_CRATE_FALL,
-    CH_HURT,
-    CH_COLLAPSE,
+    CH_TRAP_PLATFORM,
     CH_LEVER,
     CH_TRAPDOOR,
     CH_TUNA,
@@ -134,59 +134,57 @@ struct assets
     uint64 HackItalicFont;
     uint64 HackRegularFont;
 
+    uint64 MenuBackgroundTexture;
+
     uint64 ButtonTexture;
-    uint64 TextBubble;
     uint64 PauseTexture;
+    uint64 TextBubbleTexture;
 
-    uint64 HearthLeftFull;
-    uint64 HearthLeftEmpty;
-    uint64 HearthRightFull;
-    uint64 HearthRightEmpty;
+    uint64 HearthLeftFullTexture;
+    uint64 HearthLeftEmptyTexture;
+    uint64 HearthRightFullTexture;
+    uint64 HearthRightEmptyTexture;
 
-    uint64 MenuBackground;
+    array<uint64> PlayerIdleTextures;
+    array<uint64> PlayerRunTextures;
+    array<uint64> PlayerJumpTextures;
+    array<uint64> PlayerFallTextures;
+    array<uint64> PlayerLatchTextures;
+    array<uint64> PlayerDeadTextures;
+    uint64 PlayerHurtTexture;
 
-    array<uint64> PlayerIdle;
-    array<uint64> PlayerRun;
-    array<uint64> PlayerJump;
-    array<uint64> PlayerFall;
-    array<uint64> PlayerLatch;
-    array<uint64> PlayerDead;
-    uint64 PlayerHurt;
+    array<uint64> FireflyTextures;
+    uint64 FireflyBloomTexture;
+    uint64 FireflyMaskTexture;
 
-    array<uint64> Firefly;
-    uint64 FireflyBloom;
-    uint64 FireflyMask;
+    array<uint64> TileIconTextures;
+    array<uint64> TileBackgroundTextures;
+    array<uint64> TilePlatformTextures;
+    uint64 TileRotatingOFFTexture;
+    uint64 TileRotatingONTexture;
 
-    array<uint64> TileTextures;
-    array<uint64> TileBackgrounds;
-    array<uint64> TilePlatforms;
-    uint64 TileRotatingOFF;
-    uint64 TileRotatingON;
-
-    uint64 TrapSpikes;
-    uint64 TrapSpikesSmall;
-    uint64 TrapPlatform;
-    uint64 TrapSpider;
-    uint64 TrapWeb;
+    uint64 TrapSpikesTexture;
+    uint64 TrapSpikesSmallTexture;
+    uint64 TrapPlatformTexture;
+    uint64 TrapSpiderTexture;
+    uint64 TrapWebTexture;
 
     array<uint64> TunaTextures;
 
     uint64 CrateTexture;
 
-    uint64 TrapdoorClosed;
-    uint64 TrapdoorOpened;
-
-    uint64 HouseFrame;
+    uint64 HouseTexture;
+    uint64 TrapdoorTexture;
     uint64 GrassTexture;
 
     uint64 Music;
-    uint64 GuiAudio;
+    uint64 ButtonAudio;
     uint64 PlayerFallAudio;
+    uint64 PlayerHurtAudio;
     uint64 PlayerJumpAudio;
     uint64 PlayerLatchAudio;
     uint64 CrateFallAudio;
-    uint64 HurtAudio;
-    uint64 CollapseAudio;
+    uint64 TrapPlatformAudio;
     uint64 LeverAudio;
     uint64 TrapdoorAudio;
     uint64 TunaAudio;

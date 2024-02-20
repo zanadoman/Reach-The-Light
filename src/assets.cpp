@@ -7,18 +7,18 @@ assets::assets(engine* Engine) : Engine(Engine)
     this->HackItalicFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Italic.ttf", 72);
     this->HackRegularFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Regular.ttf", 72);
 
+    this->MenuBackgroundTexture = this->Engine->Assets.LoadTexture("assets/gui/menu_background.png");
+
     this->ButtonTexture = this->Engine->Assets.LoadTexture("assets/gui/button.png");
-    this->TextBubble = this->Engine->Assets.LoadTexture("assets/gui/text_bubble.png");
     this->PauseTexture = this->Engine->Assets.LoadTexture("assets/gui/pause.png");
+    this->TextBubbleTexture = this->Engine->Assets.LoadTexture("assets/gui/text_bubble.png");
 
-    this->HearthLeftFull = this->Engine->Assets.LoadTexture("assets/gui/hearth/left_full.png");
-    this->HearthLeftEmpty = this->Engine->Assets.LoadTexture("assets/gui/hearth/left_empty.png");
-    this->HearthRightFull = this->Engine->Assets.LoadTexture("assets/gui/hearth/right_full.png");
-    this->HearthRightEmpty = this->Engine->Assets.LoadTexture("assets/gui/hearth/right_empty.png");
+    this->HearthLeftFullTexture = this->Engine->Assets.LoadTexture("assets/gui/hearth/left_full.png");
+    this->HearthLeftEmptyTexture = this->Engine->Assets.LoadTexture("assets/gui/hearth/left_empty.png");
+    this->HearthRightFullTexture = this->Engine->Assets.LoadTexture("assets/gui/hearth/right_full.png");
+    this->HearthRightEmptyTexture = this->Engine->Assets.LoadTexture("assets/gui/hearth/right_empty.png");
 
-    this->MenuBackground = this->Engine->Assets.LoadTexture("assets/gui/menu_background.png");
-
-    this->PlayerIdle =
+    this->PlayerIdleTextures =
     {
         this->Engine->Assets.LoadTexture("assets/player/idle/idle1.png"),
         this->Engine->Assets.LoadTexture("assets/player/idle/idle2.png"),
@@ -27,7 +27,7 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadTexture("assets/player/idle/idle5.png"),
         this->Engine->Assets.LoadTexture("assets/player/idle/idle6.png"),
     };
-    this->PlayerRun =
+    this->PlayerRunTextures =
     {
         this->Engine->Assets.LoadTexture("assets/player/run/run1.png"),
         this->Engine->Assets.LoadTexture("assets/player/run/run2.png"),
@@ -36,19 +36,19 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadTexture("assets/player/run/run5.png"),
         this->Engine->Assets.LoadTexture("assets/player/run/run6.png"),
     };
-    this->PlayerJump =
+    this->PlayerJumpTextures =
     {
         this->Engine->Assets.LoadTexture("assets/player/jump/jump1.png"),
         this->Engine->Assets.LoadTexture("assets/player/jump/jump2.png"),
         this->Engine->Assets.LoadTexture("assets/player/jump/jump3.png")
     };
-    this->PlayerFall =
+    this->PlayerFallTextures =
     {
         this->Engine->Assets.LoadTexture("assets/player/fall/fall1.png"),
         this->Engine->Assets.LoadTexture("assets/player/fall/fall2.png"),
         this->Engine->Assets.LoadTexture("assets/player/fall/fall3.png")
     };
-    this->PlayerLatch =
+    this->PlayerLatchTextures =
     {
         this->Engine->Assets.LoadTexture("assets/player/latch/latch1.png"),
         this->Engine->Assets.LoadTexture("assets/player/latch/latch2.png"),
@@ -57,7 +57,7 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadTexture("assets/player/latch/latch5.png"),
         this->Engine->Assets.LoadTexture("assets/player/latch/latch6.png")
     };
-    this->PlayerDead =
+    this->PlayerDeadTextures =
     {
         this->Engine->Assets.LoadTexture("assets/player/dead/dead1.png"),
         this->Engine->Assets.LoadTexture("assets/player/dead/dead2.png"),
@@ -72,9 +72,9 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadTexture("assets/player/dead/dead11.png"),
         this->Engine->Assets.LoadTexture("assets/player/dead/dead12.png"),
     },
-    this->PlayerHurt = this->Engine->Assets.LoadTexture("assets/player/hurt.png");
+    this->PlayerHurtTexture = this->Engine->Assets.LoadTexture("assets/player/hurt.png");
 
-    this->Firefly =
+    this->FireflyTextures =
     {
         this->Engine->Assets.LoadTexture("assets/firefly/firefly1.png"),
         this->Engine->Assets.LoadTexture("assets/firefly/firefly2.png"),
@@ -87,10 +87,10 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadTexture("assets/firefly/firefly9.png"),
         this->Engine->Assets.LoadTexture("assets/firefly/firefly10.png"),
     };
-    this->FireflyBloom = this->Engine->Assets.LoadTexture("assets/firefly/bloom.png");
-    this->FireflyMask = this->Engine->Assets.LoadTexture("assets/firefly/mask.png");
+    this->FireflyBloomTexture = this->Engine->Assets.LoadTexture("assets/firefly/bloom.png");
+    this->FireflyMaskTexture = this->Engine->Assets.LoadTexture("assets/firefly/mask.png");
 
-    this->TileTextures =
+    this->TileIconTextures =
     {
         this->Engine->Assets.LoadTexture("assets/tiles/icons/top_left_corner.png"),
         this->Engine->Assets.LoadTexture("assets/tiles/icons/top_right_corner.png"),
@@ -105,7 +105,7 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadTexture("assets/tiles/icons/horizontal_rotating.png"),
         this->Engine->Assets.LoadTexture("assets/tiles/icons/vertical_rotating.png"),
     };
-    this->TileBackgrounds =
+    this->TileBackgroundTextures =
     {
         this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/background1.png"),
         this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/background2.png"),
@@ -114,33 +114,33 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/background5.png"),
         this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/background6.png")
     };
-    this->TileBackgrounds +=
+    this->TileBackgroundTextures +=
     {
-        this->TileBackgrounds[0],
-        this->TileBackgrounds[0],
-        this->TileBackgrounds[0],
-        this->TileBackgrounds[1],
-        this->TileBackgrounds[1],
-        this->TileBackgrounds[1],
-        this->TileBackgrounds[3],
-        this->TileBackgrounds[4],
-        this->TileBackgrounds[5]
+        this->TileBackgroundTextures[0],
+        this->TileBackgroundTextures[0],
+        this->TileBackgroundTextures[0],
+        this->TileBackgroundTextures[1],
+        this->TileBackgroundTextures[1],
+        this->TileBackgroundTextures[1],
+        this->TileBackgroundTextures[3],
+        this->TileBackgroundTextures[4],
+        this->TileBackgroundTextures[5]
     };
-    this->TilePlatforms =
+    this->TilePlatformTextures =
     {
         this->Engine->Assets.LoadTexture("assets/tiles/platforms/platform1.png"),
         this->Engine->Assets.LoadTexture("assets/tiles/platforms/platform2.png"),
         this->Engine->Assets.LoadTexture("assets/tiles/platforms/platform3.png"),
         this->Engine->Assets.LoadTexture("assets/tiles/platforms/platform4.png")
     };
-    this->TileRotatingOFF = {this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/rotating_off.png")};
-    this->TileRotatingON = {this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/rotating_on.png")};
+    this->TileRotatingOFFTexture = {this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/rotating_off.png")};
+    this->TileRotatingONTexture = {this->Engine->Assets.LoadTexture("assets/tiles/backgrounds/rotating_on.png")};
 
-    this->TrapSpikes = this->Engine->Assets.LoadTexture("assets/traps/spikes.png");
-    this->TrapSpikesSmall = this->Engine->Assets.LoadTexture("assets/traps/spikes_small.png");  
-    this->TrapPlatform = this->Engine->Assets.LoadTexture("assets/traps/platform.png");
-    this->TrapSpider = this->Engine->Assets.LoadTexture("assets/traps/spider.png");
-    this->TrapWeb = this->Engine->Assets.LoadTexture("assets/traps/web.png");
+    this->TrapSpikesTexture = this->Engine->Assets.LoadTexture("assets/traps/spikes.png");
+    this->TrapSpikesSmallTexture = this->Engine->Assets.LoadTexture("assets/traps/spikes_small.png");  
+    this->TrapPlatformTexture = this->Engine->Assets.LoadTexture("assets/traps/platform.png");
+    this->TrapSpiderTexture = this->Engine->Assets.LoadTexture("assets/traps/spider.png");
+    this->TrapWebTexture = this->Engine->Assets.LoadTexture("assets/traps/web.png");
 
     this->TunaTextures =
     {
@@ -180,20 +180,18 @@ assets::assets(engine* Engine) : Engine(Engine)
 
     this->CrateTexture = this->Engine->Assets.LoadTexture("assets/etc/crate.png");
 
-    this->TrapdoorClosed = this->Engine->Assets.LoadTexture("assets/etc/trapdoor_closed.png");
-    this->TrapdoorOpened = this->Engine->Assets.LoadTexture("assets/etc/trapdoor_opened.png");
-
-    this->HouseFrame = this->Engine->Assets.LoadTexture("assets/house/frame.png");
+    this->HouseTexture = this->Engine->Assets.LoadTexture("assets/house/frame.png");
+    this->TrapdoorTexture = this->Engine->Assets.LoadTexture("assets/etc/trapdoor_opened.png");
     this->GrassTexture = this->Engine->Assets.LoadTexture("assets/etc/grass.png");
 
     this->Music = this->Engine->Assets.LoadSound("assets/audio/music.wav");
-    this->GuiAudio = this->Engine->Assets.LoadSound("assets/audio/gui.mp3");
+    this->ButtonAudio = this->Engine->Assets.LoadSound("assets/audio/gui.mp3");
     this->PlayerFallAudio = this->Engine->Assets.LoadSound("assets/audio/player_fall.mp3");
+    this->PlayerHurtAudio = this->Engine->Assets.LoadSound("assets/audio/hurt.wav");
     this->PlayerJumpAudio = this->Engine->Assets.LoadSound("assets/audio/jump.wav");
     this->PlayerLatchAudio = this->Engine->Assets.LoadSound("assets/audio/latch.ogg");
     this->CrateFallAudio = this->Engine->Assets.LoadSound("assets/audio/crate_fall.wav");
-    this->HurtAudio = this->Engine->Assets.LoadSound("assets/audio/hurt.wav");
-    this->CollapseAudio = this->Engine->Assets.LoadSound("assets/audio/collapse.wav");
+    this->TrapPlatformAudio = this->Engine->Assets.LoadSound("assets/audio/collapse.wav");
     this->LeverAudio = this->Engine->Assets.LoadSound("assets/audio/lever.wav");
     this->TrapdoorAudio = this->Engine->Assets.LoadSound("assets/audio/trapdoor.wav");
     this->TunaAudio = this->Engine->Assets.LoadSound("assets/audio/tuna.wav");
