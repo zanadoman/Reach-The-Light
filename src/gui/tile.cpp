@@ -1,8 +1,8 @@
 #include "../RTL.hpp"
 
-gui_tile::gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, uint8 TileX, uint8 TileY) : Engine(Engine), Game(Game)
+gui_tile::gui_tile(engine* Engine, game* Game, double X, double Y, uint8 TileX, uint8 TileY) : Engine(Engine), Game(Game)
 {
-    this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, Width, Height, 1);
+    this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 100, 100, 1);
     this->Overlapbox = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Texturebox = this->Actor->Textureboxes.New(this->Game->Assets->TileIconTextures[this->Game->Map->Tiles[TileX][TileY]]);
     this->Top = this->Actor->Colorboxes.New();
@@ -65,27 +65,27 @@ gui_tile::gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width,
         this->Type = this->Game->Map->Tiles[TileX][TileY];
     }
 
+    this->Top->SetY(this->Actor->GetY() + 50);
     this->Top->Width = 104;
     this->Top->Height = 4;
-    this->Top->SetY(this->Actor->GetY() + 50);
     this->Top->Priority = 129;
     this->Top->Visible = false;
 
+    this->Bottom->SetY(this->Actor->GetY() - 50);
     this->Bottom->Width = 104;
     this->Bottom->Height = 4;
-    this->Bottom->SetY(this->Actor->GetY() - 50);
     this->Bottom->Priority = 129;
     this->Bottom->Visible = false;
 
+    this->Left->SetX(this->Actor->GetX() - 50);
     this->Left->Width = 4;
     this->Left->Height = 104;
-    this->Left->SetX(this->Actor->GetX() - 50);
     this->Left->Priority = 129;
     this->Left->Visible = false;
 
+    this->Right->SetX(this->Actor->GetX() + 50);
     this->Right->Width = 4;
     this->Right->Height = 104;
-    this->Right->SetX(this->Actor->GetX() + 50);
     this->Right->Priority = 129;
     this->Right->Visible = false;
 }
@@ -156,8 +156,7 @@ uint8 gui_tile::Update()
 
                 this->Engine->Audio.Play(this->Game->Assets->ButtonAudio, CH_BUTTON, 1, 0);
             }
-
-            if (this->Overlapbox->GetButtonState() & BTN_RELEASED_RMB)
+            else if (this->Overlapbox->GetButtonState() & BTN_RELEASED_RMB)
             {
                 if (this->TileY == MAP_Y - 1)
                 {
@@ -208,8 +207,7 @@ uint8 gui_tile::Update()
                 this->Engine->Audio.Play(this->Game->Assets->ButtonAudio, CH_BUTTON, 1, 0);
             }
         }
-
-        if ((this->Overlapbox->GetButtonState() & BTN_RELEASED_MMB) && this->TileY == 0)
+        else if ((this->Overlapbox->GetButtonState() & BTN_RELEASED_MMB) && this->TileY == 0)
         {
             *this->Game->Map->Spawn = this->TileX;
             this->Engine->Audio.Play(this->Game->Assets->ButtonAudio, CH_BUTTON, 1, 0);

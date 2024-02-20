@@ -5,8 +5,8 @@ scene_editor::scene_editor(engine* Engine, game* Game) : Engine(Engine), Game(Ga
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, 0, 0, 0, 0, 1);
     this->HintBubble1 = this->Actor->Textureboxes.New(this->Game->Assets->TextBubbleTexture);
     this->HintBubble2 = this->Actor->Textureboxes.New(this->Game->Assets->TextBubbleTexture);
-    this->Player1 = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdleTextures);
-    this->Player2 = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdleTextures);
+    this->PlayerRun1 = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdleTextures);
+    this->PlayerRun2 = this->Actor->Flipbooks.New(125, &this->Game->Assets->PlayerIdleTextures);
     this->ScrollUpHint = this->Actor->Textboxes.New("Felgördítés: görgő fel", this->Game->Assets->HackBoldFont);
     this->ScrollDownHint = this->Actor->Textboxes.New("Legördítés: görgő le", this->Game->Assets->HackBoldFont);
     this->ZoomInHint = this->Actor->Textboxes.New("Nagyítás: ctrl + görgő fel", this->Game->Assets->HackBoldFont);
@@ -30,16 +30,16 @@ scene_editor::scene_editor(engine* Engine, game* Game) : Engine(Engine), Game(Ga
     this->HintBubble2->Width = 840;
     this->HintBubble2->Height = 290;
 
-    this->Player1->SetX(-860);
-    this->Player1->SetY(210);
-    this->Player1->Width = 128;
-    this->Player1->Height = 128;
+    this->PlayerRun1->SetX(-860);
+    this->PlayerRun1->SetY(210);
+    this->PlayerRun1->Width = 128;
+    this->PlayerRun1->Height = 128;
 
-    this->Player2->SetX(860);
-    this->Player2->SetY(0);
-    this->Player2->Width = 128;
-    this->Player2->Height = 128;
-    this->Player2->FlipHorizontal = true;
+    this->PlayerRun2->SetX(860);
+    this->PlayerRun2->SetY(0);
+    this->PlayerRun2->Width = 128;
+    this->PlayerRun2->Height = 128;
+    this->PlayerRun2->FlipHorizontal = true;
 
     this->ScrollUpHint->SetX(-840);
     this->ScrollUpHint->SetY(470);
@@ -77,7 +77,7 @@ scene_editor::scene_editor(engine* Engine, game* Game) : Engine(Engine), Game(Ga
     {
         for (uint8 j = 0; j < MAP_Y; j++)
         {
-            this->Tiles[i][j] = new gui_tile(this->Engine, this->Game, -350 + 100 * i, -750 + 100 * j, 100, 100, i, j);
+            this->Tiles[i][j] = new gui_tile(this->Engine, this->Game, -350 + 100 * i, -750 + 100 * j, i, j);
         }
     }
 

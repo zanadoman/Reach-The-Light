@@ -19,9 +19,9 @@
 	.string	"FPS"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB23:
+.LCOLDB22:
 	.text
-.LHOTB23:
+.LHOTB22:
 	.align 2
 	.p2align 4
 	.globl	_ZN10scene_menuC2EPN3wze6engineEP4game
@@ -292,9 +292,15 @@ _ZN10scene_menuC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
+	movq	(%rbx), %rdi
+	movq	32(%rbx), %rbp
+	call	_ZN3wze6engine6window9GetHeightEv@PLT
+	movq	(%rbx), %rdi
+	movw	%ax, 16(%rbp)
+	movq	32(%rbx), %rbp
+	call	_ZN3wze6engine6window9GetHeightEv@PLT
 .LEHE14:
-	movq	32(%rbx), %rax
-	movl	$94373280, 16(%rax)
+	movw	%ax, 18(%rbp)
 	addq	$24, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
@@ -459,7 +465,7 @@ _ZN10scene_menuC2EPN3wze6engineEP4game.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB15-.LCOLDB23
+	.uleb128 .LEHB15-.LCOLDB22
 	.uleb128 .LEHE15-.LEHB15
 	.uleb128 0
 	.uleb128 0
@@ -469,9 +475,9 @@ _ZN10scene_menuC2EPN3wze6engineEP4game.cold:
 	.size	_ZN10scene_menuC2EPN3wze6engineEP4game, .-_ZN10scene_menuC2EPN3wze6engineEP4game
 	.section	.text.unlikely
 	.size	_ZN10scene_menuC2EPN3wze6engineEP4game.cold, .-_ZN10scene_menuC2EPN3wze6engineEP4game.cold
-.LCOLDE23:
+.LCOLDE22:
 	.text
-.LHOTE23:
+.LHOTE22:
 	.globl	_ZN10scene_menuC1EPN3wze6engineEP4game
 	.set	_ZN10scene_menuC1EPN3wze6engineEP4game,_ZN10scene_menuC2EPN3wze6engineEP4game
 	.align 2

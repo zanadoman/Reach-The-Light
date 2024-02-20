@@ -47,27 +47,31 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
 	.cfi_lsda 0x1b,.LLSDA8157
-	pushq	%rbp
+	pushq	%r15
 	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
+	.cfi_offset 15, -16
 	pxor	%xmm1, %xmm1
 	xorl	%r8d, %r8d
 	xorl	%ecx, %ecx
-	movapd	%xmm1, %xmm0
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
-	pushq	%r15
 	pushq	%r14
+	.cfi_def_cfa_offset 24
+	.cfi_offset 14, -24
+	movapd	%xmm1, %xmm0
 	pushq	%r13
-	.cfi_offset 15, -24
-	.cfi_offset 14, -32
-	.cfi_offset 13, -40
+	.cfi_def_cfa_offset 32
+	.cfi_offset 13, -32
 	movq	%rdi, %r13
 	pushq	%r12
+	.cfi_def_cfa_offset 40
+	.cfi_offset 12, -40
+	pushq	%rbp
+	.cfi_def_cfa_offset 48
+	.cfi_offset 6, -48
 	pushq	%rbx
-	subq	$40, %rsp
-	.cfi_offset 12, -48
+	.cfi_def_cfa_offset 56
 	.cfi_offset 3, -56
+	subq	$40, %rsp
+	.cfi_def_cfa_offset 96
 	movq	%rsi, (%rdi)
 	movq	.LC0(%rip), %rax
 	movq	%rdx, 8(%rdi)
@@ -372,17 +376,17 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	112(%r13), %rdi
 	movl	$30, %esi
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
-	movl	$-350, -76(%rbp)
-	movq	$0, -72(%rbp)
+	movl	$-350, 28(%rsp)
+	movq	$0, 16(%rsp)
 	.p2align 4,,10
 	.p2align 3
 .L2:
 	pxor	%xmm3, %xmm3
-	movl	-72(%rbp), %r15d
+	movl	16(%rsp), %r15d
 	movl	$-750, %r12d
 	xorl	%ebx, %ebx
-	cvtsi2sdl	-76(%rbp), %xmm3
-	movsd	%xmm3, -64(%rbp)
+	cvtsi2sdl	28(%rsp), %xmm3
+	movsd	%xmm3, 8(%rsp)
 	.p2align 4,,10
 	.p2align 3
 .L3:
@@ -390,65 +394,64 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	call	_Znwm@PLT
 .LEHE8:
 	pxor	%xmm1, %xmm1
-	subq	$8, %rsp
-	movl	%r15d, %r9d
-	cvtsi2sdl	%r12d, %xmm1
 	movq	8(%r13), %rdx
+	movl	%ebx, %r8d
+	cvtsi2sdl	%r12d, %xmm1
 	movq	0(%r13), %rsi
-	pushq	%rbx
-	movsd	-64(%rbp), %xmm0
-	movl	$100, %r8d
+	movl	%r15d, %ecx
 	movq	%rax, %rdi
-	movq	%rax, -56(%rbp)
-	movl	$100, %ecx
+	movsd	8(%rsp), %xmm0
+	movq	%rax, %rbp
 .LEHB9:
-	.cfi_escape 0x2e,0x10
-	call	_ZN8gui_tileC1EPN3wze6engineEP4gameddtthh@PLT
+	call	_ZN8gui_tileC1EPN3wze6engineEP4gameddhh@PLT
 .LEHE9:
-	popq	%rax
-	movq	-56(%rbp), %rax
-	addl	$100, %r12d
-	popq	%rdx
-	movq	%rax, 152(%r14,%rbx,8)
+	movq	%rbp, 152(%r14,%rbx,8)
 	addq	$1, %rbx
+	addl	$100, %r12d
 	cmpq	$16, %rbx
 	jne	.L3
-	addq	$1, -72(%rbp)
-	movq	-72(%rbp), %rax
+	addq	$1, 16(%rsp)
+	movq	16(%rsp), %rax
 	subq	$-128, %r14
-	addl	$100, -76(%rbp)
+	addl	$100, 28(%rsp)
 	cmpq	$8, %rax
 	jne	.L2
 	movq	0(%r13), %rdi
 	movsd	.LC33(%rip), %xmm0
-	leaq	-40(%rbp), %rsp
-	popq	%rbx
-	popq	%r12
-	addq	$80, %rdi
-	popq	%r13
-	popq	%r14
-	popq	%r15
-	popq	%rbp
+	addq	$40, %rsp
 	.cfi_remember_state
-	.cfi_def_cfa 7, 8
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%rbp
+	.cfi_def_cfa_offset 40
+	addq	$80, %rdi
+	popq	%r12
+	.cfi_def_cfa_offset 32
+	popq	%r13
+	.cfi_def_cfa_offset 24
+	popq	%r14
+	.cfi_def_cfa_offset 16
+	popq	%r15
+	.cfi_def_cfa_offset 8
 .LEHB10:
 	jmp	_ZN3wze6engine6camera10SetOriginYEd@PLT
 .LEHE10:
 .L10:
 	.cfi_restore_state
-	movq	%rax, %r15
+	movq	%rax, %rbp
 	jmp	.L5
 .L14:
 	movq	%rax, %rbx
 	jmp	.L9
 .L12:
-	movq	%rax, %r15
+	movq	%rax, %rbp
 	jmp	.L7
 .L13:
-	movq	%rax, %r15
+	movq	%rax, %rbp
 	jmp	.L8
 .L11:
-	movq	%rax, %r15
+	movq	%rax, %rbp
 	jmp	.L6
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
@@ -513,21 +516,21 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 .LFSB8157:
 .L5:
-	.cfi_def_cfa 6, 16
+	.cfi_def_cfa_offset 96
 	.cfi_offset 3, -56
-	.cfi_offset 6, -16
-	.cfi_offset 12, -48
-	.cfi_offset 13, -40
-	.cfi_offset 14, -32
-	.cfi_offset 15, -24
+	.cfi_offset 6, -48
+	.cfi_offset 12, -40
+	.cfi_offset 13, -32
+	.cfi_offset 14, -24
+	.cfi_offset 15, -16
 	movq	%rbx, %rdi
 	movl	$64, %esi
 	call	_ZdlPvm@PLT
-	movq	%r15, %rdi
+	movq	%rbp, %rdi
 .LEHB11:
 	call	_Unwind_Resume@PLT
 .L9:
-	movq	-56(%rbp), %rdi
+	movq	%rbp, %rdi
 	movl	$80, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
@@ -536,19 +539,19 @@ _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 	movq	%rbx, %rdi
 	movl	$64, %esi
 	call	_ZdlPvm@PLT
-	movq	%r15, %rdi
+	movq	%rbp, %rdi
 	call	_Unwind_Resume@PLT
 .L7:
 	movq	%rbx, %rdi
 	movl	$64, %esi
 	call	_ZdlPvm@PLT
-	movq	%r15, %rdi
+	movq	%rbp, %rdi
 	call	_Unwind_Resume@PLT
 .L6:
 	movq	%rbx, %rdi
 	movl	$64, %esi
 	call	_ZdlPvm@PLT
-	movq	%r15, %rdi
+	movq	%rbp, %rdi
 	call	_Unwind_Resume@PLT
 .LEHE11:
 	.cfi_endproc

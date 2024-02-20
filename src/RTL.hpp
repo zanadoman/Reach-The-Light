@@ -277,8 +277,8 @@ struct scene_editor
     engine::actor Actor;
     engine::texturebox HintBubble1;
     engine::texturebox HintBubble2;
-    engine::flipbook Player1;
-    engine::flipbook Player2;
+    engine::flipbook PlayerRun1;
+    engine::flipbook PlayerRun2;
     engine::textbox ScrollUpHint;
     engine::textbox ScrollDownHint;
     engine::textbox ZoomInHint;
@@ -470,7 +470,7 @@ struct gui_tile
     uint8 TileY;
     uint8 Type;
 
-    gui_tile(engine* Engine, game* Game, double X, double Y, uint16 Width, uint16 Height, uint8 TileX, uint8 TileY);
+    gui_tile(engine* Engine, game* Game, double X, double Y, uint8 TileX, uint8 TileY);
     ~gui_tile();
     uint8 Update();
 };

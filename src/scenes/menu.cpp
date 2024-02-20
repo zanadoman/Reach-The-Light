@@ -19,8 +19,8 @@ scene_menu::scene_menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 
     this->Background->SetX(this->Actor->GetX() + 500);
     this->Background->SetY(this->Actor->GetY());
-    this->Background->Width = 1440;
-    this->Background->Height = 1440;
+    this->Background->Width = this->Engine->Window.GetHeight();
+    this->Background->Height = this->Engine->Window.GetHeight();
 }
 
 scene_menu::~scene_menu()
