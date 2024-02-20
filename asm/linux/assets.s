@@ -229,15 +229,19 @@
 	.string	"assets/tiles/backgrounds/rotating_on.png"
 	.section	.rodata.str1.1
 .LC88:
-	.string	"assets/traps/spikes.png"
+	.string	"assets/tiles/traps/spikes.png"
+	.section	.rodata.str1.8
+	.align 8
 .LC89:
-	.string	"assets/traps/spikes_small.png"
+	.string	"assets/tiles/traps/spikes_small.png"
+	.align 8
 .LC90:
-	.string	"assets/traps/platform.png"
+	.string	"assets/tiles/traps/platform.png"
+	.section	.rodata.str1.1
 .LC91:
-	.string	"assets/traps/spider.png"
+	.string	"assets/tiles/traps/spider.png"
 .LC92:
-	.string	"assets/traps/web.png"
+	.string	"assets/tiles/traps/web.png"
 .LC93:
 	.string	"assets/tuna/tuna1.png"
 .LC94:
@@ -305,30 +309,33 @@
 .LC125:
 	.string	"assets/etc/crate.png"
 .LC126:
-	.string	"assets/house/frame.png"
+	.string	"assets/tiles/house/house.png"
 	.section	.rodata.str1.8
 	.align 8
 .LC127:
-	.string	"assets/etc/trapdoor_opened.png"
+	.string	"assets/tiles/house/trapdoor.png"
 	.section	.rodata.str1.1
 .LC128:
-	.string	"assets/etc/grass.png"
+	.string	"assets/tiles/house/grass.png"
 .LC129:
 	.string	"assets/audio/music.wav"
 .LC130:
-	.string	"assets/audio/gui.mp3"
+	.string	"assets/audio/button.mp3"
 .LC131:
 	.string	"assets/audio/player_fall.mp3"
 .LC132:
-	.string	"assets/audio/hurt.wav"
+	.string	"assets/audio/player_hurt.wav"
 .LC133:
-	.string	"assets/audio/jump.wav"
+	.string	"assets/audio/player_jump.wav"
 .LC134:
-	.string	"assets/audio/latch.ogg"
+	.string	"assets/audio/player_latch.ogg"
 .LC135:
 	.string	"assets/audio/crate_fall.wav"
+	.section	.rodata.str1.8
+	.align 8
 .LC136:
-	.string	"assets/audio/collapse.wav"
+	.string	"assets/audio/trap_platform.wav"
+	.section	.rodata.str1.1
 .LC137:
 	.string	"assets/audio/lever.wav"
 .LC138:
