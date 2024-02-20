@@ -210,7 +210,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	pxor	%xmm0, %xmm0
 	movq	(%r12), %rsi
 	movsd	.LC5(%rip), %xmm1
-	leaq	1104(%r12), %rcx
+	leaq	1112(%r12), %rcx
 	movq	%rbp, %rdi
 	movq	24(%rdx), %rax
 	movq	136(%rax), %rax
@@ -271,7 +271,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	addl	$100, %r14d
 	cmpq	$8, %rax
 	jne	.L6
-	movb	$0, 1104(%r12)
+	movb	$0, 1112(%r12)
 	movl	$48, %edi
 .LEHB6:
 	call	_Znwm@PLT
@@ -289,7 +289,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 .LEHB7:
 	call	_ZN12act_trapdoorC1EPN3wze6engineEP4gamePhhdd@PLT
 .LEHE7:
-	movq	%rbp, 1112(%r12)
+	movq	%rbp, 1120(%r12)
 	movl	$48, %edi
 .LEHB8:
 	call	_Znwm@PLT
@@ -307,21 +307,22 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 .LEHB9:
 	call	_ZN12act_trapdoorC1EPN3wze6engineEP4gamePhhdd@PLT
 .LEHE9:
-	movq	%rbp, 1120(%r12)
-	movl	$32, %edi
+	movq	%rbp, 1128(%r12)
+	movl	$48, %edi
 .LEHB10:
 	call	_Znwm@PLT
 .LEHE10:
+	movq	72(%r12), %rcx
 	movq	8(%r12), %rdx
-	movq	(%r12), %rsi
-	pxor	%xmm0, %xmm0
 	movq	%rax, %rdi
-	movsd	.LC9(%rip), %xmm1
 	movq	%rax, %rbp
+	movq	(%r12), %rsi
+	movsd	.LC9(%rip), %xmm1
+	pxor	%xmm0, %xmm0
 .LEHB11:
-	call	_ZN9act_houseC1EPN3wze6engineEP4gamedd@PLT
+	call	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerdd@PLT
 .LEHE11:
-	movq	%rbp, 1128(%r12)
+	movq	%rbp, 1104(%r12)
 	movq	24(%r12), %rdi
 	movl	$25, %esi
 .LEHB12:
@@ -506,7 +507,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	pxor	%xmm0, %xmm0
 	movq	(%r12), %rsi
 	movsd	.LC4(%rip), %xmm1
-	leaq	1104(%r12), %rcx
+	leaq	1112(%r12), %rcx
 	movq	%rbp, %rdi
 	movq	24(%rdx), %rax
 	movq	136(%rax), %rax
@@ -545,7 +546,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	jmp	.L18
 .L34:
 	movq	%rax, %rbx
-	jmp	.L23
+	jmp	.L24
 .L31:
 	movq	%rax, %rbx
 	jmp	.L20
@@ -554,7 +555,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	jmp	.L20
 .L33:
 	movq	%rax, %rbx
-	jmp	.L23
+	jmp	.L24
 .L32:
 	movq	%rax, %rbx
 	jmp	.L21
@@ -665,7 +666,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 .LEHB15:
 	call	_Unwind_Resume@PLT
 .LEHE15:
-.L23:
+.L24:
 	movl	$48, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
@@ -674,11 +675,6 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	call	__stack_chk_fail@PLT
 .L20:
 	movl	$192, %esi
-	movq	%rbp, %rdi
-	call	_ZdlPvm@PLT
-	jmp	.L18
-.L24:
-	movl	$32, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 	jmp	.L18
@@ -778,7 +774,7 @@ _ZN10scene_playD2Ev:
 	leaq	128(%rbx), %r12
 	cmpq	%r14, %r12
 	jne	.L52
-	movq	1112(%r13), %rbx
+	movq	1120(%r13), %rbx
 	testq	%rbx, %rbx
 	je	.L56
 	movq	%rbx, %rdi
@@ -787,7 +783,7 @@ _ZN10scene_playD2Ev:
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
 .L56:
-	movq	1120(%r13), %rbx
+	movq	1128(%r13), %rbx
 	testq	%rbx, %rbx
 	je	.L57
 	movq	%rbx, %rdi
@@ -826,12 +822,12 @@ _ZN10scene_playD2Ev:
 	cmpq	%rdx, %rax
 	jb	.L58
 .L63:
-	movq	1128(%r13), %rbx
+	movq	1104(%r13), %rbx
 	testq	%rbx, %rbx
 	je	.L60
 	movq	%rbx, %rdi
-	call	_ZN9act_houseD1Ev@PLT
-	movl	$32, %esi
+	call	_ZN10tile_houseD1Ev@PLT
+	movl	$48, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
 .L60:
@@ -1080,7 +1076,7 @@ _ZN10scene_play6UpdateEv:
 	.p2align 4,,10
 	.p2align 3
 .L102:
-	movzbl	1104(%rbp), %esi
+	movzbl	1112(%rbp), %esi
 	movq	(%rbx), %rdi
 	call	_ZN10tile_token6RotateEb@PLT
 	addq	$8, %rbx
@@ -1104,6 +1100,8 @@ _ZN10scene_play6UpdateEv:
 	subq	$-128, %r12
 	cmpq	%r13, %r12
 	jne	.L103
+	movq	1104(%rbp), %rdi
+	call	_ZN10tile_house6UpdateEv@PLT
 	movq	1136(%rbp), %rcx
 	xorl	%ebx, %ebx
 	xorl	%eax, %eax
@@ -1126,9 +1124,9 @@ _ZN10scene_play6UpdateEv:
 .L109:
 	movq	72(%rbp), %rdi
 	call	_ZN10act_player6UpdateEv@PLT
-	movq	1112(%rbp), %rdi
-	call	_ZN12act_trapdoor6UpdateEv@PLT
 	movq	1120(%rbp), %rdi
+	call	_ZN12act_trapdoor6UpdateEv@PLT
+	movq	1128(%rbp), %rdi
 	call	_ZN12act_trapdoor6UpdateEv@PLT
 .L110:
 	movl	$2, %ebx

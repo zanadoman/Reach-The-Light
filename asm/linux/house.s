@@ -2,16 +2,15 @@
 	.text
 	.align 2
 	.p2align 4
-	.globl	_ZN9act_houseC2EPN3wze6engineEP4gamedd
-	.type	_ZN9act_houseC2EPN3wze6engineEP4gamedd, @function
-_ZN9act_houseC2EPN3wze6engineEP4gamedd:
+	.globl	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd
+	.type	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd, @function
+_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd:
 .LFB8157:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
 	movl	$100, %r8d
-	movl	$200, %ecx
 	pushq	%rbx
 	.cfi_def_cfa_offset 24
 	.cfi_offset 3, -24
@@ -21,40 +20,50 @@ _ZN9act_houseC2EPN3wze6engineEP4gamedd:
 	movq	%rsi, (%rdi)
 	movsd	.LC0(%rip), %xmm2
 	movq	%rdx, 8(%rdi)
-	leaq	272(%rsi), %rdi
 	xorl	%edx, %edx
+	movq	%rcx, 16(%rdi)
+	movl	$200, %ecx
+	leaq	272(%rsi), %rdi
 	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movq	8(%rbx), %rdx
-	movq	%rax, 16(%rbx)
+	movq	%rax, 24(%rbx)
 	leaq	40(%rax), %rdi
 	movq	8(%rdx), %rdx
 	movq	384(%rdx), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movq	16(%rbx), %rdi
-	movq	%rax, 24(%rbx)
-	movq	%rax, %rbp
-	movl	$9830650, 16(%rax)
+	movq	%rax, 32(%rbx)
+	movq	24(%rbx), %rax
+	leaq	8(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor10colorboxes3NewEv@PLT
+	movq	32(%rbx), %rbp
+	movq	24(%rbx), %rdi
+	movq	%rax, 40(%rbx)
+	movl	$9830650, 16(%rbp)
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	addsd	.LC2(%rip), %xmm0
 	movq	%rbp, %rdi
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
+	movq	40(%rbx), %rax
+	movabsq	$51695124055589564, %rcx
+	movq	%rcx, 16(%rax)
 	addq	$8, %rsp
 	.cfi_def_cfa_offset 24
 	popq	%rbx
 	.cfi_def_cfa_offset 16
 	popq	%rbp
 	.cfi_def_cfa_offset 8
-	jmp	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
+	ret
 	.cfi_endproc
 .LFE8157:
-	.size	_ZN9act_houseC2EPN3wze6engineEP4gamedd, .-_ZN9act_houseC2EPN3wze6engineEP4gamedd
-	.globl	_ZN9act_houseC1EPN3wze6engineEP4gamedd
-	.set	_ZN9act_houseC1EPN3wze6engineEP4gamedd,_ZN9act_houseC2EPN3wze6engineEP4gamedd
+	.size	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd, .-_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd
+	.globl	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerdd
+	.set	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerdd,_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd
 	.align 2
 	.p2align 4
-	.globl	_ZN9act_houseD2Ev
-	.type	_ZN9act_houseD2Ev, @function
-_ZN9act_houseD2Ev:
+	.globl	_ZN10tile_houseD2Ev
+	.type	_ZN10tile_houseD2Ev, @function
+_ZN10tile_houseD2Ev:
 .LFB8160:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
@@ -63,7 +72,7 @@ _ZN9act_houseD2Ev:
 	.cfi_def_cfa_offset 16
 	.cfi_offset 3, -16
 	movq	(%rdi), %rax
-	movq	16(%rdi), %rdi
+	movq	24(%rdi), %rdi
 	leaq	272(%rax), %rbx
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbx, %rdi
@@ -84,9 +93,51 @@ _ZN9act_houseD2Ev:
 .LLSDACSB8160:
 .LLSDACSE8160:
 	.text
-	.size	_ZN9act_houseD2Ev, .-_ZN9act_houseD2Ev
-	.globl	_ZN9act_houseD1Ev
-	.set	_ZN9act_houseD1Ev,_ZN9act_houseD2Ev
+	.size	_ZN10tile_houseD2Ev, .-_ZN10tile_houseD2Ev
+	.globl	_ZN10tile_houseD1Ev
+	.set	_ZN10tile_houseD1Ev,_ZN10tile_houseD2Ev
+	.align 2
+	.p2align 4
+	.globl	_ZN10tile_house6UpdateEv
+	.type	_ZN10tile_house6UpdateEv, @function
+_ZN10tile_house6UpdateEv:
+.LFB8162:
+	.cfi_startproc
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movq	16(%rdi), %rax
+	movq	%rdi, %rbx
+	movq	32(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
+	pxor	%xmm2, %xmm2
+	xorl	%eax, %eax
+	movapd	%xmm0, %xmm1
+	movsd	.LC3(%rip), %xmm0
+	subsd	%xmm1, %xmm0
+	movapd	%xmm0, %xmm1
+	movsd	.LC0(%rip), %xmm0
+	divsd	.LC2(%rip), %xmm1
+	divsd	%xmm1, %xmm0
+	movsd	.LC4(%rip), %xmm1
+	mulsd	%xmm1, %xmm0
+	comisd	%xmm0, %xmm2
+	ja	.L7
+	comisd	%xmm1, %xmm0
+	movl	$-1, %eax
+	ja	.L7
+	call	round@PLT
+	cvttsd2sil	%xmm0, %eax
+.L7:
+	movq	40(%rbx), %rdx
+	movb	%al, 23(%rdx)
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE8162:
+	.size	_ZN10tile_house6UpdateEv, .-_ZN10tile_house6UpdateEv
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC0:
@@ -96,6 +147,14 @@ _ZN9act_houseD2Ev:
 .LC2:
 	.long	0
 	.long	1077477376
+	.align 8
+.LC3:
+	.long	0
+	.long	1082720256
+	.align 8
+.LC4:
+	.long	0
+	.long	1081073664
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat
