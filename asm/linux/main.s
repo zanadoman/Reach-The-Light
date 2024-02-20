@@ -43,7 +43,7 @@ main:
 	movl	$12, %esi
 .LEHB2:
 	call	_ZN3wze6engine5audio15SetChannelCountEt@PLT
-	movl	$32, %esi
+	movl	$34, %esi
 	leaq	416(%rbx), %rdi
 	call	_ZN3wze6engine6timing15SetMaxDeltaTimeEj@PLT
 	movl	$80, %edi

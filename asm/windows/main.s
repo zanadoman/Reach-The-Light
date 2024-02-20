@@ -103,7 +103,7 @@ main:
 	movl	$12, %edx
 .LEHB2:
 	call	_ZN3wze6engine5audio15SetChannelCountEt
-	movl	$32, %edx
+	movl	$34, %edx
 	leaq	416(%rbx), %rcx
 	call	_ZN3wze6engine6timing15SetMaxDeltaTimeEj
 	movl	$80, %ecx
