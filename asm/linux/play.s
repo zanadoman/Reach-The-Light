@@ -308,7 +308,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	call	_ZN12act_trapdoorC1EPN3wze6engineEP4gamePhhdd@PLT
 .LEHE9:
 	movq	%rbp, 1128(%r12)
-	movl	$64, %edi
+	movl	$128, %edi
 .LEHB10:
 	call	_Znwm@PLT
 .LEHE10:
@@ -679,7 +679,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	call	_ZdlPvm@PLT
 	jmp	.L18
 .L24:
-	movl	$64, %esi
+	movl	$128, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 	jmp	.L18
@@ -832,7 +832,7 @@ _ZN10scene_playD2Ev:
 	je	.L60
 	movq	%rbx, %rdi
 	call	_ZN10tile_houseD1Ev@PLT
-	movl	$64, %esi
+	movl	$128, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
 .L60:

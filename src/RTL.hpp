@@ -549,6 +549,15 @@ struct tile_house
     engine::colorbox Sky;
     array<engine::texturebox> Grasses;
 
+    engine::actor HitboxRoof;
+    engine::actor HitboxLeftWall;
+    engine::actor HitboxRightWall;
+    engine::actor HitboxLeftFloor;
+    engine::actor HitboxRightFloor;
+    engine::actor HitboxCenterFloor;
+    engine::actor HitboxLeftTrapdoor;
+    engine::actor HitboxRightTrapdoor;
+
     tile_house(engine* Engine, game* Game, act_player* Player, double X, double Y);
     ~tile_house();
     uint8 Update();

@@ -313,7 +313,7 @@ _ZN9act_crate6UpdateEv:
 	movsd	.LC0(%rip), %xmm3
 	movl	$5, %r8d
 	movq	8(%rax), %rax
-	movq	424(%rax), %rdx
+	movq	440(%rax), %rdx
 	movq	(%rsi), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx

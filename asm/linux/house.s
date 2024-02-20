@@ -2,16 +2,16 @@
 	.text
 	.section	.rodata.str1.8,"aMS",@progbits,1
 	.align 8
-.LC0:
+.LC2:
 	.string	"neo::array(): Memory allocation failed\nParams: Length: %lld\n"
 	.align 8
-.LC4:
+.LC6:
 	.string	"neo::array[]: Index out of range\nParams: Index: %lld\n"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB7:
+.LCOLDB13:
 	.text
-.LHOTB7:
+.LHOTB13:
 	.align 2
 	.p2align 4
 	.globl	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd
@@ -21,27 +21,24 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
 	.cfi_lsda 0x1b,.LLSDA8157
-	pushq	%r15
-	.cfi_def_cfa_offset 16
-	.cfi_offset 15, -16
 	pushq	%r14
-	.cfi_def_cfa_offset 24
-	.cfi_offset 14, -24
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
 	pushq	%r13
-	.cfi_def_cfa_offset 32
-	.cfi_offset 13, -32
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
 	pushq	%r12
-	.cfi_def_cfa_offset 40
-	.cfi_offset 12, -40
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
 	pushq	%rbp
-	.cfi_def_cfa_offset 48
-	.cfi_offset 6, -48
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
 	movq	%rsi, %rbp
 	pushq	%rbx
-	.cfi_def_cfa_offset 56
-	.cfi_offset 3, -56
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
 	movq	%rdi, %rbx
-	subq	$24, %rsp
+	subq	$32, %rsp
 	.cfi_def_cfa_offset 80
 	movq	%rsi, (%rdi)
 	movq	%rdx, 8(%rdi)
@@ -49,19 +46,20 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd:
 	movq	$30, 48(%rdi)
 	movl	$240, %edi
 	movsd	%xmm0, 8(%rsp)
-	movsd	%xmm1, (%rsp)
+	movsd	%xmm1, 16(%rsp)
 	call	malloc@PLT
-	movsd	(%rsp), %xmm1
-	movsd	8(%rsp), %xmm0
-	testq	%rax, %rax
 	movq	%rax, 56(%rbx)
-	je	.L21
-	leaq	272(%rbp), %rdi
-	movl	$200, %ecx
+	testq	%rax, %rax
+	je	.L22
+	movsd	16(%rsp), %xmm1
+	movsd	8(%rsp), %xmm0
 	xorl	%edx, %edx
 	xorl	%esi, %esi
-	movsd	.LC1(%rip), %xmm2
+	movq	.LC3(%rip), %rax
 	movl	$100, %r8d
+	movl	$200, %ecx
+	leaq	272(%rbp), %rdi
+	movq	%rax, %xmm2
 .LEHB0:
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movq	8(%rbx), %rdx
@@ -79,21 +77,21 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd:
 	movq	%rax, 40(%rbx)
 	movl	$9830650, 16(%rbp)
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
-	addsd	.LC3(%rip), %xmm0
+	addsd	.LC5(%rip), %xmm0
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
 	movq	40(%rbx), %rax
-	xorl	%r12d, %r12d
-	xorl	%ebp, %ebp
 	cmpq	$0, 48(%rbx)
 	movabsq	$51695124075250464, %rcx
-	movl	.LC6(%rip), %r14d
 	movq	%rcx, 16(%rax)
 	movb	$126, 25(%rax)
-	je	.L1
+	je	.L23
+	movl	.LC9(%rip), %r14d
+	xorl	%r12d, %r12d
+	xorl	%ebp, %ebp
 	.p2align 4,,10
 	.p2align 3
-.L3:
+.L9:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
 	movq	392(%rax), %rsi
@@ -103,76 +101,236 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd:
 	movq	%rax, %rdi
 	movq	56(%rbx), %rax
 	cmpq	48(%rbx), %rbp
-	jnb	.L18
+	jnb	.L19
 	movq	%rdi, (%rax,%rbp,8)
 	movzbl	%r12b, %eax
 	pxor	%xmm0, %xmm0
+	movsd	8(%rsp), %xmm1
+	leal	(%rax,%rax,4), %eax
+	subsd	.LC7(%rip), %xmm1
+	sall	$2, %eax
 	leaq	0(,%rbp,8), %r13
-	leal	(%rax,%rax,4), %edx
-	sall	$2, %edx
-	leal	-390(%rdx), %eax
-	subl	$190, %edx
+	cvtsi2sdl	%eax, %xmm0
+	movq	.LC1(%rip), %rax
+	addsd	%xmm1, %xmm0
+	movq	%rax, %xmm1
 	cmpb	$14, %r12b
-	cmovbe	%eax, %edx
-	cvtsi2sdl	%edx, %xmm0
+	ja	.L5
+	pxor	%xmm1, %xmm1
+.L5:
+	addsd	%xmm1, %xmm0
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd@PLT
 	movq	56(%rbx), %rax
 	cmpq	48(%rbx), %rbp
-	jnb	.L18
-	movq	24(%rbx), %rdi
-	movq	(%rax,%r13), %r15
-	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
-	subsd	.LC5(%rip), %xmm0
-	movq	%r15, %rdi
+	jnb	.L19
+	movsd	16(%rsp), %xmm0
+	subsd	.LC8(%rip), %xmm0
+	movq	.LC8(%rip), %rcx
+	movq	(%rax,%r13), %rdi
+	movq	%rcx, 24(%rsp)
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
 	movq	48(%rbx), %rax
 	movq	56(%rbx), %rdx
 	cmpq	%rax, %rbp
-	jnb	.L18
+	jnb	.L19
 	movq	(%rdx,%r13), %rdx
 	addl	$1, %r12d
 	movzbl	%r12b, %ebp
 	movl	%r14d, 16(%rdx)
 	movb	$-127, 36(%rdx)
 	cmpq	%rax, %rbp
-	jb	.L3
-.L1:
-	addq	$24, %rsp
+	jb	.L9
+.L3:
+	movq	(%rbx), %rax
+	movsd	16(%rsp), %xmm1
+	movl	$200, %ecx
+	xorl	%esi, %esi
+	addsd	24(%rsp), %xmm1
+	movsd	8(%rsp), %xmm0
+	movl	$5, %r8d
+	movl	$2, %edx
+	leaq	272(%rax), %rdi
+	movq	.LC3(%rip), %rax
+	movq	%rax, %xmm2
+	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
+	movq	%rax, 64(%rbx)
+	leaq	136(%rax), %rdi
+	movl	$2, %esi
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	movq	64(%rbx), %rdi
+	movl	$1, %esi
+	movq	$100, 184(%rdi)
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	movsd	8(%rsp), %xmm0
+	movl	$5, %ecx
+	xorl	%esi, %esi
+	subsd	.LC10(%rip), %xmm0
+	movsd	16(%rsp), %xmm1
+	movl	$100, %r8d
+	movl	$2, %edx
+	leaq	272(%rax), %rdi
+	movq	.LC3(%rip), %rax
+	movq	%rax, %xmm2
+	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
+	movq	%rax, 72(%rbx)
+	leaq	136(%rax), %rdi
+	movl	$2, %esi
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	movq	72(%rbx), %rdi
+	movl	$1, %esi
+	movq	$100, 184(%rdi)
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	movsd	16(%rsp), %xmm1
+	movl	$5, %ecx
+	xorl	%esi, %esi
+	movsd	.LC10(%rip), %xmm5
+	addsd	8(%rsp), %xmm5
+	movl	$100, %r8d
+	movl	$2, %edx
+	leaq	272(%rax), %rdi
+	movq	.LC3(%rip), %rax
+	movapd	%xmm5, %xmm0
+	movq	%rax, %xmm2
+	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
+	movq	%rax, 80(%rbx)
+	leaq	136(%rax), %rdi
+	movl	$2, %esi
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	movq	80(%rbx), %rdi
+	movl	$1, %esi
+	movq	$100, 184(%rdi)
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	movsd	16(%rsp), %xmm1
+	movl	$20, %ecx
+	xorl	%esi, %esi
+	subsd	24(%rsp), %xmm1
+	movsd	8(%rsp), %xmm0
+	movl	$5, %r8d
+	movl	$2, %edx
+	leaq	272(%rax), %rdi
+	subsd	.LC11(%rip), %xmm0
+	movq	.LC3(%rip), %rax
+	movq	%rax, %xmm2
+	movq	%xmm1, %rbp
+	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
+	movq	%rax, 88(%rbx)
+	leaq	136(%rax), %rdi
+	movl	$2, %esi
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	movq	88(%rbx), %rdi
+	movl	$1, %esi
+	movq	$100, 184(%rdi)
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	movl	$5, %r8d
+	movl	$20, %ecx
+	xorl	%esi, %esi
+	movsd	.LC11(%rip), %xmm6
+	addsd	8(%rsp), %xmm6
+	movq	%rbp, %xmm1
+	movl	$2, %edx
+	leaq	272(%rax), %rdi
+	movq	.LC3(%rip), %rax
+	movapd	%xmm6, %xmm0
+	movq	%rax, %xmm2
+	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
+	movq	%rax, 96(%rbx)
+	leaq	136(%rax), %rdi
+	movl	$2, %esi
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	movq	96(%rbx), %rdi
+	movl	$1, %esi
+	movq	$100, 184(%rdi)
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	movsd	8(%rsp), %xmm0
+	movl	$40, %ecx
+	xorl	%esi, %esi
+	movl	$5, %r8d
+	movq	%rbp, %xmm1
+	movl	$2, %edx
+	leaq	272(%rax), %rdi
+	movq	.LC3(%rip), %rax
+	movq	%rax, %xmm2
+	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
+	movq	%rax, 104(%rbx)
+	leaq	136(%rax), %rdi
+	movl	$2, %esi
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
+	movq	104(%rbx), %rdi
+	movl	$1, %esi
+	movq	$100, 184(%rdi)
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	movsd	8(%rsp), %xmm0
+	movl	$60, %ecx
+	xorl	%edx, %edx
+	subsd	.LC12(%rip), %xmm0
+	movl	$5, %r8d
+	movq	%rbp, %xmm1
+	xorl	%esi, %esi
+	leaq	272(%rax), %rdi
+	movq	.LC3(%rip), %rax
+	movq	%rax, %xmm2
+	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
+	movq	%rax, 112(%rbx)
+	movq	(%rbx), %rax
+	movl	$5, %r8d
+	xorl	%edx, %edx
+	movsd	.LC12(%rip), %xmm7
+	addsd	8(%rsp), %xmm7
+	movl	$60, %ecx
+	xorl	%esi, %esi
+	leaq	272(%rax), %rdi
+	movq	.LC3(%rip), %rax
+	movq	%rbp, %xmm1
+	movapd	%xmm7, %xmm0
+	movq	%rax, %xmm2
+	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
+	movq	%rax, 120(%rbx)
+	addq	$32, %rsp
 	.cfi_remember_state
-	.cfi_def_cfa_offset 56
-	popq	%rbx
 	.cfi_def_cfa_offset 48
-	popq	%rbp
+	popq	%rbx
 	.cfi_def_cfa_offset 40
-	popq	%r12
+	popq	%rbp
 	.cfi_def_cfa_offset 32
-	popq	%r13
+	popq	%r12
 	.cfi_def_cfa_offset 24
-	popq	%r14
+	popq	%r13
 	.cfi_def_cfa_offset 16
-	popq	%r15
+	popq	%r14
 	.cfi_def_cfa_offset 8
 	ret
-.L18:
+	.p2align 4,,10
+	.p2align 3
+.L23:
 	.cfi_restore_state
+	movsd	.LC8(%rip), %xmm5
+	movsd	%xmm5, 24(%rsp)
+	jmp	.L3
+.L19:
 	movq	%rbp, %rsi
-	leaq	.LC4(%rip), %rdi
+	leaq	.LC6(%rip), %rdi
 	xorl	%eax, %eax
 	call	printf@PLT
 .LEHE0:
 	movl	$1, %edi
 	call	exit@PLT
-.L21:
-	leaq	.LC0(%rip), %rdi
+.L22:
+	leaq	.LC2(%rip), %rdi
 	movl	$30, %esi
 .LEHB1:
 	call	printf@PLT
 .LEHE1:
 	movl	$1, %edi
 	call	exit@PLT
-.L13:
+.L12:
 	movq	%rax, %rbp
-	jmp	.L11
+	jmp	.L10
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
 .LLSDA8157:
@@ -183,7 +341,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd:
 .LLSDACSB8157:
 	.uleb128 .LEHB0-.LFB8157
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L13-.LFB8157
+	.uleb128 .L12-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB1-.LFB8157
 	.uleb128 .LEHE1-.LEHB1
@@ -199,14 +357,13 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd:
 	.type	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd.cold, @function
 _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd.cold:
 .LFSB8157:
-.L11:
+.L10:
 	.cfi_def_cfa_offset 80
-	.cfi_offset 3, -56
-	.cfi_offset 6, -48
-	.cfi_offset 12, -40
-	.cfi_offset 13, -32
-	.cfi_offset 14, -24
-	.cfi_offset 15, -16
+	.cfi_offset 3, -48
+	.cfi_offset 6, -40
+	.cfi_offset 12, -32
+	.cfi_offset 13, -24
+	.cfi_offset 14, -16
 	movq	56(%rbx), %rdi
 	call	free@PLT
 	movq	%rbp, %rdi
@@ -222,7 +379,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB2-.LCOLDB7
+	.uleb128 .LEHB2-.LCOLDB13
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
@@ -232,9 +389,9 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd.cold:
 	.size	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd, .-_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd
 	.section	.text.unlikely
 	.size	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd.cold, .-_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd.cold
-.LCOLDE7:
+.LCOLDE13:
 	.text
-.LHOTE7:
+.LHOTE13:
 	.globl	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerdd
 	.set	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerdd,_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerdd
 	.align 2
@@ -257,6 +414,55 @@ _ZN10tile_houseD2Ev:
 	.cfi_def_cfa_offset 32
 	movq	(%rdi), %rax
 	movq	24(%rdi), %rdi
+	leaq	272(%rax), %rbp
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors6DeleteEy@PLT
+	movq	(%rbx), %rax
+	movq	72(%rbx), %rdi
+	leaq	272(%rax), %rbp
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors6DeleteEy@PLT
+	movq	(%rbx), %rax
+	movq	80(%rbx), %rdi
+	leaq	272(%rax), %rbp
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors6DeleteEy@PLT
+	movq	(%rbx), %rax
+	movq	88(%rbx), %rdi
+	leaq	272(%rax), %rbp
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors6DeleteEy@PLT
+	movq	(%rbx), %rax
+	movq	104(%rbx), %rdi
+	leaq	272(%rax), %rbp
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors6DeleteEy@PLT
+	movq	(%rbx), %rax
+	movq	96(%rbx), %rdi
+	leaq	272(%rax), %rbp
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors6DeleteEy@PLT
+	movq	(%rbx), %rax
+	movq	112(%rbx), %rdi
+	leaq	272(%rax), %rbp
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors6DeleteEy@PLT
+	movq	(%rbx), %rax
+	movq	120(%rbx), %rdi
 	leaq	272(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
@@ -307,20 +513,41 @@ _ZN10tile_house6UpdateEv:
 	.align 8
 .LC1:
 	.long	0
-	.long	1072693248
+	.long	1080623104
 	.align 8
 .LC3:
 	.long	0
-	.long	1077477376
+	.long	1072693248
 	.align 8
 .LC5:
+	.long	0
+	.long	1077477376
+	.align 8
+.LC7:
+	.long	0
+	.long	1081630720
+	.align 8
+.LC8:
 	.long	0
 	.long	1078444032
 	.section	.rodata.cst4,"aM",@progbits,4
 	.align 4
-.LC6:
+.LC9:
 	.value	20
 	.value	20
+	.section	.rodata.cst8
+	.align 8
+.LC10:
+	.long	0
+	.long	1079533568
+	.align 8
+.LC11:
+	.long	0
+	.long	1079410688
+	.align 8
+.LC12:
+	.long	0
+	.long	1078525952
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

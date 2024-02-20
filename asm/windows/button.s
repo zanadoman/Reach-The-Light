@@ -254,7 +254,7 @@ _ZN10gui_button6UpdateEv:
 	movsd	.LC1(%rip), %xmm3
 	movq	8(%rax), %rax
 	addq	$160, %rcx
-	movq	392(%rax), %rdx
+	movq	408(%rax), %rdx
 	movl	$0, 32(%rsp)
 	call	_ZN3wze6engine5audio4PlayEytdt
 	nop

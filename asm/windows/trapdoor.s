@@ -37,7 +37,7 @@ _ZN12act_trapdoorC2EPN3wze6engineEP4gamePhhdd:
 	movq	368(%rdx), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	24(%rbx), %rcx
-	movl	$1, %edx
+	xorl	%edx, %edx
 	movb	%sil, 40(%rbx)
 	movq	%rax, 32(%rbx)
 	movq	$100, 184(%rcx)
@@ -141,7 +141,7 @@ _ZN12act_trapdoor6UpdateEv:
 	movsd	.LC2(%rip), %xmm3
 	movq	8(%rax), %rax
 	addq	$160, %rcx
-	movq	456(%rax), %rdx
+	movq	472(%rax), %rdx
 	movl	$0, 32(%rsp)
 	call	_ZN3wze6engine5audio4PlayEytdt
 	xorl	%eax, %eax

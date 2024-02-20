@@ -331,34 +331,38 @@ _Z6printfPKcz:
 .LC127:
 	.ascii "assets/etc/trapdoor_opened.png\0"
 .LC128:
-	.ascii "assets/audio/music.wav\0"
+	.ascii "assets/house/frame.png\0"
 .LC129:
-	.ascii "assets/audio/gui.mp3\0"
+	.ascii "assets/etc/grass.png\0"
 .LC130:
-	.ascii "assets/audio/player_fall.mp3\0"
+	.ascii "assets/audio/music.wav\0"
 .LC131:
-	.ascii "assets/audio/jump.wav\0"
+	.ascii "assets/audio/gui.mp3\0"
 .LC132:
-	.ascii "assets/audio/latch.ogg\0"
+	.ascii "assets/audio/player_fall.mp3\0"
 .LC133:
-	.ascii "assets/audio/crate_fall.wav\0"
+	.ascii "assets/audio/jump.wav\0"
 .LC134:
-	.ascii "assets/audio/hurt.wav\0"
+	.ascii "assets/audio/latch.ogg\0"
 .LC135:
-	.ascii "assets/audio/collapse.wav\0"
+	.ascii "assets/audio/crate_fall.wav\0"
 .LC136:
-	.ascii "assets/audio/lever.wav\0"
+	.ascii "assets/audio/hurt.wav\0"
 .LC137:
-	.ascii "assets/audio/trapdoor.wav\0"
+	.ascii "assets/audio/collapse.wav\0"
 .LC138:
-	.ascii "assets/audio/tuna.wav\0"
+	.ascii "assets/audio/lever.wav\0"
 .LC139:
+	.ascii "assets/audio/trapdoor.wav\0"
+.LC140:
+	.ascii "assets/audio/tuna.wav\0"
+.LC141:
 	.ascii "assets/audio/heartbeat.wav\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB140:
+.LCOLDB142:
 	.text
-.LHOTB140:
+.LHOTB142:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -1157,12 +1161,12 @@ _ZN6assetsC2EPN3wze6engineE:
 	movq	(%rbx), %rax
 	leaq	.LC128(%rip), %rdx
 	leaq	344(%rax), %rcx
-	call	_ZN3wze6engine6assets9LoadSoundEPKc
+	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 384(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC129(%rip), %rdx
 	leaq	344(%rax), %rcx
-	call	_ZN3wze6engine6assets9LoadSoundEPKc
+	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 392(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC130(%rip), %rdx
@@ -1214,6 +1218,16 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets9LoadSoundEPKc
 	movq	%rax, 472(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC140(%rip), %rdx
+	leaq	344(%rax), %rcx
+	call	_ZN3wze6engine6assets9LoadSoundEPKc
+	movq	%rax, 480(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC141(%rip), %rdx
+	leaq	344(%rax), %rcx
+	call	_ZN3wze6engine6assets9LoadSoundEPKc
+	movq	%rax, 488(%rbx)
 	addq	$936, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -1475,7 +1489,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB1-.LCOLDB140
+	.uleb128 .LEHB1-.LCOLDB142
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1484,9 +1498,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE140:
+.LCOLDE142:
 	.text
-.LHOTE140:
+.LHOTE142:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.def	_ZN6assetsC1EPN3wze6engineE;	.scl	2;	.type	32;	.endef
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE
