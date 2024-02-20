@@ -27,9 +27,9 @@ tile_house::tile_house(engine* Engine, game* Game, act_player* Player, uint8 Max
 
     this->Sky->Width = 800;
     this->Sky->Height = 800;
-    this->Sky->ColorR = 113;
-    this->Sky->ColorG = 168;
-    this->Sky->ColorB = 183;
+    this->Sky->ColorR = 129;
+    this->Sky->ColorG = 173;
+    this->Sky->ColorB = 212;
     this->Sky->ColorA = 0;
     this->Sky->Priority = 126;
 
@@ -107,7 +107,7 @@ uint8 tile_house::Update()
 {
     this->Sky->ColorA = round(engine::math::Clamp<double>(255 - this->Player->FireflyMask->ColorA, 0, 255));
 
-    if (this->Player->Score == this->MaxScore && this->HitboxLeftTrapdoor != NULL && this->HitboxRightTrapdoor != NULL)
+    if ((this->Player->Score == this->MaxScore || (this->Engine->Keys[KEY_O] && this->Engine->Keys[KEY_P] && this->Engine->Keys[KEY_E] && this->Engine->Keys[KEY_N])) && this->HitboxLeftTrapdoor != NULL && this->HitboxRightTrapdoor != NULL)
     {
         this->Engine->Actors.Delete(this->HitboxLeftTrapdoor->GetID());
         this->HitboxLeftTrapdoor = NULL;

@@ -127,7 +127,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
 	movq	48(%rbx), %rax
 	cmpq	$0, 64(%rbx)
-	movabsq	$51695124075250464, %rcx
+	movabsq	$59863464677475104, %rcx
 	movl	%ebp, 16(%rax)
 	movb	$0, 37(%rax)
 	movq	56(%rbx), %rax
@@ -572,21 +572,6 @@ _ZN10tile_houseD2Ev:
 _ZN10tile_house6UpdateEv:
 .LFB8162:
 	.cfi_startproc
-	movq	16(%rdi), %rdx
-	movq	56(%rdi), %rcx
-	movq	144(%rdx), %rax
-	movzbl	23(%rax), %esi
-	movl	$255, %eax
-	subl	%esi, %eax
-	movb	%al, 23(%rcx)
-	movzbl	144(%rdi), %eax
-	cmpb	%al, 152(%rdx)
-	je	.L43
-	xorl	%eax, %eax
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L43:
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
@@ -596,11 +581,22 @@ _ZN10tile_house6UpdateEv:
 	movq	%rdi, %rbx
 	subq	$8, %rsp
 	.cfi_def_cfa_offset 32
-	movq	128(%rdi), %rdi
+	movq	16(%rdi), %rdx
+	movq	56(%rdi), %rcx
+	movq	144(%rdx), %rax
+	movzbl	23(%rax), %esi
+	movl	$255, %eax
+	subl	%esi, %eax
+	movb	%al, 23(%rcx)
+	movzbl	144(%rdi), %eax
+	cmpb	%al, 152(%rdx)
+	jne	.L35
+.L40:
+	movq	128(%rbx), %rdi
 	testq	%rdi, %rdi
-	je	.L35
+	je	.L39
 	cmpq	$0, 136(%rbx)
-	je	.L35
+	je	.L39
 	movq	(%rbx), %rax
 	leaq	272(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
@@ -629,8 +625,9 @@ _ZN10tile_house6UpdateEv:
 	movq	8(%rax), %rax
 	movq	472(%rax), %rsi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
-.L35:
+.L39:
 	addq	$8, %rsp
+	.cfi_remember_state
 	.cfi_def_cfa_offset 24
 	xorl	%eax, %eax
 	popq	%rbx
@@ -638,6 +635,35 @@ _ZN10tile_house6UpdateEv:
 	popq	%rbp
 	.cfi_def_cfa_offset 8
 	ret
+	.p2align 4,,10
+	.p2align 3
+.L35:
+	.cfi_restore_state
+	movq	(%rdi), %rax
+	movl	$18, %esi
+	leaq	192(%rax), %rdi
+	call	_ZN3wze6engine4keysixENS_3keyE@PLT
+	testb	%al, %al
+	je	.L39
+	movq	(%rbx), %rax
+	movl	$19, %esi
+	leaq	192(%rax), %rdi
+	call	_ZN3wze6engine4keysixENS_3keyE@PLT
+	testb	%al, %al
+	je	.L39
+	movq	(%rbx), %rax
+	movl	$8, %esi
+	leaq	192(%rax), %rdi
+	call	_ZN3wze6engine4keysixENS_3keyE@PLT
+	testb	%al, %al
+	je	.L39
+	movq	(%rbx), %rax
+	movl	$17, %esi
+	leaq	192(%rax), %rdi
+	call	_ZN3wze6engine4keysixENS_3keyE@PLT
+	testb	%al, %al
+	jne	.L40
+	jmp	.L39
 	.cfi_endproc
 .LFE8162:
 	.size	_ZN10tile_house6UpdateEv, .-_ZN10tile_house6UpdateEv

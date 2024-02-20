@@ -120,6 +120,11 @@ uint8 act_player::Update()
 
     if (this->Health != 0)
     {
+        if (this->Engine->Keys[KEY_L] && this->Engine->Keys[KEY_I] && this->Engine->Keys[KEY_F] && this->Engine->Keys[KEY_E])
+        {
+            this->Health = 10;
+        }
+
         for (uint8 i = 0; i < this->Tunas->Length(); i++)
         {
             if ((*this->Tunas)[i] != NULL && this->OverlapBox->IsOverlappingWith((*this->Tunas)[i]->Actor->GetID(), (*this->Tunas)[i]->OverlapBox->GetID()))
