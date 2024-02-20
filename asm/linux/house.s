@@ -9,9 +9,9 @@
 	.string	"neo::array[]: Index out of range\nParams: Index: %lld\n"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB14:
+.LCOLDB15:
 	.text
-.LHOTB14:
+.LHOTB15:
 	.align 2
 	.p2align 4
 	.globl	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd
@@ -216,7 +216,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	movsd	8(%rsp), %xmm1
 	movl	$5, %ecx
 	movl	$2, %edx
-	subsd	.LC7(%rip), %xmm0
+	subsd	.LC13(%rip), %xmm0
 	leaq	272(%rax), %rdi
 	movq	.LC3(%rip), %rax
 	movq	%rax, %xmm2
@@ -233,7 +233,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	movsd	8(%rsp), %xmm1
 	movl	$5, %ecx
 	xorl	%esi, %esi
-	movsd	.LC7(%rip), %xmm5
+	movsd	.LC13(%rip), %xmm5
 	addsd	(%rsp), %xmm5
 	movl	$100, %r8d
 	movl	$2, %edx
@@ -259,7 +259,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	movl	$5, %r8d
 	movl	$2, %edx
 	leaq	272(%rax), %rdi
-	subsd	.LC13(%rip), %xmm0
+	subsd	.LC14(%rip), %xmm0
 	movq	.LC3(%rip), %rax
 	movq	%rax, %xmm2
 	movq	%xmm1, %rbp
@@ -276,7 +276,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	movl	$5, %r8d
 	movl	$20, %ecx
 	xorl	%esi, %esi
-	movsd	.LC13(%rip), %xmm7
+	movsd	.LC14(%rip), %xmm7
 	addsd	(%rsp), %xmm7
 	movq	%rbp, %xmm1
 	movl	$2, %edx
@@ -441,7 +441,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB2-.LCOLDB14
+	.uleb128 .LEHB2-.LCOLDB15
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
@@ -451,9 +451,9 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd.cold:
 	.size	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd, .-_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd
 	.section	.text.unlikely
 	.size	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd.cold, .-_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd.cold
-.LCOLDE14:
+.LCOLDE15:
 	.text
-.LHOTE14:
+.LHOTE15:
 	.globl	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerhdd
 	.set	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerhdd,_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd
 	.align 2
@@ -619,7 +619,7 @@ _ZN10tile_house6UpdateEv:
 	movq	(%rbx), %rdi
 	xorl	%ecx, %ecx
 	movq	$0, 136(%rbx)
-	movsd	.LC15(%rip), %xmm0
+	movsd	.LC16(%rip), %xmm0
 	movl	$9, %edx
 	movb	$1, 37(%rax)
 	movq	48(%rbx), %rax
@@ -661,7 +661,7 @@ _ZN10tile_house6UpdateEv:
 	.align 8
 .LC7:
 	.long	0
-	.long	1079533568
+	.long	1079164928
 	.section	.rodata.cst4,"aM",@progbits,4
 	.align 4
 .LC8:
@@ -685,9 +685,13 @@ _ZN10tile_house6UpdateEv:
 	.align 8
 .LC13:
 	.long	0
+	.long	1079533568
+	.align 8
+.LC14:
+	.long	0
 	.long	1079410688
 	.align 8
-.LC15:
+.LC16:
 	.long	0
 	.long	1072168960
 	.hidden	DW.ref.__gxx_personality_v0

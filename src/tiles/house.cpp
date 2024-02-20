@@ -14,13 +14,13 @@ tile_house::tile_house(engine* Engine, game* Game, act_player* Player, uint8 Max
     this->House->Height = 150;
 
     this->LeftTrapdoor->SetX(X - 50);
-    this->LeftTrapdoor->SetY(Y - 72.5);
+    this->LeftTrapdoor->SetY(Y - 75);
     this->LeftTrapdoor->Width = 60;
     this->LeftTrapdoor->Height = 60;
     this->LeftTrapdoor->Visible = false;
     
     this->RightTrapdoor->SetX(X + 50);
-    this->RightTrapdoor->SetY(Y - 72.5);
+    this->RightTrapdoor->SetY(Y - 75);
     this->RightTrapdoor->Width = 60;
     this->RightTrapdoor->Height = 60;
     this->RightTrapdoor->Visible = false;
