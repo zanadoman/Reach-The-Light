@@ -80,7 +80,7 @@ uint8 tile_trap_hole::Update()
     {
         this->Engine->Actors.Delete(this->HitboxBot->GetID());
         this->HitboxBot = NULL;
-        this->Engine->Audio.Play(this->Game->Assets->CollapseAudio, CH_COLLAPSE, 1);
+        this->Engine->Audio.Play(this->Game->Assets->CollapseAudio, CH_COLLAPSE, 1, 0);
     }
 
     return 0;

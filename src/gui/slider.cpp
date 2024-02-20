@@ -58,7 +58,7 @@ double gui_slider::Update()
         }
         else if (this->Overlapbox->GetButtonState() & BTN_RELEASED_LMB)
         {
-            this->Engine->Audio.Play(this->Game->Assets->GuiAudio, CH_GUI, 1);   
+            this->Engine->Audio.Play(this->Game->Assets->GuiAudio, CH_GUI, 1, 0);   
         }
     }
 

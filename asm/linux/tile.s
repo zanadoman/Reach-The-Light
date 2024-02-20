@@ -418,6 +418,7 @@ _ZN8gui_tile6UpdateEv:
 .L106:
 	movq	136(%rsi), %rax
 	movsd	.LC0(%rip), %xmm0
+	xorl	%ecx, %ecx
 	movb	%dl, (%rax)
 	movq	8(%rbx), %rax
 	movl	$1, %edx
@@ -425,7 +426,7 @@ _ZN8gui_tile6UpdateEv:
 	movq	392(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
-	call	_ZN3wze6engine5audio4PlayEytd@PLT
+	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	jmp	.L85
 	.p2align 4,,10
 	.p2align 3
@@ -467,12 +468,13 @@ _ZN8gui_tile6UpdateEv:
 .L64:
 	movq	8(%rbx), %rax
 	movsd	.LC0(%rip), %xmm0
+	xorl	%ecx, %ecx
 	movl	$1, %edx
 	movq	8(%rax), %rax
 	movq	392(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
-	call	_ZN3wze6engine5audio4PlayEytd@PLT
+	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 .L60:
 	movq	24(%rbx), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
@@ -506,12 +508,13 @@ _ZN8gui_tile6UpdateEv:
 .L78:
 	movq	8(%rbx), %rax
 	movsd	.LC0(%rip), %xmm0
+	xorl	%ecx, %ecx
 	movl	$1, %edx
 	movq	8(%rax), %rax
 	movq	392(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
-	call	_ZN3wze6engine5audio4PlayEytd@PLT
+	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 .L109:
 	movq	24(%rbx), %rdi
 	jmp	.L59

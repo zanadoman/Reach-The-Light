@@ -98,8 +98,8 @@ _ZN12act_trapdoor6UpdateEv:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$40, %rsp
-	.seh_stackalloc	40
+	subq	$56, %rsp
+	.seh_stackalloc	56
 	.seh_endprologue
 	movq	16(%rcx), %rax
 	movzbl	40(%rcx), %esi
@@ -108,7 +108,7 @@ _ZN12act_trapdoor6UpdateEv:
 	je	.L6
 .L5:
 	xorl	%eax, %eax
-	addq	$40, %rsp
+	addq	$56, %rsp
 	popq	%rbx
 	popq	%rsi
 	ret
@@ -142,9 +142,10 @@ _ZN12act_trapdoor6UpdateEv:
 	movq	8(%rax), %rax
 	addq	$160, %rcx
 	movq	456(%rax), %rdx
-	call	_ZN3wze6engine5audio4PlayEytd
+	movl	$0, 32(%rsp)
+	call	_ZN3wze6engine5audio4PlayEytdt
 	xorl	%eax, %eax
-	addq	$40, %rsp
+	addq	$56, %rsp
 	popq	%rbx
 	popq	%rsi
 	ret
@@ -171,4 +172,4 @@ _ZN12act_trapdoor6UpdateEv:
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5audio4PlayEytd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio4PlayEytdt;	.scl	2;	.type	32;	.endef

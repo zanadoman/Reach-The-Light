@@ -1134,12 +1134,13 @@ _ZN10scene_play6UpdateEv:
 	jne	.L85
 	movq	8(%rbp), %rax
 	movsd	.LC9(%rip), %xmm0
+	xorl	%ecx, %ecx
 	movl	$11, %edx
 	movq	8(%rax), %rax
 	movq	472(%rax), %rsi
 	movq	0(%rbp), %rax
 	leaq	160(%rax), %rdi
-	call	_ZN3wze6engine5audio4PlayEytd@PLT
+	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	jmp	.L85
 .L86:
 	cmpl	$2, %ebx

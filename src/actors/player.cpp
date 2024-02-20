@@ -127,7 +127,7 @@ uint8 act_player::Update()
                 this->Score++;
                 delete (*this->Tunas)[i];
                 (*this->Tunas)[i] = NULL;
-                this->Engine->Audio.Play(this->Game->Assets->TunaAudio, CH_TUNA, 0.5);
+                this->Engine->Audio.Play(this->Game->Assets->TunaAudio, CH_TUNA, 0.5, 0);
             }
         }
         
@@ -143,7 +143,7 @@ uint8 act_player::Update()
                         {
                             this->Health--;
                             this->DamageTick = this->Engine->Timing.GetCurrentTick();
-                            this->Engine->Audio.Play(this->Game->Assets->HurtAudio, CH_HURT, 0.5);
+                            this->Engine->Audio.Play(this->Game->Assets->HurtAudio, CH_HURT, 0.5, 0);
                         }
                     break;
 
@@ -171,7 +171,7 @@ uint8 act_player::Update()
                         if (!this->InteractKey && (this->Engine->Keys[KEY_S] || this->Engine->Keys[KEY_DOWN]))
                         {
                             *this->RotateTiles = !*this->RotateTiles;
-                            this->Engine->Audio.Play(this->Game->Assets->LeverAudio, CH_LEVER, 1);
+                            this->Engine->Audio.Play(this->Game->Assets->LeverAudio, CH_LEVER, 1, 0);
                         }
                     break;
                 }
@@ -275,7 +275,7 @@ uint8 act_player::Update()
             {
                 if (this->VelocityY != 0.275)
                 {
-                    this->Engine->Audio.Play(this->Game->Assets->PlayerLatchAudio, CH_PLAYER_LATCH, 0.5);
+                    this->Engine->Audio.Play(this->Game->Assets->PlayerLatchAudio, CH_PLAYER_LATCH, 0.5, 0);
                 }
                 this->VelocityX = 0;
                 this->VelocityY = 0;
@@ -291,7 +291,7 @@ uint8 act_player::Update()
 
         if (this->VelocityY == 0.275 - 0.0006 * this->Engine->Timing.GetDeltaTime())
         {
-            this->Engine->Audio.Play(this->Game->Assets->PlayerJumpAudio, CH_PLAYER_JUMP, 0.2);
+            this->Engine->Audio.Play(this->Game->Assets->PlayerJumpAudio, CH_PLAYER_JUMP, 0.2, 0);
         }
 
         if (this->Actor->GetY() + this->VelocityY * this->Engine->Timing.GetDeltaTime() != this->Actor->SetY(this->Actor->GetY() + this->VelocityY * this->Engine->Timing.GetDeltaTime()))
@@ -304,7 +304,7 @@ uint8 act_player::Update()
             {
                 if (this->VelocityY < -0.0006 * this->Engine->Timing.GetDeltaTime())
                 {
-                    this->Engine->Audio.Play(this->Game->Assets->PlayerFallAudio, CH_PLAYER_FALL, 0.25);
+                    this->Engine->Audio.Play(this->Game->Assets->PlayerFallAudio, CH_PLAYER_FALL, 0.25, 0);
                 }
                 this->VelocityY = 0;
                 this->Fall->Reset();

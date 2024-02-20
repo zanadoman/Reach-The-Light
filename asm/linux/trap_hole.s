@@ -488,13 +488,14 @@ _ZN14tile_trap_hole6UpdateEv:
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
 	movq	8(%rbx), %rax
 	movq	(%rbx), %rdi
+	xorl	%ecx, %ecx
 	movq	$0, 56(%rbx)
 	movsd	.LC0(%rip), %xmm0
 	movl	$7, %edx
 	movq	8(%rax), %rax
 	addq	$160, %rdi
 	movq	440(%rax), %rsi
-	call	_ZN3wze6engine5audio4PlayEytd@PLT
+	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	popq	%rbx
 	.cfi_def_cfa_offset 24
 	xorl	%eax, %eax

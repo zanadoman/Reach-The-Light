@@ -413,6 +413,7 @@ _ZN10act_player6UpdateEv:
 .L14:
 	movq	$0, (%rax)
 	movq	8(%rbx), %rax
+	xorl	%ecx, %ecx
 	movl	$10, %edx
 	movq	8(%rax), %rax
 	movq	464(%rax), %rsi
@@ -420,7 +421,7 @@ _ZN10act_player6UpdateEv:
 	leaq	160(%rax), %rdi
 	movq	.LC18(%rip), %rax
 	movq	%rax, %xmm0
-	call	_ZN3wze6engine5audio4PlayEytd@PLT
+	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	movq	24(%rbx), %rax
 	movq	(%rax), %rcx
 	jmp	.L202
@@ -485,13 +486,14 @@ _ZN10act_player6UpdateEv:
 	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
 	movl	%eax, 156(%rbx)
 	movq	8(%rbx), %rax
+	xorl	%ecx, %ecx
 	movl	$6, %edx
 	movsd	.LC18(%rip), %xmm0
 	movq	8(%rax), %rax
 	movq	432(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
-	call	_ZN3wze6engine5audio4PlayEytd@PLT
+	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	.p2align 4,,10
 	.p2align 3
 .L203:
@@ -864,12 +866,13 @@ _ZN10act_player6UpdateEv:
 	jne	.L91
 	movq	8(%rbx), %rax
 	movsd	.LC23(%rip), %xmm0
+	xorl	%ecx, %ecx
 	movl	$3, %edx
 	movq	8(%rax), %rax
 	movq	408(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
-	call	_ZN3wze6engine5audio4PlayEytd@PLT
+	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 .L91:
 	movq	32(%rbx), %rdi
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
@@ -1230,14 +1233,15 @@ _ZN10act_player6UpdateEv:
 	je	.L18
 .L31:
 	movq	16(%rbx), %rax
-	movsd	.LC0(%rip), %xmm0
-	movl	$8, %edx
 	addq	$160, %rdi
+	xorl	%ecx, %ecx
+	movl	$8, %edx
+	movsd	.LC0(%rip), %xmm0
 	xorb	$1, (%rax)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
 	movq	448(%rax), %rsi
-	call	_ZN3wze6engine5audio4PlayEytd@PLT
+	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	jmp	.L203
 	.p2align 4,,10
 	.p2align 3
@@ -1319,12 +1323,13 @@ _ZN10act_player6UpdateEv:
 	jbe	.L108
 	movq	8(%rbx), %rax
 	movsd	.LC25(%rip), %xmm0
+	xorl	%ecx, %ecx
 	movl	$2, %edx
 	movq	8(%rax), %rax
 	movq	400(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
-	call	_ZN3wze6engine5audio4PlayEytd@PLT
+	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 .L108:
 	movq	$0x000000000, 168(%rbx)
 	movq	96(%rbx), %rdi
@@ -1335,12 +1340,13 @@ _ZN10act_player6UpdateEv:
 	jmp	.L25
 .L157:
 	movq	8(%rbx), %rax
-	movsd	.LC18(%rip), %xmm0
-	movl	$4, %edx
 	addq	$160, %rdi
+	xorl	%ecx, %ecx
+	movl	$4, %edx
+	movsd	.LC18(%rip), %xmm0
 	movq	8(%rax), %rax
 	movq	416(%rax), %rsi
-	call	_ZN3wze6engine5audio4PlayEytd@PLT
+	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	movq	(%rbx), %rdi
 	jmp	.L87
 .L196:

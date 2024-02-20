@@ -888,47 +888,47 @@ _ZN10scene_play6UpdateEv:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$168, %rsp
-	.seh_stackalloc	168
-	movaps	%xmm6, 144(%rsp)
-	.seh_savexmm	%xmm6, 144
+	subq	$184, %rsp
+	.seh_stackalloc	184
+	movaps	%xmm6, 160(%rsp)
+	.seh_savexmm	%xmm6, 160
 	.seh_endprologue
-	leaq	80(%rsp), %r12
+	leaq	96(%rsp), %r12
 	movq	%rcx, %rsi
-	leaq	96(%rsp), %r13
+	leaq	112(%rsp), %r13
 	movq	%r12, %rcx
 .LEHB14:
 	call	_ZN3neo6stringC1Ev
 .LEHE14:
 	leaq	.LC22(%rip), %rax
 	movq	24(%rsi), %rbx
-	movq	%rax, 96(%rsp)
+	movq	%rax, 112(%rsp)
 	movq	(%rsi), %rax
 	leaq	416(%rax), %rcx
 .LEHB15:
 	call	_ZN3wze6engine6timing12GetFrameTimeEv
 	movl	%eax, %eax
-	leaq	48(%rsp), %rdi
-	leaq	64(%rsp), %r15
+	leaq	64(%rsp), %rdi
+	leaq	80(%rsp), %r15
 	movq	%r12, %rcx
-	movq	%rax, 72(%rsp)
+	movq	%rax, 88(%rsp)
 	movq	%rdi, %rdx
 	leaq	.LC23(%rip), %rax
-	leaq	72(%rsp), %r14
-	movq	%rax, 64(%rsp)
-	movq	%r15, 48(%rsp)
-	movq	$1, 56(%rsp)
+	leaq	88(%rsp), %r14
+	movq	%rax, 80(%rsp)
+	movq	%r15, 64(%rsp)
+	movq	$1, 72(%rsp)
 	call	_ZN3neo6stringpLESt16initializer_listIPKcE
-	leaq	32(%rsp), %rbp
+	leaq	48(%rsp), %rbp
 	movq	%rax, %rcx
-	movq	%r14, 32(%rsp)
-	movq	$1, 40(%rsp)
+	movq	%r14, 48(%rsp)
+	movq	$1, 56(%rsp)
 	movq	%rbp, %rdx
 	call	_ZN3neo6stringpLESt16initializer_listIyE
 	movq	%rax, %rcx
 	movq	%rdi, %rdx
-	movq	%r13, 48(%rsp)
-	movq	$1, 56(%rsp)
+	movq	%r13, 64(%rsp)
+	movq	$1, 72(%rsp)
 	call	_ZN3neo6stringpLESt16initializer_listIPKcE
 	movq	%rax, %rcx
 	call	_ZN3neo6stringclEv
@@ -1006,24 +1006,24 @@ _ZN10scene_play6UpdateEv:
 	movq	1128(%rsi), %rax
 	movq	%r12, %rcx
 	movq	48(%rsi), %rbx
-	movq	%rax, 96(%rsp)
+	movq	%rax, 112(%rsp)
 	leaq	.LC24(%rip), %rax
-	movq	%rax, 72(%rsp)
+	movq	%rax, 88(%rsp)
 	movzbl	152(%rdx), %eax
 	movq	%rbp, %rdx
-	movq	%r15, 32(%rsp)
-	movq	%rax, 64(%rsp)
-	movq	$1, 40(%rsp)
+	movq	%r15, 48(%rsp)
+	movq	%rax, 80(%rsp)
+	movq	$1, 56(%rsp)
 	call	_ZN3neo6stringaSESt16initializer_listIyE
 	movq	%rax, %rcx
 	movq	%rdi, %rdx
-	movq	%r14, 48(%rsp)
-	movq	$1, 56(%rsp)
+	movq	%r14, 64(%rsp)
+	movq	$1, 72(%rsp)
 	call	_ZN3neo6stringpLESt16initializer_listIPKcE
 	movq	%rax, %rcx
 	movq	%rbp, %rdx
-	movq	%r13, 32(%rsp)
-	movq	$1, 40(%rsp)
+	movq	%r13, 48(%rsp)
+	movq	$1, 56(%rsp)
 	call	_ZN3neo6stringpLESt16initializer_listIyE
 	movq	%rax, %rcx
 	call	_ZN3neo6stringclEv
@@ -1126,9 +1126,9 @@ _ZN10scene_play6UpdateEv:
 	movq	%r12, %rcx
 	call	_ZN3neo6stringD1Ev
 	nop
-	movaps	144(%rsp), %xmm6
+	movaps	160(%rsp), %xmm6
 	movl	%ebx, %eax
-	addq	$168, %rsp
+	addq	$184, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
@@ -1149,7 +1149,7 @@ _ZN10scene_play6UpdateEv:
 	movq	%r13, %rcx
 	leaq	160(%rax), %rdx
 	call	_ZN3wze6engine5audioixEt
-	cmpq	$0, 96(%rsp)
+	cmpq	$0, 112(%rsp)
 	jne	.L80
 	movq	8(%rsi), %rax
 	movsd	.LC9(%rip), %xmm3
@@ -1157,8 +1157,9 @@ _ZN10scene_play6UpdateEv:
 	movq	8(%rax), %rax
 	movq	472(%rax), %rdx
 	movq	(%rsi), %rax
+	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
-	call	_ZN3wze6engine5audio4PlayEytd
+	call	_ZN3wze6engine5audio4PlayEytdt
 	jmp	.L80
 .L81:
 	cmpl	$2, %ebx
@@ -1216,16 +1217,16 @@ _ZN10scene_play6UpdateEv:
 	.section	.text.unlikely,"x"
 	.def	_ZN10scene_play6UpdateEv.cold;	.scl	3;	.type	32;	.endef
 	.seh_proc	_ZN10scene_play6UpdateEv.cold
-	.seh_stackalloc	232
-	.seh_savereg	%rbx, 168
-	.seh_savereg	%rsi, 176
-	.seh_savereg	%rdi, 184
-	.seh_savereg	%rbp, 192
-	.seh_savexmm	%xmm6, 144
-	.seh_savereg	%r12, 200
-	.seh_savereg	%r13, 208
-	.seh_savereg	%r14, 216
-	.seh_savereg	%r15, 224
+	.seh_stackalloc	248
+	.seh_savereg	%rbx, 184
+	.seh_savereg	%rsi, 192
+	.seh_savereg	%rdi, 200
+	.seh_savereg	%rbp, 208
+	.seh_savexmm	%xmm6, 160
+	.seh_savereg	%r12, 216
+	.seh_savereg	%r13, 224
+	.seh_savereg	%r14, 232
+	.seh_savereg	%r15, 240
 	.seh_endprologue
 _ZN10scene_play6UpdateEv.cold:
 .L102:
@@ -1374,5 +1375,4 @@ _ZN10scene_play6UpdateEv.cold:
 	.def	_ZN3neo6stringD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5audio9ResumeAllEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5audioixEt;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5audio4PlayEytd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing14GetCurrentTickEv;	.scl	2;	.type	32;	.endef

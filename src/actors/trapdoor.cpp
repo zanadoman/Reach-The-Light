@@ -25,7 +25,7 @@ uint8 act_trapdoor::Update()
         this->Texturebox->SetY(this->Actor->GetY() - 27.5);
         this->Texturebox->SetTextureID(this->Game->Assets->TrapdoorOpened);
         
-        this->Engine->Audio.Play(this->Game->Assets->TrapdoorAudio, CH_TRAPDOOR, 0.75);
+        this->Engine->Audio.Play(this->Game->Assets->TrapdoorAudio, CH_TRAPDOOR, 0.75, 0);
     }
 
     return 0;

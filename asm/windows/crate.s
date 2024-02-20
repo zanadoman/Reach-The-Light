@@ -148,31 +148,31 @@ _ZN9act_crate6UpdateEv:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$144, %rsp
-	.seh_stackalloc	144
-	movaps	%xmm6, 96(%rsp)
-	.seh_savexmm	%xmm6, 96
-	movaps	%xmm7, 112(%rsp)
-	.seh_savexmm	%xmm7, 112
-	movaps	%xmm8, 128(%rsp)
-	.seh_savexmm	%xmm8, 128
+	subq	$160, %rsp
+	.seh_stackalloc	160
+	movaps	%xmm6, 112(%rsp)
+	.seh_savexmm	%xmm6, 112
+	movaps	%xmm7, 128(%rsp)
+	.seh_savexmm	%xmm7, 128
+	movaps	%xmm8, 144(%rsp)
+	.seh_savexmm	%xmm8, 144
 	.seh_endprologue
 	movq	%rcx, %rsi
 	movq	32(%rcx), %rcx
-	leaq	72(%rsp), %rax
-	leaq	80(%rsp), %rdx
-	leaq	32(%rsp), %r9
-	leaq	48(%rsp), %r8
-	movq	$0, 80(%rsp)
-	movq	$0, 88(%rsp)
-	movq	$2, 72(%rsp)
-	movq	%rax, 48(%rsp)
-	movq	$1, 56(%rsp)
-	movq	$0, 32(%rsp)
-	movq	$0, 40(%rsp)
+	leaq	88(%rsp), %rax
+	leaq	96(%rsp), %rdx
+	leaq	48(%rsp), %r9
+	leaq	64(%rsp), %r8
+	movq	$0, 96(%rsp)
+	movq	$0, 104(%rsp)
+	movq	$2, 88(%rsp)
+	movq	%rax, 64(%rsp)
+	movq	$1, 72(%rsp)
+	movq	$0, 48(%rsp)
+	movq	$0, 56(%rsp)
 .LEHB0:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox15GetOverlapStateEPN3neo5arrayINS6_IyEEEESt16initializer_listIyESB_
-	movq	80(%rsp), %rcx
+	movq	96(%rsp), %rcx
 	movl	$1, %ebx
 	movl	$1, %edx
 	cmpq	$1, %rcx
@@ -188,7 +188,7 @@ _ZN9act_crate6UpdateEv:
 .L6:
 	movq	%rdx, %rax
 	salq	$4, %rax
-	addq	88(%rsp), %rax
+	addq	104(%rsp), %rax
 	cmpq	$0, (%rax)
 	je	.L9
 	movq	(%rsi), %rax
@@ -198,7 +198,7 @@ _ZN9act_crate6UpdateEv:
 	movl	$1, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	addl	$1, %ebx
-	movq	80(%rsp), %rcx
+	movq	96(%rsp), %rcx
 	movzwl	%bx, %edx
 	cmpq	%rcx, %rdx
 	jb	.L6
@@ -263,7 +263,7 @@ _ZN9act_crate6UpdateEv:
 	jne	.L34
 .L12:
 	xorl	%ebx, %ebx
-	cmpq	$0, 80(%rsp)
+	cmpq	$0, 96(%rsp)
 	je	.L27
 	.p2align 4,,10
 	.p2align 3
@@ -271,20 +271,20 @@ _ZN9act_crate6UpdateEv:
 	movq	%rbx, %rax
 	addq	$1, %rbx
 	salq	$4, %rax
-	addq	88(%rsp), %rax
+	addq	104(%rsp), %rax
 	movq	8(%rax), %rcx
 	call	free
-	cmpq	80(%rsp), %rbx
+	cmpq	96(%rsp), %rbx
 	jb	.L26
 .L27:
-	movq	88(%rsp), %rcx
+	movq	104(%rsp), %rcx
 	call	free
 	nop
-	movaps	96(%rsp), %xmm6
-	movaps	112(%rsp), %xmm7
+	movaps	112(%rsp), %xmm6
+	movaps	128(%rsp), %xmm7
 	xorl	%eax, %eax
-	movaps	128(%rsp), %xmm8
-	addq	$144, %rsp
+	movaps	144(%rsp), %xmm8
+	addq	$160, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
@@ -315,8 +315,9 @@ _ZN9act_crate6UpdateEv:
 	movq	8(%rax), %rax
 	movq	424(%rax), %rdx
 	movq	(%rsi), %rax
+	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
-	call	_ZN3wze6engine5audio4PlayEytd
+	call	_ZN3wze6engine5audio4PlayEytdt
 .LEHE0:
 	jmp	.L22
 .L33:
@@ -340,20 +341,20 @@ _ZN9act_crate6UpdateEv:
 	.section	.text.unlikely,"x"
 	.def	_ZN9act_crate6UpdateEv.cold;	.scl	3;	.type	32;	.endef
 	.seh_proc	_ZN9act_crate6UpdateEv.cold
-	.seh_stackalloc	168
-	.seh_savereg	%rbx, 144
-	.seh_savereg	%rsi, 152
-	.seh_savereg	%rdi, 160
-	.seh_savexmm	%xmm6, 96
-	.seh_savexmm	%xmm7, 112
-	.seh_savexmm	%xmm8, 128
+	.seh_stackalloc	184
+	.seh_savereg	%rbx, 160
+	.seh_savereg	%rsi, 168
+	.seh_savereg	%rdi, 176
+	.seh_savexmm	%xmm6, 112
+	.seh_savexmm	%xmm7, 128
+	.seh_savexmm	%xmm8, 144
 	.seh_endprologue
 _ZN9act_crate6UpdateEv.cold:
 .L28:
 	xorl	%ebx, %ebx
 .L29:
-	movq	88(%rsp), %rcx
-	cmpq	80(%rsp), %rbx
+	movq	104(%rsp), %rcx
+	cmpq	96(%rsp), %rbx
 	jnb	.L45
 	movq	%rbx, %rax
 	addq	$1, %rbx
@@ -419,5 +420,5 @@ _ZN9act_crate6UpdateEv.cold:
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4SetYEd;	.scl	2;	.type	32;	.endef
 	.def	free;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5audio4PlayEytd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio4PlayEytdt;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef

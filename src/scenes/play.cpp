@@ -117,7 +117,7 @@ scene scene_play::Update()
 
     if (this->Player->Health == 1 && this->Engine->Audio[CH_HEARTBEAT].SoundID == 0)
     {
-        this->Engine->Audio.Play(this->Game->Assets->HeartBeatAudio, CH_HEARTBEAT, 0.5);
+        this->Engine->Audio.Play(this->Game->Assets->HeartBeatAudio, CH_HEARTBEAT, 0.5, 0);
     }
 
     if (PauseState == act_pause::UNPAUSED)

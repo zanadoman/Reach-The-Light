@@ -365,8 +365,8 @@ _ZN8gui_tile6UpdateEv:
 .LFB8437:
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$32, %rsp
-	.seh_stackalloc	32
+	subq	$48, %rsp
+	.seh_stackalloc	48
 	.seh_endprologue
 	movq	%rcx, %rbx
 	movq	24(%rcx), %rcx
@@ -410,7 +410,7 @@ _ZN8gui_tile6UpdateEv:
 	movq	%r8, %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
 	xorl	%eax, %eax
-	addq	$32, %rsp
+	addq	$48, %rsp
 	popq	%rbx
 	ret
 	.p2align 4,,10
@@ -456,8 +456,9 @@ _ZN8gui_tile6UpdateEv:
 	movq	8(%rax), %rax
 	movq	392(%rax), %rdx
 	movq	(%rbx), %rax
+	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
-	call	_ZN3wze6engine5audio4PlayEytd
+	call	_ZN3wze6engine5audio4PlayEytdt
 	jmp	.L84
 	.p2align 4,,10
 	.p2align 3
@@ -503,8 +504,9 @@ _ZN8gui_tile6UpdateEv:
 	movq	8(%rax), %rax
 	movq	392(%rax), %rdx
 	movq	(%rbx), %rax
+	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
-	call	_ZN3wze6engine5audio4PlayEytd
+	call	_ZN3wze6engine5audio4PlayEytdt
 .L59:
 	movq	24(%rbx), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv
@@ -542,8 +544,9 @@ _ZN8gui_tile6UpdateEv:
 	movq	8(%rax), %rax
 	movq	392(%rax), %rdx
 	movq	(%rbx), %rax
+	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
-	call	_ZN3wze6engine5audio4PlayEytd
+	call	_ZN3wze6engine5audio4PlayEytdt
 .L107:
 	movq	24(%rbx), %rcx
 	jmp	.L58
@@ -750,4 +753,4 @@ _ZN8gui_tile6UpdateEv:
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5audio4PlayEytd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio4PlayEytdt;	.scl	2;	.type	32;	.endef

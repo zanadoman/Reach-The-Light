@@ -42,7 +42,7 @@ uint8 act_crate::Update()
         {
             if (this->VelocityY < -0.0006 * this->Engine->Timing.GetDeltaTime())
             {
-                this->Engine->Audio.Play(this->Game->Assets->CrateFallAudio, CH_CRATE_FALL, 1);
+                this->Engine->Audio.Play(this->Game->Assets->CrateFallAudio, CH_CRATE_FALL, 1, 0);
             }
             this->VelocityY = 0;
         }

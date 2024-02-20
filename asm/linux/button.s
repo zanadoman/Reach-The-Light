@@ -259,12 +259,13 @@ _ZN10gui_button6UpdateEv:
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
 	movq	8(%rbx), %rax
 	movq	(%rbx), %rdi
-	movl	$1, %edx
+	xorl	%ecx, %ecx
 	movsd	.LC1(%rip), %xmm0
+	movl	$1, %edx
 	movq	8(%rax), %rax
 	addq	$160, %rdi
 	movq	392(%rax), %rsi
-	call	_ZN3wze6engine5audio4PlayEytd@PLT
+	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	movl	$1, %eax
 	popq	%rbx
 	.cfi_remember_state

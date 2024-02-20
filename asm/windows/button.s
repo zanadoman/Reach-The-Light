@@ -138,10 +138,10 @@ _ZN10gui_button6UpdateEv:
 .LFB8437:
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$48, %rsp
-	.seh_stackalloc	48
-	movaps	%xmm6, 32(%rsp)
-	.seh_savexmm	%xmm6, 32
+	subq	$64, %rsp
+	.seh_stackalloc	64
+	movaps	%xmm6, 48(%rsp)
+	.seh_savexmm	%xmm6, 48
 	.seh_endprologue
 	movq	%rcx, %rbx
 	movq	24(%rcx), %rcx
@@ -181,9 +181,9 @@ _ZN10gui_button6UpdateEv:
 	movzwl	%dx, %edx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
 	nop
-	movaps	32(%rsp), %xmm6
+	movaps	48(%rsp), %xmm6
 	xorl	%eax, %eax
-	addq	$48, %rsp
+	addq	$64, %rsp
 	popq	%rbx
 	ret
 	.p2align 4,,10
@@ -255,11 +255,12 @@ _ZN10gui_button6UpdateEv:
 	movq	8(%rax), %rax
 	addq	$160, %rcx
 	movq	392(%rax), %rdx
-	call	_ZN3wze6engine5audio4PlayEytd
+	movl	$0, 32(%rsp)
+	call	_ZN3wze6engine5audio4PlayEytdt
 	nop
-	movaps	32(%rsp), %xmm6
+	movaps	48(%rsp), %xmm6
 	movl	$1, %eax
-	addq	$48, %rsp
+	addq	$64, %rsp
 	popq	%rbx
 	ret
 	.p2align 4,,10
@@ -302,4 +303,4 @@ _ZN10gui_button6UpdateEv:
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing12GetDeltaTimeEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5audio4PlayEytd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio4PlayEytdt;	.scl	2;	.type	32;	.endef

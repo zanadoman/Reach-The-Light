@@ -95,8 +95,8 @@ _ZN12act_trapdoor6UpdateEv:
 .LFB8162:
 	.cfi_startproc
 	movq	16(%rdi), %rax
-	movzbl	40(%rdi), %ecx
-	cmpb	%cl, (%rax)
+	movzbl	40(%rdi), %edx
+	cmpb	%dl, (%rax)
 	je	.L12
 	xorl	%eax, %eax
 	ret
@@ -146,12 +146,13 @@ _ZN12act_trapdoor6UpdateEv:
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy@PLT
 	movq	8(%rbx), %rax
 	movq	(%rbx), %rdi
-	movl	$9, %edx
+	xorl	%ecx, %ecx
 	movsd	.LC2(%rip), %xmm0
+	movl	$9, %edx
 	movq	8(%rax), %rax
 	addq	$160, %rdi
 	movq	456(%rax), %rsi
-	call	_ZN3wze6engine5audio4PlayEytd@PLT
+	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	addq	$8, %rsp
 	.cfi_def_cfa_offset 24
 	xorl	%eax, %eax
