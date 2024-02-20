@@ -9,13 +9,13 @@
 	.string	"Eg\303\251r \303\251rz\303\251kenys\303\251g"
 .LC10:
 	.string	"Hanger\305\221"
-.LC13:
+.LC14:
 	.string	"FPS"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB14:
+.LCOLDB15:
 	.text
-.LHOTB14:
+.LHOTB15:
 	.align 2
 	.p2align 4
 	.globl	_ZN9gui_pauseC2EPN3wze6engineEP4game
@@ -182,7 +182,7 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	movsd	%xmm7, (%rsp)
 .LEHB9:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
-	subsd	.LC1(%rip), %xmm0
+	subsd	.LC11(%rip), %xmm0
 	movq	16(%rbx), %rdi
 	movsd	%xmm0, 8(%rsp)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
@@ -191,10 +191,10 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	movl	$15, %r8d
 	movq	%rbp, %rdi
 	movsd	(%rsp), %xmm4
-	movsd	.LC11(%rip), %xmm3
-	leaq	.LC13(%rip), %r9
+	movsd	.LC12(%rip), %xmm3
+	leaq	.LC14(%rip), %r9
 	movl	$400, %ecx
-	movsd	.LC12(%rip), %xmm2
+	movsd	.LC13(%rip), %xmm2
 	movsd	8(%rsp), %xmm1
 	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd@PLT
 .LEHE9:
@@ -346,7 +346,7 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB10-.LCOLDB14
+	.uleb128 .LEHB10-.LCOLDB15
 	.uleb128 .LEHE10-.LEHB10
 	.uleb128 0
 	.uleb128 0
@@ -356,9 +356,9 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game.cold:
 	.size	_ZN9gui_pauseC2EPN3wze6engineEP4game, .-_ZN9gui_pauseC2EPN3wze6engineEP4game
 	.section	.text.unlikely
 	.size	_ZN9gui_pauseC2EPN3wze6engineEP4game.cold, .-_ZN9gui_pauseC2EPN3wze6engineEP4game.cold
-.LCOLDE14:
+.LCOLDE15:
 	.text
-.LHOTE14:
+.LHOTE15:
 	.globl	_ZN9gui_pauseC1EPN3wze6engineEP4game
 	.set	_ZN9gui_pauseC1EPN3wze6engineEP4game,_ZN9gui_pauseC2EPN3wze6engineEP4game
 	.align 2
@@ -654,7 +654,7 @@ _ZN9gui_pause6UpdateEv:
 	.align 8
 .LC5:
 	.long	0
-	.long	1078525952
+	.long	1079164928
 	.align 8
 .LC6:
 	.long	0
@@ -666,13 +666,17 @@ _ZN9gui_pause6UpdateEv:
 	.align 8
 .LC9:
 	.long	0
-	.long	1079984128
+	.long	1080213504
 	.align 8
 .LC11:
 	.long	0
-	.long	1083129856
+	.long	1080827904
 	.align 8
 .LC12:
+	.long	0
+	.long	1083129856
+	.align 8
+.LC13:
 	.long	0
 	.long	1077805056
 	.hidden	DW.ref.__gxx_personality_v0

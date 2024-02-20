@@ -15,8 +15,8 @@ gui_slider::gui_slider(engine* Engine, game* Game, double X, double Y, uint16 Wi
     this->Colorbox->ColorG = 224;
     this->Colorbox->ColorB = 224;
 
-    this->Textbox->SetY(this->Actor->GetY() + this->Actor->GetHeight() * 1.75);
-    this->Textbox->SetHeight(this->Actor->GetHeight() * 1.5);
+    this->Textbox->SetY(this->Actor->GetY() + this->Actor->GetHeight() * 2);
+    this->Textbox->SetHeight(this->Actor->GetHeight() * 1.75);
 
     this->Indicator->ColorR = 96;
     this->Indicator->ColorG = 96;
