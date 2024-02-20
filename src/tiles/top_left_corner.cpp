@@ -8,7 +8,7 @@ tile_top_left_corner::tile_top_left_corner(engine* Engine, game* Game, double X,
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->TileBackgroundTextures[this->Engine->Math.Random(0, this->Game->Assets->TileBackgroundTextures.Length())]);
     this->SpiderOverlapBox = this->Actor->Overlapboxes.New(BOX_DAMAGE);
     this->SpiderTextureBox = this->Actor->Textureboxes.New(this->Game->Assets->TrapSpiderTexture);
-    this->String = this->Actor->Colorboxes.New();
+    this->SpiderString = this->Actor->Colorboxes.New();
     this->SpiderVelocityY = -0.025;
 
     this->Background->Priority = 127;
@@ -22,14 +22,14 @@ tile_top_left_corner::tile_top_left_corner(engine* Engine, game* Game, double X,
     this->SpiderTextureBox->Height = 12;
     this->SpiderTextureBox->Priority = 129;
 
-    this->String->Width = 1;
-    this->String->Height = ((Y + 30) - this->SpiderOverlapBox->GetY());
-    this->String->SetY((this->SpiderOverlapBox->GetY() + (Y + 30)) / 2);
-    this->String->ColorR = 192;
-    this->String->ColorG = 192;
-    this->String->ColorB = 192;
-    this->String->ColorA = 192;
-    this->String->Priority = 128;
+    this->SpiderString->Width = 1;
+    this->SpiderString->Height = ((Y + 30) - this->SpiderOverlapBox->GetY());
+    this->SpiderString->SetY((this->SpiderOverlapBox->GetY() + (Y + 30)) / 2);
+    this->SpiderString->ColorR = 192;
+    this->SpiderString->ColorG = 192;
+    this->SpiderString->ColorB = 192;
+    this->SpiderString->ColorA = 192;
+    this->SpiderString->Priority = 128;
 
     this->HitboxTop = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y + 40, 60, 20, 1);
     this->HitboxTop->Overlapboxes.New(BOX_PLATFORM);
@@ -101,8 +101,8 @@ uint8 tile_top_left_corner::Update()
         this->SpiderVelocityY = -0.025;
     }
 
-    this->String->Height = this->Actor->GetY() + 30 - this->SpiderOverlapBox->GetY();
-    this->String->SetY((this->SpiderOverlapBox->GetY() + (this->Actor->GetY() + 30)) / 2);
+    this->SpiderString->Height = this->Actor->GetY() + 30 - this->SpiderOverlapBox->GetY();
+    this->SpiderString->SetY((this->SpiderOverlapBox->GetY() + (this->Actor->GetY() + 30)) / 2);
 
     return 0;
 }

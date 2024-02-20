@@ -63,7 +63,6 @@ tile_horizontal_corridor::~tile_horizontal_corridor()
     this->Engine->Actors.Delete(this->HitboxTopRight->GetID());
     this->Engine->Actors.Delete(this->HitboxBotLeft->GetID());
     this->Engine->Actors.Delete(this->HitboxBotRight->GetID());
-
     delete this->Crate;
 }
 

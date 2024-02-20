@@ -14,9 +14,9 @@
 .LHOTB15:
 	.align 2
 	.p2align 4
-	.globl	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd
-	.type	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd, @function
-_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
+	.globl	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaEEdd
+	.type	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaEEdd, @function
+_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaEEdd:
 .LFB8157:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
@@ -33,7 +33,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	pushq	%r12
 	.cfi_def_cfa_offset 40
 	.cfi_offset 12, -40
-	movl	%r8d, %r12d
+	movq	%r8, %r12
 	pushq	%rbp
 	.cfi_def_cfa_offset 48
 	.cfi_offset 6, -48
@@ -59,11 +59,12 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	movsd	(%rsp), %xmm0
 	xorl	%edx, %edx
 	xorl	%esi, %esi
+	movq	%r12, 144(%rbx)
 	movsd	8(%rsp), %xmm1
-	movl	$100, %r8d
 	movl	$200, %ecx
 	leaq	272(%rbp), %rdi
 	movq	%rax, %xmm2
+	movl	$100, %r8d
 .LEHB0:
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movq	8(%rbx), %rdx
@@ -93,7 +94,6 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	movq	24(%rbx), %rdi
 	movq	32(%rbx), %rbp
 	movq	%rax, 56(%rbx)
-	movb	%r12b, 144(%rbx)
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	addsd	.LC4(%rip), %xmm0
 	movq	%rbp, %rdi
@@ -415,8 +415,8 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
 	.cfi_lsda 0x1b,.LLSDAC8157
-	.type	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd.cold, @function
-_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd.cold:
+	.type	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaEEdd.cold, @function
+_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaEEdd.cold:
 .LFSB8157:
 .L10:
 	.cfi_def_cfa_offset 96
@@ -448,14 +448,14 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd.cold:
 .LLSDACSEC8157:
 	.section	.text.unlikely
 	.text
-	.size	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd, .-_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd
+	.size	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaEEdd, .-_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaEEdd
 	.section	.text.unlikely
-	.size	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd.cold, .-_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd.cold
+	.size	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaEEdd.cold, .-_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaEEdd.cold
 .LCOLDE15:
 	.text
 .LHOTE15:
-	.globl	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerhdd
-	.set	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerhdd,_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd
+	.globl	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaEEdd
+	.set	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaEEdd,_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaEEdd
 	.align 2
 	.p2align 4
 	.globl	_ZN10tile_houseD2Ev
@@ -588,8 +588,9 @@ _ZN10tile_house6UpdateEv:
 	movl	$255, %eax
 	subl	%esi, %eax
 	movb	%al, 23(%rcx)
-	movzbl	144(%rdi), %eax
-	cmpb	%al, 152(%rdx)
+	movq	144(%rdi), %rax
+	movzbl	152(%rdx), %edx
+	cmpq	(%rax), %rdx
 	jne	.L35
 .L40:
 	movq	128(%rbx), %rdi

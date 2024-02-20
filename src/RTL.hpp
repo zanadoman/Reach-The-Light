@@ -528,9 +528,9 @@ struct tile_house
     engine::actor HitboxLeftTrapdoor;
     engine::actor HitboxRightTrapdoor;
 
-    uint8 MaxScore;
+    array<act_tuna*>* Tunas;
 
-    tile_house(engine* Engine, game* Game, act_player* Player, uint8 MaxScore, double X, double Y);
+    tile_house(engine* Engine, game* Game, act_player* Player, array<act_tuna*>* Tunas, double X, double Y);
     ~tile_house();
     uint8 Update();
 };
@@ -544,7 +544,7 @@ struct tile_top_left_corner
     engine::texturebox Background;
     engine::overlapbox SpiderOverlapBox;
     engine::texturebox SpiderTextureBox;
-    engine::colorbox String;
+    engine::colorbox SpiderString;
 
     engine::actor HitboxTop;
     engine::actor HitboxLeft;

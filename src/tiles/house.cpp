@@ -1,13 +1,12 @@
 #include "../RTL.hpp"
 
-tile_house::tile_house(engine* Engine, game* Game, act_player* Player, uint8 MaxScore, double X, double Y) : Engine(Engine), Game(Game), Player(Player), Grasses(30)
+tile_house::tile_house(engine* Engine, game* Game, act_player* Player, array<act_tuna*>* Tunas, double X, double Y) : Engine(Engine), Game(Game), Player(Player), Grasses(30), Tunas(Tunas)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 200, 100, 1);
     this->House = this->Actor->Textureboxes.New(this->Game->Assets->HouseTexture);
     this->LeftTrapdoor = this->Actor->Textureboxes.New(this->Game->Assets->TrapdoorTexture);
     this->RightTrapdoor = this->Actor->Textureboxes.New(this->Game->Assets->TrapdoorTexture);
     this->Sky = this->Actor->Colorboxes.New();
-    this->MaxScore = MaxScore;
 
     this->House->SetY(this->Actor->GetY() + 25);
     this->House->Width = 250;
@@ -107,7 +106,7 @@ uint8 tile_house::Update()
 {
     this->Sky->ColorA = round(engine::math::Clamp<double>(255 - this->Player->FireflyMask->ColorA, 0, 255));
 
-    if ((this->Player->Score == this->MaxScore || (this->Engine->Keys[KEY_O] && this->Engine->Keys[KEY_P] && this->Engine->Keys[KEY_E] && this->Engine->Keys[KEY_N])) && this->HitboxLeftTrapdoor != NULL && this->HitboxRightTrapdoor != NULL)
+    if ((this->Player->Score == this->Tunas->Length() || (this->Engine->Keys[KEY_O] && this->Engine->Keys[KEY_P] && this->Engine->Keys[KEY_E] && this->Engine->Keys[KEY_N])) && this->HitboxLeftTrapdoor != NULL && this->HitboxRightTrapdoor != NULL)
     {
         this->Engine->Actors.Delete(this->HitboxLeftTrapdoor->GetID());
         this->HitboxLeftTrapdoor = NULL;

@@ -283,9 +283,9 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	(%r12), %rsi
 	movsd	.LC6(%rip), %xmm1
 	pxor	%xmm0, %xmm0
-	movzbl	1120(%r12), %r8d
+	movq	16(%rsp), %r8
 .LEHB7:
-	call	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerhdd@PLT
+	call	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerPN3neo5arrayIP8act_tunaEEdd@PLT
 .LEHE7:
 	movq	%rbx, 1104(%r12)
 	movq	24(%r12), %rdi

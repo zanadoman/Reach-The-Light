@@ -309,9 +309,9 @@ _ZN10act_playerD2Ev:
 	.string	"neo::array[]: Index out of range\nParams: Index: %lld\n"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB33:
+.LCOLDB34:
 	.text
-.LHOTB33:
+.LHOTB34:
 	.align 2
 	.p2align 4
 	.globl	_ZN10act_player6UpdateEv
@@ -518,12 +518,13 @@ _ZN10act_player6UpdateEv:
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
 	movq	32(%rbx), %rdi
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
-	movapd	%xmm0, %xmm1
-	movsd	.LC31(%rip), %xmm0
+	movsd	.LC31(%rip), %xmm1
 	movq	144(%rbx), %r13
 	movq	(%rbx), %r12
+	addsd	%xmm0, %xmm1
+	movsd	.LC32(%rip), %xmm0
 	subsd	%xmm1, %xmm0
-	divsd	.LC32(%rip), %xmm0
+	divsd	.LC33(%rip), %xmm0
 	pxor	%xmm1, %xmm1
 	mulsd	.LC2(%rip), %xmm0
 	comisd	%xmm0, %xmm1
@@ -1517,7 +1518,7 @@ _ZN10act_player6UpdateEv.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8162-.LLSDACSBC8162
 .LLSDACSBC8162:
-	.uleb128 .LEHB1-.LCOLDB33
+	.uleb128 .LEHB1-.LCOLDB34
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1527,9 +1528,9 @@ _ZN10act_player6UpdateEv.cold:
 	.size	_ZN10act_player6UpdateEv, .-_ZN10act_player6UpdateEv
 	.section	.text.unlikely
 	.size	_ZN10act_player6UpdateEv.cold, .-_ZN10act_player6UpdateEv.cold
-.LCOLDE33:
+.LCOLDE34:
 	.text
-.LHOTE33:
+.LHOTE34:
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC0:
@@ -1635,6 +1636,10 @@ _ZN10act_player6UpdateEv.cold:
 	.long	1082720256
 	.align 8
 .LC32:
+	.long	0
+	.long	1083768832
+	.align 8
+.LC33:
 	.long	0
 	.long	1077477376
 	.hidden	DW.ref.__gxx_personality_v0
