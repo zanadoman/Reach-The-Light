@@ -1,17 +1,22 @@
 	.file	"slider.cpp"
 	.text
+	.section .rdata,"dr"
+.LC6:
+	.ascii ": \0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB6:
+.LCOLDB7:
 	.text
-.LHOTB6:
+.LHOTB7:
 	.align 2
 	.p2align 4
-	.globl	_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd
-	.def	_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd
-_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
+	.globl	_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd
+	.def	_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd
+_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 .LFB8432:
+	pushq	%r13
+	.seh_pushreg	%r13
 	pushq	%r12
 	.seh_pushreg	%r12
 	pushq	%rbp
@@ -22,42 +27,43 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$144, %rsp
-	.seh_stackalloc	144
-	movaps	%xmm6, 96(%rsp)
-	.seh_savexmm	%xmm6, 96
-	movaps	%xmm7, 112(%rsp)
-	.seh_savexmm	%xmm7, 112
-	movaps	%xmm8, 128(%rsp)
-	.seh_savexmm	%xmm8, 128
+	subq	$216, %rsp
+	.seh_stackalloc	216
+	movaps	%xmm6, 160(%rsp)
+	.seh_savexmm	%xmm6, 160
+	movaps	%xmm7, 176(%rsp)
+	.seh_savexmm	%xmm7, 176
+	movaps	%xmm8, 192(%rsp)
+	.seh_savexmm	%xmm8, 192
 	.seh_endprologue
-	movl	232(%rsp), %ebp
-	movl	240(%rsp), %r12d
-	movq	248(%rsp), %rdi
-	movsd	256(%rsp), %xmm8
-	movsd	264(%rsp), %xmm7
-	movzwl	%r12w, %r12d
-	movzwl	%bp, %ebp
+	movq	312(%rsp), %rbp
+	movsd	320(%rsp), %xmm8
+	movsd	328(%rsp), %xmm7
 	movq	%rdx, (%rcx)
-	leaq	56(%rcx), %rsi
+	leaq	56(%rcx), %rdi
 	movq	%rcx, %rbx
+	movapd	%xmm3, %xmm6
 	movq	%r8, 8(%rcx)
-	movq	%rsi, %rcx
-	movsd	%xmm3, 216(%rsp)
+	leaq	144(%rsp), %rsi
+	movq	%rdi, %rcx
 .LEHB0:
 	call	_ZN3neo6stringC1Ev
 .LEHE0:
+	movq	%rsi, %rcx
+.LEHB1:
+	call	_ZN3neo6stringC1Ev
+.LEHE1:
 	movq	(%rbx), %rax
-	movl	%r12d, 48(%rsp)
+	movl	$15, 48(%rsp)
 	xorl	%r8d, %r8d
-	movsd	224(%rsp), %xmm0
-	movl	%ebp, 40(%rsp)
 	xorl	%edx, %edx
+	movsd	304(%rsp), %xmm0
+	movl	$400, 40(%rsp)
+	movapd	%xmm6, %xmm3
 	movq	$0x000000000, 56(%rsp)
 	leaq	272(%rax), %rcx
-	movsd	216(%rsp), %xmm3
 	movsd	%xmm0, 32(%rsp)
-.LEHB1:
+.LEHB2:
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	movq	%rax, 16(%rbx)
 	leaq	136(%rax), %rcx
@@ -72,7 +78,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	movq	16(%rbx), %rdx
 	movq	8(%rax), %rax
 	leaq	104(%rdx), %rcx
-	movq	%rdi, %rdx
+	movq	%rbp, %rdx
 	movq	32(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movq	%rax, 40(%rbx)
@@ -80,14 +86,15 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	leaq	8(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor10colorboxes3NewEv
 	movq	%rax, 48(%rbx)
+	leaq	96(%rsp), %r12
 	movapd	%xmm8, %xmm6
-	leaq	88(%rsp), %rax
-	movq	%rsi, %rcx
-	leaq	64(%rsp), %rdx
-	movq	%rdi, 88(%rsp)
+	movq	%rdi, %rcx
+	movq	%rbp, 136(%rsp)
+	movq	%r12, %rdx
+	leaq	136(%rsp), %rbp
 	unpcklpd	%xmm7, %xmm6
-	movq	%rax, 64(%rsp)
-	movq	$1, 72(%rsp)
+	movq	%rbp, 96(%rsp)
+	movq	$1, 104(%rsp)
 	call	_ZN3neo6stringaSESt16initializer_listIPKcE
 	movq	32(%rbx), %rax
 	movl	$-7968, %ecx
@@ -95,24 +102,24 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	movw	%cx, 20(%rax)
 	movb	$-32, 22(%rax)
 	movq	16(%rbx), %rcx
-	movq	40(%rbx), %rdi
+	movq	40(%rbx), %r13
 	call	_ZN3wze6engine6actors5actor4GetYEv
 	movq	16(%rbx), %rcx
 	movapd	%xmm0, %xmm6
 	call	_ZN3wze6engine6actors5actor9GetHeightEv
 	movzwl	%ax, %eax
 	pxor	%xmm1, %xmm1
-	movq	%rdi, %rcx
+	movq	%r13, %rcx
 	addl	%eax, %eax
 	cvtsi2sdl	%eax, %xmm1
 	addsd	%xmm6, %xmm1
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
 	movq	16(%rbx), %rcx
-	movq	40(%rbx), %rdi
+	movq	40(%rbx), %r13
 	call	_ZN3wze6engine6actors5actor9GetHeightEv
 	movzwl	%ax, %eax
 	pxor	%xmm0, %xmm0
-	movq	%rdi, %rcx
+	movq	%r13, %rcx
 	cvtsi2sdl	%eax, %xmm0
 	mulsd	.LC2(%rip), %xmm0
 	cvttsd2sil	%xmm0, %edx
@@ -175,7 +182,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	cvtsi2sdl	%eax, %xmm1
 	addsd	%xmm6, %xmm0
 	subsd	%xmm1, %xmm0
-	movsd	272(%rsp), %xmm1
+	movsd	336(%rsp), %xmm1
 	subsd	%xmm8, %xmm1
 	movsd	%xmm0, 80(%rbx)
 	subsd	%xmm2, %xmm0
@@ -183,21 +190,86 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	mulsd	%xmm0, %xmm1
 	addsd	%xmm2, %xmm1
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd
-.LEHE1:
+	movq	48(%rbx), %rcx
+	movsd	96(%rbx), %xmm6
+	subsd	88(%rbx), %xmm6
+	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv
+	movsd	72(%rbx), %xmm2
+	movsd	80(%rbx), %xmm1
+	leaq	80(%rsp), %rdx
+	movq	%rsi, %rcx
+	leaq	.LC6(%rip), %rax
+	movq	%rdi, 120(%rsp)
+	leaq	128(%rsp), %r13
+	subsd	%xmm2, %xmm0
+	subsd	%xmm2, %xmm1
+	movq	%rax, 128(%rsp)
+	leaq	120(%rsp), %rax
+	divsd	%xmm1, %xmm0
+	mulsd	%xmm6, %xmm0
+	addsd	88(%rbx), %xmm0
+	movq	%rax, 80(%rsp)
+	movq	$1, 88(%rsp)
+	movsd	%xmm0, 136(%rsp)
+	call	_ZN3neo6stringaSESt16initializer_listIPS0_E
+	movq	%rax, %rcx
+	movq	%r12, %rdx
+	movq	%r13, 96(%rsp)
+	movq	$1, 104(%rsp)
+	call	_ZN3neo6stringpLESt16initializer_listIPKcE
+	movq	%rax, %rcx
+	leaq	64(%rsp), %rdx
+	movq	%rbp, 64(%rsp)
+	movq	$1, 72(%rsp)
+	call	_ZN3neo6stringpLESt16initializer_listIdE
+	movq	%rdi, %rcx
+	call	_ZN3neo6string6LengthEv
+	movq	%rsi, %rcx
+	leaq	6(%rax), %rbp
+	call	_ZN3neo6string6LengthEv
+	cmpq	%rax, %rbp
+	jnb	.L4
+	movq	%rsi, %rcx
+	call	_ZN3neo6string6LengthEv
+	movq	%rdi, %rcx
+	movq	%rax, %rbp
+	call	_ZN3neo6string6LengthEv
+	subq	$7, %rbp
+	movq	%rdi, %rcx
+	subq	%rax, %rbp
+	call	_ZN3neo6string6LengthEv
+	leaq	6(%rax), %rdx
+	movq	%rbp, %r8
+	movq	%rsi, %rcx
+	call	_ZN3neo6string6RemoveEyy
+.L4:
+	movq	%rsi, %rcx
+	movq	40(%rbx), %rbx
+	call	_ZN3neo6stringclEv
+	movq	%rax, %rdx
+	movq	%rbx, %rcx
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox10SetLiteralEPKc
+.LEHE2:
+	movq	%rsi, %rcx
+	call	_ZN3neo6stringD1Ev
 	nop
-	movaps	96(%rsp), %xmm6
-	movaps	112(%rsp), %xmm7
-	movaps	128(%rsp), %xmm8
-	addq	$144, %rsp
+	movaps	160(%rsp), %xmm6
+	movaps	176(%rsp), %xmm7
+	movaps	192(%rsp), %xmm8
+	addq	$216, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
 	popq	%rbp
 	popq	%r12
+	popq	%r13
 	ret
-.L3:
+.L7:
 	movq	%rax, %rbx
-	jmp	.L2
+	jmp	.L6
+.L8:
+	movq	%rax, %rbx
+	jmp	.L5
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
@@ -213,33 +285,41 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd:
 	.uleb128 0
 	.uleb128 .LEHB1-.LFB8432
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L3-.LFB8432
+	.uleb128 .L7-.LFB8432
+	.uleb128 0
+	.uleb128 .LEHB2-.LFB8432
+	.uleb128 .LEHE2-.LEHB2
+	.uleb128 .L8-.LFB8432
 	.uleb128 0
 .LLSDACSE8432:
 	.text
 	.seh_endproc
 	.section	.text.unlikely,"x"
-	.def	_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold;	.scl	3;	.type	32;	.endef
-	.seh_proc	_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold
-	.seh_stackalloc	184
-	.seh_savereg	%rbx, 144
-	.seh_savereg	%rsi, 152
-	.seh_savereg	%rdi, 160
-	.seh_savereg	%rbp, 168
-	.seh_savexmm	%xmm6, 96
-	.seh_savexmm	%xmm7, 112
-	.seh_savereg	%r12, 176
-	.seh_savexmm	%xmm8, 128
+	.def	_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd.cold;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd.cold
+	.seh_stackalloc	264
+	.seh_savereg	%rbx, 216
+	.seh_savereg	%rsi, 224
+	.seh_savereg	%rdi, 232
+	.seh_savereg	%rbp, 240
+	.seh_savexmm	%xmm6, 160
+	.seh_savexmm	%xmm7, 176
+	.seh_savereg	%r12, 248
+	.seh_savereg	%r13, 256
+	.seh_savexmm	%xmm8, 192
 	.seh_endprologue
-_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold:
-.L2:
+_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd.cold:
+.L5:
 	movq	%rsi, %rcx
 	call	_ZN3neo6stringD1Ev
+.L6:
+	movq	%rdi, %rcx
+	call	_ZN3neo6stringD1Ev
 	movq	%rbx, %rcx
-.LEHB2:
+.LEHB3:
 	call	_Unwind_Resume
 	nop
-.LEHE2:
+.LEHE3:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 .LLSDAC8432:
@@ -248,8 +328,8 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB2-.LCOLDB6
-	.uleb128 .LEHE2-.LEHB2
+	.uleb128 .LEHB3-.LCOLDB7
+	.uleb128 .LEHE3-.LEHB3
 	.uleb128 0
 	.uleb128 0
 .LLSDACSEC8432:
@@ -257,12 +337,12 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE6:
+.LCOLDE7:
 	.text
-.LHOTE6:
-	.globl	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd
-	.def	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd;	.scl	2;	.type	32;	.endef
-	.set	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd,_ZN10gui_sliderC2EPN3wze6engineEP4gameddttPKcddd
+.LHOTE7:
+	.globl	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd
+	.def	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd;	.scl	2;	.type	32;	.endef
+	.set	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd,_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd
 	.align 2
 	.p2align 4
 	.globl	_ZN10gui_sliderD2Ev
@@ -304,9 +384,6 @@ _ZN10gui_sliderD2Ev:
 	.globl	_ZN10gui_sliderD1Ev
 	.def	_ZN10gui_sliderD1Ev;	.scl	2;	.type	32;	.endef
 	.set	_ZN10gui_sliderD1Ev,_ZN10gui_sliderD2Ev
-	.section .rdata,"dr"
-.LC8:
-	.ascii ": \0"
 	.section	.text.unlikely,"x"
 	.align 2
 .LCOLDB9:
@@ -339,18 +416,18 @@ _ZN10gui_slider6UpdateEv:
 	leaq	128(%rsp), %rsi
 	movq	%rcx, %rbx
 	movq	%rsi, %rcx
-.LEHB3:
-	call	_ZN3neo6stringC1Ev
-.LEHE3:
-	movq	24(%rbx), %rcx
 .LEHB4:
+	call	_ZN3neo6stringC1Ev
+.LEHE4:
+	movq	24(%rbx), %rcx
+.LEHB5:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv
 	testb	$1, %al
-	je	.L27
+	je	.L33
 	movq	24(%rbx), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv
 	testb	$2, %al
-	je	.L9
+	je	.L15
 	movq	(%rbx), %rax
 	pxor	%xmm1, %xmm1
 	movq	48(%rbx), %rdi
@@ -364,20 +441,20 @@ _ZN10gui_slider6UpdateEv:
 	movsd	72(%rbx), %xmm1
 	movq	48(%rbx), %rcx
 	comisd	%xmm0, %xmm1
-	ja	.L29
+	ja	.L35
 	movsd	80(%rbx), %xmm6
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv
 	comisd	%xmm6, %xmm0
 	movq	48(%rbx), %rcx
-	jbe	.L8
+	jbe	.L14
 	movsd	80(%rbx), %xmm1
-.L29:
+.L35:
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd
 	.p2align 4,,10
 	.p2align 3
-.L27:
+.L33:
 	movq	48(%rbx), %rcx
-.L8:
+.L14:
 	movsd	96(%rbx), %xmm7
 	subsd	88(%rbx), %xmm7
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv
@@ -388,7 +465,7 @@ _ZN10gui_slider6UpdateEv:
 	movsd	80(%rbx), %xmm0
 	leaq	80(%rsp), %rdx
 	movq	%rbp, 104(%rsp)
-	leaq	.LC8(%rip), %rax
+	leaq	.LC6(%rip), %rax
 	subsd	%xmm1, %xmm6
 	movq	%rax, 112(%rsp)
 	leaq	104(%rsp), %rax
@@ -418,7 +495,7 @@ _ZN10gui_slider6UpdateEv:
 	leaq	6(%rax), %rdi
 	call	_ZN3neo6string6LengthEv
 	cmpq	%rax, %rdi
-	jnb	.L13
+	jnb	.L19
 	movq	%rsi, %rcx
 	call	_ZN3neo6string6LengthEv
 	movq	%rbp, %rcx
@@ -432,7 +509,7 @@ _ZN10gui_slider6UpdateEv:
 	movq	%rdi, %r8
 	movq	%rsi, %rcx
 	call	_ZN3neo6string6RemoveEyy
-.L13:
+.L19:
 	movq	%rsi, %rcx
 	movq	40(%rbx), %rbx
 	call	_ZN3neo6stringclEv
@@ -453,25 +530,25 @@ _ZN10gui_slider6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L9:
+.L15:
 	movq	24(%rbx), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv
 	testb	$4, %al
-	je	.L27
+	je	.L33
 	movq	8(%rbx), %rax
-	movsd	.LC7(%rip), %xmm3
+	movsd	.LC8(%rip), %xmm3
 	movl	$1, %r8d
 	movq	8(%rax), %rax
-	movq	408(%rax), %rdx
+	movq	432(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
 	call	_ZN3wze6engine5audio4PlayEytdt
-.LEHE4:
-	jmp	.L27
-.L15:
+.LEHE5:
+	jmp	.L33
+.L21:
 	movq	%rax, %rbx
-	jmp	.L14
+	jmp	.L20
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 .LLSDA8437:
@@ -480,13 +557,13 @@ _ZN10gui_slider6UpdateEv:
 	.byte	0x1
 	.uleb128 .LLSDACSE8437-.LLSDACSB8437
 .LLSDACSB8437:
-	.uleb128 .LEHB3-.LFB8437
-	.uleb128 .LEHE3-.LEHB3
-	.uleb128 0
-	.uleb128 0
 	.uleb128 .LEHB4-.LFB8437
 	.uleb128 .LEHE4-.LEHB4
-	.uleb128 .L15-.LFB8437
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB5-.LFB8437
+	.uleb128 .LEHE5-.LEHB5
+	.uleb128 .L21-.LFB8437
 	.uleb128 0
 .LLSDACSE8437:
 	.text
@@ -504,14 +581,14 @@ _ZN10gui_slider6UpdateEv:
 	.seh_savereg	%r12, 208
 	.seh_endprologue
 _ZN10gui_slider6UpdateEv.cold:
-.L14:
+.L20:
 	movq	%rsi, %rcx
 	call	_ZN3neo6stringD1Ev
 	movq	%rbx, %rcx
-.LEHB5:
+.LEHB6:
 	call	_Unwind_Resume
 	nop
-.LEHE5:
+.LEHE6:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 .LLSDAC8437:
@@ -520,8 +597,8 @@ _ZN10gui_slider6UpdateEv.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8437-.LLSDACSBC8437
 .LLSDACSBC8437:
-	.uleb128 .LEHB5-.LCOLDB9
-	.uleb128 .LEHE5-.LEHB5
+	.uleb128 .LEHB6-.LCOLDB9
+	.uleb128 .LEHE6-.LEHB6
 	.uleb128 0
 	.uleb128 0
 .LLSDACSEC8437:
@@ -546,7 +623,7 @@ _ZN10gui_slider6UpdateEv.cold:
 	.long	0
 	.long	1071644672
 	.align 8
-.LC7:
+.LC8:
 	.long	0
 	.long	1072693248
 	.ident	"GCC: (GNU) 13.1.0"
@@ -563,12 +640,6 @@ _ZN10gui_slider6UpdateEv.cold:
 	.def	_ZN3wze6engine6actors5actor4GetXEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor8GetWidthEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd;	.scl	2;	.type	32;	.endef
-	.def	_ZN3neo6stringD1Ev;	.scl	2;	.type	32;	.endef
-	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5mouse4GetXEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor10colorboxes8colorbox4GetXEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringaSESt16initializer_listIPS0_E;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringpLESt16initializer_listIPKcE;	.scl	2;	.type	32;	.endef
@@ -577,4 +648,10 @@ _ZN10gui_slider6UpdateEv.cold:
 	.def	_ZN3neo6string6RemoveEyy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringclEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes7textbox10SetLiteralEPKc;	.scl	2;	.type	32;	.endef
+	.def	_ZN3neo6stringD1Ev;	.scl	2;	.type	32;	.endef
+	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5mouse4GetXEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5audio4PlayEytdt;	.scl	2;	.type	32;	.endef

@@ -268,6 +268,8 @@ struct scene_story
     array<engine::textbox> Lines;
     uint32 Sleep;
 
+    gui_button* Skip;
+
     scene_story(engine* Engine, game* Game);
     ~scene_story();
     scene Update();

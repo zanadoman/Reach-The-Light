@@ -19,10 +19,10 @@ _ZN10scene_helpC2EPN3wze6engineEP4game:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$104, %rsp
-	.seh_stackalloc	104
-	movaps	%xmm6, 80(%rsp)
-	.seh_savexmm	%xmm6, 80
+	subq	$88, %rsp
+	.seh_stackalloc	88
+	movaps	%xmm6, 64(%rsp)
+	.seh_savexmm	%xmm6, 64
 	.seh_endprologue
 	pxor	%xmm6, %xmm6
 	movq	%rdx, (%rcx)
@@ -49,7 +49,7 @@ _ZN10scene_helpC2EPN3wze6engineEP4game:
 	movsd	%xmm6, 32(%rsp)
 	movq	$0x000000000, 56(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$64, %ecx
+	movl	$56, %ecx
 	movq	%rax, 16(%rbx)
 	call	_Znwy
 .LEHE0:
@@ -65,17 +65,15 @@ _ZN10scene_helpC2EPN3wze6engineEP4game:
 	movq	(%rbx), %rdx
 	movsd	%xmm6, 32(%rsp)
 	movapd	%xmm0, %xmm3
-	movq	%rax, 64(%rsp)
+	movq	%rax, 48(%rsp)
 	movq	%rsi, %rcx
-	movq	$0x000000000, 56(%rsp)
-	movl	$75, 48(%rsp)
-	movl	$200, 40(%rsp)
+	movq	$0x000000000, 40(%rsp)
 	movq	8(%rbx), %r8
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc
 .LEHE1:
 	movq	%rsi, 24(%rbx)
-	movaps	80(%rsp), %xmm6
-	addq	$104, %rsp
+	movaps	64(%rsp), %xmm6
+	addq	$88, %rsp
 	popq	%rbx
 	popq	%rsi
 	ret
@@ -105,15 +103,15 @@ _ZN10scene_helpC2EPN3wze6engineEP4game:
 	.section	.text.unlikely,"x"
 	.def	_ZN10scene_helpC2EPN3wze6engineEP4game.cold;	.scl	3;	.type	32;	.endef
 	.seh_proc	_ZN10scene_helpC2EPN3wze6engineEP4game.cold
-	.seh_stackalloc	120
-	.seh_savereg	%rbx, 104
-	.seh_savereg	%rsi, 112
-	.seh_savexmm	%xmm6, 80
+	.seh_stackalloc	104
+	.seh_savereg	%rbx, 88
+	.seh_savereg	%rsi, 96
+	.seh_savexmm	%xmm6, 64
 	.seh_endprologue
 _ZN10scene_helpC2EPN3wze6engineEP4game.cold:
 .L2:
 	movq	%rsi, %rcx
-	movl	$64, %edx
+	movl	$56, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 .LEHB2:
@@ -160,7 +158,7 @@ _ZN10scene_helpD2Ev:
 	je	.L6
 	movq	%rbx, %rcx
 	call	_ZN10gui_buttonD1Ev
-	movl	$64, %edx
+	movl	$56, %edx
 	movq	%rbx, %rcx
 	addq	$32, %rsp
 	popq	%rbx
@@ -189,7 +187,7 @@ _ZN10scene_help6UpdateEv:
 	call	_ZN10gui_button6UpdateEv
 	cmpb	$1, %al
 	sbbl	%eax, %eax
-	andl	$3, %eax
+	andl	$4, %eax
 	addl	$1, %eax
 	addq	$40, %rsp
 	ret
@@ -206,7 +204,7 @@ _ZN10scene_help6UpdateEv:
 	.def	_Znwy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetXEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc;	.scl	2;	.type	32;	.endef
+	.def	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc;	.scl	2;	.type	32;	.endef
 	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
 	.def	_ZN10gui_buttonD1Ev;	.scl	2;	.type	32;	.endef

@@ -93,9 +93,9 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
 	movq	8(%rdx), %rax
 	movq	24(%rdx), %rdx
 	movq	144(%rdx,%r13,8), %rdx
-	movq	256(%rax), %r8
+	movq	272(%rax), %r8
 	movzbl	(%rdx,%r14), %edx
-	cmpq	248(%rax), %rdx
+	cmpq	264(%rax), %rdx
 	jnb	.L47
 	movq	(%r8,%rdx,8), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -401,8 +401,8 @@ _ZN8gui_tile6UpdateEv:
 	movq	8(%rcx), %rcx
 	movq	144(%r9,%rdx,8), %rdx
 	movzbl	(%rdx,%rax), %edx
-	movq	256(%rcx), %rax
-	cmpq	248(%rcx), %rdx
+	movq	272(%rcx), %rax
+	cmpq	264(%rcx), %rdx
 	jnb	.L112
 	movq	(%rax,%rdx,8), %rdx
 	movq	%r8, %rcx
@@ -452,7 +452,7 @@ _ZN8gui_tile6UpdateEv:
 	movb	%dl, (%rax)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	408(%rax), %rdx
+	movq	432(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
@@ -500,7 +500,7 @@ _ZN8gui_tile6UpdateEv:
 	movsd	.LC0(%rip), %xmm3
 	movl	$1, %r8d
 	movq	8(%rax), %rax
-	movq	408(%rax), %rdx
+	movq	432(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
@@ -540,7 +540,7 @@ _ZN8gui_tile6UpdateEv:
 	movsd	.LC0(%rip), %xmm3
 	movl	$1, %r8d
 	movq	8(%rax), %rax
-	movq	408(%rax), %rdx
+	movq	432(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx

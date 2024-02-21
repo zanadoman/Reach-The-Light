@@ -67,7 +67,7 @@ _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	368(%rax), %rdx
+	movq	384(%rax), %rdx
 	movq	24(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -82,12 +82,9 @@ _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt
 	movq	32(%rbx), %rcx
 	movl	$120, %edx
-	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt
-	movq	40(%rbx), %rax
-	movb	$-128, 36(%rax)
 	addq	$64, %rsp
 	popq	%rbx
-	ret
+	jmp	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt
 	.seh_endproc
 	.globl	_ZN9act_crateC1EPN3wze6engineEP4gameP10act_playerdd
 	.def	_ZN9act_crateC1EPN3wze6engineEP4gameP10act_playerdd;	.scl	2;	.type	32;	.endef
@@ -208,11 +205,11 @@ _ZN9act_crate6UpdateEv:
 	ja	.L7
 	movq	16(%rsi), %rax
 	movq	32(%rsi), %rdi
-	movq	48(%rax), %rcx
+	movq	32(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv
 	movq	%rax, %rbx
 	movq	16(%rsi), %rax
-	movq	32(%rax), %rcx
+	movq	16(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rax, %rdx
 	movq	%rbx, %r8
@@ -313,7 +310,7 @@ _ZN9act_crate6UpdateEv:
 	movsd	.LC0(%rip), %xmm3
 	movl	$6, %r8d
 	movq	8(%rax), %rax
-	movq	448(%rax), %rdx
+	movq	472(%rax), %rdx
 	movq	(%rsi), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx

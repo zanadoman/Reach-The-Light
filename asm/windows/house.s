@@ -37,20 +37,22 @@ _Z6printfPKcz:
 .LC2:
 	.ascii "neo::array(): Memory allocation failed\12Params: Length: %lld\12\0"
 	.align 8
-.LC9:
+.LC12:
 	.ascii "neo::array[]: Index out of range\12Params: Index: %lld\12\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB15:
+.LCOLDB23:
 	.text
-.LHOTB15:
+.LHOTB23:
 	.align 2
 	.p2align 4
-	.globl	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd
-	.def	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd;	.scl	2;	.type	32;	.endef
-	.seh_proc	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd
-_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
+	.globl	_ZN10tile_houseC2EPN3wze6engineEP4game
+	.def	_ZN10tile_houseC2EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN10tile_houseC2EPN3wze6engineEP4game
+_ZN10tile_houseC2EPN3wze6engineEP4game:
 .LFB8432:
+	pushq	%r12
+	.seh_pushreg	%r12
 	pushq	%rbp
 	.seh_pushreg	%rbp
 	pushq	%rdi
@@ -59,8 +61,8 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$216, %rsp
-	.seh_stackalloc	216
+	subq	$144, %rsp
+	.seh_stackalloc	144
 	movaps	%xmm6, 64(%rsp)
 	.seh_savexmm	%xmm6, 64
 	movaps	%xmm7, 80(%rsp)
@@ -71,155 +73,180 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	.seh_savexmm	%xmm9, 112
 	movaps	%xmm10, 128(%rsp)
 	.seh_savexmm	%xmm10, 128
-	movaps	%xmm11, 144(%rsp)
-	.seh_savexmm	%xmm11, 144
-	movaps	%xmm12, 160(%rsp)
-	.seh_savexmm	%xmm12, 160
-	movaps	%xmm13, 176(%rsp)
-	.seh_savexmm	%xmm13, 176
-	movaps	%xmm14, 192(%rsp)
-	.seh_savexmm	%xmm14, 192
 	.seh_endprologue
-	movsd	296(%rsp), %xmm7
-	movl	288(%rsp), %edi
-	movsd	304(%rsp), %xmm6
 	movq	%rdx, (%rcx)
 	movq	%rcx, %rbx
 	movq	%rdx, %rsi
 	movq	%r8, 8(%rcx)
-	movq	%r9, 16(%rcx)
 	movq	$30, 64(%rcx)
 	movl	$240, %ecx
 	call	malloc
 	movq	%rax, 72(%rbx)
 	testq	%rax, %rax
-	je	.L22
+	je	.L20
+	movq	.LC4(%rip), %rax
+	movsd	.LC3(%rip), %xmm6
+	movl	$100, 48(%rsp)
 	leaq	272(%rsi), %rcx
-	movapd	%xmm7, %xmm3
+	movl	$200, 40(%rsp)
+	pxor	%xmm3, %xmm3
 	xorl	%r8d, %r8d
 	xorl	%edx, %edx
-	movsd	.LC3(%rip), %xmm9
-	movl	$100, 48(%rsp)
-	movl	$200, 40(%rsp)
-	movsd	%xmm9, 56(%rsp)
-	movsd	%xmm6, 32(%rsp)
+	movq	%rax, 32(%rsp)
+	movsd	%xmm6, 56(%rsp)
 .LEHB0:
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	movq	8(%rbx), %rdx
-	movq	%rax, 24(%rbx)
+	movq	%rax, 16(%rbx)
 	leaq	40(%rax), %rcx
 	movq	8(%rdx), %rdx
-	movq	376(%rdx), %rdx
+	movq	392(%rdx), %rdx
+	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
+	movq	%rax, 24(%rbx)
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rax
+	movq	400(%rax), %rdx
+	movq	16(%rbx), %rax
+	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	384(%rax), %rdx
-	movq	24(%rbx), %rax
+	movq	408(%rax), %rdx
+	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 40(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	384(%rax), %rdx
-	movq	24(%rbx), %rax
+	movq	408(%rax), %rdx
+	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 48(%rbx)
-	movq	24(%rbx), %rax
+	movq	16(%rbx), %rax
 	leaq	8(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor10colorboxes3NewEv
-	movq	24(%rbx), %rcx
-	movq	32(%rbx), %rsi
 	movq	%rax, 56(%rbx)
-	movb	%dil, 144(%rbx)
+	movq	16(%rbx), %rax
+	xorl	%edx, %edx
+	leaq	136(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
+	movq	16(%rbx), %rcx
+	movq	24(%rbx), %rsi
+	movq	%rax, 80(%rbx)
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	.LC4(%rip), %xmm1
+	movsd	.LC5(%rip), %xmm1
 	movq	%rsi, %rcx
 	addsd	%xmm0, %xmm1
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
-	movq	32(%rbx), %rax
-	movapd	%xmm7, %xmm12
-	movq	40(%rbx), %rcx
-	movsd	.LC6(%rip), %xmm11
+	movq	24(%rbx), %rax
+	movq	16(%rbx), %rcx
+	movq	32(%rbx), %rsi
 	movl	$9830650, 16(%rax)
-	subsd	%xmm11, %xmm12
-	movapd	%xmm12, %xmm1
+	call	_ZN3wze6engine6actors5actor4GetYEv
+	movapd	%xmm0, %xmm1
+	subsd	.LC7(%rip), %xmm1
+	movq	%rsi, %rcx
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
+	movq	32(%rbx), %rax
+	movq	16(%rbx), %rcx
+	movq	40(%rbx), %rsi
+	movl	$1376290, 16(%rax)
+	movb	$-124, 36(%rax)
+	call	_ZN3wze6engine6actors5actor4GetXEv
+	movsd	.LC9(%rip), %xmm10
+	movapd	%xmm0, %xmm1
+	movq	%rsi, %rcx
+	subsd	%xmm10, %xmm1
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd
-	movapd	%xmm6, %xmm8
-	movq	40(%rbx), %rcx
-	subsd	.LC7(%rip), %xmm8
-	movapd	%xmm8, %xmm1
+	movq	16(%rbx), %rcx
+	movq	40(%rbx), %rsi
+	call	_ZN3wze6engine6actors5actor4GetYEv
+	movsd	.LC10(%rip), %xmm7
+	movapd	%xmm0, %xmm1
+	movq	%rsi, %rcx
+	subsd	%xmm7, %xmm1
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
 	movq	40(%rbx), %rax
-	movl	.LC8(%rip), %esi
-	addsd	%xmm7, %xmm11
-	movq	48(%rbx), %rcx
+	movl	.LC11(%rip), %esi
+	movq	16(%rbx), %rcx
+	movq	48(%rbx), %rdi
 	movl	%esi, 16(%rax)
 	movb	$0, 37(%rax)
-	movapd	%xmm11, %xmm1
+	call	_ZN3wze6engine6actors5actor4GetXEv
+	movapd	%xmm0, %xmm1
+	movq	%rdi, %rcx
+	addsd	%xmm10, %xmm1
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd
-	movq	48(%rbx), %rcx
-	movapd	%xmm8, %xmm1
+	movq	16(%rbx), %rcx
+	movq	48(%rbx), %rdi
+	call	_ZN3wze6engine6actors5actor4GetYEv
+	movapd	%xmm0, %xmm1
+	movq	%rdi, %rcx
+	subsd	%xmm7, %xmm1
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
 	movq	48(%rbx), %rax
 	cmpq	$0, 64(%rbx)
-	movabsq	$59863464677475104, %rdi
-	movsd	.LC11(%rip), %xmm14
+	movabsq	$59863464729904704, %rdi
 	movl	%esi, 16(%rax)
 	movb	$0, 37(%rax)
 	movq	56(%rbx), %rax
 	movq	%rdi, 16(%rax)
 	movb	$126, 25(%rax)
 	je	.L5
-	movsd	.LC10(%rip), %xmm10
+	movsd	.LC13(%rip), %xmm7
 	xorl	%edi, %edi
 	xorl	%esi, %esi
-	movsd	.LC1(%rip), %xmm13
-	movsd	.LC11(%rip), %xmm8
+	movsd	.LC1(%rip), %xmm8
+	movsd	.LC14(%rip), %xmm9
 	.p2align 4,,10
 	.p2align 3
 .L11:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	392(%rax), %rdx
-	movq	24(%rbx), %rax
+	movq	416(%rax), %rdx
+	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
-	movq	%rax, %rcx
+	movq	%rax, %rbp
 	movq	72(%rbx), %rax
 	cmpq	64(%rbx), %rsi
-	jnb	.L20
-	movq	%rcx, (%rax,%rsi,8)
+	jnb	.L18
+	movq	%rbp, (%rax,%rsi,8)
+	movq	16(%rbx), %rcx
+	leaq	0(,%rsi,8), %r12
+	call	_ZN3wze6engine6actors5actor4GetXEv
 	movzbl	%dil, %eax
 	pxor	%xmm1, %xmm1
-	movapd	%xmm7, %xmm0
+	subsd	%xmm7, %xmm0
 	leal	(%rax,%rax,4), %eax
-	subsd	%xmm10, %xmm0
 	sall	$2, %eax
-	leaq	0(,%rsi,8), %rbp
 	cvtsi2sdl	%eax, %xmm1
 	addsd	%xmm0, %xmm1
-	movapd	%xmm13, %xmm0
+	movapd	%xmm8, %xmm0
 	cmpb	$14, %dil
 	ja	.L7
 	pxor	%xmm0, %xmm0
 .L7:
 	addsd	%xmm0, %xmm1
+	movq	%rbp, %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd
 	movq	72(%rbx), %rax
 	cmpq	64(%rbx), %rsi
-	jnb	.L20
-	movapd	%xmm6, %xmm1
-	movq	(%rax,%rbp), %rcx
-	movapd	%xmm8, %xmm14
-	subsd	%xmm8, %xmm1
+	jnb	.L18
+	movq	16(%rbx), %rcx
+	movq	(%rax,%r12), %rbp
+	call	_ZN3wze6engine6actors5actor4GetYEv
+	movapd	%xmm0, %xmm1
+	movq	%rbp, %rcx
+	subsd	%xmm9, %xmm1
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
 	movq	64(%rbx), %rax
 	movq	72(%rbx), %rdx
 	cmpq	%rax, %rsi
-	jnb	.L20
-	movq	(%rdx,%rbp), %rdx
+	jnb	.L18
+	movq	(%rdx,%r12), %rdx
 	addl	$1, %edi
 	movzbl	%dil, %esi
 	movl	$1310740, 16(%rdx)
@@ -227,37 +254,42 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	cmpq	%rax, %rsi
 	jb	.L11
 .L5:
-	movapd	%xmm6, %xmm0
+	movq	32(%rbx), %rcx
+	movq	80(%rbx), %rsi
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetXEv
+	movapd	%xmm0, %xmm1
+	movq	%rsi, %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetXEd
+	movq	32(%rbx), %rcx
+	movq	80(%rbx), %rsi
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv
+	movsd	.LC16(%rip), %xmm1
+	movq	%rsi, %rcx
+	addsd	%xmm0, %xmm1
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd
+	movq	80(%rbx), %rcx
+	movl	$5, %edx
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt
+	movq	80(%rbx), %rcx
+	movl	$5, %edx
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt
 	movq	(%rbx), %rax
-	movapd	%xmm7, %xmm3
+	movq	16(%rbx), %rcx
+	leaq	272(%rax), %rsi
+	call	_ZN3wze6engine6actors5actor4GetYEv
+	movsd	.LC17(%rip), %xmm7
+	movq	16(%rbx), %rcx
+	addsd	%xmm7, %xmm0
+	movapd	%xmm0, %xmm8
+	call	_ZN3wze6engine6actors5actor4GetXEv
+	movapd	%xmm0, %xmm3
+	movsd	%xmm6, 56(%rsp)
 	xorl	%edx, %edx
-	addsd	%xmm14, %xmm0
-	movl	$5, 48(%rsp)
+	movq	%rsi, %rcx
+	movl	$20, 48(%rsp)
 	movl	$2, %r8d
 	movl	$200, 40(%rsp)
-	leaq	272(%rax), %rcx
-	movsd	%xmm9, 56(%rsp)
-	movsd	%xmm0, 32(%rsp)
-	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movq	%rax, 80(%rbx)
-	leaq	136(%rax), %rcx
-	movl	$2, %edx
-	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
-	movq	80(%rbx), %rcx
-	movl	$1, %edx
-	movq	$100, 184(%rcx)
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	movapd	%xmm7, %xmm3
-	movq	(%rbx), %rax
-	movl	$2, %r8d
-	xorl	%edx, %edx
-	movsd	.LC13(%rip), %xmm8
-	movl	$100, 48(%rsp)
-	movl	$5, 40(%rsp)
-	leaq	272(%rax), %rcx
-	subsd	%xmm8, %xmm3
-	movsd	%xmm9, 56(%rsp)
-	movsd	%xmm6, 32(%rsp)
+	movsd	%xmm8, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	movq	%rax, 88(%rbx)
 	leaq	136(%rax), %rcx
@@ -267,16 +299,23 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	movl	$1, %edx
 	movq	$100, 184(%rcx)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	movapd	%xmm8, %xmm3
 	movq	(%rbx), %rax
-	movl	$2, %r8d
+	movq	16(%rbx), %rcx
+	leaq	272(%rax), %rsi
+	call	_ZN3wze6engine6actors5actor4GetYEv
+	movq	16(%rbx), %rcx
+	movapd	%xmm0, %xmm8
+	call	_ZN3wze6engine6actors5actor4GetXEv
+	movapd	%xmm0, %xmm3
+	movsd	%xmm6, 56(%rsp)
 	xorl	%edx, %edx
+	movq	%rsi, %rcx
+	movsd	.LC18(%rip), %xmm9
 	movl	$100, 48(%rsp)
-	addsd	%xmm7, %xmm3
-	movl	$5, 40(%rsp)
-	leaq	272(%rax), %rcx
-	movsd	%xmm9, 56(%rsp)
-	movsd	%xmm6, 32(%rsp)
+	movl	$2, %r8d
+	movl	$20, 40(%rsp)
+	subsd	%xmm9, %xmm3
+	movsd	%xmm8, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	movq	%rax, 96(%rbx)
 	leaq	136(%rax), %rcx
@@ -286,18 +325,22 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	movl	$1, %edx
 	movq	$100, 184(%rcx)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	subsd	%xmm14, %xmm6
-	movapd	%xmm7, %xmm3
 	movq	(%rbx), %rax
+	movq	16(%rbx), %rcx
+	leaq	272(%rax), %rsi
+	call	_ZN3wze6engine6actors5actor4GetYEv
+	movq	16(%rbx), %rcx
+	movapd	%xmm0, %xmm8
+	call	_ZN3wze6engine6actors5actor4GetXEv
+	movapd	%xmm0, %xmm3
+	movsd	%xmm6, 56(%rsp)
 	xorl	%edx, %edx
-	movsd	.LC14(%rip), %xmm8
-	movl	$5, 48(%rsp)
+	movq	%rsi, %rcx
+	movl	$100, 48(%rsp)
+	addsd	%xmm9, %xmm3
 	movl	$2, %r8d
 	movl	$20, 40(%rsp)
-	leaq	272(%rax), %rcx
-	subsd	%xmm8, %xmm3
-	movsd	%xmm9, 56(%rsp)
-	movsd	%xmm6, 32(%rsp)
+	movsd	%xmm8, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	movq	%rax, 104(%rbx)
 	leaq	136(%rax), %rcx
@@ -307,16 +350,24 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	movl	$1, %edx
 	movq	$100, 184(%rcx)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	movapd	%xmm8, %xmm3
 	movq	(%rbx), %rax
-	movl	$2, %r8d
+	movq	16(%rbx), %rcx
+	leaq	272(%rax), %rsi
+	call	_ZN3wze6engine6actors5actor4GetYEv
+	subsd	%xmm7, %xmm0
+	movq	16(%rbx), %rcx
+	movapd	%xmm0, %xmm8
+	call	_ZN3wze6engine6actors5actor4GetXEv
+	movapd	%xmm0, %xmm3
+	movsd	%xmm6, 56(%rsp)
 	xorl	%edx, %edx
-	movl	$5, 48(%rsp)
-	addsd	%xmm7, %xmm3
+	movq	%rsi, %rcx
+	movsd	.LC19(%rip), %xmm9
+	movl	$20, 48(%rsp)
+	movl	$2, %r8d
 	movl	$20, 40(%rsp)
-	leaq	272(%rax), %rcx
-	movsd	%xmm9, 56(%rsp)
-	movsd	%xmm6, 32(%rsp)
+	subsd	%xmm9, %xmm3
+	movsd	%xmm8, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	movq	%rax, 112(%rbx)
 	leaq	136(%rax), %rcx
@@ -327,14 +378,22 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	movq	$100, 184(%rcx)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	(%rbx), %rax
-	movapd	%xmm7, %xmm3
-	movsd	%xmm9, 56(%rsp)
+	movq	16(%rbx), %rcx
+	leaq	272(%rax), %rsi
+	call	_ZN3wze6engine6actors5actor4GetYEv
+	subsd	%xmm7, %xmm0
+	movq	16(%rbx), %rcx
+	movapd	%xmm0, %xmm8
+	call	_ZN3wze6engine6actors5actor4GetXEv
+	movapd	%xmm0, %xmm3
+	movsd	%xmm6, 56(%rsp)
 	xorl	%edx, %edx
-	movl	$5, 48(%rsp)
+	movq	%rsi, %rcx
+	movl	$20, 48(%rsp)
+	addsd	%xmm9, %xmm3
 	movl	$2, %r8d
-	movl	$40, 40(%rsp)
-	leaq	272(%rax), %rcx
-	movsd	%xmm6, 32(%rsp)
+	movl	$20, 40(%rsp)
+	movsd	%xmm8, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	movq	%rax, 120(%rbx)
 	leaq	136(%rax), %rcx
@@ -345,14 +404,21 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	movq	$100, 184(%rcx)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	(%rbx), %rax
-	movapd	%xmm12, %xmm3
-	movsd	%xmm6, 32(%rsp)
+	movq	16(%rbx), %rcx
+	leaq	272(%rax), %rsi
+	call	_ZN3wze6engine6actors5actor4GetYEv
+	subsd	%xmm7, %xmm0
+	movq	16(%rbx), %rcx
+	movapd	%xmm0, %xmm8
+	call	_ZN3wze6engine6actors5actor4GetXEv
+	movapd	%xmm0, %xmm3
+	movsd	%xmm6, 56(%rsp)
 	xorl	%edx, %edx
-	movl	$5, 48(%rsp)
+	movq	%rsi, %rcx
+	movl	$20, 48(%rsp)
 	movl	$2, %r8d
-	movl	$60, 40(%rsp)
-	leaq	272(%rax), %rcx
-	movsd	%xmm9, 56(%rsp)
+	movl	$40, 40(%rsp)
+	movsd	%xmm8, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	movq	%rax, 128(%rbx)
 	leaq	136(%rax), %rcx
@@ -363,14 +429,23 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	movq	$100, 184(%rcx)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	movq	(%rbx), %rax
-	movapd	%xmm11, %xmm3
-	movsd	%xmm6, 32(%rsp)
+	movq	16(%rbx), %rcx
+	leaq	272(%rax), %rsi
+	call	_ZN3wze6engine6actors5actor4GetYEv
+	movsd	.LC20(%rip), %xmm8
+	movq	16(%rbx), %rcx
+	movapd	%xmm0, %xmm7
+	subsd	%xmm8, %xmm7
+	call	_ZN3wze6engine6actors5actor4GetXEv
+	movapd	%xmm0, %xmm3
+	movsd	%xmm6, 56(%rsp)
 	xorl	%edx, %edx
-	movl	$5, 48(%rsp)
+	movq	%rsi, %rcx
+	movl	$20, 48(%rsp)
+	subsd	%xmm10, %xmm3
 	movl	$2, %r8d
 	movl	$60, 40(%rsp)
-	leaq	272(%rax), %rcx
-	movsd	%xmm9, 56(%rsp)
+	movsd	%xmm7, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	movq	%rax, 136(%rbx)
 	leaq	136(%rax), %rcx
@@ -380,30 +455,120 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	movl	$1, %edx
 	movq	$100, 184(%rcx)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	movq	16(%rbx), %rcx
+	leaq	272(%rax), %rsi
+	call	_ZN3wze6engine6actors5actor4GetYEv
+	movq	16(%rbx), %rcx
+	movapd	%xmm0, %xmm7
+	subsd	%xmm8, %xmm7
+	call	_ZN3wze6engine6actors5actor4GetXEv
+	movapd	%xmm0, %xmm3
+	movsd	%xmm6, 56(%rsp)
+	xorl	%edx, %edx
+	movq	%rsi, %rcx
+	movl	$20, 48(%rsp)
+	addsd	%xmm10, %xmm3
+	movl	$2, %r8d
+	movl	$60, 40(%rsp)
+	movsd	%xmm7, 32(%rsp)
+	call	_ZN3wze6engine6actors3NewEPvyddttd
+	movq	%rax, 144(%rbx)
+	leaq	136(%rax), %rcx
+	movl	$2, %edx
+	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
+	movq	144(%rbx), %rcx
+	movl	$1, %edx
+	movq	$100, 184(%rcx)
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	movq	32(%rbx), %rcx
+	leaq	272(%rax), %rsi
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv
+	movq	32(%rbx), %rcx
+	movapd	%xmm0, %xmm7
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetXEv
+	movapd	%xmm0, %xmm3
+	movsd	%xmm6, 56(%rsp)
+	xorl	%r8d, %r8d
+	xorl	%edx, %edx
+	movsd	.LC21(%rip), %xmm8
+	movsd	%xmm7, 32(%rsp)
+	movq	%rsi, %rcx
+	movl	$21, 48(%rsp)
+	movl	$5, 40(%rsp)
+	subsd	%xmm8, %xmm3
+	call	_ZN3wze6engine6actors3NewEPvyddttd
+	movq	%rax, 152(%rbx)
+	movq	%rax, %rcx
+	movl	$1, %edx
+	movq	$100, 184(%rax)
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	movq	32(%rbx), %rcx
+	leaq	272(%rax), %rsi
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv
+	movq	32(%rbx), %rcx
+	movapd	%xmm0, %xmm7
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetXEv
+	movapd	%xmm0, %xmm3
+	movsd	%xmm6, 56(%rsp)
+	xorl	%r8d, %r8d
+	xorl	%edx, %edx
+	movl	$21, 48(%rsp)
+	addsd	%xmm8, %xmm3
+	movq	%rsi, %rcx
+	movl	$5, 40(%rsp)
+	movsd	%xmm7, 32(%rsp)
+	call	_ZN3wze6engine6actors3NewEPvyddttd
+	movq	%rax, 160(%rbx)
+	movq	%rax, %rcx
+	movl	$1, %edx
+	movq	$100, 184(%rax)
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	movq	32(%rbx), %rcx
+	leaq	272(%rax), %rsi
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv
+	movq	32(%rbx), %rcx
+	movapd	%xmm0, %xmm7
+	subsd	.LC22(%rip), %xmm7
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetXEv
+	movl	$10, 48(%rsp)
+	xorl	%r8d, %r8d
+	xorl	%edx, %edx
+	movq	%rsi, %rcx
+	movl	$28, 40(%rsp)
+	movapd	%xmm0, %xmm3
+	movsd	%xmm6, 56(%rsp)
+	movsd	%xmm7, 32(%rsp)
+	call	_ZN3wze6engine6actors3NewEPvyddttd
+	movq	%rax, 168(%rbx)
+	movq	%rax, %rcx
+	movl	$1, %edx
+	movq	$100, 184(%rax)
+	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	nop
 	movaps	64(%rsp), %xmm6
 	movaps	80(%rsp), %xmm7
 	movaps	96(%rsp), %xmm8
 	movaps	112(%rsp), %xmm9
 	movaps	128(%rsp), %xmm10
-	movaps	144(%rsp), %xmm11
-	movaps	160(%rsp), %xmm12
-	movaps	176(%rsp), %xmm13
-	movaps	192(%rsp), %xmm14
-	addq	$216, %rsp
+	addq	$144, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
 	popq	%rbp
+	popq	%r12
 	ret
-.L20:
+.L18:
 	movq	%rsi, %rdx
-	leaq	.LC9(%rip), %rcx
+	leaq	.LC12(%rip), %rcx
 	call	_Z6printfPKcz
 .LEHE0:
 	movl	$1, %ecx
 	call	exit
-.L22:
+.L20:
 	leaq	.LC2(%rip), %rcx
 	movl	$30, %edx
 .LEHB1:
@@ -435,24 +600,21 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd:
 	.text
 	.seh_endproc
 	.section	.text.unlikely,"x"
-	.def	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd.cold;	.scl	3;	.type	32;	.endef
-	.seh_proc	_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd.cold
-	.seh_stackalloc	248
-	.seh_savereg	%rbx, 216
-	.seh_savereg	%rsi, 224
-	.seh_savereg	%rdi, 232
-	.seh_savereg	%rbp, 240
+	.def	_ZN10tile_houseC2EPN3wze6engineEP4game.cold;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN10tile_houseC2EPN3wze6engineEP4game.cold
+	.seh_stackalloc	184
+	.seh_savereg	%rbx, 144
+	.seh_savereg	%rsi, 152
+	.seh_savereg	%rdi, 160
+	.seh_savereg	%rbp, 168
 	.seh_savexmm	%xmm6, 64
 	.seh_savexmm	%xmm7, 80
+	.seh_savereg	%r12, 176
 	.seh_savexmm	%xmm8, 96
 	.seh_savexmm	%xmm9, 112
 	.seh_savexmm	%xmm10, 128
-	.seh_savexmm	%xmm11, 144
-	.seh_savexmm	%xmm12, 160
-	.seh_savexmm	%xmm13, 176
-	.seh_savexmm	%xmm14, 192
 	.seh_endprologue
-_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd.cold:
+_ZN10tile_houseC2EPN3wze6engineEP4game.cold:
 .L12:
 	movq	72(%rbx), %rcx
 	call	free
@@ -469,7 +631,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB2-.LCOLDB15
+	.uleb128 .LEHB2-.LCOLDB23
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
@@ -478,12 +640,12 @@ _ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE15:
+.LCOLDE23:
 	.text
-.LHOTE15:
-	.globl	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerhdd
-	.def	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerhdd;	.scl	2;	.type	32;	.endef
-	.set	_ZN10tile_houseC1EPN3wze6engineEP4gameP10act_playerhdd,_ZN10tile_houseC2EPN3wze6engineEP4gameP10act_playerhdd
+.LHOTE23:
+	.globl	_ZN10tile_houseC1EPN3wze6engineEP4game
+	.def	_ZN10tile_houseC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
+	.set	_ZN10tile_houseC1EPN3wze6engineEP4game,_ZN10tile_houseC2EPN3wze6engineEP4game
 	.align 2
 	.p2align 4
 	.globl	_ZN10tile_houseD2Ev
@@ -501,14 +663,7 @@ _ZN10tile_houseD2Ev:
 	movq	(%rcx), %rax
 	leaq	272(%rax), %rsi
 	movq	%rcx, %rbx
-	movq	24(%rcx), %rcx
-	call	_ZN3wze6engine6actors5actor5GetIDEv
-	movq	%rsi, %rcx
-	movq	%rax, %rdx
-	call	_ZN3wze6engine6actors6DeleteEy
-	movq	(%rbx), %rax
-	movq	80(%rbx), %rcx
-	leaq	272(%rax), %rsi
+	movq	16(%rcx), %rcx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rsi, %rcx
 	movq	%rax, %rdx
@@ -535,39 +690,46 @@ _ZN10tile_houseD2Ev:
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6actors6DeleteEy
 	movq	(%rbx), %rax
-	movq	120(%rbx), %rcx
-	leaq	272(%rax), %rsi
-	call	_ZN3wze6engine6actors5actor5GetIDEv
-	movq	%rsi, %rcx
-	movq	%rax, %rdx
-	call	_ZN3wze6engine6actors6DeleteEy
-	movq	(%rbx), %rax
 	movq	112(%rbx), %rcx
 	leaq	272(%rax), %rsi
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rsi, %rcx
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6actors6DeleteEy
-	movq	128(%rbx), %rcx
-	testq	%rcx, %rcx
-	je	.L24
 	movq	(%rbx), %rax
+	movq	128(%rbx), %rcx
 	leaq	272(%rax), %rsi
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rsi, %rcx
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6actors6DeleteEy
-.L24:
+	movq	(%rbx), %rax
+	movq	120(%rbx), %rcx
+	leaq	272(%rax), %rsi
+	call	_ZN3wze6engine6actors5actor5GetIDEv
+	movq	%rsi, %rcx
+	movq	%rax, %rdx
+	call	_ZN3wze6engine6actors6DeleteEy
 	movq	136(%rbx), %rcx
 	testq	%rcx, %rcx
-	je	.L25
+	je	.L22
 	movq	(%rbx), %rax
 	leaq	272(%rax), %rsi
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rsi, %rcx
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6actors6DeleteEy
-.L25:
+.L22:
+	movq	144(%rbx), %rcx
+	testq	%rcx, %rcx
+	je	.L23
+	movq	(%rbx), %rax
+	leaq	272(%rax), %rsi
+	call	_ZN3wze6engine6actors5actor5GetIDEv
+	movq	%rsi, %rcx
+	movq	%rax, %rdx
+	call	_ZN3wze6engine6actors6DeleteEy
+.L23:
 	movq	72(%rbx), %rcx
 	addq	$40, %rsp
 	popq	%rbx
@@ -601,23 +763,46 @@ _ZN10tile_house6UpdateEv:
 	subq	$56, %rsp
 	.seh_stackalloc	56
 	.seh_endprologue
-	movq	16(%rcx), %rdx
-	movq	144(%rdx), %rax
-	movzbl	23(%rax), %r8d
+	movq	8(%rcx), %rax
+	movq	56(%rax), %rax
+	movq	88(%rax), %rax
 	movq	%rcx, %rbx
-	movl	$255, %eax
-	movq	56(%rcx), %rcx
-	subl	%r8d, %eax
-	movb	%al, 23(%rcx)
-	movzbl	144(%rbx), %eax
-	cmpb	%al, 152(%rdx)
-	jne	.L33
-.L38:
-	movq	128(%rbx), %rcx
+	movq	16(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor4GetYEv
+	movsd	.LC24(%rip), %xmm1
+	xorl	%eax, %eax
+	addsd	%xmm0, %xmm1
+	movsd	.LC25(%rip), %xmm0
+	subsd	%xmm1, %xmm0
+	movsd	.LC26(%rip), %xmm1
+	divsd	.LC5(%rip), %xmm0
+	mulsd	%xmm1, %xmm0
+	movapd	%xmm1, %xmm2
+	subsd	%xmm0, %xmm2
+	pxor	%xmm0, %xmm0
+	comisd	%xmm2, %xmm0
+	ja	.L31
+	comisd	%xmm1, %xmm2
+	movl	$-1, %eax
+	ja	.L31
+	movapd	%xmm2, %xmm0
+	call	round
+	cvttsd2sil	%xmm0, %eax
+.L31:
+	movq	56(%rbx), %rdx
+	movb	%al, 23(%rdx)
+	movq	8(%rbx), %rax
+	movq	56(%rax), %rax
+	movq	88(%rax), %rdx
+	movzbl	136(%rdx), %edx
+	cmpq	1136(%rax), %rdx
+	jne	.L32
+.L37:
+	movq	136(%rbx), %rcx
 	testq	%rcx, %rcx
-	je	.L37
-	cmpq	$0, 136(%rbx)
-	je	.L37
+	je	.L36
+	cmpq	$0, 144(%rbx)
+	je	.L36
 	movq	(%rbx), %rax
 	leaq	272(%rax), %rsi
 	call	_ZN3wze6engine6actors5actor5GetIDEv
@@ -625,8 +810,8 @@ _ZN10tile_house6UpdateEv:
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6actors6DeleteEy
 	movq	(%rbx), %rax
-	movq	136(%rbx), %rcx
-	movq	$0, 128(%rbx)
+	movq	144(%rbx), %rcx
+	movq	$0, 136(%rbx)
 	leaq	272(%rax), %rsi
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%rsi, %rcx
@@ -634,8 +819,8 @@ _ZN10tile_house6UpdateEv:
 	call	_ZN3wze6engine6actors6DeleteEy
 	movq	40(%rbx), %rax
 	movq	(%rbx), %rcx
-	movq	$0, 136(%rbx)
-	movsd	.LC16(%rip), %xmm3
+	movq	$0, 144(%rbx)
+	movsd	.LC27(%rip), %xmm3
 	movl	$9, %r8d
 	movb	$1, 37(%rax)
 	movq	48(%rbx), %rax
@@ -643,10 +828,10 @@ _ZN10tile_house6UpdateEv:
 	movb	$1, 37(%rax)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	472(%rax), %rdx
+	movq	496(%rax), %rdx
 	movl	$0, 32(%rsp)
 	call	_ZN3wze6engine5audio4PlayEytdt
-.L37:
+.L36:
 	xorl	%eax, %eax
 	addq	$56, %rsp
 	popq	%rbx
@@ -654,32 +839,32 @@ _ZN10tile_house6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L33:
+.L32:
 	movq	(%rbx), %rax
 	movl	$18, %edx
 	leaq	192(%rax), %rcx
 	call	_ZN3wze6engine4keysixENS_3keyE
 	testb	%al, %al
-	je	.L37
+	je	.L36
 	movq	(%rbx), %rax
 	movl	$19, %edx
 	leaq	192(%rax), %rcx
 	call	_ZN3wze6engine4keysixENS_3keyE
 	testb	%al, %al
-	je	.L37
+	je	.L36
 	movq	(%rbx), %rax
 	movl	$8, %edx
 	leaq	192(%rax), %rcx
 	call	_ZN3wze6engine4keysixENS_3keyE
 	testb	%al, %al
-	je	.L37
+	je	.L36
 	movq	(%rbx), %rax
 	movl	$17, %edx
 	leaq	192(%rax), %rcx
 	call	_ZN3wze6engine4keysixENS_3keyE
 	testb	%al, %al
-	jne	.L38
-	jmp	.L37
+	jne	.L37
+	jmp	.L36
 	.seh_endproc
 	.section .rdata,"dr"
 	.align 8
@@ -693,37 +878,77 @@ _ZN10tile_house6UpdateEv:
 	.align 8
 .LC4:
 	.long	0
-	.long	1077477376
+	.long	1082822656
 	.align 8
-.LC6:
+.LC5:
 	.long	0
-	.long	1078525952
+	.long	1077477376
 	.align 8
 .LC7:
 	.long	0
-	.long	1079164928
-	.align 4
-.LC8:
-	.word	60
-	.word	60
+	.long	1078018048
+	.align 8
+.LC9:
+	.long	0
+	.long	1078525952
 	.align 8
 .LC10:
 	.long	0
-	.long	1081630720
-	.align 8
+	.long	1079164928
+	.align 4
 .LC11:
-	.long	0
-	.long	1078444032
+	.word	60
+	.word	60
 	.align 8
 .LC13:
 	.long	0
-	.long	1079533568
+	.long	1081630720
 	.align 8
 .LC14:
 	.long	0
-	.long	1079410688
+	.long	1078444032
 	.align 8
 .LC16:
+	.long	0
+	.long	1075707904
+	.align 8
+.LC17:
+	.long	0
+	.long	1078689792
+	.align 8
+.LC18:
+	.long	0
+	.long	1079656448
+	.align 8
+.LC19:
+	.long	0
+	.long	1079410688
+	.align 8
+.LC20:
+	.long	0
+	.long	1078198272
+	.align 8
+.LC21:
+	.long	0
+	.long	1076428800
+	.align 8
+.LC22:
+	.long	0
+	.long	1075249152
+	.align 8
+.LC24:
+	.long	0
+	.long	1082720256
+	.align 8
+.LC25:
+	.long	0
+	.long	1083768832
+	.align 8
+.LC26:
+	.long	0
+	.long	1081073664
+	.align 8
+.LC27:
 	.long	0
 	.long	1072168960
 	.ident	"GCC: (GNU) 13.1.0"
@@ -732,15 +957,23 @@ _ZN10tile_house6UpdateEv:
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes3NewEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor10colorboxes3NewEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12overlapboxes3NewEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor4GetXEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6actors5actor12overlapboxes3NewEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetXEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetXEd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor17SetCollisionLayerEh;	.scl	2;	.type	32;	.endef
 	.def	exit;	.scl	2;	.type	32;	.endef
 	.def	free;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
+	.def	round;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5audio4PlayEytdt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine4keysixENS_3keyE;	.scl	2;	.type	32;	.endef

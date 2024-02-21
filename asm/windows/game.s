@@ -23,7 +23,7 @@ _ZN4gameC2EPN3wze6engineE:
 	.seh_endprologue
 	movq	%rdx, (%rcx)
 	movq	%rcx, %rbx
-	movl	$496, %ecx
+	movl	$544, %ecx
 	movq	%rdx, %rsi
 .LEHB0:
 	call	_Znwy
@@ -140,7 +140,7 @@ _ZN4gameC2EPN3wze6engineE:
 _ZN4gameC2EPN3wze6engineE.cold:
 .L2:
 	movq	%rdi, %rcx
-	movl	$496, %edx
+	movl	$544, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 .LEHB8:
@@ -257,7 +257,7 @@ _ZN4gameD2Ev:
 	je	.L12
 	movq	%rbx, %rcx
 	call	_ZN6assetsD1Ev
-	movl	$496, %edx
+	movl	$544, %edx
 	movq	%rbx, %rcx
 	addq	$40, %rsp
 	popq	%rbx
@@ -277,8 +277,8 @@ _ZN4gameD2Ev:
 	testq	%rsi, %rsi
 	je	.L13
 	movq	%rsi, %rcx
-	call	_ZN15scene_game_overD1Ev
-	movl	$48, %edx
+	call	_ZN10scene_helpD1Ev
+	movl	$32, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
 	jmp	.L13
@@ -289,8 +289,8 @@ _ZN4gameD2Ev:
 	testq	%rsi, %rsi
 	je	.L13
 	movq	%rsi, %rcx
-	call	_ZN10scene_playD1Ev
-	movl	$1136, %edx
+	call	_ZN11scene_storyD1Ev
+	movl	$80, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
 	jmp	.L13
@@ -301,7 +301,7 @@ _ZN4gameD2Ev:
 	testq	%rsi, %rsi
 	je	.L13
 	movq	%rsi, %rcx
-	call	_ZN12scene_editorD1Ev
+	call	_ZN10scene_playD1Ev
 	movl	$1176, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
@@ -313,8 +313,8 @@ _ZN4gameD2Ev:
 	testq	%rsi, %rsi
 	je	.L13
 	movq	%rsi, %rcx
-	call	_ZN10scene_helpD1Ev
-	movl	$32, %edx
+	call	_ZN12scene_editorD1Ev
+	movl	$1176, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
 	jmp	.L13
@@ -452,7 +452,7 @@ _ZN4game11SwitchSceneE5scene:
 	.p2align 4,,10
 	.p2align 3
 .L54:
-	movl	$48, %ecx
+	movl	$32, %ecx
 	call	_Znwy
 .LEHE11:
 	movq	(%rbx), %rdx
@@ -460,7 +460,7 @@ _ZN4game11SwitchSceneE5scene:
 	movq	%rax, %rcx
 	movq	%rax, %rdi
 .LEHB12:
-	call	_ZN15scene_game_overC1EPN3wze6engineEP4game
+	call	_ZN10scene_helpC1EPN3wze6engineEP4game
 .LEHE12:
 	movq	%rdi, 72(%rbx)
 	movl	%esi, 32(%rbx)
@@ -472,8 +472,8 @@ _ZN4game11SwitchSceneE5scene:
 	testq	%rdi, %rdi
 	je	.L46
 	movq	%rdi, %rcx
-	call	_ZN10scene_playD1Ev
-	movl	$1136, %edx
+	call	_ZN11scene_storyD1Ev
+	movl	$80, %edx
 	movq	%rdi, %rcx
 	call	_ZdlPvy
 	jmp	.L46
@@ -484,7 +484,7 @@ _ZN4game11SwitchSceneE5scene:
 	testq	%rdi, %rdi
 	je	.L46
 	movq	%rdi, %rcx
-	call	_ZN12scene_editorD1Ev
+	call	_ZN10scene_playD1Ev
 	movl	$1176, %edx
 	movq	%rdi, %rcx
 	call	_ZdlPvy
@@ -496,8 +496,8 @@ _ZN4game11SwitchSceneE5scene:
 	testq	%rdi, %rdi
 	je	.L46
 	movq	%rdi, %rcx
-	call	_ZN10scene_helpD1Ev
-	movl	$32, %edx
+	call	_ZN12scene_editorD1Ev
+	movl	$1176, %edx
 	movq	%rdi, %rcx
 	call	_ZdlPvy
 	jmp	.L46
@@ -508,15 +508,15 @@ _ZN4game11SwitchSceneE5scene:
 	testq	%rdi, %rdi
 	je	.L46
 	movq	%rdi, %rcx
-	call	_ZN15scene_game_overD1Ev
-	movl	$48, %edx
+	call	_ZN10scene_helpD1Ev
+	movl	$32, %edx
 	movq	%rdi, %rcx
 	call	_ZdlPvy
 	jmp	.L46
 	.p2align 4,,10
 	.p2align 3
 .L58:
-	movl	$1136, %ecx
+	movl	$80, %ecx
 .LEHB13:
 	call	_Znwy
 .LEHE13:
@@ -525,7 +525,7 @@ _ZN4game11SwitchSceneE5scene:
 	movq	%rax, %rcx
 	movq	%rax, %rdi
 .LEHB14:
-	call	_ZN10scene_playC1EPN3wze6engineEP4game
+	call	_ZN11scene_storyC1EPN3wze6engineEP4game
 .LEHE14:
 	movq	%rdi, 48(%rbx)
 	movl	%esi, 32(%rbx)
@@ -542,7 +542,7 @@ _ZN4game11SwitchSceneE5scene:
 	movq	%rax, %rcx
 	movq	%rax, %rdi
 .LEHB16:
-	call	_ZN12scene_editorC1EPN3wze6engineEP4game
+	call	_ZN10scene_playC1EPN3wze6engineEP4game
 .LEHE16:
 	movq	%rdi, 56(%rbx)
 	movl	%esi, 32(%rbx)
@@ -550,7 +550,7 @@ _ZN4game11SwitchSceneE5scene:
 	.p2align 4,,10
 	.p2align 3
 .L56:
-	movl	$32, %ecx
+	movl	$1176, %ecx
 .LEHB17:
 	call	_Znwy
 .LEHE17:
@@ -559,7 +559,7 @@ _ZN4game11SwitchSceneE5scene:
 	movq	%rax, %rcx
 	movq	%rax, %rdi
 .LEHB18:
-	call	_ZN10scene_helpC1EPN3wze6engineEP4game
+	call	_ZN12scene_editorC1EPN3wze6engineEP4game
 .LEHE18:
 	movq	%rdi, 64(%rbx)
 	movl	%esi, 32(%rbx)
@@ -641,14 +641,14 @@ _ZN4game11SwitchSceneE5scene:
 _ZN4game11SwitchSceneE5scene.cold:
 .L64:
 	movq	%rdi, %rcx
-	movl	$48, %edx
+	movl	$32, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 .LEHB19:
 	call	_Unwind_Resume
 .L63:
 	movq	%rdi, %rcx
-	movl	$32, %edx
+	movl	$1176, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
@@ -660,7 +660,7 @@ _ZN4game11SwitchSceneE5scene.cold:
 	call	_Unwind_Resume
 .L61:
 	movq	%rdi, %rcx
-	movl	$1136, %edx
+	movl	$80, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
@@ -745,7 +745,7 @@ _ZN4game6UpdateEv:
 	.p2align 3
 .L92:
 	movq	48(%rcx), %rcx
-	call	_ZN10scene_play6UpdateEv
+	call	_ZN11scene_story6UpdateEv
 	movq	%rbx, %rcx
 	movl	%eax, %edx
 	call	_ZN4game11SwitchSceneE5scene
@@ -755,7 +755,7 @@ _ZN4game6UpdateEv:
 	.p2align 3
 .L91:
 	movq	56(%rcx), %rcx
-	call	_ZN12scene_editor6UpdateEv
+	call	_ZN10scene_play6UpdateEv
 	movq	%rbx, %rcx
 	movl	%eax, %edx
 	call	_ZN4game11SwitchSceneE5scene
@@ -765,7 +765,7 @@ _ZN4game6UpdateEv:
 	.p2align 3
 .L90:
 	movq	64(%rcx), %rcx
-	call	_ZN10scene_help6UpdateEv
+	call	_ZN12scene_editor6UpdateEv
 	movq	%rbx, %rcx
 	movl	%eax, %edx
 	call	_ZN4game11SwitchSceneE5scene
@@ -775,7 +775,7 @@ _ZN4game6UpdateEv:
 	.p2align 3
 .L88:
 	movq	72(%rcx), %rcx
-	call	_ZN15scene_game_over6UpdateEv
+	call	_ZN10scene_help6UpdateEv
 	movq	%rbx, %rcx
 	movl	%eax, %edx
 	call	_ZN4game11SwitchSceneE5scene
@@ -799,10 +799,10 @@ _ZN4game6UpdateEv:
 	.def	_ZN3mapD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN8settingsD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN6assetsD1Ev;	.scl	2;	.type	32;	.endef
-	.def	_ZN15scene_game_overD1Ev;	.scl	2;	.type	32;	.endef
+	.def	_ZN10scene_helpD1Ev;	.scl	2;	.type	32;	.endef
+	.def	_ZN11scene_storyD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN10scene_playD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN12scene_editorD1Ev;	.scl	2;	.type	32;	.endef
-	.def	_ZN10scene_helpD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5PurgeESt16initializer_listIyE;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5mouse11SetAbsoluteEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera10SetOriginXEd;	.scl	2;	.type	32;	.endef
@@ -810,12 +810,12 @@ _ZN4game6UpdateEv:
 	.def	_ZN3wze6engine6camera10SetOffsetXEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera10SetOffsetYEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera7SetZoomEd;	.scl	2;	.type	32;	.endef
-	.def	_ZN15scene_game_overC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
+	.def	_ZN10scene_helpC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
+	.def	_ZN11scene_storyC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.def	_ZN10scene_playC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.def	_ZN12scene_editorC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
-	.def	_ZN10scene_helpC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.def	_ZN10scene_menu6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN11scene_story6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN10scene_play6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN12scene_editor6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN10scene_help6UpdateEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN15scene_game_over6UpdateEv;	.scl	2;	.type	32;	.endef

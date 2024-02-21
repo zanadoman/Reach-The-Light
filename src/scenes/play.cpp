@@ -174,7 +174,7 @@ scene scene_play::Update()
 
         this->Engine->Audio.StopChannel(CH_MUSIC, 3000);
 
-        if (this->Engine->Keys[KEY_ESCAPE])
+        if (this->Engine->Keys[KEY_ESCAPE] || this->Engine->Keys[KEY_RETURN])
         {
             this->Engine->Audio.StopChannel(CH_MUSIC);
             return SCENE_MENU;
@@ -198,7 +198,7 @@ scene scene_play::Update()
 
         this->Engine->Audio.StopChannel(CH_MUSIC, 3000);
         
-        if (this->Engine->Keys[KEY_ESCAPE])
+        if (this->Engine->Keys[KEY_ESCAPE] || this->Engine->Keys[KEY_RETURN])
         {
             this->Engine->Audio.StopChannel(CH_MUSIC);
             return SCENE_MENU;

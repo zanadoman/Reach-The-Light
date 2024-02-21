@@ -27,14 +27,14 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$152, %rsp
-	.seh_stackalloc	152
-	movaps	%xmm6, 96(%rsp)
-	.seh_savexmm	%xmm6, 96
-	movaps	%xmm7, 112(%rsp)
-	.seh_savexmm	%xmm7, 112
-	movaps	%xmm8, 128(%rsp)
-	.seh_savexmm	%xmm8, 128
+	subq	$136, %rsp
+	.seh_stackalloc	136
+	movaps	%xmm6, 80(%rsp)
+	.seh_savexmm	%xmm6, 80
+	movaps	%xmm7, 96(%rsp)
+	.seh_savexmm	%xmm7, 96
+	movaps	%xmm8, 112(%rsp)
+	.seh_savexmm	%xmm8, 112
 	.seh_endprologue
 	pxor	%xmm6, %xmm6
 	movq	%rdx, (%rcx)
@@ -67,7 +67,7 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	movq	8(%rdx), %rdx
 	movq	64(%rdx), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
-	movl	$64, %ecx
+	movl	$56, %ecx
 	movq	%rax, 24(%rbx)
 	call	_Znwy
 .LEHE0:
@@ -83,16 +83,14 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	movq	(%rbx), %rdx
 	movsd	%xmm6, 32(%rsp)
 	movapd	%xmm0, %xmm3
-	movq	%rax, 64(%rsp)
+	movq	%rax, 48(%rsp)
 	movq	%rsi, %rcx
-	movq	$0x000000000, 56(%rsp)
-	movl	$75, 48(%rsp)
-	movl	$200, 40(%rsp)
+	movq	$0x000000000, 40(%rsp)
 	movq	8(%rbx), %r8
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc
 .LEHE1:
 	movq	%rsi, 32(%rbx)
-	movl	$64, %ecx
+	movl	$56, %ecx
 .LEHB2:
 	call	_Znwy
 .LEHE2:
@@ -109,13 +107,11 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	movq	(%rbx), %rdx
 	movsd	%xmm6, 32(%rsp)
 	movapd	%xmm0, %xmm3
-	movq	%rax, 64(%rsp)
+	movq	%rax, 48(%rsp)
 	movq	%rsi, %rcx
-	movq	$0x000000000, 56(%rsp)
-	movl	$75, 48(%rsp)
-	movl	$200, 40(%rsp)
+	movq	$0x000000000, 40(%rsp)
 	movq	8(%rbx), %r8
-	call	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc
+	call	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc
 .LEHE3:
 	movq	%rsi, 40(%rbx)
 	movl	$104, %ecx
@@ -135,19 +131,17 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors5actor4GetXEv
 	movq	.LC6(%rip), %rax
 	movq	(%rbx), %rdx
-	movsd	%xmm7, 80(%rsp)
+	movsd	%xmm7, 64(%rsp)
 	movapd	%xmm0, %xmm3
-	movl	$15, 48(%rsp)
-	movq	%rsi, %rcx
-	movq	%rax, 72(%rsp)
-	movq	.LC7(%rip), %rax
-	movl	$400, 40(%rsp)
-	movq	%rax, 64(%rsp)
-	leaq	.LC8(%rip), %rax
-	movq	%rax, 56(%rsp)
 	movsd	%xmm6, 32(%rsp)
+	movq	%rsi, %rcx
+	movq	%rax, 56(%rsp)
+	movq	.LC7(%rip), %rax
+	movq	%rax, 48(%rsp)
+	leaq	.LC8(%rip), %rax
+	movq	%rax, 40(%rsp)
 	movq	8(%rbx), %r8
-	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd
+	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd
 .LEHE5:
 	movq	%rsi, 48(%rbx)
 	movl	$104, %ecx
@@ -167,17 +161,15 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors5actor4GetXEv
 	leaq	.LC10(%rip), %rax
 	movq	(%rbx), %rdx
-	movsd	%xmm7, 80(%rsp)
+	movsd	%xmm7, 64(%rsp)
 	movapd	%xmm0, %xmm3
-	movq	$0x000000000, 64(%rsp)
+	movq	$0x000000000, 48(%rsp)
 	movq	%rsi, %rcx
-	movq	%rax, 56(%rsp)
-	movl	$15, 48(%rsp)
-	movl	$400, 40(%rsp)
-	movsd	%xmm8, 72(%rsp)
+	movq	%rax, 40(%rsp)
+	movsd	%xmm8, 56(%rsp)
 	movsd	%xmm6, 32(%rsp)
 	movq	8(%rbx), %r8
-	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd
+	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd
 .LEHE7:
 	movq	%rsi, 56(%rbx)
 	movl	$104, %ecx
@@ -197,19 +189,17 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors5actor4GetXEv
 	movq	.LC12(%rip), %rax
 	movq	(%rbx), %rdx
-	movsd	%xmm7, 80(%rsp)
+	movsd	%xmm7, 64(%rsp)
 	movapd	%xmm0, %xmm3
-	movl	$15, 48(%rsp)
-	movq	%rsi, %rcx
-	movq	%rax, 72(%rsp)
-	movq	.LC13(%rip), %rax
-	movl	$400, 40(%rsp)
-	movq	%rax, 64(%rsp)
-	leaq	.LC14(%rip), %rax
-	movq	%rax, 56(%rsp)
 	movsd	%xmm6, 32(%rsp)
+	movq	%rsi, %rcx
+	movq	%rax, 56(%rsp)
+	movq	.LC13(%rip), %rax
+	movq	%rax, 48(%rsp)
+	leaq	.LC14(%rip), %rax
+	movq	%rax, 40(%rsp)
 	movq	8(%rbx), %r8
-	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd
+	call	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd
 .LEHE9:
 	movq	16(%rbx), %rax
 	movq	%rsi, 64(%rbx)
@@ -233,10 +223,10 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	movb	$0, 168(%rax)
 	movq	16(%rsi), %rax
 	movb	$0, 168(%rax)
-	movaps	96(%rsp), %xmm6
-	movaps	128(%rsp), %xmm8
-	movaps	112(%rsp), %xmm7
-	addq	$152, %rsp
+	movaps	80(%rsp), %xmm6
+	movaps	96(%rsp), %xmm7
+	movaps	112(%rsp), %xmm8
+	addq	$136, %rsp
 	popq	%rbx
 	popq	%rsi
 	ret
@@ -310,17 +300,17 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	.section	.text.unlikely,"x"
 	.def	_ZN9gui_pauseC2EPN3wze6engineEP4game.cold;	.scl	3;	.type	32;	.endef
 	.seh_proc	_ZN9gui_pauseC2EPN3wze6engineEP4game.cold
-	.seh_stackalloc	168
-	.seh_savereg	%rbx, 152
-	.seh_savereg	%rsi, 160
-	.seh_savexmm	%xmm6, 96
-	.seh_savexmm	%xmm7, 112
-	.seh_savexmm	%xmm8, 128
+	.seh_stackalloc	152
+	.seh_savereg	%rbx, 136
+	.seh_savereg	%rsi, 144
+	.seh_savexmm	%xmm6, 80
+	.seh_savexmm	%xmm7, 96
+	.seh_savexmm	%xmm8, 112
 	.seh_endprologue
 _ZN9gui_pauseC2EPN3wze6engineEP4game.cold:
 .L2:
 	movq	%rsi, %rcx
-	movl	$64, %edx
+	movl	$56, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 .LEHB10:
@@ -345,7 +335,7 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game.cold:
 	call	_Unwind_Resume
 .L3:
 	movq	%rsi, %rcx
-	movl	$64, %edx
+	movl	$56, %edx
 	call	_ZdlPvy
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
@@ -401,7 +391,7 @@ _ZN9gui_pauseD2Ev:
 	je	.L15
 	movq	%rsi, %rcx
 	call	_ZN10gui_buttonD1Ev
-	movl	$64, %edx
+	movl	$56, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
 .L15:
@@ -410,7 +400,7 @@ _ZN9gui_pauseD2Ev:
 	je	.L16
 	movq	%rsi, %rcx
 	call	_ZN10gui_buttonD1Ev
-	movl	$64, %edx
+	movl	$56, %edx
 	movq	%rsi, %rcx
 	call	_ZdlPvy
 .L16:
@@ -490,43 +480,17 @@ _ZN9gui_pause6UpdateEv:
 	leal	100(%rax), %esi
 	call	_ZN3wze6engine6timing14GetCurrentTickEv
 	cmpl	%eax, %esi
-	jb	.L47
-.L48:
+	jb	.L48
+.L49:
 	movq	(%rbx), %rcx
 .L36:
 	call	_ZN3wze6engine6window8HasFocusEv
 	testb	%al, %al
-	jne	.L34
-.L35:
-	movq	16(%rbx), %rax
-	movb	$1, 168(%rax)
-	movq	32(%rbx), %rax
-	movq	16(%rax), %rax
-	movb	$1, 168(%rax)
-	movq	40(%rbx), %rax
-	movq	16(%rax), %rax
-	movb	$1, 168(%rax)
-	movq	48(%rbx), %rax
-	movq	16(%rax), %rax
-	movb	$1, 168(%rax)
-	movq	56(%rbx), %rax
-	movq	16(%rax), %rax
-	movb	$1, 168(%rax)
-	movq	64(%rbx), %rax
-	movq	16(%rax), %rax
-	movb	$1, 168(%rax)
-	movq	(%rbx), %rax
-	leaq	216(%rax), %rcx
-	call	_ZN3wze6engine5mouse11SetAbsoluteEv
-	movq	(%rbx), %rax
-	leaq	416(%rax), %rcx
-	call	_ZN3wze6engine6timing14GetCurrentTickEv
-	movl	%eax, 72(%rbx)
-.L34:
+	je	.L35
 	movq	16(%rbx), %rax
 	cmpb	$0, 168(%rax)
-	jne	.L37
-.L40:
+	jne	.L38
+.L41:
 	xorl	%eax, %eax
 .L32:
 	addq	$32, %rsp
@@ -536,19 +500,25 @@ _ZN9gui_pause6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L37:
+.L38:
 	movq	32(%rbx), %rcx
 	call	_ZN10gui_button6UpdateEv
 	testb	%al, %al
-	jne	.L42
+	jne	.L43
 	movl	72(%rbx), %eax
 	leal	100(%rax), %esi
 	movq	(%rbx), %rax
 	leaq	416(%rax), %rcx
 	call	_ZN3wze6engine6timing14GetCurrentTickEv
 	cmpl	%eax, %esi
-	jb	.L49
-.L41:
+	jnb	.L42
+	movq	(%rbx), %rax
+	movl	$41, %edx
+	leaq	192(%rax), %rcx
+	call	_ZN3wze6engine4keysixENS_3keyE
+	testb	%al, %al
+	jne	.L43
+.L42:
 	movq	40(%rbx), %rcx
 	call	_ZN10gui_button6UpdateEv
 	movl	%eax, %edx
@@ -584,36 +554,57 @@ _ZN9gui_pause6UpdateEv:
 	call	_ZN10gui_slider6UpdateEv
 	movsd	%xmm0, 16(%rdi)
 	call	round
-	movl	$1000, %eax
 	xorl	%edx, %edx
+	movl	$1000, %eax
 	cvttsd2sil	%xmm0, %ecx
 	movswl	%cx, %ecx
 	idivl	%ecx
 	movq	%rsi, %rcx
 	movzbl	%al, %edx
 	call	_ZN3wze6engine6timing18SetTargetFrameTimeEh
+	jmp	.L37
+	.p2align 4,,10
+	.p2align 3
+.L48:
+	movq	(%rbx), %rax
+	movl	$41, %edx
+	leaq	192(%rax), %rcx
+	call	_ZN3wze6engine4keysixENS_3keyE
+	testb	%al, %al
+	je	.L49
+	.p2align 4,,10
+	.p2align 3
+.L35:
+	movq	16(%rbx), %rax
+	movb	$1, 168(%rax)
+	movq	32(%rbx), %rax
+	movq	16(%rax), %rax
+	movb	$1, 168(%rax)
+	movq	40(%rbx), %rax
+	movq	16(%rax), %rax
+	movb	$1, 168(%rax)
+	movq	48(%rbx), %rax
+	movq	16(%rax), %rax
+	movb	$1, 168(%rax)
+	movq	56(%rbx), %rax
+	movq	16(%rax), %rax
+	movb	$1, 168(%rax)
+	movq	64(%rbx), %rax
+	movq	16(%rax), %rax
+	movb	$1, 168(%rax)
+	movq	(%rbx), %rax
+	leaq	216(%rax), %rcx
+	call	_ZN3wze6engine5mouse11SetAbsoluteEv
+	movq	(%rbx), %rax
+	leaq	416(%rax), %rcx
+	call	_ZN3wze6engine6timing14GetCurrentTickEv
+	movl	%eax, 72(%rbx)
+.L37:
 	movl	$1, %eax
 	jmp	.L32
 	.p2align 4,,10
 	.p2align 3
-.L47:
-	movq	(%rbx), %rax
-	movl	$41, %edx
-	leaq	192(%rax), %rcx
-	call	_ZN3wze6engine4keysixENS_3keyE
-	testb	%al, %al
-	jne	.L35
-	jmp	.L48
-	.p2align 4,,10
-	.p2align 3
-.L49:
-	movq	(%rbx), %rax
-	movl	$41, %edx
-	leaq	192(%rax), %rcx
-	call	_ZN3wze6engine4keysixENS_3keyE
-	testb	%al, %al
-	je	.L41
-.L42:
+.L43:
 	movq	16(%rbx), %rax
 	movb	$0, 168(%rax)
 	movq	32(%rbx), %rax
@@ -638,7 +629,7 @@ _ZN9gui_pause6UpdateEv:
 	leaq	416(%rax), %rcx
 	call	_ZN3wze6engine6timing14GetCurrentTickEv
 	movl	%eax, 72(%rbx)
-	jmp	.L40
+	jmp	.L41
 	.seh_endproc
 	.section .rdata,"dr"
 	.align 8
@@ -685,8 +676,8 @@ _ZN9gui_pause6UpdateEv:
 	.def	_Znwy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetXEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN10gui_buttonC1EPN3wze6engineEP4gameddttdPKc;	.scl	2;	.type	32;	.endef
-	.def	_ZN10gui_sliderC1EPN3wze6engineEP4gameddttPKcddd;	.scl	2;	.type	32;	.endef
+	.def	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc;	.scl	2;	.type	32;	.endef
+	.def	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd;	.scl	2;	.type	32;	.endef
 	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
@@ -695,12 +686,12 @@ _ZN9gui_pause6UpdateEv:
 	.def	_ZN10gui_sliderD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing14GetCurrentTickEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6window8HasFocusEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5mouse11SetAbsoluteEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN10gui_button6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine4keysixENS_3keyE;	.scl	2;	.type	32;	.endef
 	.def	_ZN10gui_slider6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5mouse14SetSensitivityEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5audio15SetGlobalVolumeEd;	.scl	2;	.type	32;	.endef
 	.def	round;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing18SetTargetFrameTimeEh;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine4keysixENS_3keyE;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5mouse11SetAbsoluteEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5mouse11SetRelativeEv;	.scl	2;	.type	32;	.endef

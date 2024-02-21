@@ -3,19 +3,21 @@
 scene_story::scene_story(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(0, ACT_NONE, this->Engine->Window.GetWidth() >> 1, this->Engine->Window.GetHeight() >> 1, 0, 0, 0);
-    this->Story = {"Szia, Uram!\nMi a fasz?"};
+    this->Story = {"Samu a cica szokásos délutáni elfoglaltságát űzte.\nA réten játszott és üldözőbe vett egy szentjánosbogarat.\nÁm a bogár a pince irányába csalogatta.\nSamu nem volt jártas a pince járataiban, mert nagyon félt a sötéttől.\nMire észbe kapott már a pince legalján találta magát, egyedül és éhesen.\nDe nem esett kétségbe!\nA szentjánosbogárral együtt elkezdték megkeresni a pince kijáratát.\nSamu az éhségét az út során talált tonhalas konzervekből kezdte csillapítani.\nSegíts Samunak, hogy a kijáratig össze gyűjthesse az összes finomságot!\nDe vigyázz, mert az út telis-tele van veszélyekkel, melyeket érdemes elkerülni."};
     this->CurrentChar = 0;
     this->CurrentLine = 0;
     this->Lines += {this->Actor->Textboxes.New("", this->Game->Assets->HackItalicFont)};
     this->Sleep = 0;
+    this->Skip = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 650, 0, "Tovább");
 
-    this->Lines[this->CurrentLine]->SetHeight(50);
+    this->Lines[this->CurrentLine]->SetHeight(40);
     this->Lines[this->CurrentLine]->SetY(this->Actor->GetY() + 500);
 }
 
 scene_story::~scene_story()
 {
     this->Engine->Actors.Delete(this->Actor->GetID());
+    delete this->Skip;
 }
 
 scene scene_story::Update()
@@ -34,17 +36,17 @@ scene scene_story::Update()
             this->Lines += {this->Actor->Textboxes.New("", this->Game->Assets->HackItalicFont)};
             this->CurrentLine++;
 
-            this->Lines[this->CurrentLine]->SetHeight(50);
-            this->Lines[this->CurrentLine]->SetY(this->Actor->GetY() + 500 - 100 * this->CurrentLine);
+            this->Lines[this->CurrentLine]->SetHeight(40);
+            this->Lines[this->CurrentLine]->SetY(this->Actor->GetY() + 500 - 80 * this->CurrentLine);
 
             
             if (this->CurrentChar % 2)
             {
-                this->Engine->Audio.Play(this->Game->Assets->TypingReturnAudio, CH_TYPING1, 1, 0);
+                this->Engine->Audio.Play(this->Game->Assets->TypingReturnAudio, CH_TYPING1, 0.8, 0);
             }
             else 
             {
-                this->Engine->Audio.Play(this->Game->Assets->TypingReturnAudio, CH_TYPING2, 1, 0);
+                this->Engine->Audio.Play(this->Game->Assets->TypingReturnAudio, CH_TYPING2, 0.8, 0);
             }
             
             this->Sleep = this->Engine->Timing.GetCurrentTick() + 1000;
@@ -56,11 +58,11 @@ scene scene_story::Update()
             
             if (this->CurrentChar % 2)
             {
-                this->Engine->Audio.Play(this->Game->Assets->TypingAudio[this->Engine->Math.Random(0, this->Game->Assets->TypingAudio.Length())], CH_TYPING1, this->Engine->Math.Random(50, 80) / 100.0, 0);
+                this->Engine->Audio.Play(this->Game->Assets->TypingAudio[this->Engine->Math.Random(0, this->Game->Assets->TypingAudio.Length())], CH_TYPING1, this->Engine->Math.Random(30, 60) / 100.0, 0);
             }
             else 
             {
-                this->Engine->Audio.Play(this->Game->Assets->TypingAudio[this->Engine->Math.Random(0, this->Game->Assets->TypingAudio.Length())], CH_TYPING2, this->Engine->Math.Random(50, 80) / 100.0, 0);
+                this->Engine->Audio.Play(this->Game->Assets->TypingAudio[this->Engine->Math.Random(0, this->Game->Assets->TypingAudio.Length())], CH_TYPING2, this->Engine->Math.Random(30, 60) / 100.0, 0);
             }
 
             this->Sleep = this->Engine->Timing.GetCurrentTick() + 150;
@@ -70,6 +72,11 @@ scene scene_story::Update()
         {
             this->Sleep = this->Engine->Timing.GetCurrentTick() + 3000;
         }
+    }
+
+    if (this->Skip->Update() || (this->Engine->Keys[KEY_ESCAPE] || this->Engine->Keys[KEY_SPACE] || this->Engine->Keys[KEY_RETURN]))
+    {
+        return SCENE_PLAY;
     }
 
     return SCENE_STORY;
