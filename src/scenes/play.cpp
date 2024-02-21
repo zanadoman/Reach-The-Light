@@ -174,6 +174,12 @@ scene scene_play::Update()
 
         this->Engine->Audio.StopChannel(CH_MUSIC, 3000);
 
+        if (this->Engine->Keys[KEY_ESCAPE])
+        {
+            this->Engine->Audio.StopChannel(CH_MUSIC);
+            return SCENE_MENU;
+        }
+
         return SCENE_PLAY;
     }
 
@@ -191,6 +197,12 @@ scene scene_play::Update()
         }
 
         this->Engine->Audio.StopChannel(CH_MUSIC, 3000);
+        
+        if (this->Engine->Keys[KEY_ESCAPE])
+        {
+            this->Engine->Audio.StopChannel(CH_MUSIC);
+            return SCENE_MENU;
+        }
 
         return SCENE_PLAY;
     }
