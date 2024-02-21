@@ -36,6 +36,11 @@ uint8 act_crate::Update()
     {
         this->VelocityY -= 0.0006 * this->Engine->Timing.GetDeltaTime();
 
+        if (this->VelocityY < -1)
+        {
+            this->VelocityY = -1;
+        }
+
         if (this->Actor->GetY() + this->VelocityY * this->Engine->Timing.GetDeltaTime() != this->Actor->SetY(this->Actor->GetY() + this->VelocityY * this->Engine->Timing.GetDeltaTime()) && this->VelocityY < 0)
         {
             if (this->VelocityY < -0.0006 * this->Engine->Timing.GetDeltaTime())

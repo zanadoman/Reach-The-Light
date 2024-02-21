@@ -9,6 +9,14 @@ map::map()
         this->Map1();
     }
 
+    for (uint8 i = 0; i < MAP_X * MAP_Y; i++)
+    {
+        if (TILE_COUNT <= this->Raw[i])
+        {
+            this->Map1();
+        }
+    }
+
     for (uint8 i = 0, j = 0; i < MAP_X * MAP_Y; i++)
     {
         if (i % MAP_Y == 0)

@@ -90,9 +90,9 @@ _ZN9act_crateD2Ev:
 	.set	_ZN9act_crateD1Ev,_ZN9act_crateD2Ev
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB4:
+.LCOLDB5:
 	.text
-.LHOTB4:
+.LHOTB5:
 	.align 2
 	.p2align 4
 	.globl	_ZN9act_crate6UpdateEv
@@ -185,9 +185,11 @@ _ZN9act_crate6UpdateEv:
 	movsd	48(%rbp), %xmm0
 	movq	24(%rbp), %rdi
 	cvtsi2sdq	%rax, %xmm1
-	mulsd	.LC2(%rip), %xmm1
+	mulsd	.LC3(%rip), %xmm1
 	subsd	%xmm1, %xmm0
-	movsd	%xmm0, 48(%rbp)
+	movsd	.LC2(%rip), %xmm1
+	maxsd	%xmm0, %xmm1
+	movsd	%xmm1, 48(%rbp)
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	movq	0(%rbp), %rax
 	movsd	48(%rbp), %xmm3
@@ -220,15 +222,15 @@ _ZN9act_crate6UpdateEv:
 	call	_ZN3wze6engine6actors5actor4SetYEd@PLT
 	movq	%rbx, %xmm7
 	ucomisd	%xmm0, %xmm7
-	jp	.L37
-	jne	.L37
+	jp	.L40
+	jne	.L40
 .L13:
 	xorl	%ebx, %ebx
 	cmpq	$0, 16(%rsp)
-	je	.L28
+	je	.L30
 	.p2align 4,,10
 	.p2align 3
-.L27:
+.L29:
 	movq	%rbx, %rax
 	addq	$1, %rbx
 	salq	$4, %rax
@@ -236,13 +238,13 @@ _ZN9act_crate6UpdateEv:
 	movq	8(%rax), %rdi
 	call	free@PLT
 	cmpq	16(%rsp), %rbx
-	jb	.L27
-.L28:
+	jb	.L29
+.L30:
 	movq	24(%rsp), %rdi
 	call	free@PLT
 	movq	40(%rsp), %rax
 	subq	%fs:40, %rax
-	jne	.L48
+	jne	.L51
 	addq	$48, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 32
@@ -256,7 +258,7 @@ _ZN9act_crate6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L37:
+.L40:
 	.cfi_restore_state
 	movsd	48(%rbp), %xmm4
 	pxor	%xmm0, %xmm0
@@ -269,13 +271,13 @@ _ZN9act_crate6UpdateEv:
 	movl	%eax, %eax
 	pxor	%xmm0, %xmm0
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC3(%rip), %xmm0
+	mulsd	.LC4(%rip), %xmm0
 	comisd	(%rsp), %xmm0
-	ja	.L49
-.L23:
+	ja	.L52
+.L25:
 	movq	$0x000000000, 48(%rbp)
 	jmp	.L13
-.L49:
+.L52:
 	movq	8(%rbp), %rax
 	movsd	.LC0(%rip), %xmm0
 	xorl	%ecx, %ecx
@@ -286,12 +288,12 @@ _ZN9act_crate6UpdateEv:
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 .LEHE0:
-	jmp	.L23
-.L48:
+	jmp	.L25
+.L51:
 	call	__stack_chk_fail@PLT
-.L36:
+.L38:
 	movq	%rax, %rbp
-	jmp	.L29
+	jmp	.L31
 	.section	.gcc_except_table
 .LLSDA8162:
 	.byte	0xff
@@ -301,7 +303,7 @@ _ZN9act_crate6UpdateEv:
 .LLSDACSB8162:
 	.uleb128 .LEHB0-.LFB8162
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L36-.LFB8162
+	.uleb128 .L38-.LFB8162
 	.uleb128 0
 .LLSDACSE8162:
 	.text
@@ -313,32 +315,32 @@ _ZN9act_crate6UpdateEv:
 	.type	_ZN9act_crate6UpdateEv.cold, @function
 _ZN9act_crate6UpdateEv.cold:
 .LFSB8162:
-.L29:
+.L31:
 	.cfi_def_cfa_offset 80
 	.cfi_offset 3, -32
 	.cfi_offset 6, -24
 	.cfi_offset 12, -16
 	xorl	%ebx, %ebx
-.L30:
+.L32:
 	movq	24(%rsp), %rdi
 	cmpq	16(%rsp), %rbx
-	jnb	.L50
+	jnb	.L53
 	movq	%rbx, %rax
 	addq	$1, %rbx
 	salq	$4, %rax
 	movq	8(%rdi,%rax), %rdi
 	call	free@PLT
-	jmp	.L30
-.L50:
+	jmp	.L32
+.L53:
 	call	free@PLT
 	movq	40(%rsp), %rax
 	subq	%fs:40, %rax
-	jne	.L51
+	jne	.L54
 	movq	%rbp, %rdi
 .LEHB1:
 	call	_Unwind_Resume@PLT
 .LEHE1:
-.L51:
+.L54:
 	call	__stack_chk_fail@PLT
 	.cfi_endproc
 .LFE8162:
@@ -349,7 +351,7 @@ _ZN9act_crate6UpdateEv.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8162-.LLSDACSBC8162
 .LLSDACSBC8162:
-	.uleb128 .LEHB1-.LCOLDB4
+	.uleb128 .LEHB1-.LCOLDB5
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -359,9 +361,9 @@ _ZN9act_crate6UpdateEv.cold:
 	.size	_ZN9act_crate6UpdateEv, .-_ZN9act_crate6UpdateEv
 	.section	.text.unlikely
 	.size	_ZN9act_crate6UpdateEv.cold, .-_ZN9act_crate6UpdateEv.cold
-.LCOLDE4:
+.LCOLDE5:
 	.text
-.LHOTE4:
+.LHOTE5:
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC0:
@@ -369,10 +371,14 @@ _ZN9act_crate6UpdateEv.cold:
 	.long	1072693248
 	.align 8
 .LC2:
+	.long	0
+	.long	-1074790400
+	.align 8
+.LC3:
 	.long	810889825
 	.long	1061398826
 	.align 8
-.LC3:
+.LC4:
 	.long	810889825
 	.long	-1086084822
 	.hidden	DW.ref.__gxx_personality_v0

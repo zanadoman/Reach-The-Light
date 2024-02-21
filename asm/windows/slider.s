@@ -1,13 +1,15 @@
 	.file	"slider.cpp"
 	.text
 	.section .rdata,"dr"
-.LC6:
+.LC1:
+	.ascii "\0"
+.LC7:
 	.ascii ": \0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB7:
+.LCOLDB8:
 	.text
-.LHOTB7:
+.LHOTB8:
 	.align 2
 	.p2align 4
 	.globl	_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd
@@ -36,7 +38,6 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 	movaps	%xmm8, 192(%rsp)
 	.seh_savexmm	%xmm8, 192
 	.seh_endprologue
-	movq	312(%rsp), %rbp
 	movsd	320(%rsp), %xmm8
 	movsd	328(%rsp), %xmm7
 	movq	%rdx, (%rcx)
@@ -78,7 +79,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 	movq	16(%rbx), %rdx
 	movq	8(%rax), %rax
 	leaq	104(%rdx), %rcx
-	movq	%rbp, %rdx
+	leaq	.LC1(%rip), %rdx
 	movq	32(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movq	%rax, 40(%rbx)
@@ -87,14 +88,15 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 	call	_ZN3wze6engine6actors5actor10colorboxes3NewEv
 	movq	%rax, 48(%rbx)
 	leaq	96(%rsp), %r12
+	movq	312(%rsp), %rax
 	movapd	%xmm8, %xmm6
-	movq	%rdi, %rcx
-	movq	%rbp, 136(%rsp)
-	movq	%r12, %rdx
 	leaq	136(%rsp), %rbp
+	movq	%r12, %rdx
+	movq	%rdi, %rcx
+	movq	$1, 104(%rsp)
+	movq	%rax, 136(%rsp)
 	unpcklpd	%xmm7, %xmm6
 	movq	%rbp, 96(%rsp)
-	movq	$1, 104(%rsp)
 	call	_ZN3neo6stringaSESt16initializer_listIPKcE
 	movq	32(%rbx), %rax
 	movl	$-7968, %ecx
@@ -121,7 +123,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 	pxor	%xmm0, %xmm0
 	movq	%r13, %rcx
 	cvtsi2sdl	%eax, %xmm0
-	mulsd	.LC2(%rip), %xmm0
+	mulsd	.LC3(%rip), %xmm0
 	cvttsd2sil	%xmm0, %edx
 	movzwl	%dx, %edx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
@@ -135,7 +137,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 	pxor	%xmm0, %xmm0
 	movq	48(%rbx), %rdx
 	cvtsi2sdl	%eax, %xmm0
-	mulsd	.LC4(%rip), %xmm0
+	mulsd	.LC5(%rip), %xmm0
 	movb	$-127, 25(%rdx)
 	movq	16(%rbx), %rcx
 	cvttsd2sil	%xmm0, %eax
@@ -143,7 +145,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 	movw	%ax, 18(%rdx)
 	movzwl	%ax, %eax
 	cvtsi2sdl	%eax, %xmm0
-	mulsd	.LC5(%rip), %xmm0
+	mulsd	.LC6(%rip), %xmm0
 	cvttsd2sil	%xmm0, %eax
 	movw	%ax, 16(%rdx)
 	call	_ZN3wze6engine6actors5actor4GetXEv
@@ -198,7 +200,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 	movsd	80(%rbx), %xmm1
 	leaq	80(%rsp), %rdx
 	movq	%rsi, %rcx
-	leaq	.LC6(%rip), %rax
+	leaq	.LC7(%rip), %rax
 	movq	%rdi, 120(%rsp)
 	leaq	128(%rsp), %r13
 	subsd	%xmm2, %xmm0
@@ -328,7 +330,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB3-.LCOLDB7
+	.uleb128 .LEHB3-.LCOLDB8
 	.uleb128 .LEHE3-.LEHB3
 	.uleb128 0
 	.uleb128 0
@@ -337,9 +339,9 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE7:
+.LCOLDE8:
 	.text
-.LHOTE7:
+.LHOTE8:
 	.globl	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd
 	.def	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd;	.scl	2;	.type	32;	.endef
 	.set	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd,_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd
@@ -386,9 +388,9 @@ _ZN10gui_sliderD2Ev:
 	.set	_ZN10gui_sliderD1Ev,_ZN10gui_sliderD2Ev
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB9:
+.LCOLDB10:
 	.text
-.LHOTB9:
+.LHOTB10:
 	.align 2
 	.p2align 4
 	.globl	_ZN10gui_slider6UpdateEv
@@ -465,7 +467,7 @@ _ZN10gui_slider6UpdateEv:
 	movsd	80(%rbx), %xmm0
 	leaq	80(%rsp), %rdx
 	movq	%rbp, 104(%rsp)
-	leaq	.LC6(%rip), %rax
+	leaq	.LC7(%rip), %rax
 	subsd	%xmm1, %xmm6
 	movq	%rax, 112(%rsp)
 	leaq	104(%rsp), %rax
@@ -536,7 +538,7 @@ _ZN10gui_slider6UpdateEv:
 	testb	$4, %al
 	je	.L33
 	movq	8(%rbx), %rax
-	movsd	.LC8(%rip), %xmm3
+	movsd	.LC9(%rip), %xmm3
 	movl	$1, %r8d
 	movq	8(%rax), %rax
 	movq	432(%rax), %rdx
@@ -597,7 +599,7 @@ _ZN10gui_slider6UpdateEv.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8437-.LLSDACSBC8437
 .LLSDACSBC8437:
-	.uleb128 .LEHB6-.LCOLDB9
+	.uleb128 .LEHB6-.LCOLDB10
 	.uleb128 .LEHE6-.LEHB6
 	.uleb128 0
 	.uleb128 0
@@ -606,24 +608,24 @@ _ZN10gui_slider6UpdateEv.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE9:
+.LCOLDE10:
 	.text
-.LHOTE9:
+.LHOTE10:
 	.section .rdata,"dr"
 	.align 8
-.LC2:
+.LC3:
 	.long	0
 	.long	1073479680
 	.align 8
-.LC4:
+.LC5:
 	.long	0
 	.long	1073217536
 	.align 8
-.LC5:
+.LC6:
 	.long	0
 	.long	1071644672
 	.align 8
-.LC8:
+.LC9:
 	.long	0
 	.long	1072693248
 	.ident	"GCC: (GNU) 13.1.0"

@@ -378,6 +378,11 @@ uint8 act_player::Update()
         this->Run->Angle = 0;
 
         this->VelocityY -= 0.0006 * this->Engine->Timing.GetDeltaTime();
+
+        if (this->VelocityY < -1)
+        {
+            this->VelocityY = -1;
+        }
     }
 
     //PLAYING JUMP AUDIO

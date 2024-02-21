@@ -1,13 +1,15 @@
 	.file	"slider.cpp"
 	.text
 	.section	.rodata.str1.1,"aMS",@progbits,1
-.LC6:
+.LC1:
+	.string	""
+.LC7:
 	.string	": "
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB7:
+.LCOLDB8:
 	.text
-.LHOTB7:
+.LHOTB8:
 	.align 2
 	.p2align 4
 	.globl	_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd
@@ -80,7 +82,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 	call	_ZN3wze6engine6actors5actor10colorboxes3NewEv@PLT
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
-	movq	%r13, %rsi
+	leaq	.LC1(%rip), %rsi
 	movq	8(%rax), %rax
 	movq	32(%rax), %rdx
 	movq	16(%rbx), %rax
@@ -127,7 +129,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 	pxor	%xmm0, %xmm0
 	movq	%r13, %rdi
 	cvtsi2sdl	%eax, %xmm0
-	mulsd	.LC2(%rip), %xmm0
+	mulsd	.LC3(%rip), %xmm0
 	cvttsd2sil	%xmm0, %esi
 	movzwl	%si, %esi
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
@@ -141,7 +143,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 	pxor	%xmm0, %xmm0
 	movq	48(%rbx), %rdx
 	cvtsi2sdl	%eax, %xmm0
-	mulsd	.LC4(%rip), %xmm0
+	mulsd	.LC5(%rip), %xmm0
 	movb	$-127, 25(%rdx)
 	movq	16(%rbx), %rdi
 	cvttsd2sil	%xmm0, %eax
@@ -149,7 +151,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 	movw	%ax, 18(%rdx)
 	movzwl	%ax, %eax
 	cvtsi2sdl	%eax, %xmm0
-	mulsd	.LC5(%rip), %xmm0
+	mulsd	.LC6(%rip), %xmm0
 	cvttsd2sil	%xmm0, %eax
 	movw	%ax, 16(%rdx)
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
@@ -207,7 +209,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 	movsd	72(%rbx), %xmm2
 	movsd	80(%rbx), %xmm1
 	leaq	48(%rsp), %rsi
-	leaq	.LC6(%rip), %rax
+	leaq	.LC7(%rip), %rax
 	movl	$1, %edx
 	movq	%rbp, %rdi
 	movq	%rax, 56(%rsp)
@@ -347,7 +349,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB3-.LCOLDB7
+	.uleb128 .LEHB3-.LCOLDB8
 	.uleb128 .LEHE3-.LEHB3
 	.uleb128 0
 	.uleb128 0
@@ -357,9 +359,9 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd.cold:
 	.size	_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd, .-_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd
 	.section	.text.unlikely
 	.size	_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd.cold, .-_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd.cold
-.LCOLDE7:
+.LCOLDE8:
 	.text
-.LHOTE7:
+.LHOTE8:
 	.globl	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd
 	.set	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd,_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd
 	.align 2
@@ -411,9 +413,9 @@ _ZN10gui_sliderD2Ev:
 	.set	_ZN10gui_sliderD1Ev,_ZN10gui_sliderD2Ev
 	.section	.text.unlikely
 	.align 2
-.LCOLDB9:
+.LCOLDB10:
 	.text
-.LHOTB9:
+.LHOTB10:
 	.align 2
 	.p2align 4
 	.globl	_ZN10gui_slider6UpdateEv
@@ -500,7 +502,7 @@ _ZN10gui_slider6UpdateEv:
 	leaq	32(%rsp), %rsi
 	movl	$1, %edx
 	movq	%r13, 32(%rsp)
-	leaq	.LC6(%rip), %rax
+	leaq	.LC7(%rip), %rax
 	subsd	%xmm2, %xmm0
 	subsd	%xmm2, %xmm1
 	movq	%rax, 40(%rsp)
@@ -578,7 +580,7 @@ _ZN10gui_slider6UpdateEv:
 	testb	$4, %al
 	je	.L41
 	movq	8(%rbx), %rax
-	movsd	.LC8(%rip), %xmm0
+	movsd	.LC9(%rip), %xmm0
 	xorl	%ecx, %ecx
 	movl	$1, %edx
 	movq	8(%rax), %rax
@@ -646,7 +648,7 @@ _ZN10gui_slider6UpdateEv.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8162-.LLSDACSBC8162
 .LLSDACSBC8162:
-	.uleb128 .LEHB6-.LCOLDB9
+	.uleb128 .LEHB6-.LCOLDB10
 	.uleb128 .LEHE6-.LEHB6
 	.uleb128 0
 	.uleb128 0
@@ -656,24 +658,24 @@ _ZN10gui_slider6UpdateEv.cold:
 	.size	_ZN10gui_slider6UpdateEv, .-_ZN10gui_slider6UpdateEv
 	.section	.text.unlikely
 	.size	_ZN10gui_slider6UpdateEv.cold, .-_ZN10gui_slider6UpdateEv.cold
-.LCOLDE9:
+.LCOLDE10:
 	.text
-.LHOTE9:
+.LHOTE10:
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
-.LC2:
+.LC3:
 	.long	0
 	.long	1073479680
 	.align 8
-.LC4:
+.LC5:
 	.long	0
 	.long	1073217536
 	.align 8
-.LC5:
+.LC6:
 	.long	0
 	.long	1071644672
 	.align 8
-.LC8:
+.LC9:
 	.long	0
 	.long	1072693248
 	.hidden	DW.ref.__gxx_personality_v0

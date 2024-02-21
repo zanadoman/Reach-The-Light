@@ -7,7 +7,7 @@ gui_slider::gui_slider(engine* Engine, game* Game, double X, double Y, const cha
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 400, 15, 0);
     this->Overlapbox = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Colorbox = this->Actor->Colorboxes.New();
-    this->Textbox = this->Actor->Textboxes.New(Literal, this->Game->Assets->HackRegularFont);
+    this->Textbox = this->Actor->Textboxes.New("", this->Game->Assets->HackRegularFont);
     this->Indicator = this->Actor->Colorboxes.New();
     this->Literal = {Literal};
     this->Min = Min;
@@ -74,7 +74,7 @@ double gui_slider::Update()
     }
 
     result = (this->Max - this->Min) * ((this->Indicator->GetX() - this->IndicatorMinX) / (this->IndicatorMaxX - this->IndicatorMinX)) + this->Min;
-
+    
     ((str = {&this->Literal}) += {": "}) += {result};
 
     if (this->Literal.Length() + 6 < str.Length())
