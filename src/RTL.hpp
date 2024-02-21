@@ -254,17 +254,18 @@ struct scene_play
 
     engine::actor Actor;
     engine::textbox FrameTime;
-    array<engine::texturebox> HealthCounter;
+    array<engine::texturebox> HealthBar;
     engine::textbox TunaCount;
     engine::flipbook TunaFlipbook;
 
     gui_pause* Pause;
     act_player* Player;
     tile_token* Tiles[MAP_X][MAP_Y];
-    tile_house* House;
-    bool RotateTiles;
     array<act_crate*> Crates;
     array<act_tuna*> Tunas;
+    tile_house* House;
+
+    bool RotateTiles;
 
     scene_play(engine* Engine, game* Game);
     ~scene_play();

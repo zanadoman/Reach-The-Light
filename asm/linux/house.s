@@ -649,7 +649,7 @@ _ZN10tile_house6UpdateEv:
 	movq	48(%rax), %rax
 	movq	72(%rax), %rdx
 	movzbl	152(%rdx), %edx
-	cmpq	1136(%rax), %rdx
+	cmpq	1120(%rax), %rdx
 	jne	.L33
 .L38:
 	movq	120(%rbx), %rdi
