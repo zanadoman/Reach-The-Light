@@ -208,6 +208,8 @@ assets::assets(engine* Engine) : Engine(Engine)
         this->Engine->Assets.LoadSound("assets/audio/typing2.wav")
     };
     this->TypingReturnAudio = this->Engine->Assets.LoadSound("assets/audio/typing_return.wav");
+    this->WinAudio = this->Engine->Assets.LoadSound("assets/audio/win.wav");
+    this->LoseAudio = this->Engine->Assets.LoadSound("assets/audio/lose.wav");
 }
 
 assets::~assets()

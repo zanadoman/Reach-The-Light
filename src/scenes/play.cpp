@@ -163,6 +163,7 @@ scene scene_play::Update()
 
     if (this->Player->Health == 0)
     {
+        this->House->Update();
         this->Player->Update();
 
         this->Lose->ColorA = round(engine::math::Clamp<double>(this->Opacity += 0.1 * this->Engine->Timing.GetDeltaTime(), 0, 255));
@@ -187,6 +188,7 @@ scene scene_play::Update()
 
     if (this->Player->Actor->GetX() == this->House->Detector->GetX() && this->Player->Actor->GetY() == this->House->Detector->GetY())
     {
+        this->House->Update();
         this->Player->Update();
 
         this->Win->ColorA = round(engine::math::Clamp<double>(this->Opacity += 0.1 * this->Engine->Timing.GetDeltaTime(), 0, 255));

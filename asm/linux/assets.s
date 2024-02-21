@@ -362,11 +362,16 @@
 	.align 8
 .LC148:
 	.string	"assets/audio/typing_return.wav"
+	.section	.rodata.str1.1
+.LC149:
+	.string	"assets/audio/win.wav"
+.LC150:
+	.string	"assets/audio/lose.wav"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB149:
+.LCOLDB151:
 	.text
-.LHOTB149:
+.LHOTB151:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -1283,6 +1288,16 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	344(%rax), %rdi
 	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
 	movq	%rax, 544(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC149(%rip), %rsi
+	leaq	344(%rax), %rdi
+	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
+	movq	%rax, 552(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC150(%rip), %rsi
+	leaq	344(%rax), %rdi
+	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
+	movq	%rax, 560(%rbx)
 	movq	920(%rsp), %rax
 	subq	%fs:40, %rax
 	jne	.L79
@@ -1589,7 +1604,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB1-.LCOLDB149
+	.uleb128 .LEHB1-.LCOLDB151
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1599,9 +1614,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.size	_ZN6assetsC2EPN3wze6engineE, .-_ZN6assetsC2EPN3wze6engineE
 	.section	.text.unlikely
 	.size	_ZN6assetsC2EPN3wze6engineE.cold, .-_ZN6assetsC2EPN3wze6engineE.cold
-.LCOLDE149:
+.LCOLDE151:
 	.text
-.LHOTE149:
+.LHOTE151:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE
 	.align 2

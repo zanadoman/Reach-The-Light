@@ -85,6 +85,7 @@ typedef enum
     CH_HEARTBEAT,
     CH_TYPING1,
     CH_TYPING2,
+    CH_WIN_LOSE,
     CH_COUNT
 } channel;
 
@@ -198,6 +199,8 @@ struct assets
     uint64 HeartBeatAudio;
     array<uint64> TypingAudio;
     uint64 TypingReturnAudio;
+    uint64 WinAudio;
+    uint64 LoseAudio;
 
     assets(engine* Engine);
     ~assets();
