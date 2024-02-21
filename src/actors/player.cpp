@@ -395,6 +395,8 @@ uint8 act_player::Update()
         }
     }
 
+    //Animations
+
     if (this->Engine->Timing.GetCurrentTick() <= this->DamageTick + 200)
     {
         this->Idle->Visible = false;

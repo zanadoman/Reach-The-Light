@@ -260,22 +260,22 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movl	$16, %edi
 	call	_Znwm@PLT
 .LEHE4:
-	movq	8(%rbx), %rcx
+	movq	8(%rbx), %rdx
 	movq	%rax, %r12
 	pxor	%xmm1, %xmm1
 	leal	15(%r13), %eax
 	cvtsi2sdl	%eax, %xmm1
 	pxor	%xmm0, %xmm0
-	movq	(%rbx), %rdx
+	movq	(%rbx), %rsi
 	movq	%r12, %rdi
-	movq	24(%rcx), %rax
+	movq	24(%rdx), %rax
 	cvtsi2sdl	36(%rsp), %xmm0
 	movq	(%rax,%r14,8), %rax
 	movsd	%xmm1, 16(%rsp)
-	movzbl	(%rax,%rbp), %esi
+	movzbl	(%rax,%rbp), %ecx
 	movsd	%xmm0, 8(%rsp)
 .LEHB5:
-	call	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gamedd@PLT
+	call	_ZN10tile_tokenC1EPN3wze6engineEP4game4tiledd@PLT
 .LEHE5:
 	movq	24(%rsp), %rax
 	movq	%r12, 80(%rax,%rbp,8)

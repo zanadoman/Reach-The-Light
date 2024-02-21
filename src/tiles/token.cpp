@@ -1,6 +1,6 @@
 #include "../RTL.hpp"
 
-tile_token::tile_token(tile Type, engine* Engine, game* Game, double X, double Y)
+tile_token::tile_token(engine* Engine, game* Game, tile Type, double X, double Y)
 {
     switch (Type)
     {

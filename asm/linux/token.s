@@ -7,9 +7,9 @@
 .LHOTB0:
 	.align 2
 	.p2align 4
-	.globl	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd
-	.type	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd, @function
-_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
+	.globl	_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd
+	.type	_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd, @function
+_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd:
 .LFB8157:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
@@ -30,15 +30,15 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	pushq	%rbx
 	.cfi_def_cfa_offset 48
 	.cfi_offset 3, -48
-	movl	%esi, %ebx
+	movl	%ecx, %ebx
 	subq	$16, %rsp
 	.cfi_def_cfa_offset 64
-	cmpl	$11, %esi
+	cmpl	$11, %ecx
 	ja	.L2
-	movq	%rdx, %r12
-	movl	%esi, %eax
+	movq	%rdx, %r13
+	movl	%ecx, %eax
 	leaq	.L4(%rip), %rdx
-	movq	%rcx, %r13
+	movq	%rsi, %r12
 	movslq	(%rdx,%rax,4), %rax
 	movsd	%xmm1, 8(%rsp)
 	movsd	%xmm0, (%rsp)
@@ -432,8 +432,8 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
 	.cfi_lsda 0x1b,.LLSDAC8157
-	.type	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold, @function
-_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold:
+	.type	_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd.cold, @function
+_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd.cold:
 .LFSB8157:
 .L26:
 	.cfi_def_cfa_offset 64
@@ -531,14 +531,14 @@ _ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold:
 .LLSDACSEC8157:
 	.section	.text.unlikely
 	.text
-	.size	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd, .-_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd
+	.size	_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd, .-_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd
 	.section	.text.unlikely
-	.size	_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold, .-_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd.cold
+	.size	_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd.cold, .-_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd.cold
 .LCOLDE0:
 	.text
 .LHOTE0:
-	.globl	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gamedd
-	.set	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gamedd,_ZN10tile_tokenC2E4tilePN3wze6engineEP4gamedd
+	.globl	_ZN10tile_tokenC1EPN3wze6engineEP4game4tiledd
+	.set	_ZN10tile_tokenC1EPN3wze6engineEP4game4tiledd,_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd
 	.align 2
 	.p2align 4
 	.globl	_ZN10tile_tokenD2Ev

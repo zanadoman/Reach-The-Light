@@ -480,7 +480,7 @@ struct tile_token
     void* Data;
     tile Type;
 
-    tile_token(tile Type, engine* Engine, game* Game, double X, double Y);
+    tile_token(engine* Engine, game* Game, tile Type, double X, double Y);
     ~tile_token();
     uint8 Update();
     uint8 ResetCollisionLayer();
