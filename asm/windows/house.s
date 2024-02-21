@@ -41,9 +41,9 @@ _Z6printfPKcz:
 	.ascii "neo::array[]: Index out of range\12Params: Index: %lld\12\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB25:
+.LCOLDB24:
 	.text
-.LHOTB25:
+.LHOTB24:
 	.align 2
 	.p2align 4
 	.globl	_ZN10tile_houseC2EPN3wze6engineEP4game
@@ -274,7 +274,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	movq	88(%rbx), %rsi
 	movl	$1310729, 16(%rax)
 	movq	.LC18(%rip), %rax
-	movq	%rax, 184(%rbx)
+	movq	%rax, 176(%rbx)
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetXEv
 	movapd	%xmm0, %xmm1
 	movq	%rsi, %rcx
@@ -545,28 +545,6 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	movl	$1, %edx
 	movq	$100, 184(%rax)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
-	movq	(%rbx), %rax
-	movq	32(%rbx), %rcx
-	leaq	272(%rax), %rsi
-	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv
-	movq	32(%rbx), %rcx
-	movapd	%xmm0, %xmm7
-	subsd	.LC24(%rip), %xmm7
-	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetXEv
-	movl	$10, 48(%rsp)
-	xorl	%r8d, %r8d
-	xorl	%edx, %edx
-	movq	%rsi, %rcx
-	movl	$28, 40(%rsp)
-	movapd	%xmm0, %xmm3
-	movsd	%xmm6, 56(%rsp)
-	movsd	%xmm7, 32(%rsp)
-	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movq	%rax, 176(%rbx)
-	movq	%rax, %rcx
-	movl	$1, %edx
-	movq	$100, 184(%rax)
-	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	nop
 	movaps	64(%rsp), %xmm6
 	movaps	80(%rsp), %xmm7
@@ -650,7 +628,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB2-.LCOLDB25
+	.uleb128 .LEHB2-.LCOLDB24
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
@@ -659,9 +637,9 @@ _ZN10tile_houseC2EPN3wze6engineEP4game.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE25:
+.LCOLDE24:
 	.text
-.LHOTE25:
+.LHOTE24:
 	.globl	_ZN10tile_houseC1EPN3wze6engineEP4game
 	.def	_ZN10tile_houseC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.set	_ZN10tile_houseC1EPN3wze6engineEP4game,_ZN10tile_houseC2EPN3wze6engineEP4game
@@ -792,12 +770,12 @@ _ZN10tile_house6UpdateEv:
 	movq	%rcx, %rbx
 	movq	16(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	.LC26(%rip), %xmm1
+	movsd	.LC25(%rip), %xmm1
 	xorl	%eax, %eax
 	addsd	%xmm0, %xmm1
-	movsd	.LC27(%rip), %xmm0
+	movsd	.LC26(%rip), %xmm0
 	subsd	%xmm1, %xmm0
-	movsd	.LC28(%rip), %xmm1
+	movsd	.LC27(%rip), %xmm1
 	divsd	.LC5(%rip), %xmm0
 	mulsd	%xmm1, %xmm0
 	movapd	%xmm1, %xmm2
@@ -843,7 +821,7 @@ _ZN10tile_house6UpdateEv:
 	movq	40(%rbx), %rax
 	movq	$0, 152(%rbx)
 	movl	$9, %r8d
-	movsd	.LC29(%rip), %xmm3
+	movsd	.LC28(%rip), %xmm3
 	movb	$1, 37(%rax)
 	movq	48(%rbx), %rax
 	movb	$1, 37(%rax)
@@ -861,7 +839,7 @@ _ZN10tile_house6UpdateEv:
 	movq	%rsi, %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv
 	movq	(%rbx), %rax
-	movsd	184(%rbx), %xmm7
+	movsd	176(%rbx), %xmm7
 	movapd	%xmm0, %xmm6
 	leaq	416(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
@@ -877,7 +855,7 @@ _ZN10tile_house6UpdateEv:
 	movq	16(%rbx), %rcx
 	movapd	%xmm0, %xmm6
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	.LC30(%rip), %xmm7
+	movsd	.LC29(%rip), %xmm7
 	subsd	%xmm7, %xmm0
 	comisd	%xmm6, %xmm0
 	jb	.L54
@@ -889,7 +867,7 @@ _ZN10tile_house6UpdateEv:
 	subsd	%xmm7, %xmm1
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
 	movq	.LC18(%rip), %rax
-	movq	%rax, 184(%rbx)
+	movq	%rax, 176(%rbx)
 .L42:
 	movaps	48(%rsp), %xmm6
 	movaps	64(%rsp), %xmm7
@@ -903,7 +881,7 @@ _ZN10tile_house6UpdateEv:
 .L54:
 	movq	16(%rbx), %rcx
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	.LC31(%rip), %xmm7
+	movsd	.LC30(%rip), %xmm7
 	movq	80(%rbx), %rcx
 	movapd	%xmm0, %xmm6
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv
@@ -917,8 +895,8 @@ _ZN10tile_house6UpdateEv:
 	movapd	%xmm0, %xmm1
 	subsd	%xmm7, %xmm1
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
-	movq	.LC32(%rip), %rax
-	movq	%rax, 184(%rbx)
+	movq	.LC31(%rip), %rax
+	movq	%rax, 176(%rbx)
 	jmp	.L42
 	.p2align 4,,10
 	.p2align 3
@@ -1019,35 +997,31 @@ _ZN10tile_house6UpdateEv:
 	.long	0
 	.long	1076428800
 	.align 8
-.LC24:
-	.long	0
-	.long	1075249152
-	.align 8
-.LC26:
+.LC25:
 	.long	0
 	.long	1082720256
 	.align 8
-.LC27:
+.LC26:
 	.long	0
 	.long	1083768832
 	.align 8
-.LC28:
+.LC27:
 	.long	0
 	.long	1081073664
 	.align 8
-.LC29:
+.LC28:
 	.long	0
 	.long	1072168960
 	.align 8
-.LC30:
+.LC29:
 	.long	0
 	.long	1076101120
 	.align 8
-.LC31:
+.LC30:
 	.long	0
 	.long	1075052544
 	.align 8
-.LC32:
+.LC31:
 	.long	-343597384
 	.long	-1082214319
 	.ident	"GCC: (GNU) 13.1.0"

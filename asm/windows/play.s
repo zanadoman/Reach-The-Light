@@ -405,7 +405,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	addl	$100, %r14d
 	cmpq	$8, %rax
 	jne	.L8
-	movl	$192, %ecx
+	movl	$184, %ecx
 	call	_Znwy
 .LEHE10:
 	movq	(%rbx), %rdx
@@ -789,7 +789,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	.seh_endprologue
 _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 .L33:
-	movl	$192, %edx
+	movl	$184, %edx
 	movq	%rdi, %rcx
 	call	_ZdlPvy
 .L27:
@@ -981,7 +981,7 @@ _ZN10scene_playD2Ev:
 	je	.L71
 	movq	%rbx, %rcx
 	call	_ZN10tile_houseD1Ev
-	movl	$192, %edx
+	movl	$184, %edx
 	movq	%rbx, %rcx
 	call	_ZdlPvy
 .L71:
