@@ -182,6 +182,7 @@ struct assets
     uint64 HouseTexture;
     uint64 BoxTexture;
     uint64 TrapdoorTexture;
+    uint64 SkyTexture;
     uint64 GrassTexture;
     uint64 ArrowTexture;
 
@@ -536,7 +537,7 @@ struct tile_house
     engine::texturebox Box;
     engine::texturebox LeftTrapdoor;
     engine::texturebox RightTrapdoor;
-    engine::colorbox Sky;
+    engine::texturebox Sky;
     array<engine::texturebox> Grasses;
     engine::texturebox Arrow;
     engine::overlapbox Detector;

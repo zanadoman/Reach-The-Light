@@ -452,7 +452,7 @@ _ZN8gui_tile6UpdateEv:
 	movb	%dl, (%rax)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	440(%rax), %rdx
+	movq	448(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
@@ -500,7 +500,7 @@ _ZN8gui_tile6UpdateEv:
 	movsd	.LC0(%rip), %xmm3
 	movl	$1, %r8d
 	movq	8(%rax), %rax
-	movq	440(%rax), %rdx
+	movq	448(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
@@ -540,7 +540,7 @@ _ZN8gui_tile6UpdateEv:
 	movsd	.LC0(%rip), %xmm3
 	movl	$1, %r8d
 	movq	8(%rax), %rax
-	movq	440(%rax), %rdx
+	movq	448(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx

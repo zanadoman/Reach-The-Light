@@ -167,6 +167,7 @@ scene scene_play::Update()
         this->Player->Update();
 
         this->Lose->ColorA = round(engine::math::Clamp<double>(this->Opacity += 0.1 * this->Engine->Timing.GetDeltaTime(), 0, 255));
+        this->Engine->Camera.Unbind();
 
         if (500 < this->Opacity)
         {
@@ -192,6 +193,7 @@ scene scene_play::Update()
         this->Player->Update();
 
         this->Win->ColorA = round(engine::math::Clamp<double>(this->Opacity += 0.1 * this->Engine->Timing.GetDeltaTime(), 0, 255));
+        this->Engine->Camera.SetOffsetY(engine::math::Clamp<double>(this->Engine->Camera.GetOffsetY() + 0.5 * this->Engine->Timing.GetDeltaTime(), 0, 500));
 
         if (500 < this->Opacity)
         {

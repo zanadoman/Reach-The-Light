@@ -482,12 +482,12 @@ _ZN11scene_story6UpdateEv:
 	divsd	.LC10(%rip), %xmm6
 	movq	8(%rax), %r12
 	movq	(%rbx), %rax
-	movl	528(%r12), %r8d
+	movl	536(%r12), %r8d
 	leaq	336(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	536(%r12), %rdx
+	movq	544(%r12), %rdx
 	cltq
-	cmpq	528(%r12), %rax
+	cmpq	536(%r12), %rax
 	jnb	.L53
 	movq	(%rdx,%rax,8), %rdx
 	movapd	%xmm6, %xmm3
@@ -589,7 +589,7 @@ _ZN11scene_story6UpdateEv:
 	movq	8(%rax), %rax
 	addq	$160, %rcx
 	cmpb	$0, 64(%rbx)
-	movq	544(%rax), %rdx
+	movq	552(%rax), %rdx
 	movl	$0, 32(%rsp)
 	jne	.L66
 	movl	$13, %r8d
@@ -612,12 +612,12 @@ _ZN11scene_story6UpdateEv:
 	divsd	.LC10(%rip), %xmm6
 	movq	8(%rax), %r12
 	movq	(%rbx), %rax
-	movl	528(%r12), %r8d
+	movl	536(%r12), %r8d
 	leaq	336(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	536(%r12), %rdx
+	movq	544(%r12), %rdx
 	cltq
-	cmpq	528(%r12), %rax
+	cmpq	536(%r12), %rax
 	jnb	.L53
 	movq	(%rdx,%rax,8), %rdx
 	movapd	%xmm6, %xmm3

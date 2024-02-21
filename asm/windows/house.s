@@ -37,13 +37,13 @@ _Z6printfPKcz:
 .LC2:
 	.ascii "neo::array(): Memory allocation failed\12Params: Length: %lld\12\0"
 	.align 8
-.LC12:
+.LC13:
 	.ascii "neo::array[]: Index out of range\12Params: Index: %lld\12\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB24:
+.LCOLDB25:
 	.text
-.LHOTB24:
+.LHOTB25:
 	.align 2
 	.p2align 4
 	.globl	_ZN10tile_houseC2EPN3wze6engineEP4game
@@ -124,13 +124,16 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 48(%rbx)
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rax
+	movq	416(%rax), %rdx
 	movq	16(%rbx), %rax
-	leaq	8(%rax), %rcx
-	call	_ZN3wze6engine6actors5actor10colorboxes3NewEv
+	leaq	40(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 56(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	424(%rax), %rdx
+	movq	432(%rax), %rdx
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -195,24 +198,24 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
 	movq	48(%rbx), %rax
 	cmpq	$0, 64(%rbx)
-	movabsq	$59863464729904704, %rdi
 	movl	%esi, 16(%rax)
 	movb	$0, 37(%rax)
 	movq	56(%rbx), %rax
-	movq	%rdi, 16(%rax)
-	movb	$126, 25(%rax)
+	movl	$104859200, 16(%rax)
+	movb	$0, 23(%rax)
+	movb	$126, 36(%rax)
 	je	.L5
-	movsd	.LC13(%rip), %xmm7
+	movsd	.LC14(%rip), %xmm7
 	xorl	%edi, %edi
 	xorl	%esi, %esi
 	movsd	.LC1(%rip), %xmm8
-	movsd	.LC14(%rip), %xmm9
+	movsd	.LC15(%rip), %xmm9
 	.p2align 4,,10
 	.p2align 3
 .L11:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	416(%rax), %rdx
+	movq	424(%rax), %rdx
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -264,7 +267,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	movq	16(%rbx), %rcx
 	movq	80(%rbx), %rsi
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	.LC16(%rip), %xmm7
+	movsd	.LC17(%rip), %xmm7
 	movapd	%xmm0, %xmm1
 	movq	%rsi, %rcx
 	subsd	%xmm7, %xmm1
@@ -273,7 +276,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	movq	32(%rbx), %rcx
 	movq	88(%rbx), %rsi
 	movl	$1310729, 16(%rax)
-	movq	.LC18(%rip), %rax
+	movq	.LC19(%rip), %rax
 	movq	%rax, 176(%rbx)
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetXEv
 	movapd	%xmm0, %xmm1
@@ -296,7 +299,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	movq	16(%rbx), %rcx
 	leaq	272(%rax), %rsi
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	.LC19(%rip), %xmm7
+	movsd	.LC20(%rip), %xmm7
 	movq	16(%rbx), %rcx
 	addsd	%xmm7, %xmm0
 	movapd	%xmm0, %xmm8
@@ -329,7 +332,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	movsd	%xmm6, 56(%rsp)
 	xorl	%edx, %edx
 	movq	%rsi, %rcx
-	movsd	.LC20(%rip), %xmm9
+	movsd	.LC21(%rip), %xmm9
 	movl	$100, 48(%rsp)
 	movl	$2, %r8d
 	movl	$20, 40(%rsp)
@@ -381,7 +384,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	movsd	%xmm6, 56(%rsp)
 	xorl	%edx, %edx
 	movq	%rsi, %rcx
-	movsd	.LC21(%rip), %xmm9
+	movsd	.LC22(%rip), %xmm9
 	movl	$20, 48(%rsp)
 	movl	$2, %r8d
 	movl	$20, 40(%rsp)
@@ -451,7 +454,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	movq	16(%rbx), %rcx
 	leaq	272(%rax), %rsi
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	.LC22(%rip), %xmm8
+	movsd	.LC23(%rip), %xmm8
 	movq	16(%rbx), %rcx
 	movapd	%xmm0, %xmm7
 	subsd	%xmm8, %xmm7
@@ -511,7 +514,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	movsd	%xmm6, 56(%rsp)
 	xorl	%r8d, %r8d
 	xorl	%edx, %edx
-	movsd	.LC23(%rip), %xmm8
+	movsd	.LC24(%rip), %xmm8
 	movsd	%xmm7, 32(%rsp)
 	movq	%rsi, %rcx
 	movl	$21, 48(%rsp)
@@ -560,7 +563,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	ret
 .L18:
 	movq	%rsi, %rdx
-	leaq	.LC12(%rip), %rcx
+	leaq	.LC13(%rip), %rcx
 	call	_Z6printfPKcz
 .LEHE0:
 	movl	$1, %ecx
@@ -628,7 +631,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB2-.LCOLDB24
+	.uleb128 .LEHB2-.LCOLDB25
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
@@ -637,9 +640,9 @@ _ZN10tile_houseC2EPN3wze6engineEP4game.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE24:
+.LCOLDE25:
 	.text
-.LHOTE24:
+.LHOTE25:
 	.globl	_ZN10tile_houseC1EPN3wze6engineEP4game
 	.def	_ZN10tile_houseC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.set	_ZN10tile_houseC1EPN3wze6engineEP4game,_ZN10tile_houseC2EPN3wze6engineEP4game
@@ -753,12 +756,14 @@ _ZN10tile_houseD2Ev:
 	.seh_proc	_ZN10tile_house6UpdateEv
 _ZN10tile_house6UpdateEv:
 .LFB8437:
+	pushq	%rdi
+	.seh_pushreg	%rdi
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$88, %rsp
-	.seh_stackalloc	88
+	subq	$80, %rsp
+	.seh_stackalloc	80
 	movaps	%xmm6, 48(%rsp)
 	.seh_savexmm	%xmm6, 48
 	movaps	%xmm7, 64(%rsp)
@@ -770,12 +775,12 @@ _ZN10tile_house6UpdateEv:
 	movq	%rcx, %rbx
 	movq	16(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	.LC25(%rip), %xmm1
+	movsd	.LC26(%rip), %xmm1
 	xorl	%eax, %eax
 	addsd	%xmm0, %xmm1
-	movsd	.LC26(%rip), %xmm0
+	movsd	.LC27(%rip), %xmm0
 	subsd	%xmm1, %xmm0
-	movsd	.LC27(%rip), %xmm1
+	movsd	.LC28(%rip), %xmm1
 	divsd	.LC5(%rip), %xmm0
 	mulsd	%xmm1, %xmm0
 	movapd	%xmm1, %xmm2
@@ -821,13 +826,13 @@ _ZN10tile_house6UpdateEv:
 	movq	40(%rbx), %rax
 	movq	$0, 152(%rbx)
 	movl	$9, %r8d
-	movsd	.LC28(%rip), %xmm3
+	movsd	.LC29(%rip), %xmm3
 	movb	$1, 37(%rax)
 	movq	48(%rbx), %rax
 	movb	$1, 37(%rax)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	504(%rax), %rdx
+	movq	512(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
@@ -836,6 +841,8 @@ _ZN10tile_house6UpdateEv:
 	.p2align 3
 .L36:
 	movq	80(%rbx), %rsi
+	testq	%rsi, %rsi
+	je	.L39
 	movq	%rsi, %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv
 	movq	(%rbx), %rax
@@ -855,10 +862,10 @@ _ZN10tile_house6UpdateEv:
 	movq	16(%rbx), %rcx
 	movapd	%xmm0, %xmm6
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	.LC29(%rip), %xmm7
+	movsd	.LC30(%rip), %xmm7
 	subsd	%xmm7, %xmm0
 	comisd	%xmm6, %xmm0
-	jb	.L54
+	jb	.L60
 	movq	16(%rbx), %rcx
 	movq	80(%rbx), %rsi
 	call	_ZN3wze6engine6actors5actor4GetYEv
@@ -866,28 +873,48 @@ _ZN10tile_house6UpdateEv:
 	movapd	%xmm0, %xmm1
 	subsd	%xmm7, %xmm1
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
-	movq	.LC18(%rip), %rax
+	movq	.LC19(%rip), %rax
 	movq	%rax, 176(%rbx)
-.L42:
+.L44:
+	movq	8(%rbx), %rax
+	movq	88(%rbx), %rdi
+	movq	56(%rax), %rax
+	movq	88(%rax), %rax
+	movq	24(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv
+	movq	%rax, %rsi
+	movq	8(%rbx), %rax
+	movq	56(%rax), %rax
+	movq	88(%rax), %rax
+	movq	16(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor5GetIDEv
+	movq	%rsi, %r8
+	movq	%rdi, %rcx
+	movq	%rax, %rdx
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy
+	testb	%al, %al
+	jne	.L61
+.L39:
 	movaps	48(%rsp), %xmm6
 	movaps	64(%rsp), %xmm7
 	xorl	%eax, %eax
-	addq	$88, %rsp
+	addq	$80, %rsp
 	popq	%rbx
 	popq	%rsi
+	popq	%rdi
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L54:
+.L60:
 	movq	16(%rbx), %rcx
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	.LC30(%rip), %xmm7
+	movsd	.LC31(%rip), %xmm7
 	movq	80(%rbx), %rcx
 	movapd	%xmm0, %xmm6
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv
 	subsd	%xmm7, %xmm6
 	comisd	%xmm6, %xmm0
-	jb	.L42
+	jb	.L44
 	movq	16(%rbx), %rcx
 	movq	80(%rbx), %rsi
 	call	_ZN3wze6engine6actors5actor4GetYEv
@@ -895,9 +922,9 @@ _ZN10tile_house6UpdateEv:
 	movapd	%xmm0, %xmm1
 	subsd	%xmm7, %xmm1
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
-	movq	.LC31(%rip), %rax
+	movq	.LC32(%rip), %rax
 	movq	%rax, 176(%rbx)
-	jmp	.L42
+	jmp	.L44
 	.p2align 4,,10
 	.p2align 3
 .L32:
@@ -926,6 +953,18 @@ _ZN10tile_house6UpdateEv:
 	testb	%al, %al
 	jne	.L37
 	jmp	.L36
+	.p2align 4,,10
+	.p2align 3
+.L61:
+	movq	16(%rbx), %rax
+	movq	80(%rbx), %rcx
+	leaq	40(%rax), %rsi
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox5GetIDEv
+	movq	%rsi, %rcx
+	movq	%rax, %rdx
+	call	_ZN3wze6engine6actors5actor12textureboxes6DeleteEy
+	movq	$0, 80(%rbx)
+	jmp	.L39
 	.seh_endproc
 	.section .rdata,"dr"
 	.align 8
@@ -961,67 +1000,67 @@ _ZN10tile_house6UpdateEv:
 	.word	60
 	.word	60
 	.align 8
-.LC13:
+.LC14:
 	.long	0
 	.long	1081630720
 	.align 8
-.LC14:
+.LC15:
 	.long	0
 	.long	1078444032
 	.align 8
-.LC16:
+.LC17:
 	.long	0
 	.long	1075707904
 	.align 8
-.LC18:
+.LC19:
 	.long	-343597384
 	.long	1065269329
 	.align 8
-.LC19:
+.LC20:
 	.long	0
 	.long	1078689792
 	.align 8
-.LC20:
+.LC21:
 	.long	0
 	.long	1079656448
 	.align 8
-.LC21:
+.LC22:
 	.long	0
 	.long	1079410688
 	.align 8
-.LC22:
+.LC23:
 	.long	0
 	.long	1078198272
 	.align 8
-.LC23:
+.LC24:
 	.long	0
 	.long	1076428800
 	.align 8
-.LC25:
+.LC26:
 	.long	0
 	.long	1082720256
 	.align 8
-.LC26:
+.LC27:
 	.long	0
 	.long	1083768832
 	.align 8
-.LC27:
+.LC28:
 	.long	0
 	.long	1081073664
 	.align 8
-.LC28:
+.LC29:
 	.long	0
 	.long	1072168960
 	.align 8
-.LC29:
+.LC30:
 	.long	0
 	.long	1076101120
 	.align 8
-.LC30:
+.LC31:
 	.long	0
 	.long	1075052544
 	.align 8
-.LC31:
+.LC32:
 	.long	-343597384
 	.long	-1082214319
 	.ident	"GCC: (GNU) 13.1.0"
@@ -1029,7 +1068,6 @@ _ZN10tile_house6UpdateEv:
 	.def	malloc;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes3NewEy;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6actors5actor10colorboxes3NewEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes3NewEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd;	.scl	2;	.type	32;	.endef
@@ -1050,4 +1088,8 @@ _ZN10tile_house6UpdateEv:
 	.def	round;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5audio4PlayEytdt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing12GetDeltaTimeEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine4keysixENS_3keyE;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox5GetIDEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12textureboxes6DeleteEy;	.scl	2;	.type	32;	.endef

@@ -541,7 +541,7 @@ _ZN10gui_slider6UpdateEv:
 	movsd	.LC9(%rip), %xmm3
 	movl	$1, %r8d
 	movq	8(%rax), %rax
-	movq	440(%rax), %rdx
+	movq	448(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx

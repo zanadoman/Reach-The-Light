@@ -324,54 +324,56 @@
 	.string	"assets/tiles/house/trapdoor.png"
 	.section	.rodata.str1.1
 .LC132:
-	.string	"assets/tiles/house/grass.png"
+	.string	"assets/tiles/house/sky.png"
 .LC133:
-	.string	"assets/tiles/house/arrow.png"
+	.string	"assets/tiles/house/grass.png"
 .LC134:
-	.string	"assets/audio/music.wav"
+	.string	"assets/tiles/house/arrow.png"
 .LC135:
-	.string	"assets/audio/button.mp3"
+	.string	"assets/audio/music.wav"
 .LC136:
-	.string	"assets/audio/player_fall.mp3"
+	.string	"assets/audio/button.mp3"
 .LC137:
-	.string	"assets/audio/player_hurt.wav"
+	.string	"assets/audio/player_fall.mp3"
 .LC138:
-	.string	"assets/audio/player_jump.wav"
+	.string	"assets/audio/player_hurt.wav"
 .LC139:
-	.string	"assets/audio/player_latch.ogg"
+	.string	"assets/audio/player_jump.wav"
 .LC140:
+	.string	"assets/audio/player_latch.ogg"
+.LC141:
 	.string	"assets/audio/crate_fall.wav"
 	.section	.rodata.str1.8
 	.align 8
-.LC141:
+.LC142:
 	.string	"assets/audio/trap_platform.wav"
 	.section	.rodata.str1.1
-.LC142:
-	.string	"assets/audio/lever.wav"
 .LC143:
-	.string	"assets/audio/trapdoor.wav"
+	.string	"assets/audio/lever.wav"
 .LC144:
-	.string	"assets/audio/tuna.wav"
+	.string	"assets/audio/trapdoor.wav"
 .LC145:
-	.string	"assets/audio/heartbeat.wav"
+	.string	"assets/audio/tuna.wav"
 .LC146:
-	.string	"assets/audio/typing1.wav"
+	.string	"assets/audio/heartbeat.wav"
 .LC147:
+	.string	"assets/audio/typing1.wav"
+.LC148:
 	.string	"assets/audio/typing2.wav"
 	.section	.rodata.str1.8
 	.align 8
-.LC148:
+.LC149:
 	.string	"assets/audio/typing_return.wav"
 	.section	.rodata.str1.1
-.LC149:
-	.string	"assets/audio/win.wav"
 .LC150:
+	.string	"assets/audio/win.wav"
+.LC151:
 	.string	"assets/audio/lose.wav"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB151:
+.LCOLDB152:
 	.text
-.LHOTB151:
+.LHOTB152:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -417,8 +419,8 @@ _ZN6assetsC2EPN3wze6engineE:
 	movq	$0, 304(%rdi)
 	movq	$0, 368(%rdi)
 	movq	$0, 376(%rdi)
-	movq	$0, 528(%rdi)
 	movq	$0, 536(%rdi)
+	movq	$0, 544(%rdi)
 	leaq	344(%rsi), %rdi
 	leaq	.LC0(%rip), %rsi
 .LEHB0:
@@ -1208,7 +1210,7 @@ _ZN6assetsC2EPN3wze6engineE:
 	movq	(%rbx), %rax
 	leaq	.LC134(%rip), %rsi
 	leaq	344(%rax), %rdi
-	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
+	call	_ZN3wze6engine6assets11LoadTextureEPKc@PLT
 	movq	%rax, 432(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC135(%rip), %rsi
@@ -1269,25 +1271,25 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	.LC146(%rip), %rsi
 	leaq	344(%rax), %rdi
 	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
-	movq	%rax, (%rsp)
+	movq	%rax, 528(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC147(%rip), %rsi
 	leaq	344(%rax), %rdi
 	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
-	movq	528(%rbx), %rdx
-	movq	%rax, 8(%rsp)
-	cmpq	$2, %rdx
-	jne	.L78
-	movq	536(%rbx), %rsi
-.L44:
-	salq	$3, %rdx
-	movq	%rsp, %rdi
-	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
+	movq	%rax, (%rsp)
 	movq	(%rbx), %rax
 	leaq	.LC148(%rip), %rsi
 	leaq	344(%rax), %rdi
 	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
-	movq	%rax, 544(%rbx)
+	movq	536(%rbx), %rdx
+	movq	%rax, 8(%rsp)
+	cmpq	$2, %rdx
+	jne	.L78
+	movq	544(%rbx), %rsi
+.L44:
+	salq	$3, %rdx
+	movq	%rsp, %rdi
+	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
 	movq	(%rbx), %rax
 	leaq	.LC149(%rip), %rsi
 	leaq	344(%rax), %rdi
@@ -1298,6 +1300,11 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	344(%rax), %rdi
 	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
 	movq	%rax, 560(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC151(%rip), %rsi
+	leaq	344(%rax), %rdi
+	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
+	movq	%rax, 568(%rbx)
 	movq	920(%rsp), %rax
 	subq	%fs:40, %rax
 	jne	.L79
@@ -1443,15 +1450,15 @@ _ZN6assetsC2EPN3wze6engineE:
 	.p2align 4,,10
 	.p2align 3
 .L78:
-	movq	$2, 528(%rbx)
-	movq	536(%rbx), %rdi
+	movq	$2, 536(%rbx)
+	movq	544(%rbx), %rdi
 	movl	$16, %esi
 	call	realloc@PLT
-	movq	%rax, 536(%rbx)
+	movq	%rax, 544(%rbx)
 	movq	%rax, %rsi
 	testq	%rax, %rax
 	je	.L43
-	movq	528(%rbx), %rdx
+	movq	536(%rbx), %rdx
 	jmp	.L44
 	.p2align 4,,10
 	.p2align 3
@@ -1562,7 +1569,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.cfi_def_cfa_offset 960
 	.cfi_offset 3, -24
 	.cfi_offset 6, -16
-	movq	536(%rbx), %rdi
+	movq	544(%rbx), %rdi
 	call	free@PLT
 	movq	376(%rbx), %rdi
 	call	free@PLT
@@ -1604,7 +1611,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB1-.LCOLDB151
+	.uleb128 .LEHB1-.LCOLDB152
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1614,9 +1621,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.size	_ZN6assetsC2EPN3wze6engineE, .-_ZN6assetsC2EPN3wze6engineE
 	.section	.text.unlikely
 	.size	_ZN6assetsC2EPN3wze6engineE.cold, .-_ZN6assetsC2EPN3wze6engineE.cold
-.LCOLDE151:
+.LCOLDE152:
 	.text
-.LHOTE151:
+.LHOTE152:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE
 	.align 2
@@ -1652,7 +1659,7 @@ _ZN6assetsD2Ev:
 	xorl	%edx, %edx
 	leaq	344(%rax), %rdi
 	call	_ZN3wze6engine6assets19PurgeCursorTexturesESt16initializer_listIyE@PLT
-	movq	536(%rbx), %rdi
+	movq	544(%rbx), %rdi
 	call	free@PLT
 	movq	376(%rbx), %rdi
 	call	free@PLT

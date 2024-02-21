@@ -7,7 +7,7 @@ tile_house::tile_house(engine* Engine, game* Game) : Engine(Engine), Game(Game),
     this->Box = this->Actor->Textureboxes.New(this->Game->Assets->BoxTexture);
     this->LeftTrapdoor = this->Actor->Textureboxes.New(this->Game->Assets->TrapdoorTexture);
     this->RightTrapdoor = this->Actor->Textureboxes.New(this->Game->Assets->TrapdoorTexture);
-    this->Sky = this->Actor->Colorboxes.New();
+    this->Sky = this->Actor->Textureboxes.New(this->Game->Assets->SkyTexture);
     this->Arrow = this->Actor->Textureboxes.New(this->Game->Assets->ArrowTexture);
     this->Detector = this->Actor->Overlapboxes.New(BOX_NONE);
 
@@ -34,9 +34,6 @@ tile_house::tile_house(engine* Engine, game* Game) : Engine(Engine), Game(Game),
 
     this->Sky->Width = 1600;
     this->Sky->Height = 1600;
-    this->Sky->ColorR = 129;
-    this->Sky->ColorG = 173;
-    this->Sky->ColorB = 212;
     this->Sky->ColorA = 0;
     this->Sky->Priority = 126;
 
@@ -146,17 +143,26 @@ uint8 tile_house::Update()
         this->Engine->Audio.Play(this->Game->Assets->TrapdoorAudio, CH_TRAPDOOR, 0.75, 0);
     }
 
-    this->Arrow->SetY(this->Arrow->GetY() + this->ArrowVelocityY * this->Engine->Timing.GetDeltaTime());
+    if (this->Arrow != NULL)
+    {
+        this->Arrow->SetY(this->Arrow->GetY() + this->ArrowVelocityY * this->Engine->Timing.GetDeltaTime());
 
-    if (this->Arrow->GetY() <= this->Actor->GetY() - 10)
-    {
-        this->Arrow->SetY(this->Actor->GetY() - 10);
-        this->ArrowVelocityY = 0.0075;
-    }
-    else if (this->Actor->GetY() - 5 <= this->Arrow->GetY())
-    {
-        this->Arrow->SetY(this->Actor->GetY() - 5);
-        this->ArrowVelocityY = -0.0075;
+        if (this->Arrow->GetY() <= this->Actor->GetY() - 10)
+        {
+            this->Arrow->SetY(this->Actor->GetY() - 10);
+            this->ArrowVelocityY = 0.0075;
+        }
+        else if (this->Actor->GetY() - 5 <= this->Arrow->GetY())
+        {
+            this->Arrow->SetY(this->Actor->GetY() - 5);
+            this->ArrowVelocityY = -0.0075;
+        }
+
+        if (this->Detector->IsOverlappingWith(this->Game->Play->Player->Actor->GetID(), this->Game->Play->Player->OverlapBox->GetID()))
+        {
+            this->Actor->Textureboxes.Delete(this->Arrow->GetID());
+            this->Arrow = NULL;
+        }
     }
 
     return 0;

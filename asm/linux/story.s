@@ -509,12 +509,12 @@ _ZN11scene_story6UpdateEv:
 	movq	%xmm0, %r14
 	movq	8(%rax), %r15
 	movq	(%rbx), %rax
-	movl	528(%r15), %edx
+	movl	536(%r15), %edx
 	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	536(%r15), %rdx
+	movq	544(%r15), %rdx
 	cltq
-	cmpq	528(%r15), %rax
+	cmpq	536(%r15), %rax
 	jnb	.L61
 	movq	(%rdx,%rax,8), %rsi
 	xorl	%ecx, %ecx
@@ -616,7 +616,7 @@ _ZN11scene_story6UpdateEv:
 	movq	8(%rax), %rax
 	addq	$160, %rdi
 	cmpb	$0, 64(%rbx)
-	movq	544(%rax), %rsi
+	movq	552(%rax), %rsi
 	jne	.L75
 	movl	$13, %edx
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
@@ -639,12 +639,12 @@ _ZN11scene_story6UpdateEv:
 	movq	%xmm0, %r15
 	movq	8(%rax), %r14
 	movq	(%rbx), %rax
-	movl	528(%r14), %edx
+	movl	536(%r14), %edx
 	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	536(%r14), %rdx
+	movq	544(%r14), %rdx
 	cltq
-	cmpq	528(%r14), %rax
+	cmpq	536(%r14), %rax
 	jnb	.L61
 	movq	(%rdx,%rax,8), %rsi
 	xorl	%ecx, %ecx

@@ -187,6 +187,7 @@ assets::assets(engine* Engine) : Engine(Engine)
     this->HouseTexture = this->Engine->Assets.LoadTexture("assets/tiles/house/house.png");
     this->BoxTexture = this->Engine->Assets.LoadTexture("assets/tiles/house/box.png");
     this->TrapdoorTexture = this->Engine->Assets.LoadTexture("assets/tiles/house/trapdoor.png");
+    this->SkyTexture = this->Engine->Assets.LoadTexture("assets/tiles/house/sky.png");
     this->GrassTexture = this->Engine->Assets.LoadTexture("assets/tiles/house/grass.png");
     this->ArrowTexture = this->Engine->Assets.LoadTexture("assets/tiles/house/arrow.png");
 

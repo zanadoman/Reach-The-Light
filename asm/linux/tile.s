@@ -422,7 +422,7 @@ _ZN8gui_tile6UpdateEv:
 	movq	8(%rbx), %rax
 	movl	$1, %edx
 	movq	8(%rax), %rax
-	movq	440(%rax), %rsi
+	movq	448(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
@@ -470,7 +470,7 @@ _ZN8gui_tile6UpdateEv:
 	xorl	%ecx, %ecx
 	movl	$1, %edx
 	movq	8(%rax), %rax
-	movq	440(%rax), %rsi
+	movq	448(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
@@ -510,7 +510,7 @@ _ZN8gui_tile6UpdateEv:
 	xorl	%ecx, %ecx
 	movl	$1, %edx
 	movq	8(%rax), %rax
-	movq	440(%rax), %rsi
+	movq	448(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
