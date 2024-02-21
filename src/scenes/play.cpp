@@ -21,6 +21,8 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     };
     this->TunaCount = this->Actor->Textboxes.New("0/0", this->Game->Assets->HackBoldFont);
     this->TunaFlipbook = this->Actor->Flipbooks.New(75, &this->Game->Assets->TunaTextures);
+    this->Win = this->Actor->Textureboxes.New(this->Game->Assets->WinTexture);
+    this->Lose = this->Actor->Textureboxes.New(this->Game->Assets->LoseTexture);
 
     //PAUSE
 
@@ -61,9 +63,10 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 
     this->House = new tile_house(this->Engine, this->Game);
 
-    //ROTATE TILES
+    //VARIABLES
 
     this->RotateTiles = false;
+    this->Opacity = 0;
 
     //GUI SETTINGS
 
@@ -93,11 +96,22 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->TunaFlipbook->Height = 72;
     this->TunaFlipbook->Width = 72;
 
+    this->Win->SetY(this->Actor->GetY() + 450);
+    this->Win->Width = 854;
+    this->Win->Height = 480;
+    this->Win->ColorA = 0;
+    this->Win->Priority = 255;
+
+    this->Lose->Width = 2560;
+    this->Lose->Height = 1440;
+    this->Lose->ColorA = 0;
+    this->Lose->Priority = 255;
+
     this->Engine->Mouse.SetRelative();
     this->Engine->Camera.Bind(this->Player->Actor->GetID());
     this->Engine->Camera.SetZoom(5);
 
-    this->Engine->Audio.Play(this->Game->Assets->Music, CH_MUSIC, 1, 65535);
+    this->Engine->Audio.Play(this->Game->Assets->Music, CH_MUSIC, 1, 65535, 3000);
 }
 
 scene_play::~scene_play()
@@ -122,8 +136,6 @@ scene_play::~scene_play()
         delete this->Tunas[i];
     }
     delete this->House;
-
-    this->Engine->Audio.StopChannel(CH_MUSIC);
 }
 
 scene scene_play::Update()
@@ -145,6 +157,42 @@ scene scene_play::Update()
     else
     {
         this->Engine->Audio.ResumeAll();
+    }
+
+    //HANDLING LOSE
+
+    if (this->Player->Health == 0)
+    {
+        this->Player->Update();
+
+        this->Lose->ColorA = round(engine::math::Clamp<double>(this->Opacity += 0.1 * this->Engine->Timing.GetDeltaTime(), 0, 255));
+
+        if (500 < this->Opacity)
+        {
+            return SCENE_MENU;
+        }
+
+        this->Engine->Audio.StopChannel(CH_MUSIC, 3000);
+
+        return SCENE_PLAY;
+    }
+
+    //HANDLING WIN
+
+    if (this->Player->Actor->GetX() == this->House->Detector->GetX() && this->Player->Actor->GetY() == this->House->Detector->GetY())
+    {
+        this->Player->Update();
+
+        this->Win->ColorA = round(engine::math::Clamp<double>(this->Opacity += 0.1 * this->Engine->Timing.GetDeltaTime(), 0, 255));
+
+        if (500 < this->Opacity)
+        {
+            return SCENE_MENU;
+        }
+
+        this->Engine->Audio.StopChannel(CH_MUSIC, 3000);
+
+        return SCENE_PLAY;
     }
 
     //PLAY HEARTBEAT IF PLAYER HP IS 1

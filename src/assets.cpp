@@ -14,6 +14,9 @@ assets::assets(engine* Engine) : Engine(Engine)
     this->PauseTexture = this->Engine->Assets.LoadTexture("assets/gui/pause.png");
     this->TextBubbleTexture = this->Engine->Assets.LoadTexture("assets/gui/text_bubble.png");
 
+    this->WinTexture = this->Engine->Assets.LoadTexture("assets/gui/win.png");
+    this->LoseTexture = this->Engine->Assets.LoadTexture("assets/gui/lose.png");
+
     this->HearthLeftFullTexture = this->Engine->Assets.LoadTexture("assets/gui/hearth/left_full.png");
     this->HearthLeftEmptyTexture = this->Engine->Assets.LoadTexture("assets/gui/hearth/left_empty.png");
     this->HearthRightFullTexture = this->Engine->Assets.LoadTexture("assets/gui/hearth/right_full.png");

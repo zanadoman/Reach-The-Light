@@ -51,12 +51,12 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %r12
 	movq	(%rbx), %rax
-	movl	264(%r12), %edx
+	movl	280(%r12), %edx
 	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	272(%r12), %rdx
+	movq	288(%r12), %rdx
 	cltq
-	cmpq	264(%r12), %rax
+	cmpq	280(%r12), %rax
 	jnb	.L14
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -107,12 +107,12 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbp
 	movq	8(%rax), %r14
 	movq	(%rbx), %rax
-	movl	280(%r14), %edx
+	movl	296(%r14), %edx
 	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	288(%r14), %rdx
+	movq	304(%r14), %rdx
 	cltq
-	cmpq	280(%r14), %rax
+	cmpq	296(%r14), %rax
 	jnb	.L14
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -159,7 +159,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	addq	$40, %rdi
 	movq	8(%rax), %rax
-	movq	328(%rax), %rsi
+	movq	344(%rax), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	pxor	%xmm0, %xmm0
 	cvtsi2sdl	%r12d, %xmm0
@@ -201,12 +201,12 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
-	movl	280(%r13), %edx
+	movl	296(%r13), %edx
 	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	288(%r13), %rdx
+	movq	304(%r13), %rdx
 	cltq
-	cmpq	280(%r13), %rax
+	cmpq	296(%r13), %rax
 	jnb	.L14
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -236,12 +236,12 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %r13
 	movq	$100, 144(%r13)
-	movl	280(%r14), %edx
+	movl	296(%r14), %edx
 	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	288(%r14), %rdx
+	movq	304(%r14), %rdx
 	cltq
-	cmpq	280(%r14), %rax
+	cmpq	296(%r14), %rax
 	jnb	.L14
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r13, %rdi
@@ -268,12 +268,12 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %r12
 	movq	$100, 144(%r12)
-	movl	280(%r13), %edx
+	movl	296(%r13), %edx
 	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	288(%r13), %rdx
+	movq	304(%r13), %rdx
 	cltq
-	cmpq	280(%r13), %rax
+	cmpq	296(%r13), %rax
 	jnb	.L14
 	movq	(%rdx,%rax,8), %rsi
 	movq	%r12, %rdi
@@ -301,11 +301,11 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
 	addq	$336, %rdi
-	movl	280(%r12), %edx
+	movl	296(%r12), %edx
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	288(%r12), %rdx
+	movq	304(%r12), %rdx
 	cltq
-	cmpq	280(%r12), %rax
+	cmpq	296(%r12), %rax
 	jnb	.L14
 	movq	(%rdx,%rax,8), %rsi
 	addq	$40, %rsp
@@ -450,11 +450,23 @@ _ZN14tile_trap_hole6UpdateEv:
 	.cfi_offset 3, -32
 	movq	8(%rdi), %rax
 	movq	%rdi, %rbx
+	movq	32(%rdi), %r12
 	movq	48(%rax), %rax
-	movq	72(%rax), %rax
-	cmpb	$0, 137(%rax)
+	movq	88(%rax), %rax
+	movq	24(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
+	movq	%rax, %rbp
+	movq	8(%rbx), %rax
+	movq	48(%rax), %rax
+	movq	88(%rax), %rax
+	movq	16(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdx
+	movq	%r12, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
+	testb	%al, %al
 	jne	.L33
-.L26:
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
@@ -468,21 +480,6 @@ _ZN14tile_trap_hole6UpdateEv:
 	.p2align 3
 .L33:
 	.cfi_restore_state
-	movq	32(%rdi), %r12
-	movq	24(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
-	movq	%rax, %rbp
-	movq	8(%rbx), %rax
-	movq	48(%rax), %rax
-	movq	72(%rax), %rax
-	movq	16(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
-	movq	%rbp, %rdx
-	movq	%r12, %rdi
-	movq	%rax, %rsi
-	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
-	testb	%al, %al
-	je	.L26
 	movq	(%rbx), %rax
 	movq	48(%rbx), %rdi
 	leaq	272(%rax), %rbp
@@ -498,13 +495,19 @@ _ZN14tile_trap_hole6UpdateEv:
 	movl	$7, %edx
 	movq	8(%rax), %rax
 	addq	$160, %rdi
-	movq	464(%rax), %rsi
+	movq	480(%rax), %rsi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
-	jmp	.L26
+	popq	%rbx
+	.cfi_def_cfa_offset 24
+	xorl	%eax, %eax
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
 	.p2align 4,,10
 	.p2align 3
 .L30:
-	.cfi_def_cfa_offset 8
 	.cfi_restore 3
 	.cfi_restore 6
 	.cfi_restore 12

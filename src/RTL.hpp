@@ -137,6 +137,9 @@ struct assets
     uint64 PauseTexture;
     uint64 TextBubbleTexture;
 
+    uint64 WinTexture;
+    uint64 LoseTexture;
+
     uint64 HearthLeftFullTexture;
     uint64 HearthLeftEmptyTexture;
     uint64 HearthRightFullTexture;
@@ -255,6 +258,8 @@ struct scene_play
     array<engine::texturebox> HealthBar;
     engine::textbox TunaCount;
     engine::flipbook TunaFlipbook;
+    engine::texturebox Win;
+    engine::texturebox Lose;
 
     gui_pause* Pause;
     act_player* Player;
@@ -264,6 +269,7 @@ struct scene_play
     tile_house* House;
 
     bool RotateTiles;
+    double Opacity;
 
     scene_play(engine* Engine, game* Game);
     ~scene_play();

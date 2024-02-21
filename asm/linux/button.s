@@ -268,7 +268,7 @@ _ZN10gui_button6UpdateEv:
 	movl	$1, %edx
 	movq	8(%rax), %rax
 	addq	$160, %rdi
-	movq	416(%rax), %rsi
+	movq	432(%rax), %rsi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	addq	$8, %rsp
 	.cfi_def_cfa_offset 24
