@@ -263,14 +263,14 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movb	$1, 39(%rax)
 	movq	112(%rbx), %rax
 	movl	$524296, 16(%rax)
-	movb	$-124, 36(%rax)
+	movb	$-123, 36(%rax)
 	movq	120(%rbx), %rax
 	movl	$786444, 16(%rax)
-	movb	$-123, 36(%rax)
+	movb	$-122, 36(%rax)
 	movb	$-64, 23(%rax)
 	movq	128(%rbx), %rax
 	movl	$196611000, 16(%rax)
-	movb	$-122, 36(%rax)
+	movb	$-121, 36(%rax)
 	popq	%rbx
 	.cfi_def_cfa_offset 24
 	popq	%rbp

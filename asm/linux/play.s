@@ -375,7 +375,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	addl	$100, 28(%rsp)
 	cmpq	$8, %rax
 	jne	.L6
-	movl	$192, %edi
+	movl	$184, %edi
 	call	_Znwm@PLT
 .LEHE10:
 	movq	8(%rbx), %rdx
@@ -785,7 +785,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	call	_ZdlPvm@PLT
 	jmp	.L25
 .L31:
-	movl	$192, %esi
+	movl	$184, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
 	jmp	.L25
@@ -957,7 +957,7 @@ _ZN10scene_playD2Ev:
 	je	.L75
 	movq	%rbx, %rdi
 	call	_ZN10tile_houseD1Ev@PLT
-	movl	$192, %esi
+	movl	$184, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
 .L75:

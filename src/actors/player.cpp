@@ -95,14 +95,14 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
 
     this->Firefly->Width = 8;
     this->Firefly->Height = 8;
-    this->Firefly->Priority = 132;
+    this->Firefly->Priority = 133;
     this->FireflyBloom->Width = 12;
     this->FireflyBloom->Height = 12;
     this->FireflyBloom->ColorA = 192;
-    this->FireflyBloom->Priority = 133;
+    this->FireflyBloom->Priority = 134;
     this->FireflyMask->Width = 3000;
     this->FireflyMask->Height = 3000;
-    this->FireflyMask->Priority = 134;
+    this->FireflyMask->Priority = 135;
 }
 
 act_player::~act_player()

@@ -547,7 +547,6 @@ struct tile_house
 
     engine::actor HitboxBoxLeft;
     engine::actor HitboxBoxRight;
-    engine::actor HitboxBoxBot;
 
     double ArrowVelocityY;
 

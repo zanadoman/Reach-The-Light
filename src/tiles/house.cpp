@@ -107,10 +107,6 @@ tile_house::tile_house(engine* Engine, game* Game) : Engine(Engine), Game(Game),
     this->HitboxBoxRight = this->Engine->Actors.New(NULL, ACT_NONE, this->Box->GetX() + 12.5, this->Box->GetY(), 5, 21, 1);
     this->HitboxBoxRight->Resistance = 100;
     this->HitboxBoxRight->SetCollisionLayer(1);
-
-    this->HitboxBoxBot = this->Engine->Actors.New(NULL, ACT_NONE, this->Box->GetX(), this->Box->GetY() - 5.75, 28, 10, 1);
-    this->HitboxBoxBot->Resistance = 100;
-    this->HitboxBoxBot->SetCollisionLayer(1);
 }
 
 tile_house::~tile_house()
