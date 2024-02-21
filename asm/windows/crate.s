@@ -40,14 +40,16 @@ _Z6printfPKcz:
 	.seh_proc	_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd
 _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 .LFB8432:
+	pushq	%rsi
+	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$64, %rsp
-	.seh_stackalloc	64
+	subq	$72, %rsp
+	.seh_stackalloc	72
 	.seh_endprologue
 	movq	.LC0(%rip), %rax
-	movsd	120(%rsp), %xmm0
-	movsd	112(%rsp), %xmm3
+	movsd	136(%rsp), %xmm0
+	movsd	128(%rsp), %xmm3
 	movq	%r9, 16(%rcx)
 	movq	%rcx, %rbx
 	movq	%rdx, (%rcx)
@@ -82,9 +84,17 @@ _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt
 	movq	32(%rbx), %rcx
 	movl	$120, %edx
-	addq	$64, %rsp
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt
+	movq	24(%rbx), %rcx
+	movq	40(%rbx), %rsi
+	call	_ZN3wze6engine6actors5actor4GetYEv
+	movq	%rsi, %rcx
+	movapd	%xmm0, %xmm1
+	subsd	.LC2(%rip), %xmm1
+	addq	$72, %rsp
 	popq	%rbx
-	jmp	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt
+	popq	%rsi
+	jmp	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
 	.seh_endproc
 	.globl	_ZN9act_crateC1EPN3wze6engineEP4gameP10act_playerdd
 	.def	_ZN9act_crateC1EPN3wze6engineEP4gameP10act_playerdd;	.scl	2;	.type	32;	.endef
@@ -129,9 +139,9 @@ _ZN9act_crateD2Ev:
 	.set	_ZN9act_crateD1Ev,_ZN9act_crateD2Ev
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB5:
+.LCOLDB6:
 	.text
-.LHOTB5:
+.LHOTB6:
 	.align 2
 	.p2align 4
 	.globl	_ZN9act_crate6UpdateEv
@@ -226,9 +236,9 @@ _ZN9act_crate6UpdateEv:
 	movsd	48(%rsi), %xmm0
 	movq	24(%rsi), %rcx
 	cvtsi2sdq	%rax, %xmm1
-	mulsd	.LC3(%rip), %xmm1
+	mulsd	.LC4(%rip), %xmm1
 	subsd	%xmm1, %xmm0
-	movsd	.LC2(%rip), %xmm1
+	movsd	.LC3(%rip), %xmm1
 	maxsd	%xmm0, %xmm1
 	movsd	%xmm1, 48(%rsi)
 	call	_ZN3wze6engine6actors5actor4GetYEv
@@ -301,7 +311,7 @@ _ZN9act_crate6UpdateEv:
 	movl	%eax, %eax
 	pxor	%xmm0, %xmm0
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC4(%rip), %xmm0
+	mulsd	.LC5(%rip), %xmm0
 	comisd	%xmm6, %xmm0
 	ja	.L47
 .L24:
@@ -376,7 +386,7 @@ _ZN9act_crate6UpdateEv.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8437-.LLSDACSBC8437
 .LLSDACSBC8437:
-	.uleb128 .LEHB1-.LCOLDB5
+	.uleb128 .LEHB1-.LCOLDB6
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -385,9 +395,9 @@ _ZN9act_crate6UpdateEv.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE5:
+.LCOLDE6:
 	.text
-.LHOTE5:
+.LHOTE6:
 	.section .rdata,"dr"
 	.align 8
 .LC0:
@@ -395,14 +405,18 @@ _ZN9act_crate6UpdateEv.cold:
 	.long	1072693248
 	.align 8
 .LC2:
+	.long	-350469331
+	.long	1058682594
+	.align 8
+.LC3:
 	.long	0
 	.long	-1074790400
 	.align 8
-.LC3:
+.LC4:
 	.long	810889825
 	.long	1061398826
 	.align 8
-.LC4:
+.LC5:
 	.long	810889825
 	.long	-1086084822
 	.ident	"GCC: (GNU) 13.1.0"
@@ -413,6 +427,8 @@ _ZN9act_crate6UpdateEv.cold:
 	.def	_ZN3wze6engine6actors5actor17SetCollisionLayerEh;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox15GetOverlapStateEPN3neo5arrayINS6_IyEEEESt16initializer_listIyESB_;	.scl	2;	.type	32;	.endef
@@ -420,7 +436,6 @@ _ZN9act_crate6UpdateEv.cold:
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing12GetDeltaTimeEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4SetYEd;	.scl	2;	.type	32;	.endef
 	.def	free;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5audio4PlayEytdt;	.scl	2;	.type	32;	.endef

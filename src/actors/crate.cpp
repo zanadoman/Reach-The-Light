@@ -12,6 +12,8 @@ act_crate::act_crate(engine* Engine, game* Game, act_player* Player, double X, d
 
     this->SimulationBox->SetWidth(120);
     this->SimulationBox->SetHeight(120);
+
+    this->Texturebox->SetY(this->Actor->GetY() - EPSILON);
 }
 
 act_crate::~act_crate()

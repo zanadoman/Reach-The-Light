@@ -7,13 +7,18 @@
 _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 .LFB8157:
 	.cfi_startproc
-	pushq	%rbx
+	pushq	%rbp
 	.cfi_def_cfa_offset 16
-	.cfi_offset 3, -16
-	movsd	.LC0(%rip), %xmm2
-	movq	%rdi, %rbx
+	.cfi_offset 6, -16
 	movl	$30, %r8d
+	pushq	%rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+	movq	%rdi, %rbx
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 32
 	movq	%rsi, (%rdi)
+	movsd	.LC0(%rip), %xmm2
 	movq	%rdx, 8(%rdi)
 	xorl	%edx, %edx
 	movq	%rcx, 16(%rdi)
@@ -43,9 +48,19 @@ _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt@PLT
 	movq	32(%rbx), %rdi
 	movl	$120, %esi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
+	movq	24(%rbx), %rdi
+	movq	40(%rbx), %rbp
+	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
+	subsd	.LC2(%rip), %xmm0
+	movq	%rbp, %rdi
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 24
 	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
 	.cfi_def_cfa_offset 8
-	jmp	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt@PLT
+	jmp	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
 	.cfi_endproc
 .LFE8157:
 	.size	_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd, .-_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd
@@ -90,9 +105,9 @@ _ZN9act_crateD2Ev:
 	.set	_ZN9act_crateD1Ev,_ZN9act_crateD2Ev
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB5:
+.LCOLDB6:
 	.text
-.LHOTB5:
+.LHOTB6:
 	.align 2
 	.p2align 4
 	.globl	_ZN9act_crate6UpdateEv
@@ -185,9 +200,9 @@ _ZN9act_crate6UpdateEv:
 	movsd	48(%rbp), %xmm0
 	movq	24(%rbp), %rdi
 	cvtsi2sdq	%rax, %xmm1
-	mulsd	.LC3(%rip), %xmm1
+	mulsd	.LC4(%rip), %xmm1
 	subsd	%xmm1, %xmm0
-	movsd	.LC2(%rip), %xmm1
+	movsd	.LC3(%rip), %xmm1
 	maxsd	%xmm0, %xmm1
 	movsd	%xmm1, 48(%rbp)
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
@@ -271,7 +286,7 @@ _ZN9act_crate6UpdateEv:
 	movl	%eax, %eax
 	pxor	%xmm0, %xmm0
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC4(%rip), %xmm0
+	mulsd	.LC5(%rip), %xmm0
 	comisd	(%rsp), %xmm0
 	ja	.L52
 .L25:
@@ -351,7 +366,7 @@ _ZN9act_crate6UpdateEv.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8162-.LLSDACSBC8162
 .LLSDACSBC8162:
-	.uleb128 .LEHB1-.LCOLDB5
+	.uleb128 .LEHB1-.LCOLDB6
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -361,9 +376,9 @@ _ZN9act_crate6UpdateEv.cold:
 	.size	_ZN9act_crate6UpdateEv, .-_ZN9act_crate6UpdateEv
 	.section	.text.unlikely
 	.size	_ZN9act_crate6UpdateEv.cold, .-_ZN9act_crate6UpdateEv.cold
-.LCOLDE5:
+.LCOLDE6:
 	.text
-.LHOTE5:
+.LHOTE6:
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC0:
@@ -371,14 +386,18 @@ _ZN9act_crate6UpdateEv.cold:
 	.long	1072693248
 	.align 8
 .LC2:
+	.long	-350469331
+	.long	1058682594
+	.align 8
+.LC3:
 	.long	0
 	.long	-1074790400
 	.align 8
-.LC3:
+.LC4:
 	.long	810889825
 	.long	1061398826
 	.align 8
-.LC4:
+.LC5:
 	.long	810889825
 	.long	-1086084822
 	.hidden	DW.ref.__gxx_personality_v0
