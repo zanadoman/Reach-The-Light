@@ -32,7 +32,15 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     {
         for (uint8 j = 0; j < MAP_Y; j++)
         {
-            this->Tiles[i][j] = new tile_token((tile)this->Game->Map->Tiles[i][j], this->Engine, this->Game, this->Player, &this->Tunas, -350 + 100 * i, -750 + 100 * j);
+            this->Tiles[i][j] = new tile_token((tile)this->Game->Map->Tiles[i][j], this->Engine, this->Game, -350 + 100 * i, -750 + 100 * j);
+            if (this->Game->Map->Tiles[i][j] == TILE_HORIZONTAL_CORRIDOR)
+            {
+                this->Crates += {new act_crate(this->Engine, this->Game, Player, -350 + 100 * i, -750 + 100 * j - 15 + EPSILON)};
+            }
+            if (Engine->Math.Random(0, 12) == 0)
+            {
+                this->Tunas += {new act_tuna(Engine, Game, -350 + 100 * i, -750 + 100 * j)};
+            }
         }
     }
     this->RotateTiles = false;
@@ -84,6 +92,10 @@ scene_play::~scene_play()
         {
             delete this->Tiles[i][j];
         }
+    }
+    for (uint8 i = 0; i < this->Crates.Length(); i++)
+    {
+        delete this->Crates[i];
     }
     for (uint8 i = 0; i < this->Tunas.Length(); i++)
     {
@@ -178,6 +190,11 @@ scene scene_play::Update()
             }
         }
         this->House->Update();
+
+        for (uint8 i = 0; i < this->Crates.Length(); i++)
+        {
+            this->Crates[i]->Update();
+        }
 
         for (uint8 i = 0; i < this->Tunas.Length(); i++)
         {

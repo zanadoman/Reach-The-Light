@@ -319,7 +319,7 @@ uint8 act_player::Update()
     else
     {
         this->Actor->SetCollisionLayer(0);
-        this->Actor->SetY(this->Actor->GetY() + 0.05* this->Engine->Timing.GetDeltaTime());
+        this->Actor->SetY(this->Actor->GetY() + 0.05 * this->Engine->Timing.GetDeltaTime());
         this->Dead->ColorA = round(this->Opacity);
 
         if (0 < this->Opacity)
@@ -346,8 +346,8 @@ uint8 act_player::Update()
     this->FireflyMask->SetX(this->Firefly->GetX());
     this->FireflyMask->SetY(this->Firefly->GetY());
 
-    this->FireflyMask->ColorA = round(engine::math::Clamp<double>((MAP_Y * 100 - (this->Actor->GetY() + (MAP_Y >> 1) * 100)) / 20 * 255, 0, 255));
-    this->Engine->Camera.SetZoom(engine::math::Clamp<double>(7 - 2 * ((MAP_Y * 100 - (this->Actor->GetY() + (MAP_Y >> 1) * 100)) / 20), 5, 7));
+    this->FireflyMask->ColorA = round(engine::math::Clamp<double>((1600 - (this->Actor->GetY() + 800)) / 25 * 255, 0, 255));
+    this->Engine->Camera.SetZoom(engine::math::Clamp<double>(7 - ((1600 - (this->Actor->GetY() + 800)) / 25 * 2), 5, 7));
 
     if (this->Health == 0)
     {

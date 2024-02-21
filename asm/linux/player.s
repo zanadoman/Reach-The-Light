@@ -1635,7 +1635,7 @@ _ZN10act_player6UpdateEv.cold:
 	.align 8
 .LC33:
 	.long	0
-	.long	1077149696
+	.long	1077477376
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

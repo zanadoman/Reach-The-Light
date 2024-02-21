@@ -263,6 +263,7 @@ struct scene_play
     tile_token* Tiles[MAP_X][MAP_Y];
     tile_house* House;
     bool RotateTiles;
+    array<act_crate*> Crates;
     array<act_tuna*> Tunas;
 
     scene_play(engine* Engine, game* Game);
@@ -499,7 +500,7 @@ struct tile_token
     void* Data;
     tile Type;
 
-    tile_token(tile Type, engine* Engine, game* Game, act_player* Player, array<act_tuna*>* Tunas, double X, double Y);
+    tile_token(tile Type, engine* Engine, game* Game, double X, double Y);
     ~tile_token();
     uint8 Update();
     uint8 ResetCollisionLayer();
@@ -630,7 +631,6 @@ struct tile_horizontal_corridor
 
     engine::actor Actor;
     engine::texturebox Background;
-    act_crate* Crate;
 
     engine::actor HitboxTop;
     engine::actor HitboxBot;
@@ -639,9 +639,8 @@ struct tile_horizontal_corridor
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
-    tile_horizontal_corridor(engine* Engine, game* Game, act_player* Player, double X, double Y);
+    tile_horizontal_corridor(engine* Engine, game* Game, double X, double Y);
     ~tile_horizontal_corridor();
-    uint8 Update();
 };
 
 struct tile_vertical_corridor
@@ -726,7 +725,6 @@ struct tile_trap_hole
 {
     engine* Engine;
     game* Game;
-    act_player* Player;
 
     engine::actor Actor;
     engine::texturebox Background;
@@ -739,7 +737,7 @@ struct tile_trap_hole
     engine::actor HitboxBotLeft;
     engine::actor HitboxBotRight;
 
-    tile_trap_hole(engine* Engine, game* Game, act_player* Player, double X, double Y);
+    tile_trap_hole(engine* Engine, game* Game, double X, double Y);
     ~tile_trap_hole();
     uint8 Update();
 };

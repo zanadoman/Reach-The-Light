@@ -1,6 +1,6 @@
 #include "../RTL.hpp"
 
-tile_token::tile_token(tile Type, engine* Engine, game* Game, act_player* Player, array<act_tuna*>* Tunas, double X, double Y)
+tile_token::tile_token(tile Type, engine* Engine, game* Game, double X, double Y)
 {
     switch (Type)
     {
@@ -21,7 +21,7 @@ tile_token::tile_token(tile Type, engine* Engine, game* Game, act_player* Player
         break;
 
         case TILE_HORIZONTAL_CORRIDOR:
-            this->Data = new tile_horizontal_corridor(Engine, Game, Player, X, Y);
+            this->Data = new tile_horizontal_corridor(Engine, Game, X, Y);
         break;
 
         case TILE_VERTICAL_CORRIDOR:
@@ -41,7 +41,7 @@ tile_token::tile_token(tile Type, engine* Engine, game* Game, act_player* Player
         break;
 
         case TILE_TRAP_HOLE:
-            this->Data = new tile_trap_hole(Engine, Game, Player, X, Y);
+            this->Data = new tile_trap_hole(Engine, Game, X, Y);
         break;
 
         case TILE_HORIZONTAL_ROTATING:
@@ -57,11 +57,6 @@ tile_token::tile_token(tile Type, engine* Engine, game* Game, act_player* Player
     }
 
     this->Type = Type;
-
-    if (Engine->Math.Random(0, 12) == 0)
-    {
-        *Tunas += {new act_tuna(Engine, Game, X, Y)};
-    }
 }
 
 tile_token::~tile_token()
@@ -127,9 +122,6 @@ uint8 tile_token::Update()
     {
         case TILE_TOP_LEFT_CORNER:
         return ((tile_top_left_corner*)this->Data)->Update();
-
-        case TILE_HORIZONTAL_CORRIDOR:
-        return ((tile_horizontal_corridor*)this->Data)->Update();
 
         case TILE_TRAP_HOLE:
         return ((tile_trap_hole*)this->Data)->Update();
