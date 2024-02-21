@@ -11,7 +11,7 @@ scene_editor::scene_editor(engine* Engine, game* Game) : Engine(Engine), Game(Ga
     this->ScrollDownHint = this->Actor->Textboxes.New("Legördítés: görgő le", this->Game->Assets->HackBoldFont);
     this->ZoomInHint = this->Actor->Textboxes.New("Nagyítás: ctrl + görgő fel", this->Game->Assets->HackBoldFont);
     this->ZoomOutHint = this->Actor->Textboxes.New("Kicsinyítés: ctrl + görgő le", this->Game->Assets->HackBoldFont);
-    this->TileChangeHint = this->Actor->Textboxes.New("Csempe módosítása: bal/jobb egérgomb", this->Game->Assets->HackBoldFont);
+    this->TileChangeHint = this->Actor->Textboxes.New("Pálya elem módosítása: bal/jobb egérgomb", this->Game->Assets->HackBoldFont);
     this->SpawnChangeHint1 = this->Actor->Textboxes.New("Kezdőpont módosítása: görgő klikk", this->Game->Assets->HackBoldFont);
     this->SpawnChangeHint2 = this->Actor->Textboxes.New("(kezdőpont csak a legalsó sorban lehet)", this->Game->Assets->HackBoldFont);
     this->SaveHint = this->Actor->Textboxes.New("A pálya kilépéskor automatikusan mentésre kerül", this->Game->Assets->HackBoldFont);

@@ -30,10 +30,6 @@ game::~game()
             delete this->Help;
         break;
 
-        case SCENE_GAME_OVER:
-            delete this->GameOver;
-        break;
-
         default:
         break;
     }
@@ -65,10 +61,6 @@ uint8 game::Update()
         case SCENE_HELP:
             this->SwitchScene(this->Help->Update());
         break;
-
-        case SCENE_GAME_OVER:
-            this->SwitchScene(this->GameOver->Update());
-        break;
     }
 
     return 0;
@@ -94,10 +86,6 @@ uint8 game::SwitchScene(scene NewScene)
 
             case SCENE_HELP:
                 delete this->Help;
-            break;
-
-            case SCENE_GAME_OVER:
-                delete this->GameOver;
             break;
 
             default:
@@ -128,10 +116,6 @@ uint8 game::SwitchScene(scene NewScene)
 
             case SCENE_HELP:
                 this->Help = new scene_help(this->Engine, this);
-            break;
-
-            case SCENE_GAME_OVER:
-                this->GameOver = new scene_game_over(this->Engine, this);
             break;
 
             default:

@@ -46,7 +46,7 @@ main:
 	movl	$34, %esi
 	leaq	416(%rbx), %rdi
 	call	_ZN3wze6engine6timing15SetMaxDeltaTimeEj@PLT
-	movl	$80, %edi
+	movl	$72, %edi
 	call	_Znwm@PLT
 .LEHE2:
 	movq	%rbx, %rsi
@@ -73,7 +73,7 @@ main:
 .L4:
 	movq	%rbp, %rdi
 	call	_ZN4gameD1Ev@PLT
-	movl	$80, %esi
+	movl	$72, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
@@ -147,7 +147,7 @@ main.cold:
 	call	_Unwind_Resume@PLT
 .L6:
 	movq	%rbp, %rdi
-	movl	$80, %esi
+	movl	$72, %esi
 	call	_ZdlPvm@PLT
 	movq	%rbx, %rdi
 	call	_Unwind_Resume@PLT

@@ -14,7 +14,7 @@
 	.string	"Kicsiny\303\255t\303\251s: ctrl + g\303\266rg\305\221 le"
 	.align 8
 .LC6:
-	.string	"Csempe m\303\263dos\303\255t\303\241sa: bal/jobb eg\303\251rgomb"
+	.string	"P\303\241lya elem m\303\263dos\303\255t\303\241sa: bal/jobb eg\303\251rgomb"
 	.align 8
 .LC7:
 	.string	"Kezd\305\221pont m\303\263dos\303\255t\303\241sa: g\303\266rg\305\221 klikk"

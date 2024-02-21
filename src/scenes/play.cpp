@@ -139,10 +139,6 @@ scene scene_play::Update()
     this->FrameTime->SetLiteral((((str += {"FrameTime: "}) += {(uint64)this->Engine->Timing.GetFrameTime()}) += {"ms"})());
     this->FrameTime->SetX(10 + (this->FrameTime->GetWidth() >> 1));
 
-    //PAUSE STATE
-
-    PauseState = this->Pause->Update();
-
     //PAUSE AUDIO ON FOCUS LOSS
 
     if (!this->Engine->Window.HasFocus())
@@ -161,109 +157,88 @@ scene scene_play::Update()
         this->Engine->Audio.Play(this->Game->Assets->HeartBeatAudio, CH_HEARTBEAT, 0.5, 0);
     }
 
-    if (PauseState == gui_pause::UNPAUSED)
+    //PAUSE STATE
+
+    PauseState = this->Pause->Update();
+
+    if (PauseState == gui_pause::PAUSED)
     {
-
-        //RESET PLATFORM COLLISION LAYERS
-
-        for (uint8 i = 0; i < MAP_X; i++)
-        {
-            for (uint8 j = 0; j < MAP_Y; j++)
-            {
-                this->Tiles[i][j]->ResetCollisionLayer();
-            }
-        }
-
-        //ROTATE ROTATING TILES
-
-        for (uint8 i = 0; i < MAP_X; i++)
-        {
-            for (uint8 j = 0; j < MAP_Y; j++)
-            {
-                this->Tiles[i][j]->Rotate(this->RotateTiles);
-            }
-        }
-
-        //UPDATE TILES
-
-        for (uint8 i = 0; i < MAP_X; i++)
-        {
-            for (uint8 j = 0; j < MAP_Y; j++)
-            {
-                this->Tiles[i][j]->Update();
-            }
-        }
-
-        //UPDATE HOUSE
-
-        this->House->Update();
-
-        //UPDATE CRATES
-
-        for (uint8 i = 0; i < this->Crates.Length(); i++)
-        {
-            this->Crates[i]->Update();
-        }
-
-        //UPDATE TUNAS
-
-        for (uint8 i = 0; i < this->Tunas.Length(); i++)
-        {
-            if (this->Tunas[i] != NULL)
-            {
-                this->Tunas[i]->Update();
-            }
-        }
-
-        //UPDATE PLAYER
-
-        this->Player->Update();
-
-        //UPDATE HEALTH BAR
-
-        for (uint8 i = 0; i < this->HealthBar.Length(); i++)
-        {
-            if (i < this->Player->Health)
-            {
-                if (i % 2)
-                {
-                    this->HealthBar[i]->SetTextureID(this->Game->Assets->HearthRightFullTexture);
-                }
-                else
-                {
-                    this->HealthBar[i]->SetTextureID(this->Game->Assets->HearthLeftFullTexture);
-                }
-            }
-            else
-            {
-                if (i % 2)
-                {
-                    this->HealthBar[i]->SetTextureID(this->Game->Assets->HearthRightEmptyTexture);
-                }
-                else
-                {
-                    this->HealthBar[i]->SetTextureID(this->Game->Assets->HearthLeftEmptyTexture);
-                }
-            }
-        }
-
-        //UPDATE TUNA COUNT
-
-        this->TunaCount->SetLiteral((((str = {(uint64)this->Player->Score}) += {"/"}) += {this->Tunas.Length()})());
-        this->TunaCount->SetX(this->Actor->GetX() + 5 + (this->TunaCount->GetWidth() >> 1));
-
-        //HANDLE GAME OVER
-
-        if (this->Player->Health == 0 && this->Player->DamageTick + 2500 <= this->Engine->Timing.GetCurrentTick())
-        {
-            return SCENE_GAME_OVER;
-        }
-
+        return SCENE_PLAY;
     }
     else if (PauseState == gui_pause::MENU)
     {
         return SCENE_MENU;
     }
+
+    //UPDATE TILES
+
+    for (uint8 i = 0; i < MAP_X; i++)
+    {
+        for (uint8 j = 0; j < MAP_Y; j++)
+        {
+            this->Tiles[i][j]->Update();
+            this->Tiles[i][j]->ResetCollisionLayer();
+            this->Tiles[i][j]->Rotate(this->RotateTiles);
+        }
+    }
+
+    //UPDATE HOUSE
+
+    this->House->Update();
+
+    //UPDATE CRATES
+
+    for (uint8 i = 0; i < this->Crates.Length(); i++)
+    {
+        this->Crates[i]->Update();
+    }
+
+    //UPDATE TUNAS
+
+    for (uint8 i = 0; i < this->Tunas.Length(); i++)
+    {
+        if (this->Tunas[i] != NULL)
+        {
+            this->Tunas[i]->Update();
+        }
+    }
+
+    //UPDATE PLAYER
+
+    this->Player->Update();
+
+    //UPDATE HEALTH BAR
+
+    for (uint8 i = 0; i < this->HealthBar.Length(); i++)
+    {
+        if (i < this->Player->Health)
+        {
+            if (i % 2)
+            {
+                    this->HealthBar[i]->SetTextureID(this->Game->Assets->HearthRightFullTexture);
+            }
+            else
+            {
+                    this->HealthBar[i]->SetTextureID(this->Game->Assets->HearthLeftFullTexture);
+            }
+        }
+        else
+        {
+            if (i % 2)
+            {
+                this->HealthBar[i]->SetTextureID(this->Game->Assets->HearthRightEmptyTexture);
+            }
+            else
+            {
+                this->HealthBar[i]->SetTextureID(this->Game->Assets->HearthLeftEmptyTexture);
+            }
+        }
+    }
+
+    //UPDATE TUNA COUNT
+
+    this->TunaCount->SetLiteral((((str = {(uint64)this->Player->Score}) += {"/"}) += {this->Tunas.Length()})());
+    this->TunaCount->SetX(this->Actor->GetX() + 5 + (this->TunaCount->GetWidth() >> 1));
 
     return SCENE_PLAY;
 }

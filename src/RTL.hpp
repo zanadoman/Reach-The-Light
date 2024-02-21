@@ -18,7 +18,6 @@ struct scene_menu;
 struct scene_play;
 struct scene_editor;
 struct scene_help;
-struct scene_game_over;
 struct act_player;
 struct act_tuna;
 struct act_crate;
@@ -47,8 +46,7 @@ typedef enum
     SCENE_MENU,
     SCENE_PLAY,
     SCENE_EDITOR,
-    SCENE_HELP,
-    SCENE_GAME_OVER
+    SCENE_HELP
 } scene;
 
 typedef enum
@@ -116,7 +114,6 @@ struct game
     scene_play* Play;
     scene_editor* Editor;
     scene_help* Help;
-    scene_game_over* GameOver;
 
     game(engine* Engine);
     ~game();
@@ -313,22 +310,6 @@ struct scene_help
 
     scene_help(engine* Engine, game* Game);
     ~scene_help();
-    scene Update();
-};
-
-struct scene_game_over
-{
-    engine* Engine;
-    game* Game;
-
-    engine::actor Actor;
-    engine::textbox Title;
-
-    gui_button* Restart;
-    gui_button* Menu;
-
-    scene_game_over(engine* Engine, game* Game);
-    ~scene_game_over();
     scene Update();
 };
 
