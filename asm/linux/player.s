@@ -322,13 +322,13 @@ _ZN10act_playerD2Ev:
 	.set	_ZN10act_playerD1Ev,_ZN10act_playerD2Ev
 	.section	.rodata.str1.8,"aMS",@progbits,1
 	.align 8
-.LC32:
+.LC31:
 	.string	"neo::array[]: Index out of range\nParams: Index: %lld\n"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB33:
+.LCOLDB32:
 	.text
-.LHOTB33:
+.LHOTB32:
 	.align 2
 	.p2align 4
 	.globl	_ZN10act_player6UpdateEv
@@ -858,7 +858,7 @@ _ZN10act_player6UpdateEv:
 	jp	.L95
 	jne	.L95
 	movq	8(%rbx), %rax
-	movsd	.LC29(%rip), %xmm0
+	movsd	.LC23(%rip), %xmm0
 	xorl	%ecx, %ecx
 	movl	$4, %edx
 	movq	8(%rax), %rax
@@ -1335,7 +1335,7 @@ _ZN10act_player6UpdateEv:
 	movl	%eax, %eax
 	pxor	%xmm0, %xmm0
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC30(%rip), %xmm0
+	mulsd	.LC29(%rip), %xmm0
 	movsd	%xmm0, 152(%rbx)
 	jmp	.L109
 .L231:
@@ -1449,11 +1449,11 @@ _ZN10act_player6UpdateEv:
 	movl	%eax, %eax
 	pxor	%xmm0, %xmm0
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC30(%rip), %xmm0
+	mulsd	.LC29(%rip), %xmm0
 	comisd	8(%rsp), %xmm0
 	jbe	.L111
 	movq	8(%rbx), %rax
-	movsd	.LC31(%rip), %xmm0
+	movsd	.LC30(%rip), %xmm0
 	xorl	%ecx, %ecx
 	movl	$2, %edx
 	movq	8(%rax), %rax
@@ -1493,7 +1493,7 @@ _ZN10act_player6UpdateEv:
 	jmp	.L219
 .L216:
 	movq	%rbp, %rsi
-	leaq	.LC32(%rip), %rdi
+	leaq	.LC31(%rip), %rdi
 	xorl	%eax, %eax
 	call	printf@PLT
 .LEHE0:
@@ -1567,7 +1567,7 @@ _ZN10act_player6UpdateEv.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8162-.LLSDACSBC8162
 .LLSDACSBC8162:
-	.uleb128 .LEHB1-.LCOLDB33
+	.uleb128 .LEHB1-.LCOLDB32
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1577,9 +1577,9 @@ _ZN10act_player6UpdateEv.cold:
 	.size	_ZN10act_player6UpdateEv, .-_ZN10act_player6UpdateEv
 	.section	.text.unlikely
 	.size	_ZN10act_player6UpdateEv.cold, .-_ZN10act_player6UpdateEv.cold
-.LCOLDE33:
+.LCOLDE32:
 	.text
-.LHOTE33:
+.LHOTE32:
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC0:
@@ -1677,14 +1677,10 @@ _ZN10act_player6UpdateEv.cold:
 	.long	1070700953
 	.align 8
 .LC29:
-	.long	-1717986918
-	.long	1070176665
-	.align 8
-.LC30:
 	.long	810889825
 	.long	-1086084822
 	.align 8
-.LC31:
+.LC30:
 	.long	0
 	.long	1070596096
 	.hidden	DW.ref.__gxx_personality_v0
