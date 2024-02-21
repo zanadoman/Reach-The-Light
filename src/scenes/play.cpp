@@ -97,8 +97,8 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->TunaFlipbook->Width = 72;
 
     this->Win->SetY(this->Actor->GetY() + 450);
-    this->Win->Width = 854;
-    this->Win->Height = 480;
+    this->Win->Width = 1280;
+    this->Win->Height = 720;
     this->Win->ColorA = 0;
     this->Win->Priority = 255;
 

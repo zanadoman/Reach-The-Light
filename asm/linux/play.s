@@ -532,7 +532,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
 	movq	64(%rbx), %rax
-	movl	$31458134, 16(%rax)
+	movl	$47187200, 16(%rax)
 	movb	$0, 23(%rax)
 	movb	$-1, 36(%rax)
 	movq	72(%rbx), %rax
