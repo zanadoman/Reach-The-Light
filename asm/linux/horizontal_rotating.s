@@ -425,9 +425,9 @@ _ZN24tile_horizontal_rotatingD2Ev:
 	.set	_ZN24tile_horizontal_rotatingD1Ev,_ZN24tile_horizontal_rotatingD2Ev
 	.align 2
 	.p2align 4
-	.globl	_ZN24tile_horizontal_rotating6RotateEb
-	.type	_ZN24tile_horizontal_rotating6RotateEb, @function
-_ZN24tile_horizontal_rotating6RotateEb:
+	.globl	_ZN24tile_horizontal_rotating6UpdateEv
+	.type	_ZN24tile_horizontal_rotating6UpdateEv, @function
+_ZN24tile_horizontal_rotating6UpdateEv:
 .LFB8162:
 	.cfi_startproc
 	pushq	%rbp
@@ -439,9 +439,11 @@ _ZN24tile_horizontal_rotating6RotateEb:
 	movq	%rdi, %rbx
 	subq	$8, %rsp
 	.cfi_def_cfa_offset 32
+	movq	8(%rbx), %rax
 	movq	40(%rdi), %rbp
 	movq	16(%rdi), %rdi
-	testb	%sil, %sil
+	movq	48(%rax), %rax
+	cmpb	$0, 1144(%rax)
 	je	.L19
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	addsd	.LC1(%rip), %xmm0
@@ -530,7 +532,7 @@ _ZN24tile_horizontal_rotating6RotateEb:
 	ret
 	.cfi_endproc
 .LFE8162:
-	.size	_ZN24tile_horizontal_rotating6RotateEb, .-_ZN24tile_horizontal_rotating6RotateEb
+	.size	_ZN24tile_horizontal_rotating6UpdateEv, .-_ZN24tile_horizontal_rotating6UpdateEv
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC0:

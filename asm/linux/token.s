@@ -765,20 +765,35 @@ _ZN10tile_token6UpdateEv:
 .LFB8162:
 	.cfi_startproc
 	movl	8(%rdi), %eax
-	testl	%eax, %eax
+	cmpl	$10, %eax
 	je	.L100
+	ja	.L101
+	testl	%eax, %eax
+	je	.L102
 	cmpl	$9, %eax
-	je	.L101
-	xorl	%eax, %eax
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L101:
+	jne	.L99
 	movq	(%rdi), %rdi
 	jmp	_ZN14tile_trap_hole6UpdateEv@PLT
 	.p2align 4,,10
 	.p2align 3
+.L101:
+	cmpl	$11, %eax
+	jne	.L99
+	movq	(%rdi), %rdi
+	jmp	_ZN22tile_vertical_rotating6UpdateEv@PLT
+	.p2align 4,,10
+	.p2align 3
+.L99:
+	xorl	%eax, %eax
+	ret
+	.p2align 4,,10
+	.p2align 3
 .L100:
+	movq	(%rdi), %rdi
+	jmp	_ZN24tile_horizontal_rotating6UpdateEv@PLT
+	.p2align 4,,10
+	.p2align 3
+.L102:
 	movq	(%rdi), %rdi
 	jmp	_ZN20tile_top_left_corner6UpdateEv@PLT
 	.cfi_endproc
@@ -786,47 +801,18 @@ _ZN10tile_token6UpdateEv:
 	.size	_ZN10tile_token6UpdateEv, .-_ZN10tile_token6UpdateEv
 	.align 2
 	.p2align 4
-	.globl	_ZN10tile_token6RotateEb
-	.type	_ZN10tile_token6RotateEb, @function
-_ZN10tile_token6RotateEb:
-.LFB8163:
-	.cfi_startproc
-	movl	8(%rdi), %eax
-	cmpl	$10, %eax
-	je	.L105
-	cmpl	$11, %eax
-	je	.L106
-	xorl	%eax, %eax
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L106:
-	movq	(%rdi), %rdi
-	movzbl	%sil, %esi
-	jmp	_ZN22tile_vertical_rotating6RotateEb@PLT
-	.p2align 4,,10
-	.p2align 3
-.L105:
-	movq	(%rdi), %rdi
-	movzbl	%sil, %esi
-	jmp	_ZN24tile_horizontal_rotating6RotateEb@PLT
-	.cfi_endproc
-.LFE8163:
-	.size	_ZN10tile_token6RotateEb, .-_ZN10tile_token6RotateEb
-	.align 2
-	.p2align 4
 	.globl	_ZN10tile_token19ResetCollisionLayerEv
 	.type	_ZN10tile_token19ResetCollisionLayerEv, @function
 _ZN10tile_token19ResetCollisionLayerEv:
-.LFB8164:
+.LFB8163:
 	.cfi_startproc
 	cmpl	$11, 8(%rdi)
-	ja	.L129
+	ja	.L126
 	pushq	%rbx
 	.cfi_def_cfa_offset 16
 	.cfi_offset 3, -16
 	movl	8(%rdi), %eax
-	leaq	.L112(%rip), %rdx
+	leaq	.L109(%rip), %rdx
 	movq	%rdi, %rbx
 	movslq	(%rdx,%rax,4), %rax
 	addq	%rdx, %rax
@@ -834,35 +820,35 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	.section	.rodata
 	.align 4
 	.align 4
-.L112:
-	.long	.L123-.L112
-	.long	.L122-.L112
-	.long	.L118-.L112
-	.long	.L119-.L112
-	.long	.L119-.L112
-	.long	.L118-.L112
-	.long	.L117-.L112
-	.long	.L116-.L112
-	.long	.L133-.L112
-	.long	.L114-.L112
-	.long	.L111-.L112
-	.long	.L111-.L112
+.L109:
+	.long	.L120-.L109
+	.long	.L119-.L109
+	.long	.L115-.L109
+	.long	.L116-.L109
+	.long	.L116-.L109
+	.long	.L115-.L109
+	.long	.L114-.L109
+	.long	.L113-.L109
+	.long	.L130-.L109
+	.long	.L111-.L109
+	.long	.L108-.L109
+	.long	.L108-.L109
 	.text
 	.p2align 4,,10
 	.p2align 3
-.L111:
+.L108:
 	movq	(%rdi), %rax
 	xorl	%esi, %esi
 	movq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-.L133:
+.L130:
 	movq	(%rbx), %rax
 	movq	48(%rax), %rdi
-.L134:
+.L131:
 	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
 	movq	(%rbx), %rax
-.L132:
+.L129:
 	movq	56(%rax), %rdi
 	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
@@ -878,7 +864,7 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	xorl	%esi, %esi
 	movq	80(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-.L110:
+.L107:
 	xorl	%eax, %eax
 	popq	%rbx
 	.cfi_remember_state
@@ -886,7 +872,7 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L118:
+.L115:
 	.cfi_restore_state
 	movq	(%rdi), %rax
 	xorl	%esi, %esi
@@ -919,7 +905,7 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L119:
+.L116:
 	.cfi_restore_state
 	movq	(%rdi), %rax
 	xorl	%esi, %esi
@@ -952,7 +938,7 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L117:
+.L114:
 	.cfi_restore_state
 	movq	(%rdi), %rax
 	xorl	%esi, %esi
@@ -970,10 +956,10 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	xorl	%esi, %esi
 	movq	56(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	jmp	.L110
+	jmp	.L107
 	.p2align 4,,10
 	.p2align 3
-.L116:
+.L113:
 	movq	(%rdi), %rax
 	xorl	%esi, %esi
 	movq	32(%rax), %rdi
@@ -994,10 +980,10 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	xorl	%esi, %esi
 	movq	64(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	jmp	.L110
+	jmp	.L107
 	.p2align 4,,10
 	.p2align 3
-.L123:
+.L120:
 	movq	(%rdi), %rax
 	xorl	%esi, %esi
 	movq	56(%rax), %rdi
@@ -1022,10 +1008,10 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	xorl	%esi, %esi
 	movq	96(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	jmp	.L110
+	jmp	.L107
 	.p2align 4,,10
 	.p2align 3
-.L122:
+.L119:
 	movq	(%rdi), %rax
 	xorl	%esi, %esi
 	movq	48(%rax), %rdi
@@ -1050,10 +1036,10 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	xorl	%esi, %esi
 	movq	88(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
-	jmp	.L110
+	jmp	.L107
 	.p2align 4,,10
 	.p2align 3
-.L114:
+.L111:
 	movq	(%rdi), %rax
 	xorl	%esi, %esi
 	movq	40(%rax), %rdi
@@ -1061,15 +1047,15 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	movq	(%rbx), %rax
 	movq	48(%rax), %rdi
 	testq	%rdi, %rdi
-	jne	.L134
-	jmp	.L132
-.L129:
+	jne	.L131
+	jmp	.L129
+.L126:
 	.cfi_def_cfa_offset 8
 	.cfi_restore 3
 	xorl	%eax, %eax
 	ret
 	.cfi_endproc
-.LFE8164:
+.LFE8163:
 	.size	_ZN10tile_token19ResetCollisionLayerEv, .-_ZN10tile_token19ResetCollisionLayerEv
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0

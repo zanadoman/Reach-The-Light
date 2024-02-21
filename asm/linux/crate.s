@@ -281,7 +281,7 @@ _ZN9act_crate6UpdateEv:
 	xorl	%ecx, %ecx
 	movl	$6, %edx
 	movq	8(%rax), %rax
-	movq	448(%rax), %rsi
+	movq	456(%rax), %rsi
 	movq	0(%rbp), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT

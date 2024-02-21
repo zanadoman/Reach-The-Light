@@ -450,23 +450,11 @@ _ZN14tile_trap_hole6UpdateEv:
 	.cfi_offset 3, -32
 	movq	8(%rdi), %rax
 	movq	%rdi, %rbx
-	movq	32(%rdi), %r12
 	movq	48(%rax), %rax
 	movq	72(%rax), %rax
-	movq	24(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
-	movq	%rax, %rbp
-	movq	8(%rbx), %rax
-	movq	48(%rax), %rax
-	movq	72(%rax), %rax
-	movq	16(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
-	movq	%rbp, %rdx
-	movq	%r12, %rdi
-	movq	%rax, %rsi
-	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
-	testb	%al, %al
+	cmpb	$0, 137(%rax)
 	jne	.L33
+.L26:
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
@@ -480,6 +468,21 @@ _ZN14tile_trap_hole6UpdateEv:
 	.p2align 3
 .L33:
 	.cfi_restore_state
+	movq	32(%rdi), %r12
+	movq	24(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
+	movq	%rax, %rbp
+	movq	8(%rbx), %rax
+	movq	48(%rax), %rax
+	movq	72(%rax), %rax
+	movq	16(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdx
+	movq	%r12, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
+	testb	%al, %al
+	je	.L26
 	movq	(%rbx), %rax
 	movq	48(%rbx), %rdi
 	leaq	272(%rax), %rbp
@@ -495,19 +498,13 @@ _ZN14tile_trap_hole6UpdateEv:
 	movl	$7, %edx
 	movq	8(%rax), %rax
 	addq	$160, %rdi
-	movq	456(%rax), %rsi
+	movq	464(%rax), %rsi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
-	popq	%rbx
-	.cfi_def_cfa_offset 24
-	xorl	%eax, %eax
-	popq	%rbp
-	.cfi_def_cfa_offset 16
-	popq	%r12
-	.cfi_def_cfa_offset 8
-	ret
+	jmp	.L26
 	.p2align 4,,10
 	.p2align 3
 .L30:
+	.cfi_def_cfa_offset 8
 	.cfi_restore 3
 	.cfi_restore 6
 	.cfi_restore 12

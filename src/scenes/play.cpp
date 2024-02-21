@@ -173,9 +173,8 @@ scene scene_play::Update()
     {
         for (uint8 j = 0; j < MAP_Y; j++)
         {
-            this->Tiles[i][j]->Update();
             this->Tiles[i][j]->ResetCollisionLayer();
-            this->Tiles[i][j]->Rotate(this->RotateTiles);
+            this->Tiles[i][j]->Update();
         }
     }
 
@@ -200,7 +199,7 @@ scene scene_play::Update()
         }
     }
 
-    //UPDATE PLAYER AND CAMERA
+    //UPDATE PLAYER
 
     this->Player->Update();
 

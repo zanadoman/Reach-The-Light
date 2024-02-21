@@ -126,22 +126,11 @@ uint8 tile_token::Update()
         case TILE_TRAP_HOLE:
         return ((tile_trap_hole*)this->Data)->Update();
 
-        default:
-        break;
-    }
-
-    return 0;
-}
-
-uint8 tile_token::Rotate(bool Rotate)
-{
-    switch (this->Type)
-    {
         case TILE_HORIZONTAL_ROTATING:
-        return ((tile_horizontal_rotating*)this->Data)->Rotate(Rotate);
+        return ((tile_horizontal_rotating*)this->Data)->Update();
 
         case TILE_VERTICAL_ROTATING:
-        return ((tile_vertical_rotating*)this->Data)->Rotate(Rotate);
+        return ((tile_vertical_rotating*)this->Data)->Update();
 
         default:
         break;

@@ -4,13 +4,20 @@ tile_house::tile_house(engine* Engine, game* Game) : Engine(Engine), Game(Game),
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, 0, 850, 200, 100, 1);
     this->House = this->Actor->Textureboxes.New(this->Game->Assets->HouseTexture);
+    this->Box = this->Actor->Textureboxes.New(this->Game->Assets->BoxTexture);
     this->LeftTrapdoor = this->Actor->Textureboxes.New(this->Game->Assets->TrapdoorTexture);
     this->RightTrapdoor = this->Actor->Textureboxes.New(this->Game->Assets->TrapdoorTexture);
     this->Sky = this->Actor->Colorboxes.New();
+    this->Detector = this->Actor->Overlapboxes.New(BOX_NONE);
 
     this->House->SetY(this->Actor->GetY() + 25);
     this->House->Width = 250;
     this->House->Height = 150;
+
+    this->Box->SetY(this->Actor->GetY() - 34.5);
+    this->Box->Width = 34;
+    this->Box->Height = 21;
+    this->Box->Priority = 132;
 
     this->LeftTrapdoor->SetX(this->Actor->GetX() - 50);
     this->LeftTrapdoor->SetY(this->Actor->GetY() - 75);
@@ -42,45 +49,62 @@ tile_house::tile_house(engine* Engine, game* Game) : Engine(Engine), Game(Game),
         this->Grasses[i]->Priority = 129;
     }
 
-    this->HitboxRoof = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX(), this->Actor->GetY() + 47.5, 200, 5, 1);
+    this->Detector->SetX(this->Box->GetX());
+    this->Detector->SetY(this->Box->GetY() + 7.5);
+    this->Detector->SetWidth(5);
+    this->Detector->SetHeight(5);
+
+    this->HitboxRoof = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX(), this->Actor->GetY() + 55, 200, 20, 1);
     this->HitboxRoof->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxRoof->Resistance = 100;
     this->HitboxRoof->SetCollisionLayer(1);
 
-    this->HitboxLeftWall = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX() - 97.5, this->Actor->GetY(), 5, 100, 1);
+    this->HitboxLeftWall = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX() - 105, this->Actor->GetY(), 20, 100, 1);
     this->HitboxLeftWall->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxLeftWall->Resistance = 100;
     this->HitboxLeftWall->SetCollisionLayer(1);
 
-    this->HitboxRightWall = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX() + 97.5, this->Actor->GetY(), 5, 100, 1);
+    this->HitboxRightWall = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX() + 105, this->Actor->GetY(), 20, 100, 1);
     this->HitboxRightWall->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxRightWall->Resistance = 100;
     this->HitboxRightWall->SetCollisionLayer(1);
 
-    this->HitboxLeftFloor = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX() - 90, this->Actor->GetY() - 47.5, 20, 5, 1);
+    this->HitboxLeftFloor = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX() - 90, this->Actor->GetY() - 55, 20, 20, 1);
     this->HitboxLeftFloor->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxLeftFloor->Resistance = 100;
     this->HitboxLeftFloor->SetCollisionLayer(1);
 
-    this->HitboxRightFloor = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX() + 90, this->Actor->GetY() - 47.5, 20, 5, 1);
+    this->HitboxRightFloor = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX() + 90, this->Actor->GetY() - 55, 20, 20, 1);
     this->HitboxRightFloor->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxRightFloor->Resistance = 100;
     this->HitboxRightFloor->SetCollisionLayer(1);
 
-    this->HitboxCenterFloor = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX(), this->Actor->GetY() - 47.5, 40, 5, 1);
+    this->HitboxCenterFloor = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX(), this->Actor->GetY() - 55, 40, 20, 1);
     this->HitboxCenterFloor->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxCenterFloor->Resistance = 100;
     this->HitboxCenterFloor->SetCollisionLayer(1);
 
-    this->HitboxLeftTrapdoor = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX() - 50, this->Actor->GetY() - 47.5, 60, 5, 1);
+    this->HitboxLeftTrapdoor = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX() - 50, this->Actor->GetY() - 40, 60, 20, 1);
     this->HitboxLeftTrapdoor->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxLeftTrapdoor->Resistance = 100;
     this->HitboxLeftTrapdoor->SetCollisionLayer(1);
 
-    this->HitboxRightTrapdoor = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX() + 50, this->Actor->GetY() - 47.5, 60, 5, 1);
+    this->HitboxRightTrapdoor = this->Engine->Actors.New(NULL, ACT_PLATFORM, this->Actor->GetX() + 50, this->Actor->GetY() - 40, 60, 20, 1);
     this->HitboxRightTrapdoor->Overlapboxes.New(BOX_PLATFORM);
     this->HitboxRightTrapdoor->Resistance = 100;
     this->HitboxRightTrapdoor->SetCollisionLayer(1);
+
+    this->HitboxBoxLeft = this->Engine->Actors.New(NULL, ACT_NONE, this->Box->GetX() - 12.5, this->Box->GetY(), 5, 21, 1);
+    this->HitboxBoxLeft->Resistance = 100;
+    this->HitboxBoxLeft->SetCollisionLayer(1);
+
+    this->HitboxBoxRight = this->Engine->Actors.New(NULL, ACT_NONE, this->Box->GetX() + 12.5, this->Box->GetY(), 5, 21, 1);
+    this->HitboxBoxRight->Resistance = 100;
+    this->HitboxBoxRight->SetCollisionLayer(1);
+
+    this->HitboxBoxBot = this->Engine->Actors.New(NULL, ACT_NONE, this->Box->GetX(), this->Box->GetY() - 5.75, 28, 10, 1);
+    this->HitboxBoxBot->Resistance = 100;
+    this->HitboxBoxBot->SetCollisionLayer(1);
 }
 
 tile_house::~tile_house()

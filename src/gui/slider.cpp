@@ -2,6 +2,8 @@
 
 gui_slider::gui_slider(engine* Engine, game* Game, double X, double Y, const char* Literal, double Min, double Max, double Value) : Engine(Engine), Game(Game)
 {
+    string str;
+
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 400, 15, 0);
     this->Overlapbox = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Colorbox = this->Actor->Colorboxes.New();
@@ -28,6 +30,15 @@ gui_slider::gui_slider(engine* Engine, game* Game, double X, double Y, const cha
     this->IndicatorMinX = this->Actor->GetX() - (this->Actor->GetWidth() >> 1) + (this->Indicator->Width >> 1);
     this->IndicatorMaxX = this->Actor->GetX() + (this->Actor->GetWidth() >> 1) - (this->Indicator->Width >> 1);
     this->Indicator->SetX(((Value - Min) / (Max - Min)) * (this->IndicatorMaxX - this->IndicatorMinX) + this->IndicatorMinX);
+
+    ((str = {&this->Literal}) += {": "}) += {(this->Max - this->Min) * ((this->Indicator->GetX() - this->IndicatorMinX) / (this->IndicatorMaxX - this->IndicatorMinX)) + this->Min};
+
+    if (this->Literal.Length() + 6 < str.Length())
+    {
+        str.Remove(this->Literal.Length() + 6, str.Length() - 1 - (this->Literal.Length() + 6));
+    }
+
+    this->Textbox->SetLiteral(str());
 }
 
 gui_slider::~gui_slider()

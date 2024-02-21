@@ -171,6 +171,7 @@ struct assets
     uint64 CrateTexture;
 
     uint64 HouseTexture;
+    uint64 BoxTexture;
     uint64 TrapdoorTexture;
     uint64 GrassTexture;
 
@@ -484,7 +485,6 @@ struct tile_token
     ~tile_token();
     uint8 Update();
     uint8 ResetCollisionLayer();
-    uint8 Rotate(bool Rotate);
 };
 
 struct tile_house
@@ -494,10 +494,12 @@ struct tile_house
 
     engine::actor Actor;
     engine::texturebox House;
+    engine::texturebox Box;
     engine::texturebox LeftTrapdoor;
     engine::texturebox RightTrapdoor;
     engine::colorbox Sky;
     array<engine::texturebox> Grasses;
+    engine::overlapbox Detector;
 
     engine::actor HitboxRoof;
     engine::actor HitboxLeftWall;
@@ -507,6 +509,10 @@ struct tile_house
     engine::actor HitboxCenterFloor;
     engine::actor HitboxLeftTrapdoor;
     engine::actor HitboxRightTrapdoor;
+
+    engine::actor HitboxBoxLeft;
+    engine::actor HitboxBoxRight;
+    engine::actor HitboxBoxBot;
 
     tile_house(engine* Engine, game* Game);
     ~tile_house();
@@ -737,7 +743,7 @@ struct tile_horizontal_rotating
 
     tile_horizontal_rotating(engine* Engine, game* Game, double X, double Y);
     ~tile_horizontal_rotating();
-    uint8 Rotate(bool Rotate);
+    uint8 Update();
 };
 
 struct tile_vertical_rotating
@@ -758,5 +764,5 @@ struct tile_vertical_rotating
 
     tile_vertical_rotating(engine* Engine, game* Game, double X, double Y);
     ~tile_vertical_rotating();
-    uint8 Rotate(bool Rotate);
+    uint8 Update();
 };

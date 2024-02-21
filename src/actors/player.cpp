@@ -142,6 +142,7 @@ uint8 act_player::Update()
     {
         this->Actor->SetY(this->Actor->GetY() + 0.05 * this->Engine->Timing.GetDeltaTime());
         this->Dead->ColorA = round(this->Opacity);
+        this->Actor->SetCollisionLayer(0);
 
         if (0 < this->Opacity)
         {
@@ -152,6 +153,45 @@ uint8 act_player::Update()
                 this->Opacity = 0;
             }
         }
+
+        this->Idle->Visible = false;
+        this->Idle->Paused = true;
+        this->Run->Visible = false;
+        this->Run->Paused = true;
+        this->Jump->Visible = false;
+        this->Jump->Paused = true;
+        this->Fall->Visible = false;
+        this->Fall->Paused = true;
+        this->Latch->Visible = false;
+        this->Latch->Paused = true;
+        this->Hurt->Visible = false;
+        this->Dead->Visible = true;
+        this->Dead->Paused = false;
+
+        return 0;
+    }
+
+    //HANDLING WIN
+
+    if (this->OverlapBox->IsOverlappingWith(this->Game->Play->House->Actor->GetID(), this->Game->Play->House->Detector->GetID()))
+    {
+        this->Actor->SetX(this->Game->Play->House->Detector->GetX());
+        this->Actor->SetY(this->Game->Play->House->Detector->GetY());
+        this->Actor->SetCollisionLayer(0);
+
+        this->Idle->Visible = true;
+        this->Idle->Paused = false;
+        this->Run->Visible = false;
+        this->Run->Paused = true;
+        this->Jump->Visible = false;
+        this->Jump->Paused = true;
+        this->Fall->Visible = false;
+        this->Fall->Paused = true;
+        this->Latch->Visible = false;
+        this->Latch->Paused = true;
+        this->Hurt->Visible = false;
+        this->Dead->Visible = false;
+        this->Dead->Paused = true;
 
         return 0;
     }
@@ -181,22 +221,6 @@ uint8 act_player::Update()
 
                         if (this->Health == 0)
                         {
-                            this->Actor->SetCollisionLayer(0);
-
-                            this->Idle->Visible = false;
-                            this->Idle->Paused = true;
-                            this->Run->Visible = false;
-                            this->Run->Paused = true;
-                            this->Jump->Visible = false;
-                            this->Jump->Paused = true;
-                            this->Fall->Visible = false;
-                            this->Fall->Paused = true;
-                            this->Latch->Visible = false;
-                            this->Latch->Paused = true;
-                            this->Hurt->Visible = false;
-                            this->Dead->Visible = true;
-                            this->Dead->Paused = false;
-
                             return 0;
                         }
                     }
