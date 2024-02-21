@@ -877,7 +877,7 @@ _ZN12scene_editor6UpdateEv:
 	addq	$24, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 40
-	movl	$3, %eax
+	movl	$4, %eax
 	popq	%rbx
 	.cfi_def_cfa_offset 32
 	popq	%rbp

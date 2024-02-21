@@ -550,13 +550,13 @@ _ZN10act_player6UpdateEv:
 	.cfi_restore_state
 	movq	8(%rbx), %rax
 	movq	24(%rbx), %r12
-	movq	48(%rax), %rax
+	movq	56(%rax), %rax
 	movq	1152(%rax), %rax
 	movq	80(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
 	movq	%rax, %rbp
 	movq	8(%rbx), %rax
-	movq	48(%rax), %rax
+	movq	56(%rax), %rax
 	movq	1152(%rax), %rax
 	movq	16(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
@@ -914,7 +914,7 @@ _ZN10act_player6UpdateEv:
 	movq	8(%rbx), %rax
 	xorl	%r12d, %r12d
 	xorl	%ebp, %ebp
-	movq	48(%rax), %rax
+	movq	56(%rax), %rax
 	movq	1136(%rax), %rcx
 	testq	%rcx, %rcx
 	jne	.L121
@@ -937,7 +937,7 @@ _ZN10act_player6UpdateEv:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
 	movq	%rax, %r13
 	movq	8(%rbx), %rax
-	movq	48(%rax), %rax
+	movq	56(%rax), %rax
 	movq	1144(%rax), %rdx
 	cmpq	1136(%rax), %rbp
 	jnb	.L216
@@ -950,7 +950,7 @@ _ZN10act_player6UpdateEv:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
 	movq	8(%rbx), %rdx
 	movl	%eax, %esi
-	movq	48(%rdx), %rax
+	movq	56(%rdx), %rax
 	movq	1136(%rax), %rcx
 	testb	%sil, %sil
 	je	.L115
@@ -968,7 +968,7 @@ _ZN10act_player6UpdateEv:
 	movq	%r13, %rdi
 	call	_ZdlPvm@PLT
 	movq	8(%rbx), %rdx
-	movq	48(%rdx), %rcx
+	movq	56(%rdx), %rcx
 	movq	1144(%rcx), %rax
 	cmpq	1136(%rcx), %rbp
 	jnb	.L216
@@ -986,7 +986,7 @@ _ZN10act_player6UpdateEv:
 	movq	8(%rbx), %rax
 	addl	$1, %r12d
 	movzbl	%r12b, %ebp
-	movq	48(%rax), %rax
+	movq	56(%rax), %rax
 	movq	1136(%rax), %rcx
 	cmpq	%rcx, %rbp
 	jb	.L121
@@ -1049,7 +1049,7 @@ _ZN10act_player6UpdateEv:
 .L223:
 	movq	8(%rbx), %rax
 	movq	16(%rbx), %rbp
-	movq	48(%rax), %rax
+	movq	56(%rax), %rax
 	movq	1152(%rax), %rax
 	movq	80(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4GetXEv@PLT
@@ -1057,7 +1057,7 @@ _ZN10act_player6UpdateEv:
 	call	_ZN3wze6engine6actors5actor4SetXEd@PLT
 	movq	8(%rbx), %rax
 	movq	16(%rbx), %rbp
-	movq	48(%rax), %rax
+	movq	56(%rax), %rax
 	movq	1152(%rax), %rax
 	movq	80(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4GetYEv@PLT
@@ -1133,7 +1133,7 @@ _ZN10act_player6UpdateEv:
 	movsd	.LC0(%rip), %xmm0
 	addq	$160, %rdi
 	xorl	%ecx, %ecx
-	movq	48(%rax), %rdx
+	movq	56(%rax), %rdx
 	movq	8(%rax), %rax
 	xorb	$1, 1160(%rdx)
 	movq	488(%rax), %rsi

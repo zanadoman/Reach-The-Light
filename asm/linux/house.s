@@ -723,7 +723,7 @@ _ZN10tile_house6UpdateEv:
 	subq	$8, %rsp
 	.cfi_def_cfa_offset 32
 	movq	8(%rdi), %rax
-	movq	48(%rax), %rax
+	movq	56(%rax), %rax
 	movq	88(%rax), %rax
 	movq	16(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
@@ -750,7 +750,7 @@ _ZN10tile_house6UpdateEv:
 	movq	56(%rbx), %rdx
 	movb	%al, 23(%rdx)
 	movq	8(%rbx), %rax
-	movq	48(%rax), %rax
+	movq	56(%rax), %rax
 	movq	88(%rax), %rdx
 	movzbl	136(%rdx), %edx
 	cmpq	1136(%rax), %rdx

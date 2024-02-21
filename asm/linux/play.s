@@ -1125,7 +1125,7 @@ _ZN10scene_play6UpdateEv:
 	testb	%al, %al
 	jne	.L178
 .L122:
-	movl	$2, %ebx
+	movl	$3, %ebx
 .L109:
 	movq	%r13, %rdi
 	call	_ZN3neo6stringD1Ev@PLT

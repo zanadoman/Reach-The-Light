@@ -352,11 +352,19 @@
 	.string	"assets/audio/tuna.wav"
 .LC144:
 	.string	"assets/audio/heartbeat.wav"
+.LC145:
+	.string	"assets/audio/typing1.wav"
+.LC146:
+	.string	"assets/audio/typing2.wav"
+	.section	.rodata.str1.8
+	.align 8
+.LC147:
+	.string	"assets/audio/typing_return.wav"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB145:
+.LCOLDB148:
 	.text
-.LHOTB145:
+.LHOTB148:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -1243,6 +1251,21 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	344(%rax), %rdi
 	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
 	movq	%rax, 512(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC145(%rip), %rsi
+	leaq	344(%rax), %rdi
+	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
+	movq	%rax, 520(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC146(%rip), %rsi
+	leaq	344(%rax), %rdi
+	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
+	movq	%rax, 528(%rbx)
+	movq	(%rbx), %rax
+	leaq	.LC147(%rip), %rsi
+	leaq	344(%rax), %rdi
+	call	_ZN3wze6engine6assets9LoadSoundEPKc@PLT
+	movq	%rax, 536(%rbx)
 	movq	904(%rsp), %rax
 	subq	%fs:40, %rax
 	jne	.L75
@@ -1527,7 +1550,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB1-.LCOLDB145
+	.uleb128 .LEHB1-.LCOLDB148
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1537,9 +1560,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.size	_ZN6assetsC2EPN3wze6engineE, .-_ZN6assetsC2EPN3wze6engineE
 	.section	.text.unlikely
 	.size	_ZN6assetsC2EPN3wze6engineE.cold, .-_ZN6assetsC2EPN3wze6engineE.cold
-.LCOLDE145:
+.LCOLDE148:
 	.text
-.LHOTE145:
+.LHOTE148:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE
 	.align 2

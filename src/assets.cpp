@@ -201,6 +201,9 @@ assets::assets(engine* Engine) : Engine(Engine)
     this->TrapdoorAudio = this->Engine->Assets.LoadSound("assets/audio/trapdoor.wav");
     this->TunaAudio = this->Engine->Assets.LoadSound("assets/audio/tuna.wav");
     this->HeartBeatAudio = this->Engine->Assets.LoadSound("assets/audio/heartbeat.wav");
+    this->Typing1Audio = this->Engine->Assets.LoadSound("assets/audio/typing1.wav");
+    this->Typing2Audio = this->Engine->Assets.LoadSound("assets/audio/typing2.wav");
+    this->TypingReturnAudio = this->Engine->Assets.LoadSound("assets/audio/typing_return.wav");
 }
 
 assets::~assets()

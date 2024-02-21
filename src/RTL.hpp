@@ -15,6 +15,7 @@ struct assets;
 struct settings;
 struct map;
 struct scene_menu;
+struct scene_story;
 struct scene_play;
 struct scene_editor;
 struct scene_help;
@@ -44,6 +45,7 @@ typedef enum
 {
     SCENE_NONE,
     SCENE_MENU,
+    SCENE_STORY,
     SCENE_PLAY,
     SCENE_EDITOR,
     SCENE_HELP
@@ -111,6 +113,7 @@ struct game
 
     scene ActiveScene;
     scene_menu* Menu;
+    scene_story* Story;
     scene_play* Play;
     scene_editor* Editor;
     scene_help* Help;
@@ -190,6 +193,9 @@ struct assets
     uint64 TrapdoorAudio;
     uint64 TunaAudio;
     uint64 HeartBeatAudio;
+    uint64 Typing1Audio;
+    uint64 Typing2Audio;
+    uint64 TypingReturnAudio;
 
     assets(engine* Engine);
     ~assets();
@@ -245,6 +251,21 @@ struct scene_menu
 
     scene_menu(engine* Engine, game* Game);
     ~scene_menu();
+    scene Update();
+};
+
+struct scene_story
+{
+    engine* Engine;
+    game* Game;
+
+    engine::actor Actor;
+    array<engine::textbox> Textboxes;
+
+    string Story;
+
+    scene_story(engine* Engine, game* Game);
+    ~scene_story();
     scene Update();
 };
 

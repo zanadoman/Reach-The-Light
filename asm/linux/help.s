@@ -193,7 +193,7 @@ _ZN10scene_help6UpdateEv:
 	sbbl	%eax, %eax
 	addq	$8, %rsp
 	.cfi_def_cfa_offset 8
-	andl	$3, %eax
+	andl	$4, %eax
 	addl	$1, %eax
 	ret
 	.cfi_endproc
