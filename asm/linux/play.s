@@ -15,13 +15,13 @@
 .LC7:
 	.string	"neo::array+=: Memory allocation failed\nParams: Elements(type, length): %ld, %ld\n"
 	.align 8
-.LC12:
+.LC9:
 	.string	"neo::array[]: Index out of range\nParams: Index: %lld\n"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB20:
+.LCOLDB18:
 	.text
-.LHOTB20:
+.LHOTB18:
 	.align 2
 	.p2align 4
 	.globl	_ZN10scene_playC2EPN3wze6engineEP4game
@@ -69,11 +69,11 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 .LEHB0:
 	call	_ZN3wze6engine6window9GetHeightEv@PLT
 	shrw	%ax
-	pxor	%xmm4, %xmm4
+	pxor	%xmm6, %xmm6
 	movq	(%rbx), %rdi
 	movzwl	%ax, %eax
-	cvtsi2sdl	%eax, %xmm4
-	movq	%xmm4, %r12
+	cvtsi2sdl	%eax, %xmm6
+	movq	%xmm6, %r12
 	call	_ZN3wze6engine6window8GetWidthEv@PLT
 	shrw	%ax
 	pxor	%xmm0, %xmm0
@@ -168,7 +168,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	32(%rbx), %rdx
 	movq	%rax, 152(%rsp)
 	cmpq	$10, %rdx
-	jne	.L49
+	jne	.L55
 	movq	40(%rbx), %rsi
 .L4:
 	salq	$3, %rdx
@@ -208,7 +208,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movzbl	(%rdx), %edx
 	movq	144(%rax,%rdx,8), %rax
 	cmpb	$4, (%rax)
-	je	.L50
+	je	.L56
 .LEHB2:
 	call	_Znwm@PLT
 .LEHE2:
@@ -232,8 +232,8 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 .L7:
 	leaq	64(%rsp), %rax
 	movq	%r12, 72(%rbx)
-	movq	%rbx, 32(%rsp)
-	movl	$-350, 28(%rsp)
+	movq	%rbx, 24(%rsp)
+	movl	$-350, 36(%rsp)
 	movq	$0, 48(%rsp)
 	movq	%rax, 56(%rsp)
 	.p2align 4,,10
@@ -253,11 +253,11 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 .LEHB4:
 	call	_ZN3wze6engine4math6RandomEii@PLT
 	testl	%eax, %eax
-	je	.L51
+	je	.L57
 	addq	$1, %rbp
 	addl	$100, %r13d
 	cmpq	$16, %rbp
-	je	.L52
+	je	.L58
 .L13:
 	movl	$16, %edi
 	call	_Znwm@PLT
@@ -271,7 +271,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	(%rbx), %rdx
 	movq	%r12, %rdi
 	movq	24(%rcx), %rax
-	cvtsi2sdl	28(%rsp), %xmm0
+	cvtsi2sdl	36(%rsp), %xmm0
 	movq	(%rax,%r14,8), %rax
 	movsd	%xmm1, 16(%rsp)
 	movzbl	(%rax,%rbp), %esi
@@ -279,7 +279,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 .LEHB5:
 	call	_ZN10tile_tokenC1E4tilePN3wze6engineEP4gamedd@PLT
 .LEHE5:
-	movq	32(%rsp), %rax
+	movq	24(%rsp), %rax
 	movq	%r12, 80(%rax,%rbp,8)
 	movq	8(%rbx), %rax
 	movq	24(%rax), %rax
@@ -311,7 +311,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	call	realloc@PLT
 	movq	%rax, 1112(%rbx)
 	testq	%rax, %rax
-	je	.L47
+	je	.L50
 	movq	1104(%rbx), %rdx
 	movq	56(%rsp), %rdi
 	leaq	-8(%rax,%rdx,8), %rsi
@@ -321,7 +321,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	jmp	.L8
 	.p2align 4,,10
 	.p2align 3
-.L51:
+.L57:
 	movl	$56, %edi
 	call	_Znwm@PLT
 .LEHE8:
@@ -343,7 +343,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	call	realloc@PLT
 	movq	%rax, 1128(%rbx)
 	testq	%rax, %rax
-	je	.L47
+	je	.L50
 	movq	1120(%rbx), %rdx
 	leaq	72(%rsp), %rdi
 	leaq	-8(%rax,%rdx,8), %rsi
@@ -356,11 +356,11 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	jne	.L13
 	.p2align 4,,10
 	.p2align 3
-.L52:
+.L58:
 	addq	$1, 48(%rsp)
 	movq	48(%rsp), %rax
-	subq	$-128, 32(%rsp)
-	addl	$100, 28(%rsp)
+	subq	$-128, 24(%rsp)
+	addl	$100, 36(%rsp)
 	cmpq	$8, %rax
 	jne	.L6
 	movl	$136, %edi
@@ -403,68 +403,85 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	subl	%eax, %ebp
 	cvtsi2sdl	%ebp, %xmm0
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd@PLT
-	xorl	%r12d, %r12d
-	xorl	%ebp, %ebp
 	cmpq	$0, 32(%rbx)
-	jne	.L15
-	jmp	.L20
+	je	.L23
+	movq	40(%rbx), %rax
+	movl	.LC11(%rip), %r15d
+	xorl	%r13d, %r13d
+	xorl	%r12d, %r12d
 	.p2align 4,,10
 	.p2align 3
-.L54:
-	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
-	movzbl	%r12b, %eax
-	movapd	%xmm0, %xmm1
-	pxor	%xmm0, %xmm0
-	movq	%r14, %rdi
-	subl	$1, %eax
-	subsd	.LC10(%rip), %xmm1
-	cvtsi2sdl	%eax, %xmm0
-	mulsd	.LC8(%rip), %xmm0
-	mulsd	.LC9(%rip), %xmm0
-	addsd	%xmm1, %xmm0
-	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd@PLT
-.L18:
-	movq	40(%rbx), %rax
-	cmpq	32(%rbx), %rbp
-	jnb	.L53
-	movq	(%rax,%r13), %rbp
+.L22:
+	movq	(%rax,%r12,8), %rax
 	movq	16(%rbx), %rdi
-	movl	$4718622, 16(%rbp)
+	leaq	0(,%r12,8), %r14
+	movq	%rax, 8(%rsp)
+	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
+	movzbl	%r13b, %ebp
+	pxor	%xmm3, %xmm3
+	movq	8(%rsp), %rdi
+	subsd	.LC8(%rip), %xmm0
+	leal	0(%rbp,%rbp,4), %eax
+	sall	$3, %eax
+	cvtsi2sdl	%eax, %xmm3
+	addsd	%xmm3, %xmm0
+	movsd	%xmm3, 16(%rsp)
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd@PLT
+	movq	40(%rbx), %rax
+	cmpq	32(%rbx), %r12
+	jnb	.L52
+	movq	(%rax,%r14), %rax
+	movq	16(%rbx), %rdi
+	movq	%rax, 8(%rsp)
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
-	subsd	.LC14(%rip), %xmm0
-	movq	%rbp, %rdi
+	subsd	.LC10(%rip), %xmm0
+	movq	8(%rsp), %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
-	addl	$1, %r12d
-	movzbl	%r12b, %ebp
-	cmpq	32(%rbx), %rbp
-	jnb	.L20
-.L15:
-	movq	40(%rbx), %rax
+	movq	32(%rbx), %rax
+	movq	40(%rbx), %rdx
+	cmpq	%rax, %r12
+	jnb	.L52
+	movq	(%rdx,%r14), %rcx
+	addl	$1, %ebp
+	movslq	%ebp, %rbp
+	movl	%r15d, 16(%rcx)
+	cmpq	%rax, %rbp
+	jnb	.L48
 	movq	16(%rbx), %rdi
-	leaq	0(,%rbp,8), %r13
-	movq	(%rax,%rbp,8), %r14
-	testb	$1, %r12b
-	jne	.L54
+	movq	(%rdx,%rbp,8), %r12
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
-	movapd	%xmm0, %xmm1
-	movzbl	%r12b, %eax
-	pxor	%xmm0, %xmm0
-	movq	%r14, %rdi
-	cvtsi2sdl	%eax, %xmm0
-	mulsd	.LC8(%rip), %xmm0
-	subsd	.LC11(%rip), %xmm1
-	mulsd	.LC9(%rip), %xmm0
-	addsd	%xmm1, %xmm0
+	subsd	.LC8(%rip), %xmm0
+	addsd	16(%rsp), %xmm0
+	movq	%r12, %rdi
+	addsd	.LC12(%rip), %xmm0
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd@PLT
-	jmp	.L18
-.L20:
+	movq	40(%rbx), %rax
+	cmpq	32(%rbx), %rbp
+	jnb	.L48
+	movq	16(%rbx), %rdi
+	movq	(%rax,%rbp,8), %r12
+	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
+	subsd	.LC10(%rip), %xmm0
+	movq	%r12, %rdi
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
+	movq	32(%rbx), %rdx
+	movq	40(%rbx), %rax
+	cmpq	%rdx, %rbp
+	jnb	.L48
+	movq	(%rax,%rbp,8), %rcx
+	addl	$2, %r13d
+	movzbl	%r13b, %r12d
+	movl	%r15d, 16(%rcx)
+	cmpq	%rdx, %r12
+	jb	.L22
+.L23:
 	movq	48(%rbx), %rdi
 	movl	$50, %esi
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
 	movq	16(%rbx), %rdi
 	movq	48(%rbx), %rbp
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
-	addsd	.LC15(%rip), %xmm0
+	addsd	.LC13(%rip), %xmm0
 	movq	48(%rbx), %rdi
 	movsd	%xmm0, 8(%rsp)
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox8GetWidthEv@PLT
@@ -478,19 +495,19 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	16(%rbx), %rdi
 	movq	48(%rbx), %rbp
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
-	subsd	.LC16(%rip), %xmm0
+	subsd	.LC14(%rip), %xmm0
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd@PLT
 	movq	16(%rbx), %rdi
 	movq	56(%rbx), %rbp
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
-	subsd	.LC17(%rip), %xmm0
+	subsd	.LC15(%rip), %xmm0
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetXEd@PLT
 	movq	16(%rbx), %rdi
 	movq	56(%rbx), %rbp
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
-	subsd	.LC16(%rip), %xmm0
+	subsd	.LC14(%rip), %xmm0
 	movq	%rbp, %rdi
 	call	_ZN3wze6engine6actors5actor9flipbooks8flipbook4SetYEd@PLT
 	movq	56(%rbx), %rax
@@ -508,11 +525,11 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6camera4BindEy@PLT
 	movq	(%rbx), %rax
 	leaq	80(%rax), %rdi
-	movq	.LC15(%rip), %rax
+	movq	.LC13(%rip), %rax
 	movq	%rax, %xmm0
 	call	_ZN3wze6engine6camera7SetZoomEd@PLT
 	movq	8(%rbx), %rax
-	movsd	.LC19(%rip), %xmm0
+	movsd	.LC17(%rip), %xmm0
 	movl	$65535, %ecx
 	xorl	%edx, %edx
 	movq	8(%rax), %rax
@@ -522,7 +539,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	movq	168(%rsp), %rax
 	subq	%fs:40, %rax
-	jne	.L55
+	jne	.L59
 	addq	$184, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 56
@@ -539,7 +556,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	popq	%r15
 	.cfi_def_cfa_offset 8
 	ret
-.L49:
+.L55:
 	.cfi_restore_state
 	movq	$10, 32(%rbx)
 	movq	40(%rbx), %rdi
@@ -551,7 +568,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	je	.L3
 	movq	32(%rbx), %rdx
 	jmp	.L4
-.L50:
+.L56:
 	call	_Znwm@PLT
 .LEHE12:
 	movq	8(%rbx), %rdx
@@ -572,55 +589,61 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	call	_ZN10act_playerC1EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd@PLT
 .LEHE13:
 	jmp	.L7
-.L47:
-	movl	$1, %edx
-	movl	$8, %esi
-	leaq	.LC7(%rip), %rdi
+.L48:
+	movq	%rbp, %rsi
+	leaq	.LC9(%rip), %rdi
+	xorl	%eax, %eax
 .LEHB14:
 	call	printf@PLT
 .L10:
 	movl	$1, %edi
 	call	exit@PLT
+.L50:
+	movl	$1, %edx
+	movl	$8, %esi
+	leaq	.LC7(%rip), %rdi
+	call	printf@PLT
+	jmp	.L10
+.L52:
+	movq	%r12, %rsi
+	leaq	.LC9(%rip), %rdi
+	xorl	%eax, %eax
+	call	printf@PLT
+	jmp	.L10
 .L3:
 	movl	$10, %edx
 	movl	$8, %esi
 	leaq	.LC2(%rip), %rdi
 	xorl	%eax, %eax
 	call	printf@PLT
-	jmp	.L10
-.L55:
-	call	__stack_chk_fail@PLT
-.L53:
-	movq	%rbp, %rsi
-	leaq	.LC12(%rip), %rdi
-	xorl	%eax, %eax
-	call	printf@PLT
 .LEHE14:
 	jmp	.L10
-.L39:
+.L59:
+	call	__stack_chk_fail@PLT
+.L40:
 	movq	%rax, %rbp
-	jmp	.L27
-.L33:
-	movq	%rax, %rbp
-	jmp	.L21
-.L37:
-	movq	%rax, %rbp
-	jmp	.L28
+	jmp	.L30
 .L35:
 	movq	%rax, %rbp
 	jmp	.L24
-.L38:
-	movq	%rax, %rbp
-	jmp	.L26
-.L32:
-	movq	%rax, %rbp
-	jmp	.L22
 .L34:
 	movq	%rax, %rbp
-	jmp	.L23
+	jmp	.L25
+.L39:
+	movq	%rax, %rbp
+	jmp	.L31
+.L41:
+	movq	%rax, %rbp
+	jmp	.L30
+.L37:
+	movq	%rax, %rbp
+	jmp	.L27
 .L36:
 	movq	%rax, %rbp
-	jmp	.L25
+	jmp	.L27
+.L38:
+	movq	%rax, %rbp
+	jmp	.L28
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
 .LLSDA8157:
@@ -631,63 +654,63 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 .LLSDACSB8157:
 	.uleb128 .LEHB0-.LFB8157
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L32-.LFB8157
+	.uleb128 .L34-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB1-.LFB8157
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L33-.LFB8157
+	.uleb128 .L35-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB2-.LFB8157
 	.uleb128 .LEHE2-.LEHB2
-	.uleb128 .L32-.LFB8157
+	.uleb128 .L34-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB3-.LFB8157
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L35-.LFB8157
+	.uleb128 .L37-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB4-.LFB8157
 	.uleb128 .LEHE4-.LEHB4
-	.uleb128 .L32-.LFB8157
+	.uleb128 .L34-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB5-.LFB8157
 	.uleb128 .LEHE5-.LEHB5
-	.uleb128 .L36-.LFB8157
+	.uleb128 .L38-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB6-.LFB8157
 	.uleb128 .LEHE6-.LEHB6
-	.uleb128 .L32-.LFB8157
+	.uleb128 .L34-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB7-.LFB8157
 	.uleb128 .LEHE7-.LEHB7
-	.uleb128 .L38-.LFB8157
+	.uleb128 .L40-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB8-.LFB8157
 	.uleb128 .LEHE8-.LEHB8
-	.uleb128 .L32-.LFB8157
+	.uleb128 .L34-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB9-.LFB8157
 	.uleb128 .LEHE9-.LEHB9
-	.uleb128 .L39-.LFB8157
+	.uleb128 .L41-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB10-.LFB8157
 	.uleb128 .LEHE10-.LEHB10
-	.uleb128 .L32-.LFB8157
+	.uleb128 .L34-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB11-.LFB8157
 	.uleb128 .LEHE11-.LEHB11
-	.uleb128 .L37-.LFB8157
+	.uleb128 .L39-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB12-.LFB8157
 	.uleb128 .LEHE12-.LEHB12
-	.uleb128 .L32-.LFB8157
+	.uleb128 .L34-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB13-.LFB8157
 	.uleb128 .LEHE13-.LEHB13
-	.uleb128 .L34-.LFB8157
+	.uleb128 .L36-.LFB8157
 	.uleb128 0
 	.uleb128 .LEHB14-.LFB8157
 	.uleb128 .LEHE14-.LEHB14
-	.uleb128 .L32-.LFB8157
+	.uleb128 .L34-.LFB8157
 	.uleb128 0
 .LLSDACSE8157:
 	.text
@@ -699,7 +722,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	.type	_ZN10scene_playC2EPN3wze6engineEP4game.cold, @function
 _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 .LFSB8157:
-.L27:
+.L30:
 	.cfi_def_cfa_offset 240
 	.cfi_offset 3, -56
 	.cfi_offset 6, -48
@@ -710,7 +733,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	movl	$56, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
-.L22:
+.L25:
 	movq	1128(%rbx), %rdi
 	call	free@PLT
 	movq	1112(%rbx), %rdi
@@ -719,43 +742,33 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	call	free@PLT
 	movq	168(%rsp), %rax
 	subq	%fs:40, %rax
-	jne	.L56
+	jne	.L60
 	movq	%rbp, %rdi
 .LEHB15:
 	call	_Unwind_Resume@PLT
 .LEHE15:
-.L21:
+.L24:
 	movl	$80, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
-	jmp	.L22
-.L56:
+	jmp	.L25
+.L60:
 	call	__stack_chk_fail@PLT
-.L28:
+.L27:
+	movl	$192, %esi
+	movq	%r12, %rdi
+	call	_ZdlPvm@PLT
+	jmp	.L25
+.L31:
 	movl	$136, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
-	jmp	.L22
-.L24:
-	movl	$192, %esi
-	movq	%r12, %rdi
-	call	_ZdlPvm@PLT
-	jmp	.L22
-.L26:
-	movl	$56, %esi
-	movq	%r12, %rdi
-	call	_ZdlPvm@PLT
-	jmp	.L22
-.L23:
-	movl	$192, %esi
-	movq	%r12, %rdi
-	call	_ZdlPvm@PLT
-	jmp	.L22
-.L25:
+	jmp	.L25
+.L28:
 	movl	$16, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
-	jmp	.L22
+	jmp	.L25
 	.cfi_endproc
 .LFE8157:
 	.section	.gcc_except_table
@@ -765,7 +778,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB15-.LCOLDB20
+	.uleb128 .LEHB15-.LCOLDB18
 	.uleb128 .LEHE15-.LEHB15
 	.uleb128 0
 	.uleb128 0
@@ -775,9 +788,9 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	.size	_ZN10scene_playC2EPN3wze6engineEP4game, .-_ZN10scene_playC2EPN3wze6engineEP4game
 	.section	.text.unlikely
 	.size	_ZN10scene_playC2EPN3wze6engineEP4game.cold, .-_ZN10scene_playC2EPN3wze6engineEP4game.cold
-.LCOLDE20:
+.LCOLDE18:
 	.text
-.LHOTE20:
+.LHOTE18:
 	.globl	_ZN10scene_playC1EPN3wze6engineEP4game
 	.set	_ZN10scene_playC1EPN3wze6engineEP4game,_ZN10scene_playC2EPN3wze6engineEP4game
 	.align 2
@@ -814,55 +827,55 @@ _ZN10scene_playD2Ev:
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
 	movq	64(%r13), %rbx
 	testq	%rbx, %rbx
-	je	.L58
+	je	.L62
 	movq	%rbx, %rdi
 	call	_ZN9gui_pauseD1Ev@PLT
 	movl	$80, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
-.L58:
+.L62:
 	movq	72(%r13), %rbx
 	testq	%rbx, %rbx
-	je	.L59
+	je	.L63
 	movq	%rbx, %rdi
 	call	_ZN10act_playerD1Ev@PLT
 	movl	$192, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
-.L59:
+.L63:
 	leaq	208(%r13), %r12
 	leaq	1232(%r13), %r14
 	.p2align 4,,10
 	.p2align 3
-.L60:
+.L64:
 	leaq	-128(%r12), %rbx
 	.p2align 4,,10
 	.p2align 3
-.L62:
+.L66:
 	movq	(%rbx), %rbp
 	testq	%rbp, %rbp
-	je	.L61
+	je	.L65
 	movq	%rbp, %rdi
 	call	_ZN10tile_tokenD1Ev@PLT
 	movl	$16, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
-.L61:
+.L65:
 	addq	$8, %rbx
 	cmpq	%r12, %rbx
-	jne	.L62
+	jne	.L66
 	leaq	128(%rbx), %r12
 	cmpq	%r14, %r12
-	jne	.L60
+	jne	.L64
 	movq	1104(%r13), %rdx
 	xorl	%ebx, %ebx
 	xorl	%eax, %eax
 	testq	%rdx, %rdx
-	jne	.L89
-	jmp	.L69
+	jne	.L93
+	jmp	.L73
 	.p2align 4,,10
 	.p2align 3
-.L91:
+.L95:
 	movq	%rbp, %rdi
 	addl	$1, %ebx
 	call	_ZN9act_crateD1Ev@PLT
@@ -872,27 +885,27 @@ _ZN10scene_playD2Ev:
 	movq	1104(%r13), %rdx
 	movzbl	%bl, %eax
 	cmpq	%rdx, %rax
-	jnb	.L69
-.L89:
+	jnb	.L73
+.L93:
 	movq	1112(%r13), %rcx
-.L64:
+.L68:
 	movq	(%rcx,%rax,8), %rbp
 	testq	%rbp, %rbp
-	jne	.L91
+	jne	.L95
 	addl	$1, %ebx
 	movzbl	%bl, %eax
 	cmpq	%rdx, %rax
-	jb	.L64
-.L69:
+	jb	.L68
+.L73:
 	movq	1120(%r13), %rdx
 	xorl	%ebx, %ebx
 	xorl	%eax, %eax
 	testq	%rdx, %rdx
-	jne	.L90
-	jmp	.L66
+	jne	.L94
+	jmp	.L70
 	.p2align 4,,10
 	.p2align 3
-.L92:
+.L96:
 	movq	%rbp, %rdi
 	addl	$1, %ebx
 	call	_ZN8act_tunaD1Ev@PLT
@@ -902,27 +915,27 @@ _ZN10scene_playD2Ev:
 	movq	1120(%r13), %rdx
 	movzbl	%bl, %eax
 	cmpq	%rdx, %rax
-	jnb	.L66
-.L90:
+	jnb	.L70
+.L94:
 	movq	1128(%r13), %rcx
-.L65:
+.L69:
 	movq	(%rcx,%rax,8), %rbp
 	testq	%rbp, %rbp
-	jne	.L92
+	jne	.L96
 	addl	$1, %ebx
 	movzbl	%bl, %eax
 	cmpq	%rdx, %rax
-	jb	.L65
-.L66:
+	jb	.L69
+.L70:
 	movq	1136(%r13), %rbx
 	testq	%rbx, %rbx
-	je	.L71
+	je	.L75
 	movq	%rbx, %rdi
 	call	_ZN10tile_houseD1Ev@PLT
 	movl	$136, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
-.L71:
+.L75:
 	movq	0(%r13), %rax
 	xorl	%esi, %esi
 	leaq	160(%rax), %rdi
@@ -958,17 +971,17 @@ _ZN10scene_playD2Ev:
 	.globl	_ZN10scene_playD1Ev
 	.set	_ZN10scene_playD1Ev,_ZN10scene_playD2Ev
 	.section	.rodata.str1.1
-.LC21:
+.LC19:
 	.string	"ms"
-.LC22:
+.LC20:
 	.string	"FrameTime: "
-.LC23:
+.LC22:
 	.string	"/"
 	.section	.text.unlikely
 	.align 2
-.LCOLDB24:
+.LCOLDB23:
 	.text
-.LHOTB24:
+.LHOTB23:
 	.align 2
 	.p2align 4
 	.globl	_ZN10scene_play6UpdateEv
@@ -1008,7 +1021,7 @@ _ZN10scene_play6UpdateEv:
 .LEHB16:
 	call	_ZN3neo6stringC1Ev@PLT
 .LEHE16:
-	leaq	.LC21(%rip), %rax
+	leaq	.LC19(%rip), %rax
 	movq	%r13, 8(%rsp)
 	movq	24(%rbp), %rbx
 	movq	%rax, 96(%rsp)
@@ -1021,7 +1034,7 @@ _ZN10scene_play6UpdateEv:
 	leaq	88(%rsp), %r15
 	movq	%r14, %rdi
 	movq	%rax, 88(%rsp)
-	leaq	.LC22(%rip), %rax
+	leaq	.LC20(%rip), %rax
 	movq	%rax, 80(%rsp)
 	leaq	80(%rsp), %rax
 	movq	%rax, %rsi
@@ -1056,28 +1069,27 @@ _ZN10scene_play6UpdateEv:
 	movq	0(%rbp), %rax
 	leaq	160(%rax), %rdi
 	testb	%dl, %dl
-	jne	.L94
+	jne	.L98
 	call	_ZN3wze6engine5audio8PauseAllEv@PLT
-.L95:
+	movq	72(%rbp), %rax
+	cmpb	$1, 153(%rax)
+	je	.L145
+.L101:
 	movq	64(%rbp), %rdi
 	call	_ZN9gui_pause6UpdateEv@PLT
 	cmpl	$1, %eax
-	je	.L96
+	je	.L102
 	cmpl	$2, %eax
-	je	.L119
-	movq	72(%rbp), %rax
-	cmpb	$1, 153(%rax)
-	je	.L141
-.L99:
+	je	.L123
 	leaq	208(%rbp), %r12
 	leaq	1232(%rbp), %r13
 	.p2align 4,,10
 	.p2align 3
-.L100:
+.L104:
 	leaq	-128(%r12), %rbx
 	.p2align 4,,10
 	.p2align 3
-.L101:
+.L105:
 	movq	(%rbx), %rdi
 	call	_ZN10tile_token6UpdateEv@PLT
 	movq	(%rbx), %rdi
@@ -1087,67 +1099,67 @@ _ZN10scene_play6UpdateEv:
 	call	_ZN10tile_token6RotateEb@PLT
 	addq	$8, %rbx
 	cmpq	%rbx, %r12
-	jne	.L101
+	jne	.L105
 	subq	$-128, %r12
 	cmpq	%r12, %r13
-	jne	.L100
+	jne	.L104
 	movq	1136(%rbp), %rdi
 	call	_ZN10tile_house6UpdateEv@PLT
 	xorl	%ebx, %ebx
 	xorl	%eax, %eax
 	cmpq	$0, 1104(%rbp)
-	je	.L106
+	je	.L110
 	.p2align 4,,10
 	.p2align 3
-.L103:
+.L107:
 	movq	1112(%rbp), %rdx
 	movq	(%rdx,%rax,8), %rdi
 	call	_ZN9act_crate6UpdateEv@PLT
 	addl	$1, %ebx
 	movzbl	%bl, %eax
 	cmpq	1104(%rbp), %rax
-	jb	.L103
-.L106:
+	jb	.L107
+.L110:
 	movq	1120(%rbp), %rcx
 	xorl	%ebx, %ebx
 	xorl	%eax, %eax
 	testq	%rcx, %rcx
-	je	.L105
+	je	.L109
 	.p2align 4,,10
 	.p2align 3
-.L104:
+.L108:
 	movq	1128(%rbp), %rdx
 	movq	(%rdx,%rax,8), %rdi
 	testq	%rdi, %rdi
-	je	.L108
+	je	.L112
 	call	_ZN8act_tuna6UpdateEv@PLT
 	movq	1120(%rbp), %rcx
-.L108:
+.L112:
 	addl	$1, %ebx
 	movzbl	%bl, %eax
 	cmpq	%rcx, %rax
-	jb	.L104
-.L105:
+	jb	.L108
+.L109:
 	movq	72(%rbp), %rdi
 	call	_ZN10act_player6UpdateEv@PLT
 	xorl	%ebx, %ebx
 	xorl	%eax, %eax
 	cmpq	$0, 32(%rbp)
-	jne	.L109
-	jmp	.L115
+	jne	.L113
+	jmp	.L119
 	.p2align 4,,10
 	.p2align 3
-.L142:
+.L146:
 	testb	%dl, %dl
-	je	.L112
+	je	.L116
 	movq	96(%rcx), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy@PLT
-.L113:
+.L117:
 	addl	$1, %ebx
 	movzbl	%bl, %eax
 	cmpq	32(%rbp), %rax
-	jnb	.L115
-.L109:
+	jnb	.L119
+.L113:
 	movq	40(%rbp), %rcx
 	movl	%ebx, %edx
 	andl	$1, %edx
@@ -1156,23 +1168,23 @@ _ZN10scene_play6UpdateEv:
 	movq	8(%rax), %rcx
 	movq	72(%rbp), %rax
 	cmpb	153(%rax), %bl
-	jb	.L142
+	jb	.L146
 	testb	%dl, %dl
-	je	.L114
+	je	.L118
 	movq	104(%rcx), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy@PLT
 	addl	$1, %ebx
 	movzbl	%bl, %eax
 	cmpq	32(%rbp), %rax
-	jb	.L109
-.L115:
+	jb	.L113
+.L119:
 	movq	(%rsp), %rsi
 	movl	$1, %edx
 	movq	%r14, %rdi
 	movq	48(%rbp), %rbx
 	movq	1120(%rbp), %rax
 	movq	%rax, 96(%rsp)
-	leaq	.LC23(%rip), %rax
+	leaq	.LC22(%rip), %rax
 	movq	%rax, 88(%rsp)
 	movq	72(%rbp), %rax
 	movzbl	152(%rax), %eax
@@ -1194,7 +1206,7 @@ _ZN10scene_play6UpdateEv:
 	movq	16(%rbp), %rdi
 	movq	48(%rbp), %rbx
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
-	addsd	.LC15(%rip), %xmm0
+	addsd	.LC13(%rip), %xmm0
 	movq	48(%rbp), %rdi
 	movsd	%xmm0, (%rsp)
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox8GetWidthEv@PLT
@@ -1205,14 +1217,14 @@ _ZN10scene_play6UpdateEv:
 	cvtsi2sdl	%eax, %xmm0
 	addsd	(%rsp), %xmm0
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd@PLT
-.L96:
+.L102:
 	movl	$2, %ebx
-.L97:
+.L103:
 	movq	%r14, %rdi
 	call	_ZN3neo6stringD1Ev@PLT
 	movq	104(%rsp), %rax
 	subq	%fs:40, %rax
-	jne	.L143
+	jne	.L147
 	addq	$120, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 56
@@ -1232,33 +1244,32 @@ _ZN10scene_play6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L112:
+.L116:
 	.cfi_restore_state
 	movq	80(%rcx), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy@PLT
-	jmp	.L113
+	jmp	.L117
 	.p2align 4,,10
 	.p2align 3
-.L114:
+.L118:
 	movq	88(%rcx), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy@PLT
-	jmp	.L113
-.L94:
+	jmp	.L117
+.L98:
 	call	_ZN3wze6engine5audio9ResumeAllEv@PLT
-	jmp	.L95
-.L119:
-	movl	$1, %ebx
-	jmp	.L97
-.L141:
+	movq	72(%rbp), %rax
+	cmpb	$1, 153(%rax)
+	jne	.L101
+.L145:
 	movq	0(%rbp), %rax
 	leaq	32(%rsp), %rdi
 	movl	$11, %edx
 	leaq	160(%rax), %rsi
 	call	_ZN3wze6engine5audioixEt@PLT
 	cmpq	$0, 32(%rsp)
-	jne	.L99
+	jne	.L101
 	movq	8(%rbp), %rax
-	movsd	.LC8(%rip), %xmm0
+	movsd	.LC21(%rip), %xmm0
 	xorl	%ecx, %ecx
 	movl	$11, %edx
 	movq	8(%rax), %rax
@@ -1267,12 +1278,15 @@ _ZN10scene_play6UpdateEv:
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 .LEHE17:
-	jmp	.L99
-.L143:
-	call	__stack_chk_fail@PLT
+	jmp	.L101
 .L123:
+	movl	$1, %ebx
+	jmp	.L103
+.L147:
+	call	__stack_chk_fail@PLT
+.L127:
 	movq	%rax, %rbx
-	jmp	.L116
+	jmp	.L120
 	.section	.gcc_except_table
 .LLSDA8162:
 	.byte	0xff
@@ -1286,7 +1300,7 @@ _ZN10scene_play6UpdateEv:
 	.uleb128 0
 	.uleb128 .LEHB17-.LFB8162
 	.uleb128 .LEHE17-.LEHB17
-	.uleb128 .L123-.LFB8162
+	.uleb128 .L127-.LFB8162
 	.uleb128 0
 .LLSDACSE8162:
 	.text
@@ -1298,7 +1312,7 @@ _ZN10scene_play6UpdateEv:
 	.type	_ZN10scene_play6UpdateEv.cold, @function
 _ZN10scene_play6UpdateEv.cold:
 .LFSB8162:
-.L116:
+.L120:
 	.cfi_def_cfa_offset 176
 	.cfi_offset 3, -56
 	.cfi_offset 6, -48
@@ -1310,12 +1324,12 @@ _ZN10scene_play6UpdateEv.cold:
 	call	_ZN3neo6stringD1Ev@PLT
 	movq	104(%rsp), %rax
 	subq	%fs:40, %rax
-	jne	.L144
+	jne	.L148
 	movq	%rbx, %rdi
 .LEHB18:
 	call	_Unwind_Resume@PLT
 .LEHE18:
-.L144:
+.L148:
 	call	__stack_chk_fail@PLT
 	.cfi_endproc
 .LFE8162:
@@ -1326,7 +1340,7 @@ _ZN10scene_play6UpdateEv.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8162-.LLSDACSBC8162
 .LLSDACSBC8162:
-	.uleb128 .LEHB18-.LCOLDB24
+	.uleb128 .LEHB18-.LCOLDB23
 	.uleb128 .LEHE18-.LEHB18
 	.uleb128 0
 	.uleb128 0
@@ -1336,9 +1350,9 @@ _ZN10scene_play6UpdateEv.cold:
 	.size	_ZN10scene_play6UpdateEv, .-_ZN10scene_play6UpdateEv
 	.section	.text.unlikely
 	.size	_ZN10scene_play6UpdateEv.cold, .-_ZN10scene_play6UpdateEv.cold
-.LCOLDE24:
+.LCOLDE23:
 	.text
-.LHOTE24:
+.LHOTE23:
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
 .LC4:
@@ -1355,39 +1369,41 @@ _ZN10scene_play6UpdateEv.cold:
 	.align 8
 .LC8:
 	.long	0
-	.long	1071644672
-	.align 8
-.LC9:
-	.long	0
-	.long	1079246848
+	.long	1080377344
 	.align 8
 .LC10:
 	.long	0
-	.long	1080172544
-	.align 8
-.LC11:
-	.long	0
-	.long	1080418304
-	.align 8
-.LC14:
-	.long	0
 	.long	1082413056
+	.section	.rodata.cst4,"aM",@progbits,4
+	.align 4
+.LC11:
+	.value	30
+	.value	72
+	.section	.rodata.cst8
 	.align 8
-.LC15:
+.LC12:
+	.long	0
+	.long	1077805056
+	.align 8
+.LC13:
 	.long	0
 	.long	1075052544
 	.align 8
-.LC16:
+.LC14:
 	.long	0
 	.long	1082208256
 	.align 8
-.LC17:
+.LC15:
 	.long	0
 	.long	1078231040
 	.align 8
-.LC19:
+.LC17:
 	.long	0
 	.long	1072693248
+	.align 8
+.LC21:
+	.long	0
+	.long	1071644672
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

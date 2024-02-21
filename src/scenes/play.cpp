@@ -71,20 +71,17 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->FrameTime->SetX(10 + (this->FrameTime->GetWidth() >> 1));
     this->FrameTime->SetY(this->Engine->Window.GetHeight() - 10 - (this->FrameTime->GetHeight() >> 1));
 
-    for (uint8 i = 0; i < this->HealthBar.Length(); i++)
+    for (uint8 i = 0; i < this->HealthBar.Length(); i += 2)
     {
-        if (i % 2)
-        {
-            this->HealthBar[i]->SetX(this->Actor->GetX() - 145 + 80 * ((i - 1) / 2.0));   
-        }
-        else
-        {
-            this->HealthBar[i]->SetX(this->Actor->GetX() - 175 + 80 * (i / 2.0));
-        }
-
+        this->HealthBar[i]->SetX(this->Actor->GetX() - 170 + i * 40);
+        this->HealthBar[i]->SetY(this->Actor->GetY() - 650);
         this->HealthBar[i]->Width = 30;
         this->HealthBar[i]->Height = 72;
-        this->HealthBar[i]->SetY(this->Actor->GetY() - 650);
+
+        this->HealthBar[i + 1]->SetX(this->Actor->GetX() - 170 + i * 40 + 30);
+        this->HealthBar[i + 1]->SetY(this->Actor->GetY() - 650);
+        this->HealthBar[i + 1]->Width = 30;
+        this->HealthBar[i + 1]->Height = 72;
     }
 
     this->TunaCount->SetHeight(50);
