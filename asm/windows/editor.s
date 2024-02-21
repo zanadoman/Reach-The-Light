@@ -119,7 +119,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rbp), %rax
 	leaq	104(%rdi), %rcx
 	movq	8(%rax), %rax
-	movq	8(%rax), %r8
+	movq	16(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movq	16(%rbp), %rdi
 	leaq	.LC3(%rip), %rdx
@@ -127,7 +127,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rbp), %rax
 	leaq	104(%rdi), %rcx
 	movq	8(%rax), %rax
-	movq	8(%rax), %r8
+	movq	16(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movq	16(%rbp), %rdi
 	leaq	.LC4(%rip), %rdx
@@ -135,7 +135,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rbp), %rax
 	leaq	104(%rdi), %rcx
 	movq	8(%rax), %rax
-	movq	8(%rax), %r8
+	movq	16(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movq	16(%rbp), %rdi
 	leaq	.LC5(%rip), %rdx
@@ -143,7 +143,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rbp), %rax
 	leaq	104(%rdi), %rcx
 	movq	8(%rax), %rax
-	movq	8(%rax), %r8
+	movq	16(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movq	16(%rbp), %rdi
 	leaq	.LC6(%rip), %rdx
@@ -151,7 +151,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rbp), %rax
 	leaq	104(%rdi), %rcx
 	movq	8(%rax), %rax
-	movq	8(%rax), %r8
+	movq	16(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movq	16(%rbp), %rdi
 	leaq	.LC7(%rip), %rdx
@@ -159,7 +159,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rbp), %rax
 	leaq	104(%rdi), %rcx
 	movq	8(%rax), %rax
-	movq	8(%rax), %r8
+	movq	16(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movq	16(%rbp), %rdi
 	leaq	.LC8(%rip), %rdx
@@ -167,7 +167,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rbp), %rax
 	leaq	104(%rdi), %rcx
 	movq	8(%rax), %rax
-	movq	8(%rax), %r8
+	movq	16(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movq	16(%rbp), %rdi
 	leaq	.LC9(%rip), %rdx
@@ -175,7 +175,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rbp), %rax
 	leaq	104(%rdi), %rcx
 	movq	8(%rax), %rax
-	movq	8(%rax), %r8
+	movq	16(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movl	$56, %ecx
 	movq	%rax, 112(%rbp)

@@ -34,14 +34,14 @@ _Z6printfPKcz:
 	.seh_endproc
 	.section .rdata,"dr"
 .LC0:
-	.ascii "assets/fonts/Hack-Bold.ttf\0"
-	.align 8
+	.ascii "assets/fonts/Hack-Regular.ttf\0"
 .LC1:
-	.ascii "assets/fonts/Hack-BoldItalic.ttf\0"
+	.ascii "assets/fonts/Hack-Bold.ttf\0"
 .LC2:
 	.ascii "assets/fonts/Hack-Italic.ttf\0"
+	.align 8
 .LC3:
-	.ascii "assets/fonts/Hack-Regular.ttf\0"
+	.ascii "assets/fonts/Hack-BoldItalic.ttf\0"
 .LC4:
 	.ascii "assets/gui/menu_title.png\0"
 	.align 8
@@ -398,7 +398,7 @@ _ZN6assetsC2EPN3wze6engineE:
 	subq	$952, %rsp
 	.seh_stackalloc	952
 	.seh_endprologue
-	movl	$72, %r8d
+	movl	$255, %r8d
 	movq	%rdx, (%rcx)
 	movq	%rcx, %rbx
 	movq	$0, 128(%rcx)
@@ -431,19 +431,19 @@ _ZN6assetsC2EPN3wze6engineE:
 	call	_ZN3wze6engine6assets8LoadFontEPKch
 	movq	%rax, 8(%rbx)
 	movq	(%rbx), %rax
-	movl	$72, %r8d
+	movl	$255, %r8d
 	leaq	.LC1(%rip), %rdx
 	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets8LoadFontEPKch
 	movq	%rax, 16(%rbx)
 	movq	(%rbx), %rax
-	movl	$72, %r8d
+	movl	$255, %r8d
 	leaq	.LC2(%rip), %rdx
 	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets8LoadFontEPKch
 	movq	%rax, 24(%rbx)
 	movq	(%rbx), %rax
-	movl	$72, %r8d
+	movl	$255, %r8d
 	leaq	.LC3(%rip), %rdx
 	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets8LoadFontEPKch

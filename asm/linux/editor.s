@@ -114,7 +114,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	%rax, 48(%r13)
 	movq	8(%r13), %rax
 	movq	8(%rax), %rax
-	movq	8(%rax), %rdx
+	movq	16(%rax), %rdx
 	movq	16(%r13), %rax
 	leaq	104(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
@@ -122,7 +122,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	%rax, 56(%r13)
 	movq	8(%r13), %rax
 	movq	8(%rax), %rax
-	movq	8(%rax), %rdx
+	movq	16(%rax), %rdx
 	movq	16(%r13), %rax
 	leaq	104(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
@@ -130,7 +130,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	%rax, 64(%r13)
 	movq	8(%r13), %rax
 	movq	8(%rax), %rax
-	movq	8(%rax), %rdx
+	movq	16(%rax), %rdx
 	movq	16(%r13), %rax
 	leaq	104(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
@@ -138,7 +138,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	%rax, 72(%r13)
 	movq	8(%r13), %rax
 	movq	8(%rax), %rax
-	movq	8(%rax), %rdx
+	movq	16(%rax), %rdx
 	movq	16(%r13), %rax
 	leaq	104(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
@@ -146,7 +146,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	%rax, 80(%r13)
 	movq	8(%r13), %rax
 	movq	8(%rax), %rax
-	movq	8(%rax), %rdx
+	movq	16(%rax), %rdx
 	movq	16(%r13), %rax
 	leaq	104(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
@@ -154,7 +154,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	%rax, 88(%r13)
 	movq	8(%r13), %rax
 	movq	8(%rax), %rax
-	movq	8(%rax), %rdx
+	movq	16(%rax), %rdx
 	movq	16(%r13), %rax
 	leaq	104(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
@@ -162,7 +162,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	%rax, 96(%r13)
 	movq	8(%r13), %rax
 	movq	8(%rax), %rax
-	movq	8(%rax), %rdx
+	movq	16(%rax), %rdx
 	movq	16(%r13), %rax
 	leaq	104(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
@@ -170,7 +170,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	%rax, 104(%r13)
 	movq	8(%r13), %rax
 	movq	8(%rax), %rax
-	movq	8(%rax), %rdx
+	movq	16(%rax), %rdx
 	movq	16(%r13), %rax
 	leaq	104(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT

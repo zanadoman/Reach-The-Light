@@ -7,6 +7,7 @@ scene_story::scene_story(engine* Engine, game* Game) : Engine(Engine), Game(Game
     this->CurrentChar = 0;
     this->CurrentLine = 0;
     this->Lines += {this->Actor->Textboxes.New("", this->Game->Assets->HackItalicFont)};
+    this->ChannelSwitch = false;
     this->Sleep = 0;
     this->Skip = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 650, 0, "Tovább");
 
@@ -42,7 +43,7 @@ scene scene_story::Update()
             this->Lines[this->CurrentLine]->SetY(this->Actor->GetY() + 500 - 80 * this->CurrentLine);
 
             
-            if (this->CurrentChar % 2)
+            if (this->ChannelSwitch)
             {
                 this->Engine->Audio.Play(this->Game->Assets->TypingReturnAudio, CH_TYPING1, 0.8, 0);
             }
@@ -50,22 +51,34 @@ scene scene_story::Update()
             {
                 this->Engine->Audio.Play(this->Game->Assets->TypingReturnAudio, CH_TYPING2, 0.8, 0);
             }
+
+            this->ChannelSwitch = !this->ChannelSwitch;
             
             this->Sleep = this->Engine->Timing.GetCurrentTick() + 1000;
         }
         else
         {
-            (str = {this->Lines[this->CurrentLine]->GetLiteral()}) += {this->Story[this->CurrentChar]};
+            if (21 <= this->Story[this->CurrentChar] && this->Story[this->CurrentChar] <= 126)
+            {
+                (str = {this->Lines[this->CurrentLine]->GetLiteral()}) += {this->Story[this->CurrentChar]};
+            }
+            else
+            {
+                (str = {this->Lines[this->CurrentLine]->GetLiteral()}) += {this->Story[this->CurrentChar], this->Story[++this->CurrentChar]};
+            }
+
             this->Lines[this->CurrentLine]->SetLiteral(str());
             
-            if (this->CurrentChar % 2)
+            if (this->ChannelSwitch)
             {
                 this->Engine->Audio.Play(this->Game->Assets->TypingAudio[this->Engine->Math.Random(0, this->Game->Assets->TypingAudio.Length())], CH_TYPING1, this->Engine->Math.Random(30, 60) / 100.0, 0);
             }
-            else 
+            else
             {
                 this->Engine->Audio.Play(this->Game->Assets->TypingAudio[this->Engine->Math.Random(0, this->Game->Assets->TypingAudio.Length())], CH_TYPING2, this->Engine->Math.Random(30, 60) / 100.0, 0);
             }
+
+            this->ChannelSwitch = !this->ChannelSwitch;
 
             this->Sleep = this->Engine->Timing.GetCurrentTick() + 150;
         }

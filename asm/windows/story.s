@@ -137,8 +137,9 @@ _ZN11scene_storyC2EPN3wze6engineEP4game:
 	movq	%rdi, %rcx
 	leaq	-8(%rax,%rdx,8), %rdx
 	call	_ZN3neo6memory6CopyToEPKvPvy
-	movl	$0, 64(%rbx)
+	movb	$0, 64(%rbx)
 	movl	$56, %ecx
+	movl	$0, 68(%rbx)
 	call	_Znwy
 .LEHE1:
 	movq	16(%rbx), %rcx
@@ -376,7 +377,7 @@ _ZN11scene_story6UpdateEv:
 	call	_ZN3neo6stringC1Ev
 .LEHE5:
 	movq	(%rbx), %rax
-	movl	64(%rbx), %edi
+	movl	68(%rbx), %edi
 	leaq	416(%rax), %rcx
 .LEHB6:
 	call	_ZN3wze6engine6timing14GetCurrentTickEv
@@ -389,7 +390,7 @@ _ZN11scene_story6UpdateEv:
 	subq	$1, %rax
 	cmpq	%rax, %rdx
 	jb	.L24
-.L41:
+.L46:
 	movl	$3, %ebx
 .L25:
 	movq	%rsi, %rcx
@@ -410,17 +411,37 @@ _ZN11scene_story6UpdateEv:
 	movq	%rdi, %rcx
 	call	_ZN3neo6stringixEy
 	cmpb	$10, (%rax)
-	je	.L55
+	je	.L63
+	movzwl	40(%rbx), %edx
+	movq	%rdi, %rcx
+	call	_ZN3neo6stringixEy
+	cmpb	$20, (%rax)
+	movzwl	40(%rbx), %edx
+	jle	.L34
+	movq	%rdi, %rcx
+	call	_ZN3neo6stringixEy
+	cmpb	$127, (%rax)
+	movzwl	40(%rbx), %edx
+	jne	.L64
+.L34:
 	movzwl	40(%rbx), %edx
 	movq	%rdi, %rcx
 	call	_ZN3neo6stringixEy
 	movzbl	(%rax), %eax
+	movq	%rdi, %rcx
+	movb	%al, 86(%rsp)
+	movzwl	40(%rbx), %eax
+	leal	1(%rax), %edx
+	movw	%dx, 40(%rbx)
+	movzwl	%dx, %edx
+	call	_ZN3neo6stringixEy
+	movzbl	(%rax), %eax
 	movzbl	42(%rbx), %edx
-	leaq	87(%rsp), %rbp
+	leaq	86(%rsp), %rbp
 	movb	%al, 87(%rsp)
 	movq	56(%rbx), %rax
 	cmpq	48(%rbx), %rdx
-	jnb	.L54
+	jnb	.L62
 	movq	(%rax,%rdx,8), %rcx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox10GetLiteralEv
 	movq	%rax, 88(%rsp)
@@ -433,12 +454,13 @@ _ZN11scene_story6UpdateEv:
 	movq	%rax, %rcx
 	leaq	48(%rsp), %rdx
 	movq	%rbp, 48(%rsp)
-	movq	$1, 56(%rsp)
+	movq	$2, 56(%rsp)
 	call	_ZN3neo6stringpLESt16initializer_listIcE
+.L38:
 	movzbl	42(%rbx), %edx
 	movq	56(%rbx), %rax
 	cmpq	48(%rbx), %rdx
-	jnb	.L54
+	jnb	.L62
 	movq	%rsi, %rcx
 	movq	(%rax,%rdx,8), %rbp
 	call	_ZN3neo6stringclEv
@@ -450,8 +472,8 @@ _ZN11scene_story6UpdateEv:
 	movl	$30, %edx
 	leaq	160(%rcx), %rbp
 	addq	$336, %rcx
-	testb	$1, 40(%rbx)
-	je	.L36
+	cmpb	$0, 64(%rbx)
+	je	.L41
 	call	_ZN3wze6engine4math6RandomEii
 	pxor	%xmm6, %xmm6
 	xorl	%edx, %edx
@@ -466,20 +488,21 @@ _ZN11scene_story6UpdateEv:
 	movq	536(%r12), %rdx
 	cltq
 	cmpq	528(%r12), %rax
-	jnb	.L46
+	jnb	.L53
 	movq	(%rdx,%rax,8), %rdx
 	movapd	%xmm6, %xmm3
 	movl	$12, %r8d
 	movq	%rbp, %rcx
 	movl	$0, 32(%rsp)
 	call	_ZN3wze6engine5audio4PlayEytdt
-.L38:
+.L43:
+	xorb	$1, 64(%rbx)
 	movq	(%rbx), %rax
 	leaq	416(%rax), %rcx
 	call	_ZN3wze6engine6timing14GetCurrentTickEv
 	addl	$150, %eax
 .L33:
-	movl	%eax, 64(%rbx)
+	movl	%eax, 68(%rbx)
 	movq	%rdi, %rcx
 	call	_ZN3neo6string6LengthEv
 	movzwl	40(%rbx), %edi
@@ -493,14 +516,14 @@ _ZN11scene_story6UpdateEv:
 	leaq	416(%rax), %rcx
 	call	_ZN3wze6engine6timing14GetCurrentTickEv
 	addl	$3000, %eax
-	movl	%eax, 64(%rbx)
+	movl	%eax, 68(%rbx)
 	.p2align 4,,10
 	.p2align 3
 .L23:
 	movq	72(%rbx), %rcx
 	call	_ZN10gui_button6UpdateEv
 	testb	%al, %al
-	jne	.L41
+	jne	.L46
 	movq	(%rbx), %rcx
 	movl	$40, %edx
 	addq	$192, %rcx
@@ -510,7 +533,7 @@ _ZN11scene_story6UpdateEv:
 	jmp	.L25
 	.p2align 4,,10
 	.p2align 3
-.L55:
+.L63:
 	movq	8(%rbx), %rax
 	movq	16(%rbx), %rdx
 	movq	8(%rax), %rax
@@ -527,7 +550,7 @@ _ZN11scene_story6UpdateEv:
 	call	realloc
 	movq	%rax, 56(%rbx)
 	testq	%rax, %rax
-	je	.L56
+	je	.L65
 	movq	48(%rbx), %rdx
 	leaq	88(%rsp), %rcx
 	movl	$8, %r8d
@@ -539,14 +562,14 @@ _ZN11scene_story6UpdateEv:
 	movb	%dl, 42(%rbx)
 	movzbl	%dl, %edx
 	cmpq	48(%rbx), %rdx
-	jnb	.L54
+	jnb	.L62
 	movq	(%rax,%rdx,8), %rcx
 	movl	$40, %edx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
 	movzbl	42(%rbx), %edx
 	movq	56(%rbx), %rax
 	cmpq	48(%rbx), %rdx
-	jnb	.L54
+	jnb	.L62
 	movq	16(%rbx), %rcx
 	movq	(%rax,%rdx,8), %rbp
 	call	_ZN3wze6engine6actors5actor4GetYEv
@@ -565,13 +588,14 @@ _ZN11scene_story6UpdateEv:
 	movsd	.LC9(%rip), %xmm3
 	movq	8(%rax), %rax
 	addq	$160, %rcx
-	testb	$1, 40(%rbx)
+	cmpb	$0, 64(%rbx)
 	movq	544(%rax), %rdx
 	movl	$0, 32(%rsp)
-	jne	.L57
+	jne	.L66
 	movl	$13, %r8d
 	call	_ZN3wze6engine5audio4PlayEytdt
 .L32:
+	xorb	$1, 64(%rbx)
 	movq	(%rbx), %rax
 	leaq	416(%rax), %rcx
 	call	_ZN3wze6engine6timing14GetCurrentTickEv
@@ -579,7 +603,7 @@ _ZN11scene_story6UpdateEv:
 	jmp	.L33
 	.p2align 4,,10
 	.p2align 3
-.L36:
+.L41:
 	call	_ZN3wze6engine4math6RandomEii
 	pxor	%xmm6, %xmm6
 	xorl	%edx, %edx
@@ -594,38 +618,65 @@ _ZN11scene_story6UpdateEv:
 	movq	536(%r12), %rdx
 	cltq
 	cmpq	528(%r12), %rax
-	jnb	.L46
+	jnb	.L53
 	movq	(%rdx,%rax,8), %rdx
 	movapd	%xmm6, %xmm3
 	movl	$13, %r8d
 	movq	%rbp, %rcx
 	movl	$0, 32(%rsp)
 	call	_ZN3wze6engine5audio4PlayEytdt
-	jmp	.L38
+	jmp	.L43
 	.p2align 4,,10
 	.p2align 3
-.L57:
+.L66:
 	movl	$12, %r8d
 	call	_ZN3wze6engine5audio4PlayEytdt
 	jmp	.L32
-.L46:
+	.p2align 4,,10
+	.p2align 3
+.L64:
+	movq	%rdi, %rcx
+	call	_ZN3neo6stringixEy
+	movzbl	(%rax), %eax
+	movzbl	42(%rbx), %edx
+	leaq	85(%rsp), %rbp
+	movb	%al, 85(%rsp)
+	movq	56(%rbx), %rax
+	cmpq	48(%rbx), %rdx
+	jnb	.L62
+	movq	(%rax,%rdx,8), %rcx
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox10GetLiteralEv
+	movq	%rax, 88(%rsp)
+	leaq	64(%rsp), %rdx
+	leaq	88(%rsp), %rax
+	movq	%rsi, %rcx
+	movq	%rax, 64(%rsp)
+	movq	$1, 72(%rsp)
+	call	_ZN3neo6stringaSESt16initializer_listIPKcE
+	movq	%rax, %rcx
+	leaq	48(%rsp), %rdx
+	movq	%rbp, 48(%rsp)
+	movq	$1, 56(%rsp)
+	call	_ZN3neo6stringpLESt16initializer_listIcE
+	jmp	.L38
+.L53:
 	movq	%rax, %rdx
-.L54:
+.L62:
 	leaq	.LC6(%rip), %rcx
 	call	_Z6printfPKcz
 .L29:
 	movl	$1, %ecx
 	call	exit
-.L56:
+.L65:
 	movl	$1, %r8d
 	movl	$8, %edx
 	leaq	.LC3(%rip), %rcx
 	call	_Z6printfPKcz
 .LEHE6:
 	jmp	.L29
-.L43:
+.L48:
 	movq	%rax, %rbx
-	jmp	.L42
+	jmp	.L47
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 .LLSDA8437:
@@ -640,7 +691,7 @@ _ZN11scene_story6UpdateEv:
 	.uleb128 0
 	.uleb128 .LEHB6-.LFB8437
 	.uleb128 .LEHE6-.LEHB6
-	.uleb128 .L43-.LFB8437
+	.uleb128 .L48-.LFB8437
 	.uleb128 0
 .LLSDACSE8437:
 	.text
@@ -657,7 +708,7 @@ _ZN11scene_story6UpdateEv:
 	.seh_savereg	%r12, 160
 	.seh_endprologue
 _ZN11scene_story6UpdateEv.cold:
-.L42:
+.L47:
 	movq	%rsi, %rcx
 	call	_ZN3neo6stringD1Ev
 	movq	%rbx, %rcx

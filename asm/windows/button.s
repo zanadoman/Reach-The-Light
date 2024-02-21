@@ -45,7 +45,7 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
 	leaq	104(%rdx), %rcx
 	movq	%rsi, %rdx
 	movq	8(%rax), %rax
-	movq	8(%rax), %r8
+	movq	16(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movl	$-7968, %edx
 	xorl	%ecx, %ecx

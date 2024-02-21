@@ -131,10 +131,10 @@ struct assets
 {
     engine* Engine;
 
-    uint64 HackBoldFont;
-    uint64 HackBoldItalicFont;
-    uint64 HackItalicFont;
     uint64 HackRegularFont;
+    uint64 HackBoldFont;
+    uint64 HackItalicFont;
+    uint64 HackBoldItalicFont;
 
     uint64 MenuTitleTexture;
     uint64 MenuBackgroundTexture;
@@ -271,6 +271,7 @@ struct scene_story
     uint16 CurrentChar;
     uint8 CurrentLine;
     array<engine::textbox> Lines;
+    bool ChannelSwitch;
     uint32 Sleep;
 
     gui_button* Skip;

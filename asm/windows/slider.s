@@ -80,7 +80,7 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 	movq	8(%rax), %rax
 	leaq	104(%rdx), %rcx
 	leaq	.LC1(%rip), %rdx
-	movq	32(%rax), %r8
+	movq	8(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movq	%rax, 40(%rbx)
 	movq	16(%rbx), %rax

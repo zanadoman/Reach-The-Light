@@ -120,7 +120,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	%rax, 16(%rbx)
 	leaq	104(%rax), %rcx
 	movq	8(%rdx), %rdx
-	movq	32(%rdx), %r8
+	movq	8(%rdx), %r8
 	leaq	.LC1(%rip), %rdx
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movq	%rax, 24(%rbx)
@@ -207,7 +207,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	leaq	.LC3(%rip), %rdx
 	movq	8(%rax), %rax
 	leaq	104(%rdi), %rcx
-	movq	8(%rax), %r8
+	movq	16(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movq	%rax, 48(%rbx)
 	movq	8(%rbx), %rax
