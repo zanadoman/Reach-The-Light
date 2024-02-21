@@ -319,8 +319,6 @@ struct act_player
 {
     engine* Engine;
     game* Game;
-    bool* RotateTiles;
-    array<act_tuna*>* Tunas;
 
     engine::actor Actor;
     engine::overlapbox OverlapBox;
@@ -346,7 +344,7 @@ struct act_player
     bool InteractKey;
     double Opacity;
 
-    act_player(engine* Engine, game* Game, bool* RotateTiles, array<act_tuna*>* Tunas, double X, double Y);
+    act_player(engine* Engine, game* Game, double X, double Y);
     ~act_player();
     uint8 Update();
 };

@@ -125,7 +125,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
 	movq	40(%rbx), %rax
 	cmpq	$0, 56(%rbx)
-	movabsq	$59863464677475104, %rcx
+	movabsq	$59863464729904704, %rcx
 	movl	%ebp, 16(%rax)
 	movb	$0, 37(%rax)
 	movq	48(%rbx), %rax
@@ -621,7 +621,7 @@ _ZN10tile_house6UpdateEv:
 	movq	8(%rdi), %rax
 	movq	48(%rax), %rax
 	movq	72(%rax), %rax
-	movq	32(%rax), %rdi
+	movq	16(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	movsd	.LC17(%rip), %xmm1
 	xorl	%eax, %eax
@@ -648,7 +648,7 @@ _ZN10tile_house6UpdateEv:
 	movq	8(%rbx), %rax
 	movq	48(%rax), %rax
 	movq	72(%rax), %rdx
-	movzbl	152(%rdx), %edx
+	movzbl	136(%rdx), %edx
 	cmpq	1120(%rax), %rdx
 	jne	.L33
 .L38:

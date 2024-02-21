@@ -164,11 +164,11 @@ _ZN9act_crate6UpdateEv:
 	ja	.L8
 	movq	16(%rbp), %rax
 	movq	32(%rbp), %r12
-	movq	48(%rax), %rdi
+	movq	32(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
 	movq	%rax, %rbx
 	movq	16(%rbp), %rax
-	movq	32(%rax), %rdi
+	movq	16(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rax, %rsi
 	movq	%rbx, %rdx

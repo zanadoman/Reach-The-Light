@@ -202,7 +202,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 .LEHE1:
 	movq	8(%rbx), %rax
 	movq	%r12, 64(%rbx)
-	movl	$192, %edi
+	movl	$176, %edi
 	movq	24(%rax), %rax
 	movq	136(%rax), %rdx
 	movzbl	(%rdx), %edx
@@ -217,8 +217,6 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	pxor	%xmm0, %xmm0
 	movq	(%rbx), %rsi
 	movsd	.LC5(%rip), %xmm1
-	leaq	1144(%rbx), %rcx
-	leaq	1120(%rbx), %r8
 	movq	%r12, %rdi
 	movq	24(%rdx), %rax
 	movq	136(%rax), %rax
@@ -227,7 +225,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	subl	$350, %eax
 	cvtsi2sdl	%eax, %xmm0
 .LEHB3:
-	call	_ZN10act_playerC1EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd@PLT
+	call	_ZN10act_playerC1EPN3wze6engineEP4gamedd@PLT
 .LEHE3:
 .L7:
 	leaq	64(%rsp), %rax
@@ -518,7 +516,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	(%rbx), %rax
 	leaq	80(%rax), %rbp
 	movq	72(%rbx), %rax
-	movq	32(%rax), %rdi
+	movq	16(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rax, %rsi
 	movq	%rbp, %rdi
@@ -576,8 +574,6 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	pxor	%xmm0, %xmm0
 	movq	(%rbx), %rsi
 	movsd	.LC4(%rip), %xmm1
-	leaq	1144(%rbx), %rcx
-	leaq	1120(%rbx), %r8
 	movq	%r12, %rdi
 	movq	24(%rdx), %rax
 	movq	136(%rax), %rax
@@ -586,7 +582,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	subl	$350, %eax
 	cvtsi2sdl	%eax, %xmm0
 .LEHB13:
-	call	_ZN10act_playerC1EPN3wze6engineEP4gamePbPN3neo5arrayIP8act_tunaEEdd@PLT
+	call	_ZN10act_playerC1EPN3wze6engineEP4gamedd@PLT
 .LEHE13:
 	jmp	.L7
 .L48:
@@ -755,7 +751,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 .L60:
 	call	__stack_chk_fail@PLT
 .L27:
-	movl	$192, %esi
+	movl	$176, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
 	jmp	.L25
@@ -839,7 +835,7 @@ _ZN10scene_playD2Ev:
 	je	.L63
 	movq	%rbx, %rdi
 	call	_ZN10act_playerD1Ev@PLT
-	movl	$192, %esi
+	movl	$176, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
 .L63:
@@ -1072,7 +1068,7 @@ _ZN10scene_play6UpdateEv:
 	jne	.L98
 	call	_ZN3wze6engine5audio8PauseAllEv@PLT
 	movq	72(%rbp), %rax
-	cmpb	$1, 153(%rax)
+	cmpb	$1, 137(%rax)
 	je	.L145
 .L101:
 	movq	64(%rbp), %rdi
@@ -1167,7 +1163,7 @@ _ZN10scene_play6UpdateEv:
 	movq	8(%rbp), %rax
 	movq	8(%rax), %rcx
 	movq	72(%rbp), %rax
-	cmpb	153(%rax), %bl
+	cmpb	137(%rax), %bl
 	jb	.L146
 	testb	%dl, %dl
 	je	.L118
@@ -1187,7 +1183,7 @@ _ZN10scene_play6UpdateEv:
 	leaq	.LC22(%rip), %rax
 	movq	%rax, 88(%rsp)
 	movq	72(%rbp), %rax
-	movzbl	152(%rax), %eax
+	movzbl	136(%rax), %eax
 	movq	%rax, 80(%rsp)
 	call	_ZN3neo6stringaSESt16initializer_listIyE@PLT
 	movq	%rax, %rdi
@@ -1258,7 +1254,7 @@ _ZN10scene_play6UpdateEv:
 .L98:
 	call	_ZN3wze6engine5audio9ResumeAllEv@PLT
 	movq	72(%rbp), %rax
-	cmpb	$1, 153(%rax)
+	cmpb	$1, 137(%rax)
 	jne	.L101
 .L145:
 	movq	0(%rbp), %rax

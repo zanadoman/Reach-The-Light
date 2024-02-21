@@ -24,8 +24,8 @@ tile_house::tile_house(engine* Engine, game* Game) : Engine(Engine), Game(Game),
     this->RightTrapdoor->Height = 60;
     this->RightTrapdoor->Visible = false;
 
-    this->Sky->Width = 800;
-    this->Sky->Height = 800;
+    this->Sky->Width = 1600;
+    this->Sky->Height = 1600;
     this->Sky->ColorR = 129;
     this->Sky->ColorG = 173;
     this->Sky->ColorB = 212;

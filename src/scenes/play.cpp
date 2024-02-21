@@ -30,11 +30,11 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 
     if (this->Game->Map->Tiles[*this->Game->Map->Spawn][0] == TILE_HORIZONTAL_CORRIDOR)
     {
-        this->Player = new act_player(this->Engine, this->Game, &this->RotateTiles, &this->Tunas, -350 + 100 * *this->Game->Map->Spawn, -741);
+        this->Player = new act_player(this->Engine, this->Game, -350 + 100 * *this->Game->Map->Spawn, -741);
     }
     else
     {
-        this->Player = new act_player(this->Engine, this->Game, &this->RotateTiles, &this->Tunas, -350 + 100 * *this->Game->Map->Spawn, -771);
+        this->Player = new act_player(this->Engine, this->Game, -350 + 100 * *this->Game->Map->Spawn, -771);
     }
 
     //TILES, CRATES, TUNAS
@@ -200,7 +200,7 @@ scene scene_play::Update()
         }
     }
 
-    //UPDATE PLAYER
+    //UPDATE PLAYER AND CAMERA
 
     this->Player->Update();
 
