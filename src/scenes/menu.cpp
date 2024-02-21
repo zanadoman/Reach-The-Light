@@ -40,7 +40,7 @@ scene scene_menu::Update()
 {
     if (this->Play->Update())
     {
-        return SCENE_PLAY;
+        return SCENE_STORY;
     }
     if (this->Editor->Update())
     {

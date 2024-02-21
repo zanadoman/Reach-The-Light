@@ -601,7 +601,7 @@ _ZN10scene_menu6UpdateEv:
 	movq	40(%rdi), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
 	movl	%eax, %edx
-	movl	$3, %eax
+	movl	$2, %eax
 	testb	%dl, %dl
 	jne	.L46
 	movq	48(%rbx), %rdi

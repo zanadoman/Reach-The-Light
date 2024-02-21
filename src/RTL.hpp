@@ -83,6 +83,8 @@ typedef enum
     CH_TRAPDOOR,
     CH_TUNA,
     CH_HEARTBEAT,
+    CH_TYPING1,
+    CH_TYPING2,
     CH_COUNT
 } channel;
 
@@ -193,8 +195,7 @@ struct assets
     uint64 TrapdoorAudio;
     uint64 TunaAudio;
     uint64 HeartBeatAudio;
-    uint64 Typing1Audio;
-    uint64 Typing2Audio;
+    array<uint64> TypingAudio;
     uint64 TypingReturnAudio;
 
     assets(engine* Engine);
@@ -260,9 +261,12 @@ struct scene_story
     game* Game;
 
     engine::actor Actor;
-    array<engine::textbox> Textboxes;
 
     string Story;
+    uint16 CurrentChar;
+    uint8 CurrentLine;
+    array<engine::textbox> Lines;
+    uint32 Sleep;
 
     scene_story(engine* Engine, game* Game);
     ~scene_story();

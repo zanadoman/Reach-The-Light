@@ -40,7 +40,7 @@ main:
 	call	_ZN3wze6engineC1EPKcS2_tth@PLT
 .LEHE1:
 	leaq	160(%rbx), %rdi
-	movl	$12, %esi
+	movl	$14, %esi
 .LEHB2:
 	call	_ZN3wze6engine5audio15SetChannelCountEt@PLT
 	movl	$34, %esi
