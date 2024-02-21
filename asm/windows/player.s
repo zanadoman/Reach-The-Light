@@ -371,13 +371,13 @@ _ZN10act_playerD2Ev:
 	.set	_ZN10act_playerD1Ev,_ZN10act_playerD2Ev
 	.section .rdata,"dr"
 	.align 8
-.LC32:
+.LC31:
 	.ascii "neo::array[]: Index out of range\12Params: Index: %lld\12\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB33:
+.LCOLDB32:
 	.text
-.LHOTB33:
+.LHOTB32:
 	.align 2
 	.p2align 4
 	.globl	_ZN10act_player6UpdateEv
@@ -908,7 +908,7 @@ _ZN10act_player6UpdateEv:
 	jp	.L94
 	jne	.L94
 	movq	8(%rbx), %rax
-	movsd	.LC29(%rip), %xmm3
+	movsd	.LC23(%rip), %xmm3
 	movl	$4, %r8d
 	movq	8(%rax), %rax
 	movq	456(%rax), %rdx
@@ -1382,7 +1382,7 @@ _ZN10act_player6UpdateEv:
 	movl	%eax, %eax
 	pxor	%xmm0, %xmm0
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC30(%rip), %xmm0
+	mulsd	.LC29(%rip), %xmm0
 	movsd	%xmm0, 152(%rbx)
 	jmp	.L108
 .L226:
@@ -1496,11 +1496,11 @@ _ZN10act_player6UpdateEv:
 	movl	%eax, %eax
 	pxor	%xmm0, %xmm0
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC30(%rip), %xmm0
+	mulsd	.LC29(%rip), %xmm0
 	comisd	%xmm6, %xmm0
 	jbe	.L110
 	movq	8(%rbx), %rax
-	movsd	.LC31(%rip), %xmm3
+	movsd	.LC30(%rip), %xmm3
 	movl	$2, %r8d
 	movq	8(%rax), %rax
 	movq	440(%rax), %rdx
@@ -1540,7 +1540,7 @@ _ZN10act_player6UpdateEv:
 	jmp	.L215
 .L212:
 	movq	%rsi, %rdx
-	leaq	.LC32(%rip), %rcx
+	leaq	.LC31(%rip), %rcx
 	call	_Z6printfPKcz
 .LEHE0:
 	movl	$1, %ecx
@@ -1609,7 +1609,7 @@ _ZN10act_player6UpdateEv.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8437-.LLSDACSBC8437
 .LLSDACSBC8437:
-	.uleb128 .LEHB1-.LCOLDB33
+	.uleb128 .LEHB1-.LCOLDB32
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1618,9 +1618,9 @@ _ZN10act_player6UpdateEv.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE33:
+.LCOLDE32:
 	.text
-.LHOTE33:
+.LHOTE32:
 	.section .rdata,"dr"
 	.align 8
 .LC0:
@@ -1716,14 +1716,10 @@ _ZN10act_player6UpdateEv.cold:
 	.long	1070700953
 	.align 8
 .LC29:
-	.long	-1717986918
-	.long	1070176665
-	.align 8
-.LC30:
 	.long	810889825
 	.long	-1086084822
 	.align 8
-.LC31:
+.LC30:
 	.long	0
 	.long	1070596096
 	.ident	"GCC: (GNU) 13.1.0"

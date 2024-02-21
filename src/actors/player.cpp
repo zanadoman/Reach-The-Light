@@ -384,7 +384,7 @@ uint8 act_player::Update()
 
     if (this->VelocityY == 0.275 - 0.0006 * this->Engine->Timing.GetDeltaTime())
     {
-        this->Engine->Audio.Play(this->Game->Assets->PlayerJumpAudio, CH_PLAYER_JUMP, 0.2, 0);
+        this->Engine->Audio.Play(this->Game->Assets->PlayerJumpAudio, CH_PLAYER_JUMP, 0.1, 0);
     }
 
     //HANDLING GROUND COLLISION AND FALL AUDIO

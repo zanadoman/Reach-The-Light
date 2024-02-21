@@ -111,13 +111,12 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->Engine->Camera.Bind(this->Player->Actor->GetID());
     this->Engine->Camera.SetZoom(5);
 
-    this->Engine->Audio.Play(this->Game->Assets->Music, CH_MUSIC, 1, 65535, 3000);
+    this->Engine->Audio.Play(this->Game->Assets->Music, CH_MUSIC, 1, 65535);
 }
 
 scene_play::~scene_play()
 {
     this->Engine->Actors.Delete(this->Actor->GetID());
-
     delete this->Pause;
     delete this->Player;
     for (uint8 i = 0; i < MAP_X; i++)
@@ -136,6 +135,7 @@ scene_play::~scene_play()
         delete this->Tunas[i];
     }
     delete this->House;
+    this->Engine->Audio.StopChannel(CH_MUSIC);
 }
 
 scene scene_play::Update()

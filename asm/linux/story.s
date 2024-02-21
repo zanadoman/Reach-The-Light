@@ -318,6 +318,14 @@ _ZN11scene_storyD2Ev:
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 .L21:
+	movq	(%rbx), %rax
+	movl	$12, %esi
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audio11StopChannelEt@PLT
+	movq	(%rbx), %rax
+	movl	$13, %esi
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audio11StopChannelEt@PLT
 	movq	56(%rbx), %rdi
 	call	free@PLT
 	addq	$8, %rsp
@@ -518,18 +526,6 @@ _ZN11scene_story6UpdateEv:
 .L28:
 	movq	72(%rbx), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
-	testb	%al, %al
-	jne	.L46
-	movq	(%rbx), %rax
-	movl	$41, %esi
-	leaq	192(%rax), %rdi
-	call	_ZN3wze6engine4keysixENS_3keyE@PLT
-	testb	%al, %al
-	jne	.L46
-	movq	(%rbx), %rax
-	movl	$44, %esi
-	leaq	192(%rax), %rdi
-	call	_ZN3wze6engine4keysixENS_3keyE@PLT
 	testb	%al, %al
 	jne	.L46
 	movq	(%rbx), %rdi

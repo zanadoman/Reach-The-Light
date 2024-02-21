@@ -18,6 +18,8 @@ scene_story::~scene_story()
 {
     this->Engine->Actors.Delete(this->Actor->GetID());
     delete this->Skip;
+    this->Engine->Audio.StopChannel(CH_TYPING1);
+    this->Engine->Audio.StopChannel(CH_TYPING2);
 }
 
 scene scene_story::Update()
@@ -74,7 +76,7 @@ scene scene_story::Update()
         }
     }
 
-    if (this->Skip->Update() || (this->Engine->Keys[KEY_ESCAPE] || this->Engine->Keys[KEY_SPACE] || this->Engine->Keys[KEY_RETURN]))
+    if (this->Skip->Update() || this->Engine->Keys[KEY_RETURN])
     {
         return SCENE_PLAY;
     }

@@ -313,6 +313,14 @@ _ZN11scene_storyD2Ev:
 	movq	%rsi, %rcx
 	call	_ZdlPvy
 .L17:
+	movq	(%rbx), %rax
+	movl	$12, %edx
+	leaq	160(%rax), %rcx
+	call	_ZN3wze6engine5audio11StopChannelEt
+	movq	(%rbx), %rax
+	movl	$13, %edx
+	leaq	160(%rax), %rcx
+	call	_ZN3wze6engine5audio11StopChannelEt
 	movq	56(%rbx), %rcx
 	call	free
 	leaq	24(%rbx), %rcx
@@ -491,18 +499,6 @@ _ZN11scene_story6UpdateEv:
 .L23:
 	movq	72(%rbx), %rcx
 	call	_ZN10gui_button6UpdateEv
-	testb	%al, %al
-	jne	.L41
-	movq	(%rbx), %rax
-	movl	$41, %edx
-	leaq	192(%rax), %rcx
-	call	_ZN3wze6engine4keysixENS_3keyE
-	testb	%al, %al
-	jne	.L41
-	movq	(%rbx), %rax
-	movl	$44, %edx
-	leaq	192(%rax), %rcx
-	call	_ZN3wze6engine4keysixENS_3keyE
 	testb	%al, %al
 	jne	.L41
 	movq	(%rbx), %rcx
@@ -730,6 +726,7 @@ _ZN11scene_story6UpdateEv.cold:
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN10gui_buttonD1Ev;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio11StopChannelEt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing14GetCurrentTickEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6string6LengthEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringixEy;	.scl	2;	.type	32;	.endef

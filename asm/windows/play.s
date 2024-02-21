@@ -599,10 +599,9 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	8(%rax), %rax
 	movq	424(%rax), %rdx
 	movq	(%rbx), %rax
-	movl	$3000, 40(%rsp)
 	movl	$65535, 32(%rsp)
 	leaq	160(%rax), %rcx
-	call	_ZN3wze6engine5audio4PlayEytdtt
+	call	_ZN3wze6engine5audio4PlayEytdt
 	nop
 	movaps	176(%rsp), %xmm6
 	movaps	192(%rsp), %xmm7
@@ -981,6 +980,10 @@ _ZN10scene_playD2Ev:
 	movq	%rbx, %rcx
 	call	_ZdlPvy
 .L71:
+	movq	0(%rbp), %rax
+	xorl	%edx, %edx
+	leaq	160(%rax), %rcx
+	call	_ZN3wze6engine5audio11StopChannelEt
 	movq	1144(%rbp), %rcx
 	call	free
 	movq	1128(%rbp), %rcx
@@ -1572,7 +1575,7 @@ _ZN10scene_play6UpdateEv.cold:
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera4BindEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6camera7SetZoomEd;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5audio4PlayEytdtt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio4PlayEytdt;	.scl	2;	.type	32;	.endef
 	.def	exit;	.scl	2;	.type	32;	.endef
 	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
 	.def	free;	.scl	2;	.type	32;	.endef
@@ -1584,6 +1587,7 @@ _ZN10scene_play6UpdateEv.cold:
 	.def	_ZN9act_crateD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN8act_tunaD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN10tile_houseD1Ev;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio11StopChannelEt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringC1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing12GetFrameTimeEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringpLESt16initializer_listIPKcE;	.scl	2;	.type	32;	.endef
@@ -1597,7 +1601,6 @@ _ZN10scene_play6UpdateEv.cold:
 	.def	round;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5audio11StopChannelEtt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine4keysixENS_3keyE;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5audio11StopChannelEt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5audio9ResumeAllEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4GetXEv;	.scl	2;	.type	32;	.endef
@@ -1611,4 +1614,3 @@ _ZN10scene_play6UpdateEv.cold:
 	.def	_ZN3neo6stringaSESt16initializer_listIyE;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5audioixEt;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5audio4PlayEytdt;	.scl	2;	.type	32;	.endef

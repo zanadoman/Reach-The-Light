@@ -557,14 +557,13 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6camera7SetZoomEd@PLT
 	movq	8(%rbx), %rax
 	movsd	.LC20(%rip), %xmm0
-	movl	$3000, %r8d
-	xorl	%edx, %edx
 	movl	$65535, %ecx
+	xorl	%edx, %edx
 	movq	8(%rax), %rax
 	movq	424(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
-	call	_ZN3wze6engine5audio4PlayEytdtt@PLT
+	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	movq	168(%rsp), %rax
 	subq	%fs:40, %rax
 	jne	.L59
@@ -957,6 +956,10 @@ _ZN10scene_playD2Ev:
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
 .L75:
+	movq	0(%r13), %rax
+	xorl	%esi, %esi
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audio11StopChannelEt@PLT
 	movq	1144(%r13), %rdi
 	call	free@PLT
 	movq	1128(%r13), %rdi
