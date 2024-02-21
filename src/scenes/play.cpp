@@ -44,7 +44,7 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
         }
     }
     this->RotateTiles = false;
-    this->House = new tile_house(this->Engine, this->Game, this->Player, &this->Tunas, 0, 850);
+    this->House = new tile_house(this->Engine, this->Game);
 
     this->FrameTime->SetHeight(25);
     this->FrameTime->SetX(10 + (this->FrameTime->GetWidth() >> 1));

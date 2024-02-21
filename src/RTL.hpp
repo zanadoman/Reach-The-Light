@@ -511,7 +511,6 @@ struct tile_house
 {
     engine* Engine;
     game* Game;
-    act_player* Player;
 
     engine::actor Actor;
     engine::texturebox House;
@@ -529,9 +528,7 @@ struct tile_house
     engine::actor HitboxLeftTrapdoor;
     engine::actor HitboxRightTrapdoor;
 
-    array<act_tuna*>* Tunas;
-
-    tile_house(engine* Engine, game* Game, act_player* Player, array<act_tuna*>* Tunas, double X, double Y);
+    tile_house(engine* Engine, game* Game);
     ~tile_house();
     uint8 Update();
 };
