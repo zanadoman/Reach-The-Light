@@ -182,6 +182,7 @@ struct assets
     uint64 BoxTexture;
     uint64 TrapdoorTexture;
     uint64 GrassTexture;
+    uint64 ArrowTexture;
 
     uint64 Music;
     uint64 ButtonAudio;
@@ -532,6 +533,7 @@ struct tile_house
     engine::texturebox RightTrapdoor;
     engine::colorbox Sky;
     array<engine::texturebox> Grasses;
+    engine::texturebox Arrow;
     engine::overlapbox Detector;
 
     engine::actor HitboxRoof;
@@ -546,6 +548,8 @@ struct tile_house
     engine::actor HitboxBoxLeft;
     engine::actor HitboxBoxRight;
     engine::actor HitboxBoxBot;
+
+    double ArrowVelocityY;
 
     tile_house(engine* Engine, game* Game);
     ~tile_house();

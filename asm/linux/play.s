@@ -375,7 +375,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	addl	$100, 28(%rsp)
 	cmpq	$8, %rax
 	jne	.L6
-	movl	$176, %edi
+	movl	$192, %edi
 	call	_Znwm@PLT
 .LEHE10:
 	movq	8(%rbx), %rdx
@@ -560,7 +560,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movl	$65535, %ecx
 	xorl	%edx, %edx
 	movq	8(%rax), %rax
-	movq	424(%rax), %rsi
+	movq	432(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
@@ -662,10 +662,10 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	jmp	.L30
 .L37:
 	movq	%rax, %rbp
-	jmp	.L31
+	jmp	.L27
 .L36:
 	movq	%rax, %rbp
-	jmp	.L31
+	jmp	.L27
 .L38:
 	movq	%rax, %rbp
 	jmp	.L28
@@ -779,8 +779,13 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	jmp	.L25
 .L60:
 	call	__stack_chk_fail@PLT
-.L31:
+.L27:
 	movl	$176, %esi
+	movq	%r12, %rdi
+	call	_ZdlPvm@PLT
+	jmp	.L25
+.L31:
+	movl	$192, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
 	jmp	.L25
@@ -952,7 +957,7 @@ _ZN10scene_playD2Ev:
 	je	.L75
 	movq	%rbx, %rdi
 	call	_ZN10tile_houseD1Ev@PLT
-	movl	$176, %esi
+	movl	$192, %esi
 	movq	%rbx, %rdi
 	call	_ZdlPvm@PLT
 .L75:
@@ -1177,7 +1182,7 @@ _ZN10scene_play6UpdateEv:
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	1152(%r12), %rax
 	movq	%xmm0, %rbx
-	movq	80(%rax), %rdi
+	movq	88(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4GetXEv@PLT
 	movq	%rbx, %xmm2
 	movq	88(%r12), %rdi
@@ -1347,7 +1352,7 @@ _ZN10scene_play6UpdateEv:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	movq	1152(%r12), %rax
 	movq	%xmm0, %rbx
-	movq	80(%rax), %rdi
+	movq	88(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4GetYEv@PLT
 	movq	%rbx, %xmm4
 	movq	88(%r12), %rdi
@@ -1391,7 +1396,7 @@ _ZN10scene_play6UpdateEv:
 	xorl	%ecx, %ecx
 	movl	$11, %edx
 	movq	8(%rax), %rax
-	movq	512(%rax), %rsi
+	movq	520(%rax), %rsi
 	movq	(%r12), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT

@@ -8,6 +8,7 @@ tile_house::tile_house(engine* Engine, game* Game) : Engine(Engine), Game(Game),
     this->LeftTrapdoor = this->Actor->Textureboxes.New(this->Game->Assets->TrapdoorTexture);
     this->RightTrapdoor = this->Actor->Textureboxes.New(this->Game->Assets->TrapdoorTexture);
     this->Sky = this->Actor->Colorboxes.New();
+    this->Arrow = this->Actor->Textureboxes.New(this->Game->Assets->ArrowTexture);
     this->Detector = this->Actor->Overlapboxes.New(BOX_NONE);
 
     this->House->SetY(this->Actor->GetY() + 25);
@@ -48,6 +49,11 @@ tile_house::tile_house(engine* Engine, game* Game) : Engine(Engine), Game(Game),
         this->Grasses[i]->Height = 20;
         this->Grasses[i]->Priority = 129;
     }
+
+    this->Arrow->SetY(this->Actor->GetY() - 7.5);
+    this->Arrow->Width = 9;
+    this->Arrow->Height = 20;
+    this->ArrowVelocityY = 0.0075;
 
     this->Detector->SetX(this->Box->GetX());
     this->Detector->SetY(this->Box->GetY() + 7.5);
@@ -142,6 +148,19 @@ uint8 tile_house::Update()
         this->RightTrapdoor->Visible = true;
         
         this->Engine->Audio.Play(this->Game->Assets->TrapdoorAudio, CH_TRAPDOOR, 0.75, 0);
+    }
+
+    this->Arrow->SetY(this->Arrow->GetY() + this->ArrowVelocityY * this->Engine->Timing.GetDeltaTime());
+
+    if (this->Arrow->GetY() <= this->Actor->GetY() - 10)
+    {
+        this->Arrow->SetY(this->Actor->GetY() - 10);
+        this->ArrowVelocityY = 0.0075;
+    }
+    else if (this->Actor->GetY() - 5 <= this->Arrow->GetY())
+    {
+        this->Arrow->SetY(this->Actor->GetY() - 5);
+        this->ArrowVelocityY = -0.0075;
     }
 
     return 0;

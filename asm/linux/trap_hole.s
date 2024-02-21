@@ -495,7 +495,7 @@ _ZN14tile_trap_hole6UpdateEv:
 	movl	$7, %edx
 	movq	8(%rax), %rax
 	addq	$160, %rdi
-	movq	480(%rax), %rsi
+	movq	488(%rax), %rsi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
 	popq	%rbx
 	.cfi_def_cfa_offset 24

@@ -188,6 +188,7 @@ assets::assets(engine* Engine) : Engine(Engine)
     this->BoxTexture = this->Engine->Assets.LoadTexture("assets/tiles/house/box.png");
     this->TrapdoorTexture = this->Engine->Assets.LoadTexture("assets/tiles/house/trapdoor.png");
     this->GrassTexture = this->Engine->Assets.LoadTexture("assets/tiles/house/grass.png");
+    this->ArrowTexture = this->Engine->Assets.LoadTexture("assets/tiles/house/arrow.png");
 
     this->Music = this->Engine->Assets.LoadSound("assets/audio/music.wav");
     this->ButtonAudio = this->Engine->Assets.LoadSound("assets/audio/button.mp3");

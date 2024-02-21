@@ -342,42 +342,44 @@ _Z6printfPKcz:
 .LC132:
 	.ascii "assets/tiles/house/grass.png\0"
 .LC133:
-	.ascii "assets/audio/music.wav\0"
+	.ascii "assets/tiles/house/arrow.png\0"
 .LC134:
-	.ascii "assets/audio/button.mp3\0"
+	.ascii "assets/audio/music.wav\0"
 .LC135:
-	.ascii "assets/audio/player_fall.mp3\0"
+	.ascii "assets/audio/button.mp3\0"
 .LC136:
-	.ascii "assets/audio/player_hurt.wav\0"
+	.ascii "assets/audio/player_fall.mp3\0"
 .LC137:
-	.ascii "assets/audio/player_jump.wav\0"
+	.ascii "assets/audio/player_hurt.wav\0"
 .LC138:
-	.ascii "assets/audio/player_latch.ogg\0"
+	.ascii "assets/audio/player_jump.wav\0"
 .LC139:
+	.ascii "assets/audio/player_latch.ogg\0"
+.LC140:
 	.ascii "assets/audio/crate_fall.wav\0"
 	.align 8
-.LC140:
-	.ascii "assets/audio/trap_platform.wav\0"
 .LC141:
-	.ascii "assets/audio/lever.wav\0"
+	.ascii "assets/audio/trap_platform.wav\0"
 .LC142:
-	.ascii "assets/audio/trapdoor.wav\0"
+	.ascii "assets/audio/lever.wav\0"
 .LC143:
-	.ascii "assets/audio/tuna.wav\0"
+	.ascii "assets/audio/trapdoor.wav\0"
 .LC144:
-	.ascii "assets/audio/heartbeat.wav\0"
+	.ascii "assets/audio/tuna.wav\0"
 .LC145:
-	.ascii "assets/audio/typing1.wav\0"
+	.ascii "assets/audio/heartbeat.wav\0"
 .LC146:
+	.ascii "assets/audio/typing1.wav\0"
+.LC147:
 	.ascii "assets/audio/typing2.wav\0"
 	.align 8
-.LC147:
+.LC148:
 	.ascii "assets/audio/typing_return.wav\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB148:
+.LCOLDB149:
 	.text
-.LHOTB148:
+.LHOTB149:
 	.align 2
 	.p2align 4
 	.globl	_ZN6assetsC2EPN3wze6engineE
@@ -417,8 +419,8 @@ _ZN6assetsC2EPN3wze6engineE:
 	movq	$0, 304(%rcx)
 	movq	$0, 368(%rcx)
 	movq	$0, 376(%rcx)
-	movq	$0, 520(%rcx)
 	movq	$0, 528(%rcx)
+	movq	$0, 536(%rcx)
 	leaq	344(%rdx), %rcx
 	leaq	.LC0(%rip), %rdx
 .LEHB0:
@@ -1203,7 +1205,7 @@ _ZN6assetsC2EPN3wze6engineE:
 	movq	(%rbx), %rax
 	leaq	.LC133(%rip), %rdx
 	leaq	344(%rax), %rcx
-	call	_ZN3wze6engine6assets9LoadSoundEPKc
+	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rax, 424(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC134(%rip), %rdx
@@ -1264,25 +1266,30 @@ _ZN6assetsC2EPN3wze6engineE:
 	leaq	.LC145(%rip), %rdx
 	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets9LoadSoundEPKc
-	movq	%rax, 32(%rsp)
+	movq	%rax, 520(%rbx)
 	movq	(%rbx), %rax
 	leaq	.LC146(%rip), %rdx
 	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets9LoadSoundEPKc
+	movq	%rax, 32(%rsp)
+	movq	(%rbx), %rax
+	leaq	.LC147(%rip), %rdx
+	leaq	344(%rax), %rcx
+	call	_ZN3wze6engine6assets9LoadSoundEPKc
 	movq	%rax, 40(%rsp)
-	movq	520(%rbx), %rax
+	movq	528(%rbx), %rax
 	cmpq	$2, %rax
 	jne	.L76
-	movq	528(%rbx), %rdx
+	movq	536(%rbx), %rdx
 .L46:
 	leaq	32(%rsp), %rcx
 	leaq	0(,%rax,8), %r8
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	movq	(%rbx), %rax
-	leaq	.LC147(%rip), %rdx
+	leaq	.LC148(%rip), %rdx
 	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets9LoadSoundEPKc
-	movq	%rax, 536(%rbx)
+	movq	%rax, 544(%rbx)
 	addq	$952, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -1420,15 +1427,15 @@ _ZN6assetsC2EPN3wze6engineE:
 	.p2align 4,,10
 	.p2align 3
 .L76:
-	movq	$2, 520(%rbx)
-	movq	528(%rbx), %rcx
+	movq	$2, 528(%rbx)
+	movq	536(%rbx), %rcx
 	movl	$16, %edx
 	call	realloc
-	movq	%rax, 528(%rbx)
+	movq	%rax, 536(%rbx)
 	movq	%rax, %rdx
 	testq	%rax, %rax
 	je	.L45
-	movq	520(%rbx), %rax
+	movq	528(%rbx), %rax
 	jmp	.L46
 	.p2align 4,,10
 	.p2align 3
@@ -1528,7 +1535,7 @@ _ZN6assetsC2EPN3wze6engineE:
 	.seh_endprologue
 _ZN6assetsC2EPN3wze6engineE.cold:
 .L47:
-	movq	528(%rbx), %rcx
+	movq	536(%rbx), %rcx
 	call	free
 	movq	376(%rbx), %rcx
 	call	free
@@ -1565,7 +1572,7 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB1-.LCOLDB148
+	.uleb128 .LEHB1-.LCOLDB149
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
@@ -1574,9 +1581,9 @@ _ZN6assetsC2EPN3wze6engineE.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE148:
+.LCOLDE149:
 	.text
-.LHOTE148:
+.LHOTE149:
 	.globl	_ZN6assetsC1EPN3wze6engineE
 	.def	_ZN6assetsC1EPN3wze6engineE;	.scl	2;	.type	32;	.endef
 	.set	_ZN6assetsC1EPN3wze6engineE,_ZN6assetsC2EPN3wze6engineE
@@ -1620,7 +1627,7 @@ _ZN6assetsD2Ev:
 	movq	$0, 40(%rsp)
 	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets19PurgeCursorTexturesESt16initializer_listIyE
-	movq	528(%rbx), %rcx
+	movq	536(%rbx), %rcx
 	call	free
 	movq	376(%rbx), %rcx
 	call	free

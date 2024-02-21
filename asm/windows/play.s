@@ -405,7 +405,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	addl	$100, %r14d
 	cmpq	$8, %rax
 	jne	.L8
-	movl	$176, %ecx
+	movl	$192, %ecx
 	call	_Znwy
 .LEHE10:
 	movq	(%rbx), %rdx
@@ -597,7 +597,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movsd	.LC20(%rip), %xmm3
 	xorl	%r8d, %r8d
 	movq	8(%rax), %rax
-	movq	424(%rax), %rdx
+	movq	432(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$65535, 32(%rsp)
 	leaq	160(%rax), %rcx
@@ -680,7 +680,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	jmp	.L33
 .L36:
 	movq	%rax, %rsi
-	jmp	.L33
+	jmp	.L29
 .L41:
 	movq	%rax, %rsi
 	jmp	.L32
@@ -695,7 +695,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	jmp	.L30
 .L37:
 	movq	%rax, %rsi
-	jmp	.L33
+	jmp	.L29
 .L35:
 	movq	%rax, %rsi
 	jmp	.L26
@@ -789,7 +789,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	.seh_endprologue
 _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 .L33:
-	movl	$176, %edx
+	movl	$192, %edx
 	movq	%rdi, %rcx
 	call	_ZdlPvy
 .L27:
@@ -803,6 +803,11 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 .LEHB15:
 	call	_Unwind_Resume
 .LEHE15:
+.L29:
+	movl	$176, %edx
+	movq	%rdi, %rcx
+	call	_ZdlPvy
+	jmp	.L27
 .L32:
 	movl	$56, %edx
 	movq	%rdi, %rcx
@@ -976,7 +981,7 @@ _ZN10scene_playD2Ev:
 	je	.L71
 	movq	%rbx, %rcx
 	call	_ZN10tile_houseD1Ev
-	movl	$176, %edx
+	movl	$192, %edx
 	movq	%rbx, %rcx
 	call	_ZdlPvy
 .L71:
@@ -1190,7 +1195,7 @@ _ZN10scene_play6UpdateEv:
 	call	_ZN3wze6engine6actors5actor4GetXEv
 	movq	1152(%rdi), %rax
 	movapd	%xmm0, %xmm6
-	movq	80(%rax), %rcx
+	movq	88(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4GetXEv
 	ucomisd	%xmm0, %xmm6
 	movq	88(%rdi), %rcx
@@ -1363,7 +1368,7 @@ _ZN10scene_play6UpdateEv:
 	call	_ZN3wze6engine6actors5actor4GetYEv
 	movq	1152(%rdi), %rax
 	movapd	%xmm0, %xmm6
-	movq	80(%rax), %rcx
+	movq	88(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4GetYEv
 	ucomisd	%xmm0, %xmm6
 	movq	88(%rdi), %rcx
@@ -1405,7 +1410,7 @@ _ZN10scene_play6UpdateEv:
 	movsd	.LC27(%rip), %xmm3
 	movl	$11, %r8d
 	movq	8(%rax), %rax
-	movq	512(%rax), %rdx
+	movq	520(%rax), %rdx
 	movq	(%rdi), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx

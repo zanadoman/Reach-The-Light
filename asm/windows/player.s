@@ -599,7 +599,7 @@ _ZN10act_player6UpdateEv:
 	movq	24(%rbx), %rdi
 	movq	56(%rax), %rax
 	movq	1152(%rax), %rax
-	movq	80(%rax), %rcx
+	movq	88(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv
 	movq	%rax, %rsi
 	movq	8(%rbx), %rax
@@ -911,7 +911,7 @@ _ZN10act_player6UpdateEv:
 	movsd	.LC24(%rip), %xmm3
 	movl	$4, %r8d
 	movq	8(%rax), %rax
-	movq	456(%rax), %rdx
+	movq	464(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
@@ -1022,7 +1022,7 @@ _ZN10act_player6UpdateEv:
 	movq	8(%rdx), %rax
 	movl	$10, %r8d
 	movsd	.LC25(%rip), %xmm3
-	movq	504(%rax), %rdx
+	movq	512(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
@@ -1095,7 +1095,7 @@ _ZN10act_player6UpdateEv:
 	movq	16(%rbx), %rsi
 	movq	56(%rax), %rax
 	movq	1152(%rax), %rax
-	movq	80(%rax), %rcx
+	movq	88(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4GetXEv
 	movapd	%xmm0, %xmm1
 	movq	%rsi, %rcx
@@ -1104,7 +1104,7 @@ _ZN10act_player6UpdateEv:
 	movq	16(%rbx), %rsi
 	movq	56(%rax), %rax
 	movq	1152(%rax), %rax
-	movq	80(%rax), %rcx
+	movq	88(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4GetYEv
 	movapd	%xmm0, %xmm1
 	movq	%rsi, %rcx
@@ -1212,7 +1212,7 @@ _ZN10act_player6UpdateEv:
 	movq	56(%rax), %rdx
 	movq	8(%rax), %rax
 	xorb	$1, 1160(%rdx)
-	movq	488(%rax), %rdx
+	movq	496(%rax), %rdx
 	movl	$0, 32(%rsp)
 	call	_ZN3wze6engine5audio4PlayEytdt
 	.p2align 4,,10
@@ -1431,7 +1431,7 @@ _ZN10act_player6UpdateEv:
 	movl	$3, %r8d
 	movsd	.LC25(%rip), %xmm3
 	movq	8(%rax), %rax
-	movq	448(%rax), %rdx
+	movq	456(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
@@ -1445,7 +1445,7 @@ _ZN10act_player6UpdateEv:
 	addq	$160, %rcx
 	movl	$5, %r8d
 	movq	8(%rax), %rax
-	movq	464(%rax), %rdx
+	movq	472(%rax), %rdx
 	movl	$0, 32(%rsp)
 	call	_ZN3wze6engine5audio4PlayEytdt
 	movq	(%rbx), %rcx
@@ -1508,7 +1508,7 @@ _ZN10act_player6UpdateEv:
 	movsd	.LC31(%rip), %xmm3
 	movl	$2, %r8d
 	movq	8(%rax), %rax
-	movq	440(%rax), %rdx
+	movq	448(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
