@@ -5,6 +5,7 @@ scene_menu::scene_menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, this->Engine->Window.GetWidth() >> 1, this->Engine->Window.GetHeight() >> 1, 0, 0, 0);
     this->Title = this->Actor->Textureboxes.New(this->Game->Assets->MenuTitleTexture);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->MenuBackgroundTexture);
+    this->Author = this->Actor->Textboxes.New("Készítette: Zana Domán", this->Game->Assets->HackItalicFont);
     this->Play = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 225, 0, "Játék");
     this->Editor = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 125, 0, "Pályák");
     this->Help = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 25, 0, "Segítség");
@@ -22,6 +23,10 @@ scene_menu::scene_menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->Background->SetY(this->Actor->GetY());
     this->Background->Width = this->Engine->Window.GetHeight();
     this->Background->Height = this->Engine->Window.GetHeight();
+
+    this->Author->SetX(this->Actor->GetX() - 600);
+    this->Author->SetY(this->Actor->GetY() - 650);
+    this->Author->SetHeight(30);
 }
 
 scene_menu::~scene_menu()

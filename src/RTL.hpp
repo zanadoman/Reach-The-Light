@@ -245,6 +245,7 @@ struct scene_menu
     engine::actor Actor;
     engine::texturebox Title;
     engine::texturebox Background;
+    engine::textbox Author;
 
     gui_button* Play;
     gui_button* Editor;
