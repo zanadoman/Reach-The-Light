@@ -62,7 +62,7 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	%rbp, %rdi
 	xorl	%ebp, %ebp
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movl	$3, %esi
+	movl	$1, %esi
 	movq	%rax, 24(%rbx)
 	movq	16(%rbx), %rax
 	leaq	136(%rax), %rdi
@@ -109,7 +109,7 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	%xmm1, %r15
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 48(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -165,7 +165,7 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	%xmm3, %r12
 	movsd	%xmm1, 16(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 56(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -202,7 +202,7 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm4, %xmm0
 	movq	%xmm4, %rbp
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 64(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -234,7 +234,7 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 72(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -266,7 +266,7 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 80(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT

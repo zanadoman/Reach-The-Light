@@ -35,7 +35,7 @@ tile_bot_left_corner::tile_bot_left_corner(engine* Engine, game* Game, double X,
     this->WebTextureBox->Priority = 132;
 
     this->HitboxBot = this->Engine->Actors.New(NULL, ACT_PLATFORM, X, Y - 40, 60, 20, 1);
-    this->HitboxBot->Overlapboxes.New(BOX_PLATFORM);
+    this->HitboxBot->Overlapboxes.New(BOX_NONE);
     this->HitboxBot->Resistance = 100;
     for (uint8 i = 0; i < 3; i++)
     {
@@ -46,7 +46,7 @@ tile_bot_left_corner::tile_bot_left_corner(engine* Engine, game* Game, double X,
     }
     
     this->HitboxLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y, 20, 60, 1);
-    this->HitboxLeft->Overlapboxes.New(BOX_PLATFORM);
+    this->HitboxLeft->Overlapboxes.New(BOX_NONE);
     this->HitboxLeft->Resistance = 100;
     for (uint8 i = 0; i < 3; i++)
     {
@@ -57,22 +57,22 @@ tile_bot_left_corner::tile_bot_left_corner(engine* Engine, game* Game, double X,
     }
     
     this->HitboxTopLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y + 40, 20, 20, 1);
-    this->HitboxTopLeft->Overlapboxes.New(BOX_PLATFORM);
+    this->HitboxTopLeft->Overlapboxes.New(BOX_NONE);
     this->HitboxTopLeft->Resistance = 100;
     this->HitboxTopLeft->Textureboxes.New(this->Game->Assets->TilePlatformTextures[this->Engine->Math.Random(0, this->Game->Assets->TilePlatformTextures.Length())]);
     
     this->HitboxTopRight = this->Engine->Actors.New(NULL, ACT_PLATFORM, X + 40, Y + 40, 20, 20, 1);
-    this->HitboxTopRight->Overlapboxes.New(BOX_PLATFORM);
+    this->HitboxTopRight->Overlapboxes.New(BOX_NONE);
     this->HitboxTopRight->Resistance = 100;
     this->HitboxTopRight->Textureboxes.New(this->Game->Assets->TilePlatformTextures[this->Engine->Math.Random(0, this->Game->Assets->TilePlatformTextures.Length())]);
     
     this->HitboxBotLeft = this->Engine->Actors.New(NULL, ACT_PLATFORM, X - 40, Y - 40, 20, 20, 1);
-    this->HitboxBotLeft->Overlapboxes.New(BOX_PLATFORM);
+    this->HitboxBotLeft->Overlapboxes.New(BOX_NONE);
     this->HitboxBotLeft->Resistance = 100;
     this->HitboxBotLeft->Textureboxes.New(this->Game->Assets->TilePlatformTextures[this->Engine->Math.Random(0, this->Game->Assets->TilePlatformTextures.Length())]);
     
     this->HitboxBotRight = this->Engine->Actors.New(NULL, ACT_PLATFORM, X + 40, Y - 40, 20, 20, 1);
-    this->HitboxBotRight->Overlapboxes.New(BOX_PLATFORM);
+    this->HitboxBotRight->Overlapboxes.New(BOX_NONE);
     this->HitboxBotRight->Resistance = 100;
     this->HitboxBotRight->Textureboxes.New(this->Game->Assets->TilePlatformTextures[this->Engine->Math.Random(0, this->Game->Assets->TilePlatformTextures.Length())]);
 }

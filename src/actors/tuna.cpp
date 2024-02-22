@@ -3,7 +3,7 @@
 act_tuna::act_tuna(engine* Engine, game* Game, double X, double Y) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 26, 18, 1);
-    this->OverlapBox = this->Actor->Overlapboxes.New(BOX_TUNA);
+    this->OverlapBox = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Flipbook = this->Actor->Flipbooks.New(75, &this->Game->Assets->TunaTextures);
     this->OriginY = Y;
     this->VelocityY = 0.0075;

@@ -266,7 +266,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movq	%rax, 96(%rbx)
 	leaq	136(%rax), %rdi
-	movl	$2, %esi
+	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	96(%rbx), %rdi
 	movl	$1, %esi
@@ -291,7 +291,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movq	%rax, 104(%rbx)
 	leaq	136(%rax), %rdi
-	movl	$2, %esi
+	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	104(%rbx), %rdi
 	movl	$1, %esi
@@ -316,7 +316,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movq	%rax, 112(%rbx)
 	leaq	136(%rax), %rdi
-	movl	$2, %esi
+	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	112(%rbx), %rdi
 	movl	$1, %esi
@@ -342,7 +342,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movq	%rax, 120(%rbx)
 	leaq	136(%rax), %rdi
-	movl	$2, %esi
+	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	120(%rbx), %rdi
 	movl	$1, %esi
@@ -368,7 +368,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movq	%rax, 128(%rbx)
 	leaq	136(%rax), %rdi
-	movl	$2, %esi
+	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	128(%rbx), %rdi
 	movl	$1, %esi
@@ -393,7 +393,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movq	%rax, 136(%rbx)
 	leaq	136(%rax), %rdi
-	movl	$2, %esi
+	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	136(%rbx), %rdi
 	movl	$1, %esi
@@ -419,7 +419,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movq	%rax, 144(%rbx)
 	leaq	136(%rax), %rdi
-	movl	$2, %esi
+	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	144(%rbx), %rdi
 	movl	$1, %esi
@@ -445,7 +445,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	movq	%rax, 152(%rbx)
 	leaq	136(%rax), %rdi
-	movl	$2, %esi
+	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
 	movq	152(%rbx), %rdi
 	movl	$1, %esi

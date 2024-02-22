@@ -27,7 +27,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	leaq	272(%rsi), %rdi
 	xorl	%esi, %esi
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$1, %esi
+	xorl	%esi, %esi
 	movq	%rax, 16(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -666,11 +666,11 @@ _ZN10act_player6UpdateEv:
 	movq	%rax, %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox7GetTypeEv@PLT
 	movq	(%rbx), %rdi
-	cmpq	$4, %rax
+	cmpq	$2, %rax
 	je	.L30
-	cmpq	$5, %rax
-	je	.L31
 	cmpq	$3, %rax
+	je	.L31
+	cmpq	$1, %rax
 	je	.L237
 	.p2align 4,,10
 	.p2align 3

@@ -3,7 +3,7 @@
 act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 16, 15, 1);
-    this->OverlapBox = this->Actor->Overlapboxes.New(BOX_PLAYER);
+    this->OverlapBox = this->Actor->Overlapboxes.New(BOX_NONE);
     this->SimulationBox = this->Actor->Overlapboxes.New(BOX_NONE);
     this->LatchBox1 = this->Actor->Overlapboxes.New(BOX_NONE);
     this->LatchBox2 = this->Actor->Overlapboxes.New(BOX_NONE);

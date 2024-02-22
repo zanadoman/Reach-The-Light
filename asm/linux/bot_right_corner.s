@@ -77,7 +77,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 32(%r13)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -131,7 +131,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	%rax, %xmm2
 	movsd	%xmm0, 24(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 40(%r13)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -187,7 +187,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	%xmm3, %rbx
 	movsd	%xmm1, 8(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 48(%r13)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -221,7 +221,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 56(%r13)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -253,7 +253,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 64(%r13)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -285,7 +285,7 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 72(%r13)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT

@@ -23,7 +23,7 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	xorl	%esi, %esi
 	movsd	%xmm1, 8(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$6, %esi
+	xorl	%esi, %esi
 	movq	%rax, 16(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT

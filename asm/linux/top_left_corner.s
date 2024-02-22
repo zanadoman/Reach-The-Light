@@ -61,7 +61,7 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbx, %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
-	movl	$3, %esi
+	movl	$1, %esi
 	movq	%rax, 24(%r13)
 	movq	16(%r13), %rax
 	leaq	136(%rax), %rdi
@@ -140,7 +140,7 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movsd	%xmm3, 16(%rsp)
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 56(%r13)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -194,7 +194,7 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	%rax, %xmm2
 	movsd	%xmm0, 24(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 64(%r13)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -244,7 +244,7 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 72(%r13)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -280,7 +280,7 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movapd	%xmm4, %xmm0
 	movq	%xmm4, %rbx
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 80(%r13)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -314,7 +314,7 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	%rax, %xmm2
 	movsd	%xmm1, 8(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 88(%r13)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
@@ -348,7 +348,7 @@ _ZN20tile_top_left_cornerC2EPN3wze6engineEP4gamedd:
 	movq	.LC0(%rip), %rax
 	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$2, %esi
+	xorl	%esi, %esi
 	movq	%rax, 96(%r13)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT

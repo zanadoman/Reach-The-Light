@@ -61,12 +61,9 @@ typedef enum
 typedef enum
 {
     BOX_NONE,
-    BOX_PLAYER,
-    BOX_PLATFORM,
     BOX_DAMAGE,
     BOX_SLOWNESS,
-    BOX_LEVER,
-    BOX_TUNA
+    BOX_LEVER
 } overlapbox;
 
 typedef enum
