@@ -1092,8 +1092,8 @@ _ZN10scene_play6UpdateEv:
 	movzwl	%ax, %eax
 	cvtsi2sdl	%eax, %xmm0
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd@PLT
-	movq	88(%rbp), %rax
-	movzbl	137(%rax), %ebx
+	movq	88(%rbp), %rdi
+	movzbl	137(%rdi), %ebx
 	testb	%bl, %bl
 	jne	.L98
 	movq	32(%rbp), %rcx
@@ -1113,14 +1113,11 @@ _ZN10scene_play6UpdateEv:
 	jb	.L101
 .L102:
 	movq	56(%rbp), %rax
-	movq	1152(%rbp), %rdi
 	movb	$0, 37(%rax)
 	movq	48(%rbp), %rax
 	movb	$0, 37(%rax)
 	movq	24(%rbp), %rax
 	movb	$0, 37(%rax)
-	call	_ZN10tile_house6UpdateEv@PLT
-	movq	88(%rbp), %rdi
 	call	_ZN10act_player6UpdateEv@PLT
 	movq	0(%rbp), %rax
 	leaq	416(%rax), %rdi
@@ -1248,7 +1245,7 @@ _ZN10scene_play6UpdateEv:
 	.p2align 4,,10
 	.p2align 3
 .L98:
-	movq	16(%rax), %rdi
+	movq	16(%rdi), %rdi
 	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	1152(%rbp), %rax
 	movq	%xmm0, %rbx

@@ -40,7 +40,7 @@ gui_pause::~gui_pause()
 
 gui_pause::state gui_pause::Update()
 {
-    if ((!this->Actor->Visible && this->PauseTick + 250 < this->Engine->Timing.GetCurrentTick() && this->Engine->Keys[KEY_ESCAPE]) || !this->Engine->Window.HasFocus())
+    if (!this->Actor->Visible && ((this->PauseTick + 250 < this->Engine->Timing.GetCurrentTick() && this->Engine->Keys[KEY_ESCAPE]) || !this->Engine->Window.HasFocus()))
     {
         this->Actor->Visible = true;
         this->Resume->Actor->Visible = true;
@@ -50,8 +50,6 @@ gui_pause::state gui_pause::Update()
         this->FrameRate->Actor->Visible = true;
         this->Engine->Mouse.SetAbsolute();
         this->PauseTick = this->Engine->Timing.GetCurrentTick();
-
-        return PAUSED;
     }
 
     if (this->Actor->Visible)

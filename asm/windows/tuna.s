@@ -27,7 +27,7 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	movl	$26, 40(%rsp)
 	movsd	%xmm6, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$6, %edx
+	xorl	%edx, %edx
 	movq	%rax, 16(%rbx)
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy

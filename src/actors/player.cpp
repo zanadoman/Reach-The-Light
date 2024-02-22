@@ -145,9 +145,9 @@ uint8 act_player::Update()
             this->Engine->Audio.Play(this->Game->Assets->LoseAudio, CH_WIN_LOSE, 0.5, 0);
         }
 
+        this->Actor->SetCollisionLayer(0);
         this->Actor->SetY(this->Actor->GetY() + 0.05 * this->Engine->Timing.GetDeltaTime());
         this->Dead->ColorA = round(this->Opacity);
-        this->Actor->SetCollisionLayer(0);
 
         if (0 < this->Opacity)
         {
@@ -185,9 +185,9 @@ uint8 act_player::Update()
             this->Engine->Audio.Play(this->Game->Assets->WinAudio, CH_WIN_LOSE, 0.5, 0);
         }
 
+        this->Actor->SetCollisionLayer(0);
         this->Actor->SetX(this->Game->Play->House->Detector->GetX());
         this->Actor->SetY(this->Game->Play->House->Detector->GetY());
-        this->Actor->SetCollisionLayer(0);
 
         this->Idle->Visible = true;
         this->Idle->Paused = false;

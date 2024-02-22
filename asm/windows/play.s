@@ -1113,8 +1113,8 @@ _ZN10scene_play6UpdateEv:
 	movzwl	%ax, %eax
 	cvtsi2sdl	%eax, %xmm1
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetXEd
-	movq	88(%rsi), %rax
-	movzbl	137(%rax), %ebx
+	movq	88(%rsi), %r9
+	movzbl	137(%r9), %ebx
 	testb	%bl, %bl
 	jne	.L93
 	movq	32(%rsi), %rcx
@@ -1134,14 +1134,12 @@ _ZN10scene_play6UpdateEv:
 	jb	.L96
 .L97:
 	movq	56(%rsi), %rax
-	movq	1152(%rsi), %rcx
+	movq	%r9, %rcx
 	movb	$0, 37(%rax)
 	movq	48(%rsi), %rax
 	movb	$0, 37(%rax)
 	movq	24(%rsi), %rax
 	movb	$0, 37(%rax)
-	call	_ZN10tile_house6UpdateEv
-	movq	88(%rsi), %rcx
 	call	_ZN10act_player6UpdateEv
 	movq	(%rsi), %rax
 	leaq	416(%rax), %rcx
@@ -1264,7 +1262,7 @@ _ZN10scene_play6UpdateEv:
 	.p2align 4,,10
 	.p2align 3
 .L93:
-	movq	16(%rax), %rcx
+	movq	16(%r9), %rcx
 	call	_ZN3wze6engine6actors5actor4GetXEv
 	movq	1152(%rsi), %rax
 	movapd	%xmm0, %xmm6
@@ -1671,7 +1669,6 @@ _ZN10scene_play6UpdateEv.cold:
 	.def	_ZN3neo6stringpLESt16initializer_listIyE;	.scl	2;	.type	32;	.endef
 	.def	_ZN3neo6stringclEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes7textbox10SetLiteralEPKc;	.scl	2;	.type	32;	.endef
-	.def	_ZN10tile_house6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN10act_player6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing12GetDeltaTimeEv;	.scl	2;	.type	32;	.endef
 	.def	round;	.scl	2;	.type	32;	.endef
@@ -1684,6 +1681,7 @@ _ZN10scene_play6UpdateEv.cold:
 	.def	_ZN9gui_pause6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN10tile_token19ResetCollisionLayerEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN10tile_token6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN10tile_house6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN9act_crate6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN8act_tuna6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy;	.scl	2;	.type	32;	.endef

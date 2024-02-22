@@ -160,7 +160,6 @@ scene scene_play::Update()
         this->TunaCount->Visible = false;
         this->FrameTime->Visible = false;
 
-        this->House->Update();
         this->Player->Update();
 
         this->Lose->ColorA = round(engine::math::Clamp<double>(this->Opacity += 0.1 * this->Engine->Timing.GetDeltaTime(), 0, 255));
@@ -280,11 +279,11 @@ scene scene_play::Update()
         {
             if (i % 2)
             {
-                    this->HealthBar[i]->SetTextureID(this->Game->Assets->HearthRightFullTexture);
+                this->HealthBar[i]->SetTextureID(this->Game->Assets->HearthRightFullTexture);
             }
             else
             {
-                    this->HealthBar[i]->SetTextureID(this->Game->Assets->HearthLeftFullTexture);
+                this->HealthBar[i]->SetTextureID(this->Game->Assets->HearthLeftFullTexture);
             }
         }
         else
