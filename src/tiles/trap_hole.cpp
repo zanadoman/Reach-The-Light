@@ -75,21 +75,24 @@ uint8 tile_trap_hole::Update()
 {
     bool crate;
 
-    crate = false;
-    for (uint8 i = 0; i < this->Game->Play->Crates.Length(); i++)
+    if (this->HitboxBot != NULL)
     {
-        if (this->Detector->IsOverlappingWith(this->Game->Play->Crates[i]->Actor->GetID(), this->Game->Play->Crates[i]->OverlapBox->GetID()))
+        crate = false;
+        for (uint8 i = 0; i < this->Game->Play->Crates.Length(); i++)
         {
-            crate = true;
-            break;
+            if (this->Detector->IsOverlappingWith(this->Game->Play->Crates[i]->Actor->GetID(), this->Game->Play->Crates[i]->OverlapBox->GetID()))
+            {
+                crate = true;
+                break;
+            }
         }
-    }
 
-    if (this->HitboxBot != NULL && (this->Detector->IsOverlappingWith(this->Game->Play->Player->Actor->GetID(), this->Game->Play->Player->OverlapBox->GetID()) || crate))
-    {
-        this->Engine->Actors.Delete(this->HitboxBot->GetID());
-        this->HitboxBot = NULL;
-        this->Engine->Audio.Play(this->Game->Assets->TrapPlatformAudio, CH_TRAP_PLATFORM, 1, 0);
+        if (this->Detector->IsOverlappingWith(this->Game->Play->Player->Actor->GetID(), this->Game->Play->Player->OverlapBox->GetID()) || crate)
+        {
+            this->Engine->Actors.Delete(this->HitboxBot->GetID());
+            this->HitboxBot = NULL;
+            this->Engine->Audio.Play(this->Game->Assets->TrapPlatformAudio, CH_TRAP_PLATFORM, 1, 0);
+        }
     }
 
     return 0;
