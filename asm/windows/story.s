@@ -391,26 +391,7 @@ _ZN11scene_story6UpdateEv:
 	movzwl	40(%rbx), %edx
 	subq	$1, %rax
 	cmpq	%rax, %rdx
-	jb	.L24
-.L40:
-	movl	$3, %ebx
-.L25:
-	movq	%rsi, %rcx
-	call	_ZN3neo6stringD1Ev
-	nop
-	movaps	112(%rsp), %xmm6
-	movl	%ebx, %eax
-	addq	$136, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	popq	%rbp
-	popq	%r12
-	popq	%r13
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L24:
+	jnb	.L40
 	movq	%rdi, %rcx
 	call	_ZN3neo6stringixEy
 	cmpb	$10, (%rax)
@@ -445,11 +426,20 @@ _ZN11scene_story6UpdateEv:
 	call	_ZN3neo6stringixEy
 	cmpb	$20, (%rax)
 	movzwl	40(%rbx), %edx
-	jle	.L35
+	jg	.L33
+.L35:
+	addl	$1, %edx
 	movq	%rdi, %rcx
+	movw	%dx, 40(%rbx)
+	movzwl	%dx, %edx
 	call	_ZN3neo6stringixEy
-	cmpb	$127, (%rax)
-	je	.L53
+	movzbl	(%rax), %eax
+	movq	%rbp, %rdx
+	movq	%rsi, %rcx
+	movq	%r12, 48(%rsp)
+	movq	$1, 56(%rsp)
+	movb	%al, 88(%rsp)
+	call	_ZN3neo6stringpLESt16initializer_listIcE
 .L36:
 	movzbl	42(%rbx), %edx
 	movq	56(%rbx), %rax
@@ -486,7 +476,7 @@ _ZN11scene_story6UpdateEv:
 	movq	544(%r13), %rdx
 	cltq
 	cmpq	536(%r13), %rax
-	jnb	.L54
+	jnb	.L53
 	movq	(%rdx,%rax,8), %rdx
 	movapd	%xmm6, %xmm3
 	movl	%r12d, %r8d
@@ -520,13 +510,47 @@ _ZN11scene_story6UpdateEv:
 	call	_ZN10gui_button6UpdateEv
 	testb	%al, %al
 	jne	.L40
-	movq	(%rbx), %rcx
+	movq	(%rbx), %rax
 	movl	$40, %edx
+	leaq	192(%rax), %rcx
+	call	_ZN3wze6engine4keysixENS_3keyE
+	testb	%al, %al
+	jne	.L40
+	movq	(%rbx), %rcx
+	movl	$41, %edx
 	addq	$192, %rcx
 	call	_ZN3wze6engine4keysixENS_3keyE
-	movzbl	%al, %ebx
-	addl	$2, %ebx
+	movzbl	%al, %eax
+	movl	$2, %ebx
+	subl	%eax, %ebx
 	jmp	.L25
+	.p2align 4,,10
+	.p2align 3
+.L40:
+	movl	$3, %ebx
+.L25:
+	movq	%rsi, %rcx
+	call	_ZN3neo6stringD1Ev
+	nop
+	movaps	112(%rsp), %xmm6
+	movl	%ebx, %eax
+	addq	$136, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	popq	%rbp
+	popq	%r12
+	popq	%r13
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L33:
+	movq	%rdi, %rcx
+	call	_ZN3neo6stringixEy
+	cmpb	$127, (%rax)
+	jne	.L36
+	movzwl	40(%rbx), %edx
+	jmp	.L35
 	.p2align 4,,10
 	.p2align 3
 .L52:
@@ -546,7 +570,7 @@ _ZN11scene_story6UpdateEv:
 	call	realloc
 	movq	%rax, 56(%rbx)
 	testq	%rax, %rax
-	je	.L55
+	je	.L54
 	movq	48(%rbx), %rdx
 	leaq	88(%rsp), %rcx
 	movl	$8, %r8d
@@ -598,25 +622,7 @@ _ZN11scene_story6UpdateEv:
 	call	_ZN3wze6engine6timing14GetCurrentTickEv
 	addl	$800, %eax
 	jmp	.L31
-	.p2align 4,,10
-	.p2align 3
 .L53:
-	movzwl	40(%rbx), %edx
-.L35:
-	addl	$1, %edx
-	movq	%rdi, %rcx
-	movw	%dx, 40(%rbx)
-	movzwl	%dx, %edx
-	call	_ZN3neo6stringixEy
-	movzbl	(%rax), %eax
-	movq	%rbp, %rdx
-	movq	%rsi, %rcx
-	movq	%r12, 48(%rsp)
-	movq	$1, 56(%rsp)
-	movb	%al, 88(%rsp)
-	call	_ZN3neo6stringpLESt16initializer_listIcE
-	jmp	.L36
-.L54:
 	movq	%rax, %rdx
 .L46:
 	leaq	.LC6(%rip), %rcx
@@ -624,7 +630,7 @@ _ZN11scene_story6UpdateEv:
 .L29:
 	movl	$1, %ecx
 	call	exit
-.L55:
+.L54:
 	movl	$1, %r8d
 	movl	$8, %edx
 	leaq	.LC3(%rip), %rcx

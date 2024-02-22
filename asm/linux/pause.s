@@ -475,7 +475,7 @@ _ZN9gui_pause6UpdateEv:
 	jne	.L38
 	movl	72(%rbx), %eax
 	addq	$416, %rdi
-	leal	100(%rax), %ebp
+	leal	250(%rax), %ebp
 	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT
 	cmpl	%eax, %ebp
 	jb	.L50
@@ -508,7 +508,7 @@ _ZN9gui_pause6UpdateEv:
 	testb	%al, %al
 	jne	.L45
 	movl	72(%rbx), %eax
-	leal	100(%rax), %ebp
+	leal	250(%rax), %ebp
 	movq	(%rbx), %rax
 	leaq	416(%rax), %rdi
 	call	_ZN3wze6engine6timing14GetCurrentTickEv@PLT

@@ -72,6 +72,10 @@ scene scene_story::Update()
     {
         return SCENE_PLAY;
     }
+    if (this->Engine->Keys[KEY_ESCAPE])
+    {
+        return SCENE_MENU;
+    }
 
     return SCENE_STORY;
 }
