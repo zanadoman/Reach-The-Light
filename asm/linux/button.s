@@ -54,7 +54,6 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
 	movq	32(%rbx), %rax
 	movw	%dx, 20(%rax)
 	movb	$-32, 22(%rax)
-	addb	$1, 36(%rbp)
 	movw	%cx, 16(%rbp)
 	movb	$0, 18(%rbp)
 	call	_ZN3wze6engine6actors5actor9GetHeightEv@PLT
@@ -63,15 +62,21 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
 	movzwl	%ax, %eax
 	cvtsi2sdl	%eax, %xmm0
 	mulsd	.LC2(%rip), %xmm0
+	cvttsd2sil	%xmm0, %esi
+	movzwl	%si, %esi
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
+	movq	32(%rbx), %rax
+	movq	40(%rbx), %rdx
+	movzbl	36(%rax), %eax
+	addl	$1, %eax
+	movb	%al, 36(%rdx)
 	addq	$8, %rsp
 	.cfi_def_cfa_offset 24
 	popq	%rbx
 	.cfi_def_cfa_offset 16
 	popq	%rbp
 	.cfi_def_cfa_offset 8
-	cvttsd2sil	%xmm0, %esi
-	movzwl	%si, %esi
-	jmp	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
+	ret
 	.cfi_endproc
 .LFE8157:
 	.size	_ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc, .-_ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc
@@ -137,9 +142,9 @@ _ZN10gui_button6UpdateEv:
 	je	.L7
 	movl	$-32640, %ecx
 	movb	$-128, 22(%rax)
-	movsd	.LC4(%rip), %xmm3
+	movsd	.LC4(%rip), %xmm2
 	movw	%cx, 20(%rax)
-	comisd	48(%rbx), %xmm3
+	comisd	48(%rbx), %xmm2
 	ja	.L24
 	movq	24(%rbx), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
@@ -214,19 +219,15 @@ _ZN10gui_button6UpdateEv:
 	movq	(%rbx), %rax
 	leaq	416(%rax), %rdi
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
-	pxor	%xmm2, %xmm2
+	pxor	%xmm1, %xmm1
 	movq	24(%rbx), %rdi
-	movsd	.LC6(%rip), %xmm1
-	movl	%eax, %eax
 	movsd	.LC4(%rip), %xmm0
-	cvtsi2sdq	%rax, %xmm2
-	mulsd	.LC5(%rip), %xmm2
-	addsd	48(%rbx), %xmm2
-	cmpltsd	%xmm2, %xmm1
-	andpd	%xmm1, %xmm0
-	andnpd	%xmm2, %xmm1
-	orpd	%xmm0, %xmm1
-	movsd	%xmm1, 48(%rbx)
+	movl	%eax, %eax
+	cvtsi2sdq	%rax, %xmm1
+	mulsd	.LC5(%rip), %xmm1
+	addsd	48(%rbx), %xmm1
+	minsd	%xmm1, %xmm0
+	movsd	%xmm0, 48(%rbx)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
 	testb	$4, %al
 	je	.L15
@@ -298,10 +299,6 @@ _ZN10gui_button6UpdateEv:
 .LC5:
 	.long	-755914244
 	.long	1062232653
-	.align 8
-.LC6:
-	.long	0
-	.long	1072955392
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0
 	.section	.data.rel.local.DW.ref.__gxx_personality_v0,"awG",@progbits,DW.ref.__gxx_personality_v0,comdat

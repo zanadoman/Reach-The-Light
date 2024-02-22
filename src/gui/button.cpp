@@ -15,8 +15,8 @@ gui_button::gui_button(engine* Engine, game* Game, double X, double Y, double La
     this->Textbox->ColorR = 0;
     this->Textbox->ColorG = 0;
     this->Textbox->ColorB = 0;
-    this->Textbox->Priority = this->Textbox->Priority + 1;
     this->Textbox->SetHeight(this->Actor->GetHeight() * 0.5);
+    this->Textbox->Priority = this->Texturebox->Priority + 1;
 }
 
 gui_button::~gui_button()
@@ -36,7 +36,7 @@ bool gui_button::Update()
         {
             this->size += 0.001 * this->Engine->Timing.GetDeltaTime();
 
-            if (1.25 < this->size)
+            if (1.1 < this->size)
             {
                 this->size = 1.1;
             }
