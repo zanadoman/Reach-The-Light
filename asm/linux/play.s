@@ -298,7 +298,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	movq	(%rax,%r14,8), %rax
 	cmpb	$4, (%rax,%rbp)
 	jne	.L8
-	movl	$56, %edi
+	movl	$64, %edi
 .LEHB6:
 	call	_Znwm@PLT
 .LEHE6:
@@ -647,7 +647,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	call	__stack_chk_fail@PLT
 .L40:
 	movq	%rax, %rbp
-	jmp	.L30
+	jmp	.L29
 .L35:
 	movq	%rax, %rbp
 	jmp	.L24
@@ -663,12 +663,12 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 .L37:
 	movq	%rax, %rbp
 	jmp	.L27
-.L36:
-	movq	%rax, %rbp
-	jmp	.L27
 .L38:
 	movq	%rax, %rbp
 	jmp	.L28
+.L36:
+	movq	%rax, %rbp
+	jmp	.L27
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
 .LLSDA8157:
@@ -747,7 +747,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game:
 	.type	_ZN10scene_playC2EPN3wze6engineEP4game.cold, @function
 _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 .LFSB8157:
-.L30:
+.L29:
 	.cfi_def_cfa_offset 240
 	.cfi_offset 3, -56
 	.cfi_offset 6, -48
@@ -755,7 +755,7 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	.cfi_offset 13, -32
 	.cfi_offset 14, -24
 	.cfi_offset 15, -16
-	movl	$56, %esi
+	movl	$64, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
 .L25:
@@ -779,13 +779,18 @@ _ZN10scene_playC2EPN3wze6engineEP4game.cold:
 	jmp	.L25
 .L60:
 	call	__stack_chk_fail@PLT
+.L31:
+	movl	$184, %esi
+	movq	%r12, %rdi
+	call	_ZdlPvm@PLT
+	jmp	.L25
 .L27:
 	movl	$176, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
 	jmp	.L25
-.L31:
-	movl	$184, %esi
+.L30:
+	movl	$56, %esi
 	movq	%r12, %rdi
 	call	_ZdlPvm@PLT
 	jmp	.L25
@@ -904,7 +909,7 @@ _ZN10scene_playD2Ev:
 	movq	%rbp, %rdi
 	addl	$1, %ebx
 	call	_ZN9act_crateD1Ev@PLT
-	movl	$56, %esi
+	movl	$64, %esi
 	movq	%rbp, %rdi
 	call	_ZdlPvm@PLT
 	movq	1120(%r13), %rdx

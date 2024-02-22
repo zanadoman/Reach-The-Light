@@ -416,6 +416,7 @@ struct act_crate
     act_player* Player;
 
     engine::actor Actor;
+    engine::overlapbox OverlapBox;
     engine::overlapbox SimulationBox;
     engine::texturebox Texturebox;
 

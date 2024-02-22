@@ -2,7 +2,8 @@
 
 act_crate::act_crate(engine* Engine, game* Game, act_player* Player, double X, double Y) : Engine(Engine), Game(Game), Player(Player)
 {
-    this->Actor = this->Engine->Actors.New(NULL, BOX_NONE, X, Y, 30, 30, 1);
+    this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, X, Y, 30, 30, 1);
+    this->OverlapBox = this->Actor->Overlapboxes.New(BOX_NONE);
     this->SimulationBox = this->Actor->Overlapboxes.New(BOX_NONE);
     this->Texturebox = this->Actor->Textureboxes.New(this->Game->Assets->CrateTexture);
     this->VelocityY = 0;

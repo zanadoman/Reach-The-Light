@@ -437,82 +437,153 @@ _ZN14tile_trap_holeD2Ev:
 _ZN14tile_trap_hole6UpdateEv:
 .LFB8162:
 	.cfi_startproc
-	cmpq	$0, 48(%rdi)
-	je	.L30
-	pushq	%r12
+	pushq	%r14
 	.cfi_def_cfa_offset 16
-	.cfi_offset 12, -16
-	pushq	%rbp
+	.cfi_offset 14, -16
+	movq	%rdi, %r14
+	pushq	%r13
 	.cfi_def_cfa_offset 24
-	.cfi_offset 6, -24
-	pushq	%rbx
+	.cfi_offset 13, -24
+	pushq	%r12
 	.cfi_def_cfa_offset 32
-	.cfi_offset 3, -32
-	movq	8(%rdi), %rax
-	movq	%rdi, %rbx
-	movq	32(%rdi), %r12
+	.cfi_offset 12, -32
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	movq	8(%rdi), %rdx
+	movq	56(%rdx), %rax
+	cmpq	$0, 1120(%rax)
+	je	.L23
+	xorl	%r12d, %r12d
+	xorl	%ebx, %ebx
+	jmp	.L26
+	.p2align 4,,10
+	.p2align 3
+.L40:
+	movq	8(%r14), %rdx
+	addl	$1, %r12d
+	movzbl	%r12b, %ebx
+	movq	56(%rdx), %rax
+	cmpq	1120(%rax), %rbx
+	jnb	.L23
+.L26:
+	movq	1128(%rax), %rax
+	movq	32(%r14), %r13
+	movq	(%rax,%rbx,8), %rax
+	movq	32(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
+	movq	%rax, %rbp
+	movq	8(%r14), %rax
+	movq	56(%rax), %rax
+	movq	1128(%rax), %rdx
+	cmpq	1120(%rax), %rbx
+	jnb	.L39
+	movq	(%rdx,%rbx,8), %rax
+	movq	24(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdx
+	movq	%r13, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
+	testb	%al, %al
+	je	.L40
+	cmpq	$0, 48(%r14)
+	je	.L33
+	movq	8(%r14), %rax
+	movq	32(%r14), %rbp
 	movq	56(%rax), %rax
 	movq	88(%rax), %rax
 	movq	24(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
-	movq	%rax, %rbp
-	movq	8(%rbx), %rax
+	movq	%rax, %rbx
+	movq	8(%r14), %rax
 	movq	56(%rax), %rax
 	movq	88(%rax), %rax
 	movq	16(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
-	movq	%rbp, %rdx
-	movq	%r12, %rdi
-	movq	%rax, %rsi
-	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
-	testb	%al, %al
-	jne	.L33
-	popq	%rbx
-	.cfi_remember_state
-	.cfi_def_cfa_offset 24
-	xorl	%eax, %eax
-	popq	%rbp
-	.cfi_def_cfa_offset 16
-	popq	%r12
-	.cfi_def_cfa_offset 8
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L33:
-	.cfi_restore_state
-	movq	(%rbx), %rax
-	movq	48(%rbx), %rdi
-	leaq	272(%rax), %rbp
-	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbx, %rdx
 	movq	%rbp, %rdi
 	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
+.L30:
+	movq	(%r14), %rax
+	movq	48(%r14), %rdi
+	leaq	272(%rax), %rbx
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbx, %rdi
+	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
-	movq	8(%rbx), %rax
-	movq	(%rbx), %rdi
+	movq	8(%r14), %rax
+	movq	(%r14), %rdi
 	xorl	%ecx, %ecx
-	movq	$0, 48(%rbx)
+	movq	$0, 48(%r14)
 	movsd	.LC0(%rip), %xmm0
 	movl	$7, %edx
 	movq	8(%rax), %rax
 	addq	$160, %rdi
 	movq	504(%rax), %rsi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
+.L33:
 	popq	%rbx
-	.cfi_def_cfa_offset 24
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
 	xorl	%eax, %eax
 	popq	%rbp
-	.cfi_def_cfa_offset 16
+	.cfi_def_cfa_offset 32
 	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
 	.cfi_def_cfa_offset 8
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L30:
-	.cfi_restore 3
-	.cfi_restore 6
-	.cfi_restore 12
+.L23:
+	.cfi_restore_state
+	cmpq	$0, 48(%r14)
+	je	.L33
+	movq	56(%rdx), %rax
+	movq	32(%r14), %rbp
+	movq	88(%rax), %rax
+	movq	24(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
+	movq	%rax, %rbx
+	movq	8(%r14), %rax
+	movq	56(%rax), %rax
+	movq	88(%rax), %rax
+	movq	16(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbx, %rdx
+	movq	%rbp, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
+	testb	%al, %al
+	jne	.L30
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
 	xorl	%eax, %eax
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
 	ret
+.L39:
+	.cfi_restore_state
+	leaq	.LC1(%rip), %rdi
+	movq	%rbx, %rsi
+	xorl	%eax, %eax
+	call	printf@PLT
+	movl	$1, %edi
+	call	exit@PLT
 	.cfi_endproc
 .LFE8162:
 	.size	_ZN14tile_trap_hole6UpdateEv, .-_ZN14tile_trap_hole6UpdateEv
