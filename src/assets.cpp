@@ -2,10 +2,10 @@
 
 assets::assets(engine* Engine) : Engine(Engine)
 {
-    this->HackRegularFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Regular.ttf", 255);
-    this->HackBoldFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Bold.ttf", 255);
-    this->HackItalicFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Italic.ttf", 255);
-    this->HackBoldItalicFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-BoldItalic.ttf", 255);
+    this->HackRegularFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Regular.ttf", 48);
+    this->HackBoldFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Bold.ttf", 48);
+    this->HackItalicFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-Italic.ttf", 48);
+    this->HackBoldItalicFont = this->Engine->Assets.LoadFont("assets/fonts/Hack-BoldItalic.ttf", 48);
 
     this->MenuTitleTexture = this->Engine->Assets.LoadTexture("assets/gui/menu_title.png");
     this->MenuBackgroundTexture = this->Engine->Assets.LoadTexture("assets/gui/menu_background.png");

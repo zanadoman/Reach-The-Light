@@ -386,7 +386,7 @@ _ZN6assetsC2EPN3wze6engineE:
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	movl	$255, %edx
+	movl	$48, %edx
 	pushq	%rbx
 	.cfi_def_cfa_offset 24
 	.cfi_offset 3, -24
@@ -427,19 +427,19 @@ _ZN6assetsC2EPN3wze6engineE:
 	call	_ZN3wze6engine6assets8LoadFontEPKch@PLT
 	movq	%rax, 8(%rbx)
 	movq	(%rbx), %rax
-	movl	$255, %edx
+	movl	$48, %edx
 	leaq	.LC1(%rip), %rsi
 	leaq	344(%rax), %rdi
 	call	_ZN3wze6engine6assets8LoadFontEPKch@PLT
 	movq	%rax, 16(%rbx)
 	movq	(%rbx), %rax
-	movl	$255, %edx
+	movl	$48, %edx
 	leaq	.LC2(%rip), %rsi
 	leaq	344(%rax), %rdi
 	call	_ZN3wze6engine6assets8LoadFontEPKch@PLT
 	movq	%rax, 24(%rbx)
 	movq	(%rbx), %rax
-	movl	$255, %edx
+	movl	$48, %edx
 	leaq	.LC3(%rip), %rsi
 	leaq	344(%rax), %rdi
 	call	_ZN3wze6engine6assets8LoadFontEPKch@PLT

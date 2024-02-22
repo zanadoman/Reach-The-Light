@@ -42,45 +42,24 @@ scene scene_story::Update()
             this->Lines[this->CurrentLine]->SetHeight(40);
             this->Lines[this->CurrentLine]->SetY(this->Actor->GetY() + 500 - 80 * this->CurrentLine);
 
+            this->Engine->Audio.Play(this->Game->Assets->TypingReturnAudio, (this->ChannelSwitch = !this->ChannelSwitch) ? CH_TYPING1 : CH_TYPING2, 0.8, 0);
             
-            if (this->ChannelSwitch)
-            {
-                this->Engine->Audio.Play(this->Game->Assets->TypingReturnAudio, CH_TYPING1, 0.8, 0);
-            }
-            else 
-            {
-                this->Engine->Audio.Play(this->Game->Assets->TypingReturnAudio, CH_TYPING2, 0.8, 0);
-            }
-
-            this->ChannelSwitch = !this->ChannelSwitch;
-            
-            this->Sleep = this->Engine->Timing.GetCurrentTick() + 1000;
+            this->Sleep = this->Engine->Timing.GetCurrentTick() + 800;
         }
         else
         {
-            if (21 <= this->Story[this->CurrentChar] && this->Story[this->CurrentChar] <= 126)
+            (str = {this->Lines[this->CurrentLine]->GetLiteral()}) += {this->Story[this->CurrentChar]};
+
+            if (this->Story[this->CurrentChar] < 21 || 126 < this->Story[this->CurrentChar])
             {
-                (str = {this->Lines[this->CurrentLine]->GetLiteral()}) += {this->Story[this->CurrentChar]};
-            }
-            else
-            {
-                (str = {this->Lines[this->CurrentLine]->GetLiteral()}) += {this->Story[this->CurrentChar], this->Story[++this->CurrentChar]};
+                str += {this->Story[++this->CurrentChar]};
             }
 
             this->Lines[this->CurrentLine]->SetLiteral(str());
             
-            if (this->ChannelSwitch)
-            {
-                this->Engine->Audio.Play(this->Game->Assets->TypingAudio[this->Engine->Math.Random(0, this->Game->Assets->TypingAudio.Length())], CH_TYPING1, this->Engine->Math.Random(30, 60) / 100.0, 0);
-            }
-            else
-            {
-                this->Engine->Audio.Play(this->Game->Assets->TypingAudio[this->Engine->Math.Random(0, this->Game->Assets->TypingAudio.Length())], CH_TYPING2, this->Engine->Math.Random(30, 60) / 100.0, 0);
-            }
+            this->Engine->Audio.Play(this->Game->Assets->TypingAudio[this->Engine->Math.Random(0, this->Game->Assets->TypingAudio.Length())], (this->ChannelSwitch = !this->ChannelSwitch) ? CH_TYPING1 : CH_TYPING2, this->Engine->Math.Random(30, 60) / 100.0, 0);
 
-            this->ChannelSwitch = !this->ChannelSwitch;
-
-            this->Sleep = this->Engine->Timing.GetCurrentTick() + 150;
+            this->Sleep = this->Engine->Timing.GetCurrentTick() + 100;
         }
 
         if (this->Story.Length() - 1 <= ++this->CurrentChar)
