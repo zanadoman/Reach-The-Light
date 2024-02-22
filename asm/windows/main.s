@@ -61,174 +61,8 @@ _Z6printfPKcz:
 	popq	%rsi
 	ret
 	.seh_endproc
-	.def	__main;	.scl	2;	.type	32;	.endef
 	.section .rdata,"dr"
-.LC1:
-	.ascii "assets/icon.png\0"
-.LC2:
-	.ascii "Reach The Light\0"
-	.section	.text.unlikely,"x"
-.LCOLDB3:
-	.section	.text.startup,"x"
-.LHOTB3:
-	.p2align 4
-	.globl	main
-	.def	main;	.scl	2;	.type	32;	.endef
-	.seh_proc	main
-main:
-.LFB8431:
-	pushq	%rsi
-	.seh_pushreg	%rsi
-	pushq	%rbx
-	.seh_pushreg	%rbx
-	subq	$56, %rsp
-	.seh_stackalloc	56
-	.seh_endprologue
-	call	__main
-	movl	$480, %ecx
-.LEHB0:
-	call	_Znwy
-.LEHE0:
-	movl	$16, 40(%rsp)
-	movl	$2560, %r9d
-	leaq	.LC1(%rip), %r8
-	movl	$1440, 32(%rsp)
-	leaq	.LC2(%rip), %rdx
-	movq	%rax, %rcx
-	movq	%rax, %rbx
-.LEHB1:
-	call	_ZN3wze6engineC1EPKcS2_tth
-.LEHE1:
-	leaq	160(%rbx), %rcx
-	movl	$15, %edx
-.LEHB2:
-	call	_ZN3wze6engine5audio15SetChannelCountEt
-	movl	$34, %edx
-	leaq	416(%rbx), %rcx
-	call	_ZN3wze6engine6timing15SetMaxDeltaTimeEj
-	movl	$80, %ecx
-	call	_Znwy
-.LEHE2:
-	movq	%rbx, %rdx
-	movq	%rax, %rcx
-	movq	%rax, %rsi
-.LEHB3:
-	call	_ZN4gameC1EPN3wze6engineE
-.LEHE3:
-	jmp	.L5
-	.p2align 4,,10
-	.p2align 3
-.L6:
-	movq	%rsi, %rcx
-.LEHB4:
-	call	_ZN4game6UpdateEv
-	testb	%al, %al
-	jne	.L7
-.L5:
-	movq	%rbx, %rcx
-	call	_ZN3wze6engine6UpdateEv
-.LEHE4:
-	testb	%al, %al
-	jne	.L6
-.L7:
-	movq	%rsi, %rcx
-	call	_ZN4gameD1Ev
-	movl	$80, %edx
-	movq	%rsi, %rcx
-	call	_ZdlPvy
-	movq	%rbx, %rcx
-	call	_ZN3wze6engineD1Ev
-	movl	$480, %edx
-	movq	%rbx, %rcx
-	call	_ZdlPvy
-	xorl	%eax, %eax
-	addq	$56, %rsp
-	popq	%rbx
-	popq	%rsi
-	ret
-.L10:
-	movq	%rax, %rsi
-	jmp	.L8
-.L11:
-	movq	%rax, %rbx
-	jmp	.L9
-	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
-	.seh_handler	__gxx_personality_seh0, @unwind, @except
-	.seh_handlerdata
-.LLSDA8431:
-	.byte	0xff
-	.byte	0xff
-	.byte	0x1
-	.uleb128 .LLSDACSE8431-.LLSDACSB8431
-.LLSDACSB8431:
-	.uleb128 .LEHB0-.LFB8431
-	.uleb128 .LEHE0-.LEHB0
-	.uleb128 0
-	.uleb128 0
-	.uleb128 .LEHB1-.LFB8431
-	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L10-.LFB8431
-	.uleb128 0
-	.uleb128 .LEHB2-.LFB8431
-	.uleb128 .LEHE2-.LEHB2
-	.uleb128 0
-	.uleb128 0
-	.uleb128 .LEHB3-.LFB8431
-	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L11-.LFB8431
-	.uleb128 0
-	.uleb128 .LEHB4-.LFB8431
-	.uleb128 .LEHE4-.LEHB4
-	.uleb128 0
-	.uleb128 0
-.LLSDACSE8431:
-	.section	.text.startup,"x"
-	.seh_endproc
-	.section	.text.unlikely,"x"
-	.def	main.cold;	.scl	3;	.type	32;	.endef
-	.seh_proc	main.cold
-	.seh_stackalloc	72
-	.seh_savereg	%rbx, 56
-	.seh_savereg	%rsi, 64
-	.seh_endprologue
-main.cold:
-.L8:
-	movq	%rbx, %rcx
-	movl	$480, %edx
-	call	_ZdlPvy
-	movq	%rsi, %rcx
-.LEHB5:
-	call	_Unwind_Resume
-.L9:
-	movq	%rsi, %rcx
-	movl	$80, %edx
-	call	_ZdlPvy
-	movq	%rbx, %rcx
-	call	_Unwind_Resume
-	nop
-.LEHE5:
-	.seh_handler	__gxx_personality_seh0, @unwind, @except
-	.seh_handlerdata
-.LLSDAC8431:
-	.byte	0xff
-	.byte	0xff
-	.byte	0x1
-	.uleb128 .LLSDACSEC8431-.LLSDACSBC8431
-.LLSDACSBC8431:
-	.uleb128 .LEHB5-.LCOLDB3
-	.uleb128 .LEHE5-.LEHB5
-	.uleb128 0
-	.uleb128 0
-.LLSDACSEC8431:
-	.section	.text.unlikely,"x"
-	.section	.text.startup,"x"
-	.section	.text.unlikely,"x"
-	.seh_endproc
-.LCOLDE3:
-	.section	.text.startup,"x"
-.LHOTE3:
-	.section .rdata,"dr"
-.LC6:
+.LC3:
 	.ascii "assets/presskit.png\0"
 	.text
 	.p2align 4
@@ -260,7 +94,7 @@ _Z15DisplayPressKitPN3wze6engineE:
 	movaps	%xmm8, 96(%rsp)
 	.seh_savexmm	%xmm8, 96
 	.seh_endprologue
-	leaq	.LC6(%rip), %rdx
+	leaq	.LC3(%rip), %rdx
 	pxor	%xmm6, %xmm6
 	leaq	344(%rcx), %r13
 	movq	%rcx, %rbx
@@ -299,14 +133,14 @@ _Z15DisplayPressKitPN3wze6engineE:
 	movq	%rax, %r12
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	pxor	%xmm0, %xmm0
-	movsd	.LC7(%rip), %xmm8
-	movsd	.LC5(%rip), %xmm7
+	movsd	.LC4(%rip), %xmm8
+	movsd	.LC2(%rip), %xmm7
 	movq	%rax, %rsi
 	movapd	%xmm0, %xmm6
-	jmp	.L22
+	jmp	.L11
 	.p2align 4,,10
 	.p2align 3
-.L16:
+.L5:
 	movq	%rdi, %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	pxor	%xmm1, %xmm1
@@ -315,17 +149,17 @@ _Z15DisplayPressKitPN3wze6engineE:
 	mulsd	%xmm8, %xmm1
 	addsd	%xmm1, %xmm6
 	comisd	%xmm6, %xmm7
-	jb	.L31
+	jb	.L20
 	movapd	%xmm6, %xmm0
 	call	round
-.L22:
+.L11:
 	cvttsd2sil	%xmm0, %eax
 	movq	%rbx, %rcx
 	movb	%al, 23(%rsi)
 	call	_ZN3wze6engine6UpdateEv
 	testb	%al, %al
-	jne	.L16
-.L32:
+	jne	.L5
+.L21:
 	movq	%r12, %rcx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%r14, %rcx
@@ -350,14 +184,14 @@ _Z15DisplayPressKitPN3wze6engineE:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L31:
+.L20:
 	movapd	%xmm7, %xmm0
 	movapd	%xmm7, %xmm6
 	pxor	%xmm7, %xmm7
-	jmp	.L20
+	jmp	.L9
 	.p2align 4,,10
 	.p2align 3
-.L23:
+.L12:
 	movq	%rdi, %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
 	pxor	%xmm0, %xmm0
@@ -366,18 +200,186 @@ _Z15DisplayPressKitPN3wze6engineE:
 	mulsd	%xmm8, %xmm0
 	subsd	%xmm0, %xmm6
 	comisd	%xmm7, %xmm6
-	jb	.L32
+	jb	.L21
 	movapd	%xmm6, %xmm0
 	call	round
-.L20:
+.L9:
 	cvttsd2sil	%xmm0, %eax
 	movq	%rbx, %rcx
 	movb	%al, 23(%rsi)
 	call	_ZN3wze6engine6UpdateEv
 	testb	%al, %al
-	jne	.L23
-	jmp	.L32
+	jne	.L12
+	jmp	.L21
 	.seh_endproc
+	.def	__main;	.scl	2;	.type	32;	.endef
+	.section .rdata,"dr"
+.LC5:
+	.ascii "assets/icon.png\0"
+.LC6:
+	.ascii "Reach The Light\0"
+	.section	.text.unlikely,"x"
+.LCOLDB7:
+	.section	.text.startup,"x"
+.LHOTB7:
+	.p2align 4
+	.globl	main
+	.def	main;	.scl	2;	.type	32;	.endef
+	.seh_proc	main
+main:
+.LFB8431:
+	pushq	%rsi
+	.seh_pushreg	%rsi
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$56, %rsp
+	.seh_stackalloc	56
+	.seh_endprologue
+	call	__main
+	movl	$480, %ecx
+.LEHB0:
+	call	_Znwy
+.LEHE0:
+	movl	$16, 40(%rsp)
+	movl	$2560, %r9d
+	leaq	.LC5(%rip), %r8
+	movl	$1440, 32(%rsp)
+	leaq	.LC6(%rip), %rdx
+	movq	%rax, %rcx
+	movq	%rax, %rbx
+.LEHB1:
+	call	_ZN3wze6engineC1EPKcS2_tth
+.LEHE1:
+	leaq	160(%rbx), %rcx
+	movl	$15, %edx
+.LEHB2:
+	call	_ZN3wze6engine5audio15SetChannelCountEt
+	movl	$34, %edx
+	leaq	416(%rbx), %rcx
+	call	_ZN3wze6engine6timing15SetMaxDeltaTimeEj
+	movq	%rbx, %rcx
+	call	_Z15DisplayPressKitPN3wze6engineE
+	movl	$80, %ecx
+	call	_Znwy
+.LEHE2:
+	movq	%rbx, %rdx
+	movq	%rax, %rcx
+	movq	%rax, %rsi
+.LEHB3:
+	call	_ZN4gameC1EPN3wze6engineE
+.LEHE3:
+	jmp	.L23
+	.p2align 4,,10
+	.p2align 3
+.L24:
+	movq	%rsi, %rcx
+.LEHB4:
+	call	_ZN4game6UpdateEv
+	testb	%al, %al
+	jne	.L25
+.L23:
+	movq	%rbx, %rcx
+	call	_ZN3wze6engine6UpdateEv
+.LEHE4:
+	testb	%al, %al
+	jne	.L24
+.L25:
+	movq	%rsi, %rcx
+	call	_ZN4gameD1Ev
+	movl	$80, %edx
+	movq	%rsi, %rcx
+	call	_ZdlPvy
+	movq	%rbx, %rcx
+	call	_ZN3wze6engineD1Ev
+	movl	$480, %edx
+	movq	%rbx, %rcx
+	call	_ZdlPvy
+	xorl	%eax, %eax
+	addq	$56, %rsp
+	popq	%rbx
+	popq	%rsi
+	ret
+.L28:
+	movq	%rax, %rsi
+	jmp	.L26
+.L29:
+	movq	%rax, %rbx
+	jmp	.L27
+	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+.LLSDA8431:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE8431-.LLSDACSB8431
+.LLSDACSB8431:
+	.uleb128 .LEHB0-.LFB8431
+	.uleb128 .LEHE0-.LEHB0
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB1-.LFB8431
+	.uleb128 .LEHE1-.LEHB1
+	.uleb128 .L28-.LFB8431
+	.uleb128 0
+	.uleb128 .LEHB2-.LFB8431
+	.uleb128 .LEHE2-.LEHB2
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB3-.LFB8431
+	.uleb128 .LEHE3-.LEHB3
+	.uleb128 .L29-.LFB8431
+	.uleb128 0
+	.uleb128 .LEHB4-.LFB8431
+	.uleb128 .LEHE4-.LEHB4
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE8431:
+	.section	.text.startup,"x"
+	.seh_endproc
+	.section	.text.unlikely,"x"
+	.def	main.cold;	.scl	3;	.type	32;	.endef
+	.seh_proc	main.cold
+	.seh_stackalloc	72
+	.seh_savereg	%rbx, 56
+	.seh_savereg	%rsi, 64
+	.seh_endprologue
+main.cold:
+.L26:
+	movq	%rbx, %rcx
+	movl	$480, %edx
+	call	_ZdlPvy
+	movq	%rsi, %rcx
+.LEHB5:
+	call	_Unwind_Resume
+.L27:
+	movq	%rsi, %rcx
+	movl	$80, %edx
+	call	_ZdlPvy
+	movq	%rbx, %rcx
+	call	_Unwind_Resume
+	nop
+.LEHE5:
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+.LLSDAC8431:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSEC8431-.LLSDACSBC8431
+.LLSDACSBC8431:
+	.uleb128 .LEHB5-.LCOLDB7
+	.uleb128 .LEHE5-.LEHB5
+	.uleb128 0
+	.uleb128 0
+.LLSDACSEC8431:
+	.section	.text.unlikely,"x"
+	.section	.text.startup,"x"
+	.section	.text.unlikely,"x"
+	.seh_endproc
+.LCOLDE7:
+	.section	.text.startup,"x"
+.LHOTE7:
 	.section .rdata,"dr"
 .LC8:
 	.ascii "*this->Spawn = %d;\12\0"
@@ -426,26 +428,15 @@ _Z8PrintMapP4game:
 	.seh_endproc
 	.section .rdata,"dr"
 	.align 8
-.LC5:
+.LC2:
 	.long	0
 	.long	1081073664
 	.align 8
-.LC7:
+.LC4:
 	.long	-1717986918
 	.long	1069128089
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	__mingw_vfprintf;	.scl	2;	.type	32;	.endef
-	.def	_Znwy;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engineC1EPKcS2_tth;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5audio15SetChannelCountEt;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6timing15SetMaxDeltaTimeEj;	.scl	2;	.type	32;	.endef
-	.def	_ZN4gameC1EPN3wze6engineE;	.scl	2;	.type	32;	.endef
-	.def	_ZN4game6UpdateEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6UpdateEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN4gameD1Ev;	.scl	2;	.type	32;	.endef
-	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engineD1Ev;	.scl	2;	.type	32;	.endef
-	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6assets11LoadTextureEPKc;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6window9GetHeightEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6window8GetWidthEv;	.scl	2;	.type	32;	.endef
@@ -453,6 +444,17 @@ _Z8PrintMapP4game:
 	.def	_ZN3wze6engine6actors5actor12textureboxes3NewEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing12GetDeltaTimeEv;	.scl	2;	.type	32;	.endef
 	.def	round;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6assets13UnloadTextureEy;	.scl	2;	.type	32;	.endef
+	.def	_Znwy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engineC1EPKcS2_tth;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio15SetChannelCountEt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6timing15SetMaxDeltaTimeEj;	.scl	2;	.type	32;	.endef
+	.def	_ZN4gameC1EPN3wze6engineE;	.scl	2;	.type	32;	.endef
+	.def	_ZN4game6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN4gameD1Ev;	.scl	2;	.type	32;	.endef
+	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engineD1Ev;	.scl	2;	.type	32;	.endef
+	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
