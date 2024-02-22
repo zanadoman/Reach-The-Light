@@ -7,9 +7,9 @@
 	.string	"assets/gui/menu_title.png"
 	.text
 	.p2align 4
-	.globl	_Z15DisplayPressKitPN3wze6engineE
-	.type	_Z15DisplayPressKitPN3wze6engineE, @function
-_Z15DisplayPressKitPN3wze6engineE:
+	.globl	_Z12DisplayLogosPN3wze6engineE
+	.type	_Z12DisplayLogosPN3wze6engineE, @function
+_Z12DisplayLogosPN3wze6engineE:
 .LFB8157:
 	.cfi_startproc
 	pushq	%r15
@@ -228,7 +228,7 @@ _Z15DisplayPressKitPN3wze6engineE:
 	jmp	.L34
 	.cfi_endproc
 .LFE8157:
-	.size	_Z15DisplayPressKitPN3wze6engineE, .-_Z15DisplayPressKitPN3wze6engineE
+	.size	_Z12DisplayLogosPN3wze6engineE, .-_Z12DisplayLogosPN3wze6engineE
 	.section	.rodata.str1.1
 .LC6:
 	.string	"assets/icon.png"
@@ -276,7 +276,7 @@ main:
 	leaq	416(%rbx), %rdi
 	call	_ZN3wze6engine6timing15SetMaxDeltaTimeEj@PLT
 	movq	%rbx, %rdi
-	call	_Z15DisplayPressKitPN3wze6engineE
+	call	_Z12DisplayLogosPN3wze6engineE
 	movl	$80, %edi
 	call	_Znwm@PLT
 .LEHE2:

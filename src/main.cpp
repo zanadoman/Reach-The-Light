@@ -1,6 +1,6 @@
 #include "RTL.hpp"
 
-uint8 DisplayPressKit(engine* Engine);
+uint8 DisplayLogos(engine* Engine);
 uint8 PrintMap(game* Game);
 
 sint32 main()
@@ -11,7 +11,7 @@ sint32 main()
     Engine = new engine("Reach The Light", "assets/icon.png", 2560, 1440, 1000 / 60);
     Engine->Audio.SetChannelCount(CH_COUNT);
     Engine->Timing.SetMaxDeltaTime(34);
-    DisplayPressKit(Engine);
+    DisplayLogos(Engine);
     Game = new game(Engine);
     //PrintMap(Game);
 
@@ -29,7 +29,7 @@ sint32 main()
     return 0;
 }
 
-uint8 DisplayPressKit(engine* Engine)
+uint8 DisplayLogos(engine* Engine)
 {
     engine::actor Actor;
     engine::texturebox Texturebox;

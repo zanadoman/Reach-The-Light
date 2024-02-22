@@ -68,10 +68,10 @@ _Z6printfPKcz:
 	.ascii "assets/gui/menu_title.png\0"
 	.text
 	.p2align 4
-	.globl	_Z15DisplayPressKitPN3wze6engineE
-	.def	_Z15DisplayPressKitPN3wze6engineE;	.scl	2;	.type	32;	.endef
-	.seh_proc	_Z15DisplayPressKitPN3wze6engineE
-_Z15DisplayPressKitPN3wze6engineE:
+	.globl	_Z12DisplayLogosPN3wze6engineE
+	.def	_Z12DisplayLogosPN3wze6engineE;	.scl	2;	.type	32;	.endef
+	.seh_proc	_Z12DisplayLogosPN3wze6engineE
+_Z12DisplayLogosPN3wze6engineE:
 .LFB8432:
 	pushq	%r13
 	.seh_pushreg	%r13
@@ -329,7 +329,7 @@ main:
 	leaq	416(%rbx), %rcx
 	call	_ZN3wze6engine6timing15SetMaxDeltaTimeEj
 	movq	%rbx, %rcx
-	call	_Z15DisplayPressKitPN3wze6engineE
+	call	_Z12DisplayLogosPN3wze6engineE
 	movl	$80, %ecx
 	call	_Znwy
 .LEHE2:
