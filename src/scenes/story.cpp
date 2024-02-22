@@ -11,8 +11,8 @@ scene_story::scene_story(engine* Engine, game* Game) : Engine(Engine), Game(Game
     this->Sleep = 0;
     this->Skip = new gui_button(this->Engine, this->Game, this->Actor->GetX(), this->Actor->GetY() - 650, 0, "Tovább");
 
-    this->Lines[this->CurrentLine]->SetHeight(40);
     this->Lines[this->CurrentLine]->SetY(this->Actor->GetY() + 500);
+    this->Lines[this->CurrentLine]->SetHeight(40);
 }
 
 scene_story::~scene_story()
@@ -39,8 +39,8 @@ scene scene_story::Update()
             this->Lines += {this->Actor->Textboxes.New("", this->Game->Assets->HackItalicFont)};
             this->CurrentLine++;
 
-            this->Lines[this->CurrentLine]->SetHeight(40);
             this->Lines[this->CurrentLine]->SetY(this->Actor->GetY() + 500 - 80 * this->CurrentLine);
+            this->Lines[this->CurrentLine]->SetHeight(40);
 
             this->Engine->Audio.Play(this->Game->Assets->TypingReturnAudio, (this->ChannelSwitch = !this->ChannelSwitch) ? CH_TYPING1 : CH_TYPING2, 0.8, 0);
             

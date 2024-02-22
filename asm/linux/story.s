@@ -152,20 +152,20 @@ _ZN11scene_storyC2EPN3wze6engineEP4game:
 	movq	%r12, 72(%rbx)
 	cmpq	48(%rbx), %rsi
 	jnb	.L15
-	movq	(%rax,%rsi,8), %rdi
-	movl	$40, %esi
-.LEHB3:
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
-	movzbl	42(%rbx), %esi
-	movq	56(%rbx), %rax
-	cmpq	48(%rbx), %rsi
-	jnb	.L15
 	movq	16(%rbx), %rdi
 	movq	(%rax,%rsi,8), %r12
+.LEHB3:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	addsd	.LC7(%rip), %xmm0
 	movq	%r12, %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd@PLT
+	movzbl	42(%rbx), %esi
+	movq	56(%rbx), %rax
+	cmpq	48(%rbx), %rsi
+	jnb	.L15
+	movq	(%rax,%rsi,8), %rdi
+	movl	$40, %esi
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
 	movq	24(%rsp), %rax
 	subq	%fs:40, %rax
 	jne	.L18
@@ -606,13 +606,6 @@ _ZN11scene_story6UpdateEv:
 	movzbl	%sil, %esi
 	cmpq	48(%rbx), %rsi
 	jnb	.L54
-	movq	(%rax,%rsi,8), %rdi
-	movl	$40, %esi
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
-	movzbl	42(%rbx), %esi
-	movq	56(%rbx), %rax
-	cmpq	48(%rbx), %rsi
-	jnb	.L54
 	movq	16(%rbx), %rdi
 	movq	(%rax,%rsi,8), %r13
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
@@ -625,6 +618,13 @@ _ZN11scene_story6UpdateEv:
 	cvtsi2sdl	%eax, %xmm1
 	subsd	%xmm1, %xmm0
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd@PLT
+	movzbl	42(%rbx), %esi
+	movq	56(%rbx), %rax
+	cmpq	48(%rbx), %rsi
+	jnb	.L54
+	movq	(%rax,%rsi,8), %rdi
+	movl	$40, %esi
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
 	movq	(%rbx), %rax
 	movl	$13, %edx
 	movsd	.LC9(%rip), %xmm0

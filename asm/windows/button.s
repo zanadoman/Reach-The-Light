@@ -15,7 +15,6 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
 	.seh_stackalloc	72
 	.seh_endprologue
 	movsd	136(%rsp), %xmm0
-	movq	144(%rsp), %rsi
 	movq	%rdx, (%rcx)
 	movq	%rcx, %rbx
 	movq	%r8, 8(%rcx)
@@ -39,11 +38,11 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
-	movq	16(%rbx), %rdx
+	movq	16(%rbx), %rsi
+	movq	144(%rsp), %rdx
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
-	leaq	104(%rdx), %rcx
-	movq	%rsi, %rdx
+	leaq	104(%rsi), %rcx
 	movq	8(%rax), %rax
 	movq	16(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
@@ -56,7 +55,6 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
 	movq	32(%rbx), %rax
 	movw	%dx, 20(%rax)
 	movb	$-32, 22(%rax)
-	addb	$1, 36(%rsi)
 	movw	%cx, 16(%rsi)
 	movq	16(%rbx), %rcx
 	movb	$0, 18(%rsi)
@@ -68,10 +66,16 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
 	mulsd	.LC2(%rip), %xmm0
 	cvttsd2sil	%xmm0, %edx
 	movzwl	%dx, %edx
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
+	movq	32(%rbx), %rax
+	movq	40(%rbx), %rdx
+	movzbl	36(%rax), %eax
+	addl	$1, %eax
+	movb	%al, 36(%rdx)
 	addq	$72, %rsp
 	popq	%rbx
 	popq	%rsi
-	jmp	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
+	ret
 	.seh_endproc
 	.globl	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc
 	.def	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc;	.scl	2;	.type	32;	.endef
@@ -212,18 +216,14 @@ _ZN10gui_button6UpdateEv:
 	movq	(%rbx), %rax
 	leaq	416(%rax), %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
-	pxor	%xmm1, %xmm1
+	pxor	%xmm0, %xmm0
 	movq	24(%rbx), %rcx
-	movsd	.LC6(%rip), %xmm0
 	movl	%eax, %eax
-	cvtsi2sdq	%rax, %xmm1
-	mulsd	.LC5(%rip), %xmm1
-	addsd	48(%rbx), %xmm1
-	cmpltsd	%xmm1, %xmm0
-	andpd	%xmm0, %xmm6
-	andnpd	%xmm1, %xmm0
-	orpd	%xmm6, %xmm0
-	movsd	%xmm0, 48(%rbx)
+	cvtsi2sdq	%rax, %xmm0
+	mulsd	.LC5(%rip), %xmm0
+	addsd	48(%rbx), %xmm0
+	minsd	%xmm0, %xmm6
+	movsd	%xmm6, 48(%rbx)
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv
 	testb	$4, %al
 	je	.L13
@@ -292,10 +292,6 @@ _ZN10gui_button6UpdateEv:
 .LC5:
 	.long	-755914244
 	.long	1062232653
-	.align 8
-.LC6:
-	.long	0
-	.long	1072955392
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes3NewEy;	.scl	2;	.type	32;	.endef

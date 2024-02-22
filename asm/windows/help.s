@@ -156,27 +156,49 @@ _ZN10scene_helpC2EPN3wze6engineEP4game.cold:
 	.seh_proc	_ZN10scene_helpD2Ev
 _ZN10scene_helpD2Ev:
 .LFB8435:
+	pushq	%rsi
+	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$32, %rsp
-	.seh_stackalloc	32
+	subq	$40, %rsp
+	.seh_stackalloc	40
 	.seh_endprologue
-	movq	32(%rcx), %rbx
+	movq	(%rcx), %rax
+	leaq	272(%rax), %rsi
+	movq	%rcx, %rbx
+	movq	16(%rcx), %rcx
+	call	_ZN3wze6engine6actors5actor5GetIDEv
+	movq	%rsi, %rcx
+	movq	%rax, %rdx
+	call	_ZN3wze6engine6actors6DeleteEy
+	movq	32(%rbx), %rbx
 	testq	%rbx, %rbx
 	je	.L6
 	movq	%rbx, %rcx
 	call	_ZN10gui_buttonD1Ev
 	movl	$56, %edx
 	movq	%rbx, %rcx
-	addq	$32, %rsp
+	addq	$40, %rsp
 	popq	%rbx
+	popq	%rsi
 	jmp	_ZdlPvy
 	.p2align 4,,10
 	.p2align 3
 .L6:
-	addq	$32, %rsp
+	addq	$40, %rsp
 	popq	%rbx
+	popq	%rsi
 	ret
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+.LLSDA8435:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE8435-.LLSDACSB8435
+.LLSDACSB8435:
+.LLSDACSE8435:
+	.text
 	.seh_endproc
 	.globl	_ZN10scene_helpD1Ev
 	.def	_ZN10scene_helpD1Ev;	.scl	2;	.type	32;	.endef
@@ -234,6 +256,8 @@ _ZN10scene_help6UpdateEv:
 	.def	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc;	.scl	2;	.type	32;	.endef
 	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN10gui_buttonD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN10gui_button6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine4keysixENS_3keyE;	.scl	2;	.type	32;	.endef

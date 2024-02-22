@@ -165,21 +165,21 @@ _ZN11scene_storyC2EPN3wze6engineEP4game:
 	movq	%rdi, 72(%rbx)
 	cmpq	48(%rbx), %rdx
 	jnb	.L14
-	movq	(%rax,%rdx,8), %rcx
-	movl	$40, %edx
-.LEHB3:
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
-	movzbl	42(%rbx), %edx
-	movq	56(%rbx), %rax
-	cmpq	48(%rbx), %rdx
-	jnb	.L14
 	movq	16(%rbx), %rcx
 	movq	(%rax,%rdx,8), %rdi
+.LEHB3:
 	call	_ZN3wze6engine6actors5actor4GetYEv
 	movsd	.LC7(%rip), %xmm1
 	movq	%rdi, %rcx
 	addsd	%xmm0, %xmm1
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
+	movzbl	42(%rbx), %edx
+	movq	56(%rbx), %rax
+	cmpq	48(%rbx), %rdx
+	jnb	.L14
+	movq	(%rax,%rdx,8), %rcx
+	movl	$40, %edx
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
 	nop
 	movaps	96(%rsp), %xmm6
 	addq	$120, %rsp
@@ -583,13 +583,6 @@ _ZN11scene_story6UpdateEv:
 	movzbl	%dl, %edx
 	cmpq	48(%rbx), %rdx
 	jnb	.L46
-	movq	(%rax,%rdx,8), %rcx
-	movl	$40, %edx
-	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
-	movzbl	42(%rbx), %edx
-	movq	56(%rbx), %rax
-	cmpq	48(%rbx), %rdx
-	jnb	.L46
 	movq	16(%rbx), %rcx
 	movq	(%rax,%rdx,8), %rbp
 	call	_ZN3wze6engine6actors5actor4GetYEv
@@ -603,6 +596,13 @@ _ZN11scene_story6UpdateEv:
 	cvtsi2sdl	%eax, %xmm0
 	subsd	%xmm0, %xmm1
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd
+	movzbl	42(%rbx), %edx
+	movq	56(%rbx), %rax
+	cmpq	48(%rbx), %rdx
+	jnb	.L46
+	movq	(%rax,%rdx,8), %rcx
+	movl	$40, %edx
+	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
 	movq	(%rbx), %rax
 	movq	8(%rbx), %rdx
 	movl	$13, %r8d
@@ -731,8 +731,8 @@ _ZN11scene_story6UpdateEv.cold:
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetXEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes7textbox4SetYEd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt;	.scl	2;	.type	32;	.endef
 	.def	exit;	.scl	2;	.type	32;	.endef
 	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
 	.def	free;	.scl	2;	.type	32;	.endef

@@ -160,29 +160,61 @@ _ZN10scene_helpC2EPN3wze6engineEP4game.cold:
 _ZN10scene_helpD2Ev:
 .LFB8160:
 	.cfi_startproc
-	pushq	%rbx
+	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
+	.cfi_lsda 0x1b,.LLSDA8160
+	pushq	%rbp
 	.cfi_def_cfa_offset 16
-	.cfi_offset 3, -16
-	movq	32(%rdi), %rbx
+	.cfi_offset 6, -16
+	pushq	%rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+	movq	%rdi, %rbx
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 32
+	movq	(%rdi), %rax
+	movq	16(%rdi), %rdi
+	leaq	272(%rax), %rbp
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors6DeleteEy@PLT
+	movq	32(%rbx), %rbx
 	testq	%rbx, %rbx
 	je	.L7
 	movq	%rbx, %rdi
 	call	_ZN10gui_buttonD1Ev@PLT
+	addq	$8, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
 	movq	%rbx, %rdi
 	movl	$56, %esi
 	popq	%rbx
-	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popq	%rbp
 	.cfi_def_cfa_offset 8
 	jmp	_ZdlPvm@PLT
 	.p2align 4,,10
 	.p2align 3
 .L7:
 	.cfi_restore_state
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 24
 	popq	%rbx
+	.cfi_def_cfa_offset 16
+	popq	%rbp
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
 .LFE8160:
+	.section	.gcc_except_table
+.LLSDA8160:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE8160-.LLSDACSB8160
+.LLSDACSB8160:
+.LLSDACSE8160:
+	.text
 	.size	_ZN10scene_helpD2Ev, .-_ZN10scene_helpD2Ev
 	.globl	_ZN10scene_helpD1Ev
 	.set	_ZN10scene_helpD1Ev,_ZN10scene_helpD2Ev

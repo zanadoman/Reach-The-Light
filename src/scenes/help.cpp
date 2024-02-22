@@ -12,6 +12,7 @@ scene_help::scene_help(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 
 scene_help::~scene_help()
 {
+    this->Engine->Actors.Delete(this->Actor->GetID());
     delete this->Exit;
 }
 
