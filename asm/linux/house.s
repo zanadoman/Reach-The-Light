@@ -66,40 +66,40 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	movq	%rax, 16(%rbx)
 	leaq	40(%rax), %rdi
 	movq	8(%rdx), %rdx
-	movq	392(%rdx), %rsi
+	movq	400(%rdx), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	%rax, 24(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	400(%rax), %rsi
+	movq	408(%rax), %rsi
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	408(%rax), %rsi
+	movq	416(%rax), %rsi
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	%rax, 40(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	408(%rax), %rsi
+	movq	416(%rax), %rsi
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	%rax, 48(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	416(%rax), %rsi
+	movq	424(%rax), %rsi
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
 	movq	%rax, 56(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	432(%rax), %rsi
+	movq	440(%rax), %rsi
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
@@ -171,7 +171,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 .L9:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	424(%rax), %rsi
+	movq	432(%rax), %rsi
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
@@ -786,7 +786,7 @@ _ZN10tile_house6UpdateEv:
 	movb	$1, 37(%rax)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	512(%rax), %rsi
+	movq	520(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT

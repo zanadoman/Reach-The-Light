@@ -51,12 +51,12 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	8(%r13), %rax
 	movq	8(%rax), %rbp
 	movq	0(%r13), %rax
-	movl	280(%rbp), %edx
+	movl	288(%rbp), %edx
 	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	288(%rbp), %rdx
+	movq	296(%rbp), %rdx
 	cltq
-	cmpq	280(%rbp), %rax
+	cmpq	288(%rbp), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbx, %rdi
@@ -90,12 +90,12 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbp
 	movq	8(%rax), %r14
 	movq	0(%r13), %rax
-	movl	296(%r14), %edx
+	movl	304(%r14), %edx
 	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	304(%r14), %rdx
+	movq	312(%r14), %rdx
 	cltq
-	cmpq	296(%r14), %rax
+	cmpq	304(%r14), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -143,12 +143,12 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbx
 	movq	8(%rax), %r14
 	movq	0(%r13), %rax
-	movl	296(%r14), %edx
+	movl	304(%r14), %edx
 	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	304(%r14), %rdx
+	movq	312(%r14), %rdx
 	cltq
-	cmpq	296(%r14), %rax
+	cmpq	304(%r14), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbx, %rdi
@@ -198,13 +198,13 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	0(%r13), %rax
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
-	movl	296(%r12), %edx
+	movl	304(%r12), %edx
 	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	304(%r12), %rdx
+	movq	312(%r12), %rdx
 	movsd	8(%rsp), %xmm1
 	cltq
-	cmpq	296(%r12), %rax
+	cmpq	304(%r12), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -232,12 +232,12 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	0(%r13), %rax
 	addq	$40, %rbp
 	movq	$100, 144(%rbp)
-	movl	296(%r12), %edx
+	movl	304(%r12), %edx
 	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	304(%r12), %rdx
+	movq	312(%r12), %rdx
 	cltq
-	cmpq	296(%r12), %rax
+	cmpq	304(%r12), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbp, %rdi
@@ -264,12 +264,12 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	movq	0(%r13), %rax
 	addq	$40, %rbx
 	movq	$100, 144(%rbx)
-	movl	296(%rbp), %edx
+	movl	304(%rbp), %edx
 	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	304(%rbp), %rdx
+	movq	312(%rbp), %rdx
 	cltq
-	cmpq	296(%rbp), %rax
+	cmpq	304(%rbp), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	movq	%rbx, %rdi
@@ -297,11 +297,11 @@ _ZN21tile_bot_right_cornerC2EPN3wze6engineEP4gamedd:
 	addq	$40, %rbx
 	movq	$100, 144(%rbx)
 	addq	$336, %rdi
-	movl	296(%rbp), %edx
+	movl	304(%rbp), %edx
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	304(%rbp), %rdx
+	movq	312(%rbp), %rdx
 	cltq
-	cmpq	296(%rbp), %rax
+	cmpq	304(%rbp), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rsi
 	addq	$40, %rsp

@@ -138,6 +138,7 @@ struct assets
 
     uint64 MenuTitleTexture;
     uint64 MenuBackgroundTexture;
+    uint64 HelpBackgroundTexture;
 
     uint64 ButtonTexture;
     uint64 PauseTexture;
@@ -346,6 +347,7 @@ struct scene_help
     game* Game;
 
     engine::actor Actor;
+    engine::texturebox Background;
 
     gui_button* Exit;
 

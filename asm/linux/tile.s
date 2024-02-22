@@ -60,8 +60,8 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
 	movq	24(%rcx), %rcx
 	movq	144(%rcx,%r15,8), %rcx
 	movzbl	(%rcx,%rdx), %esi
-	movq	272(%rax), %rcx
-	cmpq	264(%rax), %rsi
+	movq	280(%rax), %rcx
+	cmpq	272(%rax), %rsi
 	jnb	.L47
 	movq	(%rcx,%rsi,8), %rsi
 	movq	%rdx, 8(%rsp)
@@ -369,8 +369,8 @@ _ZN8gui_tile6UpdateEv:
 	movq	8(%rcx), %rcx
 	movq	144(%rsi,%rdx,8), %rdx
 	movzbl	(%rdx,%rax), %esi
-	movq	272(%rcx), %rax
-	cmpq	264(%rcx), %rsi
+	movq	280(%rcx), %rax
+	cmpq	272(%rcx), %rsi
 	jnb	.L111
 	movq	(%rax,%rsi,8), %rsi
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy@PLT
@@ -422,7 +422,7 @@ _ZN8gui_tile6UpdateEv:
 	movq	8(%rbx), %rax
 	movl	$1, %edx
 	movq	8(%rax), %rax
-	movq	448(%rax), %rsi
+	movq	456(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
@@ -470,7 +470,7 @@ _ZN8gui_tile6UpdateEv:
 	xorl	%ecx, %ecx
 	movl	$1, %edx
 	movq	8(%rax), %rax
-	movq	448(%rax), %rsi
+	movq	456(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
@@ -510,7 +510,7 @@ _ZN8gui_tile6UpdateEv:
 	xorl	%ecx, %ecx
 	movl	$1, %edx
 	movq	8(%rax), %rax
-	movq	448(%rax), %rsi
+	movq	456(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT

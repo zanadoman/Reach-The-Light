@@ -5,9 +5,9 @@
 	.string	"Vissza"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB3:
+.LCOLDB4:
 	.text
-.LHOTB3:
+.LHOTB4:
 	.align 2
 	.p2align 4
 	.globl	_ZN10scene_helpC2EPN3wze6engineEP4game
@@ -51,8 +51,14 @@ _ZN10scene_helpC2EPN3wze6engineEP4game:
 	xorl	%esi, %esi
 	cvtsi2sdl	%eax, %xmm0
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
-	movl	$56, %edi
+	movq	8(%rbx), %rdx
 	movq	%rax, 16(%rbx)
+	leaq	40(%rax), %rdi
+	movq	8(%rdx), %rdx
+	movq	56(%rdx), %rsi
+	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
+	movl	$56, %edi
+	movq	%rax, 24(%rbx)
 	call	_Znwm@PLT
 .LEHE0:
 	movq	16(%rbx), %rdi
@@ -71,7 +77,9 @@ _ZN10scene_helpC2EPN3wze6engineEP4game:
 	leaq	.LC2(%rip), %rcx
 	call	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc@PLT
 .LEHE1:
-	movq	%rbp, 24(%rbx)
+	movq	24(%rbx), %rax
+	movq	%rbp, 32(%rbx)
+	movl	$94374400, 16(%rax)
 	addq	$24, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 24
@@ -130,7 +138,7 @@ _ZN10scene_helpC2EPN3wze6engineEP4game.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
 .LLSDACSBC8157:
-	.uleb128 .LEHB2-.LCOLDB3
+	.uleb128 .LEHB2-.LCOLDB4
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
@@ -140,9 +148,9 @@ _ZN10scene_helpC2EPN3wze6engineEP4game.cold:
 	.size	_ZN10scene_helpC2EPN3wze6engineEP4game, .-_ZN10scene_helpC2EPN3wze6engineEP4game
 	.section	.text.unlikely
 	.size	_ZN10scene_helpC2EPN3wze6engineEP4game.cold, .-_ZN10scene_helpC2EPN3wze6engineEP4game.cold
-.LCOLDE3:
+.LCOLDE4:
 	.text
-.LHOTE3:
+.LHOTE4:
 	.globl	_ZN10scene_helpC1EPN3wze6engineEP4game
 	.set	_ZN10scene_helpC1EPN3wze6engineEP4game,_ZN10scene_helpC2EPN3wze6engineEP4game
 	.align 2
@@ -155,7 +163,7 @@ _ZN10scene_helpD2Ev:
 	pushq	%rbx
 	.cfi_def_cfa_offset 16
 	.cfi_offset 3, -16
-	movq	24(%rdi), %rbx
+	movq	32(%rdi), %rbx
 	testq	%rbx, %rbx
 	je	.L7
 	movq	%rbx, %rdi
@@ -185,16 +193,34 @@ _ZN10scene_helpD2Ev:
 _ZN10scene_help6UpdateEv:
 .LFB8162:
 	.cfi_startproc
-	subq	$8, %rsp
+	pushq	%rbx
 	.cfi_def_cfa_offset 16
-	movq	24(%rdi), %rdi
+	.cfi_offset 3, -16
+	movq	%rdi, %rbx
+	movq	32(%rdi), %rdi
 	call	_ZN10gui_button6UpdateEv@PLT
-	cmpb	$1, %al
-	sbbl	%eax, %eax
-	addq	$8, %rsp
+	testb	%al, %al
+	je	.L17
+.L11:
+	movl	$1, %eax
+	popq	%rbx
+	.cfi_remember_state
 	.cfi_def_cfa_offset 8
-	andl	$4, %eax
-	addl	$1, %eax
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L17:
+	.cfi_restore_state
+	movq	(%rbx), %rdi
+	movl	$41, %esi
+	addq	$192, %rdi
+	call	_ZN3wze6engine4keysixENS_3keyE@PLT
+	movl	%eax, %edx
+	movl	$5, %eax
+	testb	%dl, %dl
+	jne	.L11
+	popq	%rbx
+	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
 .LFE8162:
