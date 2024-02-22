@@ -45,6 +45,15 @@ game::~game()
 
 uint8 game::Update()
 {
+    if (!this->Engine->Window.HasFocus())
+    {
+        this->Engine->Audio.PauseAll();
+    }
+    else
+    {
+        this->Engine->Audio.ResumeAll();
+    }
+
     switch (this->ActiveScene)
     {
         case SCENE_NONE:

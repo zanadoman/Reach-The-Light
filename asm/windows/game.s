@@ -704,27 +704,40 @@ _ZN4game6UpdateEv:
 	subq	$32, %rsp
 	.seh_stackalloc	32
 	.seh_endprologue
-	cmpl	$5, 32(%rcx)
 	movq	%rcx, %rbx
-	ja	.L87
-	movl	32(%rcx), %eax
-	leaq	.L89(%rip), %rdx
+	movq	(%rcx), %rcx
+	call	_ZN3wze6engine6window8HasFocusEv
+	testb	%al, %al
+	movq	(%rbx), %rax
+	leaq	160(%rax), %rcx
+	jne	.L87
+	call	_ZN3wze6engine5audio8PauseAllEv
+.L88:
+	cmpl	$5, 32(%rbx)
+	ja	.L89
+	movl	32(%rbx), %eax
+	leaq	.L91(%rip), %rdx
 	movslq	(%rdx,%rax,4), %rax
 	addq	%rdx, %rax
 	jmp	*%rax
 	.section .rdata,"dr"
 	.align 4
-.L89:
-	.long	.L95-.L89
-	.long	.L93-.L89
-	.long	.L92-.L89
-	.long	.L91-.L89
-	.long	.L90-.L89
-	.long	.L88-.L89
+.L91:
+	.long	.L97-.L91
+	.long	.L95-.L91
+	.long	.L94-.L91
+	.long	.L93-.L91
+	.long	.L92-.L91
+	.long	.L90-.L91
 	.text
 	.p2align 4,,10
 	.p2align 3
-.L95:
+.L87:
+	call	_ZN3wze6engine5audio9ResumeAllEv
+	jmp	.L88
+	.p2align 4,,10
+	.p2align 3
+.L97:
 	movl	$1, %eax
 .L86:
 	addq	$32, %rsp
@@ -732,19 +745,19 @@ _ZN4game6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L93:
-	movq	40(%rcx), %rcx
+.L95:
+	movq	40(%rbx), %rcx
 	call	_ZN10scene_menu6UpdateEv
 	movq	%rbx, %rcx
 	movl	%eax, %edx
 	call	_ZN4game11SwitchSceneE5scene
-.L87:
+.L89:
 	xorl	%eax, %eax
 	jmp	.L86
 	.p2align 4,,10
 	.p2align 3
-.L92:
-	movq	48(%rcx), %rcx
+.L94:
+	movq	48(%rbx), %rcx
 	call	_ZN11scene_story6UpdateEv
 	movq	%rbx, %rcx
 	movl	%eax, %edx
@@ -753,8 +766,8 @@ _ZN4game6UpdateEv:
 	jmp	.L86
 	.p2align 4,,10
 	.p2align 3
-.L91:
-	movq	56(%rcx), %rcx
+.L93:
+	movq	56(%rbx), %rcx
 	call	_ZN10scene_play6UpdateEv
 	movq	%rbx, %rcx
 	movl	%eax, %edx
@@ -763,8 +776,8 @@ _ZN4game6UpdateEv:
 	jmp	.L86
 	.p2align 4,,10
 	.p2align 3
-.L90:
-	movq	64(%rcx), %rcx
+.L92:
+	movq	64(%rbx), %rcx
 	call	_ZN12scene_editor6UpdateEv
 	movq	%rbx, %rcx
 	movl	%eax, %edx
@@ -773,8 +786,8 @@ _ZN4game6UpdateEv:
 	jmp	.L86
 	.p2align 4,,10
 	.p2align 3
-.L88:
-	movq	72(%rcx), %rcx
+.L90:
+	movq	72(%rbx), %rcx
 	call	_ZN10scene_help6UpdateEv
 	movq	%rbx, %rcx
 	movl	%eax, %edx
@@ -814,6 +827,9 @@ _ZN4game6UpdateEv:
 	.def	_ZN11scene_storyC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.def	_ZN10scene_playC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.def	_ZN12scene_editorC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6window8HasFocusEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio8PauseAllEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio9ResumeAllEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN10scene_menu6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN11scene_story6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN10scene_play6UpdateEv;	.scl	2;	.type	32;	.endef

@@ -96,9 +96,9 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->TunaFlipbook->Height = 72;
     this->TunaFlipbook->Width = 72;
 
-    this->Win->SetY(this->Actor->GetY() + 450);
-    this->Win->Width = 1280;
-    this->Win->Height = 720;
+    this->Win->SetY(this->Actor->GetY() + 500);
+    this->Win->Width = 1600;
+    this->Win->Height = 900;
     this->Win->ColorA = 0;
     this->Win->Priority = 255;
 
@@ -148,21 +148,18 @@ scene scene_play::Update()
     this->FrameTime->SetLiteral((((str += {"FrameTime: "}) += {(uint64)this->Engine->Timing.GetFrameTime()}) += {"ms"})());
     this->FrameTime->SetX(10 + (this->FrameTime->GetWidth() >> 1));
 
-    //PAUSE AUDIO ON FOCUS LOSS
-
-    if (!this->Engine->Window.HasFocus())
-    {
-        this->Engine->Audio.PauseAll();
-    }
-    else
-    {
-        this->Engine->Audio.ResumeAll();
-    }
-
     //HANDLING LOSE
 
     if (this->Player->Health == 0)
     {
+        for (uint8 i = 0; i < this->HealthBar.Length(); i++)
+        {
+            this->HealthBar[i]->Visible = false;
+        }
+        this->TunaFlipbook->Visible = false;
+        this->TunaCount->Visible = false;
+        this->FrameTime->Visible = false;
+
         this->House->Update();
         this->Player->Update();
 
@@ -189,6 +186,14 @@ scene scene_play::Update()
 
     if (this->Player->Actor->GetX() == this->House->Detector->GetX() && this->Player->Actor->GetY() == this->House->Detector->GetY())
     {
+        for (uint8 i = 0; i < this->HealthBar.Length(); i++)
+        {
+            this->HealthBar[i]->Visible = false;
+        }
+        this->TunaFlipbook->Visible = false;
+        this->TunaCount->Visible = false;
+        this->FrameTime->Visible = false;
+
         this->House->Update();
         this->Player->Update();
 
