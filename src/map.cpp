@@ -4,14 +4,21 @@ map::map()
 {
     this->Spawn = &this->Raw[MAP_X * MAP_Y];
 
-    if (memory::LoadTo("saves/map", this->Raw, sizeof(uint8) * MAP_X * MAP_Y + sizeof(uint8)))
+    if (memory::LoadTo("saves/map", this->Raw, sizeof(uint8) * (MAP_X * MAP_Y + 1)))
     {
         this->Map1();
     }
-
-    for (uint8 i = 0; i < MAP_X * MAP_Y; i++)
+    else
     {
-        if (TILE_COUNT <= this->Raw[i])
+        for (uint8 i = 0; i < MAP_X * MAP_Y; i++)
+        {
+            if (TILE_COUNT <= this->Raw[i])
+            {
+                this->Map1();
+                break;
+            }
+        }
+        if (MAP_X <= this->Raw[MAP_X * MAP_Y])
         {
             this->Map1();
         }
@@ -56,7 +63,7 @@ map::map()
 
 map::~map()
 {
-    memory::Save(this->Raw, sizeof(uint8) * MAP_X * MAP_Y + sizeof(uint8), "saves/map");
+    memory::Save(this->Raw, sizeof(uint8) * (MAP_X * MAP_Y + 1), "saves/map");
 }
 
 uint8 map::Map1()

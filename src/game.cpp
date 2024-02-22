@@ -56,9 +56,6 @@ uint8 game::Update()
 
     switch (this->ActiveScene)
     {
-        case SCENE_NONE:
-        return 1;
-
         case SCENE_MENU:
             this->SwitchScene(this->Menu->Update());
         break;
@@ -78,6 +75,9 @@ uint8 game::Update()
         case SCENE_HELP:
             this->SwitchScene(this->Help->Update());
         break;
+
+        case SCENE_NONE:
+        return 1;
     }
 
     return 0;

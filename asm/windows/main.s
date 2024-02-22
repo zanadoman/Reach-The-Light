@@ -2,7 +2,7 @@
 	.text
 	.section .rdata,"dr"
 .LC0:
-	.ascii "this->Raw[%d] = %d;\12\0"
+	.ascii "\11this->Raw[%d] = %d;\12\0"
 	.text
 	.p2align 4
 	.def	_Z6printfPKcz.constprop.0;	.scl	3;	.type	32;	.endef
@@ -453,7 +453,7 @@ main.cold:
 .LHOTE9:
 	.section .rdata,"dr"
 .LC10:
-	.ascii "*this->Spawn = %d;\12\0"
+	.ascii "\12\11*this->Spawn = %d;\12\0"
 	.text
 	.p2align 4
 	.globl	_Z8PrintMapP4game

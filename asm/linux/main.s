@@ -407,9 +407,9 @@ main.cold:
 .LHOTE8:
 	.section	.rodata.str1.1
 .LC9:
-	.string	"this->Raw[%d] = %d;\n"
+	.string	"\tthis->Raw[%d] = %d;\n"
 .LC10:
-	.string	"*this->Spawn = %d;\n"
+	.string	"\n\t*this->Spawn = %d;\n"
 	.text
 	.p2align 4
 	.globl	_Z8PrintMapP4game

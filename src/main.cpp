@@ -120,9 +120,9 @@ uint8 PrintMap(game* Game)
 {
     for (uint8 i = 0; i < MAP_X * MAP_Y; i++)
     {
-        printf("this->Raw[%d] = %d;\n", i, Game->Map->Raw[i]);
+        printf("\tthis->Raw[%d] = %d;\n", i, Game->Map->Raw[i]);
     }
-    printf("*this->Spawn = %d;\n", *Game->Map->Spawn);
+    printf("\n\t*this->Spawn = %d;\n", *Game->Map->Spawn);
 
     return 0;
 }

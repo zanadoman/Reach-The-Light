@@ -1,7 +1,7 @@
 	.file	"settings.cpp"
 	.text
 	.section .rdata,"dr"
-.LC1:
+.LC0:
 	.ascii "saves/settings\0"
 	.text
 	.align 2
@@ -19,20 +19,15 @@ _ZN8settingsC2Ev:
 	movl	$24, %r8d
 	movq	%rcx, %rbx
 	movq	%rcx, %rdx
-	leaq	.LC1(%rip), %rcx
+	leaq	.LC0(%rip), %rcx
 	call	_ZN3neo6memory6LoadToEPKcPvy
 	testb	%al, %al
 	je	.L2
-	movapd	.LC2(%rip), %xmm0
-	movsd	.LC7(%rip), %xmm1
-	movups	%xmm0, (%rbx)
-	movsd	.LC0(%rip), %xmm0
-	comisd	%xmm0, %xmm1
-	movsd	%xmm0, 16(%rbx)
-	jbe	.L17
-.L9:
-	movq	.LC0(%rip), %rax
+	movq	.LC2(%rip), %rax
+	movapd	.LC1(%rip), %xmm0
 	movq	%rax, 16(%rbx)
+	movups	%xmm0, (%rbx)
+.L1:
 	addq	$32, %rsp
 	popq	%rbx
 	ret
@@ -40,51 +35,53 @@ _ZN8settingsC2Ev:
 	.p2align 3
 .L2:
 	movsd	(%rbx), %xmm0
-	movsd	.LC4(%rip), %xmm1
 	ucomisd	%xmm0, %xmm0
-	jnp	.L18
+	jnp	.L13
 .L4:
-	movsd	%xmm1, (%rbx)
-.L14:
-	movsd	8(%rbx), %xmm1
-	movsd	16(%rbx), %xmm0
-	ucomisd	%xmm1, %xmm1
-	jnp	.L19
-.L6:
-	movq	.LC6(%rip), %rax
-	movq	%rax, 8(%rbx)
-.L7:
+	movq	.LC5(%rip), %rax
+	movq	%rax, (%rbx)
+.L5:
+	movsd	8(%rbx), %xmm0
 	ucomisd	%xmm0, %xmm0
-	jp	.L9
-	movsd	.LC7(%rip), %xmm1
+	jp	.L7
+	pxor	%xmm1, %xmm1
 	comisd	%xmm0, %xmm1
-	ja	.L9
+	ja	.L7
+	comisd	.LC7(%rip), %xmm0
+	jbe	.L8
 	.p2align 4,,10
 	.p2align 3
-.L17:
-	comisd	.LC8(%rip), %xmm0
-	ja	.L9
+.L7:
+	movq	.LC8(%rip), %rax
+	movq	%rax, 8(%rbx)
+.L8:
+	movsd	16(%rbx), %xmm0
+	ucomisd	%xmm0, %xmm0
+	jp	.L10
+	movsd	.LC9(%rip), %xmm1
+	comisd	%xmm0, %xmm1
+	jbe	.L14
+.L10:
+	movq	.LC2(%rip), %rax
+	movq	%rax, 16(%rbx)
 	addq	$32, %rsp
 	popq	%rbx
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L18:
-	pxor	%xmm2, %xmm2
-	comisd	%xmm0, %xmm2
+.L13:
+	movsd	.LC3(%rip), %xmm1
+	comisd	%xmm0, %xmm1
 	ja	.L4
-	comisd	%xmm1, %xmm0
-	ja	.L4
-	jmp	.L14
+	comisd	.LC4(%rip), %xmm0
+	jbe	.L5
+	jmp	.L4
 	.p2align 4,,10
 	.p2align 3
-.L19:
-	pxor	%xmm2, %xmm2
-	comisd	%xmm1, %xmm2
-	ja	.L6
-	comisd	.LC5(%rip), %xmm1
-	ja	.L6
-	jmp	.L7
+.L14:
+	comisd	.LC10(%rip), %xmm0
+	jbe	.L1
+	jmp	.L10
 	.seh_endproc
 	.globl	_ZN8settingsC1Ev
 	.def	_ZN8settingsC1Ev;	.scl	2;	.type	32;	.endef
@@ -99,7 +96,7 @@ _ZN8settingsD2Ev:
 	subq	$40, %rsp
 	.seh_stackalloc	40
 	.seh_endprologue
-	leaq	.LC1(%rip), %r8
+	leaq	.LC0(%rip), %r8
 	movl	$24, %edx
 	call	_ZN3neo6memory4SaveEPKvyPKc
 	nop
@@ -121,28 +118,36 @@ _ZN8settingsD2Ev:
 	.def	_ZN8settingsD1Ev;	.scl	2;	.type	32;	.endef
 	.set	_ZN8settingsD1Ev,_ZN8settingsD2Ev
 	.section .rdata,"dr"
-	.align 8
-.LC0:
-	.long	0
-	.long	1078853632
 	.align 16
-.LC2:
+.LC1:
 	.long	0
 	.long	1072693248
 	.long	0
 	.long	1078525952
-	.set	.LC4,.LC2
 	.align 8
-.LC5:
+.LC2:
 	.long	0
-	.long	1079574528
-	.set	.LC6,.LC2+8
+	.long	1078853632
+	.align 8
+.LC3:
+	.long	-1717986918
+	.long	1069128089
+	.align 8
+.LC4:
+	.long	0
+	.long	1073741824
+	.set	.LC5,.LC1
 	.align 8
 .LC7:
 	.long	0
+	.long	1079574528
+	.set	.LC8,.LC1+8
+	.align 8
+.LC9:
+	.long	0
 	.long	1077805056
 	.align 8
-.LC8:
+.LC10:
 	.long	0
 	.long	1083129856
 	.ident	"GCC: (GNU) 13.1.0"

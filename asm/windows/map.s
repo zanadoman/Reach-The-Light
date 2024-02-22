@@ -126,12 +126,8 @@ _ZN3mapC2Ev:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$104, %rsp
-	.seh_stackalloc	104
-	movaps	%xmm6, 64(%rsp)
-	.seh_savexmm	%xmm6, 64
-	movaps	%xmm7, 80(%rsp)
-	.seh_savexmm	%xmm7, 80
+	subq	$72, %rsp
+	.seh_stackalloc	72
 	.seh_endprologue
 	movl	$129, %r8d
 	leaq	128(%rcx), %rsi
@@ -149,64 +145,48 @@ _ZN3mapC2Ev:
 	leaq	.LC0(%rip), %rcx
 .LEHB0:
 	call	_ZN3neo6memory6LoadToEPKcPvy
-	testb	%al, %al
-	jne	.L33
-.L6:
-	movdqa	.LC1(%rip), %xmm7
-	movdqa	.LC2(%rip), %xmm6
+	movl	%eax, %edx
 	movq	%rbx, %rax
-	movdqa	.LC3(%rip), %xmm5
-	movdqa	.LC4(%rip), %xmm4
-	movdqa	.LC5(%rip), %xmm3
-	movdqa	.LC6(%rip), %xmm2
-	movdqa	.LC7(%rip), %xmm1
-	movdqa	.LC8(%rip), %xmm0
-	jmp	.L8
+	testb	%dl, %dl
+	je	.L10
+	jmp	.L11
 	.p2align 4,,10
 	.p2align 3
-.L7:
-	addq	$1, %rax
-	cmpq	%rax, %rsi
-	je	.L34
 .L8:
-	cmpb	$11, (%rax)
-	jbe	.L7
-	movq	136(%rbx), %rdx
 	addq	$1, %rax
-	movups	%xmm7, (%rbx)
-	movups	%xmm6, 16(%rbx)
-	movups	%xmm5, 32(%rbx)
-	movups	%xmm4, 48(%rbx)
-	movups	%xmm3, 64(%rbx)
-	movups	%xmm2, 80(%rbx)
-	movups	%xmm1, 96(%rbx)
-	movups	%xmm0, 112(%rbx)
-	movb	$3, (%rdx)
 	cmpq	%rax, %rsi
-	jne	.L8
-.L34:
+	je	.L9
+.L10:
+	cmpb	$11, (%rax)
+	jbe	.L8
+	movq	%rbx, %rcx
+	call	_ZN3map4Map1Ev
+.L9:
+	cmpb	$7, 128(%rbx)
+	ja	.L11
+.L7:
 	xorl	%eax, %eax
 	xorl	%edx, %edx
 	.p2align 4,,10
 	.p2align 3
-.L10:
+.L13:
 	testb	$15, %al
-	jne	.L9
+	jne	.L12
 	movzbl	%dl, %ecx
 	leaq	(%rbx,%rax), %r8
 	addl	$1, %edx
 	movq	%r8, 144(%rbx,%rcx,8)
-.L9:
+.L12:
 	addq	$1, %rax
 	cmpq	$128, %rax
-	jne	.L10
+	jne	.L13
 	movq	208(%rbx), %r8
 	movl	$117702912, 56(%rsp)
 	movb	$9, 60(%rsp)
 	cmpq	$5, %r8
 	jne	.L35
 	movq	216(%rbx), %rdx
-.L13:
+.L16:
 	leaq	56(%rsp), %rcx
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	movq	224(%rbx), %r8
@@ -214,7 +194,7 @@ _ZN3mapC2Ev:
 	cmpq	$4, %r8
 	jne	.L36
 	movq	232(%rbx), %rdx
-.L16:
+.L19:
 	leaq	52(%rsp), %rcx
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	movq	240(%rbx), %r8
@@ -224,7 +204,7 @@ _ZN3mapC2Ev:
 	cmpq	$3, %r8
 	jne	.L37
 	movq	248(%rbx), %rdx
-.L20:
+.L23:
 	leaq	44(%rsp), %rcx
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	movq	256(%rbx), %r8
@@ -234,16 +214,18 @@ _ZN3mapC2Ev:
 	cmpq	$3, %r8
 	jne	.L38
 	movq	264(%rbx), %rdx
-.L23:
+.L26:
 	leaq	48(%rsp), %rcx
 	call	_ZN3neo6memory6CopyToEPKvPvy
 	nop
-	movaps	64(%rsp), %xmm6
-	movaps	80(%rsp), %xmm7
-	addq	$104, %rsp
+	addq	$72, %rsp
 	popq	%rbx
 	popq	%rsi
 	ret
+.L11:
+	movq	%rbx, %rcx
+	call	_ZN3map4Map1Ev
+	jmp	.L7
 .L38:
 	movq	$3, 256(%rbx)
 	movq	264(%rbx), %rcx
@@ -252,31 +234,9 @@ _ZN3mapC2Ev:
 	movq	%rax, 264(%rbx)
 	movq	%rax, %rdx
 	testq	%rax, %rax
-	je	.L22
+	je	.L25
 	movq	256(%rbx), %r8
-	jmp	.L23
-.L37:
-	movq	$3, 240(%rbx)
-	movq	248(%rbx), %rcx
-	movl	$3, %edx
-	call	realloc
-	movq	%rax, 248(%rbx)
-	movq	%rax, %rdx
-	testq	%rax, %rax
-	je	.L22
-	movq	240(%rbx), %r8
-	jmp	.L20
-.L36:
-	movq	$4, 224(%rbx)
-	movq	232(%rbx), %rcx
-	movl	$4, %edx
-	call	realloc
-	movq	%rax, 232(%rbx)
-	movq	%rax, %rdx
-	testq	%rax, %rax
-	je	.L15
-	movq	224(%rbx), %r8
-	jmp	.L16
+	jmp	.L26
 .L35:
 	movq	$5, 208(%rbx)
 	movq	216(%rbx), %rcx
@@ -285,37 +245,55 @@ _ZN3mapC2Ev:
 	movq	%rax, 216(%rbx)
 	movq	%rax, %rdx
 	testq	%rax, %rax
-	je	.L12
+	je	.L15
 	movq	208(%rbx), %r8
-	jmp	.L13
-.L33:
-	movq	%rbx, %rcx
-	call	_ZN3map4Map1Ev
-	jmp	.L6
-.L12:
-	movl	$5, %r8d
-	movl	$1, %edx
-	leaq	.LC10(%rip), %rcx
-	call	_Z6printfPKcz
-.L17:
-	movl	$1, %ecx
-	call	exit
-.L15:
-	movl	$4, %r8d
-	movl	$1, %edx
-	leaq	.LC10(%rip), %rcx
-	call	_Z6printfPKcz
-	jmp	.L17
-.L22:
+	jmp	.L16
+.L37:
+	movq	$3, 240(%rbx)
+	movq	248(%rbx), %rcx
+	movl	$3, %edx
+	call	realloc
+	movq	%rax, 248(%rbx)
+	movq	%rax, %rdx
+	testq	%rax, %rax
+	je	.L25
+	movq	240(%rbx), %r8
+	jmp	.L23
+.L36:
+	movq	$4, 224(%rbx)
+	movq	232(%rbx), %rcx
+	movl	$4, %edx
+	call	realloc
+	movq	%rax, 232(%rbx)
+	movq	%rax, %rdx
+	testq	%rax, %rax
+	je	.L18
+	movq	224(%rbx), %r8
+	jmp	.L19
+.L25:
 	movl	$3, %r8d
 	movl	$1, %edx
 	leaq	.LC10(%rip), %rcx
 	call	_Z6printfPKcz
+.L20:
+	movl	$1, %ecx
+	call	exit
+.L18:
+	movl	$4, %r8d
+	movl	$1, %edx
+	leaq	.LC10(%rip), %rcx
+	call	_Z6printfPKcz
+	jmp	.L20
+.L15:
+	movl	$5, %r8d
+	movl	$1, %edx
+	leaq	.LC10(%rip), %rcx
+	call	_Z6printfPKcz
 .LEHE0:
-	jmp	.L17
-.L25:
+	jmp	.L20
+.L28:
 	movq	%rax, %rsi
-	jmp	.L24
+	jmp	.L27
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 .LLSDA8432:
@@ -326,7 +304,7 @@ _ZN3mapC2Ev:
 .LLSDACSB8432:
 	.uleb128 .LEHB0-.LFB8432
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L25-.LFB8432
+	.uleb128 .L28-.LFB8432
 	.uleb128 0
 .LLSDACSE8432:
 	.text
@@ -334,14 +312,12 @@ _ZN3mapC2Ev:
 	.section	.text.unlikely,"x"
 	.def	_ZN3mapC2Ev.cold;	.scl	3;	.type	32;	.endef
 	.seh_proc	_ZN3mapC2Ev.cold
-	.seh_stackalloc	120
-	.seh_savereg	%rbx, 104
-	.seh_savereg	%rsi, 112
-	.seh_savexmm	%xmm6, 64
-	.seh_savexmm	%xmm7, 80
+	.seh_stackalloc	88
+	.seh_savereg	%rbx, 72
+	.seh_savereg	%rsi, 80
 	.seh_endprologue
 _ZN3mapC2Ev.cold:
-.L24:
+.L27:
 	movq	264(%rbx), %rcx
 	call	free
 	movq	248(%rbx), %rcx

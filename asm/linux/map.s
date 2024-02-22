@@ -120,64 +120,48 @@ _ZN3mapC2Ev:
 	leaq	.LC0(%rip), %rdi
 .LEHB0:
 	call	_ZN3neo6memory6LoadToEPKcPvy@PLT
-	testb	%al, %al
-	jne	.L36
-.L6:
-	movdqa	.LC1(%rip), %xmm7
-	movdqa	.LC2(%rip), %xmm6
+	movl	%eax, %edx
 	movq	%rbx, %rax
-	movdqa	.LC3(%rip), %xmm5
-	movdqa	.LC4(%rip), %xmm4
-	movdqa	.LC5(%rip), %xmm3
-	movdqa	.LC6(%rip), %xmm2
-	movdqa	.LC7(%rip), %xmm1
-	movdqa	.LC8(%rip), %xmm0
-	jmp	.L8
+	testb	%dl, %dl
+	je	.L10
+	jmp	.L11
 	.p2align 4,,10
 	.p2align 3
-.L7:
-	addq	$1, %rax
-	cmpq	%rax, %rbp
-	je	.L37
 .L8:
-	cmpb	$11, (%rax)
-	jbe	.L7
-	movq	136(%rbx), %rdx
 	addq	$1, %rax
-	movups	%xmm7, (%rbx)
-	movups	%xmm6, 16(%rbx)
-	movups	%xmm5, 32(%rbx)
-	movups	%xmm4, 48(%rbx)
-	movups	%xmm3, 64(%rbx)
-	movups	%xmm2, 80(%rbx)
-	movups	%xmm1, 96(%rbx)
-	movups	%xmm0, 112(%rbx)
-	movb	$3, (%rdx)
 	cmpq	%rax, %rbp
-	jne	.L8
-.L37:
+	je	.L9
+.L10:
+	cmpb	$11, (%rax)
+	jbe	.L8
+	movq	%rbx, %rdi
+	call	_ZN3map4Map1Ev
+.L9:
+	cmpb	$7, 128(%rbx)
+	ja	.L11
+.L7:
 	xorl	%eax, %eax
 	xorl	%edx, %edx
 	.p2align 4,,10
 	.p2align 3
-.L10:
+.L13:
 	testb	$15, %al
-	jne	.L9
+	jne	.L12
 	movzbl	%dl, %ecx
 	leaq	(%rbx,%rax), %rsi
 	addl	$1, %edx
 	movq	%rsi, 144(%rbx,%rcx,8)
-.L9:
+.L12:
 	addq	$1, %rax
 	cmpq	$128, %rax
-	jne	.L10
+	jne	.L13
 	movq	208(%rbx), %rdx
 	movl	$117702912, 16(%rsp)
 	movb	$9, 20(%rsp)
 	cmpq	$5, %rdx
 	jne	.L38
 	movq	216(%rbx), %rsi
-.L13:
+.L16:
 	leaq	16(%rsp), %rdi
 	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
 	movq	224(%rbx), %rdx
@@ -185,7 +169,7 @@ _ZN3mapC2Ev:
 	cmpq	$4, %rdx
 	jne	.L39
 	movq	232(%rbx), %rsi
-.L16:
+.L19:
 	leaq	12(%rsp), %rdi
 	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
 	movl	$512, %edx
@@ -195,7 +179,7 @@ _ZN3mapC2Ev:
 	cmpq	$3, %rdx
 	jne	.L40
 	movq	248(%rbx), %rsi
-.L20:
+.L23:
 	leaq	4(%rsp), %rdi
 	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
 	movq	256(%rbx), %rdx
@@ -205,7 +189,7 @@ _ZN3mapC2Ev:
 	cmpq	$3, %rdx
 	jne	.L41
 	movq	264(%rbx), %rsi
-.L23:
+.L26:
 	leaq	8(%rsp), %rdi
 	call	_ZN3neo6memory6CopyToEPKvPvy@PLT
 	movq	24(%rsp), %rax
@@ -219,8 +203,12 @@ _ZN3mapC2Ev:
 	popq	%rbp
 	.cfi_def_cfa_offset 8
 	ret
-.L41:
+.L11:
 	.cfi_restore_state
+	movq	%rbx, %rdi
+	call	_ZN3map4Map1Ev
+	jmp	.L7
+.L41:
 	movq	$3, 256(%rbx)
 	movq	264(%rbx), %rdi
 	movl	$3, %esi
@@ -228,31 +216,9 @@ _ZN3mapC2Ev:
 	movq	%rax, 264(%rbx)
 	movq	%rax, %rsi
 	testq	%rax, %rax
-	je	.L22
+	je	.L25
 	movq	256(%rbx), %rdx
-	jmp	.L23
-.L40:
-	movq	$3, 240(%rbx)
-	movq	248(%rbx), %rdi
-	movl	$3, %esi
-	call	realloc@PLT
-	movq	%rax, 248(%rbx)
-	movq	%rax, %rsi
-	testq	%rax, %rax
-	je	.L22
-	movq	240(%rbx), %rdx
-	jmp	.L20
-.L39:
-	movq	$4, 224(%rbx)
-	movq	232(%rbx), %rdi
-	movl	$4, %esi
-	call	realloc@PLT
-	movq	%rax, 232(%rbx)
-	movq	%rax, %rsi
-	testq	%rax, %rax
-	je	.L15
-	movq	224(%rbx), %rdx
-	jmp	.L16
+	jmp	.L26
 .L38:
 	movq	$5, 208(%rbx)
 	movq	216(%rbx), %rdi
@@ -261,42 +227,60 @@ _ZN3mapC2Ev:
 	movq	%rax, 216(%rbx)
 	movq	%rax, %rsi
 	testq	%rax, %rax
-	je	.L12
+	je	.L15
 	movq	208(%rbx), %rdx
-	jmp	.L13
-.L36:
-	movq	%rbx, %rdi
-	call	_ZN3map4Map1Ev
-	jmp	.L6
-.L12:
-	movl	$5, %edx
-	movl	$1, %esi
-	leaq	.LC10(%rip), %rdi
-	xorl	%eax, %eax
-	call	printf@PLT
-.L17:
-	movl	$1, %edi
-	call	exit@PLT
-.L15:
+	jmp	.L16
+.L40:
+	movq	$3, 240(%rbx)
+	movq	248(%rbx), %rdi
+	movl	$3, %esi
+	call	realloc@PLT
+	movq	%rax, 248(%rbx)
+	movq	%rax, %rsi
+	testq	%rax, %rax
+	je	.L25
+	movq	240(%rbx), %rdx
+	jmp	.L23
+.L39:
+	movq	$4, 224(%rbx)
+	movq	232(%rbx), %rdi
+	movl	$4, %esi
+	call	realloc@PLT
+	movq	%rax, 232(%rbx)
+	movq	%rax, %rsi
+	testq	%rax, %rax
+	je	.L18
+	movq	224(%rbx), %rdx
+	jmp	.L19
+.L42:
+	call	__stack_chk_fail@PLT
+.L18:
 	movl	$4, %edx
 	movl	$1, %esi
 	leaq	.LC10(%rip), %rdi
 	xorl	%eax, %eax
 	call	printf@PLT
-	jmp	.L17
-.L22:
+.L20:
+	movl	$1, %edi
+	call	exit@PLT
+.L15:
+	movl	$5, %edx
+	movl	$1, %esi
+	leaq	.LC10(%rip), %rdi
+	xorl	%eax, %eax
+	call	printf@PLT
+	jmp	.L20
+.L25:
 	movl	$3, %edx
 	movl	$1, %esi
 	leaq	.LC10(%rip), %rdi
 	xorl	%eax, %eax
 	call	printf@PLT
 .LEHE0:
-	jmp	.L17
-.L42:
-	call	__stack_chk_fail@PLT
-.L27:
+	jmp	.L20
+.L30:
 	movq	%rax, %rbp
-	jmp	.L24
+	jmp	.L27
 	.section	.gcc_except_table
 .LLSDA8157:
 	.byte	0xff
@@ -306,7 +290,7 @@ _ZN3mapC2Ev:
 .LLSDACSB8157:
 	.uleb128 .LEHB0-.LFB8157
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L27-.LFB8157
+	.uleb128 .L30-.LFB8157
 	.uleb128 0
 .LLSDACSE8157:
 	.text
@@ -318,7 +302,7 @@ _ZN3mapC2Ev:
 	.type	_ZN3mapC2Ev.cold, @function
 _ZN3mapC2Ev.cold:
 .LFSB8157:
-.L24:
+.L27:
 	.cfi_def_cfa_offset 64
 	.cfi_offset 3, -24
 	.cfi_offset 6, -16
