@@ -428,8 +428,14 @@ uint8 act_player::Update()
         if (this->Game->Play->Tunas[i] != NULL && this->OverlapBox->IsOverlappingWith(this->Game->Play->Tunas[i]->Actor->GetID(), this->Game->Play->Tunas[i]->OverlapBox->GetID()))
         {
             this->Score++;
+            if (this->Health < 5)
+            {
+                this->Health++;
+            }
+
             delete this->Game->Play->Tunas[i];
             this->Game->Play->Tunas[i] = NULL;
+
             this->Engine->Audio.Play(this->Game->Assets->TunaAudio, CH_TUNA, 0.5, 0);
         }
     }
