@@ -89,7 +89,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	leaq	72(%rdi), %rcx
 	movq	8(%rax), %rax
-	leaq	128(%rax), %r8
+	leaq	136(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	16(%rbx), %rdi
 	movl	$125, %edx
@@ -97,7 +97,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	leaq	72(%rdi), %rcx
 	movq	8(%rax), %rax
-	leaq	144(%rax), %r8
+	leaq	152(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	16(%rbx), %rdi
 	movl	$50, %edx
@@ -105,7 +105,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	leaq	72(%rdi), %rcx
 	movq	8(%rax), %rax
-	leaq	160(%rax), %r8
+	leaq	168(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	16(%rbx), %rdi
 	movl	$50, %edx
@@ -113,7 +113,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	leaq	72(%rdi), %rcx
 	movq	8(%rax), %rax
-	leaq	176(%rax), %r8
+	leaq	184(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	16(%rbx), %rsi
 	movl	$125, %edx
@@ -121,12 +121,12 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	leaq	72(%rsi), %rcx
 	movq	8(%rax), %rax
-	leaq	192(%rax), %r8
+	leaq	200(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	%rax, 88(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	224(%rax), %rdx
+	movq	232(%rax), %rdx
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -136,7 +136,7 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	leaq	72(%rdi), %rcx
 	movq	8(%rax), %rax
-	leaq	208(%rax), %r8
+	leaq	216(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	16(%rbx), %rsi
 	movl	$25, %edx
@@ -144,19 +144,19 @@ _ZN10act_playerC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	leaq	72(%rsi), %rcx
 	movq	8(%rax), %rax
-	leaq	232(%rax), %r8
+	leaq	240(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	%rax, 112(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	248(%rax), %rdx
+	movq	256(%rax), %rdx
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 120(%rbx)
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rax
-	movq	256(%rax), %rdx
+	movq	264(%rax), %rdx
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -965,7 +965,7 @@ _ZN10act_player6UpdateEv:
 	movsd	.LC25(%rip), %xmm3
 	movl	$4, %r8d
 	movq	8(%rax), %rax
-	movq	472(%rax), %rdx
+	movq	480(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
@@ -1076,7 +1076,7 @@ _ZN10act_player6UpdateEv:
 	movq	8(%rdx), %rax
 	movl	$10, %r8d
 	movsd	.LC23(%rip), %xmm3
-	movq	520(%rax), %rdx
+	movq	528(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
@@ -1127,7 +1127,7 @@ _ZN10act_player6UpdateEv:
 	movsd	.LC23(%rip), %xmm3
 	movl	$14, %r8d
 	movq	8(%rax), %rax
-	movq	568(%rax), %rdx
+	movq	576(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
@@ -1161,7 +1161,7 @@ _ZN10act_player6UpdateEv:
 	movq	8(%rax), %rax
 	movsd	.LC23(%rip), %xmm3
 	movl	$14, %r8d
-	movq	560(%rax), %rdx
+	movq	568(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
@@ -1249,7 +1249,7 @@ _ZN10act_player6UpdateEv:
 	movq	56(%rax), %rdx
 	movq	8(%rax), %rax
 	xorb	$1, 1160(%rdx)
-	movq	504(%rax), %rdx
+	movq	512(%rax), %rdx
 	movl	$0, 32(%rsp)
 	call	_ZN3wze6engine5audio4PlayEytdt
 	.p2align 4,,10
@@ -1456,7 +1456,7 @@ _ZN10act_player6UpdateEv:
 	movl	$3, %r8d
 	movsd	.LC23(%rip), %xmm3
 	movq	8(%rax), %rax
-	movq	464(%rax), %rdx
+	movq	472(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
@@ -1495,7 +1495,7 @@ _ZN10act_player6UpdateEv:
 	addq	$160, %rcx
 	movl	$5, %r8d
 	movq	8(%rax), %rax
-	movq	480(%rax), %rdx
+	movq	488(%rax), %rdx
 	movl	$0, 32(%rsp)
 	call	_ZN3wze6engine5audio4PlayEytdt
 	movq	(%rbx), %rcx
@@ -1543,7 +1543,7 @@ _ZN10act_player6UpdateEv:
 	movsd	.LC31(%rip), %xmm3
 	movl	$2, %r8d
 	movq	8(%rax), %rax
-	movq	456(%rax), %rdx
+	movq	464(%rax), %rdx
 	movq	(%rbx), %rax
 	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx

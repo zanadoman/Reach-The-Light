@@ -31,16 +31,15 @@ sint32 main()
 
 uint8 DisplayPressKit(engine* Engine)
 {
-    uint64 Texture;
     engine::actor Actor;
     engine::texturebox Texturebox;
     double opacity;
 
-    Texture = Engine->Assets.LoadTexture("assets/presskit.png");
     Actor = Engine->Actors.New(NULL, ACT_NONE, Engine->Window.GetWidth() >> 1, Engine->Window.GetHeight() >> 1, Engine->Window.GetWidth(), Engine->Window.GetHeight(), 0);
-    Texturebox = Actor->Textureboxes.New(Texture);
+    Texturebox = Actor->Textureboxes.New(0);
 
     Texturebox->ColorA = opacity = 0;
+    Texturebox->SetTextureID(Engine->Assets.LoadTexture("assets/presskit.png"));
 
     while (opacity <= 255)
     {
@@ -49,7 +48,7 @@ uint8 DisplayPressKit(engine* Engine)
         if (!Engine->Update())
         {
             Engine->Actors.Delete(Actor->GetID());
-            Engine->Assets.UnloadTexture(Texture);
+            Engine->Assets.PurgeTextures({});
 
             return 0;
         }
@@ -66,7 +65,44 @@ uint8 DisplayPressKit(engine* Engine)
         if (!Engine->Update())
         {
             Engine->Actors.Delete(Actor->GetID());
-            Engine->Assets.UnloadTexture(Texture);
+            Engine->Assets.PurgeTextures({});
+
+            return 0;
+        }
+
+        opacity -= 0.1 * Engine->Timing.GetDeltaTime();
+    }
+
+    Texturebox->Width = 1920;
+    Texturebox->Height = 1080;
+    Texturebox->ColorA = opacity = 0;
+    Texturebox->SetTextureID(Engine->Assets.LoadTexture("assets/gui/menu_title.png"));
+
+    while (opacity <= 255)
+    {
+        Texturebox->ColorA = round(opacity);
+
+        if (!Engine->Update())
+        {
+            Engine->Actors.Delete(Actor->GetID());
+            Engine->Assets.PurgeTextures({});
+
+            return 0;
+        }
+
+        opacity += 0.1 * Engine->Timing.GetDeltaTime();
+    }
+
+    Texturebox->ColorA = opacity = 255;
+
+    while (0 <= opacity)
+    {
+        Texturebox->ColorA = round(opacity);
+
+        if (!Engine->Update())
+        {
+            Engine->Actors.Delete(Actor->GetID());
+            Engine->Assets.PurgeTextures({});
 
             return 0;
         }
@@ -75,7 +111,7 @@ uint8 DisplayPressKit(engine* Engine)
     }
 
     Engine->Actors.Delete(Actor->GetID());
-    Engine->Assets.UnloadTexture(Texture);
+    Engine->Assets.PurgeTextures({});
 
     return 0;
 }

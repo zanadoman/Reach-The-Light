@@ -5,9 +5,9 @@
 	.ascii "Vissza\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB3:
+.LCOLDB4:
 	.text
-.LHOTB3:
+.LHOTB4:
 	.align 2
 	.p2align 4
 	.globl	_ZN10scene_helpC2EPN3wze6engineEP4game
@@ -49,8 +49,14 @@ _ZN10scene_helpC2EPN3wze6engineEP4game:
 	movsd	%xmm6, 32(%rsp)
 	movq	$0x000000000, 56(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movl	$56, %ecx
+	movq	8(%rbx), %rdx
 	movq	%rax, 16(%rbx)
+	leaq	40(%rax), %rcx
+	movq	8(%rdx), %rdx
+	movq	56(%rdx), %rdx
+	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
+	movl	$56, %ecx
+	movq	%rax, 24(%rbx)
 	call	_Znwy
 .LEHE0:
 	movq	16(%rbx), %rcx
@@ -71,7 +77,9 @@ _ZN10scene_helpC2EPN3wze6engineEP4game:
 	movq	8(%rbx), %r8
 	call	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc
 .LEHE1:
-	movq	%rsi, 24(%rbx)
+	movq	24(%rbx), %rax
+	movq	%rsi, 32(%rbx)
+	movl	$94374400, 16(%rax)
 	movaps	64(%rsp), %xmm6
 	addq	$88, %rsp
 	popq	%rbx
@@ -126,7 +134,7 @@ _ZN10scene_helpC2EPN3wze6engineEP4game.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
 .LLSDACSBC8432:
-	.uleb128 .LEHB2-.LCOLDB3
+	.uleb128 .LEHB2-.LCOLDB4
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
@@ -135,9 +143,9 @@ _ZN10scene_helpC2EPN3wze6engineEP4game.cold:
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE3:
+.LCOLDE4:
 	.text
-.LHOTE3:
+.LHOTE4:
 	.globl	_ZN10scene_helpC1EPN3wze6engineEP4game
 	.def	_ZN10scene_helpC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.set	_ZN10scene_helpC1EPN3wze6engineEP4game,_ZN10scene_helpC2EPN3wze6engineEP4game
@@ -153,7 +161,7 @@ _ZN10scene_helpD2Ev:
 	subq	$32, %rsp
 	.seh_stackalloc	32
 	.seh_endprologue
-	movq	24(%rcx), %rbx
+	movq	32(%rcx), %rbx
 	testq	%rbx, %rbx
 	je	.L6
 	movq	%rbx, %rcx
@@ -180,16 +188,34 @@ _ZN10scene_helpD2Ev:
 	.seh_proc	_ZN10scene_help6UpdateEv
 _ZN10scene_help6UpdateEv:
 .LFB8437:
-	subq	$40, %rsp
-	.seh_stackalloc	40
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$32, %rsp
+	.seh_stackalloc	32
 	.seh_endprologue
-	movq	24(%rcx), %rcx
+	movq	%rcx, %rbx
+	movq	32(%rcx), %rcx
 	call	_ZN10gui_button6UpdateEv
-	cmpb	$1, %al
-	sbbl	%eax, %eax
-	andl	$4, %eax
-	addl	$1, %eax
-	addq	$40, %rsp
+	testb	%al, %al
+	je	.L14
+.L9:
+	movl	$1, %eax
+	addq	$32, %rsp
+	popq	%rbx
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L14:
+	movq	(%rbx), %rcx
+	movl	$41, %edx
+	addq	$192, %rcx
+	call	_ZN3wze6engine4keysixENS_3keyE
+	movl	%eax, %edx
+	movl	$5, %eax
+	testb	%dl, %dl
+	jne	.L9
+	addq	$32, %rsp
+	popq	%rbx
 	ret
 	.seh_endproc
 	.section .rdata,"dr"
@@ -201,6 +227,7 @@ _ZN10scene_help6UpdateEv:
 	.def	_ZN3wze6engine6window9GetHeightEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6window8GetWidthEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12textureboxes3NewEy;	.scl	2;	.type	32;	.endef
 	.def	_Znwy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetXEv;	.scl	2;	.type	32;	.endef
@@ -209,3 +236,4 @@ _ZN10scene_help6UpdateEv:
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
 	.def	_ZN10gui_buttonD1Ev;	.scl	2;	.type	32;	.endef
 	.def	_ZN10gui_button6UpdateEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine4keysixENS_3keyE;	.scl	2;	.type	32;	.endef

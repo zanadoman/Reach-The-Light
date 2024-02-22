@@ -470,12 +470,12 @@ _ZN11scene_story6UpdateEv:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %r13
 	movq	(%rbx), %rax
-	movl	536(%r13), %r8d
+	movl	544(%r13), %r8d
 	leaq	336(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	544(%r13), %rdx
+	movq	552(%r13), %rdx
 	cltq
-	cmpq	536(%r13), %rax
+	cmpq	544(%r13), %rax
 	jnb	.L53
 	movq	(%rdx,%rax,8), %rdx
 	movapd	%xmm6, %xmm3
@@ -611,7 +611,7 @@ _ZN11scene_story6UpdateEv:
 	movzbl	64(%rbx), %eax
 	movq	8(%rdx), %rdx
 	xorl	$1, %eax
-	movq	552(%rdx), %rdx
+	movq	560(%rdx), %rdx
 	movb	%al, 64(%rbx)
 	movzbl	%al, %eax
 	movl	$0, 32(%rsp)

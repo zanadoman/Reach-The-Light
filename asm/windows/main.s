@@ -64,6 +64,8 @@ _Z6printfPKcz:
 	.section .rdata,"dr"
 .LC3:
 	.ascii "assets/presskit.png\0"
+.LC6:
+	.ascii "assets/gui/menu_title.png\0"
 	.text
 	.p2align 4
 	.globl	_Z15DisplayPressKitPN3wze6engineE
@@ -71,8 +73,6 @@ _Z6printfPKcz:
 	.seh_proc	_Z15DisplayPressKitPN3wze6engineE
 _Z15DisplayPressKitPN3wze6engineE:
 .LFB8432:
-	pushq	%r14
-	.seh_pushreg	%r14
 	pushq	%r13
 	.seh_pushreg	%r13
 	pushq	%r12
@@ -85,26 +85,23 @@ _Z15DisplayPressKitPN3wze6engineE:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$112, %rsp
-	.seh_stackalloc	112
-	movaps	%xmm6, 64(%rsp)
-	.seh_savexmm	%xmm6, 64
-	movaps	%xmm7, 80(%rsp)
-	.seh_savexmm	%xmm7, 80
-	movaps	%xmm8, 96(%rsp)
-	.seh_savexmm	%xmm8, 96
+	subq	$152, %rsp
+	.seh_stackalloc	152
+	movaps	%xmm6, 80(%rsp)
+	.seh_savexmm	%xmm6, 80
+	movaps	%xmm7, 96(%rsp)
+	.seh_savexmm	%xmm7, 96
+	movaps	%xmm8, 112(%rsp)
+	.seh_savexmm	%xmm8, 112
+	movaps	%xmm9, 128(%rsp)
+	.seh_savexmm	%xmm9, 128
 	.seh_endprologue
-	leaq	.LC3(%rip), %rdx
 	pxor	%xmm6, %xmm6
-	leaq	344(%rcx), %r13
 	movq	%rcx, %rbx
-	movq	%r13, %rcx
-	leaq	272(%rbx), %r14
-	call	_ZN3wze6engine6assets11LoadTextureEPKc
-	movq	%rbx, %rcx
-	movq	%rax, %rbp
+	leaq	272(%rcx), %r13
 	call	_ZN3wze6engine6window9GetHeightEv
 	movq	%rbx, %rcx
+	leaq	344(%rbx), %r12
 	movzwl	%ax, %edi
 	call	_ZN3wze6engine6window8GetWidthEv
 	movq	%rbx, %rcx
@@ -121,21 +118,28 @@ _Z15DisplayPressKitPN3wze6engineE:
 	shrw	%ax
 	movl	%esi, 40(%rsp)
 	xorl	%edx, %edx
-	movq	%r14, %rcx
+	movq	%r13, %rcx
 	movzwl	%ax, %eax
 	leaq	416(%rbx), %rdi
 	movq	$0x000000000, 56(%rsp)
 	cvtsi2sdl	%eax, %xmm3
 	movsd	%xmm6, 32(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
-	movq	%rbp, %rdx
+	xorl	%edx, %edx
 	leaq	40(%rax), %rcx
-	movq	%rax, %r12
+	movq	%rax, %rbp
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
+	leaq	.LC3(%rip), %rdx
+	movq	%r12, %rcx
+	movb	$0, 23(%rax)
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6assets11LoadTextureEPKc
+	movq	%rsi, %rcx
+	movq	%rax, %rdx
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
 	pxor	%xmm0, %xmm0
 	movsd	.LC4(%rip), %xmm8
 	movsd	.LC2(%rip), %xmm7
-	movq	%rax, %rsi
 	movapd	%xmm0, %xmm6
 	jmp	.L11
 	.p2align 4,,10
@@ -149,7 +153,7 @@ _Z15DisplayPressKitPN3wze6engineE:
 	mulsd	%xmm8, %xmm1
 	addsd	%xmm1, %xmm6
 	comisd	%xmm6, %xmm7
-	jb	.L20
+	jb	.L34
 	movapd	%xmm6, %xmm0
 	call	round
 .L11:
@@ -159,35 +163,37 @@ _Z15DisplayPressKitPN3wze6engineE:
 	call	_ZN3wze6engine6UpdateEv
 	testb	%al, %al
 	jne	.L5
-.L21:
-	movq	%r12, %rcx
+.L37:
+	movq	%rbp, %rcx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
-	movq	%r14, %rcx
+	movq	%r13, %rcx
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6actors6DeleteEy
-	movq	%rbp, %rdx
-	movq	%r13, %rcx
-	call	_ZN3wze6engine6assets13UnloadTextureEy
+	leaq	64(%rsp), %rdx
+	movq	%r12, %rcx
+	movq	$0, 64(%rsp)
+	movq	$0, 72(%rsp)
+	call	_ZN3wze6engine6assets13PurgeTexturesESt16initializer_listIyE
 	nop
-	movaps	64(%rsp), %xmm6
-	movaps	80(%rsp), %xmm7
+	movaps	80(%rsp), %xmm6
+	movaps	96(%rsp), %xmm7
 	xorl	%eax, %eax
-	movaps	96(%rsp), %xmm8
-	addq	$112, %rsp
+	movaps	128(%rsp), %xmm9
+	movaps	112(%rsp), %xmm8
+	addq	$152, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
 	popq	%rbp
 	popq	%r12
 	popq	%r13
-	popq	%r14
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L20:
+.L34:
 	movapd	%xmm7, %xmm0
 	movapd	%xmm7, %xmm6
-	pxor	%xmm7, %xmm7
+	pxor	%xmm9, %xmm9
 	jmp	.L9
 	.p2align 4,,10
 	.p2align 3
@@ -199,8 +205,8 @@ _Z15DisplayPressKitPN3wze6engineE:
 	cvtsi2sdq	%rax, %xmm0
 	mulsd	%xmm8, %xmm0
 	subsd	%xmm0, %xmm6
-	comisd	%xmm7, %xmm6
-	jb	.L21
+	comisd	%xmm9, %xmm6
+	jb	.L35
 	movapd	%xmm6, %xmm0
 	call	round
 .L9:
@@ -210,18 +216,83 @@ _Z15DisplayPressKitPN3wze6engineE:
 	call	_ZN3wze6engine6UpdateEv
 	testb	%al, %al
 	jne	.L12
-	jmp	.L21
+	jmp	.L37
+	.p2align 4,,10
+	.p2align 3
+.L35:
+	movb	$0, 23(%rsi)
+	leaq	.LC6(%rip), %rdx
+	movq	%r12, %rcx
+	movl	$70780800, 16(%rsi)
+	call	_ZN3wze6engine6assets11LoadTextureEPKc
+	movq	%rsi, %rcx
+	movq	%rax, %rdx
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
+	pxor	%xmm0, %xmm0
+	movapd	%xmm0, %xmm6
+	jmp	.L22
+	.p2align 4,,10
+	.p2align 3
+.L17:
+	movq	%rdi, %rcx
+	call	_ZN3wze6engine6timing12GetDeltaTimeEv
+	pxor	%xmm0, %xmm0
+	movl	%eax, %eax
+	cvtsi2sdq	%rax, %xmm0
+	mulsd	%xmm8, %xmm0
+	addsd	%xmm0, %xmm6
+	comisd	%xmm6, %xmm7
+	jb	.L36
+	movapd	%xmm6, %xmm0
+	call	round
+.L22:
+	cvttsd2sil	%xmm0, %eax
+	movq	%rbx, %rcx
+	movb	%al, 23(%rsi)
+	call	_ZN3wze6engine6UpdateEv
+	testb	%al, %al
+	jne	.L17
+	jmp	.L37
+	.p2align 4,,10
+	.p2align 3
+.L36:
+	movapd	%xmm7, %xmm0
+	movapd	%xmm7, %xmm6
+	pxor	%xmm7, %xmm7
+	jmp	.L20
+	.p2align 4,,10
+	.p2align 3
+.L23:
+	movq	%rdi, %rcx
+	call	_ZN3wze6engine6timing12GetDeltaTimeEv
+	pxor	%xmm0, %xmm0
+	movl	%eax, %eax
+	cvtsi2sdq	%rax, %xmm0
+	mulsd	%xmm8, %xmm0
+	subsd	%xmm0, %xmm6
+	comisd	%xmm7, %xmm6
+	jb	.L37
+	movapd	%xmm6, %xmm0
+	call	round
+.L20:
+	cvttsd2sil	%xmm0, %eax
+	movq	%rbx, %rcx
+	movb	%al, 23(%rsi)
+	call	_ZN3wze6engine6UpdateEv
+	testb	%al, %al
+	jne	.L23
+	jmp	.L37
 	.seh_endproc
 	.def	__main;	.scl	2;	.type	32;	.endef
 	.section .rdata,"dr"
-.LC5:
+.LC7:
 	.ascii "assets/icon.png\0"
-.LC6:
+.LC8:
 	.ascii "Reach The Light\0"
 	.section	.text.unlikely,"x"
-.LCOLDB7:
+.LCOLDB9:
 	.section	.text.startup,"x"
-.LHOTB7:
+.LHOTB9:
 	.p2align 4
 	.globl	main
 	.def	main;	.scl	2;	.type	32;	.endef
@@ -242,9 +313,9 @@ main:
 .LEHE0:
 	movl	$16, 40(%rsp)
 	movl	$2560, %r9d
-	leaq	.LC5(%rip), %r8
+	leaq	.LC7(%rip), %r8
 	movl	$1440, 32(%rsp)
-	leaq	.LC6(%rip), %rdx
+	leaq	.LC8(%rip), %rdx
 	movq	%rax, %rcx
 	movq	%rax, %rbx
 .LEHB1:
@@ -268,22 +339,22 @@ main:
 .LEHB3:
 	call	_ZN4gameC1EPN3wze6engineE
 .LEHE3:
-	jmp	.L23
+	jmp	.L39
 	.p2align 4,,10
 	.p2align 3
-.L24:
+.L40:
 	movq	%rsi, %rcx
 .LEHB4:
 	call	_ZN4game6UpdateEv
 	testb	%al, %al
-	jne	.L25
-.L23:
+	jne	.L41
+.L39:
 	movq	%rbx, %rcx
 	call	_ZN3wze6engine6UpdateEv
 .LEHE4:
 	testb	%al, %al
-	jne	.L24
-.L25:
+	jne	.L40
+.L41:
 	movq	%rsi, %rcx
 	call	_ZN4gameD1Ev
 	movl	$80, %edx
@@ -299,12 +370,12 @@ main:
 	popq	%rbx
 	popq	%rsi
 	ret
-.L28:
+.L44:
 	movq	%rax, %rsi
-	jmp	.L26
-.L29:
+	jmp	.L42
+.L45:
 	movq	%rax, %rbx
-	jmp	.L27
+	jmp	.L43
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
@@ -320,7 +391,7 @@ main:
 	.uleb128 0
 	.uleb128 .LEHB1-.LFB8431
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L28-.LFB8431
+	.uleb128 .L44-.LFB8431
 	.uleb128 0
 	.uleb128 .LEHB2-.LFB8431
 	.uleb128 .LEHE2-.LEHB2
@@ -328,7 +399,7 @@ main:
 	.uleb128 0
 	.uleb128 .LEHB3-.LFB8431
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L29-.LFB8431
+	.uleb128 .L45-.LFB8431
 	.uleb128 0
 	.uleb128 .LEHB4-.LFB8431
 	.uleb128 .LEHE4-.LEHB4
@@ -345,14 +416,14 @@ main:
 	.seh_savereg	%rsi, 64
 	.seh_endprologue
 main.cold:
-.L26:
+.L42:
 	movq	%rbx, %rcx
 	movl	$480, %edx
 	call	_ZdlPvy
 	movq	%rsi, %rcx
 .LEHB5:
 	call	_Unwind_Resume
-.L27:
+.L43:
 	movq	%rsi, %rcx
 	movl	$80, %edx
 	call	_ZdlPvy
@@ -368,7 +439,7 @@ main.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8431-.LLSDACSBC8431
 .LLSDACSBC8431:
-	.uleb128 .LEHB5-.LCOLDB7
+	.uleb128 .LEHB5-.LCOLDB9
 	.uleb128 .LEHE5-.LEHB5
 	.uleb128 0
 	.uleb128 0
@@ -377,11 +448,11 @@ main.cold:
 	.section	.text.startup,"x"
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE7:
+.LCOLDE9:
 	.section	.text.startup,"x"
-.LHOTE7:
+.LHOTE9:
 	.section .rdata,"dr"
-.LC8:
+.LC10:
 	.ascii "*this->Spawn = %d;\12\0"
 	.text
 	.p2align 4
@@ -404,7 +475,7 @@ _Z8PrintMapP4game:
 	movq	%rcx, %rsi
 	.p2align 4,,10
 	.p2align 3
-.L34:
+.L50:
 	movq	24(%rsi), %rdx
 	movslq	%ebx, %rax
 	movq	%rdi, %rcx
@@ -413,9 +484,9 @@ _Z8PrintMapP4game:
 	addl	$1, %ebx
 	call	_Z6printfPKcz.constprop.0
 	cmpl	$128, %ebx
-	jne	.L34
+	jne	.L50
 	movq	24(%rsi), %rax
-	leaq	.LC8(%rip), %rcx
+	leaq	.LC10(%rip), %rcx
 	movq	136(%rax), %rax
 	movzbl	(%rax), %edx
 	call	_Z6printfPKcz
@@ -437,17 +508,18 @@ _Z8PrintMapP4game:
 	.long	1069128089
 	.ident	"GCC: (GNU) 13.1.0"
 	.def	__mingw_vfprintf;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6assets11LoadTextureEPKc;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6window9GetHeightEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6window8GetWidthEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors3NewEPvyddttd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes3NewEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6assets11LoadTextureEPKc;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing12GetDeltaTimeEv;	.scl	2;	.type	32;	.endef
 	.def	round;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6UpdateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine6assets13UnloadTextureEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6assets13PurgeTexturesESt16initializer_listIyE;	.scl	2;	.type	32;	.endef
 	.def	_Znwy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engineC1EPKcS2_tth;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine5audio15SetChannelCountEt;	.scl	2;	.type	32;	.endef

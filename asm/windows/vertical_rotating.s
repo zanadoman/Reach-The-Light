@@ -91,7 +91,7 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	%rax, 16(%rbx)
 	leaq	40(%rax), %rcx
 	movq	8(%rdx), %rdx
-	movq	312(%rdx), %rdx
+	movq	320(%rdx), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movl	$5, %edx
 	movq	%rax, 24(%rbx)
@@ -133,12 +133,12 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	xorl	%edx, %edx
 	movq	8(%rax), %rbp
 	movq	(%rbx), %rax
-	movl	296(%rbp), %r8d
+	movl	304(%rbp), %r8d
 	leaq	336(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	304(%rbp), %rdx
+	movq	312(%rbp), %rdx
 	cltq
-	cmpq	296(%rbp), %rax
+	cmpq	304(%rbp), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rsi, %rcx
@@ -184,12 +184,12 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	xorl	%edx, %edx
 	movq	8(%rax), %rbp
 	movq	(%rbx), %rax
-	movl	296(%rbp), %r8d
+	movl	304(%rbp), %r8d
 	leaq	336(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	304(%rbp), %rdx
+	movq	312(%rbp), %rdx
 	cltq
-	cmpq	296(%rbp), %rax
+	cmpq	304(%rbp), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rsi, %rcx
@@ -232,12 +232,12 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	(%rbx), %rax
 	addq	$40, %rdi
 	movq	$100, 144(%rdi)
-	movl	296(%rsi), %r8d
+	movl	304(%rsi), %r8d
 	leaq	336(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	304(%rsi), %rdx
+	movq	312(%rsi), %rdx
 	cltq
-	cmpq	296(%rsi), %rax
+	cmpq	304(%rsi), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
@@ -263,12 +263,12 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rsi
 	movq	(%rbx), %rax
-	movl	296(%rsi), %r8d
+	movl	304(%rsi), %r8d
 	leaq	336(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	304(%rsi), %rdx
+	movq	312(%rsi), %rdx
 	cltq
-	cmpq	296(%rsi), %rax
+	cmpq	304(%rsi), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
@@ -295,12 +295,12 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	movq	8(%rax), %rsi
 	movq	(%rbx), %rax
-	movl	296(%rsi), %r8d
+	movl	304(%rsi), %r8d
 	leaq	336(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
-	movq	304(%rsi), %rdx
+	movq	312(%rsi), %rdx
 	cltq
-	cmpq	296(%rsi), %rax
+	cmpq	304(%rsi), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rdx
 	movq	%rdi, %rcx
@@ -327,11 +327,11 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	movq	8(%rbx), %rax
 	addq	$336, %rcx
 	movq	8(%rax), %rsi
-	movl	296(%rsi), %r8d
+	movl	304(%rsi), %r8d
 	call	_ZN3wze6engine4math6RandomEii
-	movq	304(%rsi), %rdx
+	movq	312(%rsi), %rdx
 	cltq
-	cmpq	296(%rsi), %rax
+	cmpq	304(%rsi), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rdx
 	movaps	64(%rsp), %xmm6
@@ -504,7 +504,7 @@ _ZN22tile_vertical_rotating6UpdateEv:
 	movq	8(%rbx), %rax
 	movq	24(%rbx), %rcx
 	movq	8(%rax), %rax
-	movq	320(%rax), %rdx
+	movq	328(%rax), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
 	nop
 .L19:
@@ -552,7 +552,7 @@ _ZN22tile_vertical_rotating6UpdateEv:
 	movq	8(%rbx), %rax
 	movq	24(%rbx), %rcx
 	movq	8(%rax), %rax
-	movq	312(%rax), %rdx
+	movq	320(%rax), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
 	jmp	.L19
 	.seh_endproc

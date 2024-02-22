@@ -65,7 +65,7 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	movq	%rax, 16(%rbx)
 	leaq	40(%rax), %rcx
 	movq	8(%rdx), %rdx
-	movq	64(%rdx), %rdx
+	movq	72(%rdx), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movl	$56, %ecx
 	movq	%rax, 24(%rbx)

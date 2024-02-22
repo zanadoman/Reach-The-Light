@@ -88,12 +88,12 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	%rax, 16(%rbp)
 	leaq	40(%rax), %rcx
 	movq	8(%rdx), %rdx
-	movq	72(%rdx), %rdx
+	movq	80(%rdx), %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
 	movq	%rax, 24(%rbp)
 	movq	8(%rbp), %rax
 	movq	8(%rax), %rax
-	movq	72(%rax), %rdx
+	movq	80(%rax), %rdx
 	movq	16(%rbp), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
@@ -103,7 +103,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rbp), %rax
 	leaq	72(%rdi), %rcx
 	movq	8(%rax), %rax
-	leaq	128(%rax), %r8
+	leaq	136(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	16(%rbp), %rdi
 	movl	$125, %edx
@@ -111,7 +111,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	movq	8(%rbp), %rax
 	leaq	72(%rdi), %rcx
 	movq	8(%rax), %rax
-	leaq	128(%rax), %r8
+	leaq	136(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9flipbooks3NewEjPN3neo5arrayIyEE
 	movq	16(%rbp), %rdi
 	leaq	.LC2(%rip), %rdx
