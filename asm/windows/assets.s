@@ -400,7 +400,7 @@ _ZN6assetsC2EPN3wze6engineE:
 	subq	$952, %rsp
 	.seh_stackalloc	952
 	.seh_endprologue
-	movl	$255, %r8d
+	movl	$48, %r8d
 	movq	%rdx, (%rcx)
 	movq	%rcx, %rbx
 	movq	$0, 128(%rcx)
@@ -433,19 +433,19 @@ _ZN6assetsC2EPN3wze6engineE:
 	call	_ZN3wze6engine6assets8LoadFontEPKch
 	movq	%rax, 8(%rbx)
 	movq	(%rbx), %rax
-	movl	$255, %r8d
+	movl	$48, %r8d
 	leaq	.LC1(%rip), %rdx
 	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets8LoadFontEPKch
 	movq	%rax, 16(%rbx)
 	movq	(%rbx), %rax
-	movl	$255, %r8d
+	movl	$48, %r8d
 	leaq	.LC2(%rip), %rdx
 	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets8LoadFontEPKch
 	movq	%rax, 24(%rbx)
 	movq	(%rbx), %rax
-	movl	$255, %r8d
+	movl	$48, %r8d
 	leaq	.LC3(%rip), %rdx
 	leaq	344(%rax), %rcx
 	call	_ZN3wze6engine6assets8LoadFontEPKch
