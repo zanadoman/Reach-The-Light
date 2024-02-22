@@ -458,6 +458,10 @@ _ZN14tile_trap_holeD2Ev:
 	.seh_proc	_ZN14tile_trap_hole6UpdateEv
 _ZN14tile_trap_hole6UpdateEv:
 .LFB8437:
+	pushq	%r12
+	.seh_pushreg	%r12
+	pushq	%rbp
+	.seh_pushreg	%rbp
 	pushq	%rdi
 	.seh_pushreg	%rdi
 	pushq	%rsi
@@ -468,46 +472,56 @@ _ZN14tile_trap_hole6UpdateEv:
 	.seh_stackalloc	48
 	.seh_endprologue
 	cmpq	$0, 48(%rcx)
-	movq	%rcx, %rbx
-	je	.L25
+	movq	%rcx, %rsi
+	je	.L31
 	movq	8(%rcx), %rax
-	movq	32(%rcx), %rdi
 	movq	56(%rax), %rax
-	movq	88(%rax), %rax
-	movq	24(%rax), %rcx
+	cmpq	$0, 1120(%rax)
+	je	.L24
+	xorl	%edi, %edi
+	xorl	%ebx, %ebx
+	jmp	.L27
+	.p2align 4,,10
+	.p2align 3
+.L33:
+	movq	8(%rsi), %rax
+	addl	$1, %edi
+	movzbl	%dil, %ebx
+	movq	56(%rax), %rax
+	cmpq	1120(%rax), %rbx
+	jnb	.L24
+.L27:
+	movq	1128(%rax), %rax
+	movq	32(%rsi), %rbp
+	movq	(%rax,%rbx,8), %rax
+	movq	32(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv
-	movq	%rax, %rsi
-	movq	8(%rbx), %rax
+	movq	%rax, %r12
+	movq	8(%rsi), %rax
 	movq	56(%rax), %rax
-	movq	88(%rax), %rax
-	movq	16(%rax), %rcx
+	movq	1128(%rax), %rdx
+	cmpq	1120(%rax), %rbx
+	jnb	.L32
+	movq	(%rdx,%rbx,8), %rax
+	movq	24(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
-	movq	%rsi, %r8
-	movq	%rdi, %rcx
+	movq	%r12, %r8
+	movq	%rbp, %rcx
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy
 	testb	%al, %al
-	jne	.L28
-.L25:
-	xorl	%eax, %eax
-	addq	$48, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L28:
-	movq	(%rbx), %rax
-	movq	48(%rbx), %rcx
-	leaq	272(%rax), %rsi
+	je	.L33
+.L26:
+	movq	(%rsi), %rax
+	movq	48(%rsi), %rcx
+	leaq	272(%rax), %rbx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
-	movq	%rsi, %rcx
+	movq	%rbx, %rcx
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6actors6DeleteEy
-	movq	8(%rbx), %rax
-	movq	(%rbx), %rcx
-	movq	$0, 48(%rbx)
+	movq	8(%rsi), %rax
+	movq	(%rsi), %rcx
+	movq	$0, 48(%rsi)
 	movsd	.LC0(%rip), %xmm3
 	movl	$7, %r8d
 	movq	8(%rax), %rax
@@ -515,12 +529,49 @@ _ZN14tile_trap_hole6UpdateEv:
 	movq	504(%rax), %rdx
 	movl	$0, 32(%rsp)
 	call	_ZN3wze6engine5audio4PlayEytdt
+.L31:
 	xorl	%eax, %eax
 	addq	$48, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
+	popq	%rbp
+	popq	%r12
 	ret
+	.p2align 4,,10
+	.p2align 3
+.L24:
+	movq	88(%rax), %rax
+	movq	32(%rsi), %rdi
+	movq	24(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv
+	movq	%rax, %rbx
+	movq	8(%rsi), %rax
+	movq	56(%rax), %rax
+	movq	88(%rax), %rax
+	movq	16(%rax), %rcx
+	call	_ZN3wze6engine6actors5actor5GetIDEv
+	movq	%rbx, %r8
+	movq	%rdi, %rcx
+	movq	%rax, %rdx
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy
+	testb	%al, %al
+	jne	.L26
+	xorl	%eax, %eax
+	addq	$48, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	popq	%rbp
+	popq	%r12
+	ret
+.L32:
+	leaq	.LC1(%rip), %rcx
+	movq	%rbx, %rdx
+	call	_Z6printfPKcz
+	movl	$1, %ecx
+	call	exit
+	nop
 	.seh_endproc
 	.section .rdata,"dr"
 	.align 8

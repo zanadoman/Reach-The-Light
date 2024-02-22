@@ -87,7 +87,7 @@ uint8 tile_trap_hole::Update()
             }
         }
 
-        if (this->Detector->IsOverlappingWith(this->Game->Play->Player->Actor->GetID(), this->Game->Play->Player->OverlapBox->GetID()) || crate)
+        if (crate || this->Detector->IsOverlappingWith(this->Game->Play->Player->Actor->GetID(), this->Game->Play->Player->OverlapBox->GetID()))
         {
             this->Engine->Actors.Delete(this->HitboxBot->GetID());
             this->HitboxBot = NULL;

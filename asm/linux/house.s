@@ -750,19 +750,159 @@ _ZN10tile_house6UpdateEv:
 .L32:
 	movq	56(%rbx), %rdx
 	movb	%al, 23(%rdx)
-	movq	8(%rbx), %rax
-	movq	56(%rax), %rax
-	movq	88(%rax), %rdx
-	movzbl	136(%rdx), %edx
-	cmpq	1136(%rax), %rdx
-	jne	.L33
-.L38:
 	movq	144(%rbx), %rdi
 	testq	%rdi, %rdi
-	je	.L37
+	je	.L34
 	cmpq	$0, 152(%rbx)
-	je	.L37
+	je	.L34
+	movq	8(%rbx), %rax
+	movq	56(%rax), %rdx
 	movq	(%rbx), %rax
+	movq	88(%rdx), %rcx
+	movzbl	136(%rcx), %ecx
+	cmpq	1136(%rdx), %rcx
+	je	.L36
+	leaq	192(%rax), %rdi
+	movl	$18, %esi
+	call	_ZN3wze6engine4keysixENS_3keyE@PLT
+	testb	%al, %al
+	jne	.L67
+.L34:
+	movq	80(%rbx), %rbp
+	testq	%rbp, %rbp
+	je	.L38
+	movq	%rbp, %rdi
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv@PLT
+	movq	(%rbx), %rax
+	movsd	176(%rbx), %xmm3
+	movsd	%xmm0, 8(%rsp)
+	leaq	416(%rax), %rdi
+	movsd	%xmm3, (%rsp)
+	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
+	pxor	%xmm0, %xmm0
+	movq	%rbp, %rdi
+	movl	%eax, %eax
+	cvtsi2sdq	%rax, %xmm0
+	mulsd	(%rsp), %xmm0
+	addsd	8(%rsp), %xmm0
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
+	movq	80(%rbx), %rdi
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv@PLT
+	movq	16(%rbx), %rdi
+	movsd	%xmm0, (%rsp)
+	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
+	subsd	.LC30(%rip), %xmm0
+	comisd	(%rsp), %xmm0
+	jb	.L65
+	movq	16(%rbx), %rdi
+	movq	80(%rbx), %rbp
+	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
+	subsd	.LC30(%rip), %xmm0
+	movq	%rbp, %rdi
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
+	movq	.LC19(%rip), %rax
+	movq	%rax, 176(%rbx)
+.L43:
+	movq	8(%rbx), %rax
+	movq	88(%rbx), %r12
+	movq	56(%rax), %rax
+	movq	88(%rax), %rax
+	movq	24(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
+	movq	%rax, %rbp
+	movq	8(%rbx), %rax
+	movq	56(%rax), %rax
+	movq	88(%rax), %rax
+	movq	16(%rax), %rdi
+	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
+	movq	%rbp, %rdx
+	movq	%r12, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
+	testb	%al, %al
+	jne	.L68
+.L38:
+	addq	$16, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 32
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L65:
+	.cfi_restore_state
+	movq	16(%rbx), %rdi
+	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
+	subsd	.LC31(%rip), %xmm0
+	movq	80(%rbx), %rdi
+	movsd	%xmm0, (%rsp)
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv@PLT
+	comisd	(%rsp), %xmm0
+	jb	.L43
+	movq	16(%rbx), %rdi
+	movq	80(%rbx), %rbp
+	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
+	subsd	.LC31(%rip), %xmm0
+	movq	%rbp, %rdi
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
+	movq	.LC32(%rip), %rax
+	movq	%rax, 176(%rbx)
+	jmp	.L43
+	.p2align 4,,10
+	.p2align 3
+.L68:
+	movq	16(%rbx), %rax
+	movq	80(%rbx), %rdi
+	leaq	40(%rax), %rbp
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox5GetIDEv@PLT
+	movq	%rbp, %rdi
+	movq	%rax, %rsi
+	call	_ZN3wze6engine6actors5actor12textureboxes6DeleteEy@PLT
+	movq	$0, 80(%rbx)
+	xorl	%eax, %eax
+	addq	$16, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 32
+	popq	%rbx
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L67:
+	.cfi_restore_state
+	movq	(%rbx), %rax
+	movl	$19, %esi
+	leaq	192(%rax), %rdi
+	call	_ZN3wze6engine4keysixENS_3keyE@PLT
+	testb	%al, %al
+	je	.L34
+	movq	(%rbx), %rax
+	movl	$8, %esi
+	leaq	192(%rax), %rdi
+	call	_ZN3wze6engine4keysixENS_3keyE@PLT
+	testb	%al, %al
+	je	.L34
+	movq	(%rbx), %rax
+	movl	$17, %esi
+	leaq	192(%rax), %rdi
+	call	_ZN3wze6engine4keysixENS_3keyE@PLT
+	testb	%al, %al
+	je	.L34
+	movq	144(%rbx), %rdi
+	movq	(%rbx), %rax
+	.p2align 4,,10
+	.p2align 3
+.L36:
 	leaq	272(%rax), %rbp
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
 	movq	%rbp, %rdi
@@ -790,144 +930,7 @@ _ZN10tile_house6UpdateEv:
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
 	call	_ZN3wze6engine5audio4PlayEytdt@PLT
-	.p2align 4,,10
-	.p2align 3
-.L37:
-	movq	80(%rbx), %rbp
-	testq	%rbp, %rbp
-	je	.L40
-	movq	%rbp, %rdi
-	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv@PLT
-	movq	(%rbx), %rax
-	movsd	176(%rbx), %xmm3
-	movsd	%xmm0, 8(%rsp)
-	leaq	416(%rax), %rdi
-	movsd	%xmm3, (%rsp)
-	call	_ZN3wze6engine6timing12GetDeltaTimeEv@PLT
-	pxor	%xmm0, %xmm0
-	movq	%rbp, %rdi
-	movl	%eax, %eax
-	cvtsi2sdq	%rax, %xmm0
-	mulsd	(%rsp), %xmm0
-	addsd	8(%rsp), %xmm0
-	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
-	movq	80(%rbx), %rdi
-	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv@PLT
-	movq	16(%rbx), %rdi
-	movsd	%xmm0, (%rsp)
-	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
-	subsd	.LC30(%rip), %xmm0
-	comisd	(%rsp), %xmm0
-	jb	.L61
-	movq	16(%rbx), %rdi
-	movq	80(%rbx), %rbp
-	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
-	subsd	.LC30(%rip), %xmm0
-	movq	%rbp, %rdi
-	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
-	movq	.LC19(%rip), %rax
-	movq	%rax, 176(%rbx)
-.L45:
-	movq	8(%rbx), %rax
-	movq	88(%rbx), %r12
-	movq	56(%rax), %rax
-	movq	88(%rax), %rax
-	movq	24(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
-	movq	%rax, %rbp
-	movq	8(%rbx), %rax
-	movq	56(%rax), %rax
-	movq	88(%rax), %rax
-	movq	16(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
-	movq	%rbp, %rdx
-	movq	%r12, %rdi
-	movq	%rax, %rsi
-	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
-	testb	%al, %al
-	jne	.L63
-.L40:
-	addq	$16, %rsp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 32
-	xorl	%eax, %eax
-	popq	%rbx
-	.cfi_def_cfa_offset 24
-	popq	%rbp
-	.cfi_def_cfa_offset 16
-	popq	%r12
-	.cfi_def_cfa_offset 8
-	ret
-	.p2align 4,,10
-	.p2align 3
-.L61:
-	.cfi_restore_state
-	movq	16(%rbx), %rdi
-	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
-	subsd	.LC31(%rip), %xmm0
-	movq	80(%rbx), %rdi
-	movsd	%xmm0, (%rsp)
-	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4GetYEv@PLT
-	comisd	(%rsp), %xmm0
-	jb	.L45
-	movq	16(%rbx), %rdi
-	movq	80(%rbx), %rbp
-	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
-	subsd	.LC31(%rip), %xmm0
-	movq	%rbp, %rdi
-	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
-	movq	.LC32(%rip), %rax
-	movq	%rax, 176(%rbx)
-	jmp	.L45
-	.p2align 4,,10
-	.p2align 3
-.L33:
-	movq	(%rbx), %rax
-	movl	$18, %esi
-	leaq	192(%rax), %rdi
-	call	_ZN3wze6engine4keysixENS_3keyE@PLT
-	testb	%al, %al
-	je	.L37
-	movq	(%rbx), %rax
-	movl	$19, %esi
-	leaq	192(%rax), %rdi
-	call	_ZN3wze6engine4keysixENS_3keyE@PLT
-	testb	%al, %al
-	je	.L37
-	movq	(%rbx), %rax
-	movl	$8, %esi
-	leaq	192(%rax), %rdi
-	call	_ZN3wze6engine4keysixENS_3keyE@PLT
-	testb	%al, %al
-	je	.L37
-	movq	(%rbx), %rax
-	movl	$17, %esi
-	leaq	192(%rax), %rdi
-	call	_ZN3wze6engine4keysixENS_3keyE@PLT
-	testb	%al, %al
-	jne	.L38
-	jmp	.L37
-	.p2align 4,,10
-	.p2align 3
-.L63:
-	movq	16(%rbx), %rax
-	movq	80(%rbx), %rdi
-	leaq	40(%rax), %rbp
-	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox5GetIDEv@PLT
-	movq	%rbp, %rdi
-	movq	%rax, %rsi
-	call	_ZN3wze6engine6actors5actor12textureboxes6DeleteEy@PLT
-	movq	$0, 80(%rbx)
-	xorl	%eax, %eax
-	addq	$16, %rsp
-	.cfi_def_cfa_offset 32
-	popq	%rbx
-	.cfi_def_cfa_offset 24
-	popq	%rbp
-	.cfi_def_cfa_offset 16
-	popq	%r12
-	.cfi_def_cfa_offset 8
-	ret
+	jmp	.L34
 	.cfi_endproc
 .LFE8162:
 	.size	_ZN10tile_house6UpdateEv, .-_ZN10tile_house6UpdateEv

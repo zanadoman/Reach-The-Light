@@ -88,7 +88,6 @@ tile_top_left_corner::~tile_top_left_corner()
 uint8 tile_top_left_corner::Update()
 {
     this->SpiderOverlapBox->SetY(this->SpiderOverlapBox->GetY() + this->SpiderVelocityY * this->Engine->Timing.GetDeltaTime());
-    this->SpiderTextureBox->SetY(this->SpiderOverlapBox->GetY());
 
     if (this->SpiderOverlapBox->GetY() <= this->Actor->GetY())
     {
@@ -100,6 +99,8 @@ uint8 tile_top_left_corner::Update()
         this->SpiderOverlapBox->SetY(this->Actor->GetY() + 25);
         this->SpiderVelocityY = -0.025;
     }
+
+    this->SpiderTextureBox->SetY(this->SpiderOverlapBox->GetY());
 
     this->SpiderString->Height = this->Actor->GetY() + 30 - this->SpiderOverlapBox->GetY();
     this->SpiderString->SetY((this->SpiderOverlapBox->GetY() + (this->Actor->GetY() + 30)) / 2);

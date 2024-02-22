@@ -538,12 +538,6 @@ _ZN20tile_top_left_corner6UpdateEv:
 	addsd	%xmm6, %xmm1
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4SetYEd
 	movq	32(%rbx), %rcx
-	movq	40(%rbx), %rsi
-	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4GetYEv
-	movq	%rsi, %rcx
-	movapd	%xmm0, %xmm1
-	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
-	movq	32(%rbx), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4GetYEv
 	movq	16(%rbx), %rcx
 	movapd	%xmm0, %xmm6
@@ -559,6 +553,12 @@ _ZN20tile_top_left_corner6UpdateEv:
 	movq	.LC11(%rip), %rax
 	movq	%rax, 104(%rbx)
 .L23:
+	movq	32(%rbx), %rcx
+	movq	40(%rbx), %rsi
+	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox4GetYEv
+	movq	%rsi, %rcx
+	movapd	%xmm0, %xmm1
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
 	movq	16(%rbx), %rcx
 	call	_ZN3wze6engine6actors5actor4GetYEv
 	movsd	.LC5(%rip), %xmm7

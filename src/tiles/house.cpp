@@ -129,7 +129,7 @@ uint8 tile_house::Update()
 {
     this->Sky->ColorA = round(engine::math::Clamp<double>(255 - ((1600 - (this->Game->Play->Player->Actor->GetY() + 800)) / 25 * 255), 0, 255));
 
-    if ((this->Game->Play->Player->Score == this->Game->Play->Tunas.Length() || (this->Engine->Keys[KEY_O] && this->Engine->Keys[KEY_P] && this->Engine->Keys[KEY_E] && this->Engine->Keys[KEY_N])) && this->HitboxLeftTrapdoor != NULL && this->HitboxRightTrapdoor != NULL)
+    if (this->HitboxLeftTrapdoor != NULL && this->HitboxRightTrapdoor != NULL && (this->Game->Play->Player->Score == this->Game->Play->Tunas.Length() || (this->Engine->Keys[KEY_O] && this->Engine->Keys[KEY_P] && this->Engine->Keys[KEY_E] && this->Engine->Keys[KEY_N])))
     {
         this->Engine->Actors.Delete(this->HitboxLeftTrapdoor->GetID());
         this->HitboxLeftTrapdoor = NULL;

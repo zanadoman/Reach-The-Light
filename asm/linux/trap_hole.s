@@ -438,7 +438,7 @@ _ZN14tile_trap_hole6UpdateEv:
 .LFB8162:
 	.cfi_startproc
 	cmpq	$0, 48(%rdi)
-	je	.L36
+	je	.L34
 	pushq	%r14
 	.cfi_def_cfa_offset 16
 	.cfi_offset 14, -16
@@ -461,17 +461,17 @@ _ZN14tile_trap_hole6UpdateEv:
 	je	.L25
 	xorl	%r13d, %r13d
 	xorl	%ebx, %ebx
-	jmp	.L29
+	jmp	.L28
 	.p2align 4,,10
 	.p2align 3
-.L27:
+.L38:
 	movq	8(%rbp), %rax
 	addl	$1, %r13d
 	movzbl	%r13b, %ebx
 	movq	56(%rax), %rax
 	cmpq	1120(%rax), %rbx
 	jnb	.L25
-.L29:
+.L28:
 	movq	1128(%rax), %rax
 	movq	32(%rbp), %r14
 	movq	(%rax,%rbx,8), %rax
@@ -482,7 +482,7 @@ _ZN14tile_trap_hole6UpdateEv:
 	movq	56(%rax), %rax
 	movq	1128(%rax), %rdx
 	cmpq	1120(%rax), %rbx
-	jnb	.L40
+	jnb	.L37
 	movq	(%rdx,%rbx,8), %rax
 	movq	24(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
@@ -491,24 +491,8 @@ _ZN14tile_trap_hole6UpdateEv:
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
 	testb	%al, %al
-	je	.L27
-	movq	8(%rbp), %rax
-	movq	32(%rbp), %r12
-	movq	56(%rax), %rax
-	movq	88(%rax), %rax
-	movq	24(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv@PLT
-	movq	%rax, %rbx
-	movq	8(%rbp), %rax
-	movq	56(%rax), %rax
-	movq	88(%rax), %rax
-	movq	16(%rax), %rdi
-	call	_ZN3wze6engine6actors5actor5GetIDEv@PLT
-	movq	%rbx, %rdx
-	movq	%r12, %rdi
-	movq	%rax, %rsi
-	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
-.L28:
+	je	.L38
+.L27:
 	movq	0(%rbp), %rax
 	movq	48(%rbp), %rdi
 	leaq	272(%rax), %rbx
@@ -558,7 +542,7 @@ _ZN14tile_trap_hole6UpdateEv:
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy@PLT
 	testb	%al, %al
-	jne	.L28
+	jne	.L27
 	popq	%rbx
 	.cfi_def_cfa_offset 40
 	xorl	%eax, %eax
@@ -573,7 +557,7 @@ _ZN14tile_trap_hole6UpdateEv:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L36:
+.L34:
 	.cfi_restore 3
 	.cfi_restore 6
 	.cfi_restore 12
@@ -581,7 +565,7 @@ _ZN14tile_trap_hole6UpdateEv:
 	.cfi_restore 14
 	xorl	%eax, %eax
 	ret
-.L40:
+.L37:
 	.cfi_def_cfa_offset 48
 	.cfi_offset 3, -48
 	.cfi_offset 6, -40
