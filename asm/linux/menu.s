@@ -1,8 +1,10 @@
 	.file	"menu.cpp"
 	.text
-	.section	.rodata.str1.1,"aMS",@progbits,1
+	.section	.rodata.str1.8,"aMS",@progbits,1
+	.align 8
 .LC1:
-	.string	"K\303\251sz\303\255tette: Zana Dom\303\241n"
+	.string	"K\303\251sz\303\255tette: Zana Dom\303\241n, 2024"
+	.section	.rodata.str1.1,"aMS",@progbits,1
 .LC3:
 	.string	"J\303\241t\303\251k"
 .LC6:

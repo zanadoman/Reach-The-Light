@@ -5,7 +5,7 @@ scene_menu::scene_menu(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->Actor = this->Engine->Actors.New(NULL, ACT_NONE, this->Engine->Window.GetWidth() >> 1, this->Engine->Window.GetHeight() >> 1, 0, 0, 0);
     this->Title = this->Actor->Textureboxes.New(this->Game->Assets->MenuTitleTexture);
     this->Background = this->Actor->Textureboxes.New(this->Game->Assets->MenuBackgroundTexture);
-    this->Author = this->Actor->Textboxes.New("Készítette: Zana Domán", this->Game->Assets->HackItalicFont);
+    this->Author = this->Actor->Textboxes.New("Készítette: Zana Domán, 2024", this->Game->Assets->HackItalicFont);
     this->Play = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 225, 0, "Játék");
     this->Editor = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 125, 0, "Pályák");
     this->Help = new gui_button(this->Engine, this->Game, this->Actor->GetX() - 600, this->Actor->GetY() + 25, 0, "Segítség");
