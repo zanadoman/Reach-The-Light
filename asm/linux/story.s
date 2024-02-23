@@ -3,18 +3,18 @@
 	.section	.rodata.str1.8,"aMS",@progbits,1
 	.align 8
 .LC1:
-	.ascii	"Samu a cica szok\303\241sos d\303\251lut\303\241ni elfoglalt"
-	.ascii	"s\303\241g\303\241t \305\261zte.\nA r\303\251ten j\303\241ts"
-	.ascii	"zott \303\251s \303\274ld\303\266z\305\221be vett egy szentj"
-	.ascii	"\303\241nosbogarat.\n\303\201m a bog\303\241r a pince ir\303"
+	.ascii	"Samu, a cica szok\303\241sos d\303\251lut\303\241ni elfoglal"
+	.ascii	"ts\303\241g\303\241t \305\261zte.\nA r\303\251ten j\303\241t"
+	.ascii	"szott \303\251s \303\274ld\303\266z\305\221be vett egy szent"
+	.ascii	"j\303\241nosbogarat.\n\303\201m a bog\303\241r a pince ir\303"
 	.ascii	"\241ny\303\241ba csalogatta.\nSamu nem volt j\303\241rtas a "
 	.ascii	"pince j\303\241rataiban, mert nagyon f\303\251lt a s\303\266"
 	.ascii	"t\303\251tt\305\221l.\nMire \303\251szbe kapott m\303\241r a"
 	.ascii	" pince legalj\303\241n tal\303\241lta mag\303\241t, egyed\303"
 	.ascii	"\274l \303\251s \303\251hesen.\nDe nem esett k\303\251ts\303"
 	.ascii	"\251gbe!\nA szentj\303\241nosbog\303\241rral egy\303\274tt e"
-	.ascii	"lkezdt\303\251k megkeresni a pince kij\303\241"
-	.string	"rat\303\241t.\nSamu az \303\251hs\303\251g\303\251t az \303\272t sor\303\241n tal\303\241lt tonhalas konzervekb\305\221l kezdte csillap\303\255tani.\nSeg\303\255ts Samunak, hogy a kij\303\241ratig \303\266ssze gy\305\261jthesse az \303\266sszes finoms\303\241got!\nDe vigy\303\241zz, mert az \303\272t telis-tele van vesz\303\251lyekkel, melyeket \303\251rdemes elker\303\274lni."
+	.ascii	"lkezdt\303\251k megkeresni a pince kij\303"
+	.string	"\241rat\303\241t.\nSamu az \303\251hs\303\251g\303\251t az \303\272t sor\303\241n tal\303\241lt tonhalas konzervekb\305\221l kezdte csillap\303\255tani.\nSeg\303\255ts Samunak, hogy a kij\303\241ratig \303\266sszegy\305\261jthesse az \303\266sszes finoms\303\241got!\nDe vigy\303\241zz, mert az \303\272t telis-tele van vesz\303\251lyekkel, melyeket \303\251rdemes elker\303\274lni."
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .LC2:
 	.string	""

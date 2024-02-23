@@ -3,7 +3,7 @@
 scene_story::scene_story(engine* Engine, game* Game) : Engine(Engine), Game(Game)
 {
     this->Actor = this->Engine->Actors.New(0, ACT_NONE, this->Engine->Window.GetWidth() >> 1, this->Engine->Window.GetHeight() >> 1, 0, 0, 0);
-    this->Story = {"Samu a cica szokásos délutáni elfoglaltságát űzte.\nA réten játszott és üldözőbe vett egy szentjánosbogarat.\nÁm a bogár a pince irányába csalogatta.\nSamu nem volt jártas a pince járataiban, mert nagyon félt a sötéttől.\nMire észbe kapott már a pince legalján találta magát, egyedül és éhesen.\nDe nem esett kétségbe!\nA szentjánosbogárral együtt elkezdték megkeresni a pince kijáratát.\nSamu az éhségét az út során talált tonhalas konzervekből kezdte csillapítani.\nSegíts Samunak, hogy a kijáratig össze gyűjthesse az összes finomságot!\nDe vigyázz, mert az út telis-tele van veszélyekkel, melyeket érdemes elkerülni."};
+    this->Story = {"Samu, a cica szokásos délutáni elfoglaltságát űzte.\nA réten játszott és üldözőbe vett egy szentjánosbogarat.\nÁm a bogár a pince irányába csalogatta.\nSamu nem volt jártas a pince járataiban, mert nagyon félt a sötéttől.\nMire észbe kapott már a pince legalján találta magát, egyedül és éhesen.\nDe nem esett kétségbe!\nA szentjánosbogárral együtt elkezdték megkeresni a pince kijáratát.\nSamu az éhségét az út során talált tonhalas konzervekből kezdte csillapítani.\nSegíts Samunak, hogy a kijáratig összegyűjthesse az összes finomságot!\nDe vigyázz, mert az út telis-tele van veszélyekkel, melyeket érdemes elkerülni."};
     this->CurrentChar = 0;
     this->CurrentLine = 0;
     this->Lines += {this->Actor->Textboxes.New("", this->Game->Assets->HackItalicFont)};
