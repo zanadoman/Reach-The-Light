@@ -1,8 +1,9 @@
 	.file	"menu.cpp"
 	.text
 	.section .rdata,"dr"
+	.align 8
 .LC1:
-	.ascii "K\303\251sz\303\255tette: Zana Dom\303\241n\0"
+	.ascii "K\303\251sz\303\255tette: Zana Dom\303\241n, 2024\0"
 .LC4:
 	.ascii "J\303\241t\303\251k\0"
 .LC6:
