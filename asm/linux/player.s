@@ -1004,7 +1004,7 @@ _ZN10act_player6UpdateEv:
 	je	.L118
 	movzbl	137(%rbx), %edx
 	addb	$1, 136(%rbx)
-	cmpb	$4, %dl
+	cmpb	$9, %dl
 	ja	.L120
 	addl	$1, %edx
 	movb	%dl, 137(%rbx)
@@ -1695,8 +1695,8 @@ _ZN10act_player6UpdateEv.cold:
 	.long	1071644672
 	.align 8
 .LC24:
-	.long	-1717986918
-	.long	1068079513
+	.long	-343597384
+	.long	1067366481
 	.align 8
 .LC25:
 	.long	-1717986918

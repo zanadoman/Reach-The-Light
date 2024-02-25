@@ -146,7 +146,7 @@ uint8 act_player::Update()
         }
 
         this->Actor->SetCollisionLayer(0);
-        this->Actor->SetY(this->Actor->GetY() + 0.05 * this->Engine->Timing.GetDeltaTime());
+        this->Actor->SetY(this->Actor->GetY() + 0.03 * this->Engine->Timing.GetDeltaTime());
         this->Dead->ColorA = round(this->Opacity);
 
         if (0 < this->Opacity)
@@ -428,7 +428,7 @@ uint8 act_player::Update()
         if (this->Game->Play->Tunas[i] != NULL && this->OverlapBox->IsOverlappingWith(this->Game->Play->Tunas[i]->Actor->GetID(), this->Game->Play->Tunas[i]->OverlapBox->GetID()))
         {
             this->Score++;
-            if (this->Health < 5)
+            if (this->Health < 10)
             {
                 this->Health++;
             }
