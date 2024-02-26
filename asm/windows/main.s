@@ -63,8 +63,12 @@ _Z6printfPKcz:
 	.seh_endproc
 	.section .rdata,"dr"
 .LC3:
-	.ascii "assets/presskit.png\0"
+	.ascii "assets/presskit/ekke.png\0"
+.LC5:
+	.ascii "assets/presskit/egce.png\0"
 .LC6:
+	.ascii "assets/presskit/gem_dzsem.png\0"
+.LC8:
 	.ascii "assets/gui/menu_title.png\0"
 	.text
 	.p2align 4
@@ -138,8 +142,8 @@ _Z12DisplayLogosPN3wze6engineE:
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
 	pxor	%xmm0, %xmm0
-	movsd	.LC4(%rip), %xmm8
-	movsd	.LC2(%rip), %xmm7
+	movsd	.LC4(%rip), %xmm7
+	movsd	.LC2(%rip), %xmm8
 	movapd	%xmm0, %xmm6
 	jmp	.L11
 	.p2align 4,,10
@@ -147,13 +151,13 @@ _Z12DisplayLogosPN3wze6engineE:
 .L5:
 	movq	%rdi, %rcx
 	call	_ZN3wze6engine6timing12GetDeltaTimeEv
-	pxor	%xmm1, %xmm1
+	pxor	%xmm0, %xmm0
 	movl	%eax, %eax
-	cvtsi2sdq	%rax, %xmm1
-	mulsd	%xmm8, %xmm1
-	addsd	%xmm1, %xmm6
-	comisd	%xmm6, %xmm7
-	jb	.L34
+	cvtsi2sdq	%rax, %xmm0
+	mulsd	%xmm7, %xmm0
+	addsd	%xmm0, %xmm6
+	comisd	%xmm6, %xmm8
+	jb	.L62
 	movapd	%xmm6, %xmm0
 	call	round
 .L11:
@@ -163,7 +167,7 @@ _Z12DisplayLogosPN3wze6engineE:
 	call	_ZN3wze6engine6UpdateEv
 	testb	%al, %al
 	jne	.L5
-.L37:
+.L69:
 	movq	%rbp, %rcx
 	call	_ZN3wze6engine6actors5actor5GetIDEv
 	movq	%r13, %rcx
@@ -190,9 +194,9 @@ _Z12DisplayLogosPN3wze6engineE:
 	ret
 	.p2align 4,,10
 	.p2align 3
-.L34:
-	movapd	%xmm7, %xmm0
-	movapd	%xmm7, %xmm6
+.L62:
+	movapd	%xmm8, %xmm0
+	movapd	%xmm8, %xmm6
 	pxor	%xmm9, %xmm9
 	jmp	.L9
 	.p2align 4,,10
@@ -203,10 +207,10 @@ _Z12DisplayLogosPN3wze6engineE:
 	pxor	%xmm0, %xmm0
 	movl	%eax, %eax
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	%xmm8, %xmm0
+	mulsd	%xmm7, %xmm0
 	subsd	%xmm0, %xmm6
 	comisd	%xmm9, %xmm6
-	jb	.L35
+	jb	.L63
 	movapd	%xmm6, %xmm0
 	call	round
 .L9:
@@ -216,14 +220,13 @@ _Z12DisplayLogosPN3wze6engineE:
 	call	_ZN3wze6engine6UpdateEv
 	testb	%al, %al
 	jne	.L12
-	jmp	.L37
+	jmp	.L69
 	.p2align 4,,10
 	.p2align 3
-.L35:
+.L63:
 	movb	$0, 23(%rsi)
-	leaq	.LC6(%rip), %rdx
+	leaq	.LC5(%rip), %rdx
 	movq	%r12, %rcx
-	movl	$70780800, 16(%rsi)
 	call	_ZN3wze6engine6assets11LoadTextureEPKc
 	movq	%rsi, %rcx
 	movq	%rax, %rdx
@@ -239,10 +242,10 @@ _Z12DisplayLogosPN3wze6engineE:
 	pxor	%xmm0, %xmm0
 	movl	%eax, %eax
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	%xmm8, %xmm0
+	mulsd	%xmm7, %xmm0
 	addsd	%xmm0, %xmm6
-	comisd	%xmm6, %xmm7
-	jb	.L36
+	comisd	%xmm6, %xmm8
+	jb	.L64
 	movapd	%xmm6, %xmm0
 	call	round
 .L22:
@@ -252,13 +255,13 @@ _Z12DisplayLogosPN3wze6engineE:
 	call	_ZN3wze6engine6UpdateEv
 	testb	%al, %al
 	jne	.L17
-	jmp	.L37
+	jmp	.L69
 	.p2align 4,,10
 	.p2align 3
-.L36:
-	movapd	%xmm7, %xmm0
-	movapd	%xmm7, %xmm6
-	pxor	%xmm7, %xmm7
+.L64:
+	movapd	%xmm8, %xmm0
+	movapd	%xmm8, %xmm6
+	pxor	%xmm9, %xmm9
 	jmp	.L20
 	.p2align 4,,10
 	.p2align 3
@@ -268,10 +271,10 @@ _Z12DisplayLogosPN3wze6engineE:
 	pxor	%xmm0, %xmm0
 	movl	%eax, %eax
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	%xmm8, %xmm0
+	mulsd	%xmm7, %xmm0
 	subsd	%xmm0, %xmm6
-	comisd	%xmm7, %xmm6
-	jb	.L37
+	comisd	%xmm9, %xmm6
+	jb	.L65
 	movapd	%xmm6, %xmm0
 	call	round
 .L20:
@@ -281,18 +284,137 @@ _Z12DisplayLogosPN3wze6engineE:
 	call	_ZN3wze6engine6UpdateEv
 	testb	%al, %al
 	jne	.L23
-	jmp	.L37
+	jmp	.L69
+.L65:
+	movb	$0, 23(%rsi)
+	leaq	.LC6(%rip), %rdx
+	movq	%r12, %rcx
+	call	_ZN3wze6engine6assets11LoadTextureEPKc
+	movq	%rsi, %rcx
+	movq	%rax, %rdx
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
+	pxor	%xmm0, %xmm0
+	movapd	%xmm0, %xmm6
+	jmp	.L33
+	.p2align 4,,10
+	.p2align 3
+.L28:
+	movq	%rdi, %rcx
+	call	_ZN3wze6engine6timing12GetDeltaTimeEv
+	pxor	%xmm0, %xmm0
+	movl	%eax, %eax
+	cvtsi2sdq	%rax, %xmm0
+	mulsd	%xmm7, %xmm0
+	addsd	%xmm0, %xmm6
+	comisd	%xmm6, %xmm8
+	jb	.L66
+	movapd	%xmm6, %xmm0
+	call	round
+.L33:
+	cvttsd2sil	%xmm0, %eax
+	movq	%rbx, %rcx
+	movb	%al, 23(%rsi)
+	call	_ZN3wze6engine6UpdateEv
+	testb	%al, %al
+	jne	.L28
+	jmp	.L69
+.L66:
+	movapd	%xmm8, %xmm0
+	movapd	%xmm8, %xmm6
+	pxor	%xmm9, %xmm9
+	jmp	.L31
+	.p2align 4,,10
+	.p2align 3
+.L34:
+	movq	%rdi, %rcx
+	call	_ZN3wze6engine6timing12GetDeltaTimeEv
+	pxor	%xmm0, %xmm0
+	movl	%eax, %eax
+	cvtsi2sdq	%rax, %xmm0
+	mulsd	%xmm7, %xmm0
+	subsd	%xmm0, %xmm6
+	comisd	%xmm9, %xmm6
+	jb	.L67
+	movapd	%xmm6, %xmm0
+	call	round
+.L31:
+	cvttsd2sil	%xmm0, %eax
+	movq	%rbx, %rcx
+	movb	%al, 23(%rsi)
+	call	_ZN3wze6engine6UpdateEv
+	testb	%al, %al
+	jne	.L34
+	jmp	.L69
+.L67:
+	movb	$0, 23(%rsi)
+	leaq	.LC8(%rip), %rdx
+	movq	%r12, %rcx
+	movl	$70780800, 16(%rsi)
+	call	_ZN3wze6engine6assets11LoadTextureEPKc
+	movq	%rsi, %rcx
+	movq	%rax, %rdx
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
+	pxor	%xmm0, %xmm0
+	movapd	%xmm0, %xmm6
+	jmp	.L44
+	.p2align 4,,10
+	.p2align 3
+.L39:
+	movq	%rdi, %rcx
+	call	_ZN3wze6engine6timing12GetDeltaTimeEv
+	pxor	%xmm0, %xmm0
+	movl	%eax, %eax
+	cvtsi2sdq	%rax, %xmm0
+	mulsd	%xmm7, %xmm0
+	addsd	%xmm0, %xmm6
+	comisd	%xmm6, %xmm8
+	jb	.L68
+	movapd	%xmm6, %xmm0
+	call	round
+.L44:
+	cvttsd2sil	%xmm0, %eax
+	movq	%rbx, %rcx
+	movb	%al, 23(%rsi)
+	call	_ZN3wze6engine6UpdateEv
+	testb	%al, %al
+	jne	.L39
+	jmp	.L69
+.L68:
+	movapd	%xmm8, %xmm0
+	movapd	%xmm8, %xmm6
+	pxor	%xmm8, %xmm8
+	jmp	.L42
+.L45:
+	movq	%rdi, %rcx
+	call	_ZN3wze6engine6timing12GetDeltaTimeEv
+	pxor	%xmm0, %xmm0
+	movl	%eax, %eax
+	cvtsi2sdq	%rax, %xmm0
+	mulsd	%xmm7, %xmm0
+	subsd	%xmm0, %xmm6
+	comisd	%xmm8, %xmm6
+	jb	.L69
+	movapd	%xmm6, %xmm0
+	call	round
+.L42:
+	cvttsd2sil	%xmm0, %eax
+	movq	%rbx, %rcx
+	movb	%al, 23(%rsi)
+	call	_ZN3wze6engine6UpdateEv
+	testb	%al, %al
+	jne	.L45
+	jmp	.L69
 	.seh_endproc
 	.def	__main;	.scl	2;	.type	32;	.endef
 	.section .rdata,"dr"
-.LC7:
+.LC9:
 	.ascii "assets/icon.png\0"
-.LC8:
+.LC10:
 	.ascii "Reach The Light\0"
 	.section	.text.unlikely,"x"
-.LCOLDB9:
+.LCOLDB11:
 	.section	.text.startup,"x"
-.LHOTB9:
+.LHOTB11:
 	.p2align 4
 	.globl	main
 	.def	main;	.scl	2;	.type	32;	.endef
@@ -313,9 +435,9 @@ main:
 .LEHE0:
 	movl	$16, 40(%rsp)
 	movl	$2560, %r9d
-	leaq	.LC7(%rip), %r8
+	leaq	.LC9(%rip), %r8
 	movl	$1440, 32(%rsp)
-	leaq	.LC8(%rip), %rdx
+	leaq	.LC10(%rip), %rdx
 	movq	%rax, %rcx
 	movq	%rax, %rbx
 .LEHB1:
@@ -339,22 +461,22 @@ main:
 .LEHB3:
 	call	_ZN4gameC1EPN3wze6engineE
 .LEHE3:
-	jmp	.L39
+	jmp	.L71
 	.p2align 4,,10
 	.p2align 3
-.L40:
+.L72:
 	movq	%rsi, %rcx
 .LEHB4:
 	call	_ZN4game6UpdateEv
 	testb	%al, %al
-	jne	.L41
-.L39:
+	jne	.L73
+.L71:
 	movq	%rbx, %rcx
 	call	_ZN3wze6engine6UpdateEv
 .LEHE4:
 	testb	%al, %al
-	jne	.L40
-.L41:
+	jne	.L72
+.L73:
 	movq	%rsi, %rcx
 	call	_ZN4gameD1Ev
 	movl	$80, %edx
@@ -370,12 +492,12 @@ main:
 	popq	%rbx
 	popq	%rsi
 	ret
-.L44:
+.L76:
 	movq	%rax, %rsi
-	jmp	.L42
-.L45:
+	jmp	.L74
+.L77:
 	movq	%rax, %rbx
-	jmp	.L43
+	jmp	.L75
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
@@ -391,7 +513,7 @@ main:
 	.uleb128 0
 	.uleb128 .LEHB1-.LFB8431
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L44-.LFB8431
+	.uleb128 .L76-.LFB8431
 	.uleb128 0
 	.uleb128 .LEHB2-.LFB8431
 	.uleb128 .LEHE2-.LEHB2
@@ -399,7 +521,7 @@ main:
 	.uleb128 0
 	.uleb128 .LEHB3-.LFB8431
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L45-.LFB8431
+	.uleb128 .L77-.LFB8431
 	.uleb128 0
 	.uleb128 .LEHB4-.LFB8431
 	.uleb128 .LEHE4-.LEHB4
@@ -416,14 +538,14 @@ main:
 	.seh_savereg	%rsi, 64
 	.seh_endprologue
 main.cold:
-.L42:
+.L74:
 	movq	%rbx, %rcx
 	movl	$480, %edx
 	call	_ZdlPvy
 	movq	%rsi, %rcx
 .LEHB5:
 	call	_Unwind_Resume
-.L43:
+.L75:
 	movq	%rsi, %rcx
 	movl	$80, %edx
 	call	_ZdlPvy
@@ -439,7 +561,7 @@ main.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8431-.LLSDACSBC8431
 .LLSDACSBC8431:
-	.uleb128 .LEHB5-.LCOLDB9
+	.uleb128 .LEHB5-.LCOLDB11
 	.uleb128 .LEHE5-.LEHB5
 	.uleb128 0
 	.uleb128 0
@@ -448,11 +570,11 @@ main.cold:
 	.section	.text.startup,"x"
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE9:
+.LCOLDE11:
 	.section	.text.startup,"x"
-.LHOTE9:
+.LHOTE11:
 	.section .rdata,"dr"
-.LC10:
+.LC12:
 	.ascii "\12\11*this->Spawn = %d;\12\0"
 	.text
 	.p2align 4
@@ -475,7 +597,7 @@ _Z8PrintMapP4game:
 	movq	%rcx, %rsi
 	.p2align 4,,10
 	.p2align 3
-.L50:
+.L82:
 	movq	24(%rsi), %rdx
 	movslq	%ebx, %rax
 	movq	%rdi, %rcx
@@ -484,9 +606,9 @@ _Z8PrintMapP4game:
 	addl	$1, %ebx
 	call	_Z6printfPKcz.constprop.0
 	cmpl	$128, %ebx
-	jne	.L50
+	jne	.L82
 	movq	24(%rsi), %rax
-	leaq	.LC10(%rip), %rcx
+	leaq	.LC12(%rip), %rcx
 	movq	136(%rax), %rax
 	movzbl	(%rax), %edx
 	call	_Z6printfPKcz

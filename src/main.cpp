@@ -39,7 +39,77 @@ uint8 DisplayLogos(engine* Engine)
     Texturebox = Actor->Textureboxes.New(0);
 
     Texturebox->ColorA = opacity = 0;
-    Texturebox->SetTextureID(Engine->Assets.LoadTexture("assets/presskit.png"));
+    Texturebox->SetTextureID(Engine->Assets.LoadTexture("assets/presskit/ekke.png"));
+
+    while (opacity <= 255)
+    {
+        Texturebox->ColorA = round(opacity);
+
+        if (!Engine->Update())
+        {
+            Engine->Actors.Delete(Actor->GetID());
+            Engine->Assets.PurgeTextures({});
+
+            return 0;
+        }
+
+        opacity += 0.1 * Engine->Timing.GetDeltaTime();
+    }
+
+    Texturebox->ColorA = opacity = 255;
+
+    while (0 <= opacity)
+    {
+        Texturebox->ColorA = round(opacity);
+
+        if (!Engine->Update())
+        {
+            Engine->Actors.Delete(Actor->GetID());
+            Engine->Assets.PurgeTextures({});
+
+            return 0;
+        }
+
+        opacity -= 0.1 * Engine->Timing.GetDeltaTime();
+    }
+
+    Texturebox->ColorA = opacity = 0;
+    Texturebox->SetTextureID(Engine->Assets.LoadTexture("assets/presskit/egce.png"));
+
+    while (opacity <= 255)
+    {
+        Texturebox->ColorA = round(opacity);
+
+        if (!Engine->Update())
+        {
+            Engine->Actors.Delete(Actor->GetID());
+            Engine->Assets.PurgeTextures({});
+
+            return 0;
+        }
+
+        opacity += 0.1 * Engine->Timing.GetDeltaTime();
+    }
+
+    Texturebox->ColorA = opacity = 255;
+
+    while (0 <= opacity)
+    {
+        Texturebox->ColorA = round(opacity);
+
+        if (!Engine->Update())
+        {
+            Engine->Actors.Delete(Actor->GetID());
+            Engine->Assets.PurgeTextures({});
+
+            return 0;
+        }
+
+        opacity -= 0.1 * Engine->Timing.GetDeltaTime();
+    }
+
+    Texturebox->ColorA = opacity = 0;
+    Texturebox->SetTextureID(Engine->Assets.LoadTexture("assets/presskit/gem_dzsem.png"));
 
     while (opacity <= 255)
     {
