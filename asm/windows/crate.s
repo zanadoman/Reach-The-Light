@@ -39,17 +39,19 @@ _Z6printfPKcz:
 	.def	_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd
 _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
-.LFB8432:
+.LFB8438:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$72, %rsp
-	.seh_stackalloc	72
+	subq	$88, %rsp
+	.seh_stackalloc	88
+	movaps	%xmm6, 64(%rsp)
+	.seh_savexmm	%xmm6, 64
 	.seh_endprologue
-	movq	.LC0(%rip), %rax
-	movsd	136(%rsp), %xmm0
-	movsd	128(%rsp), %xmm3
+	movsd	.LC0(%rip), %xmm6
+	movsd	152(%rsp), %xmm0
+	movsd	144(%rsp), %xmm3
 	movq	%r9, 16(%rcx)
 	movq	%rcx, %rbx
 	movq	%rdx, (%rcx)
@@ -57,10 +59,10 @@ _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 	xorl	%r8d, %r8d
 	leaq	272(%rdx), %rcx
 	xorl	%edx, %edx
-	movq	%rax, 56(%rsp)
 	movl	$30, 48(%rsp)
 	movl	$30, 40(%rsp)
 	movsd	%xmm0, 32(%rsp)
+	movsd	%xmm6, 56(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	xorl	%edx, %edx
 	movq	%rax, 24(%rbx)
@@ -96,10 +98,33 @@ _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 	movq	%rsi, %rcx
 	movapd	%xmm0, %xmm1
 	subsd	.LC2(%rip), %xmm1
-	addq	$72, %rsp
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
+	movq	(%rbx), %rax
+	movl	$6, %edx
+	leaq	160(%rax), %rcx
+	call	_ZN3wze6engine5audioixEt
+	movq	%rax, %rcx
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rax
+	movq	496(%rax), %rdx
+	call	_ZN3wze6engine5audio7channel10SetSoundIDEy
+	movq	(%rbx), %rax
+	movl	$6, %edx
+	leaq	160(%rax), %rcx
+	call	_ZN3wze6engine5audioixEt
+	movapd	%xmm6, %xmm1
+	movq	%rax, %rcx
+	call	_ZN3wze6engine5audio7channel9SetVolumeEd
+	movq	(%rbx), %rcx
+	movl	$6, %edx
+	addq	$160, %rcx
+	call	_ZN3wze6engine5audioixEt
+	movq	$400, 16(%rax)
+	movaps	64(%rsp), %xmm6
+	addq	$88, %rsp
 	popq	%rbx
 	popq	%rsi
-	jmp	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd
+	ret
 	.seh_endproc
 	.globl	_ZN9act_crateC1EPN3wze6engineEP4gameP10act_playerdd
 	.def	_ZN9act_crateC1EPN3wze6engineEP4gameP10act_playerdd;	.scl	2;	.type	32;	.endef
@@ -110,7 +135,7 @@ _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 	.def	_ZN9act_crateD2Ev;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN9act_crateD2Ev
 _ZN9act_crateD2Ev:
-.LFB8435:
+.LFB8441:
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	subq	$32, %rsp
@@ -130,13 +155,13 @@ _ZN9act_crateD2Ev:
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8435:
+.LLSDA8441:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8435-.LLSDACSB8435
-.LLSDACSB8435:
-.LLSDACSE8435:
+	.uleb128 .LLSDACSE8441-.LLSDACSB8441
+.LLSDACSB8441:
+.LLSDACSE8441:
 	.text
 	.seh_endproc
 	.globl	_ZN9act_crateD1Ev
@@ -153,38 +178,38 @@ _ZN9act_crateD2Ev:
 	.def	_ZN9act_crate6UpdateEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN9act_crate6UpdateEv
 _ZN9act_crate6UpdateEv:
-.LFB8437:
+.LFB8443:
 	pushq	%rdi
 	.seh_pushreg	%rdi
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$160, %rsp
-	.seh_stackalloc	160
-	movaps	%xmm6, 112(%rsp)
-	.seh_savexmm	%xmm6, 112
-	movaps	%xmm7, 128(%rsp)
-	.seh_savexmm	%xmm7, 128
-	movaps	%xmm8, 144(%rsp)
-	.seh_savexmm	%xmm8, 144
+	subq	$144, %rsp
+	.seh_stackalloc	144
+	movaps	%xmm6, 96(%rsp)
+	.seh_savexmm	%xmm6, 96
+	movaps	%xmm7, 112(%rsp)
+	.seh_savexmm	%xmm7, 112
+	movaps	%xmm8, 128(%rsp)
+	.seh_savexmm	%xmm8, 128
 	.seh_endprologue
 	movq	%rcx, %rsi
 	movq	40(%rcx), %rcx
-	leaq	88(%rsp), %rax
-	leaq	96(%rsp), %rdx
-	leaq	48(%rsp), %r9
-	leaq	64(%rsp), %r8
-	movq	$0, 96(%rsp)
-	movq	$0, 104(%rsp)
-	movq	$2, 88(%rsp)
-	movq	%rax, 64(%rsp)
-	movq	$1, 72(%rsp)
-	movq	$0, 48(%rsp)
-	movq	$0, 56(%rsp)
+	leaq	72(%rsp), %rax
+	leaq	80(%rsp), %rdx
+	leaq	32(%rsp), %r9
+	leaq	48(%rsp), %r8
+	movq	$0, 80(%rsp)
+	movq	$0, 88(%rsp)
+	movq	$2, 72(%rsp)
+	movq	%rax, 48(%rsp)
+	movq	$1, 56(%rsp)
+	movq	$0, 32(%rsp)
+	movq	$0, 40(%rsp)
 .LEHB0:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox15GetOverlapStateEPN3neo5arrayINS6_IyEEEESt16initializer_listIyESB_
-	movq	96(%rsp), %rcx
+	movq	80(%rsp), %rcx
 	movl	$1, %ebx
 	movl	$1, %edx
 	cmpq	$1, %rcx
@@ -200,7 +225,7 @@ _ZN9act_crate6UpdateEv:
 .L6:
 	movq	%rdx, %rax
 	salq	$4, %rax
-	addq	104(%rsp), %rax
+	addq	88(%rsp), %rax
 	cmpq	$0, (%rax)
 	je	.L9
 	movq	(%rsi), %rax
@@ -210,7 +235,7 @@ _ZN9act_crate6UpdateEv:
 	movl	$1, %edx
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
 	addl	$1, %ebx
-	movq	96(%rsp), %rcx
+	movq	80(%rsp), %rcx
 	movzwl	%bx, %edx
 	cmpq	%rcx, %rdx
 	jb	.L6
@@ -277,7 +302,7 @@ _ZN9act_crate6UpdateEv:
 	jne	.L37
 .L12:
 	xorl	%ebx, %ebx
-	cmpq	$0, 96(%rsp)
+	cmpq	$0, 80(%rsp)
 	je	.L29
 	.p2align 4,,10
 	.p2align 3
@@ -285,20 +310,20 @@ _ZN9act_crate6UpdateEv:
 	movq	%rbx, %rax
 	addq	$1, %rbx
 	salq	$4, %rax
-	addq	104(%rsp), %rax
+	addq	88(%rsp), %rax
 	movq	8(%rax), %rcx
 	call	free
-	cmpq	96(%rsp), %rbx
+	cmpq	80(%rsp), %rbx
 	jb	.L28
 .L29:
-	movq	104(%rsp), %rcx
+	movq	88(%rsp), %rcx
 	call	free
 	nop
-	movaps	112(%rsp), %xmm6
-	movaps	128(%rsp), %xmm7
+	movaps	96(%rsp), %xmm6
+	movaps	112(%rsp), %xmm7
 	xorl	%eax, %eax
-	movaps	144(%rsp), %xmm8
-	addq	$160, %rsp
+	movaps	128(%rsp), %xmm8
+	addq	$144, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
@@ -323,15 +348,20 @@ _ZN9act_crate6UpdateEv:
 	movq	$0x000000000, 56(%rsi)
 	jmp	.L12
 .L47:
-	movq	8(%rsi), %rax
-	movsd	.LC0(%rip), %xmm3
-	movl	$6, %r8d
-	movq	8(%rax), %rax
-	movq	496(%rax), %rdx
+	movq	24(%rsi), %rcx
+	call	_ZN3wze6engine6actors5actor4GetXEv
 	movq	(%rsi), %rax
-	movl	$0, 32(%rsp)
+	movl	$6, %edx
+	movapd	%xmm0, %xmm6
 	leaq	160(%rax), %rcx
-	call	_ZN3wze6engine5audio4PlayEytdt
+	call	_ZN3wze6engine5audioixEt
+	movsd	%xmm6, 8(%rax)
+	movq	(%rsi), %rax
+	movl	$6, %edx
+	leaq	160(%rax), %rcx
+	call	_ZN3wze6engine5audioixEt
+	movq	%rax, %rcx
+	call	_ZN3wze6engine5audio7channel4PlayEv
 .LEHE0:
 	jmp	.L24
 .L35:
@@ -339,36 +369,36 @@ _ZN9act_crate6UpdateEv:
 	jmp	.L30
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8437:
+.LLSDA8443:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8437-.LLSDACSB8437
-.LLSDACSB8437:
-	.uleb128 .LEHB0-.LFB8437
+	.uleb128 .LLSDACSE8443-.LLSDACSB8443
+.LLSDACSB8443:
+	.uleb128 .LEHB0-.LFB8443
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L35-.LFB8437
+	.uleb128 .L35-.LFB8443
 	.uleb128 0
-.LLSDACSE8437:
+.LLSDACSE8443:
 	.text
 	.seh_endproc
 	.section	.text.unlikely,"x"
 	.def	_ZN9act_crate6UpdateEv.cold;	.scl	3;	.type	32;	.endef
 	.seh_proc	_ZN9act_crate6UpdateEv.cold
-	.seh_stackalloc	184
-	.seh_savereg	%rbx, 160
-	.seh_savereg	%rsi, 168
-	.seh_savereg	%rdi, 176
-	.seh_savexmm	%xmm6, 112
-	.seh_savexmm	%xmm7, 128
-	.seh_savexmm	%xmm8, 144
+	.seh_stackalloc	168
+	.seh_savereg	%rbx, 144
+	.seh_savereg	%rsi, 152
+	.seh_savereg	%rdi, 160
+	.seh_savexmm	%xmm6, 96
+	.seh_savexmm	%xmm7, 112
+	.seh_savexmm	%xmm8, 128
 	.seh_endprologue
 _ZN9act_crate6UpdateEv.cold:
 .L30:
 	xorl	%ebx, %ebx
 .L31:
-	movq	104(%rsp), %rcx
-	cmpq	96(%rsp), %rbx
+	movq	88(%rsp), %rcx
+	cmpq	80(%rsp), %rbx
 	jnb	.L48
 	movq	%rbx, %rax
 	addq	$1, %rbx
@@ -385,17 +415,17 @@ _ZN9act_crate6UpdateEv.cold:
 .LEHE1:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDAC8437:
+.LLSDAC8443:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSEC8437-.LLSDACSBC8437
-.LLSDACSBC8437:
+	.uleb128 .LLSDACSEC8443-.LLSDACSBC8443
+.LLSDACSBC8443:
 	.uleb128 .LEHB1-.LCOLDB6
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
-.LLSDACSEC8437:
+.LLSDACSEC8443:
 	.section	.text.unlikely,"x"
 	.text
 	.section	.text.unlikely,"x"
@@ -434,6 +464,9 @@ _ZN9act_crate6UpdateEv.cold:
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetYEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audioixEt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio7channel10SetSoundIDEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio7channel9SetVolumeEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox15GetOverlapStateEPN3neo5arrayINS6_IyEEEESt16initializer_listIyESB_;	.scl	2;	.type	32;	.endef
@@ -443,5 +476,6 @@ _ZN9act_crate6UpdateEv.cold:
 	.def	_ZN3wze6engine6timing12GetDeltaTimeEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4SetYEd;	.scl	2;	.type	32;	.endef
 	.def	free;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5audio4PlayEytdt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine6actors5actor4GetXEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio7channel4PlayEv;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef

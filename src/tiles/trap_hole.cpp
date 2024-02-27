@@ -55,6 +55,9 @@ tile_trap_hole::tile_trap_hole(engine* Engine, game* Game, double X, double Y) :
     this->HitboxBotRight->Overlapboxes.New(BOX_NONE);
     this->HitboxBotRight->Resistance = 100;
     this->HitboxBotRight->Textureboxes.New(this->Game->Assets->TilePlatformTextures[this->Engine->Math.Random(0, this->Game->Assets->TilePlatformTextures.Length())]);
+
+    this->Engine->Audio[CH_TRAP_PLATFORM].SetSoundID(this->Game->Assets->TrapPlatformAudio);
+    this->Engine->Audio[CH_TRAP_PLATFORM].SetVolume(1);
 }
 
 tile_trap_hole::~tile_trap_hole()
@@ -91,7 +94,7 @@ uint8 tile_trap_hole::Update()
         {
             this->Engine->Actors.Delete(this->HitboxBot->GetID());
             this->HitboxBot = NULL;
-            this->Engine->Audio.Play(this->Game->Assets->TrapPlatformAudio, CH_TRAP_PLATFORM, 1, 0);
+            this->Engine->Audio[CH_TRAP_PLATFORM].Play();
         }
     }
 

@@ -43,7 +43,7 @@ _Z6printfPKcz:
 	.def	_ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd
 _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
-.LFB8432:
+.LFB8438:
 	pushq	%r12
 	.seh_pushreg	%r12
 	pushq	%rbp
@@ -397,7 +397,7 @@ _ZN21tile_top_right_cornerC2EPN3wze6engineEP4gamedd:
 	.def	_ZN21tile_top_right_cornerD2Ev;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN21tile_top_right_cornerD2Ev
 _ZN21tile_top_right_cornerD2Ev:
-.LFB8435:
+.LFB8441:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -463,13 +463,13 @@ _ZN21tile_top_right_cornerD2Ev:
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8435:
+.LLSDA8441:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8435-.LLSDACSB8435
-.LLSDACSB8435:
-.LLSDACSE8435:
+	.uleb128 .LLSDACSE8441-.LLSDACSB8441
+.LLSDACSB8441:
+.LLSDACSE8441:
 	.text
 	.seh_endproc
 	.globl	_ZN21tile_top_right_cornerD1Ev

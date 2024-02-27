@@ -43,7 +43,7 @@ _Z6printfPKcz:
 	.def	_ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd
 _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
-.LFB8432:
+.LFB8438:
 	pushq	%r12
 	.seh_pushreg	%r12
 	pushq	%rbp
@@ -324,26 +324,42 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	leaq	136(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy
 	movq	80(%rbx), %rax
-	movq	(%rbx), %rcx
 	xorl	%edx, %edx
 	movq	$100, 184(%rax)
 	leaq	40(%rax), %rdi
 	movq	8(%rbx), %rax
-	addq	$336, %rcx
 	movq	8(%rax), %rsi
+	movq	(%rbx), %rax
 	movl	304(%rsi), %r8d
+	leaq	336(%rax), %rcx
 	call	_ZN3wze6engine4math6RandomEii
 	movq	312(%rsi), %rdx
 	cltq
 	cmpq	304(%rsi), %rax
 	jnb	.L15
 	movq	(%rdx,%rax,8), %rdx
-	movaps	64(%rsp), %xmm6
 	movq	%rdi, %rcx
+	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
+	movq	(%rbx), %rax
+	movl	$7, %edx
+	leaq	160(%rax), %rcx
+	call	_ZN3wze6engine5audioixEt
+	movq	%rax, %rcx
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rax
+	movq	504(%rax), %rdx
+	call	_ZN3wze6engine5audio7channel10SetSoundIDEy
+	movq	(%rbx), %rcx
+	movl	$7, %edx
+	addq	$160, %rcx
+	call	_ZN3wze6engine5audioixEt
+	movapd	%xmm9, %xmm1
+	movaps	64(%rsp), %xmm6
 	movaps	80(%rsp), %xmm7
 	movaps	96(%rsp), %xmm8
-	movaps	128(%rsp), %xmm10
 	movaps	112(%rsp), %xmm9
+	movq	%rax, %rcx
+	movaps	128(%rsp), %xmm10
 	movaps	144(%rsp), %xmm11
 	movaps	160(%rsp), %xmm12
 	addq	$176, %rsp
@@ -352,7 +368,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	popq	%rdi
 	popq	%rbp
 	popq	%r12
-	jmp	_ZN3wze6engine6actors5actor12textureboxes3NewEy
+	jmp	_ZN3wze6engine5audio7channel9SetVolumeEd
 .L15:
 	leaq	.LC1(%rip), %rcx
 	movq	%rax, %rdx
@@ -370,7 +386,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	.def	_ZN14tile_trap_holeD2Ev;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN14tile_trap_holeD2Ev
 _ZN14tile_trap_holeD2Ev:
-.LFB8435:
+.LFB8441:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -439,13 +455,13 @@ _ZN14tile_trap_holeD2Ev:
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8435:
+.LLSDA8441:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8435-.LLSDACSB8435
-.LLSDACSB8435:
-.LLSDACSE8435:
+	.uleb128 .LLSDACSE8441-.LLSDACSB8441
+.LLSDACSB8441:
+.LLSDACSE8441:
 	.text
 	.seh_endproc
 	.globl	_ZN14tile_trap_holeD1Ev
@@ -457,7 +473,7 @@ _ZN14tile_trap_holeD2Ev:
 	.def	_ZN14tile_trap_hole6UpdateEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN14tile_trap_hole6UpdateEv
 _ZN14tile_trap_hole6UpdateEv:
-.LFB8437:
+.LFB8443:
 	pushq	%r12
 	.seh_pushreg	%r12
 	pushq	%rbp
@@ -468,8 +484,8 @@ _ZN14tile_trap_hole6UpdateEv:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$48, %rsp
-	.seh_stackalloc	48
+	subq	$32, %rsp
+	.seh_stackalloc	32
 	.seh_endprologue
 	cmpq	$0, 48(%rcx)
 	movq	%rcx, %rsi
@@ -519,19 +535,16 @@ _ZN14tile_trap_hole6UpdateEv:
 	movq	%rbx, %rcx
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6actors6DeleteEy
-	movq	8(%rsi), %rax
 	movq	(%rsi), %rcx
+	movl	$7, %edx
 	movq	$0, 48(%rsi)
-	movsd	.LC0(%rip), %xmm3
-	movl	$7, %r8d
-	movq	8(%rax), %rax
 	addq	$160, %rcx
-	movq	504(%rax), %rdx
-	movl	$0, 32(%rsp)
-	call	_ZN3wze6engine5audio4PlayEytdt
+	call	_ZN3wze6engine5audioixEt
+	movq	%rax, %rcx
+	call	_ZN3wze6engine5audio7channel4PlayEv
 .L31:
 	xorl	%eax, %eax
-	addq	$48, %rsp
+	addq	$32, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
@@ -558,7 +571,7 @@ _ZN14tile_trap_hole6UpdateEv:
 	testb	%al, %al
 	jne	.L26
 	xorl	%eax, %eax
-	addq	$48, %rsp
+	addq	$32, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
@@ -604,9 +617,12 @@ _ZN14tile_trap_hole6UpdateEv:
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetXEd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audioixEt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio7channel10SetSoundIDEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio7channel9SetVolumeEd;	.scl	2;	.type	32;	.endef
 	.def	exit;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5audio4PlayEytdt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio7channel4PlayEv;	.scl	2;	.type	32;	.endef

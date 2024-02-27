@@ -103,6 +103,26 @@ act_player::act_player(engine* Engine, game* Game, double X, double Y) : Engine(
     this->FireflyMask->Width = 3000;
     this->FireflyMask->Height = 3000;
     this->FireflyMask->Priority = 135;
+
+    this->Engine->Audio[CH_WIN_LOSE].SetVolume(0.5);
+
+    this->Engine->Audio[CH_PLAYER_HURT].SetSoundID(this->Game->Assets->PlayerHurtAudio);
+    this->Engine->Audio[CH_PLAYER_HURT].SetVolume(0.5);
+
+    this->Engine->Audio[CH_LEVER].SetSoundID(this->Game->Assets->LeverAudio);
+    this->Engine->Audio[CH_LEVER].SetVolume(1);
+
+    this->Engine->Audio[CH_PLAYER_LATCH].SetSoundID(this->Game->Assets->PlayerLatchAudio);
+    this->Engine->Audio[CH_PLAYER_LATCH].SetVolume(0.5);
+
+    this->Engine->Audio[CH_PLAYER_JUMP].SetSoundID(this->Game->Assets->PlayerJumpAudio);
+    this->Engine->Audio[CH_PLAYER_JUMP].SetVolume(0.1);
+
+    this->Engine->Audio[CH_PLAYER_FALL].SetSoundID(this->Game->Assets->PlayerFallAudio);
+    this->Engine->Audio[CH_PLAYER_FALL].SetVolume(0.25);
+
+    this->Engine->Audio[CH_TUNA].SetSoundID(this->Game->Assets->TunaAudio);
+    this->Engine->Audio[CH_TUNA].SetVolume(0.5);
 }
 
 act_player::~act_player()
@@ -142,7 +162,8 @@ uint8 act_player::Update()
     {
         if (this->Actor->GetCollisionLayer() != 0)
         {
-            this->Engine->Audio.Play(this->Game->Assets->LoseAudio, CH_WIN_LOSE, 0.5, 0);
+            this->Engine->Audio[CH_WIN_LOSE].SetSoundID(this->Game->Assets->LoseAudio);
+            this->Engine->Audio[CH_WIN_LOSE].Play();
         }
 
         this->Actor->SetCollisionLayer(0);
@@ -182,7 +203,8 @@ uint8 act_player::Update()
     {
         if (this->Actor->GetCollisionLayer() != 0)
         {
-            this->Engine->Audio.Play(this->Game->Assets->WinAudio, CH_WIN_LOSE, 0.5, 0);
+            this->Engine->Audio[CH_WIN_LOSE].SetSoundID(this->Game->Assets->WinAudio);
+            this->Engine->Audio[CH_WIN_LOSE].Play();
         }
 
         this->Actor->SetCollisionLayer(0);
@@ -227,7 +249,7 @@ uint8 act_player::Update()
                     {
                         this->Health--;
                         this->DamageTick = this->Engine->Timing.GetCurrentTick();
-                        this->Engine->Audio.Play(this->Game->Assets->PlayerHurtAudio, CH_PLAYER_HURT, 0.5, 0);
+                        this->Engine->Audio[CH_PLAYER_HURT].Play();
 
                         if (this->Health == 0)
                         {
@@ -260,7 +282,7 @@ uint8 act_player::Update()
                     if (!this->InteractKey && (this->Engine->Keys[KEY_S] || this->Engine->Keys[KEY_DOWN]))
                     {
                         this->Game->Play->RotateTiles = !this->Game->Play->RotateTiles;
-                        this->Engine->Audio.Play(this->Game->Assets->LeverAudio, CH_LEVER, 1, 0);
+                        this->Engine->Audio[CH_LEVER].Play();
                     }
                 break;
             }
@@ -376,7 +398,7 @@ uint8 act_player::Update()
         {
             if (this->VelocityY != 0.275)
             {
-                this->Engine->Audio.Play(this->Game->Assets->PlayerLatchAudio, CH_PLAYER_LATCH, 0.5, 0);
+                this->Engine->Audio[CH_PLAYER_LATCH].Play();
             }
             this->VelocityX = 0;
             this->VelocityY = 0;
@@ -399,7 +421,7 @@ uint8 act_player::Update()
 
     if (this->VelocityY == 0.275 - 0.0006 * this->Engine->Timing.GetDeltaTime())
     {
-        this->Engine->Audio.Play(this->Game->Assets->PlayerJumpAudio, CH_PLAYER_JUMP, 0.1, 0);
+        this->Engine->Audio[CH_PLAYER_JUMP].Play();
     }
 
     //HANDLING GROUND COLLISION AND FALL AUDIO
@@ -414,7 +436,7 @@ uint8 act_player::Update()
         {
             if (this->VelocityY < -0.0006 * this->Engine->Timing.GetDeltaTime())
             {
-                this->Engine->Audio.Play(this->Game->Assets->PlayerFallAudio, CH_PLAYER_FALL, 0.25, 0);
+                this->Engine->Audio[CH_PLAYER_FALL].Play();
             }
             this->VelocityY = 0;
             this->Fall->Reset();
@@ -436,7 +458,7 @@ uint8 act_player::Update()
             delete this->Game->Play->Tunas[i];
             this->Game->Play->Tunas[i] = NULL;
 
-            this->Engine->Audio.Play(this->Game->Assets->TunaAudio, CH_TUNA, 0.5, 0);
+            this->Engine->Audio[CH_TUNA].Play();
         }
     }
 

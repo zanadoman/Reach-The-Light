@@ -17,6 +17,9 @@ gui_button::gui_button(engine* Engine, game* Game, double X, double Y, double La
     this->Textbox->ColorB = 0;
     this->Textbox->SetHeight(this->Actor->GetHeight() * 0.5);
     this->Textbox->Priority = this->Texturebox->Priority + 1;
+
+    this->Engine->Audio[CH_BUTTON].SetSoundID(this->Game->Assets->ButtonAudio);
+    this->Engine->Audio[CH_BUTTON].SetVolume(1);
 }
 
 gui_button::~gui_button()
@@ -47,7 +50,7 @@ bool gui_button::Update()
             this->Texturebox->Width = this->Actor->GetWidth() * size;
             this->Texturebox->Height = this->Actor->GetHeight() * size;
             this->Textbox->SetHeight(this->Actor->GetHeight() * size * 0.5);
-            this->Engine->Audio.Play(this->Game->Assets->ButtonAudio, CH_BUTTON, 1, 0);
+            this->Engine->Audio[CH_BUTTON].Play(); 
 
             return true;
         }

@@ -43,7 +43,7 @@ _Z6printfPKcz:
 	.def	_ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd
 _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
-.LFB8432:
+.LFB8438:
 	pushq	%r12
 	.seh_pushreg	%r12
 	pushq	%rbp
@@ -366,7 +366,7 @@ _ZN22tile_vertical_rotatingC2EPN3wze6engineEP4gamedd:
 	.def	_ZN22tile_vertical_rotatingD2Ev;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN22tile_vertical_rotatingD2Ev
 _ZN22tile_vertical_rotatingD2Ev:
-.LFB8435:
+.LFB8441:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -432,13 +432,13 @@ _ZN22tile_vertical_rotatingD2Ev:
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8435:
+.LLSDA8441:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8435-.LLSDACSB8435
-.LLSDACSB8435:
-.LLSDACSE8435:
+	.uleb128 .LLSDACSE8441-.LLSDACSB8441
+.LLSDACSB8441:
+.LLSDACSE8441:
 	.text
 	.seh_endproc
 	.globl	_ZN22tile_vertical_rotatingD1Ev
@@ -450,7 +450,7 @@ _ZN22tile_vertical_rotatingD2Ev:
 	.def	_ZN22tile_vertical_rotating6UpdateEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN22tile_vertical_rotating6UpdateEv
 _ZN22tile_vertical_rotating6UpdateEv:
-.LFB8437:
+.LFB8443:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx

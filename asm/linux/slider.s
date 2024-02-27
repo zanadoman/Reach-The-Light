@@ -2,18 +2,18 @@
 	.text
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB6:
+.LCOLDB7:
 	.text
-.LHOTB6:
+.LHOTB7:
 	.align 2
 	.p2align 4
 	.globl	_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd
 	.type	_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd, @function
 _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
-.LFB8157:
+.LFB8163:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8157
+	.cfi_lsda 0x1b,.LLSDA8163
 	pushq	%r15
 	.cfi_def_cfa_offset 16
 	.cfi_offset 15, -16
@@ -190,6 +190,22 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 	mulsd	%xmm1, %xmm0
 	addsd	%xmm3, %xmm0
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd@PLT
+	movq	(%rbx), %rax
+	movl	$1, %esi
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rax
+	movq	456(%rax), %rsi
+	call	_ZN3wze6engine5audio7channel10SetSoundIDEy@PLT
+	movq	(%rbx), %rdi
+	movl	$1, %esi
+	addq	$160, %rdi
+	call	_ZN3wze6engine5audioixEt@PLT
+	movsd	.LC6(%rip), %xmm0
+	movq	%rax, %rdi
+	call	_ZN3wze6engine5audio7channel9SetVolumeEd@PLT
 .LEHE1:
 	movq	40(%rsp), %rax
 	subq	%fs:40, %rax
@@ -216,30 +232,30 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd:
 	jmp	.L2
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
-.LLSDA8157:
+.LLSDA8163:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8157-.LLSDACSB8157
-.LLSDACSB8157:
-	.uleb128 .LEHB0-.LFB8157
+	.uleb128 .LLSDACSE8163-.LLSDACSB8163
+.LLSDACSB8163:
+	.uleb128 .LEHB0-.LFB8163
 	.uleb128 .LEHE0-.LEHB0
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB1-.LFB8157
+	.uleb128 .LEHB1-.LFB8163
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L5-.LFB8157
+	.uleb128 .L5-.LFB8163
 	.uleb128 0
-.LLSDACSE8157:
+.LLSDACSE8163:
 	.text
 	.cfi_endproc
 	.section	.text.unlikely
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDAC8157
+	.cfi_lsda 0x1b,.LLSDAC8163
 	.type	_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd.cold, @function
 _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd.cold:
-.LFSB8157:
+.LFSB8163:
 .L2:
 	.cfi_def_cfa_offset 96
 	.cfi_offset 3, -48
@@ -259,27 +275,27 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd.cold:
 .L10:
 	call	__stack_chk_fail@PLT
 	.cfi_endproc
-.LFE8157:
+.LFE8163:
 	.section	.gcc_except_table
-.LLSDAC8157:
+.LLSDAC8163:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
-.LLSDACSBC8157:
-	.uleb128 .LEHB2-.LCOLDB6
+	.uleb128 .LLSDACSEC8163-.LLSDACSBC8163
+.LLSDACSBC8163:
+	.uleb128 .LEHB2-.LCOLDB7
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
-.LLSDACSEC8157:
+.LLSDACSEC8163:
 	.section	.text.unlikely
 	.text
 	.size	_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd, .-_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd
 	.section	.text.unlikely
 	.size	_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd.cold, .-_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd.cold
-.LCOLDE6:
+.LCOLDE7:
 	.text
-.LHOTE6:
+.LHOTE7:
 	.globl	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd
 	.set	_ZN10gui_sliderC1EPN3wze6engineEP4gameddPKcddd,_ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd
 	.align 2
@@ -287,10 +303,10 @@ _ZN10gui_sliderC2EPN3wze6engineEP4gameddPKcddd.cold:
 	.globl	_ZN10gui_sliderD2Ev
 	.type	_ZN10gui_sliderD2Ev, @function
 _ZN10gui_sliderD2Ev:
-.LFB8160:
+.LFB8166:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8160
+	.cfi_lsda 0x1b,.LLSDA8166
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
@@ -316,15 +332,15 @@ _ZN10gui_sliderD2Ev:
 	.cfi_def_cfa_offset 8
 	jmp	_ZN3neo6stringD1Ev@PLT
 	.cfi_endproc
-.LFE8160:
+.LFE8166:
 	.section	.gcc_except_table
-.LLSDA8160:
+.LLSDA8166:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8160-.LLSDACSB8160
-.LLSDACSB8160:
-.LLSDACSE8160:
+	.uleb128 .LLSDACSE8166-.LLSDACSB8166
+.LLSDACSB8166:
+.LLSDACSE8166:
 	.text
 	.size	_ZN10gui_sliderD2Ev, .-_ZN10gui_sliderD2Ev
 	.globl	_ZN10gui_sliderD1Ev
@@ -342,10 +358,10 @@ _ZN10gui_sliderD2Ev:
 	.globl	_ZN10gui_slider6UpdateEv
 	.type	_ZN10gui_slider6UpdateEv, @function
 _ZN10gui_slider6UpdateEv:
-.LFB8162:
+.LFB8168:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8162
+	.cfi_lsda 0x1b,.LLSDA8168
 	pushq	%r15
 	.cfi_def_cfa_offset 16
 	.cfi_offset 15, -16
@@ -500,15 +516,12 @@ _ZN10gui_slider6UpdateEv:
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
 	testb	$4, %al
 	je	.L35
-	movq	8(%rbx), %rax
-	movsd	.LC7(%rip), %xmm0
-	xorl	%ecx, %ecx
-	movl	$1, %edx
-	movq	8(%rax), %rax
-	movq	456(%rax), %rsi
 	movq	(%rbx), %rax
+	movl	$1, %esi
 	leaq	160(%rax), %rdi
-	call	_ZN3wze6engine5audio4PlayEytdt@PLT
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	call	_ZN3wze6engine5audio7channel4PlayEv@PLT
 .LEHE4:
 	jmp	.L35
 .L38:
@@ -517,30 +530,30 @@ _ZN10gui_slider6UpdateEv:
 	movq	%rax, %rbx
 	jmp	.L20
 	.section	.gcc_except_table
-.LLSDA8162:
+.LLSDA8168:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8162-.LLSDACSB8162
-.LLSDACSB8162:
-	.uleb128 .LEHB3-.LFB8162
+	.uleb128 .LLSDACSE8168-.LLSDACSB8168
+.LLSDACSB8168:
+	.uleb128 .LEHB3-.LFB8168
 	.uleb128 .LEHE3-.LEHB3
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB4-.LFB8162
+	.uleb128 .LEHB4-.LFB8168
 	.uleb128 .LEHE4-.LEHB4
-	.uleb128 .L23-.LFB8162
+	.uleb128 .L23-.LFB8168
 	.uleb128 0
-.LLSDACSE8162:
+.LLSDACSE8168:
 	.text
 	.cfi_endproc
 	.section	.text.unlikely
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDAC8162
+	.cfi_lsda 0x1b,.LLSDAC8168
 	.type	_ZN10gui_slider6UpdateEv.cold, @function
 _ZN10gui_slider6UpdateEv.cold:
-.LFSB8162:
+.LFSB8168:
 .L20:
 	.cfi_def_cfa_offset 128
 	.cfi_offset 3, -56
@@ -561,19 +574,19 @@ _ZN10gui_slider6UpdateEv.cold:
 .L39:
 	call	__stack_chk_fail@PLT
 	.cfi_endproc
-.LFE8162:
+.LFE8168:
 	.section	.gcc_except_table
-.LLSDAC8162:
+.LLSDAC8168:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSEC8162-.LLSDACSBC8162
-.LLSDACSBC8162:
+	.uleb128 .LLSDACSEC8168-.LLSDACSBC8168
+.LLSDACSBC8168:
 	.uleb128 .LEHB5-.LCOLDB9
 	.uleb128 .LEHE5-.LEHB5
 	.uleb128 0
 	.uleb128 0
-.LLSDACSEC8162:
+.LLSDACSEC8168:
 	.section	.text.unlikely
 	.text
 	.size	_ZN10gui_slider6UpdateEv, .-_ZN10gui_slider6UpdateEv
@@ -596,7 +609,7 @@ _ZN10gui_slider6UpdateEv.cold:
 	.long	0
 	.long	1071644672
 	.align 8
-.LC7:
+.LC6:
 	.long	0
 	.long	1072693248
 	.hidden	DW.ref.__gxx_personality_v0

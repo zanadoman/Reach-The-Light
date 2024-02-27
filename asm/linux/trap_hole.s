@@ -10,7 +10,7 @@
 	.globl	_ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd
 	.type	_ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd, @function
 _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
-.LFB8157:
+.LFB8163:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -293,29 +293,46 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movq	%rax, 80(%rbx)
 	leaq	136(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes3NewEy@PLT
-	movq	8(%rbx), %rax
-	movq	80(%rbx), %rbp
+	movq	80(%rbx), %rax
 	xorl	%esi, %esi
-	movq	(%rbx), %rdi
-	movq	8(%rax), %r12
-	addq	$40, %rbp
-	movq	$100, 144(%rbp)
-	addq	$336, %rdi
-	movl	304(%r12), %edx
+	movq	$100, 184(%rax)
+	leaq	40(%rax), %r12
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rbp
+	movq	(%rbx), %rax
+	movl	304(%rbp), %edx
+	leaq	336(%rax), %rdi
 	call	_ZN3wze6engine4math6RandomEii@PLT
-	movq	312(%r12), %rdx
+	movq	312(%rbp), %rdx
 	cltq
-	cmpq	304(%r12), %rax
+	cmpq	304(%rbp), %rax
 	jnb	.L14
 	movq	(%rdx,%rax,8), %rsi
+	movq	%r12, %rdi
+	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
+	movq	(%rbx), %rax
+	movl	$7, %esi
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rax
+	movq	504(%rax), %rsi
+	call	_ZN3wze6engine5audio7channel10SetSoundIDEy@PLT
+	movq	(%rbx), %rdi
+	movl	$7, %esi
+	addq	$160, %rdi
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	movq	.LC0(%rip), %rax
 	addq	$40, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 56
-	movq	%rbp, %rdi
 	popq	%rbx
 	.cfi_def_cfa_offset 48
 	popq	%rbp
 	.cfi_def_cfa_offset 40
+	movq	%rax, %xmm0
 	popq	%r12
 	.cfi_def_cfa_offset 32
 	popq	%r13
@@ -324,7 +341,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	.cfi_def_cfa_offset 16
 	popq	%r15
 	.cfi_def_cfa_offset 8
-	jmp	_ZN3wze6engine6actors5actor12textureboxes3NewEy@PLT
+	jmp	_ZN3wze6engine5audio7channel9SetVolumeEd@PLT
 .L14:
 	.cfi_restore_state
 	movq	%rax, %rsi
@@ -334,7 +351,7 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	movl	$1, %edi
 	call	exit@PLT
 	.cfi_endproc
-.LFE8157:
+.LFE8163:
 	.size	_ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd, .-_ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd
 	.globl	_ZN14tile_trap_holeC1EPN3wze6engineEP4gamedd
 	.set	_ZN14tile_trap_holeC1EPN3wze6engineEP4gamedd,_ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd
@@ -343,10 +360,10 @@ _ZN14tile_trap_holeC2EPN3wze6engineEP4gamedd:
 	.globl	_ZN14tile_trap_holeD2Ev
 	.type	_ZN14tile_trap_holeD2Ev, @function
 _ZN14tile_trap_holeD2Ev:
-.LFB8160:
+.LFB8166:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8160
+	.cfi_lsda 0x1b,.LLSDA8166
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
@@ -416,16 +433,16 @@ _ZN14tile_trap_holeD2Ev:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE8160:
+.LFE8166:
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
-.LLSDA8160:
+.LLSDA8166:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8160-.LLSDACSB8160
-.LLSDACSB8160:
-.LLSDACSE8160:
+	.uleb128 .LLSDACSE8166-.LLSDACSB8166
+.LLSDACSB8166:
+.LLSDACSE8166:
 	.text
 	.size	_ZN14tile_trap_holeD2Ev, .-_ZN14tile_trap_holeD2Ev
 	.globl	_ZN14tile_trap_holeD1Ev
@@ -435,7 +452,7 @@ _ZN14tile_trap_holeD2Ev:
 	.globl	_ZN14tile_trap_hole6UpdateEv
 	.type	_ZN14tile_trap_hole6UpdateEv, @function
 _ZN14tile_trap_hole6UpdateEv:
-.LFB8162:
+.LFB8168:
 	.cfi_startproc
 	cmpq	$0, 48(%rdi)
 	je	.L34
@@ -500,16 +517,13 @@ _ZN14tile_trap_hole6UpdateEv:
 	movq	%rbx, %rdi
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
-	movq	8(%rbp), %rax
 	movq	0(%rbp), %rdi
-	xorl	%ecx, %ecx
+	movl	$7, %esi
 	movq	$0, 48(%rbp)
-	movsd	.LC0(%rip), %xmm0
-	movl	$7, %edx
-	movq	8(%rax), %rax
 	addq	$160, %rdi
-	movq	504(%rax), %rsi
-	call	_ZN3wze6engine5audio4PlayEytdt@PLT
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	call	_ZN3wze6engine5audio7channel4PlayEv@PLT
 	popq	%rbx
 	.cfi_remember_state
 	.cfi_def_cfa_offset 40
@@ -579,7 +593,7 @@ _ZN14tile_trap_hole6UpdateEv:
 	movl	$1, %edi
 	call	exit@PLT
 	.cfi_endproc
-.LFE8162:
+.LFE8168:
 	.size	_ZN14tile_trap_hole6UpdateEv, .-_ZN14tile_trap_hole6UpdateEv
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8

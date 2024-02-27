@@ -28,6 +28,9 @@ gui_slider::gui_slider(engine* Engine, game* Game, double X, double Y, const cha
     this->IndicatorMinX = this->Actor->GetX() - (this->Actor->GetWidth() >> 1) + (this->Indicator->Width >> 1);
     this->IndicatorMaxX = this->Actor->GetX() + (this->Actor->GetWidth() >> 1) - (this->Indicator->Width >> 1);
     this->Indicator->SetX(((Value - Min) / (Max - Min)) * (this->IndicatorMaxX - this->IndicatorMinX) + this->IndicatorMinX);
+
+    this->Engine->Audio[CH_BUTTON].SetSoundID(this->Game->Assets->ButtonAudio);
+    this->Engine->Audio[CH_BUTTON].SetVolume(1);
 }
 
 gui_slider::~gui_slider()
@@ -58,7 +61,7 @@ double gui_slider::Update()
         }
         else if (this->Overlapbox->GetButtonState() & BTN_RELEASED_LMB)
         {
-            this->Engine->Audio.Play(this->Game->Assets->ButtonAudio, CH_BUTTON, 1, 0);   
+            this->Engine->Audio[CH_BUTTON].Play(); 
         }
     }
 

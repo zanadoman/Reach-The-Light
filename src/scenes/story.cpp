@@ -19,8 +19,8 @@ scene_story::~scene_story()
 {
     this->Engine->Actors.Delete(this->Actor->GetID());
     delete this->Skip;
-    this->Engine->Audio.StopChannel(CH_TYPING1);
-    this->Engine->Audio.StopChannel(CH_TYPING2);
+    this->Engine->Audio[CH_TYPING1].Stop();
+    this->Engine->Audio[CH_TYPING2].Stop();
 }
 
 scene scene_story::Update()
@@ -42,7 +42,9 @@ scene scene_story::Update()
             this->Lines[this->CurrentLine]->SetY(this->Actor->GetY() + 500 - 80 * this->CurrentLine);
             this->Lines[this->CurrentLine]->SetHeight(40);
 
-            this->Engine->Audio.Play(this->Game->Assets->TypingReturnAudio, (this->ChannelSwitch = !this->ChannelSwitch) ? CH_TYPING1 : CH_TYPING2, 0.8, 0);
+            this->Engine->Audio[this->ChannelSwitch ? CH_TYPING1 : CH_TYPING2].SetSoundID(this->Game->Assets->TypingReturnAudio);
+            this->Engine->Audio[this->ChannelSwitch ? CH_TYPING1 : CH_TYPING2].SetVolume(0.8);
+            this->Engine->Audio[this->ChannelSwitch ? CH_TYPING1 : CH_TYPING2].Play();
             
             this->Sleep = this->Engine->Timing.GetCurrentTick() + 800;
         }
@@ -57,7 +59,9 @@ scene scene_story::Update()
 
             this->Lines[this->CurrentLine]->SetLiteral(str());
             
-            this->Engine->Audio.Play(this->Game->Assets->TypingAudio[this->Engine->Math.Random(0, this->Game->Assets->TypingAudio.Length())], (this->ChannelSwitch = !this->ChannelSwitch) ? CH_TYPING1 : CH_TYPING2, this->Engine->Math.Random(30, 60) / 100.0, 0);
+            this->Engine->Audio[this->ChannelSwitch ? CH_TYPING1 : CH_TYPING2].SetSoundID(this->Game->Assets->TypingAudio[this->Engine->Math.Random(0, this->Game->Assets->TypingAudio.Length())]);
+            this->Engine->Audio[this->ChannelSwitch ? CH_TYPING1 : CH_TYPING2].SetVolume(this->Engine->Math.Random(30, 60) / 100.0);
+            this->Engine->Audio[this->ChannelSwitch ? CH_TYPING1 : CH_TYPING2].Play();
 
             this->Sleep = this->Engine->Timing.GetCurrentTick() + 100;
         }
@@ -66,6 +70,8 @@ scene scene_story::Update()
         {
             this->Sleep = this->Engine->Timing.GetCurrentTick() + 3000;
         }
+
+        this->ChannelSwitch = !this->ChannelSwitch;
     }
 
     if (this->Skip->Update() || this->Engine->Keys[KEY_RETURN])

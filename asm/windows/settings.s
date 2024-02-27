@@ -10,7 +10,7 @@
 	.def	_ZN8settingsC2Ev;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8settingsC2Ev
 _ZN8settingsC2Ev:
-.LFB8432:
+.LFB8438:
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	subq	$32, %rsp
@@ -92,7 +92,7 @@ _ZN8settingsC2Ev:
 	.def	_ZN8settingsD2Ev;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8settingsD2Ev
 _ZN8settingsD2Ev:
-.LFB8435:
+.LFB8441:
 	subq	$40, %rsp
 	.seh_stackalloc	40
 	.seh_endprologue
@@ -105,13 +105,13 @@ _ZN8settingsD2Ev:
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8435:
+.LLSDA8441:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8435-.LLSDACSB8435
-.LLSDACSB8435:
-.LLSDACSE8435:
+	.uleb128 .LLSDACSE8441-.LLSDACSB8441
+.LLSDACSB8441:
+.LLSDACSE8441:
 	.text
 	.seh_endproc
 	.globl	_ZN8settingsD1Ev

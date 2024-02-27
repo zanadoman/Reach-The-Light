@@ -14,7 +14,7 @@
 	.def	_ZN10scene_helpC2EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN10scene_helpC2EPN3wze6engineEP4game
 _ZN10scene_helpC2EPN3wze6engineEP4game:
-.LFB8432:
+.LFB8438:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -91,21 +91,21 @@ _ZN10scene_helpC2EPN3wze6engineEP4game:
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8432:
+.LLSDA8438:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8432-.LLSDACSB8432
-.LLSDACSB8432:
-	.uleb128 .LEHB0-.LFB8432
+	.uleb128 .LLSDACSE8438-.LLSDACSB8438
+.LLSDACSB8438:
+	.uleb128 .LEHB0-.LFB8438
 	.uleb128 .LEHE0-.LEHB0
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB1-.LFB8432
+	.uleb128 .LEHB1-.LFB8438
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L3-.LFB8432
+	.uleb128 .L3-.LFB8438
 	.uleb128 0
-.LLSDACSE8432:
+.LLSDACSE8438:
 	.text
 	.seh_endproc
 	.section	.text.unlikely,"x"
@@ -128,17 +128,17 @@ _ZN10scene_helpC2EPN3wze6engineEP4game.cold:
 .LEHE2:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDAC8432:
+.LLSDAC8438:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
-.LLSDACSBC8432:
+	.uleb128 .LLSDACSEC8438-.LLSDACSBC8438
+.LLSDACSBC8438:
 	.uleb128 .LEHB2-.LCOLDB4
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
-.LLSDACSEC8432:
+.LLSDACSEC8438:
 	.section	.text.unlikely,"x"
 	.text
 	.section	.text.unlikely,"x"
@@ -155,7 +155,7 @@ _ZN10scene_helpC2EPN3wze6engineEP4game.cold:
 	.def	_ZN10scene_helpD2Ev;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN10scene_helpD2Ev
 _ZN10scene_helpD2Ev:
-.LFB8435:
+.LFB8441:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -191,13 +191,13 @@ _ZN10scene_helpD2Ev:
 	ret
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8435:
+.LLSDA8441:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8435-.LLSDACSB8435
-.LLSDACSB8435:
-.LLSDACSE8435:
+	.uleb128 .LLSDACSE8441-.LLSDACSB8441
+.LLSDACSB8441:
+.LLSDACSE8441:
 	.text
 	.seh_endproc
 	.globl	_ZN10scene_helpD1Ev
@@ -209,7 +209,7 @@ _ZN10scene_helpD2Ev:
 	.def	_ZN10scene_help6UpdateEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN10scene_help6UpdateEv
 _ZN10scene_help6UpdateEv:
-.LFB8437:
+.LFB8443:
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	subq	$32, %rsp

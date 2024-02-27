@@ -10,10 +10,10 @@
 	.globl	_ZN4gameC2EPN3wze6engineE
 	.type	_ZN4gameC2EPN3wze6engineE, @function
 _ZN4gameC2EPN3wze6engineE:
-.LFB8157:
+.LFB8163:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8157
+	.cfi_lsda 0x1b,.LLSDA8163
 	pushq	%r12
 	.cfi_def_cfa_offset 16
 	.cfi_offset 12, -16
@@ -93,54 +93,54 @@ _ZN4gameC2EPN3wze6engineE:
 	jmp	.L3
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
-.LLSDA8157:
+.LLSDA8163:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8157-.LLSDACSB8157
-.LLSDACSB8157:
-	.uleb128 .LEHB0-.LFB8157
+	.uleb128 .LLSDACSE8163-.LLSDACSB8163
+.LLSDACSB8163:
+	.uleb128 .LEHB0-.LFB8163
 	.uleb128 .LEHE0-.LEHB0
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB1-.LFB8157
+	.uleb128 .LEHB1-.LFB8163
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L6-.LFB8157
+	.uleb128 .L6-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB2-.LFB8157
+	.uleb128 .LEHB2-.LFB8163
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB3-.LFB8157
+	.uleb128 .LEHB3-.LFB8163
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L7-.LFB8157
+	.uleb128 .L7-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB4-.LFB8157
+	.uleb128 .LEHB4-.LFB8163
 	.uleb128 .LEHE4-.LEHB4
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB5-.LFB8157
+	.uleb128 .LEHB5-.LFB8163
 	.uleb128 .LEHE5-.LEHB5
-	.uleb128 .L8-.LFB8157
+	.uleb128 .L8-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB6-.LFB8157
+	.uleb128 .LEHB6-.LFB8163
 	.uleb128 .LEHE6-.LEHB6
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB7-.LFB8157
+	.uleb128 .LEHB7-.LFB8163
 	.uleb128 .LEHE7-.LEHB7
-	.uleb128 .L9-.LFB8157
+	.uleb128 .L9-.LFB8163
 	.uleb128 0
-.LLSDACSE8157:
+.LLSDACSE8163:
 	.text
 	.cfi_endproc
 	.section	.text.unlikely
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDAC8157
+	.cfi_lsda 0x1b,.LLSDAC8163
 	.type	_ZN4gameC2EPN3wze6engineE.cold, @function
 _ZN4gameC2EPN3wze6engineE.cold:
-.LFSB8157:
+.LFSB8163:
 .L2:
 	.cfi_def_cfa_offset 32
 	.cfi_offset 3, -32
@@ -172,19 +172,19 @@ _ZN4gameC2EPN3wze6engineE.cold:
 	call	_Unwind_Resume@PLT
 .LEHE8:
 	.cfi_endproc
-.LFE8157:
+.LFE8163:
 	.section	.gcc_except_table
-.LLSDAC8157:
+.LLSDAC8163:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
-.LLSDACSBC8157:
+	.uleb128 .LLSDACSEC8163-.LLSDACSBC8163
+.LLSDACSBC8163:
 	.uleb128 .LEHB8-.LCOLDB0
 	.uleb128 .LEHE8-.LEHB8
 	.uleb128 0
 	.uleb128 0
-.LLSDACSEC8157:
+.LLSDACSEC8163:
 	.section	.text.unlikely
 	.text
 	.size	_ZN4gameC2EPN3wze6engineE, .-_ZN4gameC2EPN3wze6engineE
@@ -200,7 +200,7 @@ _ZN4gameC2EPN3wze6engineE.cold:
 	.globl	_ZN4gameD2Ev
 	.type	_ZN4gameD2Ev, @function
 _ZN4gameD2Ev:
-.LFB8160:
+.LFB8166:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -338,7 +338,7 @@ _ZN4gameD2Ev:
 	call	_ZdlPvm@PLT
 	jmp	.L14
 	.cfi_endproc
-.LFE8160:
+.LFE8166:
 	.size	_ZN4gameD2Ev, .-_ZN4gameD2Ev
 	.globl	_ZN4gameD1Ev
 	.set	_ZN4gameD1Ev,_ZN4gameD2Ev
@@ -352,10 +352,10 @@ _ZN4gameD2Ev:
 	.globl	_ZN4game11SwitchSceneE5scene
 	.type	_ZN4game11SwitchSceneE5scene, @function
 _ZN4game11SwitchSceneE5scene:
-.LFB8163:
+.LFB8169:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8163
+	.cfi_lsda 0x1b,.LLSDA8169
 	movl	32(%rdi), %eax
 	cmpl	%esi, %eax
 	je	.L89
@@ -652,62 +652,62 @@ _ZN4game11SwitchSceneE5scene:
 	movq	%rax, %rbx
 	jmp	.L62
 	.section	.gcc_except_table
-.LLSDA8163:
+.LLSDA8169:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8163-.LLSDACSB8163
-.LLSDACSB8163:
-	.uleb128 .LEHB9-.LFB8163
+	.uleb128 .LLSDACSE8169-.LLSDACSB8169
+.LLSDACSB8169:
+	.uleb128 .LEHB9-.LFB8169
 	.uleb128 .LEHE9-.LEHB9
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB10-.LFB8163
+	.uleb128 .LEHB10-.LFB8169
 	.uleb128 .LEHE10-.LEHB10
-	.uleb128 .L67-.LFB8163
+	.uleb128 .L67-.LFB8169
 	.uleb128 0
-	.uleb128 .LEHB11-.LFB8163
+	.uleb128 .LEHB11-.LFB8169
 	.uleb128 .LEHE11-.LEHB11
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB12-.LFB8163
+	.uleb128 .LEHB12-.LFB8169
 	.uleb128 .LEHE12-.LEHB12
-	.uleb128 .L71-.LFB8163
+	.uleb128 .L71-.LFB8169
 	.uleb128 0
-	.uleb128 .LEHB13-.LFB8163
+	.uleb128 .LEHB13-.LFB8169
 	.uleb128 .LEHE13-.LEHB13
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB14-.LFB8163
+	.uleb128 .LEHB14-.LFB8169
 	.uleb128 .LEHE14-.LEHB14
-	.uleb128 .L68-.LFB8163
+	.uleb128 .L68-.LFB8169
 	.uleb128 0
-	.uleb128 .LEHB15-.LFB8163
+	.uleb128 .LEHB15-.LFB8169
 	.uleb128 .LEHE15-.LEHB15
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB16-.LFB8163
+	.uleb128 .LEHB16-.LFB8169
 	.uleb128 .LEHE16-.LEHB16
-	.uleb128 .L69-.LFB8163
+	.uleb128 .L69-.LFB8169
 	.uleb128 0
-	.uleb128 .LEHB17-.LFB8163
+	.uleb128 .LEHB17-.LFB8169
 	.uleb128 .LEHE17-.LEHB17
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB18-.LFB8163
+	.uleb128 .LEHB18-.LFB8169
 	.uleb128 .LEHE18-.LEHB18
-	.uleb128 .L70-.LFB8163
+	.uleb128 .L70-.LFB8169
 	.uleb128 0
-.LLSDACSE8163:
+.LLSDACSE8169:
 	.text
 	.cfi_endproc
 	.section	.text.unlikely
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDAC8163
+	.cfi_lsda 0x1b,.LLSDAC8169
 	.type	_ZN4game11SwitchSceneE5scene.cold, @function
 _ZN4game11SwitchSceneE5scene.cold:
-.LFSB8163:
+.LFSB8169:
 .L66:
 	.cfi_def_cfa_offset 32
 	.cfi_offset 3, -32
@@ -745,19 +745,19 @@ _ZN4game11SwitchSceneE5scene.cold:
 	call	_Unwind_Resume@PLT
 .LEHE19:
 	.cfi_endproc
-.LFE8163:
+.LFE8169:
 	.section	.gcc_except_table
-.LLSDAC8163:
+.LLSDAC8169:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSEC8163-.LLSDACSBC8163
-.LLSDACSBC8163:
+	.uleb128 .LLSDACSEC8169-.LLSDACSBC8169
+.LLSDACSBC8169:
 	.uleb128 .LEHB19-.LCOLDB3
 	.uleb128 .LEHE19-.LEHB19
 	.uleb128 0
 	.uleb128 0
-.LLSDACSEC8163:
+.LLSDACSEC8169:
 	.section	.text.unlikely
 	.text
 	.size	_ZN4game11SwitchSceneE5scene, .-_ZN4game11SwitchSceneE5scene
@@ -771,7 +771,7 @@ _ZN4game11SwitchSceneE5scene.cold:
 	.globl	_ZN4game6UpdateEv
 	.type	_ZN4game6UpdateEv, @function
 _ZN4game6UpdateEv:
-.LFB8162:
+.LFB8168:
 	.cfi_startproc
 	pushq	%rbx
 	.cfi_def_cfa_offset 16
@@ -874,7 +874,7 @@ _ZN4game6UpdateEv:
 	xorl	%eax, %eax
 	jmp	.L105
 	.cfi_endproc
-.LFE8162:
+.LFE8168:
 	.size	_ZN4game6UpdateEv, .-_ZN4game6UpdateEv
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8

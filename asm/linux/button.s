@@ -5,7 +5,7 @@
 	.globl	_ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc
 	.type	_ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc, @function
 _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
-.LFB8157:
+.LFB8163:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -44,8 +44,8 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
 	movq	16(%rbx), %rax
 	leaq	104(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy@PLT
-	movl	$-7968, %edx
 	xorl	%ecx, %ecx
+	movl	$-7968, %edx
 	movq	16(%rbx), %rdi
 	movq	%rax, %rbp
 	movq	%rax, 40(%rbx)
@@ -67,18 +67,34 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
 	movq	32(%rbx), %rax
 	movq	40(%rbx), %rdx
+	movl	$1, %esi
 	movzbl	36(%rax), %eax
 	addl	$1, %eax
 	movb	%al, 36(%rdx)
+	movq	(%rbx), %rax
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rax
+	movq	456(%rax), %rsi
+	call	_ZN3wze6engine5audio7channel10SetSoundIDEy@PLT
+	movq	(%rbx), %rdi
+	movl	$1, %esi
+	addq	$160, %rdi
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	movq	.LC0(%rip), %rax
 	addq	$8, %rsp
 	.cfi_def_cfa_offset 24
 	popq	%rbx
 	.cfi_def_cfa_offset 16
 	popq	%rbp
 	.cfi_def_cfa_offset 8
-	ret
+	movq	%rax, %xmm0
+	jmp	_ZN3wze6engine5audio7channel9SetVolumeEd@PLT
 	.cfi_endproc
-.LFE8157:
+.LFE8163:
 	.size	_ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc, .-_ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc
 	.globl	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc
 	.set	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc,_ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc
@@ -87,10 +103,10 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
 	.globl	_ZN10gui_buttonD2Ev
 	.type	_ZN10gui_buttonD2Ev, @function
 _ZN10gui_buttonD2Ev:
-.LFB8160:
+.LFB8166:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8160
+	.cfi_lsda 0x1b,.LLSDA8166
 	pushq	%rbx
 	.cfi_def_cfa_offset 16
 	.cfi_offset 3, -16
@@ -105,16 +121,16 @@ _ZN10gui_buttonD2Ev:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE8160:
+.LFE8166:
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
-.LLSDA8160:
+.LLSDA8166:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8160-.LLSDACSB8160
-.LLSDACSB8160:
-.LLSDACSE8160:
+	.uleb128 .LLSDACSE8166-.LLSDACSB8166
+.LLSDACSB8166:
+.LLSDACSE8166:
 	.text
 	.size	_ZN10gui_buttonD2Ev, .-_ZN10gui_buttonD2Ev
 	.globl	_ZN10gui_buttonD1Ev
@@ -124,7 +140,7 @@ _ZN10gui_buttonD2Ev:
 	.globl	_ZN10gui_button6UpdateEv
 	.type	_ZN10gui_button6UpdateEv, @function
 _ZN10gui_button6UpdateEv:
-.LFB8162:
+.LFB8168:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -262,15 +278,12 @@ _ZN10gui_button6UpdateEv:
 	cvttsd2sil	%xmm0, %esi
 	movzwl	%si, %esi
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt@PLT
-	movq	8(%rbx), %rax
 	movq	(%rbx), %rdi
-	xorl	%ecx, %ecx
-	movsd	.LC0(%rip), %xmm0
-	movl	$1, %edx
-	movq	8(%rax), %rax
+	movl	$1, %esi
 	addq	$160, %rdi
-	movq	456(%rax), %rsi
-	call	_ZN3wze6engine5audio4PlayEytdt@PLT
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	call	_ZN3wze6engine5audio7channel4PlayEv@PLT
 	addq	$8, %rsp
 	.cfi_def_cfa_offset 24
 	movl	$1, %eax
@@ -280,7 +293,7 @@ _ZN10gui_button6UpdateEv:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE8162:
+.LFE8168:
 	.size	_ZN10gui_button6UpdateEv, .-_ZN10gui_button6UpdateEv
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8

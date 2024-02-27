@@ -9,18 +9,18 @@
 	.string	"neo::array[]: Index out of range\nParams: Index: %lld\n"
 	.section	.text.unlikely,"ax",@progbits
 	.align 2
-.LCOLDB25:
+.LCOLDB26:
 	.text
-.LHOTB25:
+.LHOTB26:
 	.align 2
 	.p2align 4
 	.globl	_ZN10tile_houseC2EPN3wze6engineEP4game
 	.type	_ZN10tile_houseC2EPN3wze6engineEP4game, @function
 _ZN10tile_houseC2EPN3wze6engineEP4game:
-.LFB8157:
+.LFB8163:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8157
+	.cfi_lsda 0x1b,.LLSDA8163
 	pushq	%r15
 	.cfi_def_cfa_offset 16
 	.cfi_offset 15, -16
@@ -495,6 +495,22 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	movl	$1, %esi
 	movq	$100, 184(%rax)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh@PLT
+	movq	(%rbx), %rax
+	movl	$9, %esi
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rax
+	movq	520(%rax), %rsi
+	call	_ZN3wze6engine5audio7channel10SetSoundIDEy@PLT
+	movq	(%rbx), %rax
+	movl	$9, %esi
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audioixEt@PLT
+	movsd	.LC25(%rip), %xmm0
+	movq	%rax, %rdi
+	call	_ZN3wze6engine5audio7channel9SetVolumeEd@PLT
 	addq	$8, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 56
@@ -533,30 +549,30 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	jmp	.L10
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
-.LLSDA8157:
+.LLSDA8163:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8157-.LLSDACSB8157
-.LLSDACSB8157:
-	.uleb128 .LEHB0-.LFB8157
+	.uleb128 .LLSDACSE8163-.LLSDACSB8163
+.LLSDACSB8163:
+	.uleb128 .LEHB0-.LFB8163
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L12-.LFB8157
+	.uleb128 .L12-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB1-.LFB8157
+	.uleb128 .LEHB1-.LFB8163
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
-.LLSDACSE8157:
+.LLSDACSE8163:
 	.text
 	.cfi_endproc
 	.section	.text.unlikely
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDAC8157
+	.cfi_lsda 0x1b,.LLSDAC8163
 	.type	_ZN10tile_houseC2EPN3wze6engineEP4game.cold, @function
 _ZN10tile_houseC2EPN3wze6engineEP4game.cold:
-.LFSB8157:
+.LFSB8163:
 .L10:
 	.cfi_def_cfa_offset 64
 	.cfi_offset 3, -56
@@ -572,27 +588,27 @@ _ZN10tile_houseC2EPN3wze6engineEP4game.cold:
 	call	_Unwind_Resume@PLT
 .LEHE2:
 	.cfi_endproc
-.LFE8157:
+.LFE8163:
 	.section	.gcc_except_table
-.LLSDAC8157:
+.LLSDAC8163:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
-.LLSDACSBC8157:
-	.uleb128 .LEHB2-.LCOLDB25
+	.uleb128 .LLSDACSEC8163-.LLSDACSBC8163
+.LLSDACSBC8163:
+	.uleb128 .LEHB2-.LCOLDB26
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
-.LLSDACSEC8157:
+.LLSDACSEC8163:
 	.section	.text.unlikely
 	.text
 	.size	_ZN10tile_houseC2EPN3wze6engineEP4game, .-_ZN10tile_houseC2EPN3wze6engineEP4game
 	.section	.text.unlikely
 	.size	_ZN10tile_houseC2EPN3wze6engineEP4game.cold, .-_ZN10tile_houseC2EPN3wze6engineEP4game.cold
-.LCOLDE25:
+.LCOLDE26:
 	.text
-.LHOTE25:
+.LHOTE26:
 	.globl	_ZN10tile_houseC1EPN3wze6engineEP4game
 	.set	_ZN10tile_houseC1EPN3wze6engineEP4game,_ZN10tile_houseC2EPN3wze6engineEP4game
 	.align 2
@@ -600,10 +616,10 @@ _ZN10tile_houseC2EPN3wze6engineEP4game.cold:
 	.globl	_ZN10tile_houseD2Ev
 	.type	_ZN10tile_houseD2Ev, @function
 _ZN10tile_houseD2Ev:
-.LFB8160:
+.LFB8166:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8160
+	.cfi_lsda 0x1b,.LLSDA8166
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
@@ -691,15 +707,15 @@ _ZN10tile_houseD2Ev:
 	.cfi_def_cfa_offset 8
 	jmp	free@PLT
 	.cfi_endproc
-.LFE8160:
+.LFE8166:
 	.section	.gcc_except_table
-.LLSDA8160:
+.LLSDA8166:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8160-.LLSDACSB8160
-.LLSDACSB8160:
-.LLSDACSE8160:
+	.uleb128 .LLSDACSE8166-.LLSDACSB8166
+.LLSDACSB8166:
+.LLSDACSE8166:
 	.text
 	.size	_ZN10tile_houseD2Ev, .-_ZN10tile_houseD2Ev
 	.globl	_ZN10tile_houseD1Ev
@@ -709,7 +725,7 @@ _ZN10tile_houseD2Ev:
 	.globl	_ZN10tile_house6UpdateEv
 	.type	_ZN10tile_house6UpdateEv, @function
 _ZN10tile_house6UpdateEv:
-.LFB8162:
+.LFB8168:
 	.cfi_startproc
 	pushq	%r12
 	.cfi_def_cfa_offset 16
@@ -728,12 +744,12 @@ _ZN10tile_house6UpdateEv:
 	movq	88(%rax), %rax
 	movq	16(%rax), %rdi
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
-	movsd	.LC26(%rip), %xmm1
+	movsd	.LC27(%rip), %xmm1
 	xorl	%eax, %eax
 	addsd	%xmm0, %xmm1
-	movsd	.LC27(%rip), %xmm0
+	movsd	.LC28(%rip), %xmm0
 	subsd	%xmm1, %xmm0
-	movsd	.LC28(%rip), %xmm1
+	movsd	.LC29(%rip), %xmm1
 	divsd	.LC5(%rip), %xmm0
 	mulsd	%xmm1, %xmm0
 	movapd	%xmm1, %xmm2
@@ -917,22 +933,19 @@ _ZN10tile_house6UpdateEv:
 	movq	%rax, %rsi
 	call	_ZN3wze6engine6actors6DeleteEy@PLT
 	movq	40(%rbx), %rax
-	xorl	%ecx, %ecx
-	movl	$9, %edx
+	movl	$9, %esi
 	movq	$0, 152(%rbx)
-	movsd	.LC29(%rip), %xmm0
 	movb	$1, 37(%rax)
 	movq	48(%rbx), %rax
 	movb	$1, 37(%rax)
-	movq	8(%rbx), %rax
-	movq	8(%rax), %rax
-	movq	520(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
-	call	_ZN3wze6engine5audio4PlayEytdt@PLT
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	call	_ZN3wze6engine5audio7channel4PlayEv@PLT
 	jmp	.L34
 	.cfi_endproc
-.LFE8162:
+.LFE8168:
 	.size	_ZN10tile_house6UpdateEv, .-_ZN10tile_house6UpdateEv
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8
@@ -1012,21 +1025,21 @@ _ZN10tile_house6UpdateEv:
 	.long	0
 	.long	1076428800
 	.align 8
-.LC26:
+.LC25:
 	.long	0
-	.long	1082720256
+	.long	1072168960
 	.align 8
 .LC27:
 	.long	0
-	.long	1083768832
+	.long	1082720256
 	.align 8
 .LC28:
 	.long	0
-	.long	1081073664
+	.long	1083768832
 	.align 8
 .LC29:
 	.long	0
-	.long	1072168960
+	.long	1081073664
 	.align 8
 .LC30:
 	.long	0

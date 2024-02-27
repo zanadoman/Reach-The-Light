@@ -104,6 +104,9 @@ tile_house::tile_house(engine* Engine, game* Game) : Engine(Engine), Game(Game),
     this->HitboxBoxRight = this->Engine->Actors.New(NULL, ACT_NONE, this->Box->GetX() + 12.5, this->Box->GetY(), 5, 21, 1);
     this->HitboxBoxRight->Resistance = 100;
     this->HitboxBoxRight->SetCollisionLayer(1);
+
+    this->Engine->Audio[CH_TRAPDOOR].SetSoundID(this->Game->Assets->TrapdoorAudio);
+    this->Engine->Audio[CH_TRAPDOOR].SetVolume(0.75);
 }
 
 tile_house::~tile_house()
@@ -140,7 +143,7 @@ uint8 tile_house::Update()
         this->LeftTrapdoor->Visible = true;
         this->RightTrapdoor->Visible = true;
         
-        this->Engine->Audio.Play(this->Game->Assets->TrapdoorAudio, CH_TRAPDOOR, 0.75, 0);
+        this->Engine->Audio[CH_TRAPDOOR].Play();
     }
 
     if (this->Arrow != NULL)

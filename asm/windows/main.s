@@ -8,7 +8,7 @@
 	.def	_Z6printfPKcz.constprop.0;	.scl	3;	.type	32;	.endef
 	.seh_proc	_Z6printfPKcz.constprop.0
 _Z6printfPKcz.constprop.0:
-.LFB8595:
+.LFB8601:
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	subq	$48, %rsp
@@ -76,7 +76,7 @@ _Z6printfPKcz:
 	.def	_Z12DisplayLogosPN3wze6engineE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_Z12DisplayLogosPN3wze6engineE
 _Z12DisplayLogosPN3wze6engineE:
-.LFB8432:
+.LFB8438:
 	pushq	%r13
 	.seh_pushreg	%r13
 	pushq	%r12
@@ -420,7 +420,7 @@ _Z12DisplayLogosPN3wze6engineE:
 	.def	main;	.scl	2;	.type	32;	.endef
 	.seh_proc	main
 main:
-.LFB8431:
+.LFB8437:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -501,33 +501,33 @@ main:
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8431:
+.LLSDA8437:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8431-.LLSDACSB8431
-.LLSDACSB8431:
-	.uleb128 .LEHB0-.LFB8431
+	.uleb128 .LLSDACSE8437-.LLSDACSB8437
+.LLSDACSB8437:
+	.uleb128 .LEHB0-.LFB8437
 	.uleb128 .LEHE0-.LEHB0
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB1-.LFB8431
+	.uleb128 .LEHB1-.LFB8437
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L76-.LFB8431
+	.uleb128 .L76-.LFB8437
 	.uleb128 0
-	.uleb128 .LEHB2-.LFB8431
+	.uleb128 .LEHB2-.LFB8437
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB3-.LFB8431
+	.uleb128 .LEHB3-.LFB8437
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L77-.LFB8431
+	.uleb128 .L77-.LFB8437
 	.uleb128 0
-	.uleb128 .LEHB4-.LFB8431
+	.uleb128 .LEHB4-.LFB8437
 	.uleb128 .LEHE4-.LEHB4
 	.uleb128 0
 	.uleb128 0
-.LLSDACSE8431:
+.LLSDACSE8437:
 	.section	.text.startup,"x"
 	.seh_endproc
 	.section	.text.unlikely,"x"
@@ -555,17 +555,17 @@ main.cold:
 .LEHE5:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDAC8431:
+.LLSDAC8437:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSEC8431-.LLSDACSBC8431
-.LLSDACSBC8431:
+	.uleb128 .LLSDACSEC8437-.LLSDACSBC8437
+.LLSDACSBC8437:
 	.uleb128 .LEHB5-.LCOLDB11
 	.uleb128 .LEHE5-.LEHB5
 	.uleb128 0
 	.uleb128 0
-.LLSDACSEC8431:
+.LLSDACSEC8437:
 	.section	.text.unlikely,"x"
 	.section	.text.startup,"x"
 	.section	.text.unlikely,"x"
@@ -582,7 +582,7 @@ main.cold:
 	.def	_Z8PrintMapP4game;	.scl	2;	.type	32;	.endef
 	.seh_proc	_Z8PrintMapP4game
 _Z8PrintMapP4game:
-.LFB8433:
+.LFB8439:
 	pushq	%rdi
 	.seh_pushreg	%rdi
 	pushq	%rsi

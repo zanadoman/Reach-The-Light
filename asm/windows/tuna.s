@@ -6,7 +6,7 @@
 	.def	_ZN8act_tunaC2EPN3wze6engineEP4gamedd;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8act_tunaC2EPN3wze6engineEP4gamedd
 _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
-.LFB8432:
+.LFB8438:
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	subq	$80, %rsp
@@ -59,7 +59,7 @@ _ZN8act_tunaC2EPN3wze6engineEP4gamedd:
 	.def	_ZN8act_tunaD2Ev;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8act_tunaD2Ev
 _ZN8act_tunaD2Ev:
-.LFB8435:
+.LFB8441:
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	subq	$32, %rsp
@@ -79,13 +79,13 @@ _ZN8act_tunaD2Ev:
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8435:
+.LLSDA8441:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8435-.LLSDACSB8435
-.LLSDACSB8435:
-.LLSDACSE8435:
+	.uleb128 .LLSDACSE8441-.LLSDACSB8441
+.LLSDACSB8441:
+.LLSDACSE8441:
 	.text
 	.seh_endproc
 	.globl	_ZN8act_tunaD1Ev
@@ -97,7 +97,7 @@ _ZN8act_tunaD2Ev:
 	.def	_ZN8act_tuna6UpdateEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8act_tuna6UpdateEv
 _ZN8act_tuna6UpdateEv:
-.LFB8437:
+.LFB8443:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx

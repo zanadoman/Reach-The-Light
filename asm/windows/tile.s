@@ -43,7 +43,7 @@ _Z6printfPKcz:
 	.def	_ZN8gui_tileC2EPN3wze6engineEP4gameddhh;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8gui_tileC2EPN3wze6engineEP4gameddhh
 _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
-.LFB8432:
+.LFB8438:
 	pushq	%r14
 	.seh_pushreg	%r14
 	pushq	%r13
@@ -58,15 +58,17 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$80, %rsp
-	.seh_stackalloc	80
+	subq	$96, %rsp
+	.seh_stackalloc	96
 	movaps	%xmm6, 64(%rsp)
 	.seh_savexmm	%xmm6, 64
+	movaps	%xmm7, 80(%rsp)
+	.seh_savexmm	%xmm7, 80
 	.seh_endprologue
-	movq	.LC0(%rip), %rax
-	movl	184(%rsp), %r12d
-	movl	192(%rsp), %ebp
-	movsd	176(%rsp), %xmm0
+	movsd	.LC0(%rip), %xmm7
+	movl	200(%rsp), %r12d
+	movl	208(%rsp), %ebp
+	movsd	192(%rsp), %xmm0
 	movzbl	%r12b, %r13d
 	movzbl	%bpl, %r14d
 	movl	%r12d, %edi
@@ -77,10 +79,10 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
 	leaq	272(%rdx), %rcx
 	xorl	%r8d, %r8d
 	xorl	%edx, %edx
-	movq	%rax, 56(%rsp)
 	movl	$100, 48(%rsp)
 	movl	$100, 40(%rsp)
 	movsd	%xmm0, 32(%rsp)
+	movsd	%xmm7, 56(%rsp)
 	call	_ZN3wze6engine6actors3NewEPvyddttd
 	xorl	%edx, %edx
 	movq	%rax, 16(%rbx)
@@ -205,8 +207,8 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
 	movl	$129, %r8d
 	movq	16(%rbx), %rcx
 	movq	64(%rbx), %rdi
-	movl	%esi, 16(%rax)
 	movw	%r8w, 25(%rax)
+	movl	%esi, 16(%rax)
 	call	_ZN3wze6engine6actors5actor4GetXEv
 	movq	%rdi, %rcx
 	movapd	%xmm0, %xmm1
@@ -214,10 +216,26 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd
 	movq	64(%rbx), %rax
 	movl	$129, %r9d
-	movl	%esi, 16(%rax)
+	movl	$1, %edx
 	movw	%r9w, 25(%rax)
+	movl	%esi, 16(%rax)
+	movq	(%rbx), %rax
+	leaq	160(%rax), %rcx
+	call	_ZN3wze6engine5audioixEt
+	movq	%rax, %rcx
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rax
+	movq	456(%rax), %rdx
+	call	_ZN3wze6engine5audio7channel10SetSoundIDEy
+	movq	(%rbx), %rcx
+	movl	$1, %edx
+	addq	$160, %rcx
+	call	_ZN3wze6engine5audioixEt
+	movapd	%xmm7, %xmm1
 	movaps	64(%rsp), %xmm6
-	addq	$80, %rsp
+	movaps	80(%rsp), %xmm7
+	movq	%rax, %rcx
+	addq	$96, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
@@ -225,7 +243,7 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
 	popq	%r12
 	popq	%r13
 	popq	%r14
-	ret
+	jmp	_ZN3wze6engine5audio7channel9SetVolumeEd
 	.p2align 4,,10
 	.p2align 3
 .L49:
@@ -322,7 +340,7 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
 	.def	_ZN8gui_tileD2Ev;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8gui_tileD2Ev
 _ZN8gui_tileD2Ev:
-.LFB8435:
+.LFB8441:
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	subq	$32, %rsp
@@ -342,13 +360,13 @@ _ZN8gui_tileD2Ev:
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8435:
+.LLSDA8441:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8435-.LLSDACSB8435
-.LLSDACSB8435:
-.LLSDACSE8435:
+	.uleb128 .LLSDACSE8441-.LLSDACSB8441
+.LLSDACSB8441:
+.LLSDACSE8441:
 	.text
 	.seh_endproc
 	.globl	_ZN8gui_tileD1Ev
@@ -360,11 +378,11 @@ _ZN8gui_tileD2Ev:
 	.def	_ZN8gui_tile6UpdateEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8gui_tile6UpdateEv
 _ZN8gui_tile6UpdateEv:
-.LFB8437:
+.LFB8443:
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$48, %rsp
-	.seh_stackalloc	48
+	subq	$32, %rsp
+	.seh_stackalloc	32
 	.seh_endprologue
 	movq	%rcx, %rbx
 	movq	24(%rcx), %rcx
@@ -408,7 +426,7 @@ _ZN8gui_tile6UpdateEv:
 	movq	%r8, %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
 	xorl	%eax, %eax
-	addq	$48, %rsp
+	addq	$32, %rsp
 	popq	%rbx
 	ret
 	.p2align 4,,10
@@ -447,16 +465,13 @@ _ZN8gui_tile6UpdateEv:
 	.p2align 3
 .L105:
 	movq	136(%r9), %rax
-	movsd	.LC0(%rip), %xmm3
-	movl	$1, %r8d
 	movb	%dl, (%rax)
-	movq	8(%rbx), %rax
-	movq	8(%rax), %rax
-	movq	456(%rax), %rdx
 	movq	(%rbx), %rax
-	movl	$0, 32(%rsp)
+	movl	$1, %edx
 	leaq	160(%rax), %rcx
-	call	_ZN3wze6engine5audio4PlayEytdt
+	call	_ZN3wze6engine5audioixEt
+	movq	%rax, %rcx
+	call	_ZN3wze6engine5audio7channel4PlayEv
 	jmp	.L84
 	.p2align 4,,10
 	.p2align 3
@@ -496,15 +511,12 @@ _ZN8gui_tile6UpdateEv:
 	movq	144(%rdx,%r8,8), %rdx
 	movb	%al, (%rdx)
 .L63:
-	movq	8(%rbx), %rax
-	movsd	.LC0(%rip), %xmm3
-	movl	$1, %r8d
-	movq	8(%rax), %rax
-	movq	456(%rax), %rdx
 	movq	(%rbx), %rax
-	movl	$0, 32(%rsp)
+	movl	$1, %edx
 	leaq	160(%rax), %rcx
-	call	_ZN3wze6engine5audio4PlayEytdt
+	call	_ZN3wze6engine5audioixEt
+	movq	%rax, %rcx
+	call	_ZN3wze6engine5audio7channel4PlayEv
 .L59:
 	movq	24(%rbx), %rcx
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv
@@ -536,15 +548,12 @@ _ZN8gui_tile6UpdateEv:
 	movq	144(%rcx,%rax,8), %rax
 	movb	%dl, (%rax)
 .L77:
-	movq	8(%rbx), %rax
-	movsd	.LC0(%rip), %xmm3
-	movl	$1, %r8d
-	movq	8(%rax), %rax
-	movq	456(%rax), %rdx
 	movq	(%rbx), %rax
-	movl	$0, 32(%rsp)
+	movl	$1, %edx
 	leaq	160(%rax), %rcx
-	call	_ZN3wze6engine5audio4PlayEytdt
+	call	_ZN3wze6engine5audioixEt
+	movq	%rax, %rcx
+	call	_ZN3wze6engine5audio7channel4PlayEv
 .L107:
 	movq	24(%rbx), %rcx
 	jmp	.L58
@@ -746,9 +755,12 @@ _ZN8gui_tile6UpdateEv:
 	.def	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetYEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor4GetXEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audioixEt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio7channel10SetSoundIDEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio7channel9SetVolumeEd;	.scl	2;	.type	32;	.endef
 	.def	exit;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5audio4PlayEytdt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio7channel4PlayEv;	.scl	2;	.type	32;	.endef

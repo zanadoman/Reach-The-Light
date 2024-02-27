@@ -41,16 +41,16 @@ _Z6printfPKcz:
 	.ascii "neo::array[]: Index out of range\12Params: Index: %lld\12\0"
 	.section	.text.unlikely,"x"
 	.align 2
-.LCOLDB25:
+.LCOLDB26:
 	.text
-.LHOTB25:
+.LHOTB26:
 	.align 2
 	.p2align 4
 	.globl	_ZN10tile_houseC2EPN3wze6engineEP4game
 	.def	_ZN10tile_houseC2EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN10tile_houseC2EPN3wze6engineEP4game
 _ZN10tile_houseC2EPN3wze6engineEP4game:
-.LFB8432:
+.LFB8438:
 	pushq	%r12
 	.seh_pushreg	%r12
 	pushq	%rbp
@@ -548,6 +548,22 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	movl	$1, %edx
 	movq	$100, 184(%rax)
 	call	_ZN3wze6engine6actors5actor17SetCollisionLayerEh
+	movq	(%rbx), %rax
+	movl	$9, %edx
+	leaq	160(%rax), %rcx
+	call	_ZN3wze6engine5audioixEt
+	movq	%rax, %rcx
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rax
+	movq	520(%rax), %rdx
+	call	_ZN3wze6engine5audio7channel10SetSoundIDEy
+	movq	(%rbx), %rax
+	movl	$9, %edx
+	leaq	160(%rax), %rcx
+	call	_ZN3wze6engine5audioixEt
+	movsd	.LC25(%rip), %xmm1
+	movq	%rax, %rcx
+	call	_ZN3wze6engine5audio7channel9SetVolumeEd
 	nop
 	movaps	64(%rsp), %xmm6
 	movaps	80(%rsp), %xmm7
@@ -582,21 +598,21 @@ _ZN10tile_houseC2EPN3wze6engineEP4game:
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8432:
+.LLSDA8438:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8432-.LLSDACSB8432
-.LLSDACSB8432:
-	.uleb128 .LEHB0-.LFB8432
+	.uleb128 .LLSDACSE8438-.LLSDACSB8438
+.LLSDACSB8438:
+	.uleb128 .LEHB0-.LFB8438
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L14-.LFB8432
+	.uleb128 .L14-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB1-.LFB8432
+	.uleb128 .LEHB1-.LFB8438
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
-.LLSDACSE8432:
+.LLSDACSE8438:
 	.text
 	.seh_endproc
 	.section	.text.unlikely,"x"
@@ -625,24 +641,24 @@ _ZN10tile_houseC2EPN3wze6engineEP4game.cold:
 .LEHE2:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDAC8432:
+.LLSDAC8438:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
-.LLSDACSBC8432:
-	.uleb128 .LEHB2-.LCOLDB25
+	.uleb128 .LLSDACSEC8438-.LLSDACSBC8438
+.LLSDACSBC8438:
+	.uleb128 .LEHB2-.LCOLDB26
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
-.LLSDACSEC8432:
+.LLSDACSEC8438:
 	.section	.text.unlikely,"x"
 	.text
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE25:
+.LCOLDE26:
 	.text
-.LHOTE25:
+.LHOTE26:
 	.globl	_ZN10tile_houseC1EPN3wze6engineEP4game
 	.def	_ZN10tile_houseC1EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.set	_ZN10tile_houseC1EPN3wze6engineEP4game,_ZN10tile_houseC2EPN3wze6engineEP4game
@@ -652,7 +668,7 @@ _ZN10tile_houseC2EPN3wze6engineEP4game.cold:
 	.def	_ZN10tile_houseD2Ev;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN10tile_houseD2Ev
 _ZN10tile_houseD2Ev:
-.LFB8435:
+.LFB8441:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -737,13 +753,13 @@ _ZN10tile_houseD2Ev:
 	jmp	free
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8435:
+.LLSDA8441:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8435-.LLSDACSB8435
-.LLSDACSB8435:
-.LLSDACSE8435:
+	.uleb128 .LLSDACSE8441-.LLSDACSB8441
+.LLSDACSB8441:
+.LLSDACSE8441:
 	.text
 	.seh_endproc
 	.globl	_ZN10tile_houseD1Ev
@@ -755,19 +771,19 @@ _ZN10tile_houseD2Ev:
 	.def	_ZN10tile_house6UpdateEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN10tile_house6UpdateEv
 _ZN10tile_house6UpdateEv:
-.LFB8437:
+.LFB8443:
 	pushq	%rdi
 	.seh_pushreg	%rdi
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$80, %rsp
-	.seh_stackalloc	80
-	movaps	%xmm6, 48(%rsp)
-	.seh_savexmm	%xmm6, 48
-	movaps	%xmm7, 64(%rsp)
-	.seh_savexmm	%xmm7, 64
+	subq	$64, %rsp
+	.seh_stackalloc	64
+	movaps	%xmm6, 32(%rsp)
+	.seh_savexmm	%xmm6, 32
+	movaps	%xmm7, 48(%rsp)
+	.seh_savexmm	%xmm7, 48
 	.seh_endprologue
 	movq	8(%rcx), %rax
 	movq	56(%rax), %rax
@@ -775,12 +791,12 @@ _ZN10tile_house6UpdateEv:
 	movq	%rcx, %rbx
 	movq	16(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor4GetYEv
-	movsd	.LC26(%rip), %xmm1
+	movsd	.LC27(%rip), %xmm1
 	xorl	%eax, %eax
 	addsd	%xmm0, %xmm1
-	movsd	.LC27(%rip), %xmm0
+	movsd	.LC28(%rip), %xmm0
 	subsd	%xmm1, %xmm0
-	movsd	.LC28(%rip), %xmm1
+	movsd	.LC29(%rip), %xmm1
 	divsd	.LC5(%rip), %xmm0
 	mulsd	%xmm1, %xmm0
 	movapd	%xmm1, %xmm2
@@ -870,10 +886,10 @@ _ZN10tile_house6UpdateEv:
 	testb	%al, %al
 	jne	.L66
 .L37:
-	movaps	48(%rsp), %xmm6
-	movaps	64(%rsp), %xmm7
+	movaps	32(%rsp), %xmm6
+	movaps	48(%rsp), %xmm7
 	xorl	%eax, %eax
-	addq	$80, %rsp
+	addq	$64, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
@@ -952,19 +968,16 @@ _ZN10tile_house6UpdateEv:
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6actors6DeleteEy
 	movq	40(%rbx), %rax
+	movl	$9, %edx
 	movq	$0, 152(%rbx)
-	movl	$9, %r8d
-	movsd	.LC29(%rip), %xmm3
 	movb	$1, 37(%rax)
 	movq	48(%rbx), %rax
 	movb	$1, 37(%rax)
-	movq	8(%rbx), %rax
-	movq	8(%rax), %rax
-	movq	520(%rax), %rdx
 	movq	(%rbx), %rax
-	movl	$0, 32(%rsp)
 	leaq	160(%rax), %rcx
-	call	_ZN3wze6engine5audio4PlayEytdt
+	call	_ZN3wze6engine5audioixEt
+	movq	%rax, %rcx
+	call	_ZN3wze6engine5audio7channel4PlayEv
 	jmp	.L33
 	.seh_endproc
 	.section .rdata,"dr"
@@ -1037,21 +1050,21 @@ _ZN10tile_house6UpdateEv:
 	.long	0
 	.long	1076428800
 	.align 8
-.LC26:
+.LC25:
 	.long	0
-	.long	1082720256
+	.long	1072168960
 	.align 8
 .LC27:
 	.long	0
-	.long	1083768832
+	.long	1082720256
 	.align 8
 .LC28:
 	.long	0
-	.long	1081073664
+	.long	1083768832
 	.align 8
 .LC29:
 	.long	0
-	.long	1072168960
+	.long	1081073664
 	.align 8
 .LC30:
 	.long	0
@@ -1081,6 +1094,9 @@ _ZN10tile_house6UpdateEv:
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox8SetWidthEt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox9SetHeightEt;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor17SetCollisionLayerEh;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audioixEt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio7channel10SetSoundIDEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio7channel9SetVolumeEd;	.scl	2;	.type	32;	.endef
 	.def	exit;	.scl	2;	.type	32;	.endef
 	.def	free;	.scl	2;	.type	32;	.endef
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
@@ -1093,4 +1109,4 @@ _ZN10tile_house6UpdateEv:
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox17IsOverlappingWithEyy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes10texturebox5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12textureboxes6DeleteEy;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5audio4PlayEytdt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio7channel4PlayEv;	.scl	2;	.type	32;	.endef

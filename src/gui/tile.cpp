@@ -88,6 +88,9 @@ gui_tile::gui_tile(engine* Engine, game* Game, double X, double Y, uint8 TileX, 
     this->Right->Height = 104;
     this->Right->Priority = 129;
     this->Right->Visible = false;
+
+    this->Engine->Audio[CH_BUTTON].SetSoundID(this->Game->Assets->ButtonAudio);
+    this->Engine->Audio[CH_BUTTON].SetVolume(1);
 }
 
 gui_tile::~gui_tile()
@@ -154,7 +157,7 @@ uint8 gui_tile::Update()
                     this->Game->Map->Tiles[this->TileX][this->TileY] = this->Type;
                 }
 
-                this->Engine->Audio.Play(this->Game->Assets->ButtonAudio, CH_BUTTON, 1, 0);
+                this->Engine->Audio[CH_BUTTON].Play();
             }
             
             if (this->Overlapbox->GetButtonState() & BTN_RELEASED_RMB)
@@ -205,14 +208,14 @@ uint8 gui_tile::Update()
                     this->Game->Map->Tiles[this->TileX][this->TileY] = this->Type;
                 }
 
-                this->Engine->Audio.Play(this->Game->Assets->ButtonAudio, CH_BUTTON, 1, 0);
+                this->Engine->Audio[CH_BUTTON].Play();
             }
         }
         
         if ((this->Overlapbox->GetButtonState() & BTN_RELEASED_MMB) && this->TileY == 0)
         {
             *this->Game->Map->Spawn = this->TileX;
-            this->Engine->Audio.Play(this->Game->Assets->ButtonAudio, CH_BUTTON, 1, 0);
+            this->Engine->Audio[CH_BUTTON].Play();
         }
     }
     else

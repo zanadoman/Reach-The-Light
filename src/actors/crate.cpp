@@ -15,6 +15,10 @@ act_crate::act_crate(engine* Engine, game* Game, act_player* Player, double X, d
     this->SimulationBox->SetHeight(120);
 
     this->Texturebox->SetY(this->Actor->GetY() - EPSILON);
+
+    this->Engine->Audio[CH_CRATE_FALL].SetSoundID(this->Game->Assets->CrateFallAudio);
+    this->Engine->Audio[CH_CRATE_FALL].SetVolume(1);
+    this->Engine->Audio[CH_CRATE_FALL].Range = 400;
 }
 
 act_crate::~act_crate()
@@ -48,7 +52,8 @@ uint8 act_crate::Update()
         {
             if (this->VelocityY < -0.0006 * this->Engine->Timing.GetDeltaTime())
             {
-                this->Engine->Audio.Play(this->Game->Assets->CrateFallAudio, CH_CRATE_FALL, 1, 0);
+                this->Engine->Audio[CH_CRATE_FALL].OriginX = this->Actor->GetX();
+                this->Engine->Audio[CH_CRATE_FALL].Play();
             }
             this->VelocityY = 0;
         }

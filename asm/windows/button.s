@@ -6,15 +6,18 @@
 	.def	_ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc
 _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
-.LFB8432:
+.LFB8438:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$72, %rsp
-	.seh_stackalloc	72
+	subq	$88, %rsp
+	.seh_stackalloc	88
+	movaps	%xmm6, 64(%rsp)
+	.seh_savexmm	%xmm6, 64
 	.seh_endprologue
-	movsd	136(%rsp), %xmm0
+	movsd	152(%rsp), %xmm0
+	movq	160(%rsp), %rsi
 	movq	%rdx, (%rcx)
 	movq	%rcx, %rbx
 	movq	%r8, 8(%rcx)
@@ -22,7 +25,7 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
 	leaq	272(%rdx), %rcx
 	xorl	%edx, %edx
 	movsd	%xmm0, 56(%rsp)
-	movsd	128(%rsp), %xmm0
+	movsd	144(%rsp), %xmm0
 	movl	$75, 48(%rsp)
 	movl	$200, 40(%rsp)
 	movsd	%xmm0, 32(%rsp)
@@ -38,21 +41,21 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
 	movq	16(%rbx), %rax
 	leaq	40(%rax), %rcx
 	call	_ZN3wze6engine6actors5actor12textureboxes3NewEy
-	movq	16(%rbx), %rsi
-	movq	144(%rsp), %rdx
+	movq	16(%rbx), %rdx
 	movq	%rax, 32(%rbx)
 	movq	8(%rbx), %rax
-	leaq	104(%rsi), %rcx
+	leaq	104(%rdx), %rcx
+	movq	%rsi, %rdx
 	movq	8(%rax), %rax
 	movq	16(%rax), %r8
 	call	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy
 	movl	$-7968, %edx
 	xorl	%ecx, %ecx
+	movsd	.LC0(%rip), %xmm6
 	movq	%rax, %rsi
 	movq	%rax, 40(%rbx)
-	movq	.LC0(%rip), %rax
-	movq	%rax, 48(%rbx)
 	movq	32(%rbx), %rax
+	movsd	%xmm6, 48(%rbx)
 	movw	%dx, 20(%rax)
 	movb	$-32, 22(%rax)
 	movw	%cx, 16(%rsi)
@@ -72,10 +75,26 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
 	movzbl	36(%rax), %eax
 	addl	$1, %eax
 	movb	%al, 36(%rdx)
-	addq	$72, %rsp
+	movq	(%rbx), %rax
+	movl	$1, %edx
+	leaq	160(%rax), %rcx
+	call	_ZN3wze6engine5audioixEt
+	movq	%rax, %rcx
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rax
+	movq	456(%rax), %rdx
+	call	_ZN3wze6engine5audio7channel10SetSoundIDEy
+	movq	(%rbx), %rcx
+	movl	$1, %edx
+	addq	$160, %rcx
+	call	_ZN3wze6engine5audioixEt
+	movapd	%xmm6, %xmm1
+	movaps	64(%rsp), %xmm6
+	movq	%rax, %rcx
+	addq	$88, %rsp
 	popq	%rbx
 	popq	%rsi
-	ret
+	jmp	_ZN3wze6engine5audio7channel9SetVolumeEd
 	.seh_endproc
 	.globl	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc
 	.def	_ZN10gui_buttonC1EPN3wze6engineEP4gamedddPKc;	.scl	2;	.type	32;	.endef
@@ -86,7 +105,7 @@ _ZN10gui_buttonC2EPN3wze6engineEP4gamedddPKc:
 	.def	_ZN10gui_buttonD2Ev;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN10gui_buttonD2Ev
 _ZN10gui_buttonD2Ev:
-.LFB8435:
+.LFB8441:
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	subq	$32, %rsp
@@ -106,13 +125,13 @@ _ZN10gui_buttonD2Ev:
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8435:
+.LLSDA8441:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8435-.LLSDACSB8435
-.LLSDACSB8435:
-.LLSDACSE8435:
+	.uleb128 .LLSDACSE8441-.LLSDACSB8441
+.LLSDACSB8441:
+.LLSDACSE8441:
 	.text
 	.seh_endproc
 	.globl	_ZN10gui_buttonD1Ev
@@ -124,15 +143,15 @@ _ZN10gui_buttonD2Ev:
 	.def	_ZN10gui_button6UpdateEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN10gui_button6UpdateEv
 _ZN10gui_button6UpdateEv:
-.LFB8437:
+.LFB8443:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$72, %rsp
-	.seh_stackalloc	72
-	movaps	%xmm6, 48(%rsp)
-	.seh_savexmm	%xmm6, 48
+	subq	$56, %rsp
+	.seh_stackalloc	56
+	movaps	%xmm6, 32(%rsp)
+	.seh_savexmm	%xmm6, 32
 	.seh_endprologue
 	movq	%rcx, %rbx
 	movq	24(%rcx), %rcx
@@ -182,9 +201,9 @@ _ZN10gui_button6UpdateEv:
 	movzwl	%dx, %edx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
 	nop
-	movaps	48(%rsp), %xmm6
+	movaps	32(%rsp), %xmm6
 	xorl	%eax, %eax
-	addq	$72, %rsp
+	addq	$56, %rsp
 	popq	%rbx
 	popq	%rsi
 	ret
@@ -258,19 +277,16 @@ _ZN10gui_button6UpdateEv:
 	cvttsd2sil	%xmm0, %edx
 	movzwl	%dx, %edx
 	call	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt
-	movq	8(%rbx), %rax
 	movq	(%rbx), %rcx
-	movl	$1, %r8d
-	movsd	.LC0(%rip), %xmm3
-	movq	8(%rax), %rax
+	movl	$1, %edx
 	addq	$160, %rcx
-	movq	456(%rax), %rdx
-	movl	$0, 32(%rsp)
-	call	_ZN3wze6engine5audio4PlayEytdt
+	call	_ZN3wze6engine5audioixEt
+	movq	%rax, %rcx
+	call	_ZN3wze6engine5audio7channel4PlayEv
 	nop
-	movaps	48(%rsp), %xmm6
+	movaps	32(%rsp), %xmm6
 	movl	$1, %eax
-	addq	$72, %rsp
+	addq	$56, %rsp
 	popq	%rbx
 	popq	%rsi
 	ret
@@ -299,9 +315,12 @@ _ZN10gui_button6UpdateEv:
 	.def	_ZN3wze6engine6actors5actor9textboxes3NewEPKcy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9GetHeightEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor9textboxes7textbox9SetHeightEt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audioixEt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio7channel10SetSoundIDEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio7channel9SetVolumeEd;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor5GetIDEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors6DeleteEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6actors5actor8GetWidthEv;	.scl	2;	.type	32;	.endef
 	.def	_ZN3wze6engine6timing12GetDeltaTimeEv;	.scl	2;	.type	32;	.endef
-	.def	_ZN3wze6engine5audio4PlayEytdt;	.scl	2;	.type	32;	.endef
+	.def	_ZN3wze6engine5audio7channel4PlayEv;	.scl	2;	.type	32;	.endef

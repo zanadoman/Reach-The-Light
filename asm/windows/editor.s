@@ -42,7 +42,7 @@
 	.def	_ZN12scene_editorC2EPN3wze6engineEP4game;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN12scene_editorC2EPN3wze6engineEP4game
 _ZN12scene_editorC2EPN3wze6engineEP4game:
-.LFB8432:
+.LFB8438:
 	pushq	%r15
 	.seh_pushreg	%r15
 	pushq	%r14
@@ -436,57 +436,57 @@ _ZN12scene_editorC2EPN3wze6engineEP4game:
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8432:
+.LLSDA8438:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8432-.LLSDACSB8432
-.LLSDACSB8432:
-	.uleb128 .LEHB0-.LFB8432
+	.uleb128 .LLSDACSE8438-.LLSDACSB8438
+.LLSDACSB8438:
+	.uleb128 .LEHB0-.LFB8438
 	.uleb128 .LEHE0-.LEHB0
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB1-.LFB8432
+	.uleb128 .LEHB1-.LFB8438
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L10-.LFB8432
+	.uleb128 .L10-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB2-.LFB8432
+	.uleb128 .LEHB2-.LFB8438
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB3-.LFB8432
+	.uleb128 .LEHB3-.LFB8438
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L11-.LFB8432
+	.uleb128 .L11-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB4-.LFB8432
+	.uleb128 .LEHB4-.LFB8438
 	.uleb128 .LEHE4-.LEHB4
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB5-.LFB8432
+	.uleb128 .LEHB5-.LFB8438
 	.uleb128 .LEHE5-.LEHB5
-	.uleb128 .L12-.LFB8432
+	.uleb128 .L12-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB6-.LFB8432
+	.uleb128 .LEHB6-.LFB8438
 	.uleb128 .LEHE6-.LEHB6
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB7-.LFB8432
+	.uleb128 .LEHB7-.LFB8438
 	.uleb128 .LEHE7-.LEHB7
-	.uleb128 .L13-.LFB8432
+	.uleb128 .L13-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB8-.LFB8432
+	.uleb128 .LEHB8-.LFB8438
 	.uleb128 .LEHE8-.LEHB8
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB9-.LFB8432
+	.uleb128 .LEHB9-.LFB8438
 	.uleb128 .LEHE9-.LEHB9
-	.uleb128 .L14-.LFB8432
+	.uleb128 .L14-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB10-.LFB8432
+	.uleb128 .LEHB10-.LFB8438
 	.uleb128 .LEHE10-.LEHB10
 	.uleb128 0
 	.uleb128 0
-.LLSDACSE8432:
+.LLSDACSE8438:
 	.text
 	.seh_endproc
 	.section	.text.unlikely,"x"
@@ -542,17 +542,17 @@ _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 .LEHE11:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDAC8432:
+.LLSDAC8438:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
-.LLSDACSBC8432:
+	.uleb128 .LLSDACSEC8438-.LLSDACSBC8438
+.LLSDACSBC8438:
 	.uleb128 .LEHB11-.LCOLDB34
 	.uleb128 .LEHE11-.LEHB11
 	.uleb128 0
 	.uleb128 0
-.LLSDACSEC8432:
+.LLSDACSEC8438:
 	.section	.text.unlikely,"x"
 	.text
 	.section	.text.unlikely,"x"
@@ -569,7 +569,7 @@ _ZN12scene_editorC2EPN3wze6engineEP4game.cold:
 	.def	_ZN12scene_editorD2Ev;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN12scene_editorD2Ev
 _ZN12scene_editorD2Ev:
-.LFB8435:
+.LFB8441:
 	pushq	%rbp
 	.seh_pushreg	%rbp
 	pushq	%rdi
@@ -657,13 +657,13 @@ _ZN12scene_editorD2Ev:
 	ret
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8435:
+.LLSDA8441:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8435-.LLSDACSB8435
-.LLSDACSB8435:
-.LLSDACSE8435:
+	.uleb128 .LLSDACSE8441-.LLSDACSB8441
+.LLSDACSB8441:
+.LLSDACSE8441:
 	.text
 	.seh_endproc
 	.globl	_ZN12scene_editorD1Ev
@@ -675,7 +675,7 @@ _ZN12scene_editorD2Ev:
 	.def	_ZN12scene_editor6UpdateEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN12scene_editor6UpdateEv
 _ZN12scene_editor6UpdateEv:
-.LFB8437:
+.LFB8443:
 	pushq	%rbp
 	.seh_pushreg	%rbp
 	pushq	%rdi

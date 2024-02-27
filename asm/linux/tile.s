@@ -10,7 +10,7 @@
 	.globl	_ZN8gui_tileC2EPN3wze6engineEP4gameddhh
 	.type	_ZN8gui_tileC2EPN3wze6engineEP4gameddhh, @function
 _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
-.LFB8157:
+.LFB8163:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -41,11 +41,12 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
 	subq	$24, %rsp
 	.cfi_def_cfa_offset 80
 	movq	%rsi, (%rdi)
-	movsd	.LC0(%rip), %xmm2
+	movq	.LC0(%rip), %rax
 	movq	%rdx, 8(%rdi)
 	leaq	272(%rsi), %rdi
 	xorl	%edx, %edx
 	xorl	%esi, %esi
+	movq	%rax, %xmm2
 	call	_ZN3wze6engine6actors3NewEPvyddttd@PLT
 	xorl	%esi, %esi
 	movq	%rax, 16(%rbx)
@@ -177,8 +178,23 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
 	call	_ZN3wze6engine6actors5actor10colorboxes8colorbox4SetXEd@PLT
 	movq	64(%rbx), %rax
 	movl	$129, %edi
+	movl	$1, %esi
 	movl	%ebp, 16(%rax)
 	movw	%di, 25(%rax)
+	movq	(%rbx), %rax
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rax
+	movq	456(%rax), %rsi
+	call	_ZN3wze6engine5audio7channel10SetSoundIDEy@PLT
+	movq	(%rbx), %rdi
+	movl	$1, %esi
+	addq	$160, %rdi
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	movq	.LC0(%rip), %rax
 	addq	$24, %rsp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 56
@@ -186,6 +202,7 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
 	.cfi_def_cfa_offset 48
 	popq	%rbp
 	.cfi_def_cfa_offset 40
+	movq	%rax, %xmm0
 	popq	%r12
 	.cfi_def_cfa_offset 32
 	popq	%r13
@@ -194,7 +211,7 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
 	.cfi_def_cfa_offset 16
 	popq	%r15
 	.cfi_def_cfa_offset 8
-	ret
+	jmp	_ZN3wze6engine5audio7channel9SetVolumeEd@PLT
 	.p2align 4,,10
 	.p2align 3
 .L49:
@@ -283,7 +300,7 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
 	movl	$1, %edi
 	call	exit@PLT
 	.cfi_endproc
-.LFE8157:
+.LFE8163:
 	.size	_ZN8gui_tileC2EPN3wze6engineEP4gameddhh, .-_ZN8gui_tileC2EPN3wze6engineEP4gameddhh
 	.globl	_ZN8gui_tileC1EPN3wze6engineEP4gameddhh
 	.set	_ZN8gui_tileC1EPN3wze6engineEP4gameddhh,_ZN8gui_tileC2EPN3wze6engineEP4gameddhh
@@ -292,10 +309,10 @@ _ZN8gui_tileC2EPN3wze6engineEP4gameddhh:
 	.globl	_ZN8gui_tileD2Ev
 	.type	_ZN8gui_tileD2Ev, @function
 _ZN8gui_tileD2Ev:
-.LFB8160:
+.LFB8166:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8160
+	.cfi_lsda 0x1b,.LLSDA8166
 	pushq	%rbx
 	.cfi_def_cfa_offset 16
 	.cfi_offset 3, -16
@@ -310,16 +327,16 @@ _ZN8gui_tileD2Ev:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE8160:
+.LFE8166:
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
-.LLSDA8160:
+.LLSDA8166:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8160-.LLSDACSB8160
-.LLSDACSB8160:
-.LLSDACSE8160:
+	.uleb128 .LLSDACSE8166-.LLSDACSB8166
+.LLSDACSB8166:
+.LLSDACSE8166:
 	.text
 	.size	_ZN8gui_tileD2Ev, .-_ZN8gui_tileD2Ev
 	.globl	_ZN8gui_tileD1Ev
@@ -329,7 +346,7 @@ _ZN8gui_tileD2Ev:
 	.globl	_ZN8gui_tile6UpdateEv
 	.type	_ZN8gui_tile6UpdateEv, @function
 _ZN8gui_tile6UpdateEv:
-.LFB8162:
+.LFB8168:
 	.cfi_startproc
 	pushq	%rbx
 	.cfi_def_cfa_offset 16
@@ -416,16 +433,13 @@ _ZN8gui_tile6UpdateEv:
 	.p2align 3
 .L106:
 	movq	136(%rsi), %rax
-	movsd	.LC0(%rip), %xmm0
-	xorl	%ecx, %ecx
+	movl	$1, %esi
 	movb	%dl, (%rax)
-	movq	8(%rbx), %rax
-	movl	$1, %edx
-	movq	8(%rax), %rax
-	movq	456(%rax), %rsi
 	movq	(%rbx), %rax
 	leaq	160(%rax), %rdi
-	call	_ZN3wze6engine5audio4PlayEytdt@PLT
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	call	_ZN3wze6engine5audio7channel4PlayEv@PLT
 	jmp	.L85
 	.p2align 4,,10
 	.p2align 3
@@ -465,15 +479,12 @@ _ZN8gui_tile6UpdateEv:
 	movq	144(%rdx,%rsi,8), %rdx
 	movb	%al, (%rdx)
 .L64:
-	movq	8(%rbx), %rax
-	movsd	.LC0(%rip), %xmm0
-	xorl	%ecx, %ecx
-	movl	$1, %edx
-	movq	8(%rax), %rax
-	movq	456(%rax), %rsi
 	movq	(%rbx), %rax
+	movl	$1, %esi
 	leaq	160(%rax), %rdi
-	call	_ZN3wze6engine5audio4PlayEytdt@PLT
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	call	_ZN3wze6engine5audio7channel4PlayEv@PLT
 .L60:
 	movq	24(%rbx), %rdi
 	call	_ZN3wze6engine6actors5actor12overlapboxes10overlapbox14GetButtonStateEv@PLT
@@ -505,15 +516,12 @@ _ZN8gui_tile6UpdateEv:
 	movzbl	(%rdi,%rsi), %edx
 	movb	%dl, (%rax)
 .L78:
-	movq	8(%rbx), %rax
-	movsd	.LC0(%rip), %xmm0
-	xorl	%ecx, %ecx
-	movl	$1, %edx
-	movq	8(%rax), %rax
-	movq	456(%rax), %rsi
 	movq	(%rbx), %rax
+	movl	$1, %esi
 	leaq	160(%rax), %rdi
-	call	_ZN3wze6engine5audio4PlayEytdt@PLT
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	call	_ZN3wze6engine5audio7channel4PlayEv@PLT
 .L109:
 	movq	24(%rbx), %rdi
 	jmp	.L59
@@ -682,7 +690,7 @@ _ZN8gui_tile6UpdateEv:
 	movl	$1, %edi
 	call	exit@PLT
 	.cfi_endproc
-.LFE8162:
+.LFE8168:
 	.size	_ZN8gui_tile6UpdateEv, .-_ZN8gui_tile6UpdateEv
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8

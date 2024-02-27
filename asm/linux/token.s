@@ -10,10 +10,10 @@
 	.globl	_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd
 	.type	_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd, @function
 _ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd:
-.LFB8157:
+.LFB8163:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8157
+	.cfi_lsda 0x1b,.LLSDA8163
 	pushq	%r14
 	.cfi_def_cfa_offset 16
 	.cfi_offset 14, -16
@@ -323,118 +323,118 @@ _ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd:
 	jmp	.L27
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
-.LLSDA8157:
+.LLSDA8163:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8157-.LLSDACSB8157
-.LLSDACSB8157:
-	.uleb128 .LEHB0-.LFB8157
+	.uleb128 .LLSDACSE8163-.LLSDACSB8163
+.LLSDACSB8163:
+	.uleb128 .LEHB0-.LFB8163
 	.uleb128 .LEHE0-.LEHB0
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB1-.LFB8157
+	.uleb128 .LEHB1-.LFB8163
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L38-.LFB8157
+	.uleb128 .L38-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB2-.LFB8157
+	.uleb128 .LEHB2-.LFB8163
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB3-.LFB8157
+	.uleb128 .LEHB3-.LFB8163
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L39-.LFB8157
+	.uleb128 .L39-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB4-.LFB8157
+	.uleb128 .LEHB4-.LFB8163
 	.uleb128 .LEHE4-.LEHB4
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB5-.LFB8157
+	.uleb128 .LEHB5-.LFB8163
 	.uleb128 .LEHE5-.LEHB5
-	.uleb128 .L28-.LFB8157
+	.uleb128 .L28-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB6-.LFB8157
+	.uleb128 .LEHB6-.LFB8163
 	.uleb128 .LEHE6-.LEHB6
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB7-.LFB8157
+	.uleb128 .LEHB7-.LFB8163
 	.uleb128 .LEHE7-.LEHB7
-	.uleb128 .L29-.LFB8157
+	.uleb128 .L29-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB8-.LFB8157
+	.uleb128 .LEHB8-.LFB8163
 	.uleb128 .LEHE8-.LEHB8
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB9-.LFB8157
+	.uleb128 .LEHB9-.LFB8163
 	.uleb128 .LEHE9-.LEHB9
-	.uleb128 .L30-.LFB8157
+	.uleb128 .L30-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB10-.LFB8157
+	.uleb128 .LEHB10-.LFB8163
 	.uleb128 .LEHE10-.LEHB10
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB11-.LFB8157
+	.uleb128 .LEHB11-.LFB8163
 	.uleb128 .LEHE11-.LEHB11
-	.uleb128 .L31-.LFB8157
+	.uleb128 .L31-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB12-.LFB8157
+	.uleb128 .LEHB12-.LFB8163
 	.uleb128 .LEHE12-.LEHB12
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB13-.LFB8157
+	.uleb128 .LEHB13-.LFB8163
 	.uleb128 .LEHE13-.LEHB13
-	.uleb128 .L32-.LFB8157
+	.uleb128 .L32-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB14-.LFB8157
+	.uleb128 .LEHB14-.LFB8163
 	.uleb128 .LEHE14-.LEHB14
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB15-.LFB8157
+	.uleb128 .LEHB15-.LFB8163
 	.uleb128 .LEHE15-.LEHB15
-	.uleb128 .L33-.LFB8157
+	.uleb128 .L33-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB16-.LFB8157
+	.uleb128 .LEHB16-.LFB8163
 	.uleb128 .LEHE16-.LEHB16
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB17-.LFB8157
+	.uleb128 .LEHB17-.LFB8163
 	.uleb128 .LEHE17-.LEHB17
-	.uleb128 .L34-.LFB8157
+	.uleb128 .L34-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB18-.LFB8157
+	.uleb128 .LEHB18-.LFB8163
 	.uleb128 .LEHE18-.LEHB18
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB19-.LFB8157
+	.uleb128 .LEHB19-.LFB8163
 	.uleb128 .LEHE19-.LEHB19
-	.uleb128 .L35-.LFB8157
+	.uleb128 .L35-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB20-.LFB8157
+	.uleb128 .LEHB20-.LFB8163
 	.uleb128 .LEHE20-.LEHB20
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB21-.LFB8157
+	.uleb128 .LEHB21-.LFB8163
 	.uleb128 .LEHE21-.LEHB21
-	.uleb128 .L36-.LFB8157
+	.uleb128 .L36-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB22-.LFB8157
+	.uleb128 .LEHB22-.LFB8163
 	.uleb128 .LEHE22-.LEHB22
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB23-.LFB8157
+	.uleb128 .LEHB23-.LFB8163
 	.uleb128 .LEHE23-.LEHB23
-	.uleb128 .L37-.LFB8157
+	.uleb128 .L37-.LFB8163
 	.uleb128 0
-.LLSDACSE8157:
+.LLSDACSE8163:
 	.text
 	.cfi_endproc
 	.section	.text.unlikely
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDAC8157
+	.cfi_lsda 0x1b,.LLSDAC8163
 	.type	_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd.cold, @function
 _ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd.cold:
-.LFSB8157:
+.LFSB8163:
 .L26:
 	.cfi_def_cfa_offset 64
 	.cfi_offset 3, -48
@@ -516,19 +516,19 @@ _ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd.cold:
 	call	_Unwind_Resume@PLT
 .LEHE24:
 	.cfi_endproc
-.LFE8157:
+.LFE8163:
 	.section	.gcc_except_table
-.LLSDAC8157:
+.LLSDAC8163:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
-.LLSDACSBC8157:
+	.uleb128 .LLSDACSEC8163-.LLSDACSBC8163
+.LLSDACSBC8163:
 	.uleb128 .LEHB24-.LCOLDB0
 	.uleb128 .LEHE24-.LEHB24
 	.uleb128 0
 	.uleb128 0
-.LLSDACSEC8157:
+.LLSDACSEC8163:
 	.section	.text.unlikely
 	.text
 	.size	_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd, .-_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd
@@ -544,7 +544,7 @@ _ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd.cold:
 	.globl	_ZN10tile_tokenD2Ev
 	.type	_ZN10tile_tokenD2Ev, @function
 _ZN10tile_tokenD2Ev:
-.LFB8160:
+.LFB8166:
 	.cfi_startproc
 	cmpl	$11, 8(%rdi)
 	ja	.L96
@@ -753,7 +753,7 @@ _ZN10tile_tokenD2Ev:
 	.cfi_restore 3
 	ret
 	.cfi_endproc
-.LFE8160:
+.LFE8166:
 	.size	_ZN10tile_tokenD2Ev, .-_ZN10tile_tokenD2Ev
 	.globl	_ZN10tile_tokenD1Ev
 	.set	_ZN10tile_tokenD1Ev,_ZN10tile_tokenD2Ev
@@ -762,7 +762,7 @@ _ZN10tile_tokenD2Ev:
 	.globl	_ZN10tile_token6UpdateEv
 	.type	_ZN10tile_token6UpdateEv, @function
 _ZN10tile_token6UpdateEv:
-.LFB8162:
+.LFB8168:
 	.cfi_startproc
 	movl	8(%rdi), %eax
 	cmpl	$10, %eax
@@ -797,14 +797,14 @@ _ZN10tile_token6UpdateEv:
 	movq	(%rdi), %rdi
 	jmp	_ZN20tile_top_left_corner6UpdateEv@PLT
 	.cfi_endproc
-.LFE8162:
+.LFE8168:
 	.size	_ZN10tile_token6UpdateEv, .-_ZN10tile_token6UpdateEv
 	.align 2
 	.p2align 4
 	.globl	_ZN10tile_token19ResetCollisionLayerEv
 	.type	_ZN10tile_token19ResetCollisionLayerEv, @function
 _ZN10tile_token19ResetCollisionLayerEv:
-.LFB8163:
+.LFB8169:
 	.cfi_startproc
 	cmpl	$11, 8(%rdi)
 	ja	.L126
@@ -1055,7 +1055,7 @@ _ZN10tile_token19ResetCollisionLayerEv:
 	xorl	%eax, %eax
 	ret
 	.cfi_endproc
-.LFE8163:
+.LFE8169:
 	.size	_ZN10tile_token19ResetCollisionLayerEv, .-_ZN10tile_token19ResetCollisionLayerEv
 	.hidden	DW.ref.__gxx_personality_v0
 	.weak	DW.ref.__gxx_personality_v0

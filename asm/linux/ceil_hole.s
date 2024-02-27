@@ -10,7 +10,7 @@
 	.globl	_ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd
 	.type	_ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd, @function
 _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
-.LFB8157:
+.LFB8163:
 	.cfi_startproc
 	pushq	%r15
 	.cfi_def_cfa_offset 16
@@ -311,7 +311,7 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	movl	$1, %edi
 	call	exit@PLT
 	.cfi_endproc
-.LFE8157:
+.LFE8163:
 	.size	_ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd, .-_ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd
 	.globl	_ZN14tile_ceil_holeC1EPN3wze6engineEP4gamedd
 	.set	_ZN14tile_ceil_holeC1EPN3wze6engineEP4gamedd,_ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd
@@ -320,10 +320,10 @@ _ZN14tile_ceil_holeC2EPN3wze6engineEP4gamedd:
 	.globl	_ZN14tile_ceil_holeD2Ev
 	.type	_ZN14tile_ceil_holeD2Ev, @function
 _ZN14tile_ceil_holeD2Ev:
-.LFB8160:
+.LFB8166:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8160
+	.cfi_lsda 0x1b,.LLSDA8166
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
@@ -383,16 +383,16 @@ _ZN14tile_ceil_holeD2Ev:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE8160:
+.LFE8166:
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
-.LLSDA8160:
+.LLSDA8166:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8160-.LLSDACSB8160
-.LLSDACSB8160:
-.LLSDACSE8160:
+	.uleb128 .LLSDACSE8166-.LLSDACSB8166
+.LLSDACSB8166:
+.LLSDACSE8166:
 	.text
 	.size	_ZN14tile_ceil_holeD2Ev, .-_ZN14tile_ceil_holeD2Ev
 	.globl	_ZN14tile_ceil_holeD1Ev

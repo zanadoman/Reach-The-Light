@@ -9,7 +9,7 @@
 	.globl	_ZN8settingsC2Ev
 	.type	_ZN8settingsC2Ev, @function
 _ZN8settingsC2Ev:
-.LFB8157:
+.LFB8163:
 	.cfi_startproc
 	pushq	%rbx
 	.cfi_def_cfa_offset 16
@@ -85,7 +85,7 @@ _ZN8settingsC2Ev:
 	jbe	.L1
 	jmp	.L10
 	.cfi_endproc
-.LFE8157:
+.LFE8163:
 	.size	_ZN8settingsC2Ev, .-_ZN8settingsC2Ev
 	.globl	_ZN8settingsC1Ev
 	.set	_ZN8settingsC1Ev,_ZN8settingsC2Ev
@@ -94,10 +94,10 @@ _ZN8settingsC2Ev:
 	.globl	_ZN8settingsD2Ev
 	.type	_ZN8settingsD2Ev, @function
 _ZN8settingsD2Ev:
-.LFB8160:
+.LFB8166:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8160
+	.cfi_lsda 0x1b,.LLSDA8166
 	subq	$8, %rsp
 	.cfi_def_cfa_offset 16
 	leaq	.LC0(%rip), %rdx
@@ -107,16 +107,16 @@ _ZN8settingsD2Ev:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE8160:
+.LFE8166:
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
-.LLSDA8160:
+.LLSDA8166:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8160-.LLSDACSB8160
-.LLSDACSB8160:
-.LLSDACSE8160:
+	.uleb128 .LLSDACSE8166-.LLSDACSB8166
+.LLSDACSB8166:
+.LLSDACSE8166:
 	.text
 	.size	_ZN8settingsD2Ev, .-_ZN8settingsD2Ev
 	.globl	_ZN8settingsD1Ev

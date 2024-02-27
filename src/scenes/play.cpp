@@ -111,7 +111,12 @@ scene_play::scene_play(engine* Engine, game* Game) : Engine(Engine), Game(Game)
     this->Engine->Camera.Bind(this->Player->Actor->GetID());
     this->Engine->Camera.SetZoom(5);
 
-    this->Engine->Audio.Play(this->Game->Assets->Music, CH_MUSIC, 1, 65535);
+    this->Engine->Audio[CH_MUSIC].SetSoundID(this->Game->Assets->Music);
+    this->Engine->Audio[CH_MUSIC].SetVolume(1);
+    this->Engine->Audio[CH_MUSIC].Play(65535);
+
+    this->Engine->Audio[CH_HEARTBEAT].SetSoundID(this->Game->Assets->HeartBeatAudio);
+    this->Engine->Audio[CH_HEARTBEAT].SetVolume(0.5);
 }
 
 scene_play::~scene_play()
@@ -135,7 +140,7 @@ scene_play::~scene_play()
         delete this->Tunas[i];
     }
     delete this->House;
-    this->Engine->Audio.StopChannel(CH_MUSIC);
+    this->Engine->Audio[CH_MUSIC].Stop();
 }
 
 scene scene_play::Update()
@@ -170,11 +175,11 @@ scene scene_play::Update()
             return SCENE_MENU;
         }
 
-        this->Engine->Audio.StopChannel(CH_MUSIC, 3000);
+        this->Engine->Audio[CH_MUSIC].Stop(3000);
 
         if (this->Engine->Keys[KEY_ESCAPE] || this->Engine->Keys[KEY_RETURN])
         {
-            this->Engine->Audio.StopChannel(CH_MUSIC);
+            this->Engine->Audio[CH_MUSIC].Stop();
             return SCENE_MENU;
         }
 
@@ -204,11 +209,11 @@ scene scene_play::Update()
             return SCENE_MENU;
         }
 
-        this->Engine->Audio.StopChannel(CH_MUSIC, 3000);
+        this->Engine->Audio[CH_MUSIC].Stop(3000);
         
         if (this->Engine->Keys[KEY_ESCAPE] || this->Engine->Keys[KEY_RETURN])
         {
-            this->Engine->Audio.StopChannel(CH_MUSIC);
+            this->Engine->Audio[CH_MUSIC].Stop();
             return SCENE_MENU;
         }
 
@@ -217,9 +222,9 @@ scene scene_play::Update()
 
     //PLAY HEARTBEAT IF PLAYER HP IS 1
 
-    if (this->Player->Health == 1 && this->Engine->Audio[CH_HEARTBEAT].SoundID == 0)
+    if (this->Player->Health == 1 && !this->Engine->Audio[CH_HEARTBEAT].IsPlaying())
     {
-        this->Engine->Audio.Play(this->Game->Assets->HeartBeatAudio, CH_HEARTBEAT, 0.5, 0);
+        this->Engine->Audio[CH_HEARTBEAT].Play();
     }
 
     //PAUSE STATE

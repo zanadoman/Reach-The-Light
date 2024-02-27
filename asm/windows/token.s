@@ -11,7 +11,7 @@
 	.def	_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd
 _ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd:
-.LFB8432:
+.LFB8438:
 	pushq	%r12
 	.seh_pushreg	%r12
 	pushq	%rbp
@@ -319,109 +319,109 @@ _ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd:
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA8432:
+.LLSDA8438:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8432-.LLSDACSB8432
-.LLSDACSB8432:
-	.uleb128 .LEHB0-.LFB8432
+	.uleb128 .LLSDACSE8438-.LLSDACSB8438
+.LLSDACSB8438:
+	.uleb128 .LEHB0-.LFB8438
 	.uleb128 .LEHE0-.LEHB0
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB1-.LFB8432
+	.uleb128 .LEHB1-.LFB8438
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L38-.LFB8432
+	.uleb128 .L38-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB2-.LFB8432
+	.uleb128 .LEHB2-.LFB8438
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB3-.LFB8432
+	.uleb128 .LEHB3-.LFB8438
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L39-.LFB8432
+	.uleb128 .L39-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB4-.LFB8432
+	.uleb128 .LEHB4-.LFB8438
 	.uleb128 .LEHE4-.LEHB4
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB5-.LFB8432
+	.uleb128 .LEHB5-.LFB8438
 	.uleb128 .LEHE5-.LEHB5
-	.uleb128 .L28-.LFB8432
+	.uleb128 .L28-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB6-.LFB8432
+	.uleb128 .LEHB6-.LFB8438
 	.uleb128 .LEHE6-.LEHB6
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB7-.LFB8432
+	.uleb128 .LEHB7-.LFB8438
 	.uleb128 .LEHE7-.LEHB7
-	.uleb128 .L29-.LFB8432
+	.uleb128 .L29-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB8-.LFB8432
+	.uleb128 .LEHB8-.LFB8438
 	.uleb128 .LEHE8-.LEHB8
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB9-.LFB8432
+	.uleb128 .LEHB9-.LFB8438
 	.uleb128 .LEHE9-.LEHB9
-	.uleb128 .L30-.LFB8432
+	.uleb128 .L30-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB10-.LFB8432
+	.uleb128 .LEHB10-.LFB8438
 	.uleb128 .LEHE10-.LEHB10
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB11-.LFB8432
+	.uleb128 .LEHB11-.LFB8438
 	.uleb128 .LEHE11-.LEHB11
-	.uleb128 .L31-.LFB8432
+	.uleb128 .L31-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB12-.LFB8432
+	.uleb128 .LEHB12-.LFB8438
 	.uleb128 .LEHE12-.LEHB12
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB13-.LFB8432
+	.uleb128 .LEHB13-.LFB8438
 	.uleb128 .LEHE13-.LEHB13
-	.uleb128 .L32-.LFB8432
+	.uleb128 .L32-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB14-.LFB8432
+	.uleb128 .LEHB14-.LFB8438
 	.uleb128 .LEHE14-.LEHB14
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB15-.LFB8432
+	.uleb128 .LEHB15-.LFB8438
 	.uleb128 .LEHE15-.LEHB15
-	.uleb128 .L33-.LFB8432
+	.uleb128 .L33-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB16-.LFB8432
+	.uleb128 .LEHB16-.LFB8438
 	.uleb128 .LEHE16-.LEHB16
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB17-.LFB8432
+	.uleb128 .LEHB17-.LFB8438
 	.uleb128 .LEHE17-.LEHB17
-	.uleb128 .L34-.LFB8432
+	.uleb128 .L34-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB18-.LFB8432
+	.uleb128 .LEHB18-.LFB8438
 	.uleb128 .LEHE18-.LEHB18
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB19-.LFB8432
+	.uleb128 .LEHB19-.LFB8438
 	.uleb128 .LEHE19-.LEHB19
-	.uleb128 .L35-.LFB8432
+	.uleb128 .L35-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB20-.LFB8432
+	.uleb128 .LEHB20-.LFB8438
 	.uleb128 .LEHE20-.LEHB20
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB21-.LFB8432
+	.uleb128 .LEHB21-.LFB8438
 	.uleb128 .LEHE21-.LEHB21
-	.uleb128 .L36-.LFB8432
+	.uleb128 .L36-.LFB8438
 	.uleb128 0
-	.uleb128 .LEHB22-.LFB8432
+	.uleb128 .LEHB22-.LFB8438
 	.uleb128 .LEHE22-.LEHB22
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB23-.LFB8432
+	.uleb128 .LEHB23-.LFB8438
 	.uleb128 .LEHE23-.LEHB23
-	.uleb128 .L37-.LFB8432
+	.uleb128 .L37-.LFB8438
 	.uleb128 0
-.LLSDACSE8432:
+.LLSDACSE8438:
 	.text
 	.seh_endproc
 	.section	.text.unlikely,"x"
@@ -512,17 +512,17 @@ _ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd.cold:
 .LEHE24:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDAC8432:
+.LLSDAC8438:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSEC8432-.LLSDACSBC8432
-.LLSDACSBC8432:
+	.uleb128 .LLSDACSEC8438-.LLSDACSBC8438
+.LLSDACSBC8438:
 	.uleb128 .LEHB24-.LCOLDB0
 	.uleb128 .LEHE24-.LEHB24
 	.uleb128 0
 	.uleb128 0
-.LLSDACSEC8432:
+.LLSDACSEC8438:
 	.section	.text.unlikely,"x"
 	.text
 	.section	.text.unlikely,"x"
@@ -539,7 +539,7 @@ _ZN10tile_tokenC2EPN3wze6engineEP4game4tiledd.cold:
 	.def	_ZN10tile_tokenD2Ev;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN10tile_tokenD2Ev
 _ZN10tile_tokenD2Ev:
-.LFB8435:
+.LFB8441:
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	subq	$32, %rsp
@@ -685,7 +685,7 @@ _ZN10tile_tokenD2Ev:
 	.def	_ZN10tile_token6UpdateEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN10tile_token6UpdateEv
 _ZN10tile_token6UpdateEv:
-.LFB8437:
+.LFB8443:
 	.seh_endprologue
 	movl	8(%rcx), %eax
 	cmpl	$10, %eax
@@ -726,7 +726,7 @@ _ZN10tile_token6UpdateEv:
 	.def	_ZN10tile_token19ResetCollisionLayerEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN10tile_token19ResetCollisionLayerEv
 _ZN10tile_token19ResetCollisionLayerEv:
-.LFB8438:
+.LFB8444:
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	subq	$32, %rsp

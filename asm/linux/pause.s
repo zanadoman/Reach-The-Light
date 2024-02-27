@@ -21,10 +21,10 @@
 	.globl	_ZN9gui_pauseC2EPN3wze6engineEP4game
 	.type	_ZN9gui_pauseC2EPN3wze6engineEP4game, @function
 _ZN9gui_pauseC2EPN3wze6engineEP4game:
-.LFB8157:
+.LFB8163:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8157
+	.cfi_lsda 0x1b,.LLSDA8163
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
@@ -236,62 +236,62 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game:
 	jmp	.L3
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
-.LLSDA8157:
+.LLSDA8163:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8157-.LLSDACSB8157
-.LLSDACSB8157:
-	.uleb128 .LEHB0-.LFB8157
+	.uleb128 .LLSDACSE8163-.LLSDACSB8163
+.LLSDACSB8163:
+	.uleb128 .LEHB0-.LFB8163
 	.uleb128 .LEHE0-.LEHB0
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB1-.LFB8157
+	.uleb128 .LEHB1-.LFB8163
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L7-.LFB8157
+	.uleb128 .L7-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB2-.LFB8157
+	.uleb128 .LEHB2-.LFB8163
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB3-.LFB8157
+	.uleb128 .LEHB3-.LFB8163
 	.uleb128 .LEHE3-.LEHB3
-	.uleb128 .L8-.LFB8157
+	.uleb128 .L8-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB4-.LFB8157
+	.uleb128 .LEHB4-.LFB8163
 	.uleb128 .LEHE4-.LEHB4
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB5-.LFB8157
+	.uleb128 .LEHB5-.LFB8163
 	.uleb128 .LEHE5-.LEHB5
-	.uleb128 .L9-.LFB8157
+	.uleb128 .L9-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB6-.LFB8157
+	.uleb128 .LEHB6-.LFB8163
 	.uleb128 .LEHE6-.LEHB6
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB7-.LFB8157
+	.uleb128 .LEHB7-.LFB8163
 	.uleb128 .LEHE7-.LEHB7
-	.uleb128 .L10-.LFB8157
+	.uleb128 .L10-.LFB8163
 	.uleb128 0
-	.uleb128 .LEHB8-.LFB8157
+	.uleb128 .LEHB8-.LFB8163
 	.uleb128 .LEHE8-.LEHB8
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB9-.LFB8157
+	.uleb128 .LEHB9-.LFB8163
 	.uleb128 .LEHE9-.LEHB9
-	.uleb128 .L11-.LFB8157
+	.uleb128 .L11-.LFB8163
 	.uleb128 0
-.LLSDACSE8157:
+.LLSDACSE8163:
 	.text
 	.cfi_endproc
 	.section	.text.unlikely
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDAC8157
+	.cfi_lsda 0x1b,.LLSDAC8163
 	.type	_ZN9gui_pauseC2EPN3wze6engineEP4game.cold, @function
 _ZN9gui_pauseC2EPN3wze6engineEP4game.cold:
-.LFSB8157:
+.LFSB8163:
 .L2:
 	.cfi_def_cfa_offset 48
 	.cfi_offset 3, -24
@@ -328,19 +328,19 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game.cold:
 	call	_Unwind_Resume@PLT
 .LEHE10:
 	.cfi_endproc
-.LFE8157:
+.LFE8163:
 	.section	.gcc_except_table
-.LLSDAC8157:
+.LLSDAC8163:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSEC8157-.LLSDACSBC8157
-.LLSDACSBC8157:
+	.uleb128 .LLSDACSEC8163-.LLSDACSBC8163
+.LLSDACSBC8163:
 	.uleb128 .LEHB10-.LCOLDB15
 	.uleb128 .LEHE10-.LEHB10
 	.uleb128 0
 	.uleb128 0
-.LLSDACSEC8157:
+.LLSDACSEC8163:
 	.section	.text.unlikely
 	.text
 	.size	_ZN9gui_pauseC2EPN3wze6engineEP4game, .-_ZN9gui_pauseC2EPN3wze6engineEP4game
@@ -356,10 +356,10 @@ _ZN9gui_pauseC2EPN3wze6engineEP4game.cold:
 	.globl	_ZN9gui_pauseD2Ev
 	.type	_ZN9gui_pauseD2Ev, @function
 _ZN9gui_pauseD2Ev:
-.LFB8160:
+.LFB8166:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8160
+	.cfi_lsda 0x1b,.LLSDA8166
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
@@ -439,15 +439,15 @@ _ZN9gui_pauseD2Ev:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE8160:
+.LFE8166:
 	.section	.gcc_except_table
-.LLSDA8160:
+.LLSDA8166:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8160-.LLSDACSB8160
-.LLSDACSB8160:
-.LLSDACSE8160:
+	.uleb128 .LLSDACSE8166-.LLSDACSB8166
+.LLSDACSB8166:
+.LLSDACSE8166:
 	.text
 	.size	_ZN9gui_pauseD2Ev, .-_ZN9gui_pauseD2Ev
 	.globl	_ZN9gui_pauseD1Ev
@@ -457,7 +457,7 @@ _ZN9gui_pauseD2Ev:
 	.globl	_ZN9gui_pause6UpdateEv
 	.type	_ZN9gui_pause6UpdateEv, @function
 _ZN9gui_pause6UpdateEv:
-.LFB8162:
+.LFB8168:
 	.cfi_startproc
 	pushq	%r12
 	.cfi_def_cfa_offset 16
@@ -631,7 +631,7 @@ _ZN9gui_pause6UpdateEv:
 	movl	%eax, 72(%rbx)
 	jmp	.L44
 	.cfi_endproc
-.LFE8162:
+.LFE8168:
 	.size	_ZN9gui_pause6UpdateEv, .-_ZN9gui_pause6UpdateEv
 	.section	.rodata.cst8,"aM",@progbits,8
 	.align 8

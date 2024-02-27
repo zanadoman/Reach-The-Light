@@ -5,7 +5,7 @@
 	.globl	_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd
 	.type	_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd, @function
 _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
-.LFB8157:
+.LFB8163:
 	.cfi_startproc
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
@@ -18,10 +18,11 @@ _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 	subq	$8, %rsp
 	.cfi_def_cfa_offset 32
 	movq	%rsi, (%rdi)
-	movsd	.LC0(%rip), %xmm2
+	movq	.LC0(%rip), %rax
 	movq	%rdx, 8(%rdi)
 	xorl	%edx, %edx
 	movq	%rcx, 16(%rdi)
+	movq	%rax, %xmm2
 	movl	$30, %ecx
 	leaq	272(%rsi), %rdi
 	xorl	%esi, %esi
@@ -59,15 +60,38 @@ _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 	call	_ZN3wze6engine6actors5actor4GetYEv@PLT
 	subsd	.LC2(%rip), %xmm0
 	movq	%rbp, %rdi
+	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
+	movq	(%rbx), %rax
+	movl	$6, %esi
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	movq	8(%rbx), %rax
+	movq	8(%rax), %rax
+	movq	496(%rax), %rsi
+	call	_ZN3wze6engine5audio7channel10SetSoundIDEy@PLT
+	movq	(%rbx), %rax
+	movl	$6, %esi
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	movq	.LC0(%rip), %rax
+	movq	%rax, %xmm0
+	call	_ZN3wze6engine5audio7channel9SetVolumeEd@PLT
+	movq	(%rbx), %rdi
+	movl	$6, %esi
+	addq	$160, %rdi
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	$400, 16(%rax)
 	addq	$8, %rsp
 	.cfi_def_cfa_offset 24
 	popq	%rbx
 	.cfi_def_cfa_offset 16
 	popq	%rbp
 	.cfi_def_cfa_offset 8
-	jmp	_ZN3wze6engine6actors5actor12textureboxes10texturebox4SetYEd@PLT
+	ret
 	.cfi_endproc
-.LFE8157:
+.LFE8163:
 	.size	_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd, .-_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd
 	.globl	_ZN9act_crateC1EPN3wze6engineEP4gameP10act_playerdd
 	.set	_ZN9act_crateC1EPN3wze6engineEP4gameP10act_playerdd,_ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd
@@ -76,10 +100,10 @@ _ZN9act_crateC2EPN3wze6engineEP4gameP10act_playerdd:
 	.globl	_ZN9act_crateD2Ev
 	.type	_ZN9act_crateD2Ev, @function
 _ZN9act_crateD2Ev:
-.LFB8160:
+.LFB8166:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8160
+	.cfi_lsda 0x1b,.LLSDA8166
 	pushq	%rbx
 	.cfi_def_cfa_offset 16
 	.cfi_offset 3, -16
@@ -94,16 +118,16 @@ _ZN9act_crateD2Ev:
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc
-.LFE8160:
+.LFE8166:
 	.globl	__gxx_personality_v0
 	.section	.gcc_except_table,"a",@progbits
-.LLSDA8160:
+.LLSDA8166:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8160-.LLSDACSB8160
-.LLSDACSB8160:
-.LLSDACSE8160:
+	.uleb128 .LLSDACSE8166-.LLSDACSB8166
+.LLSDACSB8166:
+.LLSDACSE8166:
 	.text
 	.size	_ZN9act_crateD2Ev, .-_ZN9act_crateD2Ev
 	.globl	_ZN9act_crateD1Ev
@@ -118,10 +142,10 @@ _ZN9act_crateD2Ev:
 	.globl	_ZN9act_crate6UpdateEv
 	.type	_ZN9act_crate6UpdateEv, @function
 _ZN9act_crate6UpdateEv:
-.LFB8162:
+.LFB8168:
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDA8162
+	.cfi_lsda 0x1b,.LLSDA8168
 	pushq	%r12
 	.cfi_def_cfa_offset 16
 	.cfi_offset 12, -16
@@ -298,15 +322,20 @@ _ZN9act_crate6UpdateEv:
 	movq	$0x000000000, 56(%rbp)
 	jmp	.L13
 .L52:
-	movq	8(%rbp), %rax
-	movsd	.LC0(%rip), %xmm0
-	xorl	%ecx, %ecx
-	movl	$6, %edx
-	movq	8(%rax), %rax
-	movq	496(%rax), %rsi
+	movq	24(%rbp), %rdi
+	call	_ZN3wze6engine6actors5actor4GetXEv@PLT
 	movq	0(%rbp), %rax
+	movl	$6, %esi
+	movq	%xmm0, %rbx
 	leaq	160(%rax), %rdi
-	call	_ZN3wze6engine5audio4PlayEytdt@PLT
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rbx, 8(%rax)
+	movq	0(%rbp), %rax
+	movl	$6, %esi
+	leaq	160(%rax), %rdi
+	call	_ZN3wze6engine5audioixEt@PLT
+	movq	%rax, %rdi
+	call	_ZN3wze6engine5audio7channel4PlayEv@PLT
 .LEHE0:
 	jmp	.L25
 .L51:
@@ -315,26 +344,26 @@ _ZN9act_crate6UpdateEv:
 	movq	%rax, %rbp
 	jmp	.L31
 	.section	.gcc_except_table
-.LLSDA8162:
+.LLSDA8168:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE8162-.LLSDACSB8162
-.LLSDACSB8162:
-	.uleb128 .LEHB0-.LFB8162
+	.uleb128 .LLSDACSE8168-.LLSDACSB8168
+.LLSDACSB8168:
+	.uleb128 .LEHB0-.LFB8168
 	.uleb128 .LEHE0-.LEHB0
-	.uleb128 .L38-.LFB8162
+	.uleb128 .L38-.LFB8168
 	.uleb128 0
-.LLSDACSE8162:
+.LLSDACSE8168:
 	.text
 	.cfi_endproc
 	.section	.text.unlikely
 	.cfi_startproc
 	.cfi_personality 0x9b,DW.ref.__gxx_personality_v0
-	.cfi_lsda 0x1b,.LLSDAC8162
+	.cfi_lsda 0x1b,.LLSDAC8168
 	.type	_ZN9act_crate6UpdateEv.cold, @function
 _ZN9act_crate6UpdateEv.cold:
-.LFSB8162:
+.LFSB8168:
 .L31:
 	.cfi_def_cfa_offset 80
 	.cfi_offset 3, -32
@@ -363,19 +392,19 @@ _ZN9act_crate6UpdateEv.cold:
 .L54:
 	call	__stack_chk_fail@PLT
 	.cfi_endproc
-.LFE8162:
+.LFE8168:
 	.section	.gcc_except_table
-.LLSDAC8162:
+.LLSDAC8168:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSEC8162-.LLSDACSBC8162
-.LLSDACSBC8162:
+	.uleb128 .LLSDACSEC8168-.LLSDACSBC8168
+.LLSDACSBC8168:
 	.uleb128 .LEHB1-.LCOLDB6
 	.uleb128 .LEHE1-.LEHB1
 	.uleb128 0
 	.uleb128 0
-.LLSDACSEC8162:
+.LLSDACSEC8168:
 	.section	.text.unlikely
 	.text
 	.size	_ZN9act_crate6UpdateEv, .-_ZN9act_crate6UpdateEv
