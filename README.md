@@ -1,2 +1,2 @@
 # Reach The Light
-Uni Game Jam project, made with Wizard Engine and NeoTypesPP
+A simple cat game made for EGCE Game Jam with Wizard Engine and NeoTypesPP.
