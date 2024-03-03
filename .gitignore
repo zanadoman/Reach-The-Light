@@ -3,3 +3,4 @@
 !asm/linux/*.s
 !asm/windows/*.s
 vgcore*
+settings
