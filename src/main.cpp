@@ -53,7 +53,7 @@ uint8 DisplayLogos(engine* Engine)
             return 0;
         }
 
-        opacity += 0.1 * Engine->Timing.GetDeltaTime();
+        opacity += 0.2 * Engine->Timing.GetDeltaTime();
     }
 
     Texturebox->ColorA = opacity = 255;
@@ -70,7 +70,7 @@ uint8 DisplayLogos(engine* Engine)
             return 0;
         }
 
-        opacity -= 0.1 * Engine->Timing.GetDeltaTime();
+        opacity -= 0.2 * Engine->Timing.GetDeltaTime();
     }
 
     Texturebox->ColorA = opacity = 0;
@@ -88,7 +88,7 @@ uint8 DisplayLogos(engine* Engine)
             return 0;
         }
 
-        opacity += 0.1 * Engine->Timing.GetDeltaTime();
+        opacity += 0.2 * Engine->Timing.GetDeltaTime();
     }
 
     Texturebox->ColorA = opacity = 255;
@@ -105,7 +105,7 @@ uint8 DisplayLogos(engine* Engine)
             return 0;
         }
 
-        opacity -= 0.1 * Engine->Timing.GetDeltaTime();
+        opacity -= 0.2 * Engine->Timing.GetDeltaTime();
     }
 
     Texturebox->ColorA = opacity = 0;
@@ -123,7 +123,7 @@ uint8 DisplayLogos(engine* Engine)
             return 0;
         }
 
-        opacity += 0.1 * Engine->Timing.GetDeltaTime();
+        opacity += 0.2 * Engine->Timing.GetDeltaTime();
     }
 
     Texturebox->ColorA = opacity = 255;
@@ -140,7 +140,7 @@ uint8 DisplayLogos(engine* Engine)
             return 0;
         }
 
-        opacity -= 0.1 * Engine->Timing.GetDeltaTime();
+        opacity -= 0.2 * Engine->Timing.GetDeltaTime();
     }
 
     Texturebox->Width = 1920;

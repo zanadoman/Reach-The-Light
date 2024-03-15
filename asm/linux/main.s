@@ -313,7 +313,7 @@ _Z12DisplayLogosPN3wze6engineE:
 	movsd	.LC1(%rip), %xmm2
 	movl	%eax, %eax
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC3(%rip), %xmm0
+	mulsd	.LC8(%rip), %xmm0
 	addsd	8(%rsp), %xmm0
 	comisd	%xmm0, %xmm2
 	movsd	%xmm0, 8(%rsp)
@@ -339,7 +339,7 @@ _Z12DisplayLogosPN3wze6engineE:
 	pxor	%xmm1, %xmm1
 	movl	%eax, %eax
 	cvtsi2sdq	%rax, %xmm0
-	mulsd	.LC3(%rip), %xmm0
+	mulsd	.LC8(%rip), %xmm0
 	subsd	%xmm0, %xmm2
 	comisd	%xmm1, %xmm2
 	movapd	%xmm2, %xmm0
@@ -358,14 +358,14 @@ _Z12DisplayLogosPN3wze6engineE:
 .LFE8163:
 	.size	_Z12DisplayLogosPN3wze6engineE, .-_Z12DisplayLogosPN3wze6engineE
 	.section	.rodata.str1.1
-.LC8:
-	.string	"assets/icon.png"
 .LC9:
+	.string	"assets/icon.png"
+.LC10:
 	.string	"Reach The Light"
 	.section	.text.unlikely,"ax",@progbits
-.LCOLDB10:
+.LCOLDB11:
 	.section	.text.startup,"ax",@progbits
-.LHOTB10:
+.LHOTB11:
 	.p2align 4
 	.globl	main
 	.type	main, @function
@@ -389,8 +389,8 @@ main:
 	movl	$16, %r9d
 	movl	$1440, %r8d
 	movl	$2560, %ecx
-	leaq	.LC8(%rip), %rdx
-	leaq	.LC9(%rip), %rsi
+	leaq	.LC9(%rip), %rdx
+	leaq	.LC10(%rip), %rsi
 	movq	%rax, %rdi
 	movq	%rax, %rbx
 .LEHB1:
@@ -520,7 +520,7 @@ main.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8162-.LLSDACSBC8162
 .LLSDACSBC8162:
-	.uleb128 .LEHB5-.LCOLDB10
+	.uleb128 .LEHB5-.LCOLDB11
 	.uleb128 .LEHE5-.LEHB5
 	.uleb128 0
 	.uleb128 0
@@ -530,13 +530,13 @@ main.cold:
 	.size	main, .-main
 	.section	.text.unlikely
 	.size	main.cold, .-main.cold
-.LCOLDE10:
+.LCOLDE11:
 	.section	.text.startup
-.LHOTE10:
+.LHOTE11:
 	.section	.rodata.str1.1
-.LC11:
-	.string	"\tthis->Raw[%d] = %d;\n"
 .LC12:
+	.string	"\tthis->Raw[%d] = %d;\n"
+.LC13:
 	.string	"\n\t*this->Spawn = %d;\n"
 	.text
 	.p2align 4
@@ -548,7 +548,7 @@ _Z8PrintMapP4game:
 	pushq	%r12
 	.cfi_def_cfa_offset 16
 	.cfi_offset 12, -16
-	leaq	.LC11(%rip), %r12
+	leaq	.LC12(%rip), %r12
 	pushq	%rbp
 	.cfi_def_cfa_offset 24
 	.cfi_offset 6, -24
@@ -571,7 +571,7 @@ _Z8PrintMapP4game:
 	cmpl	$128, %ebx
 	jne	.L82
 	movq	24(%rbp), %rax
-	leaq	.LC12(%rip), %rdi
+	leaq	.LC13(%rip), %rdi
 	movq	136(%rax), %rax
 	movzbl	(%rax), %esi
 	xorl	%eax, %eax
@@ -594,6 +594,10 @@ _Z8PrintMapP4game:
 	.long	1081073664
 	.align 8
 .LC3:
+	.long	-1717986918
+	.long	1070176665
+	.align 8
+.LC8:
 	.long	-1717986918
 	.long	1069128089
 	.hidden	DW.ref.__gxx_personality_v0

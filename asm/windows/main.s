@@ -355,6 +355,7 @@ _Z12DisplayLogosPN3wze6engineE:
 	movq	%rax, %rdx
 	call	_ZN3wze6engine6actors5actor12textureboxes10texturebox12SetTextureIDEy
 	pxor	%xmm0, %xmm0
+	movsd	.LC9(%rip), %xmm7
 	movapd	%xmm0, %xmm6
 	jmp	.L44
 	.p2align 4,,10
@@ -407,14 +408,14 @@ _Z12DisplayLogosPN3wze6engineE:
 	.seh_endproc
 	.def	__main;	.scl	2;	.type	32;	.endef
 	.section .rdata,"dr"
-.LC9:
-	.ascii "assets/icon.png\0"
 .LC10:
+	.ascii "assets/icon.png\0"
+.LC11:
 	.ascii "Reach The Light\0"
 	.section	.text.unlikely,"x"
-.LCOLDB11:
+.LCOLDB12:
 	.section	.text.startup,"x"
-.LHOTB11:
+.LHOTB12:
 	.p2align 4
 	.globl	main
 	.def	main;	.scl	2;	.type	32;	.endef
@@ -435,9 +436,9 @@ main:
 .LEHE0:
 	movl	$16, 40(%rsp)
 	movl	$2560, %r9d
-	leaq	.LC9(%rip), %r8
+	leaq	.LC10(%rip), %r8
 	movl	$1440, 32(%rsp)
-	leaq	.LC10(%rip), %rdx
+	leaq	.LC11(%rip), %rdx
 	movq	%rax, %rcx
 	movq	%rax, %rbx
 .LEHB1:
@@ -561,7 +562,7 @@ main.cold:
 	.byte	0x1
 	.uleb128 .LLSDACSEC8437-.LLSDACSBC8437
 .LLSDACSBC8437:
-	.uleb128 .LEHB5-.LCOLDB11
+	.uleb128 .LEHB5-.LCOLDB12
 	.uleb128 .LEHE5-.LEHB5
 	.uleb128 0
 	.uleb128 0
@@ -570,11 +571,11 @@ main.cold:
 	.section	.text.startup,"x"
 	.section	.text.unlikely,"x"
 	.seh_endproc
-.LCOLDE11:
+.LCOLDE12:
 	.section	.text.startup,"x"
-.LHOTE11:
+.LHOTE12:
 	.section .rdata,"dr"
-.LC12:
+.LC13:
 	.ascii "\12\11*this->Spawn = %d;\12\0"
 	.text
 	.p2align 4
@@ -608,7 +609,7 @@ _Z8PrintMapP4game:
 	cmpl	$128, %ebx
 	jne	.L82
 	movq	24(%rsi), %rax
-	leaq	.LC12(%rip), %rcx
+	leaq	.LC13(%rip), %rcx
 	movq	136(%rax), %rax
 	movzbl	(%rax), %edx
 	call	_Z6printfPKcz
@@ -626,6 +627,10 @@ _Z8PrintMapP4game:
 	.long	1081073664
 	.align 8
 .LC4:
+	.long	-1717986918
+	.long	1070176665
+	.align 8
+.LC9:
 	.long	-1717986918
 	.long	1069128089
 	.ident	"GCC: (GNU) 13.1.0"
